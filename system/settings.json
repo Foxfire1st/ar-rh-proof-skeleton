@@ -1,0 +1,75 @@
+{
+  "crossRepo": {
+    "allow": [
+      {
+        "expectedBranch": "main",
+        "includeCode": true,
+        "includeMemory": false,
+        "repo": "riemann-hypothesis"
+      }
+    ]
+  },
+  "landing": {
+    "workflow": "pull-request"
+  },
+  "onboarding": {
+    "pathRules": {
+      "exclude": {
+        "fileTypes": [
+          ".gif",
+          ".jpeg",
+          ".jpg",
+          ".png",
+          ".webp",
+          ".zip",
+          ".gz",
+          ".tar",
+          ".olean"
+        ],
+        "paths": [
+          "node_modules/**",
+          "site/node_modules/**",
+          "site/docs/.vitepress/cache/**",
+          "site/docs/.vitepress/dist/**",
+          "dist/**",
+          "build/**",
+          "coverage/**",
+          ".cache/**",
+          ".pytest_cache/**",
+          ".ruff_cache/**",
+          ".venv/**",
+          ".env",
+          ".env.*"
+        ]
+      },
+      "include": {
+        "fileTypes": [
+          ".css",
+          ".json",
+          ".lean",
+          ".md",
+          ".py",
+          ".sh",
+          ".toml",
+          ".ts",
+          ".vue",
+          ".yml"
+        ],
+        "paths": [
+          "README.md",
+          "pyproject.toml",
+          "src/**",
+          "skeleton/**",
+          "dag/**",
+          "audit/**",
+          "site/**",
+          ".github/workflows/**"
+        ]
+      }
+    },
+    "storage": {
+      "mode": "memory-repo"
+    }
+  },
+  "version": 2
+}
