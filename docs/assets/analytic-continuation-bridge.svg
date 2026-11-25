@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420" role="img" aria-labelledby="acb-title acb-desc">
+  <title id="acb-title">Analytic Continuation of ζ(s) Beyond the Convergence Wall Re(s) = 1</title>
+  <desc id="acb-desc">Complex s-plane diagram divided at the dashed vertical convergence wall Re(s) = 1. To the right (Re(s) &gt; 1, shaded soft blue), the original Dirichlet series ζ(s) = Σ n⁻ˢ (n ≥ 1) converges absolutely. A hollow terracotta circle marks the simple pole at s = 1, the barrier for the raw series. Three overlapping circular analytic power-series disks bypass the pole: Disk 1 (solid cobalt border, centered at s₀ = 2 + 1.5i) crosses Re(s) = 1 into the critical strip 0 &lt; Re(s) &lt; 1; Disk 2 (dashed amber border, centered at s₁ = 0.8 + 1.48i inside Disk 1) crosses Re(s) = 0; Disk 3 (dot-dashed green border, centered at s₂ = −0.18 + 0.96i inside Disk 2) extends into Re(s) &lt; 0 and encloses s = −1. Hatched overlap lenses show where values lock uniquely. A reflection arc connects s in the strip to 1 − s across the dotted symmetry axis Re(s) = 1/2, labeled Functional equation ξ(s) = ξ(1 − s). A callout at bottom left notes that ζ(−1) = −1/12 comes from this unique continuation, not from adding 1 + 2 + 3 + ….</desc>
+
+  <defs>
+    <style>
+      .svg-root {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      .math {
+        font-family: "STIX Two Text", "Cambria Math", Georgia, "Times New Roman", serif;
+      }
+      .halo-canvas {
+        paint-order: stroke;
+        stroke: #faf9f5;
+        stroke-width: 3.5px;
+        stroke-linejoin: round;
+      }
+      .halo-strip {
+        paint-order: stroke;
+        stroke: #fdf8ea;
+        stroke-width: 3.5px;
+        stroke-linejoin: round;
+      }
+      .halo-blue {
+        paint-order: stroke;
+        stroke: #edf4ff;
+        stroke-width: 3.5px;
+        stroke-linejoin: round;
+      }
+    </style>
+
+    <clipPath id="plot-clip">
+      <rect x="20" y="56" width="720" height="350" rx="8"/>
+    </clipPath>
+
+    <clipPath id="disk1-clip">
+      <circle cx="442" cy="191" r="103"/>
+    </clipPath>
+
+    <clipPath id="disk2-clip">
+      <circle cx="348.4" cy="192.6" r="90"/>
+    </clipPath>
+
+    <pattern id="overlap-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="7" stroke="#3f4a56" stroke-width="1.1" stroke-opacity="0.32"/>
+    </pattern>
+
+    <marker id="axis-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#57606a"/>
+    </marker>
+
+    <marker id="amber-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+
+    <marker id="terra-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+  </defs>
+
+  <g class="svg-root">
+    <!-- Canvas background -->
+    <rect x="0" y="0" width="760" height="420" fill="#faf9f5"/>
+
+    <!-- Header -->
+    <text x="20" y="26" font-size="16" font-weight="700" fill="#161b22">Analytic Continuation of ζ(s) Beyond the Convergence Wall Re(s) = 1</text>
+    <text x="20" y="45" font-size="12" fill="#3f4a56">Overlapping Taylor disks bypass the pole at s = 1; ξ(s) = ξ(1 − s) reflects across Re(s) = 1/2.</text>
+
+    <!-- Plot area clipped regions -->
+    <g clip-path="url(#plot-clip)">
+      <!-- Re(s) < 0 region -->
+      <rect x="20" y="56" width="266" height="350" fill="#faf9f5"/>
+      <!-- Critical strip 0 < Re(s) < 1 -->
+      <rect x="286" y="56" width="78" height="350" fill="#fdf8ea"/>
+      <!-- Original series domain Re(s) > 1 -->
+      <rect x="364" y="56" width="376" height="350" fill="#edf4ff"/>
+
+      <!-- Subtle grid lines (1 unit = 78px, origin at 286, 308) -->
+      <g stroke="#cbd5e1" stroke-width="0.7" stroke-opacity="0.55">
+        <line x1="130" y1="56" x2="130" y2="406"/>
+        <line x1="208" y1="56" x2="208" y2="406"/>
+        <line x1="442" y1="56" x2="442" y2="406"/>
+        <line x1="520" y1="56" x2="520" y2="406"/>
+        <line x1="598" y1="56" x2="598" y2="406"/>
+        <line x1="676" y1="56" x2="676" y2="406"/>
+        <line x1="20" y1="230" x2="740" y2="230"/>
+        <line x1="20" y1="152" x2="740" y2="152"/>
+        <line x1="20" y1="74" x2="740" y2="74"/>
+        <line x1="20" y1="386" x2="740" y2="386"/>
+      </g>
+
+      <!-- Symmetry axis Re(s) = 1/2 -->
+      <line x1="325" y1="56" x2="325" y2="406" stroke="#92400e" stroke-width="1.5" stroke-dasharray="3 4"/>
+
+      <!-- Convergence wall Re(s) = 1 -->
+      <line x1="364" y1="56" x2="364" y2="406" stroke="#9a3412" stroke-width="2.2" stroke-dasharray="7 5"/>
+
+      <!-- Complex plane axes -->
+      <line x1="20" y1="308" x2="732" y2="308" stroke="#57606a" stroke-width="1.3" marker-end="url(#axis-arrow)"/>
+      <line x1="286" y1="406" x2="286" y2="64" stroke="#57606a" stroke-width="1.3" marker-end="url(#axis-arrow)"/>
+
+      <!-- Analytic power-series disks (isotropic 78px/unit: true circles avoiding s = 1) -->
+      <!-- Disk 1 fill: s₀ = 2 + 1.5i, r = 1.32 -->
+      <circle cx="442" cy="191" r="103" fill="#1e40af" fill-opacity="0.10"/>
+      <!-- Disk 2 fill: s₁ = 0.8 + 1.48i, r = 1.15 -->
+      <circle cx="348.4" cy="192.6" r="90" fill="#d97706" fill-opacity="0.11"/>
+      <!-- Disk 3 fill: s₂ = -0.18 + 0.96i, r = 1.32 -->
+      <circle cx="272" cy="233.1" r="103" fill="#065f46" fill-opacity="0.10"/>
+
+      <!-- Overlap lenses hatched so overlap is encoded by texture, not color alone -->
+      <g clip-path="url(#disk1-clip)">
+        <circle cx="348.4" cy="192.6" r="90" fill="url(#overlap-hatch)"/>
+      </g>
+      <g clip-path="url(#disk2-clip)">
+        <circle cx="272" cy="233.1" r="103" fill="url(#overlap-hatch)"/>
+      </g>
+
+      <!-- Crisp distinct disk borders -->
+      <!-- Disk 1: solid cobalt -->
+      <circle cx="442" cy="191" r="103" fill="none" stroke="#1e40af" stroke-width="2.2"/>
+      <!-- Disk 2: long-dashed amber -->
+      <circle cx="348.4" cy="192.6" r="90" fill="none" stroke="#92400e" stroke-width="2.2" stroke-dasharray="7 4"/>
+      <!-- Disk 3: dot-dashed green -->
+      <circle cx="272" cy="233.1" r="103" fill="none" stroke="#065f46" stroke-width="2.2" stroke-dasharray="9 3 2 3"/>
+
+      <!-- Continuation step vectors between centers (subtle dotted arrows) -->
+      <line x1="435" y1="191.1" x2="357" y2="192.4" stroke="#3f4a56" stroke-width="1.2" stroke-dasharray="2 3" marker-end="url(#axis-arrow)"/>
+      <line x1="342" y1="196" x2="280" y2="228.8" stroke="#3f4a56" stroke-width="1.2" stroke-dasharray="2 3" marker-end="url(#axis-arrow)"/>
+    </g>
+
+    <!-- Plot frame border -->
+    <rect x="20" y="56" width="720" height="350" rx="8" fill="none" stroke="#cfc9bc" stroke-width="1.2"/>
+
+    <!-- Top axis & region labels -->
+    <text x="32" y="72" font-size="12" font-weight="600" fill="#3f4a56">Re(s) &lt; 0</text>
+    <text x="277" y="72" font-size="12" font-weight="600" font-style="italic" fill="#3f4a56" text-anchor="end">Im(s)</text>
+    <text x="325" y="72" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle" class="halo-strip">Re(s) = 1/2</text>
+    <text x="325" y="88" font-size="12" font-style="italic" fill="#92400e" text-anchor="middle" class="halo-strip">Critical strip</text>
+    <text x="374" y="72" font-size="12" font-weight="700" fill="#9a3412" class="halo-blue">Re(s) = 1</text>
+
+    <!-- Real axis ticks and labels -->
+    <g stroke="#57606a" stroke-width="1.2">
+      <line x1="130" y1="304" x2="130" y2="312"/>
+      <line x1="442" y1="304" x2="442" y2="312"/>
+      <line x1="520" y1="304" x2="520" y2="312"/>
+      <line x1="598" y1="304" x2="598" y2="312"/>
+      <line x1="676" y1="304" x2="676" y2="312"/>
+    </g>
+    <text x="130" y="326" font-size="12" fill="#3f4a56" text-anchor="middle">−2</text>
+    <text x="279" y="325" font-size="12" fill="#3f4a56" text-anchor="end">0</text>
+    <text x="442" y="326" font-size="12" fill="#3f4a56" text-anchor="middle">2</text>
+    <text x="520" y="326" font-size="12" fill="#3f4a56" text-anchor="middle">3</text>
+    <text x="598" y="326" font-size="12" fill="#3f4a56" text-anchor="middle">4</text>
+    <text x="676" y="326" font-size="12" fill="#3f4a56" text-anchor="middle">5</text>
+    <text x="731" y="299" font-size="12" font-weight="600" font-style="italic" fill="#3f4a56" text-anchor="end">Re(s)</text>
+
+    <!-- Disk center dots & labels -->
+    <!-- Disk 1 -->
+    <circle cx="442" cy="191" r="4.5" fill="#1e40af" stroke="#ffffff" stroke-width="1.6"/>
+    <text x="486" y="132" font-size="13" font-weight="700" fill="#1e40af" text-anchor="middle" class="halo-blue">Disk 1</text>
+    <text x="451" y="195" font-size="12" font-weight="600" fill="#1e40af" class="math halo-blue">s₀ = 2 + 1.5i</text>
+
+    <!-- Disk 2 -->
+    <circle cx="348.4" cy="192.6" r="4.5" fill="#92400e" stroke="#ffffff" stroke-width="1.6"/>
+    <text x="336" y="132" font-size="13" font-weight="700" fill="#92400e" text-anchor="middle" class="halo-strip">Disk 2</text>
+    <text x="341" y="197" font-size="12" font-weight="600" fill="#92400e" text-anchor="end" class="math halo-strip">s₁</text>
+
+    <!-- Disk 3 -->
+    <circle cx="272" cy="233.1" r="4.5" fill="#065f46" stroke="#ffffff" stroke-width="1.6"/>
+    <text x="218" y="186" font-size="13" font-weight="700" fill="#065f46" text-anchor="middle" class="halo-canvas">Disk 3</text>
+    <text x="264" y="237" font-size="12" font-weight="600" fill="#065f46" text-anchor="end" class="math halo-canvas">s₂</text>
+
+    <!-- Overlap callout pill with hatch swatch + pointer into Disk 2 ∩ Disk 3 -->
+    <line x1="202" y1="112" x2="304" y2="168" stroke="#3f4a56" stroke-width="1.3"/>
+    <circle cx="304" cy="168" r="3" fill="#3f4a56"/>
+    <rect x="30" y="82" width="172" height="44" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+    <rect x="39" y="97" width="14" height="14" rx="2" fill="url(#overlap-hatch)" stroke="#3f4a56" stroke-width="1"/>
+    <text x="60" y="100" font-size="12" font-weight="600" fill="#161b22">Overlap locks</text>
+    <text x="60" y="117" font-size="12" font-weight="600" fill="#161b22">values uniquely</text>
+
+    <!-- Original Series Domain card (Re(s) > 1, right of Disk 1) -->
+    <rect x="554" y="68" width="180" height="96" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2"/>
+    <rect x="554" y="68" width="4" height="96" rx="2" fill="#1e40af"/>
+    <text x="566" y="88" font-size="12" font-weight="700" fill="#1e40af">Original Series Domain</text>
+    <text x="566" y="112" font-size="13" font-weight="600" fill="#161b22" class="math">ζ(s) = Σ<tspan dy="4" font-size="12">n≥1</tspan><tspan dy="-4" font-size="13"> n</tspan><tspan dy="-4" font-size="12">−s</tspan></text>
+    <text x="566" y="135" font-size="12" fill="#3f4a56">converges absolutely</text>
+    <text x="566" y="153" font-size="12" font-weight="600" fill="#1e40af">for Re(s) &gt; 1</text>
+
+    <!-- Continuation Chain key card (border & dash patterns paired with color) -->
+    <rect x="554" y="180" width="180" height="94" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.1"/>
+    <text x="565" y="198" font-size="12" font-weight="700" fill="#3f4a56">Analytic Disk Borders</text>
+    <line x1="565" y1="216" x2="591" y2="216" stroke="#1e40af" stroke-width="2.2"/>
+    <text x="598" y="220" font-size="12" fill="#161b22">Disk 1 (solid)</text>
+    <line x1="565" y1="238" x2="591" y2="238" stroke="#92400e" stroke-width="2.2" stroke-dasharray="7 4"/>
+    <text x="598" y="242" font-size="12" fill="#161b22">Disk 2 (dashed)</text>
+    <line x1="565" y1="260" x2="591" y2="260" stroke="#065f46" stroke-width="2.2" stroke-dasharray="9 3 2 3"/>
+    <text x="598" y="264" font-size="12" fill="#161b22">Disk 3 (dot-dash)</text>
+
+    <!-- Functional-equation reflection arc: s = 0.85 - 0.36i <-> 1 - s = 0.15 + 0.36i across Re(s) = 1/2 -->
+    <polygon points="325,303 329,308 325,313 321,308" fill="#92400e"/>
+    <path d="M 347.5 331.5 Q 333 301 303 283.5" fill="none" stroke="#92400e" stroke-width="1.8" marker-start="url(#amber-arrow)" marker-end="url(#amber-arrow)"/>
+    <circle cx="352.3" cy="336.1" r="4" fill="#92400e" stroke="#ffffff" stroke-width="1.4"/>
+    <circle cx="297.7" cy="279.9" r="4" fill="#92400e" stroke="#ffffff" stroke-width="1.4"/>
+    <text x="307" y="272" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle" class="math halo-strip">1 − s</text>
+    <text x="344" y="344" font-size="12" font-weight="700" fill="#92400e" text-anchor="end" class="math halo-strip">s</text>
+
+    <!-- Functional equation callout -->
+    <line x1="350" y1="358" x2="352" y2="342" stroke="#92400e" stroke-width="1.2"/>
+    <rect x="296" y="358" width="160" height="40" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1.2"/>
+    <text x="376" y="374" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">Functional equation</text>
+    <text x="376" y="391" font-size="12" font-weight="700" fill="#161b22" text-anchor="middle" class="math">ξ(s) = ξ(1 − s)</text>
+
+    <!-- Simple pole at s = 1: terracotta hollow circle + callout -->
+    <circle cx="364" cy="308" r="6" fill="#ffffff" stroke="#9a3412" stroke-width="2.6"/>
+    <line x1="468" y1="358" x2="372" y2="313" stroke="#9a3412" stroke-width="1.5" marker-end="url(#terra-arrow)"/>
+    <rect x="468" y="344" width="204" height="46" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="1.2"/>
+    <rect x="468" y="344" width="4" height="46" rx="2" fill="#9a3412"/>
+    <text x="480" y="363" font-size="12" font-weight="700" fill="#9a3412">Simple pole at s = 1</text>
+    <text x="480" y="381" font-size="12" fill="#3f4a56">(barrier for raw series)</text>
+
+    <!-- Point s = -1 inside Disk 3 + honesty callout box at bottom left (Re(s) < 0) -->
+    <circle cx="208" cy="308" r="4.5" fill="#065f46" stroke="#ffffff" stroke-width="1.6"/>
+    <text x="200" y="299" font-size="12" font-weight="700" fill="#065f46" text-anchor="end" class="math halo-canvas">s = −1</text>
+    <line x1="208" y1="340" x2="208" y2="314" stroke="#065f46" stroke-width="1.4"/>
+
+    <rect x="24" y="340" width="262" height="60" rx="5" fill="#ffffff" stroke="#9a3412" stroke-width="1.2"/>
+    <rect x="24" y="340" width="4" height="60" rx="2" fill="#065f46"/>
+    <text x="35" y="357" font-size="12" font-weight="700" fill="#161b22">At s = −1: ζ(−1) = −1/12</text>
+    <text x="35" y="374" font-size="12" fill="#3f4a56">comes from this unique continuation,</text>
+    <text x="35" y="391" font-size="12" font-weight="700" fill="#9a3412">NOT from adding 1 + 2 + 3 + …</text>
+  </g>
+</svg>

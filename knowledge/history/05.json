@@ -1,0 +1,677 @@
+{
+  "closed": true,
+  "leaf": "05",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-25T22:59:09+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "05",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+      "task": "261123-RH"
+    },
+    "reviewer": {
+      "at": "2026-11-25T22:59:09+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "05",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "4c8e2a71-6d93-4b15-a208-7f3d5e1c9b40",
+      "task": "261123-RH",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "00cf7c9f145a79fca884d98fb407697393702d05",
+    "verdictRef": "role-reports/reviewer/4c8e2a71-6d93-4b15-a208-7f3d5e1c9b40/role-launch/05-memory-round-1-verdict.md"
+  },
+  "rows": [
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+            "content": "sha256:5a9ed6532d4bed26466223970e64e05be7d4dd81da7223f1c2b23c95ce9d0c86",
+            "locator": {
+              "end": 29,
+              "kind": "line_range",
+              "start": 11
+            },
+            "path": "pyproject.toml"
+          },
+          "before": {
+            "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
+            "content": "sha256:366daee28e87fa6aa476e3836f73d555f23f22dd6c798512154e9e6c25779458",
+            "locator": {
+              "end": 28,
+              "kind": "line_range",
+              "start": 11
+            },
+            "path": "pyproject.toml"
+          },
+          "id": "RLZ-XJ5GW4"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-00M3P4",
+      "items": [
+        "sha256:4a23e20dbead2e11a64fab1628d4ae61fca705463451dc577d3125d894504e46"
+      ],
+      "reason": "Adding rh-build-site to [project.scripts] in pyproject.toml shifted the dependencies-and-scripts span from lines 11-28 to lines 11-29; re-anchored RLZ-XJ5GW4 to lines 11-29 while INV-H9CTX9 meaning, gate wiring and proofs remain unchanged.",
+      "revision": 1,
+      "subject": "INV-H9CTX9"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-023XP0",
+      "items": [
+        "sha256:7380ed6adc568befe27a35f0d8b617f28246b99ac09d0a164710b3c9bbdfafb1"
+      ],
+      "reason": "Authored file card covering normalizeBase (VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/), cleanUrls, light-only appearance, MathJax 3 math and Stage 00/Concept navigation.",
+      "sources": [
+        {
+          "blob": "a9af210d293d35c220e5ca1e5bb08e560cf6bba3",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/config.mts"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-0XZ9XB",
+      "items": [
+        "sha256:572e2e1f31f8a2d96f88cf84e080c58dafa24fc98786f2025d982d0d6a1a7a8d"
+      ],
+      "reason": "Authored file card covering normalize_base_url, code/math masking, fail-closed expand_concept_directives, split_zoom_levels and render_page_glossary.",
+      "sources": [
+        {
+          "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+          "path": "src/rh_pipeline/site/markdown_transforms.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/site/markdown_transforms.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-1SQYDT",
+      "items": [
+        "sha256:02057fdc55f35f0d23fbec6b3bf98fdd3dc5f5c425bc811657a0ac67e848467b"
+      ],
+      "reason": "Authored file card covering all 16 unit test cases across transforms, deterministic compilation, stale pruning, fail-closed zero-write paths and CLI exit codes.",
+      "sources": [
+        {
+          "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+          "path": "tests/unit/test_site_compiler.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_site_compiler.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3N3PSR",
+      "items": [
+        "sha256:2a135c18c12fea7579d79137e142d9a370fb982972930163fb4ac16d29d6a474"
+      ],
+      "reason": "Authored file card covering Node/VitePress cache, dist and compiler-generated site/docs/{stages,concepts,assets,public,index.md} ignore rules.",
+      "sources": [
+        {
+          "blob": "0d7effab60bc8b9c532808533b282bdc00917366",
+          "path": ".gitignore"
+        }
+      ],
+      "subject": "onboarding:.gitignore"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3PPNVM",
+      "items": [
+        "sha256:2bb6bf5a8865b574f32340190083345e3e5740baa972f2371ca5b0a97cb3dff4"
+      ],
+      "reason": "Authored file card covering the nine public compiler, error and transform symbols re-exported in rh_pipeline.site.__all__.",
+      "sources": [
+        {
+          "blob": "d78591b7ac93208378de85825ec9d9def81fe22c",
+          "path": "src/rh_pipeline/site/__init__.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/site/__init__.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-4QAN85",
+      "items": [
+        "sha256:a50231728ce4c6ea7cfc14bdfefe5fe22f0348502354bd179343432484d3d989"
+      ],
+      "reason": "Authored file card covering fail-closed in-memory validation, asset rewriting/dual emission, atomic temp staging, managed-directory pruning preserving .vitepress/ and Stage 00 corpus dependencies.",
+      "sources": [
+        {
+          "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+          "path": "src/rh_pipeline/site/compiler.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/site/compiler.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-5H8V25",
+      "items": [
+        "sha256:d3520fb444b309fad76ec5a79a1128786716eb8c379e655c0883b04090953ac8"
+      ],
+      "reason": "Authored file card covering inline concept-first ConceptReveal props, base-path double-prefix guard and script-off accessible markup.",
+      "sources": [
+        {
+          "blob": "0daf95e40a334504096e39a3ecd77aa9e3f88946",
+          "path": "site/docs/.vitepress/theme/components/ConceptReveal.vue"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/theme/components/ConceptReveal.vue"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-5HDG37",
+      "items": [
+        "sha256:092d44e212eaaa79f689233f7661cc4d81289e91b558e8d62e58bf6fedd96477"
+      ],
+      "reason": "Authored file card covering audit-driven SSR VerificationBanner props, statusMeta tone mapping and script-off semantic provenance grid.",
+      "sources": [
+        {
+          "blob": "258d1053491ec32fa12ecd2bc329f1d58bbcfd32",
+          "path": "site/docs/.vitepress/theme/components/VerificationBanner.vue"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/theme/components/VerificationBanner.vue"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-8AFK80",
+      "items": [
+        "sha256:d08ab7f27a652f1770a1dbd6c23ab777b62f4b6ee5f574ef2f27ba1d0db7e57a"
+      ],
+      "reason": "Updated repository overview and references [2], [3] and [7] to cover Phase 4 static VitePress site compilation, rh-build-site, site/ theme and Vue components, CI site-build-check, external-repo Pages ownership and Stage 00 dependent docs.",
+      "sources": [
+        {
+          "blob": "absent",
+          "path": ".github/workflows/pages.yml"
+        },
+        {
+          "blob": "a4fea456633855d028009ee4158b1aec1cf48ccb",
+          "path": ".github/workflows/quality.yml"
+        },
+        {
+          "blob": "0d7effab60bc8b9c532808533b282bdc00917366",
+          "path": ".gitignore"
+        },
+        {
+          "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+          "path": "pyproject.toml"
+        },
+        {
+          "blob": "a9af210d293d35c220e5ca1e5bb08e560cf6bba3",
+          "path": "site/docs/.vitepress/config.mts"
+        },
+        {
+          "blob": "e6a33104c5e46c864ce1ff88d8e0c57411615434",
+          "path": "site/docs/.vitepress/theme/components/ConceptHover.vue"
+        },
+        {
+          "blob": "0daf95e40a334504096e39a3ecd77aa9e3f88946",
+          "path": "site/docs/.vitepress/theme/components/ConceptReveal.vue"
+        },
+        {
+          "blob": "258d1053491ec32fa12ecd2bc329f1d58bbcfd32",
+          "path": "site/docs/.vitepress/theme/components/VerificationBanner.vue"
+        },
+        {
+          "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
+          "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue"
+        },
+        {
+          "blob": "95b59511cf66313a796cfa3b60ca6e2189e28cfd",
+          "path": "site/docs/.vitepress/theme/index.ts"
+        },
+        {
+          "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+          "path": "site/docs/.vitepress/theme/tokens.css"
+        },
+        {
+          "blob": "absent",
+          "path": "site/docs/index.md"
+        },
+        {
+          "blob": "987d07448a729b5174df78303046505ab894ec48",
+          "path": "site/package-lock.json"
+        },
+        {
+          "blob": "dcf8a208965eb9831d9fcaffb426477a96945278",
+          "path": "site/package.json"
+        },
+        {
+          "blob": "7f05277ea9d094fe20897878eb16f6ced26e9d89",
+          "path": "src/rh_pipeline/cli/build_site.py"
+        },
+        {
+          "blob": "d78591b7ac93208378de85825ec9d9def81fe22c",
+          "path": "src/rh_pipeline/site/__init__.py"
+        },
+        {
+          "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+          "path": "src/rh_pipeline/site/compiler.py"
+        },
+        {
+          "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+          "path": "src/rh_pipeline/site/markdown_transforms.py"
+        },
+        {
+          "blob": "3f3f88f2e6e03ff10c36545439416d7aae3e2aa9",
+          "path": "src/rh_pipeline/site/renderers.py"
+        },
+        {
+          "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+          "path": "tests/unit/test_site_compiler.py"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-ACTPK3",
+      "items": [
+        "sha256:140ebbc88a0bd9e700a6dad741cc3c314e21ad34d876d63e472bf44993a8f89e"
+      ],
+      "reason": "Authored file card covering npm v3 lockfile pinning vitepress@1.6.4 and markdown-it-mathjax3@4.3.2 for deterministic npm ci builds.",
+      "sources": [
+        {
+          "blob": "987d07448a729b5174df78303046505ab894ec48",
+          "path": "site/package-lock.json"
+        }
+      ],
+      "subject": "onboarding:site/package-lock.json"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-9NDAGK",
+          "revision": 1
+        },
+        {
+          "id": "INV-D1FB14",
+          "revision": 1
+        },
+        {
+          "id": "INV-EWYG1N",
+          "revision": 1
+        },
+        {
+          "id": "INV-H9CTX9",
+          "revision": 1
+        },
+        {
+          "id": "INV-ZN8F2W",
+          "revision": 1
+        }
+      ],
+      "id": "ROW-AMJQYV",
+      "items": [
+        "sha256:acedd759d1b796da337e6af09dcb34efae9abb4a7cce9e53ebae1dc03c7faea7"
+      ],
+      "reason": "Examined all five members of FAM-S1B3TM; only INV-H9CTX9's pyproject.toml anchor shifted from lines 11-28 to 11-29 when rh-build-site was registered, and the deterministic validator suite guarantee, members and routes remain unchanged.",
+      "revision": 1,
+      "subject": "FAM-S1B3TM"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-01DVB3",
+          "revision": 1
+        },
+        {
+          "id": "INV-0SYK8A",
+          "revision": 1
+        },
+        {
+          "id": "INV-0WN2N4",
+          "revision": 1
+        },
+        {
+          "id": "INV-BEGWB0",
+          "revision": 1
+        },
+        {
+          "id": "INV-Y5X0FK",
+          "revision": 1
+        }
+      ],
+      "id": "ROW-BC7H6M",
+      "items": [
+        "sha256:6f0fc64cf41fd2098ecdd3beb0a9245c2f8d25275f4c44dab08a12d81b7e9718"
+      ],
+      "reason": "Examined all five members of FAM-ZD4QRG; only INV-01DVB3's pyproject.toml script-block anchor shifted from lines 24-28 to 24-29 when rh-build-site was registered, and the Phase 1 extractor guarantee, members and routes remain unchanged.",
+      "revision": 1,
+      "subject": "FAM-ZD4QRG"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-BE0GX3",
+      "items": [
+        "sha256:162a8c754b6e525d5419ea47d86af91b8c691fe0ce8a20875f611c5a2cc207ee"
+      ],
+      "reason": "Authored file card covering DefaultTheme extension, tokens.css import and global registration of VerificationBanner, ConceptReveal, ConceptHover and ZoomTabs.",
+      "sources": [
+        {
+          "blob": "95b59511cf66313a796cfa3b60ca6e2189e28cfd",
+          "path": "site/docs/.vitepress/theme/index.ts"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/theme/index.ts"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-D8EJ2N",
+      "items": [
+        "sha256:e50835f9cd6afecfc7435c3aff5ddb9522bfbaf48db2faf7d5ea9e02123208a6"
+      ],
+      "reason": "Updated pyproject.toml card and references [1] and [2] to record five console scripts including rh-build-site and link src/rh_pipeline/cli/build_site.py.md.",
+      "sources": [
+        {
+          "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+          "path": "pyproject.toml"
+        }
+      ],
+      "subject": "onboarding:pyproject.toml"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-DG27E4",
+      "items": [
+        "sha256:4fa1f536e17b31bde01d6c76295ba86b82ddac07a6fd4a963e046f7d2d1ee9be"
+      ],
+      "reason": "Deleted placeholder site/docs/index.md (no prior onboarding card existed); replaced at build time by rh-build-site and ignored via .gitignore.",
+      "sources": [
+        {
+          "blob": "absent",
+          "path": "site/docs/index.md"
+        }
+      ],
+      "subject": "onboarding:site/docs/index.md"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-E14VCE",
+      "items": [
+        "sha256:681361ae930094579cbbaf3a3226f59696c140a12d7bf856ebff786768878599"
+      ],
+      "reason": "Authored file card covering script-off stacked three-level rendering, post-hydration WAI-ARIA tablist keyboard navigation, shareable ?level= URL sync and print reveal.",
+      "sources": [
+        {
+          "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
+          "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/theme/components/ZoomTabs.vue"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-F1S3Q7",
+      "items": [
+        "sha256:30f18c61e526b78ede30339f3a880c6a05e774265514c42ddf0c20f0e15fad71"
+      ],
+      "reason": "Authored file card covering ConceptHover recall-card props, desktop viewport clamping, mobile bottom-sheet layout, Escape focus return and script-off link fallback.",
+      "sources": [
+        {
+          "blob": "e6a33104c5e46c864ce1ff88d8e0c57411615434",
+          "path": "site/docs/.vitepress/theme/components/ConceptHover.vue"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/theme/components/ConceptHover.vue"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-GD8GHF",
+      "items": [
+        "sha256:164f92d4c2fa816a5870ca580d3053893a5adcfd9a48457d5c78c51fd07c5c43"
+      ],
+      "reason": "Authored file card covering VerificationBanner serialization, rh:lean-node/rh:stage-minimap expansion, dynamic backtick fences, Concept Pages, indexes and external Stage 00 corpus bindings.",
+      "sources": [
+        {
+          "blob": "3f3f88f2e6e03ff10c36545439416d7aae3e2aa9",
+          "path": "src/rh_pipeline/site/renderers.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/site/renderers.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-M1V3X0",
+      "items": [
+        "sha256:0bb09aabc4685177349a219accb070220404825f175cca68d23a9f87fc991381"
+      ],
+      "reason": "Authored file card covering private ESM package rh-proof-explainer-site, VitePress scripts and markdown-it-mathjax3 devDependency.",
+      "sources": [
+        {
+          "blob": "dcf8a208965eb9831d9fcaffb426477a96945278",
+          "path": "site/package.json"
+        }
+      ],
+      "subject": "onboarding:site/package.json"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-PV48HC",
+      "items": [
+        "sha256:8bf175fe0654c242fb27293bdfcebdfb7b9e3daab55ae9cd33f79a0be1a89fbd"
+      ],
+      "reason": "Authored file card covering the thin rh-build-site CLI parser, SiteBuildConfig delegation and exit-code 0/1 error contract.",
+      "sources": [
+        {
+          "blob": "7f05277ea9d094fe20897878eb16f6ced26e9d89",
+          "path": "src/rh_pipeline/cli/build_site.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/cli/build_site.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-RPPR1F",
+      "items": [
+        "sha256:b9062fbbc270ec99eaf1419de8b22db5e24412caf054f9049609ce976bb2ce90"
+      ],
+      "reason": "Authored file card covering editorial light-monograph tokens, high-contrast typography, narrow-viewport bottom-sheet layout, reduced-motion clamping and print stacked-zoom rules.",
+      "sources": [
+        {
+          "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+          "path": "site/docs/.vitepress/theme/tokens.css"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/theme/tokens.css"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-RPVEJP",
+      "items": [
+        "sha256:201ff1eb3bf16cc9fba28244b2ec26c933aacc9ba6d5b04ab9660a601012f5f8",
+        "sha256:4c01e095a12bcc3122e21a21071f92e7194d839b8fb436d579ae0da51364db93"
+      ],
+      "reason": "Updated quality.yml card and references [1] and [2] to document both python-gates and the new synthetic site-build-check job.",
+      "sources": [
+        {
+          "blob": "a4fea456633855d028009ee4158b1aec1cf48ccb",
+          "path": ".github/workflows/quality.yml"
+        }
+      ],
+      "subject": "onboarding:.github/workflows/quality.yml"
+    },
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+            "content": "sha256:aac44b3608721dbe8ce839128962ab198b77ea0165d09af707709f76ba7105a7",
+            "locator": {
+              "end": 29,
+              "kind": "line_range",
+              "start": 24
+            },
+            "path": "pyproject.toml"
+          },
+          "before": {
+            "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
+            "content": "sha256:0d8f4dcccf69e49c0202d56e124a80afc3b68c5af9221638aac41c808086de1a",
+            "locator": {
+              "end": 28,
+              "kind": "line_range",
+              "start": 24
+            },
+            "path": "pyproject.toml"
+          },
+          "id": "RLZ-BTVX2M"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-VZBATW",
+      "items": [
+        "sha256:e5ade01bce73330b3097ce80dd880b9ecced3ed57cf04b2e6a89cafb2f1e33c5"
+      ],
+      "reason": "Adding rh-build-site to [project.scripts] in pyproject.toml shifted the scripts block from lines 24-28 to lines 24-29; re-anchored RLZ-BTVX2M to lines 24-29 while INV-01DVB3 meaning, CLI atomic behavior and proofs remain unchanged.",
+      "revision": 1,
+      "subject": "INV-01DVB3"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-XXAY9D",
+      "items": [
+        "sha256:deb219a4b234fbe218dd63cf80e39a31d5125a811e4253f393429cc45c719044"
+      ],
+      "reason": "Deleted broken code-repo GitHub Pages workflow (no prior onboarding card existed); public Pages deployment moved to ar-rh-proof-skeleton/.github/workflows/pages.yml and PR verification moved to quality.yml site-build-check.",
+      "sources": [
+        {
+          "blob": "absent",
+          "path": ".github/workflows/pages.yml"
+        }
+      ],
+      "subject": "onboarding:.github/workflows/pages.yml"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:d7bcb646408402227c84dfaec7f1a24d2cd94abff4e5490e9ebc9321278e63ba",
+      "record": "DEC-0XZ8V5",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T22:31:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "05",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:78a6011138c0f5c6f76b7637eb7ecbef8b1c744ff33c7ef587f2997e460dc116",
+      "record": "FAM-033QTE",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T22:31:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "05",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:10ab936891f1ee576daad3393b14c948bda18a21ab268d03f6d1bbf2029ec13b",
+      "record": "INV-GXDXCT",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T22:31:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "05",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:825266a077754743b2c6f827567143bcba7fcfeb8ce2ad4c64ca86a705778342",
+      "record": "INV-HK005W",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T22:31:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "05",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:86d5afe1e0df3c99b9e7324ba3e36fe09705fa2871dccd84665abc719e65418a",
+      "record": "INV-V207JN",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T22:31:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "05",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:862c65f3fd9008ced24af39f6256799dea169aede744494365ae3b4374611599",
+      "record": "INV-VGNZKV",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T22:31:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "05",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:e7c0de9d51a22374e22c14c4ca227c9e455acb2ece8588979858d254dd38850e",
+      "record": "WKN-1K87DB",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T22:31:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "05",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+        "task": "261123-RH"
+      }
+    }
+  ]
+}

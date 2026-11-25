@@ -1,0 +1,205 @@
+{
+  "path": "tests/unit/test_site_compiler.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "content": "sha256:00bf0437de56303af8888d5e62ae069a75790dcf8421a2128b58b50024b63193",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_compile_site_end_to_end_determinism_and_pruning"
+        }
+      },
+      "facet": "Proves compile_site reproduces all generated stage, concept, index and dual-copied asset outputs byte-identically, prunes stale files strictly inside managed dirs and preserves .vitepress/config.mts.",
+      "id": "PRF-2Z57V5",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.2",
+        "leaf": "05"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "content": "sha256:39c1194ccb133a1d16b9fda4934d298fbe0087c87a18ebdf9c9cdc5ac7bb60ba",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_normalize_base_url"
+        }
+      },
+      "facet": "Proves normalize_base_url canonicalizes root and nested base paths and rejects empty, whitespace, backslash, double-slash and traversal segments with SiteDirectiveError.",
+      "id": "PRF-3MA47C",
+      "invariant": "INV-HK005W",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.1",
+        "leaf": "05"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "content": "sha256:698076d3e1673e2476908f6d60c79d0071c0544d8a17b94b3280bc30cc4bb1ea",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_expand_concept_directives_fails_closed"
+        }
+      },
+      "facet": "Proves unknown slugs, unclosed tags, missing pipes and empty directive payloads fail closed with SiteDirectiveError across all nine parametrized cases.",
+      "id": "PRF-5QWFYA",
+      "invariant": "INV-HK005W",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.1",
+        "leaf": "05"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "content": "sha256:365511864f6b258809176c0e0ea440539df3626867fe5a7eaee579d3368c9aca",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_expand_concept_directives_rules_and_escaping"
+        }
+      },
+      "facet": "Proves expand_concept_directives emits HTML-escaped ConceptReveal and ConceptHover tags, returns deduplicated first-seen slugs and leaves inline code, math and fenced code untouched.",
+      "id": "PRF-GN7CP9",
+      "invariant": "INV-HK005W",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.1",
+        "leaf": "05"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_preserves_backticks_in_stage_titles_and_deduplicates_concept_h1"
+        }
+      },
+      "facet": "Proves stage H1 titles preserve inline backticks in landing/backlink labels, minimap links route to hosting rh:lean-node pages and Concept Pages deduplicate a leading body H1.",
+      "id": "PRF-HNTFCY",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.2",
+        "leaf": "05"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "content": "sha256:9b726b94bbf02d58878b191de8bf3b6c9420e68de90e62d901b946a2d5e6e5e0",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_build_site_cli_exit_codes"
+        }
+      },
+      "facet": "Proves rh-build-site main() exits 0 with built counts on valid inputs and exits 1 with stderr ERROR and zero writes when dag/dag.json is missing.",
+      "id": "PRF-NA2VQC",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.2",
+        "leaf": "05"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_compile_site_fail_closed_zero_writes"
+        }
+      },
+      "facet": "Proves compile_site raises SiteBuildError and leaves out_docs_dir uncreated across six invalid-input cases including missing audit/DAG, commit mismatch, unknown slug, missing asset and bad Lean node.",
+      "id": "PRF-RPWW7H",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.2",
+        "leaf": "05"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "content": "sha256:de48a0798b056dc3f684063955edb874be7446b8ba782ef524ab73bf71a1eff3",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_split_zoom_levels_and_page_glossary"
+        }
+      },
+      "facet": "Proves split_zoom_levels wraps ordered Level 1/2/3 sections outside fenced code while leaving partial-level pages unchanged and render_page_glossary emits deduplicated HTML-escaped glossary entries.",
+      "id": "PRF-Y1SVW2",
+      "invariant": "INV-HK005W",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.1",
+        "leaf": "05"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Markdown transform tests verify base-URL normalization, directive expansion/escaping/code-and-math exemptions, 9 parametrized fail-closed malformed/unknown directives, `<ZoomTabs>` splitting and static page glossary rendering.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "content": "sha256:365511864f6b258809176c0e0ea440539df3626867fe5a7eaee579d3368c9aca",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_expand_concept_directives_rules_and_escaping"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "End-to-end compiler tests verify byte-identical determinism, managed-directory stale pruning with `.vitepress/` preservation, dual asset emission, Lean anchors, backlinks, backtick-preserving stage titles and concept H1 deduplication.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "content": "sha256:00bf0437de56303af8888d5e62ae069a75790dcf8421a2128b58b50024b63193",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_end_to_end_determinism_and_pruning"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
+            "locator": {
+              "end": 482,
+              "kind": "line_range",
+              "start": 456
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Fail-closed and CLI tests prove zero-write refusal across six invalid-input cases and `rh-build-site` exit codes 0 and 1.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_fail_closed_zero_writes"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

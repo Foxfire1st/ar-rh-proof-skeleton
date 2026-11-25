@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="480" viewBox="0 0 760 480" role="img" aria-labelledby="fig-title fig-desc">
+  <title id="fig-title">From Prime Steps to Zeta-Zero Waves (Illustrative Explicit-Formula Model)</title>
+  <desc id="fig-desc">Two-panel mathematical figure. Panel A plots the exact prime-counting staircase pi(x) jumping by 1 at every prime up to 30 (2, 3, 5, 7, 11, 13, 17, 19, 23, 29) in solid cobalt alongside the smooth dashed forest-green Eulerian logarithmic integral Li(x) = integral from 2 to x of dt/ln t, annotating the vertical difference pi(x) - Li(x) as the prime counting error. Panel B is an illustrative schematic of Riemann's explicit formula showing an oscillating prime error wave staying strictly inside the solid cobalt square-root envelope plus or minus c times x^(1/2) log x when the Riemann Hypothesis holds (Re(rho) = 1/2), contrasted with a much wider dashed terracotta envelope plus or minus c times x^(0.75) for a hypothetical off-line zero (Re(rho) = 0.75).</desc>
+
+  <!-- Editorial Light Canvas -->
+  <rect x="0" y="0" width="760" height="480" fill="#faf9f5"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <!-- Main Figure Title -->
+    <text x="20" y="23" font-size="14" font-weight="700" fill="#161b22">From Prime Steps to Zeta-Zero Waves (Illustrative Explicit-Formula Model)</text>
+
+    <!-- ================================================================ -->
+    <!-- PANEL A (TOP): Exact pi(x) Staircase vs. Smooth Li(x)            -->
+    <!-- ================================================================ -->
+    <rect x="18" y="34" width="724" height="204" rx="8" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+
+    <!-- Panel A Header & Compact Legend -->
+    <text x="32" y="52" font-size="11.2" font-weight="700" fill="#161b22">A. Exact Prime-Counting Staircase π(<tspan font-style="italic">x</tspan>) vs. Li(<tspan font-style="italic">x</tspan>) (2 ≤ <tspan font-style="italic">x</tspan> ≤ 30)</text>
+
+    <g id="panel-a-legend">
+      <line x1="470" y1="48.5" x2="489" y2="48.5" stroke="#1e40af" stroke-width="2.2"/>
+      <circle cx="479.5" cy="48.5" r="2.3" fill="#1e40af" stroke="#ffffff" stroke-width="0.7"/>
+      <text x="494" y="52" font-size="9.8" font-weight="600" fill="#1e40af">π(<tspan font-style="italic">x</tspan>) exact</text>
+
+      <line x1="566" y1="48.5" x2="585" y2="48.5" stroke="#065f46" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="590" y="52" font-size="9.8" font-weight="600" fill="#065f46">Li(<tspan font-style="italic">x</tspan>) = ∫<tspan baseline-shift="sub" font-size="7">2</tspan><tspan baseline-shift="super" font-size="7" font-style="italic">x</tspan> d<tspan font-style="italic">t</tspan> / ln <tspan font-style="italic">t</tspan></text>
+    </g>
+
+    <!-- Panel A Gridlines & Axes -->
+    <line x1="70.0" y1="204.0" x2="714.0" y2="204.0" stroke="#8c959f" stroke-width="1.2"/>
+    <text x="62.0" y="207.5" text-anchor="end" font-size="9.5" fill="#3f4a56">0</text>
+    <line x1="70.0" y1="181.0" x2="714.0" y2="181.0" stroke="#ece8df" stroke-width="1"/>
+    <text x="62.0" y="184.5" text-anchor="end" font-size="9.5" fill="#3f4a56">2</text>
+    <line x1="70.0" y1="158.0" x2="714.0" y2="158.0" stroke="#ece8df" stroke-width="1"/>
+    <text x="62.0" y="161.5" text-anchor="end" font-size="9.5" fill="#3f4a56">4</text>
+    <line x1="70.0" y1="135.0" x2="714.0" y2="135.0" stroke="#ece8df" stroke-width="1"/>
+    <text x="62.0" y="138.5" text-anchor="end" font-size="9.5" fill="#3f4a56">6</text>
+    <line x1="70.0" y1="112.0" x2="714.0" y2="112.0" stroke="#ece8df" stroke-width="1"/>
+    <text x="62.0" y="115.5" text-anchor="end" font-size="9.5" fill="#3f4a56">8</text>
+    <line x1="70.0" y1="89.0" x2="714.0" y2="89.0" stroke="#ece8df" stroke-width="1"/>
+    <text x="62.0" y="92.5" text-anchor="end" font-size="9.5" fill="#3f4a56">10</text>
+    <line x1="70.0" y1="66.0" x2="714.0" y2="66.0" stroke="#ece8df" stroke-width="1"/>
+    <text x="62.0" y="69.5" text-anchor="end" font-size="9.5" fill="#3f4a56">12</text>
+    <line x1="70.0" y1="204.0" x2="70.0" y2="208.5" stroke="#6e7781" stroke-width="1"/>
+    <text x="70.0" y="219.0" text-anchor="middle" font-size="9.5" fill="#3f4a56">2</text>
+    <line x1="139.0" y1="66.0" x2="139.0" y2="204.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="139.0" y1="204.0" x2="139.0" y2="208.5" stroke="#6e7781" stroke-width="1"/>
+    <text x="139.0" y="219.0" text-anchor="middle" font-size="9.5" fill="#3f4a56">5</text>
+    <line x1="254.0" y1="66.0" x2="254.0" y2="204.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="254.0" y1="204.0" x2="254.0" y2="208.5" stroke="#6e7781" stroke-width="1"/>
+    <text x="254.0" y="219.0" text-anchor="middle" font-size="9.5" fill="#3f4a56">10</text>
+    <line x1="369.0" y1="66.0" x2="369.0" y2="204.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="369.0" y1="204.0" x2="369.0" y2="208.5" stroke="#6e7781" stroke-width="1"/>
+    <text x="369.0" y="219.0" text-anchor="middle" font-size="9.5" fill="#3f4a56">15</text>
+    <line x1="484.0" y1="66.0" x2="484.0" y2="204.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="484.0" y1="204.0" x2="484.0" y2="208.5" stroke="#6e7781" stroke-width="1"/>
+    <text x="484.0" y="219.0" text-anchor="middle" font-size="9.5" fill="#3f4a56">20</text>
+    <line x1="599.0" y1="66.0" x2="599.0" y2="204.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="599.0" y1="204.0" x2="599.0" y2="208.5" stroke="#6e7781" stroke-width="1"/>
+    <text x="599.0" y="219.0" text-anchor="middle" font-size="9.5" fill="#3f4a56">25</text>
+    <line x1="714.0" y1="66.0" x2="714.0" y2="204.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="714.0" y1="204.0" x2="714.0" y2="208.5" stroke="#6e7781" stroke-width="1"/>
+    <text x="714.0" y="219.0" text-anchor="middle" font-size="9.5" fill="#3f4a56">30</text>
+    <line x1="93.0" y1="204.0" x2="93.0" y2="207.0" stroke="#1e40af" stroke-width="1" stroke-opacity="0.65"/>
+    <line x1="185.0" y1="204.0" x2="185.0" y2="207.0" stroke="#1e40af" stroke-width="1" stroke-opacity="0.65"/>
+    <line x1="277.0" y1="204.0" x2="277.0" y2="207.0" stroke="#1e40af" stroke-width="1" stroke-opacity="0.65"/>
+    <line x1="323.0" y1="204.0" x2="323.0" y2="207.0" stroke="#1e40af" stroke-width="1" stroke-opacity="0.65"/>
+    <line x1="415.0" y1="204.0" x2="415.0" y2="207.0" stroke="#1e40af" stroke-width="1" stroke-opacity="0.65"/>
+    <line x1="461.0" y1="204.0" x2="461.0" y2="207.0" stroke="#1e40af" stroke-width="1" stroke-opacity="0.65"/>
+    <line x1="553.0" y1="204.0" x2="553.0" y2="207.0" stroke="#1e40af" stroke-width="1" stroke-opacity="0.65"/>
+    <line x1="691.0" y1="204.0" x2="691.0" y2="207.0" stroke="#1e40af" stroke-width="1" stroke-opacity="0.65"/>
+    <line x1="70.0" y1="66.0" x2="70.0" y2="204.0" stroke="#8c959f" stroke-width="1.2"/>
+
+    <!-- Subtle flat shading between pi(x) and Li(x) highlighting the prime counting error -->
+    <polygon points="70.0,204.0 77.7,199.0 85.3,194.8 93.0,191.1 100.7,187.8 108.3,184.7 116.0,181.9 123.7,179.2 131.3,176.7 139.0,174.2 146.7,171.9 154.3,169.6 162.0,167.5 169.7,165.4 177.3,163.3 185.0,161.3 192.7,159.4 200.3,157.5 208.0,155.6 215.7,153.8 223.3,152.0 231.0,150.2 238.7,148.5 246.3,146.8 254.0,145.1 261.7,143.5 269.3,141.8 277.0,140.2 284.7,138.6 292.3,137.1 300.0,135.5 307.7,134.0 315.3,132.5 323.0,131.0 330.7,129.5 338.3,128.0 346.0,126.5 353.7,125.1 361.3,123.7 369.0,122.2 376.7,120.8 384.3,119.4 392.0,118.0 399.7,116.7 407.3,115.3 415.0,113.9 422.7,112.6 430.3,111.3 438.0,109.9 445.7,108.6 453.3,107.3 461.0,106.0 468.7,104.7 476.3,103.4 484.0,102.1 491.7,100.8 499.3,99.6 507.0,98.3 514.7,97.0 522.3,95.8 530.0,94.6 537.7,93.3 545.3,92.1 553.0,90.9 560.7,89.6 568.3,88.4 576.0,87.2 583.7,86.0 591.3,84.8 599.0,83.6 606.7,82.4 614.3,81.2 622.0,80.1 629.7,78.9 637.3,77.7 645.0,76.6 652.7,75.4 660.3,74.2 668.0,73.1 675.7,71.9 683.3,70.8 691.0,69.7 698.7,68.5 706.3,67.4 714.0,66.3 714.0,89.0 691.0,89.0 691.0,100.5 553.0,100.5 553.0,112.0 461.0,112.0 461.0,123.5 415.0,123.5 415.0,135.0 323.0,135.0 323.0,146.5 277.0,146.5 277.0,158.0 185.0,158.0 185.0,169.5 139.0,169.5 139.0,181.0 93.0,181.0 93.0,192.5 70.0,192.5" fill="#9a3412" fill-opacity="0.08"/>
+
+    <!-- Smooth Li(x) dashed forest-green curve -->
+    <path d="M 70.0,204.0 L 77.7,199.0 L 85.3,194.8 L 93.0,191.1 L 100.7,187.8 L 108.3,184.7 L 116.0,181.9 L 123.7,179.2 L 131.3,176.7 L 139.0,174.2 L 146.7,171.9 L 154.3,169.6 L 162.0,167.5 L 169.7,165.4 L 177.3,163.3 L 185.0,161.3 L 192.7,159.4 L 200.3,157.5 L 208.0,155.6 L 215.7,153.8 L 223.3,152.0 L 231.0,150.2 L 238.7,148.5 L 246.3,146.8 L 254.0,145.1 L 261.7,143.5 L 269.3,141.8 L 277.0,140.2 L 284.7,138.6 L 292.3,137.1 L 300.0,135.5 L 307.7,134.0 L 315.3,132.5 L 323.0,131.0 L 330.7,129.5 L 338.3,128.0 L 346.0,126.5 L 353.7,125.1 L 361.3,123.7 L 369.0,122.2 L 376.7,120.8 L 384.3,119.4 L 392.0,118.0 L 399.7,116.7 L 407.3,115.3 L 415.0,113.9 L 422.7,112.6 L 430.3,111.3 L 438.0,109.9 L 445.7,108.6 L 453.3,107.3 L 461.0,106.0 L 468.7,104.7 L 476.3,103.4 L 484.0,102.1 L 491.7,100.8 L 499.3,99.6 L 507.0,98.3 L 514.7,97.0 L 522.3,95.8 L 530.0,94.6 L 537.7,93.3 L 545.3,92.1 L 553.0,90.9 L 560.7,89.6 L 568.3,88.4 L 576.0,87.2 L 583.7,86.0 L 591.3,84.8 L 599.0,83.6 L 606.7,82.4 L 614.3,81.2 L 622.0,80.1 L 629.7,78.9 L 637.3,77.7 L 645.0,76.6 L 652.7,75.4 L 660.3,74.2 L 668.0,73.1 L 675.7,71.9 L 683.3,70.8 L 691.0,69.7 L 698.7,68.5 L 706.3,67.4 L 714.0,66.3" fill="none" stroke="#065f46" stroke-width="2" stroke-dasharray="6,3.5" stroke-linecap="round"/>
+
+    <!-- Exact pi(x) solid deep cobalt staircase -->
+    <polyline points="70.0,204.0 70.0,192.5 93.0,192.5 93.0,181.0 139.0,181.0 139.0,169.5 185.0,169.5 185.0,158.0 277.0,158.0 277.0,146.5 323.0,146.5 323.0,135.0 415.0,135.0 415.0,123.5 461.0,123.5 461.0,112.0 553.0,112.0 553.0,100.5 691.0,100.5 691.0,89.0 714.0,89.0" fill="none" stroke="#1e40af" stroke-width="2.1" stroke-linejoin="miter"/>
+
+    <!-- Right-continuous filled dots at exact prime jumps -->
+    <circle cx="70.0" cy="192.5" r="2.6" fill="#1e40af" stroke="#ffffff" stroke-width="0.9"/>
+    <circle cx="93.0" cy="181.0" r="2.6" fill="#1e40af" stroke="#ffffff" stroke-width="0.9"/>
+    <circle cx="139.0" cy="169.5" r="2.6" fill="#1e40af" stroke="#ffffff" stroke-width="0.9"/>
+    <circle cx="185.0" cy="158.0" r="2.6" fill="#1e40af" stroke="#ffffff" stroke-width="0.9"/>
+    <circle cx="277.0" cy="146.5" r="2.6" fill="#1e40af" stroke="#ffffff" stroke-width="0.9"/>
+    <circle cx="323.0" cy="135.0" r="2.6" fill="#1e40af" stroke="#ffffff" stroke-width="0.9"/>
+    <circle cx="415.0" cy="123.5" r="2.6" fill="#1e40af" stroke="#ffffff" stroke-width="0.9"/>
+    <circle cx="461.0" cy="112.0" r="2.6" fill="#1e40af" stroke="#ffffff" stroke-width="0.9"/>
+    <circle cx="553.0" cy="100.5" r="2.6" fill="#1e40af" stroke="#ffffff" stroke-width="0.9"/>
+    <circle cx="691.0" cy="89.0" r="2.6" fill="#1e40af" stroke="#ffffff" stroke-width="0.9"/>
+
+    <!-- Vertical Gap Bracket at x = 28 (Li(28) = 11.38, pi(28) = 9) -->
+    <g id="panel-a-error-callout">
+      <line x1="668.0" y1="75.1" x2="668.0" y2="98.5" stroke="#9a3412" stroke-width="1.8"/>
+      <line x1="663.5" y1="75.1" x2="672.5" y2="75.1" stroke="#9a3412" stroke-width="1.6"/>
+      <line x1="663.5" y1="98.5" x2="672.5" y2="98.5" stroke="#9a3412" stroke-width="1.6"/>
+      <line x1="668.0" y1="104.0" x2="668.0" y2="136.0" stroke="#9a3412" stroke-width="1.1" stroke-dasharray="2.5,2.5"/>
+      <polygon points="668.0,103.0 664.8,108.5 671.2,108.5" fill="#9a3412"/>
+
+      <rect x="524" y="136" width="180" height="35" rx="4" fill="#ffffff" stroke="#9a3412" stroke-width="0.9"/>
+      <text x="614" y="150" text-anchor="middle" font-size="10" font-weight="700" fill="#9a3412">Prime counting error</text>
+      <text x="614" y="163" text-anchor="middle" font-size="9.2" fill="#3f4a56">π(<tspan font-style="italic">x</tspan>) − Li(<tspan font-style="italic">x</tspan>) ≈ −2.38 at <tspan font-style="italic">x</tspan> = 28</text>
+    </g>
+
+    <!-- Direct Curve Labels in Panel A -->
+    <g id="panel-a-direct-labels">
+      <text x="214" y="86" font-size="10.2" font-weight="700" fill="#065f46">Li(<tspan font-style="italic">x</tspan>) = ∫<tspan baseline-shift="sub" font-size="7">2</tspan><tspan baseline-shift="super" font-size="7" font-style="italic">x</tspan> d<tspan font-style="italic">t</tspan> / ln <tspan font-style="italic">t</tspan></text>
+      <text x="214" y="99" font-size="9.4" fill="#3f4a56">smooth approximation</text>
+      <line x1="322" y1="91" x2="367.5" y2="121.0" stroke="#065f46" stroke-width="1.1"/>
+      <circle cx="369.0" cy="122.2" r="2.3" fill="#065f46"/>
+
+      <text x="276" y="174" font-size="10.2" font-weight="700" fill="#1e40af">π(<tspan font-style="italic">x</tspan>) staircase</text>
+      <text x="276" y="187" font-size="9.4" fill="#3f4a56">+1 step at each prime</text>
+      <line x1="272" y1="172" x2="244.0" y2="159.0" stroke="#1e40af" stroke-width="1.1"/>
+      <circle cx="242.5" cy="158.0" r="2.3" fill="#1e40af"/>
+    </g>
+
+    <!-- Panel A Axis Titles -->
+    <text x="392" y="231" text-anchor="middle" font-size="9.5" fill="#3f4a56"><tspan font-style="italic">x</tspan>  (filled dots mark exact prime jumps: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29)</text>
+    <text x="33" y="135" text-anchor="middle" font-size="9.8" fill="#3f4a56" transform="rotate(-90 33 135)">Count</text>
+
+    <!-- ================================================================ -->
+    <!-- PANEL B (BOTTOM): Zero Real Parts Control Error Envelope         -->
+    <!-- ================================================================ -->
+    <rect x="18" y="248" width="724" height="204" rx="8" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+
+    <!-- Panel B Header & Compact Legend -->
+    <text x="32" y="266" font-size="11.2" font-weight="700" fill="#161b22">B. How Zero Real Parts Control the Error Envelope (Schematic)</text>
+
+    <g id="panel-b-legend">
+      <line x1="426" y1="262.5" x2="443" y2="262.5" stroke="#1e40af" stroke-width="2.1"/>
+      <text x="448" y="266" font-size="9.5" font-weight="600" fill="#1e40af">RH envelope</text>
+
+      <path d="M 521,262.5 Q 525,258.5 529,262.5 T 537,262.5" fill="none" stroke="#161b22" stroke-width="1.35"/>
+      <text x="542" y="266" font-size="9.5" font-weight="600" fill="#161b22">Prime wave</text>
+
+      <line x1="610" y1="262.5" x2="627" y2="262.5" stroke="#9a3412" stroke-width="1.9" stroke-dasharray="5,3"/>
+      <text x="632" y="266" font-size="9.5" font-weight="600" fill="#9a3412">Off-line zero</text>
+    </g>
+
+    <!-- Panel B Gridlines & Axes -->
+    <line x1="231.0" y1="280.0" x2="231.0" y2="420.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="392.0" y1="280.0" x2="392.0" y2="420.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="553.0" y1="280.0" x2="553.0" y2="420.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="714.0" y1="280.0" x2="714.0" y2="420.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="70.0" y1="280.0" x2="714.0" y2="280.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="70.0" y1="420.0" x2="714.0" y2="420.0" stroke="#ece8df" stroke-width="1"/>
+    <line x1="70.0" y1="280.0" x2="70.0" y2="420.0" stroke="#8c959f" stroke-width="1.2"/>
+
+    <!-- Zero reference line (dotted) -->
+    <line x1="70.0" y1="350.0" x2="714.0" y2="350.0" stroke="#6e7781" stroke-width="1.1" stroke-dasharray="2.5,3"/>
+    <text x="62.0" y="353.5" text-anchor="end" font-size="9.5" font-weight="600" fill="#3f4a56">0</text>
+    <text x="62.0" y="289.0" text-anchor="end" font-size="9.5" fill="#3f4a56">+</text>
+    <text x="62.0" y="418.0" text-anchor="end" font-size="9.5" fill="#3f4a56">−</text>
+
+    <!-- Flat Tinted Envelope Bands (NO gradients) -->
+    <path d="M 70.0,349.1 L 78.0,347.1 L 86.1,345.6 L 94.2,344.2 L 102.2,342.9 L 110.2,341.7 L 118.3,340.5 L 126.3,339.4 L 134.4,338.4 L 142.4,337.3 L 150.5,336.3 L 158.6,335.3 L 166.6,334.4 L 174.7,333.4 L 182.7,332.5 L 190.8,331.6 L 198.8,330.7 L 206.8,329.8 L 214.9,328.9 L 222.9,328.1 L 231.0,327.2 L 239.1,326.4 L 247.1,325.5 L 255.1,324.7 L 263.2,323.9 L 271.2,323.1 L 279.3,322.3 L 287.4,321.5 L 295.4,320.7 L 303.4,320.0 L 311.5,319.2 L 319.6,318.4 L 327.6,317.7 L 335.6,316.9 L 343.7,316.2 L 351.8,315.5 L 359.8,314.7 L 367.9,314.0 L 375.9,313.3 L 383.9,312.6 L 392.0,311.9 L 400.0,311.1 L 408.1,310.4 L 416.1,309.7 L 424.2,309.0 L 432.2,308.3 L 440.3,307.7 L 448.4,307.0 L 456.4,306.3 L 464.5,305.6 L 472.5,304.9 L 480.5,304.3 L 488.6,303.6 L 496.6,302.9 L 504.7,302.3 L 512.8,301.6 L 520.8,301.0 L 528.9,300.3 L 536.9,299.7 L 545.0,299.0 L 553.0,298.4 L 561.0,297.7 L 569.1,297.1 L 577.1,296.5 L 585.2,295.8 L 593.2,295.2 L 601.3,294.6 L 609.4,293.9 L 617.4,293.3 L 625.5,292.7 L 633.5,292.1 L 641.5,291.5 L 649.6,290.8 L 657.6,290.2 L 665.7,289.6 L 673.8,289.0 L 681.8,288.4 L 689.9,287.8 L 697.9,287.2 L 706.0,286.6 L 714.0,286.0 L 714.0,327.1 L 706.0,327.2 L 697.9,327.4 L 689.9,327.6 L 681.8,327.7 L 673.8,327.9 L 665.7,328.1 L 657.6,328.2 L 649.6,328.4 L 641.5,328.6 L 633.5,328.7 L 625.5,328.9 L 617.4,329.1 L 609.4,329.3 L 601.3,329.4 L 593.2,329.6 L 585.2,329.8 L 577.1,330.0 L 569.1,330.1 L 561.0,330.3 L 553.0,330.5 L 545.0,330.7 L 536.9,330.9 L 528.9,331.1 L 520.8,331.3 L 512.8,331.4 L 504.7,331.6 L 496.6,331.8 L 488.6,332.0 L 480.5,332.2 L 472.5,332.4 L 464.5,332.6 L 456.4,332.8 L 448.4,333.0 L 440.3,333.2 L 432.2,333.4 L 424.2,333.6 L 416.1,333.9 L 408.1,334.1 L 400.0,334.3 L 392.0,334.5 L 383.9,334.7 L 375.9,335.0 L 367.9,335.2 L 359.8,335.4 L 351.8,335.6 L 343.7,335.9 L 335.6,336.1 L 327.6,336.3 L 319.6,336.6 L 311.5,336.8 L 303.4,337.1 L 295.4,337.3 L 287.4,337.6 L 279.3,337.9 L 271.2,338.1 L 263.2,338.4 L 255.1,338.7 L 247.1,339.0 L 239.1,339.2 L 231.0,339.5 L 222.9,339.8 L 214.9,340.1 L 206.8,340.5 L 198.8,340.8 L 190.8,341.1 L 182.7,341.5 L 174.7,341.8 L 166.6,342.2 L 158.6,342.5 L 150.5,342.9 L 142.4,343.3 L 134.4,343.8 L 126.3,344.2 L 118.3,344.7 L 110.2,345.2 L 102.2,345.8 L 94.2,346.4 L 86.1,347.1 L 78.0,347.9 L 70.0,349.2 Z" fill="#9a3412" fill-opacity="0.05"/>
+    <path d="M 70.0,350.8 L 78.0,352.1 L 86.1,352.9 L 94.2,353.6 L 102.2,354.2 L 110.2,354.8 L 118.3,355.3 L 126.3,355.8 L 134.4,356.2 L 142.4,356.7 L 150.5,357.1 L 158.6,357.5 L 166.6,357.8 L 174.7,358.2 L 182.7,358.5 L 190.8,358.9 L 198.8,359.2 L 206.8,359.5 L 214.9,359.9 L 222.9,360.2 L 231.0,360.5 L 239.1,360.8 L 247.1,361.0 L 255.1,361.3 L 263.2,361.6 L 271.2,361.9 L 279.3,362.1 L 287.4,362.4 L 295.4,362.7 L 303.4,362.9 L 311.5,363.2 L 319.6,363.4 L 327.6,363.7 L 335.6,363.9 L 343.7,364.1 L 351.8,364.4 L 359.8,364.6 L 367.9,364.8 L 375.9,365.0 L 383.9,365.3 L 392.0,365.5 L 400.0,365.7 L 408.1,365.9 L 416.1,366.1 L 424.2,366.4 L 432.2,366.6 L 440.3,366.8 L 448.4,367.0 L 456.4,367.2 L 464.5,367.4 L 472.5,367.6 L 480.5,367.8 L 488.6,368.0 L 496.6,368.2 L 504.7,368.4 L 512.8,368.6 L 520.8,368.7 L 528.9,368.9 L 536.9,369.1 L 545.0,369.3 L 553.0,369.5 L 561.0,369.7 L 569.1,369.9 L 577.1,370.0 L 585.2,370.2 L 593.2,370.4 L 601.3,370.6 L 609.4,370.7 L 617.4,370.9 L 625.5,371.1 L 633.5,371.3 L 641.5,371.4 L 649.6,371.6 L 657.6,371.8 L 665.7,371.9 L 673.8,372.1 L 681.8,372.3 L 689.9,372.4 L 697.9,372.6 L 706.0,372.8 L 714.0,372.9 L 714.0,414.0 L 706.0,413.4 L 697.9,412.8 L 689.9,412.2 L 681.8,411.6 L 673.8,411.0 L 665.7,410.4 L 657.6,409.8 L 649.6,409.2 L 641.5,408.5 L 633.5,407.9 L 625.5,407.3 L 617.4,406.7 L 609.4,406.1 L 601.3,405.4 L 593.2,404.8 L 585.2,404.2 L 577.1,403.5 L 569.1,402.9 L 561.0,402.3 L 553.0,401.6 L 545.0,401.0 L 536.9,400.3 L 528.9,399.7 L 520.8,399.0 L 512.8,398.4 L 504.7,397.7 L 496.6,397.1 L 488.6,396.4 L 480.5,395.7 L 472.5,395.1 L 464.5,394.4 L 456.4,393.7 L 448.4,393.0 L 440.3,392.3 L 432.2,391.7 L 424.2,391.0 L 416.1,390.3 L 408.1,389.6 L 400.0,388.9 L 392.0,388.1 L 383.9,387.4 L 375.9,386.7 L 367.9,386.0 L 359.8,385.3 L 351.8,384.5 L 343.7,383.8 L 335.6,383.1 L 327.6,382.3 L 319.6,381.6 L 311.5,380.8 L 303.4,380.0 L 295.4,379.3 L 287.4,378.5 L 279.3,377.7 L 271.2,376.9 L 263.2,376.1 L 255.1,375.3 L 247.1,374.5 L 239.1,373.6 L 231.0,372.8 L 222.9,371.9 L 214.9,371.1 L 206.8,370.2 L 198.8,369.3 L 190.8,368.4 L 182.7,367.5 L 174.7,366.6 L 166.6,365.6 L 158.6,364.7 L 150.5,363.7 L 142.4,362.7 L 134.4,361.6 L 126.3,360.6 L 118.3,359.5 L 110.2,358.3 L 102.2,357.1 L 94.2,355.8 L 86.1,354.4 L 78.0,352.9 L 70.0,350.9 Z" fill="#9a3412" fill-opacity="0.05"/>
+    <path d="M 70.0,349.2 L 78.0,347.9 L 86.1,347.1 L 94.2,346.4 L 102.2,345.8 L 110.2,345.2 L 118.3,344.7 L 126.3,344.2 L 134.4,343.8 L 142.4,343.3 L 150.5,342.9 L 158.6,342.5 L 166.6,342.2 L 174.7,341.8 L 182.7,341.5 L 190.8,341.1 L 198.8,340.8 L 206.8,340.5 L 214.9,340.1 L 222.9,339.8 L 231.0,339.5 L 239.1,339.2 L 247.1,339.0 L 255.1,338.7 L 263.2,338.4 L 271.2,338.1 L 279.3,337.9 L 287.4,337.6 L 295.4,337.3 L 303.4,337.1 L 311.5,336.8 L 319.6,336.6 L 327.6,336.3 L 335.6,336.1 L 343.7,335.9 L 351.8,335.6 L 359.8,335.4 L 367.9,335.2 L 375.9,335.0 L 383.9,334.7 L 392.0,334.5 L 400.0,334.3 L 408.1,334.1 L 416.1,333.9 L 424.2,333.6 L 432.2,333.4 L 440.3,333.2 L 448.4,333.0 L 456.4,332.8 L 464.5,332.6 L 472.5,332.4 L 480.5,332.2 L 488.6,332.0 L 496.6,331.8 L 504.7,331.6 L 512.8,331.4 L 520.8,331.3 L 528.9,331.1 L 536.9,330.9 L 545.0,330.7 L 553.0,330.5 L 561.0,330.3 L 569.1,330.1 L 577.1,330.0 L 585.2,329.8 L 593.2,329.6 L 601.3,329.4 L 609.4,329.3 L 617.4,329.1 L 625.5,328.9 L 633.5,328.7 L 641.5,328.6 L 649.6,328.4 L 657.6,328.2 L 665.7,328.1 L 673.8,327.9 L 681.8,327.7 L 689.9,327.6 L 697.9,327.4 L 706.0,327.2 L 714.0,327.1 L 714.0,372.9 L 706.0,372.8 L 697.9,372.6 L 689.9,372.4 L 681.8,372.3 L 673.8,372.1 L 665.7,371.9 L 657.6,371.8 L 649.6,371.6 L 641.5,371.4 L 633.5,371.3 L 625.5,371.1 L 617.4,370.9 L 609.4,370.7 L 601.3,370.6 L 593.2,370.4 L 585.2,370.2 L 577.1,370.0 L 569.1,369.9 L 561.0,369.7 L 553.0,369.5 L 545.0,369.3 L 536.9,369.1 L 528.9,368.9 L 520.8,368.7 L 512.8,368.6 L 504.7,368.4 L 496.6,368.2 L 488.6,368.0 L 480.5,367.8 L 472.5,367.6 L 464.5,367.4 L 456.4,367.2 L 448.4,367.0 L 440.3,366.8 L 432.2,366.6 L 424.2,366.4 L 416.1,366.1 L 408.1,365.9 L 400.0,365.7 L 392.0,365.5 L 383.9,365.3 L 375.9,365.0 L 367.9,364.8 L 359.8,364.6 L 351.8,364.4 L 343.7,364.1 L 335.6,363.9 L 327.6,363.7 L 319.6,363.4 L 311.5,363.2 L 303.4,362.9 L 295.4,362.7 L 287.4,362.4 L 279.3,362.1 L 271.2,361.9 L 263.2,361.6 L 255.1,361.3 L 247.1,361.0 L 239.1,360.8 L 231.0,360.5 L 222.9,360.2 L 214.9,359.9 L 206.8,359.5 L 198.8,359.2 L 190.8,358.9 L 182.7,358.5 L 174.7,358.2 L 166.6,357.8 L 158.6,357.5 L 150.5,357.1 L 142.4,356.7 L 134.4,356.2 L 126.3,355.8 L 118.3,355.3 L 110.2,354.8 L 102.2,354.2 L 94.2,353.6 L 86.1,352.9 L 78.0,352.1 L 70.0,350.8 Z" fill="#1e40af" fill-opacity="0.07"/>
+
+    <!-- Hypothetical Off-Line Zero Envelope: +- c * x^(0.75) (dashed terracotta) -->
+    <path d="M 70.0,349.1 L 78.0,347.1 L 86.1,345.6 L 94.2,344.2 L 102.2,342.9 L 110.2,341.7 L 118.3,340.5 L 126.3,339.4 L 134.4,338.4 L 142.4,337.3 L 150.5,336.3 L 158.6,335.3 L 166.6,334.4 L 174.7,333.4 L 182.7,332.5 L 190.8,331.6 L 198.8,330.7 L 206.8,329.8 L 214.9,328.9 L 222.9,328.1 L 231.0,327.2 L 239.1,326.4 L 247.1,325.5 L 255.1,324.7 L 263.2,323.9 L 271.2,323.1 L 279.3,322.3 L 287.4,321.5 L 295.4,320.7 L 303.4,320.0 L 311.5,319.2 L 319.6,318.4 L 327.6,317.7 L 335.6,316.9 L 343.7,316.2 L 351.8,315.5 L 359.8,314.7 L 367.9,314.0 L 375.9,313.3 L 383.9,312.6 L 392.0,311.9 L 400.0,311.1 L 408.1,310.4 L 416.1,309.7 L 424.2,309.0 L 432.2,308.3 L 440.3,307.7 L 448.4,307.0 L 456.4,306.3 L 464.5,305.6 L 472.5,304.9 L 480.5,304.3 L 488.6,303.6 L 496.6,302.9 L 504.7,302.3 L 512.8,301.6 L 520.8,301.0 L 528.9,300.3 L 536.9,299.7 L 545.0,299.0 L 553.0,298.4 L 561.0,297.7 L 569.1,297.1 L 577.1,296.5 L 585.2,295.8 L 593.2,295.2 L 601.3,294.6 L 609.4,293.9 L 617.4,293.3 L 625.5,292.7 L 633.5,292.1 L 641.5,291.5 L 649.6,290.8 L 657.6,290.2 L 665.7,289.6 L 673.8,289.0 L 681.8,288.4 L 689.9,287.8 L 697.9,287.2 L 706.0,286.6 L 714.0,286.0" fill="none" stroke="#9a3412" stroke-width="1.9" stroke-dasharray="7,4"/>
+    <path d="M 70.0,350.9 L 78.0,352.9 L 86.1,354.4 L 94.2,355.8 L 102.2,357.1 L 110.2,358.3 L 118.3,359.5 L 126.3,360.6 L 134.4,361.6 L 142.4,362.7 L 150.5,363.7 L 158.6,364.7 L 166.6,365.6 L 174.7,366.6 L 182.7,367.5 L 190.8,368.4 L 198.8,369.3 L 206.8,370.2 L 214.9,371.1 L 222.9,371.9 L 231.0,372.8 L 239.1,373.6 L 247.1,374.5 L 255.1,375.3 L 263.2,376.1 L 271.2,376.9 L 279.3,377.7 L 287.4,378.5 L 295.4,379.3 L 303.4,380.0 L 311.5,380.8 L 319.6,381.6 L 327.6,382.3 L 335.6,383.1 L 343.7,383.8 L 351.8,384.5 L 359.8,385.3 L 367.9,386.0 L 375.9,386.7 L 383.9,387.4 L 392.0,388.1 L 400.0,388.9 L 408.1,389.6 L 416.1,390.3 L 424.2,391.0 L 432.2,391.7 L 440.3,392.3 L 448.4,393.0 L 456.4,393.7 L 464.5,394.4 L 472.5,395.1 L 480.5,395.7 L 488.6,396.4 L 496.6,397.1 L 504.7,397.7 L 512.8,398.4 L 520.8,399.0 L 528.9,399.7 L 536.9,400.3 L 545.0,401.0 L 553.0,401.6 L 561.0,402.3 L 569.1,402.9 L 577.1,403.5 L 585.2,404.2 L 593.2,404.8 L 601.3,405.4 L 609.4,406.1 L 617.4,406.7 L 625.5,407.3 L 633.5,407.9 L 641.5,408.5 L 649.6,409.2 L 657.6,409.8 L 665.7,410.4 L 673.8,411.0 L 681.8,411.6 L 689.9,412.2 L 697.9,412.8 L 706.0,413.4 L 714.0,414.0" fill="none" stroke="#9a3412" stroke-width="1.9" stroke-dasharray="7,4"/>
+
+    <!-- RH Holds Envelope: +- c * x^(1/2) log x (solid deep cobalt) -->
+    <path d="M 70.0,349.2 L 78.0,347.9 L 86.1,347.1 L 94.2,346.4 L 102.2,345.8 L 110.2,345.2 L 118.3,344.7 L 126.3,344.2 L 134.4,343.8 L 142.4,343.3 L 150.5,342.9 L 158.6,342.5 L 166.6,342.2 L 174.7,341.8 L 182.7,341.5 L 190.8,341.1 L 198.8,340.8 L 206.8,340.5 L 214.9,340.1 L 222.9,339.8 L 231.0,339.5 L 239.1,339.2 L 247.1,339.0 L 255.1,338.7 L 263.2,338.4 L 271.2,338.1 L 279.3,337.9 L 287.4,337.6 L 295.4,337.3 L 303.4,337.1 L 311.5,336.8 L 319.6,336.6 L 327.6,336.3 L 335.6,336.1 L 343.7,335.9 L 351.8,335.6 L 359.8,335.4 L 367.9,335.2 L 375.9,335.0 L 383.9,334.7 L 392.0,334.5 L 400.0,334.3 L 408.1,334.1 L 416.1,333.9 L 424.2,333.6 L 432.2,333.4 L 440.3,333.2 L 448.4,333.0 L 456.4,332.8 L 464.5,332.6 L 472.5,332.4 L 480.5,332.2 L 488.6,332.0 L 496.6,331.8 L 504.7,331.6 L 512.8,331.4 L 520.8,331.3 L 528.9,331.1 L 536.9,330.9 L 545.0,330.7 L 553.0,330.5 L 561.0,330.3 L 569.1,330.1 L 577.1,330.0 L 585.2,329.8 L 593.2,329.6 L 601.3,329.4 L 609.4,329.3 L 617.4,329.1 L 625.5,328.9 L 633.5,328.7 L 641.5,328.6 L 649.6,328.4 L 657.6,328.2 L 665.7,328.1 L 673.8,327.9 L 681.8,327.7 L 689.9,327.6 L 697.9,327.4 L 706.0,327.2 L 714.0,327.1" fill="none" stroke="#1e40af" stroke-width="2"/>
+    <path d="M 70.0,350.8 L 78.0,352.1 L 86.1,352.9 L 94.2,353.6 L 102.2,354.2 L 110.2,354.8 L 118.3,355.3 L 126.3,355.8 L 134.4,356.2 L 142.4,356.7 L 150.5,357.1 L 158.6,357.5 L 166.6,357.8 L 174.7,358.2 L 182.7,358.5 L 190.8,358.9 L 198.8,359.2 L 206.8,359.5 L 214.9,359.9 L 222.9,360.2 L 231.0,360.5 L 239.1,360.8 L 247.1,361.0 L 255.1,361.3 L 263.2,361.6 L 271.2,361.9 L 279.3,362.1 L 287.4,362.4 L 295.4,362.7 L 303.4,362.9 L 311.5,363.2 L 319.6,363.4 L 327.6,363.7 L 335.6,363.9 L 343.7,364.1 L 351.8,364.4 L 359.8,364.6 L 367.9,364.8 L 375.9,365.0 L 383.9,365.3 L 392.0,365.5 L 400.0,365.7 L 408.1,365.9 L 416.1,366.1 L 424.2,366.4 L 432.2,366.6 L 440.3,366.8 L 448.4,367.0 L 456.4,367.2 L 464.5,367.4 L 472.5,367.6 L 480.5,367.8 L 488.6,368.0 L 496.6,368.2 L 504.7,368.4 L 512.8,368.6 L 520.8,368.7 L 528.9,368.9 L 536.9,369.1 L 545.0,369.3 L 553.0,369.5 L 561.0,369.7 L 569.1,369.9 L 577.1,370.0 L 585.2,370.2 L 593.2,370.4 L 601.3,370.6 L 609.4,370.7 L 617.4,370.9 L 625.5,371.1 L 633.5,371.3 L 641.5,371.4 L 649.6,371.6 L 657.6,371.8 L 665.7,371.9 L 673.8,372.1 L 681.8,372.3 L 689.9,372.4 L 697.9,372.6 L 706.0,372.8 L 714.0,372.9" fill="none" stroke="#1e40af" stroke-width="2"/>
+
+    <!-- Oscillating Prime Wave strictly inside the RH envelope -->
+    <path d="M 70.0,350.0 L 72.7,350.0 L 75.4,350.1 L 78.0,350.3 L 80.7,350.4 L 83.4,350.3 L 86.1,350.1 L 88.8,349.8 L 91.5,349.5 L 94.2,349.4 L 96.8,349.6 L 99.5,350.2 L 102.2,350.8 L 104.9,351.3 L 107.6,351.7 L 110.2,351.8 L 112.9,351.6 L 115.6,351.2 L 118.3,350.7 L 121.0,350.1 L 123.7,349.6 L 126.3,349.3 L 129.0,349.0 L 131.7,348.9 L 134.4,348.9 L 137.1,348.9 L 139.8,348.9 L 142.4,348.8 L 145.1,348.6 L 147.8,348.4 L 150.5,348.2 L 153.2,348.1 L 155.9,348.1 L 158.6,348.2 L 161.2,348.4 L 163.9,348.8 L 166.6,349.3 L 169.3,349.8 L 172.0,350.3 L 174.7,350.7 L 177.3,351.1 L 180.0,351.3 L 182.7,351.3 L 185.4,351.4 L 188.1,351.4 L 190.8,351.4 L 193.4,351.5 L 196.1,351.6 L 198.8,351.9 L 201.5,352.3 L 204.2,352.7 L 206.8,353.2 L 209.5,353.5 L 212.2,353.8 L 214.9,353.8 L 217.6,353.6 L 220.3,353.2 L 222.9,352.5 L 225.6,351.5 L 228.3,350.4 L 231.0,349.2 L 233.7,348.0 L 236.4,346.8 L 239.1,345.8 L 241.7,345.0 L 244.4,344.4 L 247.1,344.0 L 249.8,344.0 L 252.5,344.1 L 255.1,344.5 L 257.8,345.1 L 260.5,345.7 L 263.2,346.5 L 265.9,347.3 L 268.6,348.0 L 271.2,348.8 L 273.9,349.5 L 276.6,350.2 L 279.3,350.8 L 282.0,351.4 L 284.7,352.0 L 287.4,352.5 L 290.0,353.0 L 292.7,353.4 L 295.4,353.8 L 298.1,354.1 L 300.8,354.3 L 303.4,354.3 L 306.1,354.3 L 308.8,354.1 L 311.5,353.7 L 314.2,353.2 L 316.9,352.7 L 319.6,352.0 L 322.2,351.3 L 324.9,350.7 L 327.6,350.0 L 330.3,349.5 L 333.0,349.1 L 335.6,348.8 L 338.3,348.7 L 341.0,348.7 L 343.7,348.8 L 346.4,349.1 L 349.1,349.4 L 351.8,349.7 L 354.4,350.1 L 357.1,350.4 L 359.8,350.6 L 362.5,350.8 L 365.2,350.9 L 367.9,350.8 L 370.5,350.7 L 373.2,350.5 L 375.9,350.2 L 378.6,349.9 L 381.3,349.6 L 383.9,349.2 L 386.6,349.0 L 389.3,348.7 L 392.0,348.5 L 394.7,348.3 L 397.4,348.1 L 400.0,347.9 L 402.7,347.6 L 405.4,347.3 L 408.1,347.0 L 410.8,346.5 L 413.5,346.0 L 416.1,345.5 L 418.8,344.9 L 421.5,344.4 L 424.2,344.0 L 426.9,343.7 L 429.6,343.6 L 432.2,343.8 L 434.9,344.2 L 437.6,345.0 L 440.3,346.1 L 443.0,347.6 L 445.7,349.3 L 448.4,351.3 L 451.0,353.4 L 453.7,355.7 L 456.4,357.9 L 459.1,359.9 L 461.8,361.7 L 464.5,363.2 L 467.1,364.2 L 469.8,364.7 L 472.5,364.7 L 475.2,364.1 L 477.9,362.9 L 480.5,361.3 L 483.2,359.2 L 485.9,356.8 L 488.6,354.2 L 491.3,351.5 L 494.0,348.9 L 496.6,346.4 L 499.3,344.2 L 502.0,342.4 L 504.7,341.0 L 507.4,340.1 L 510.1,339.8 L 512.8,339.8 L 515.4,340.4 L 518.1,341.3 L 520.8,342.4 L 523.5,343.8 L 526.2,345.2 L 528.9,346.6 L 531.5,347.9 L 534.2,349.0 L 536.9,349.8 L 539.6,350.3 L 542.3,350.4 L 545.0,350.2 L 547.6,349.8 L 550.3,349.1 L 553.0,348.3 L 555.7,347.3 L 558.4,346.4 L 561.0,345.6 L 563.7,344.9 L 566.4,344.4 L 569.1,344.2 L 571.8,344.4 L 574.5,344.8 L 577.1,345.6 L 579.8,346.6 L 582.5,347.9 L 585.2,349.3 L 587.9,350.9 L 590.6,352.4 L 593.2,353.9 L 595.9,355.3 L 598.6,356.5 L 601.3,357.4 L 604.0,358.1 L 606.7,358.4 L 609.4,358.5 L 612.0,358.3 L 614.7,357.8 L 617.4,357.1 L 620.1,356.2 L 622.8,355.3 L 625.5,354.2 L 628.1,353.2 L 630.8,352.3 L 633.5,351.4 L 636.2,350.7 L 638.9,350.1 L 641.5,349.7 L 644.2,349.4 L 646.9,349.3 L 649.6,349.4 L 652.3,349.5 L 655.0,349.8 L 657.6,350.0 L 660.3,350.3 L 663.0,350.6 L 665.7,350.8 L 668.4,350.9 L 671.1,350.9 L 673.8,350.9 L 676.4,350.7 L 679.1,350.4 L 681.8,350.1 L 684.5,349.6 L 687.2,349.1 L 689.9,348.6 L 692.5,348.0 L 695.2,347.5 L 697.9,346.9 L 700.6,346.4 L 703.3,345.9 L 706.0,345.4 L 708.6,345.0 L 711.3,344.7 L 714.0,344.4" fill="none" stroke="#161b22" stroke-width="1.25" stroke-linejoin="round"/>
+
+    <!-- Direct Labels & Formula Tags in Panel B -->
+    <g id="panel-b-direct-labels">
+      <text x="80" y="293" font-size="9.8" font-weight="700" fill="#9a3412">Hypothetical off-line zero (Re(ρ) = 0.75): much larger error growth</text>
+      <line x1="414" y1="296" x2="429.6" y2="307.0" stroke="#9a3412" stroke-width="1.1"/>
+      <circle cx="430.6" cy="308.5" r="2.3" fill="#9a3412"/>
+
+      <text x="80" y="405" font-size="9.8" font-weight="700" fill="#1e40af">RH holds (Re(ρ) = 1/2): square-root error envelope</text>
+      <text x="80" y="417" font-size="9.2" fill="#3f4a56">Oscillating prime wave stays strictly inside ± <tspan font-style="italic">c</tspan> · <tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="7">1/2</tspan> log <tspan font-style="italic">x</tspan></text>
+      <line x1="250.3" y1="394" x2="250.3" y2="363.2" stroke="#ffffff" stroke-width="3.2"/>
+      <line x1="250.3" y1="394" x2="250.3" y2="363.2" stroke="#1e40af" stroke-width="1.1"/>
+      <circle cx="250.3" cy="361.2" r="2.3" fill="#1e40af"/>
+
+      <!-- Formula tags cleanly positioned between envelopes on right -->
+      <text x="709" y="303" text-anchor="end" font-size="9.5" font-weight="700" fill="#9a3412">+ <tspan font-style="italic">c</tspan> · <tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="7">0.75</tspan></text>
+      <text x="709" y="322" text-anchor="end" font-size="9.5" font-weight="700" fill="#1e40af">+ <tspan font-style="italic">c</tspan> · <tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="7">1/2</tspan> log <tspan font-style="italic">x</tspan></text>
+      <text x="709" y="384" text-anchor="end" font-size="9.5" font-weight="700" fill="#1e40af">− <tspan font-style="italic">c</tspan> · <tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="7">1/2</tspan> log <tspan font-style="italic">x</tspan></text>
+      <text x="709" y="403" text-anchor="end" font-size="9.5" font-weight="700" fill="#9a3412">− <tspan font-style="italic">c</tspan> · <tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="7">0.75</tspan></text>
+    </g>
+
+    <!-- Panel B Axis Titles -->
+    <text x="392" y="441" text-anchor="middle" font-size="9.5" fill="#3f4a56"><tspan font-style="italic">x</tspan>  (illustrative scale — larger <tspan font-style="italic">x</tspan> widens gap between <tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="7">1/2</tspan> log <tspan font-style="italic">x</tspan> and <tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="7">0.75</tspan>)</text>
+    <text x="33" y="350" text-anchor="middle" font-size="9.5" fill="#3f4a56" transform="rotate(-90 33 350)">Error π(<tspan font-style="italic">x</tspan>) − Li(<tspan font-style="italic">x</tspan>)</text>
+
+    <!-- Explicit Schematic Caption -->
+    <text x="20" y="470" font-size="9.5" fill="#3f4a56"><tspan font-weight="700" fill="#161b22">Illustrative schematic (Panel B):</tspan> Riemann's explicit formula links each nontrivial zero ρ = β + <tspan font-style="italic">i</tspan>γ to a prime-error oscillation of amplitude ~ <tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="7.2">β</tspan>.</text>
+  </g>
+</svg>

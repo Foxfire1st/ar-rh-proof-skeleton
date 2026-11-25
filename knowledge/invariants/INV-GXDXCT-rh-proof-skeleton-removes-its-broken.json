@@ -1,0 +1,46 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "family_guarantee",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Realized across .github/workflows/quality.yml and .gitignore as part of the Phase 4 site pipeline; prevents failing Pages runs on code PRs, accidental commits of generated site/docs artifacts and broken VitePress builds slipping past CI."
+  },
+  "applicability": "CI verification in .github/workflows/quality.yml, generated-output exclusions in .gitignore and the split of public GitHub Pages publishing to ar-rh-proof-skeleton/.github/workflows/pages.yml.",
+  "conditions": [
+    "quality.yml runs site-build-check with rh-validate, rh-build-site and npm ci && npm run docs:build against a synthetic Stage 00 fixture on every PR and push to main.",
+    ".gitignore ignores site/docs/{stages,concepts,assets,public,index.md} so compiled outputs never enter Git or AR onboarding."
+  ],
+  "exclusions": [
+    "Live GitHub Pages publication requires the repository owner to enable GitHub Actions as the Pages source on Foxfire1st/ar-rh-proof-skeleton."
+  ],
+  "id": "INV-GXDXCT",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "Local synthetic site-build-check run (rh-validate + rh-build-site + npm run docs:build PASS)"
+      ],
+      "path": "rh-r05-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R05@v1 §4",
+    "leaf": "05",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "rh-proof-skeleton removes its broken pages.yml, ignores generated site/docs outputs in .gitignore, and verifies static-site compilation and VitePress build on every PR via quality.yml site-build-check, while ar-rh-proof-skeleton/.github/workflows/pages.yml owns public GitHub Pages deployment.",
+  "supersedes": [],
+  "title": "Dual-repo CI site-build-check, gitignored outputs and Pages deployment split",
+  "writer": {
+    "at": "2026-11-25T22:31:11+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "05",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+    "task": "261123-RH"
+  }
+}

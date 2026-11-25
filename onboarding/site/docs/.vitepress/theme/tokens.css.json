@@ -1,0 +1,105 @@
+{
+  "path": "site/docs/.vitepress/theme/tokens.css",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+        "content": "sha256:beeeedef02a2f4c9a7a3e7c38b3484fb2f43d4550ca3c02568861a67357424e5",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-VC19TM",
+      "invariant": "INV-VGNZKV",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §3",
+        "leaf": "05"
+      },
+      "rationale": "Defines the archival-paper high-contrast editorial light palette, 70ch reading measure, narrow-viewport layout rules, reduced-motion overrides, and print stacked-zoom rules.",
+      "role": "presentation"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Defines `--rh-*` light-monograph tokens and maps them onto VitePress `--vp-*` theme and code variables.\n\nAnchor: `:root`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+            "content": "sha256:1efc143569815763eeb4a0344bbe7450653f37615f2e31640c4d5acf7f00553c",
+            "locator": {
+              "end": 68,
+              "kind": "line_range",
+              "start": 2
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Enforces `overflow-x: clip`, `:focus-visible` outlines, `70ch` prose measure, Lean identifier wrapping and scrollable MathJax/code/tables.\n\nAnchor: `.vp-doc`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+            "content": "sha256:c65b600eb4144e982f528dabec4239af8afce9e08c50a81ddbb5750a75e4933c",
+            "locator": {
+              "end": 159,
+              "kind": "line_range",
+              "start": 70
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Styles compiler-emitted `.rh-analogy-breaks`, `.rh-page-glossary`, `.rh-stage-minimap`, `.rh-concept-figure` and `.rh-lean-decl` blocks plus all four Vue components.\n\nAnchor: `.rh-page-glossary`; `.rh-zoom-tabs`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+            "content": "sha256:a6347a2146dbfa103bcfd0867e19ae514edd252b8d05208bb6369b58cc95379d",
+            "locator": {
+              "end": 286,
+              "kind": "line_range",
+              "start": 161
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+            "content": "sha256:a6f9900397547e99977bfbdd676226d1ccbbdadad0c87468036f72b47f75359f",
+            "locator": {
+              "end": 700,
+              "kind": "line_range",
+              "start": 288
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "Provides `<=640px` bottom-sheet/stacked mobile layout, `prefers-reduced-motion: reduce` clamp and `@media print` full-stack zoom-panel visibility.\n\nAnchor: `@media print`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+            "content": "sha256:18e498e104212af01d2ab1e763fd0a0836c8dd1bda730a2cc792da876fd34fd3",
+            "locator": {
+              "end": 781,
+              "kind": "line_range",
+              "start": 701
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

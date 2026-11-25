@@ -1,0 +1,75 @@
+name: Build and Deploy RH Proof Explainer to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout memory repository
+        uses: actions/checkout@v4
+        with:
+          path: memory
+
+      - name: Checkout rh-proof-skeleton code repository
+        uses: actions/checkout@v4
+        with:
+          repository: Foxfire1st/rh-proof-skeleton
+          ref: main
+          path: code
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: code/site/package-lock.json
+
+      - name: Bootstrap Python virtual environment
+        run: code/scripts/bootstrap-venv.sh
+
+      - name: Validate repository schemas, Concept Cards, and Level-1 jargon order
+        run: code/.venv/bin/rh-validate --repo code --memory memory
+
+      - name: Compile VitePress site sources
+        run: code/.venv/bin/rh-build-site --repo code --memory memory --out code/site/docs --base-url /ar-rh-proof-skeleton/
+
+      - name: Install Node dependencies and build VitePress site
+        working-directory: code/site
+        run: |
+          npm ci
+          npm run docs:build
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: code/site/docs/.vitepress/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

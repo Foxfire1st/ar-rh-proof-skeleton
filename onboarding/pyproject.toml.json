@@ -3,10 +3,10 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
-        "content": "sha256:0d8f4dcccf69e49c0202d56e124a80afc3b68c5af9221638aac41c808086de1a",
+        "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+        "content": "sha256:aac44b3608721dbe8ce839128962ab198b77ea0165d09af707709f76ba7105a7",
         "locator": {
-          "end": 28,
+          "end": 29,
           "kind": "line_range",
           "start": 24
         }
@@ -22,7 +22,7 @@
     },
     {
       "anchor": {
-        "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
+        "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
         "content": "sha256:12392afb314b25867740b6c9d0de665e7b89ad3d2d1f3bd35cd82d71266c38c2",
         "locator": {
           "end": 25,
@@ -41,10 +41,29 @@
     },
     {
       "anchor": {
-        "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
-        "content": "sha256:366daee28e87fa6aa476e3836f73d555f23f22dd6c798512154e9e6c25779458",
+        "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+        "content": "sha256:1bd0885231341923bb31813d35586cdfe85879a179e35d4551adadf784a06b79",
         "locator": {
-          "end": 28,
+          "end": 30,
+          "kind": "line_range",
+          "start": 24
+        }
+      },
+      "id": "RLZ-W9K2GR",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.2",
+        "leaf": "05"
+      },
+      "rationale": "Registers the rh-build-site console script alongside rh-audit, rh-extract, rh-file-size-gate, and rh-validate.",
+      "role": "support"
+    },
+    {
+      "anchor": {
+        "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+        "content": "sha256:5a9ed6532d4bed26466223970e64e05be7d4dd81da7223f1c2b23c95ce9d0c86",
+        "locator": {
+          "end": 29,
           "kind": "line_range",
           "start": 11
         }
@@ -61,14 +80,14 @@
   ],
   "references": {
     "1": {
-      "note": "Registers rh-audit, rh-extract, rh-file-size-gate and rh-validate console scripts.",
+      "note": "Registers rh-audit, rh-build-site, rh-extract, rh-file-size-gate and rh-validate console scripts.\n\nAnchor: `[project.scripts]`",
       "targets": [
         {
           "anchor": {
-            "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
-            "content": "sha256:0d8f4dcccf69e49c0202d56e124a80afc3b68c5af9221638aac41c808086de1a",
+            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+            "content": "sha256:aac44b3608721dbe8ce839128962ab198b77ea0165d09af707709f76ba7105a7",
             "locator": {
-              "end": 28,
+              "end": 29,
               "kind": "line_range",
               "start": 24
             }
@@ -78,14 +97,14 @@
       ]
     },
     "2": {
-      "note": "Enforces Python 3.12, PyYAML>=6.0 runtime and types-PyYAML>=6.0 dev dependencies, and strict Pyright and Ruff settings over src and tests.",
+      "note": "Enforces Python 3.12, PyYAML>=6.0 runtime and types-PyYAML>=6.0 dev dependencies, and strict Pyright and Ruff settings over src and tests.\n\nAnchor: `[project]`",
       "targets": [
         {
           "anchor": {
-            "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
-            "content": "sha256:121c389932f64bf497590f329b1384dcbf91aa2d239c4291996e004f78e8fac6",
+            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+            "content": "sha256:21a3c6085677c38869c33da9a5ac5f413ec4e831fd41f709d5a387ec397eccad",
             "locator": {
-              "end": 48,
+              "end": 49,
               "kind": "line_range",
               "start": 5
             }

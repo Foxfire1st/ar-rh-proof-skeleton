@@ -1,0 +1,40 @@
+{
+  "anchor": {
+    "blob": "1ec6f4d231a74e8505fba1a9cd9fd19fc30eb185",
+    "content": "sha256:3e8c6e56bf6b22db3029dab4cc8a406a928fdde27fc079aef7e002beeaa14d82",
+    "locator": {
+      "kind": "symbol",
+      "name": "test_quality_runs_worktree_tools_in_ci_order"
+    },
+    "path": "tests/unit/test_quality_scripts.py"
+  },
+  "id": "WKN-1K87DB",
+  "kind": "debt",
+  "origin": {
+    "handoff": {
+      "path": "rh-r05-a1-curator-ingest.json"
+    },
+    "handoffEntry": "wkn-quality-test-rh-memory-root-env-leak",
+    "leaf": "05",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-weakness/v1",
+  "seen": {
+    "role": "worker",
+    "task": "261123-RH"
+  },
+  "state": "open",
+  "statement": "test_quality_runs_worktree_tools_in_ci_order does not clear an inherited RH_MEMORY_ROOT environment variable, causing scripts/check-quality.sh to append --memory to rh-validate and fail the default CI-order assertion whenever RH_MEMORY_ROOT is exported.",
+  "writer": {
+    "at": "2026-11-25T22:31:11+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "05",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+    "task": "261123-RH"
+  }
+}

@@ -1,18 +1,55 @@
 {
   "path": ".github/workflows/quality.yml",
-  "realizes": [],
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "a4fea456633855d028009ee4158b1aec1cf48ccb",
+        "content": "sha256:0a9922a035b7bac24d1cf9c53ef710e5047784390a5bda97feac4cdb92495474",
+        "locator": {
+          "end": 86,
+          "kind": "line_range",
+          "start": 19
+        }
+      },
+      "id": "RLZ-SJ8BQ4",
+      "invariant": "INV-GXDXCT",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §4",
+        "leaf": "05"
+      },
+      "rationale": "Adds the self-contained site-build-check job running rh-validate, rh-build-site, npm ci, and npm run docs:build against a synthetic Stage 00 fixture.",
+      "role": "enforcement"
+    }
+  ],
   "references": {
     "1": {
-      "note": "The job calls both worktree scripts directly after setting up Python.",
+      "note": "The python-gates job calls both worktree scripts directly after setting up Python.\n\nAnchor: `python-gates`",
       "targets": [
         {
           "anchor": {
-            "blob": "100afc185482ac302f46f16bbd03ff8f1eef89c7",
+            "blob": "a4fea456633855d028009ee4158b1aec1cf48ccb",
             "content": "sha256:e0f5044f8275d2a925736c502d9d879717dc1a0825f1c3560596f1d37b926a3f",
             "locator": {
               "end": 17,
               "kind": "line_range",
               "start": 8
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "The site-build-check job validates and compiles a synthetic Stage 00 fixture with rh-validate and rh-build-site, then runs npm ci and npm run docs:build inside site/.\n\nAnchor: `site-build-check`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "a4fea456633855d028009ee4158b1aec1cf48ccb",
+            "content": "sha256:0a9922a035b7bac24d1cf9c53ef710e5047784390a5bda97feac4cdb92495474",
+            "locator": {
+              "end": 86,
+              "kind": "line_range",
+              "start": 19
             }
           },
           "kind": "code"

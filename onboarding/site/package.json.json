@@ -1,0 +1,59 @@
+{
+  "path": "site/package.json",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "dcf8a208965eb9831d9fcaffb426477a96945278",
+        "content": "sha256:44c8b6afc230bf39dabd32026c026184b4f8f81244e8feb5ba1e38503ecb629b",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-0DB06B",
+      "invariant": "INV-VGNZKV",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §3",
+        "leaf": "05"
+      },
+      "rationale": "Declares vitepress and markdown-it-mathjax3 devDependencies paired with committed site/package-lock.json for deterministic npm ci builds.",
+      "role": "support"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Defines private ESM package `rh-proof-explainer-site` with `docs:dev`, `docs:build` and `docs:preview` scripts targeting `docs`.\n\nAnchor: `\"docs:build\"`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "dcf8a208965eb9831d9fcaffb426477a96945278",
+            "content": "sha256:36c1753a3a0de783067240efe4c7bc94eb17442d23f812f1a2bb95fa45f9e2e9",
+            "locator": {
+              "end": 10,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Declares `markdown-it-mathjax3` (`^4.3.2`) and `vitepress` (`^1.6.3`) as the sole `devDependencies`.\n\nAnchor: `\"devDependencies\"`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "dcf8a208965eb9831d9fcaffb426477a96945278",
+            "content": "sha256:3080c8a6ed46629caf75ce3db6660a8fd2a8f85348d70f04011d3919a006d54a",
+            "locator": {
+              "end": 14,
+              "kind": "line_range",
+              "start": 11
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

@@ -1,0 +1,59 @@
+{
+  "path": "site/docs/.vitepress/theme/components/ConceptReveal.vue",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "0daf95e40a334504096e39a3ecd77aa9e3f88946",
+        "content": "sha256:1d768e6394fc7dfa4d8ac020fc54f22a985bfa830ecb6b7f062d65c01f7712ed",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-EMMZ2E",
+      "invariant": "INV-VGNZKV",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §3",
+        "leaf": "05"
+      },
+      "rationale": "Renders inline concept-first prose highlights with explicit Idea badge, separator, and clickable Concept Page link readable identically without JavaScript.",
+      "role": "presentation"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Accepts `slug`, `term` and `href` props and guards `resolvedHref` against double-prefixing `site.value.base` through `withBase`.\n\nAnchor: `resolvedHref`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0daf95e40a334504096e39a3ecd77aa9e3f88946",
+            "content": "sha256:3dbd0853311917cfadfe3c81229e2fa7cab30e56c6ea6dcaaa1114dcaed98e93",
+            "locator": {
+              "end": 22,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Renders a static inline `<span class=\"rh-concept-reveal\">` with `aria-hidden=\"true\"` decorative `Idea`/`→` markers, default prose slot and Concept Page link.\n\nAnchor: `rh-concept-reveal`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0daf95e40a334504096e39a3ecd77aa9e3f88946",
+            "content": "sha256:2f3215782d46b6abbc0d75fe89b2261bd0f4d8aadf8a59e0dc7d45bd9822c8ec",
+            "locator": {
+              "end": 32,
+              "kind": "line_range",
+              "start": 25
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

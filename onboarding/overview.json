@@ -20,14 +20,14 @@
       ]
     },
     "2": {
-      "note": "GitHub Actions invokes the bootstrap and runner directly.",
+      "note": "GitHub Actions invokes the bootstrap and quality runner in python-gates and verifies synthetic rh-validate, rh-build-site and VitePress builds in site-build-check.\n\nAnchor: `python-gates`; `site-build-check`",
       "targets": [
         {
           "anchor": {
-            "blob": "100afc185482ac302f46f16bbd03ff8f1eef89c7",
-            "content": "sha256:e0f5044f8275d2a925736c502d9d879717dc1a0825f1c3560596f1d37b926a3f",
+            "blob": "a4fea456633855d028009ee4158b1aec1cf48ccb",
+            "content": "sha256:8f6196a6ff54ef37ec11d5e2f297b19751229b611393590db607d6d767c09bb8",
             "locator": {
-              "end": 17,
+              "end": 86,
               "kind": "line_range",
               "start": 8
             },
@@ -38,14 +38,14 @@
       ]
     },
     "3": {
-      "note": "Package metadata registers rh-audit, rh-extract, rh-file-size-gate and rh-validate console scripts.",
+      "note": "Package metadata registers rh-audit, rh-build-site, rh-extract, rh-file-size-gate and rh-validate console scripts.\n\nAnchor: `[project.scripts]`",
       "targets": [
         {
           "anchor": {
-            "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
-            "content": "sha256:0d8f4dcccf69e49c0202d56e124a80afc3b68c5af9221638aac41c808086de1a",
+            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+            "content": "sha256:aac44b3608721dbe8ce839128962ab198b77ea0165d09af707709f76ba7105a7",
             "locator": {
-              "end": 28,
+              "end": 29,
               "kind": "line_range",
               "start": 24
             },
@@ -101,6 +101,23 @@
               "name": "main"
             },
             "path": "src/rh_pipeline/cli/validate.py"
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "7": {
+      "note": "The rh-build-site CLI compiles validated Stage 00 explainers, Concept Cards, SVG assets, audit status and DAG data atomically into VitePress docs.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7f05277ea9d094fe20897878eb16f6ced26e9d89",
+            "content": "sha256:02630b3e743d72883b7a6ce7a9eaf3a714c6b227612857716527e941f3f0fd46",
+            "locator": {
+              "kind": "symbol",
+              "name": "main"
+            },
+            "path": "src/rh_pipeline/cli/build_site.py"
           },
           "kind": "code"
         }

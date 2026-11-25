@@ -1,0 +1,76 @@
+{
+  "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
+        "content": "sha256:5957798a2b3303ea298360fccd331e8154e20d8d8aacf72182e890f862235987",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-TJXJ4B",
+      "invariant": "INV-VGNZKV",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §3",
+        "leaf": "05"
+      },
+      "rationale": "Renders all three zoom levels stacked in static/script-off/print HTML and upgrades after hydration to keyboard-navigable roving-tabindex tabs with shareable ?level= URL state.",
+      "role": "presentation"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Defines the three zoom tabs (`abitur`/`undergrad`/`lean` mapped to `level1`/`level2`/`level3` slots), `pageId` prop and pre-hydration `hydrated = false` state.\n\nAnchor: `TABS`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
+            "content": "sha256:2bbbbe42236f8f44db00cec7b57dc0c45fa5d2b3faf13e231015bc3d4b7be2c1",
+            "locator": {
+              "end": 40,
+              "kind": "line_range",
+              "start": 4
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Parses `?level=` and `#level-*` deep links (`parseLevelFromUrl`), syncs `?level=` via `history.replaceState` (`syncUrl`) and handles `ArrowLeft`/`ArrowRight`/`Home`/`End` keyboard navigation (`onTabKeydown`).\n\nAnchor: `onTabKeydown`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
+            "content": "sha256:6632856e8a4890627da89b815b52c6b344e1585957fc0db99b90e94a2ddaf1e1",
+            "locator": {
+              "end": 118,
+              "kind": "line_range",
+              "start": 42
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Progressively enhances from script-off static jump nav and stacked panels to WAI-ARIA `tablist`/`tabpanel` controls with roving `tabindex` and print-restorable headings.\n\nAnchor: `rh-zoom-tablist`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
+            "content": "sha256:73f43fe0dbf820c4c03a35736f8c9929bdaa73824865a3ad0807235cc47a5dce",
+            "locator": {
+              "end": 188,
+              "kind": "line_range",
+              "start": 121
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

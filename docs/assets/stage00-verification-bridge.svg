@@ -1,0 +1,285 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 760 440"
+     width="760"
+     height="440"
+     role="img"
+     aria-labelledby="stage00-bridge-title stage00-bridge-desc">
+  <title id="stage00-bridge-title">Stage 00 Formal Statement &amp; Comparator Audit Architecture</title>
+  <desc id="stage00-bridge-desc">Three-column architecture diagram of Stage 00 formal contracts, proof entry and equivalence bridge, and independent comparator and kernel audit specifications. Column 1 shows upstream statement and challenge contracts: src/Statements.lean (4 Prop definitions), src/Challenge.lean (5 sorry target specs), and comparator/FormalConjecturesStatement.lean with FormalConjecturesChallenge.lean. Column 2 shows proof and bridge modules: src/Main.lean (importing Statements and proving all 5 targets), comparator/FormalConjecturesBridge.lean (reviewer-authored equivalence proof to external formal-conjectures specs), and comparator/FormalConjecturesSolution.lean (importing Main and FormalConjecturesBridge to discharge both RH and GRH targets). Column 3 shows comparator.json and formal-conjectures.json (permitted axioms propext, Quot.sound, Classical.choice; external kernels leanchecker-paranoid and nanoda_bin) alongside an amber dashed Local Audit Snapshot box for upstream commit c900e67c2fcd reporting build_status unverified-locally, 0 forbidden tokens in solution on entry static scan, and 7 expected challenge sorrys.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-green-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-cobalt-start" viewBox="0 0 10 10" refX="1.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 9 1.5 L 1 5 L 9 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-slate-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+
+    <!-- Header clip paths for crisp rounded top corners -->
+    <clipPath id="clip-1a"><rect x="10" y="70" width="252" height="112" rx="6"/></clipPath>
+    <clipPath id="clip-1b"><rect x="10" y="194" width="252" height="74" rx="6"/></clipPath>
+    <clipPath id="clip-1c"><rect x="10" y="280" width="252" height="124" rx="6"/></clipPath>
+    <clipPath id="clip-2a"><rect x="298" y="70" width="228" height="198" rx="6"/></clipPath>
+    <clipPath id="clip-2b"><rect x="298" y="280" width="228" height="124" rx="6"/></clipPath>
+    <clipPath id="clip-3a"><rect x="558" y="70" width="192" height="178" rx="6"/></clipPath>
+    <clipPath id="clip-3b"><rect x="558" y="260" width="192" height="144" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Light Canvas -->
+  <rect x="0.5" y="0.5" width="759" height="439" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- Main Header -->
+  <text x="14" y="25" class="sans" font-size="15.5" font-weight="700" fill="#161b22">Stage 00 Formal Statement &amp; Comparator Audit Architecture</text>
+  <text x="746" y="24" class="mono" font-size="11.5" fill="#3f4a56" text-anchor="end">upstream c900e67c2fcd</text>
+  <line x1="10" y1="36" x2="750" y2="36" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- Column Headers -->
+  <g id="column-headers">
+    <!-- Column 1 Header -->
+    <text x="12" y="55" class="sans" font-size="13" font-weight="700" fill="#065f46">1. Statements &amp; Challenges</text>
+    <line x1="10" y1="62" x2="262" y2="62" stroke="#065f46" stroke-width="2"/>
+
+    <!-- Column 2 Header -->
+    <text x="300" y="55" class="sans" font-size="13" font-weight="700" fill="#1e40af">2. Proof &amp; Equivalence Bridge</text>
+    <line x1="298" y1="62" x2="526" y2="62" stroke="#1e40af" stroke-width="2"/>
+
+    <!-- Column 3 Header -->
+    <text x="560" y="55" class="sans" font-size="13" font-weight="700" fill="#3f4a56">3. Audit &amp; Kernel Spec</text>
+    <line x1="558" y1="62" x2="750" y2="62" stroke="#64748b" stroke-width="2"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 1: Statement & Challenge Contracts (Upstream)                  -->
+  <!-- ===================================================================== -->
+
+  <!-- Box 1A: src/Statements.lean -->
+  <g id="box-1a">
+    <rect x="10" y="70" width="252" height="112" rx="6" fill="#ffffff"/>
+    <rect x="10" y="70" width="252" height="27" fill="#ecfdf5" clip-path="url(#clip-1a)"/>
+    <line x1="10" y1="97" x2="262" y2="97" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="10" y="70" width="252" height="112" rx="6" fill="none" stroke="#065f46" stroke-width="1.5"/>
+
+    <text x="18" y="88" class="mono" font-size="11.5" font-weight="700" fill="#065f46">src/Statements.lean</text>
+    <rect x="196" y="76" width="58" height="15" rx="3" fill="#d1fae5" stroke="#065f46" stroke-width="0.75"/>
+    <text x="225" y="87" class="sans" font-size="9" font-weight="700" fill="#065f46" text-anchor="middle">CONTRACT</text>
+
+    <text x="18" y="112" class="sans" font-size="10.5" font-weight="600" fill="#3f4a56">4 Prop definitions:</text>
+    <circle cx="21" cy="124" r="1.8" fill="#065f46"/>
+    <text x="27" y="128" class="mono" font-size="10.5" fill="#161b22">RiemannZetaZerosOnLine</text>
+    <circle cx="21" cy="140" r="1.8" fill="#065f46"/>
+    <text x="27" y="144" class="mono" font-size="10.5" fill="#161b22">DirichletLNonvanishingRightOfHalf</text>
+    <circle cx="21" cy="156" r="1.8" fill="#065f46"/>
+    <text x="27" y="160" class="mono" font-size="10.5" fill="#161b22">DirichletLZerosOnLine</text>
+    <circle cx="21" cy="172" r="1.8" fill="#065f46"/>
+    <text x="27" y="176" class="mono" font-size="10.5" fill="#161b22">PrimitiveDirichletLZerosOnLine</text>
+  </g>
+
+  <!-- Box 1B: src/Challenge.lean -->
+  <g id="box-1b">
+    <rect x="10" y="194" width="252" height="74" rx="6" fill="#ffffff"/>
+    <rect x="10" y="194" width="252" height="27" fill="#f0fdf4" clip-path="url(#clip-1b)"/>
+    <line x1="10" y1="221" x2="262" y2="221" stroke="#bbf7d0" stroke-width="1"/>
+    <rect x="10" y="194" width="252" height="74" rx="6" fill="none" stroke="#065f46" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+    <text x="18" y="212" class="mono" font-size="11.5" font-weight="700" fill="#065f46">src/Challenge.lean</text>
+    <rect x="200" y="200" width="54" height="15" rx="3" fill="#ffffff" stroke="#065f46" stroke-width="0.85" stroke-dasharray="3,2"/>
+    <text x="227" y="211" class="sans" font-size="9" font-weight="700" fill="#065f46" text-anchor="middle">5 SORRY</text>
+
+    <text x="18" y="238" class="sans" font-size="10.5" fill="#3f4a56">5 <tspan class="mono" font-weight="600" fill="#161b22">sorry</tspan> target specifications:</text>
+    <circle cx="21" cy="252" r="1.8" fill="#065f46"/>
+    <text x="27" y="256" class="mono" font-size="10.5" font-weight="600" fill="#161b22">riemannHypothesis<tspan class="sans" font-weight="400" fill="#3f4a56"> + 4 GRH targets</tspan></text>
+  </g>
+
+  <!-- Box 1C: comparator/FormalConjecturesStatement.lean & FormalConjecturesChallenge.lean -->
+  <g id="box-1c">
+    <rect x="10" y="280" width="252" height="124" rx="6" fill="#ffffff"/>
+    <rect x="10" y="280" width="252" height="53" fill="#f0fdf4" clip-path="url(#clip-1c)"/>
+    <line x1="10" y1="333" x2="262" y2="333" stroke="#bbf7d0" stroke-width="1"/>
+    <rect x="10" y="280" width="252" height="124" rx="6" fill="none" stroke="#065f46" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+    <text x="18" y="295" class="mono" font-size="10.5" fill="#3f4a56">comparator/</text>
+    <rect x="182" y="285" width="72" height="15" rx="3" fill="#ffffff" stroke="#065f46" stroke-width="0.85" stroke-dasharray="3,2"/>
+    <text x="218" y="296" class="sans" font-size="9" font-weight="700" fill="#065f46" text-anchor="middle">EXT · 2 SORRY</text>
+
+    <text x="18" y="311" class="mono" font-size="11.5" font-weight="700" fill="#065f46">FormalConjecturesStatement.lean</text>
+    <text x="18" y="326" class="mono" font-size="11.5" font-weight="700" fill="#065f46">FormalConjecturesChallenge.lean</text>
+
+    <circle cx="21" cy="349" r="1.8" fill="#065f46"/>
+    <text x="27" y="353" class="mono" font-size="10.5" fill="#161b22">GRH.trivialZeros</text>
+    <circle cx="21" cy="368" r="1.8" fill="#065f46"/>
+    <text x="27" y="372" class="mono" font-size="10.5" fill="#161b22">RiemannHypothesis.riemannHypothesis</text>
+    <circle cx="21" cy="387" r="1.8" fill="#065f46"/>
+    <text x="27" y="391" class="mono" font-size="10.5" fill="#161b22">GRH.generalized_riemann_hypothesis</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 2: Proof Entry & Equivalence Bridge                            -->
+  <!-- ===================================================================== -->
+
+  <!-- Box 2A: src/Main.lean -->
+  <g id="box-2a">
+    <rect x="298" y="70" width="228" height="198" rx="6" fill="#ffffff"/>
+    <rect x="298" y="70" width="228" height="28" fill="#eff6ff" clip-path="url(#clip-2a)"/>
+    <line x1="298" y1="98" x2="526" y2="98" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="298" y="70" width="228" height="198" rx="6" fill="none" stroke="#1e40af" stroke-width="1.75"/>
+
+    <text x="307" y="89" class="mono" font-size="12" font-weight="700" fill="#1e40af">src/Main.lean</text>
+    <rect x="444" y="76" width="74" height="16" rx="3" fill="#dbeafe" stroke="#1e40af" stroke-width="0.75"/>
+    <text x="481" y="87.5" class="sans" font-size="9" font-weight="700" fill="#1e40af" text-anchor="middle">PROOF ENTRY</text>
+
+    <text x="307" y="116" class="sans" font-size="11" fill="#3f4a56">Imports <tspan class="mono" font-weight="600" fill="#065f46">Statements</tspan></text>
+    <line x1="307" y1="125" x2="517" y2="125" stroke="#e5e0d5" stroke-width="1"/>
+
+    <text x="307" y="143" class="sans" font-size="11" font-weight="700" fill="#161b22">Proves all 5 targets:</text>
+
+    <circle cx="311" cy="158" r="1.8" fill="#1e40af"/>
+    <text x="317" y="162" class="mono" font-size="10.5" font-weight="600" fill="#161b22">riemannHypothesis</text>
+
+    <circle cx="311" cy="176" r="1.8" fill="#1e40af"/>
+    <text x="317" y="180" class="mono" font-size="10.5" fill="#161b22">riemannZeta_eq_zero_re</text>
+
+    <circle cx="311" cy="194" r="1.8" fill="#1e40af"/>
+    <text x="317" y="198" class="mono" font-size="10.5" fill="#161b22">LFunction_ne_zero_of_half_lt_re</text>
+
+    <circle cx="311" cy="212" r="1.8" fill="#1e40af"/>
+    <text x="317" y="216" class="mono" font-size="10.5" fill="#161b22">LFunction_eq_zero_re</text>
+    <text x="317" y="231" class="sans" font-size="10.5" fill="#3f4a56">(+ primitive character variant)</text>
+
+    <rect x="307" y="241" width="210" height="19" rx="3" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.8"/>
+    <text x="412" y="254" class="sans" font-size="9.5" font-weight="600" fill="#1e40af" text-anchor="middle">Entry static scan: 0 forbidden tokens</text>
+  </g>
+
+  <!-- Box 2B: comparator/FormalConjecturesBridge.lean & FormalConjecturesSolution.lean -->
+  <g id="box-2b">
+    <rect x="298" y="280" width="228" height="124" rx="6" fill="#ffffff"/>
+    <rect x="298" y="280" width="228" height="53" fill="#eff6ff" clip-path="url(#clip-2b)"/>
+    <line x1="298" y1="333" x2="526" y2="333" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="298" y="280" width="228" height="124" rx="6" fill="none" stroke="#1e40af" stroke-width="1.75"/>
+
+    <text x="307" y="295" class="mono" font-size="10.5" fill="#3f4a56">comparator/</text>
+    <rect x="444" y="285" width="74" height="15" rx="3" fill="#dbeafe" stroke="#1e40af" stroke-width="0.75"/>
+    <text x="481" y="296" class="sans" font-size="9" font-weight="700" fill="#1e40af" text-anchor="middle">BRIDGE + SOL</text>
+    <text x="307" y="311" class="mono" font-size="11.2" font-weight="700" fill="#1e40af">FormalConjecturesBridge.lean</text>
+    <text x="307" y="326" class="mono" font-size="11.2" font-weight="700" fill="#1e40af">FormalConjecturesSolution.lean</text>
+
+    <text x="307" y="349" class="sans" font-size="10.5" font-weight="700" fill="#161b22">Bridge proves equivalence to</text>
+    <text x="307" y="364" class="mono" font-size="10.5" fill="#1e40af">formal-conjectures<tspan class="sans" fill="#3f4a56"> specs.</tspan></text>
+    <text x="307" y="381" class="sans" font-size="10.5" fill="#3f4a56">Solution imports Bridge &amp; Main to</text>
+    <text x="307" y="396" class="sans" font-size="10.5" fill="#3f4a56">discharge both RH &amp; GRH targets.</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 3: Independent Audit & Kernel Specification                    -->
+  <!-- ===================================================================== -->
+
+  <!-- Box 3A: comparator.json & formal-conjectures.json -->
+  <g id="box-3a">
+    <rect x="558" y="70" width="192" height="178" rx="6" fill="#ffffff"/>
+    <rect x="558" y="70" width="192" height="53" fill="#f1f5f9" clip-path="url(#clip-3a)"/>
+    <line x1="558" y1="123" x2="750" y2="123" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="558" y="70" width="192" height="178" rx="6" fill="none" stroke="#475569" stroke-width="1.5"/>
+
+    <text x="567" y="85" class="sans" font-size="9.5" font-weight="700" fill="#3f4a56" letter-spacing="0.4">COMPARATOR &amp; KERNELS</text>
+    <text x="567" y="102" class="mono" font-size="11.5" font-weight="700" fill="#161b22">comparator.json</text>
+    <text x="567" y="117" class="mono" font-size="11.5" font-weight="700" fill="#161b22">formal-conjectures.json</text>
+
+    <text x="567" y="140" class="sans" font-size="10.5" font-weight="700" fill="#3f4a56">Permitted axioms (3):</text>
+    <circle cx="570" cy="153" r="1.8" fill="#475569"/>
+    <text x="576" y="157" class="mono" font-size="10.5" fill="#161b22">propext · Quot.sound</text>
+    <circle cx="570" cy="170" r="1.8" fill="#475569"/>
+    <text x="576" y="174" class="mono" font-size="10.5" fill="#161b22">Classical.choice</text>
+
+    <line x1="567" y1="185" x2="741" y2="185" stroke="#e5e0d5" stroke-width="1"/>
+
+    <text x="567" y="201" class="sans" font-size="10.5" font-weight="700" fill="#3f4a56">External kernels:</text>
+    <circle cx="570" cy="215" r="1.8" fill="#475569"/>
+    <text x="576" y="219" class="mono" font-size="11" fill="#161b22">leanchecker-paranoid</text>
+    <circle cx="570" cy="233" r="1.8" fill="#475569"/>
+    <text x="576" y="237" class="mono" font-size="11" fill="#161b22">nanoda_bin</text>
+  </g>
+
+  <!-- Box 3B: Amber Honest-Status Box — Local Audit Snapshot -->
+  <g id="box-3b">
+    <rect x="558" y="260" width="192" height="144" rx="6" fill="#fef6e4"/>
+    <rect x="558" y="260" width="192" height="41" fill="#fdecc8" clip-path="url(#clip-3b)"/>
+    <line x1="558" y1="301" x2="750" y2="301" stroke="#e6c48a" stroke-width="1"/>
+    <rect x="558" y="260" width="192" height="144" rx="6" fill="none" stroke="#92400e" stroke-width="1.75" stroke-dasharray="5,3"/>
+
+    <text x="567" y="278" class="sans" font-size="13" font-weight="700" fill="#92400e">Local Audit Snapshot</text>
+    <text x="567" y="294" class="mono" font-size="11.5" font-weight="700" fill="#92400e">c900e67c2fcd</text>
+    <rect x="668" y="283" width="74" height="14" rx="3" fill="#92400e"/>
+    <text x="705" y="293" class="sans" font-size="8.5" font-weight="700" fill="#fef6e4" text-anchor="middle">STATIC ONLY</text>
+
+    <text x="567" y="317" class="sans" font-size="10.5" font-weight="600" fill="#78350f">build_status:</text>
+    <rect x="567" y="322" width="142" height="20" rx="3" fill="#fffbeb" stroke="#92400e" stroke-width="1"/>
+    <text x="638" y="336" class="mono" font-size="11.5" font-weight="700" fill="#92400e" text-anchor="middle">unverified-locally</text>
+
+    <text x="567" y="359" class="sans" font-size="10.5" font-weight="700" fill="#78350f">Entry static scan:</text>
+    <circle cx="570" cy="372" r="1.8" fill="#92400e"/>
+    <text x="576" y="376" class="sans" font-size="10.5" fill="#161b22"><tspan font-weight="700">0</tspan> forbidden tokens in solution</text>
+    <circle cx="570" cy="389" r="1.8" fill="#92400e"/>
+    <text x="576" y="393" class="sans" font-size="10.5" fill="#161b22"><tspan font-weight="700">7</tspan> expected challenge <tspan class="mono" font-size="10">sorry</tspan>s</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- DIRECTIONAL ARROWS & LABELS                                           -->
+  <!-- ===================================================================== -->
+  <g id="arrows">
+    <!-- 1A -> 2A (import) -->
+    <line x1="262" y1="126" x2="296" y2="126" stroke="#065f46" stroke-width="1.6" marker-end="url(#arrow-green-end)"/>
+    <text x="279" y="119" class="sans" font-size="9.5" font-weight="700" fill="#065f46" text-anchor="middle">import</text>
+
+    <!-- 1B <-> 2A (Comparator target match) -->
+    <line x1="264" y1="231" x2="296" y2="231" stroke="#1e40af" stroke-width="1.6" marker-start="url(#arrow-cobalt-start)" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="280" y="222" class="sans" font-size="9.5" font-weight="700" fill="#1e40af" text-anchor="middle">target</text>
+    <text x="280" y="244" class="sans" font-size="9.5" font-weight="700" fill="#1e40af" text-anchor="middle">match</text>
+
+    <!-- 1C <-> 2B (Comparator equivalence) -->
+    <line x1="264" y1="342" x2="296" y2="342" stroke="#1e40af" stroke-width="1.6" marker-start="url(#arrow-cobalt-start)" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="280" y="334" class="sans" font-size="9.5" font-weight="700" fill="#1e40af" text-anchor="middle">equiv.</text>
+
+    <!-- 2A -> 3A (audit) -->
+    <line x1="526" y1="154" x2="556" y2="154" stroke="#3f4a56" stroke-width="1.6" marker-end="url(#arrow-slate-end)"/>
+    <text x="541" y="147" class="sans" font-size="9.5" font-weight="700" fill="#3f4a56" text-anchor="middle">audit</text>
+
+    <!-- 2B -> 3A (orthogonal route to Comparator & Kernel Spec) -->
+    <path d="M 526 342 H 537 Q 542 342 542 337 V 213 Q 542 208 547 208 H 556"
+          fill="none" stroke="#3f4a56" stroke-width="1.6" marker-end="url(#arrow-slate-end)"/>
+    <rect x="528" y="266" width="28" height="14" rx="2" fill="#faf9f5"/>
+    <text x="542" y="276" class="sans" font-size="9.5" font-weight="700" fill="#3f4a56" text-anchor="middle">audit</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM LEGEND BAR (Color + Border Style + Text)                       -->
+  <!-- ===================================================================== -->
+  <g id="legend">
+    <line x1="10" y1="414" x2="750" y2="414" stroke="#e5e0d5" stroke-width="1"/>
+
+    <rect x="34" y="422" width="12" height="9" rx="2" fill="#ffffff" stroke="#065f46" stroke-width="1.4"/>
+    <text x="51" y="430" class="sans" font-size="10" fill="#3f4a56">Statement contract</text>
+
+    <rect x="164" y="422" width="12" height="9" rx="2" fill="#ffffff" stroke="#065f46" stroke-width="1.4" stroke-dasharray="3,2"/>
+    <text x="181" y="430" class="sans" font-size="10" fill="#3f4a56">Challenge spec (sorry)</text>
+
+    <rect x="308" y="422" width="12" height="9" rx="2" fill="#ffffff" stroke="#1e40af" stroke-width="1.5"/>
+    <text x="325" y="430" class="sans" font-size="10" fill="#3f4a56">Proof / bridge</text>
+
+    <rect x="410" y="422" width="12" height="9" rx="2" fill="#ffffff" stroke="#475569" stroke-width="1.4"/>
+    <text x="427" y="430" class="sans" font-size="10" fill="#3f4a56">Audit &amp; kernel spec</text>
+
+    <rect x="538" y="422" width="12" height="9" rx="2" fill="#fef6e4" stroke="#92400e" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="555" y="430" class="sans" font-size="10" fill="#92400e" font-weight="600">Unverified locally (static scan)</text>
+  </g>
+</svg>

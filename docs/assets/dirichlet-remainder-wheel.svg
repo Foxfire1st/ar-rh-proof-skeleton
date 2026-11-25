@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 760 460"
+     width="760"
+     height="460"
+     role="img"
+     aria-labelledby="dirichlet-wheel-title dirichlet-wheel-desc">
+  <title id="dirichlet-wheel-title">Dirichlet Characters as Periodic Remainder Filters</title>
+  <desc id="dirichlet-wheel-desc">Two side-by-side circular remainder wheels illustrating Dirichlet characters: on the left, the non-principal primitive character chi_4 modulo 4 mapping 1 mod 4 to +1, 3 mod 4 to -1, and 0, 2 mod 4 to 0, followed by the first seven terms of its twisted Dirichlet L-series; on the right, the primitive character chi_5 modulo 5 mapping 0 to 0 and coprime residues 1, 2, 3, 4 to the fourth roots of unity +1, +i, -i, -1 on the complex unit circle, with explicit multiplicativity checks. A bottom comparison strip contrasts primitive chi_4 (mod 4) with its induced lift to mod 12, showing that forcing chi(3) = 0 removes the p = 3 Euler factor and creates extra zeros on Re(s) = 0, explaining why PrimitiveDirichletLZerosOnLine and GRH.generalized_riemann_hypothesis restrict to primitive characters.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+      .main-title { font-size: 16.5px; font-weight: 700; fill: #161b22; }
+      .card-title { font-size: 13.5px; font-weight: 700; fill: #161b22; }
+      .card-sub { font-size: 12px; font-weight: 400; fill: #3f4a56; }
+      .label { font-size: 12px; font-weight: 400; fill: #3f4a56; }
+      .label-bold { font-size: 12px; font-weight: 700; fill: #161b22; }
+      .hub-text { font-size: 12px; font-weight: 700; fill: #3f4a56; }
+      .node-val-light { font-size: 12px; font-weight: 700; fill: #ffffff; }
+      .node-val-dark { font-size: 12px; font-weight: 700; fill: #3f4a56; }
+      .footer-note { font-size: 12px; font-weight: 600; fill: #3f4a56; }
+      .cobalt { fill: #1e40af; }
+      .terracotta { fill: #9a3412; }
+      .green { fill: #065f46; }
+      .amber { fill: #92400e; }
+      .muted { fill: #57606a; }
+    </style>
+
+    <marker id="arrow-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-cycle" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 1 2 L 8.5 5 L 1 8 z" fill="#8b8579"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas background -->
+  <rect x="0" y="0" width="760" height="460" rx="8" fill="#faf9f5"/>
+
+  <!-- Main Title -->
+  <text x="380" y="26" text-anchor="middle" class="sans main-title">Dirichlet Characters as Periodic Remainder Filters</text>
+
+  <!-- ===================================================================== -->
+  <!-- LEFT PANEL: Non-Principal Character chi_4 (mod 4)                      -->
+  <!-- ===================================================================== -->
+  <g id="panel-chi4">
+    <rect x="14" y="38" width="360" height="286" rx="8" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2"/>
+
+    <!-- Panel Header -->
+    <text x="28" y="57" class="sans card-title">Non-Principal Character χ₄ (mod 4)</text>
+    <text x="28" y="73" class="sans card-sub">4-spoke remainder wheel · values in {0, +1, −1}</text>
+    <line x1="26" y1="81" x2="362" y2="81" stroke="#e8e4dc" stroke-width="1"/>
+
+    <!-- 4-Spoke Wheel centered at (194, 162), R = 41 -->
+    <g id="wheel-mod4">
+      <!-- Outer ring -->
+      <circle cx="194" cy="162" r="41" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1.4"/>
+
+      <!-- Subtle clockwise direction arc (between 0 and 1 mod 4) -->
+      <path d="M 216 116 A 51 51 0 0 1 240 137" fill="none" stroke="#8b8579" stroke-width="1.2" marker-end="url(#arrow-cycle)"/>
+
+      <!-- Spokes -->
+      <line x1="194" y1="143" x2="194" y2="131" stroke="#8b8579" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <line x1="213" y1="162" x2="223" y2="162" stroke="#1e40af" stroke-width="2.4"/>
+      <line x1="194" y1="181" x2="194" y2="193" stroke="#8b8579" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <line x1="175" y1="162" x2="164" y2="162" stroke="#9a3412" stroke-width="2.4"/>
+
+      <!-- Center Hub -->
+      <circle cx="194" cy="162" r="19" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2"/>
+      <text x="194" y="166" text-anchor="middle" class="sans hub-text">mod 4</text>
+
+      <!-- 0 mod 4 -> 0 (Top, hollow circle) -->
+      <circle cx="194" cy="121" r="10" fill="#ffffff" stroke="#57606a" stroke-width="2"/>
+      <text x="194" y="125" text-anchor="middle" class="sans node-val-dark">0</text>
+      <text x="194" y="101" text-anchor="middle" class="sans label"><tspan font-weight="700" fill="#161b22">0 mod 4</tspan> → 0  (gcd &gt; 1)</text>
+
+      <!-- 1 mod 4 -> +1 (Right, solid cobalt circle) -->
+      <circle cx="235" cy="162" r="12" fill="#1e40af" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="235" y="166" text-anchor="middle" class="sans node-val-light">+1</text>
+      <text x="255" y="158" text-anchor="start" class="sans label-bold">1 mod 4</text>
+      <text x="255" y="174" text-anchor="start" class="sans label-bold cobalt">→ +1</text>
+
+      <!-- 2 mod 4 -> 0 (Bottom, hollow circle) -->
+      <circle cx="194" cy="203" r="10" fill="#ffffff" stroke="#57606a" stroke-width="2"/>
+      <text x="194" y="207" text-anchor="middle" class="sans node-val-dark">0</text>
+      <text x="194" y="229" text-anchor="middle" class="sans label"><tspan font-weight="700" fill="#161b22">2 mod 4</tspan> → 0  (gcd &gt; 1)</text>
+
+      <!-- 3 mod 4 -> -1 (Left, solid terracotta square) -->
+      <rect x="142" y="151" width="22" height="22" rx="3" fill="#9a3412" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="153" y="166" text-anchor="middle" class="sans node-val-light">−1</text>
+      <text x="134" y="158" text-anchor="end" class="sans label-bold">3 mod 4</text>
+      <text x="134" y="174" text-anchor="end" class="sans label-bold terracotta">→ −1</text>
+    </g>
+
+    <!-- Twisted Series Box -->
+    <rect x="24" y="240" width="340" height="54" rx="6" fill="#faf9f5" stroke="#e5e0d5" stroke-width="1"/>
+    <text x="194" y="260" text-anchor="middle" class="sans label">Twisted Dirichlet series <tspan font-weight="700" fill="#161b22">L(χ₄, s)</tspan> (first 7 terms):</text>
+    <text x="194" y="282" text-anchor="middle" class="sans label"><tspan fill="#161b22" font-weight="600">=</tspan><tspan font-weight="700" fill="#1e40af"> +1/1ˢ</tspan><tspan fill="#57606a"> + 0</tspan><tspan font-weight="700" fill="#9a3412"> − 1/3ˢ</tspan><tspan fill="#57606a"> + 0</tspan><tspan font-weight="700" fill="#1e40af"> + 1/5ˢ</tspan><tspan fill="#57606a"> + 0</tspan><tspan font-weight="700" fill="#9a3412"> − 1/7ˢ</tspan><tspan fill="#3f4a56"> + …</tspan></text>
+
+    <!-- Footer Note -->
+    <text x="194" y="313" text-anchor="middle" class="sans footer-note">Primitive (conductor 4) · Odd: χ₄(−1) = −1</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- RIGHT PANEL: Primitive Character chi_5 (mod 5) on the Unit Circle     -->
+  <!-- ===================================================================== -->
+  <g id="panel-chi5">
+    <rect x="386" y="38" width="360" height="286" rx="8" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2"/>
+
+    <!-- Panel Header -->
+    <text x="400" y="57" class="sans card-title">Primitive Character χ₅ (mod 5)</text>
+    <text x="400" y="73" class="sans card-sub">5-spoke wheel mapped to the unit circle {±1, ±i}</text>
+    <line x1="398" y1="81" x2="734" y2="81" stroke="#e8e4dc" stroke-width="1"/>
+
+    <!-- 5-Spoke Wheel centered at (496, 164), R = 42 -->
+    <g id="wheel-mod5">
+      <!-- Outer ring -->
+      <circle cx="496" cy="164" r="42" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1.4"/>
+
+      <!-- Spokes (hub r = 19 to node centers) -->
+      <!-- k=0 (-90 deg) -->
+      <line x1="496" y1="145" x2="496" y2="132" stroke="#8b8579" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <!-- k=1 (-18 deg) -->
+      <line x1="514" y1="158" x2="525" y2="155" stroke="#1e40af" stroke-width="2.4"/>
+      <!-- k=2 (54 deg) -->
+      <line x1="507" y1="179" x2="513" y2="188" stroke="#065f46" stroke-width="2.4"/>
+      <!-- k=3 (126 deg) -->
+      <line x1="485" y1="179" x2="478" y2="188" stroke="#92400e" stroke-width="2.4"/>
+      <!-- k=4 (198 deg) -->
+      <line x1="478" y1="158" x2="467" y2="155" stroke="#9a3412" stroke-width="2.4"/>
+
+      <!-- Center Hub -->
+      <circle cx="496" cy="164" r="19" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2"/>
+      <text x="496" y="168" text-anchor="middle" class="sans hub-text">mod 5</text>
+
+      <!-- 0 mod 5 -> 0 (Top, hollow circle) -->
+      <circle cx="496" cy="122" r="10" fill="#ffffff" stroke="#57606a" stroke-width="2"/>
+      <text x="496" y="126" text-anchor="middle" class="sans node-val-dark">0</text>
+      <text x="496" y="101" text-anchor="middle" class="sans label"><tspan font-weight="700" fill="#161b22">0 mod 5</tspan> → 0</text>
+
+      <!-- 1 mod 5 -> +1 (Upper-right, solid cobalt circle) -->
+      <circle cx="536" cy="151" r="11" fill="#1e40af" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="536" y="155" text-anchor="middle" class="sans node-val-light">+1</text>
+      <text x="552" y="155" text-anchor="start" class="sans label-bold">1 <tspan class="cobalt">→ +1</tspan></text>
+
+      <!-- 2 mod 5 -> +i (Lower-right, solid green diamond) -->
+      <polygon points="521,184 535,198 521,212 507,198" fill="#065f46" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="521" y="202" text-anchor="middle" class="sans node-val-light">+i</text>
+      <text x="539" y="203" text-anchor="start" class="sans label-bold">2 <tspan class="green">→ +i</tspan></text>
+
+      <!-- 3 mod 5 -> -i (Lower-left, solid amber hexagon) -->
+      <polygon points="484,198 477.5,209.3 464.5,209.3 458,198 464.5,186.7 477.5,186.7" fill="#92400e" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="471" y="202" text-anchor="middle" class="sans node-val-light">−i</text>
+      <text x="453" y="203" text-anchor="end" class="sans label-bold">3 <tspan class="amber">→ −i</tspan></text>
+
+      <!-- 4 mod 5 -> -1 (Upper-left, solid terracotta square) -->
+      <rect x="445" y="140" width="22" height="22" rx="3" fill="#9a3412" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="456" y="155" text-anchor="middle" class="sans node-val-light">−1</text>
+      <text x="440" y="155" text-anchor="end" class="sans label-bold">4 <tspan class="terracotta">→ −1</tspan></text>
+    </g>
+
+    <!-- Mapping Arrow from Wheel to Unit Circle -->
+    <g id="map-arrow">
+      <line x1="588" y1="126" x2="622" y2="126" stroke="#3f4a56" stroke-width="1.4" marker-end="url(#arrow-muted)"/>
+      <text x="605" y="119" text-anchor="middle" class="sans label-bold">χ₅</text>
+    </g>
+
+    <!-- Complex Unit Circle S^1 centered at (674, 164), r = 30 -->
+    <g id="unit-circle">
+      <text x="674" y="101" text-anchor="middle" class="sans label-bold">Unit Circle S¹</text>
+
+      <!-- Axes -->
+      <line x1="636" y1="164" x2="712" y2="164" stroke="#d8d3c8" stroke-width="1.2"/>
+      <line x1="674" y1="126" x2="674" y2="202" stroke="#d8d3c8" stroke-width="1.2"/>
+
+      <!-- Circle -->
+      <circle cx="674" cy="164" r="30" fill="none" stroke="#8b8579" stroke-width="1.4"/>
+
+      <!-- Origin (0) -->
+      <circle cx="674" cy="164" r="4" fill="#ffffff" stroke="#57606a" stroke-width="1.6"/>
+
+      <!-- +1 (Right, cobalt circle) -->
+      <circle cx="704" cy="164" r="5.5" fill="#1e40af" stroke="#ffffff" stroke-width="1.2"/>
+      <text x="714" y="168" text-anchor="start" class="sans label-bold cobalt">+1</text>
+
+      <!-- +i (Top, green diamond) -->
+      <polygon points="674,127 681,134 674,141 667,134" fill="#065f46" stroke="#ffffff" stroke-width="1.2"/>
+      <text x="674" y="121" text-anchor="middle" class="sans label-bold green">+i</text>
+
+      <!-- -1 (Left, terracotta square) -->
+      <rect x="639" y="159" width="10" height="10" rx="1.5" fill="#9a3412" stroke="#ffffff" stroke-width="1.2"/>
+      <text x="634" y="168" text-anchor="end" class="sans label-bold terracotta">−1</text>
+
+      <!-- -i (Bottom, amber hexagon) -->
+      <polygon points="680.5,194 677.25,199.6 670.75,199.6 667.5,194 670.75,188.4 677.25,188.4" fill="#92400e" stroke="#ffffff" stroke-width="1.2"/>
+      <text x="674" y="218" text-anchor="middle" class="sans label-bold amber">−i</text>
+    </g>
+
+    <!-- Multiplicativity Check Box -->
+    <rect x="396" y="240" width="340" height="54" rx="6" fill="#faf9f5" stroke="#e5e0d5" stroke-width="1"/>
+    <text x="566" y="260" text-anchor="middle" class="sans label"><tspan fill="#161b22" font-weight="600">χ₅(2)·χ₅(3)</tspan> = <tspan font-weight="700" class="green">(+i)</tspan><tspan font-weight="700" class="amber">(−i)</tspan> = <tspan font-weight="700" class="cobalt">+1</tspan> = <tspan fill="#161b22" font-weight="600">χ₅(6 ≡ 1 mod 5)</tspan></text>
+    <text x="566" y="282" text-anchor="middle" class="sans label">Multiplicative:  <tspan fill="#161b22" font-weight="600">χ₅(2)²</tspan> = <tspan font-weight="700" class="green">(+i)²</tspan> = <tspan font-weight="700" class="terracotta">−1</tspan> = <tspan fill="#161b22" font-weight="600">χ₅(4)</tspan></text>
+
+    <!-- Footer Note -->
+    <text x="566" y="313" text-anchor="middle" class="sans footer-note">Primitive (conductor 5) · Odd: χ₅(4) = −1</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM STRIP: Primitive vs. Induced Character                         -->
+  <!-- ===================================================================== -->
+  <g id="strip-primitive-vs-induced">
+    <rect x="14" y="334" width="732" height="118" rx="8" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2"/>
+
+    <!-- Strip Header -->
+    <text x="28" y="353" class="sans card-title">Primitive vs. Induced Character</text>
+    <text x="732" y="353" text-anchor="end" class="sans card-sub">Why GRH isolates primitive characters</text>
+    <line x1="26" y1="360" x2="734" y2="360" stroke="#e8e4dc" stroke-width="1"/>
+
+    <!-- Left Comparison Grid: n = 1..6 -->
+    <g id="comparison-grid">
+      <!-- Highlight box for p = 3 column -->
+      <rect x="186" y="364" width="28" height="56" rx="4" fill="#fef3c7" stroke="#92400e" stroke-width="1.2" stroke-dasharray="3 2"/>
+
+      <!-- Column headers (n = 1..6) -->
+      <text x="124" y="377" text-anchor="end" class="sans label-bold">n:</text>
+      <text x="144" y="377" text-anchor="middle" class="sans label-bold">1</text>
+      <text x="172" y="377" text-anchor="middle" class="sans label-bold">2</text>
+      <text x="200" y="377" text-anchor="middle" class="sans label-bold amber">3</text>
+      <text x="228" y="377" text-anchor="middle" class="sans label-bold">4</text>
+      <text x="256" y="377" text-anchor="middle" class="sans label-bold">5</text>
+      <text x="284" y="377" text-anchor="middle" class="sans label-bold">6</text>
+
+      <!-- Row 1: Primitive chi_4 (mod 4) -->
+      <text x="28" y="396" class="sans label-bold">Primitive χ₄:</text>
+      <text x="144" y="396" text-anchor="middle" class="sans label-bold cobalt">+1</text>
+      <text x="172" y="396" text-anchor="middle" class="sans label muted">0</text>
+      <text x="200" y="396" text-anchor="middle" class="sans label-bold terracotta">−1</text>
+      <text x="228" y="396" text-anchor="middle" class="sans label muted">0</text>
+      <text x="256" y="396" text-anchor="middle" class="sans label-bold cobalt">+1</text>
+      <text x="284" y="396" text-anchor="middle" class="sans label muted">0</text>
+
+      <!-- Row 2: Induced mod 12 -->
+      <text x="28" y="415" class="sans label-bold amber">Induced mod 12:</text>
+      <text x="144" y="415" text-anchor="middle" class="sans label-bold cobalt">+1</text>
+      <text x="172" y="415" text-anchor="middle" class="sans label muted">0</text>
+      <text x="200" y="415" text-anchor="middle" class="sans label-bold amber">0</text>
+      <text x="228" y="415" text-anchor="middle" class="sans label muted">0</text>
+      <text x="256" y="415" text-anchor="middle" class="sans label-bold cobalt">+1</text>
+      <text x="284" y="415" text-anchor="middle" class="sans label muted">0</text>
+    </g>
+
+    <!-- Vertical Divider -->
+    <line x1="304" y1="366" x2="304" y2="419" stroke="#e5e0d5" stroke-width="1.2"/>
+
+    <!-- Right Mathematical Explanation -->
+    <g id="induced-explanation">
+      <text x="318" y="386" class="sans label">Lifting χ₄ to mod 12 forces <tspan font-weight="700" class="amber">χ(3) = 0</tspan> (drops <tspan font-weight="700" fill="#161b22">p = 3</tspan> Euler factor).</text>
+      <text x="318" y="408" class="sans label">That multiplies by (1 + 3⁻ˢ), adding extra zeros on <tspan font-weight="700" class="terracotta">Re(s) = 0</tspan>.</text>
+    </g>
+
+    <!-- Full-Width Lean Contract Footer Band -->
+    <rect x="26" y="424" width="708" height="22" rx="4" fill="#faf9f5" stroke="#e5e0d5" stroke-width="1"/>
+    <text x="380" y="439" text-anchor="middle" class="sans label">Isolated in Lean by <tspan class="mono cobalt" font-weight="700">PrimitiveDirichletLZerosOnLine</tspan> &amp; <tspan class="mono cobalt" font-weight="700">GRH.generalized_riemann_hypothesis</tspan></text>
+  </g>
+</svg>
