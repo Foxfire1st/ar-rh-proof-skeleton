@@ -1,0 +1,23 @@
+{
+  "path": "src/rh_pipeline/site/__init__.py",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Re-exports the Phase 4 compiler dataclasses, `compile_site`, error types and Markdown transform helpers in `__all__`.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d78591b7ac93208378de85825ec9d9def81fe22c",
+            "content": "sha256:5bd04344348841687a857d27f0d3be132e5a57c66972993b48724a84b60b01d9",
+            "locator": {
+              "kind": "symbol",
+              "name": "__all__"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

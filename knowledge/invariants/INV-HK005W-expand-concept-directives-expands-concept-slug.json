@@ -1,0 +1,46 @@
+{
+  "admission": {
+    "criteria": [
+      "guarded_by_test",
+      "family_guarantee",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Proved by unit tests in tests/unit/test_site_compiler.py and required for the Phase 4 compiler family guarantee; prevents raw directive leaks, HTML attribute breakage, corrupted code or math blocks and broken script-off glossary fallbacks."
+  },
+  "applicability": "Pure Markdown transformation functions in src/rh_pipeline/site/markdown_transforms.py compiling explainer directives, three-level zoom sections and static page glossaries.",
+  "conditions": [
+    "expand_concept_directives skips fenced code, inline code and $...$/$$...$$ math, splits {{concept:slug|prose}} on the first pipe, HTML-escapes all emitted Vue attributes and raises SiteDirectiveError on malformed or unknown directives.",
+    "split_zoom_levels wraps ordered Level 1, Level 2 and Level 3 headings outside fenced code in <ZoomTabs> slots, and render_page_glossary validates slugs and emits an ordered static <dl> fallback."
+  ],
+  "exclusions": [
+    "Pages lacking all three ordered Level 1/2/3 headings are returned unmodified by split_zoom_levels; empty reference lists return an empty string from render_page_glossary."
+  ],
+  "id": "INV-HK005W",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_site_compiler.py::test_expand_concept_directives_rules_and_escaping"
+      ],
+      "path": "rh-r05-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R05@v1 §2.1",
+    "leaf": "05",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "expand_concept_directives expands {{concept:slug|inline prose}} into <ConceptReveal> and {{term:slug[|display]}} into <ConceptHover> with HTML-escaped attributes, preserves fenced code, inline code, and LaTeX math untouched, and fails closed with SiteDirectiveError on malformed or unknown directives.",
+  "supersedes": [],
+  "title": "Fail-closed concept directive expansion, ZoomTabs and page glossary transforms",
+  "writer": {
+    "at": "2026-11-25T22:31:11+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "05",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+    "task": "261123-RH"
+  }
+}

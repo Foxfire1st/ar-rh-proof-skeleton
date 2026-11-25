@@ -1,0 +1,126 @@
+{
+  "path": "src/rh_pipeline/site/markdown_transforms.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+        "content": "sha256:ae79a63262db3e2a0a0e136b8258fd71b9283128cf85dc6ebdffa92f09a3531e",
+        "locator": {
+          "kind": "symbol",
+          "name": "split_zoom_levels"
+        }
+      },
+      "id": "RLZ-M8W0PQ",
+      "invariant": "INV-HK005W",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.1",
+        "leaf": "05"
+      },
+      "rationale": "Wraps ordered Level 1, Level 2, and Level 3 headings outside fenced code blocks in <ZoomTabs> slots while preserving preamble and epilogue sections.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+        "content": "sha256:e57ca95d834fecce764b6a2a9e7714a08b458b8efd68404d117de54218345551",
+        "locator": {
+          "kind": "symbol",
+          "name": "expand_concept_directives"
+        }
+      },
+      "id": "RLZ-PYF48D",
+      "invariant": "INV-HK005W",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.1",
+        "leaf": "05"
+      },
+      "rationale": "Primary directive expansion entry point implementing code/math masking, balanced-brace directive scanning, HTML escaping, and deduplicated slug tracking.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+        "content": "sha256:8c4944034441b70e3d838a3723540659f3013d4fe8c2e664a31a4a54071c3b9b",
+        "locator": {
+          "kind": "symbol",
+          "name": "render_page_glossary"
+        }
+      },
+      "id": "RLZ-RH4S55",
+      "invariant": "INV-HK005W",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.1",
+        "leaf": "05"
+      },
+      "rationale": "Emits the static script-off and print fallback glossary listing canonical inline_glimpse definitions for all referenced concepts on a page.",
+      "role": "enforcement"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "`normalize_base_url` canonicalizes base paths with leading and trailing slashes and rejects whitespace, backslashes, `//` and `.`/`..` traversal with `SiteDirectiveError`.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+            "content": "sha256:ad251c1d325b567c669c02ece44b4f04eb226536c2227f0c1d041f06072d8666",
+            "locator": {
+              "kind": "symbol",
+              "name": "normalize_base_url"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "`expand_concept_directives` expands `{{concept:...}}` and `{{term:...}}` outside code and math into HTML-escaped `<ConceptReveal>` and `<ConceptHover />` tags while returning deduplicated first-seen slugs and failing closed on malformed or unknown tags.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+            "content": "sha256:e57ca95d834fecce764b6a2a9e7714a08b458b8efd68404d117de54218345551",
+            "locator": {
+              "kind": "symbol",
+              "name": "expand_concept_directives"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "`split_zoom_levels` wraps ordered Level 1, Level 2 and Level 3 headings outside fenced code in `<ZoomTabs>` slots while preserving preamble, epilogue and partial-level pages.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+            "content": "sha256:ae79a63262db3e2a0a0e136b8258fd71b9283128cf85dc6ebdffa92f09a3531e",
+            "locator": {
+              "kind": "symbol",
+              "name": "split_zoom_levels"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "`render_page_glossary` validates referenced slugs against the registry and emits an ordered, HTML-escaped static `<dl>` glossary fallback.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+            "content": "sha256:8c4944034441b70e3d838a3723540659f3013d4fe8c2e664a31a4a54071c3b9b",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_page_glossary"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

@@ -1,0 +1,59 @@
+{
+  "path": "site/docs/.vitepress/theme/components/VerificationBanner.vue",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "258d1053491ec32fa12ecd2bc329f1d58bbcfd32",
+        "content": "sha256:2c241ec52cf9d304c9f8a119fa127cfaa823daf8f634649f1f4b880358235cbc",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-3M0K97",
+      "invariant": "INV-VGNZKV",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §3",
+        "leaf": "05"
+      },
+      "rationale": "Renders honest build-time verification status driven strictly from audit/verification-status.json props without ever fabricating local verification.",
+      "role": "presentation"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Declares nine required audit provenance props plus optional `upstreamRepo` and computes truncated commit/Mathlib hashes, upstream URLs and `statusMeta` tone mapping.\n\nAnchor: `statusMeta`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "258d1053491ec32fa12ecd2bc329f1d58bbcfd32",
+            "content": "sha256:7847b40b773679776a8afd92526244df1a963ecff9d0bccee9783de1dac95a45",
+            "locator": {
+              "end": 58,
+              "kind": "line_range",
+              "start": 4
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Renders script-off-safe `<aside aria-label=\"Verification status\">` with a `<dl>` facts grid and `noopener noreferrer` upstream links.\n\nAnchor: `rh-verification-banner`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "258d1053491ec32fa12ecd2bc329f1d58bbcfd32",
+            "content": "sha256:5635530d75f78f4518f81edd7fa9df2cabc7d85ee238cec344561f7f432a2f09",
+            "locator": {
+              "end": 115,
+              "kind": "line_range",
+              "start": 61
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

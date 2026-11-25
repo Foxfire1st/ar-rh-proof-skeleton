@@ -1,0 +1,93 @@
+{
+  "path": "site/docs/.vitepress/theme/components/ConceptHover.vue",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "e6a33104c5e46c864ce1ff88d8e0c57411615434",
+        "content": "sha256:6aaf222fa3570aa8ac8effd96f68827eb88278b5ec3a8d75023439a0a991e1ed",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-TEQ34M",
+      "invariant": "INV-VGNZKV",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §3",
+        "leaf": "05"
+      },
+      "rationale": "Provides hover/focus recall previews, click/Enter pin, Escape close without focus traps, viewport clamping, and mobile bottom-sheet layout paired with static links.",
+      "role": "presentation"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Defines `ConceptHover` props, `useId()` popover IDs and base-safe path resolution for links and optional mini SVG visuals.\n\nAnchor: `resolveSitePath`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e6a33104c5e46c864ce1ff88d8e0c57411615434",
+            "content": "sha256:b88d6903cfed0b72c7c2035392b4e44ea4d422eb5d461693cfc3724c70afa632",
+            "locator": {
+              "end": 52,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Computes desktop viewport-clamped alignment (`--rh-card-shift`, `16px` gutter) on `>640px` viewports while delegating `<=640px` layout to CSS bottom-sheet rules.\n\nAnchor: `updateDesktopPosition`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e6a33104c5e46c864ce1ff88d8e0c57411615434",
+            "content": "sha256:e00ceae6c58a8ca12108b67fde1ae3b0f970d999c35bd37d5e6c093622b579be",
+            "locator": {
+              "end": 86,
+              "kind": "line_range",
+              "start": 61
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Manages 120ms hover grace, focus tracking, pin toggle, outside-click dismissal and `Escape`/close focus return with `suppressFocusOpen` guard.\n\nAnchor: `closeAll`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e6a33104c5e46c864ce1ff88d8e0c57411615434",
+            "content": "sha256:7d64be3e9a76dd6f68c5efa5dee2cc7fba8fc570e6035a8070622e4673358ef8",
+            "locator": {
+              "end": 182,
+              "kind": "line_range",
+              "start": 88
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "Renders a static concept link, ARIA-expanded `?` trigger and conditional `role=\"region\"` recall card with close button, lazy visual and full Concept Page link.\n\nAnchor: `rh-concept-hover__card`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e6a33104c5e46c864ce1ff88d8e0c57411615434",
+            "content": "sha256:8170b1ab7bd9844836ca8f66b0f5f479bc67d4ef7ded8e3a0fbd0da2681b37ca",
+            "locator": {
+              "end": 241,
+              "kind": "line_range",
+              "start": 185
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

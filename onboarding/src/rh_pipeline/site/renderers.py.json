@@ -1,0 +1,108 @@
+{
+  "path": "src/rh_pipeline/site/renderers.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "3f3f88f2e6e03ff10c36545439416d7aae3e2aa9",
+        "content": "sha256:01a2e1885b00d7a1d7fa9669023562af89534220e432e7d004f48ccf2e2506b2",
+        "locator": {
+          "kind": "symbol",
+          "name": "render_stage_minimap"
+        }
+      },
+      "id": "RLZ-FDJPVT",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.2",
+        "leaf": "05"
+      },
+      "rationale": "Emits the accessible clickable inline SVG Stage dependency mini-map and ordered Markdown dependency list derived from dag/dag.json.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "3f3f88f2e6e03ff10c36545439416d7aae3e2aa9",
+        "content": "sha256:61f79cfb2372902b7b84a85312abf25ea220ccc574c119e46efbb5b0315e98ea",
+        "locator": {
+          "kind": "symbol",
+          "name": "render_concept_page"
+        }
+      },
+      "id": "RLZ-NBTAGN",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.2",
+        "leaf": "05"
+      },
+      "rationale": "Renders Concept Pages with VerificationBanner, visual figure, analogy-breaks callout, verbatim Lean anchors with upstream GitHub line links, related concepts, and automatic Stage/Concept backlinks.",
+      "role": "enforcement"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "`render_verification_banner` and `inject_verification_banner` serialize `VerificationStatus` into `<VerificationBanner />` and insert it idempotently after the first non-code H1.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "3f3f88f2e6e03ff10c36545439416d7aae3e2aa9",
+            "content": "sha256:e539dfe126f68cd4b6b31fba7dc15660bfbbdc9bd022b219babad023d2024a49",
+            "locator": {
+              "kind": "symbol",
+              "name": "inject_verification_banner"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "`expand_stage_markers` expands `rh:lean-node` and `rh:stage-minimap` comments outside code spans with bounded verbatim Lean snippets, dynamic backtick fences and layered accessible SVG mini-maps, failing closed on unknown IDs or out-of-range lines.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "3f3f88f2e6e03ff10c36545439416d7aae3e2aa9",
+            "content": "sha256:9624da6008c03709349afcfc54a4188716127b946fbd16f52bd936a957f3c5cc",
+            "locator": {
+              "kind": "symbol",
+              "name": "expand_stage_markers"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "`render_concept_page` deduplicates leading body H1s, resolves `lean_anchors` against `dag/dag.json`, omits self-references from the page glossary and renders analogy callouts, backlinks and sources.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "3f3f88f2e6e03ff10c36545439416d7aae3e2aa9",
+            "content": "sha256:61f79cfb2372902b7b84a85312abf25ea220ccc574c119e46efbb5b0315e98ea",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_concept_page"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "`render_concepts_index` and `render_landing_index` emit deterministic alphabetical concept listings and the Stage 00 landing page with minimap, landmark links and pinned upstream commit.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "3f3f88f2e6e03ff10c36545439416d7aae3e2aa9",
+            "content": "sha256:5cc0c57d3a1b243eee32d9ecf0133aa9feba086d424c803f9fa2068b61d73f84",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_landing_index"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

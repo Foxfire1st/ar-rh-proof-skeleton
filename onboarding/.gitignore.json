@@ -1,0 +1,44 @@
+{
+  "path": ".gitignore",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "0d7effab60bc8b9c532808533b282bdc00917366",
+        "content": "sha256:df43b898a4040d648b0e5bca067203571c19576de9f342718c26c460f7dbe45f",
+        "locator": {
+          "end": 21,
+          "kind": "line_range",
+          "start": 13
+        }
+      },
+      "id": "RLZ-K8VWP7",
+      "invariant": "INV-GXDXCT",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §4",
+        "leaf": "05"
+      },
+      "rationale": "Ignores generated site/docs/{stages,concepts,assets,public,index.md} so compiled VitePress sources never pollute Git or AR onboarding.",
+      "role": "support"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Ignores VitePress caches/dist and all generated `site/docs/{stages,concepts,assets,public,index.md}` compiler outputs alongside Python and OS artifacts.\n\nAnchor: `# Node / VitePress`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0d7effab60bc8b9c532808533b282bdc00917366",
+            "content": "sha256:df43b898a4040d648b0e5bca067203571c19576de9f342718c26c460f7dbe45f",
+            "locator": {
+              "end": 21,
+              "kind": "line_range",
+              "start": 13
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

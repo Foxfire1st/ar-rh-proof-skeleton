@@ -1,0 +1,41 @@
+{
+  "admission": {
+    "criteria": [
+      "joint_guarantee"
+    ],
+    "justification": "Delivering a deterministic, script-off-readable, verified static VitePress site requires fail-closed Markdown transforms, atomic compiler rendering, MathJax 3 editorial light components and dual-repo CI/Pages isolation to hold together."
+  },
+  "guarantee": "Invoking rh-build-site and VitePress against validated Stage 00 docs, Concept Cards, SVG assets, audit snapshots and DAG data deterministically produces a script-off-readable, build-time MathJax 3 editorial light static site without mutating .vitepress/, guarded on every code PR by quality.yml site-build-check and deployed from ar-rh-proof-skeleton.",
+  "id": "FAM-033QTE",
+  "members": [
+    "INV-HK005W",
+    "INV-V207JN",
+    "INV-VGNZKV",
+    "INV-GXDXCT"
+  ],
+  "origin": {
+    "handoff": {
+      "path": "rh-r05-a1-curator-ingest.json"
+    },
+    "handoffEntry": "phase4-static-site-compiler-and-vitepress-pipeline",
+    "leaf": "05",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "routes": [
+    "."
+  ],
+  "schema": "ar-family/v1",
+  "title": "Phase 4 deterministic static-site compiler, VitePress theme and dual-repo CI",
+  "writer": {
+    "at": "2026-11-25T22:31:11+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "05",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+    "task": "261123-RH"
+  }
+}

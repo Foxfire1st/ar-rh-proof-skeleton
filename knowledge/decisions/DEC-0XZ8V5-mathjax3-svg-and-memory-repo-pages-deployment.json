@@ -1,0 +1,78 @@
+{
+  "admission": {
+    "criteria": [
+      "real_alternatives",
+      "constrains_future_work"
+    ],
+    "justification": "Weighed MathJax 3 SVG and memory-repo Pages ownership against KaTeX and code-repo Pages hosting, constraining all future explainer stages, VitePress upgrades and dual-repo CI workflows."
+  },
+  "alternatives": [
+    {
+      "option": "Render LaTeX at build time via VitePress native markdown.math (markdown-it-mathjax3 producing static inline SVG) and host GitHub Pages deployment on Foxfire1st/ar-rh-proof-skeleton/.github/workflows/pages.yml while keeping a synthetic site-build-check job in rh-proof-skeleton/.github/workflows/quality.yml.",
+      "reason": "Guarantees 100% static script-off SVG math without font-bundle fragility and lets explainer/memory pushes publish automatically while code PRs stay verified without failing on Pages deployment.",
+      "status": "chosen"
+    },
+    {
+      "option": "Render LaTeX with KaTeX client/font assets and keep GitHub Pages deployment inside Foxfire1st/rh-proof-skeleton/.github/workflows/pages.yml.",
+      "reason": "KaTeX requires webfont asset bundling and diverged from VitePress native MathJax 3 SVG support, and hosting Pages on the code repo coupled public explainer publishes to code pushes and failed on bootstrap pushes.",
+      "reconsider_when": "A future approved requirement switches the static site generator away from VitePress or moves public explainer docs back into the code repository.",
+      "status": "rejected"
+    }
+  ],
+  "consequences": [
+    "system/design-guidelines.md specifies build-time MathJax 3 SVG instead of KaTeX, and site/package.json plus site/package-lock.json pin markdown-it-mathjax3 alongside vitepress.",
+    "rh-proof-skeleton removes .github/workflows/pages.yml and runs synthetic site-build-check in quality.yml, while Foxfire1st/ar-rh-proof-skeleton/.github/workflows/pages.yml owns live GitHub Pages deployment."
+  ],
+  "context": "Stage 00 vertical-slice publication required choosing a build-time math renderer compatible with script-off readability and deciding which public repository owns GitHub Pages deployment when explainer essays and Concept Cards live in ar-rh-proof-skeleton.",
+  "decider": "Developer (rulings RH-D03, RH-D04 and RH-D07 approving RH-R05@v1)",
+  "id": "DEC-0XZ8V5",
+  "links": [
+    {
+      "relation": "constrains",
+      "target": "INV-VGNZKV"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-GXDXCT"
+    },
+    {
+      "relation": "explains",
+      "target": "FAM-033QTE"
+    },
+    {
+      "alternative": 1,
+      "relation": "reconsider_on",
+      "target": {
+        "blob": "a9af210d293d35c220e5ca1e5bb08e560cf6bba3",
+        "content": "sha256:6bb5a00705ba14938b20ebe7e659f75a5c3dfd4ceba38c7dd8eb9ab71899eba1",
+        "locator": {
+          "kind": "file"
+        },
+        "path": "site/docs/.vitepress/config.mts"
+      }
+    }
+  ],
+  "origin": {
+    "handoff": {
+      "path": "rh-r05-a1-curator-ingest.json"
+    },
+    "handoffEntry": "rh-d03-rh-d04-mathjax3-svg-and-memory-repo-pages-deployment",
+    "leaf": "05",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-decision/v1",
+  "status": "active",
+  "supersedes": [],
+  "writer": {
+    "at": "2026-11-25T22:31:11+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "05",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+    "task": "261123-RH"
+  }
+}

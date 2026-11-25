@@ -1,0 +1,47 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "guarded_by_test",
+      "family_guarantee",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Realized across compiler.py, renderers.py, cli/build_site.py and pyproject.toml and proved by compiler and CLI unit tests; prevents partial VitePress outputs, clobbered .vitepress/ configs, stale generated artifacts and unverified banner or Lean link drift."
+  },
+  "applicability": "End-to-end static-site compilation across src/rh_pipeline/site/{compiler,renderers}.py, src/rh_pipeline/cli/build_site.py and [project.scripts] in pyproject.toml.",
+  "conditions": [
+    "compile_site validates audit/verification-status.json, dag/dag.json (including upstream_commit parity), Concept Card and explainer gates, Stage 00 overview, asset containment and visual_ref existence in memory before touching out_docs_dir.",
+    "Atomic temporary-file staging and managed-directory stale pruning run strictly inside stages/, concepts/, assets/ and public/assets/, never touching .vitepress/, and rh-build-site exits 1 with zero writes on SiteBuildError or SiteDirectiveError."
+  ],
+  "exclusions": [
+    "Unexpected OS errors during per-file os.replace propagate uncaught after staging cleanup; argparse usage errors follow standard exit code 2 behavior."
+  ],
+  "id": "INV-V207JN",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_site_compiler.py::test_compile_site_end_to_end_determinism_and_pruning"
+      ],
+      "path": "rh-r05-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R05@v1 §2.2",
+    "leaf": "05",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "compile_site validates audit/verification-status.json, dag/dag.json, Concept Cards, explainer jargon, stage docs, and SVG assets completely in memory before atomically writing compiled VitePress pages, preserving .vitepress/ untouched and pruning stale generated files.",
+  "supersedes": [],
+  "title": "Fail-closed atomic rh-build-site compilation, rendering and stale pruning",
+  "writer": {
+    "at": "2026-11-25T22:31:11+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "05",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
+    "task": "261123-RH"
+  }
+}

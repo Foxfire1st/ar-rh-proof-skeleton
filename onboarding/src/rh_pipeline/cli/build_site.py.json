@@ -1,0 +1,58 @@
+{
+  "path": "src/rh_pipeline/cli/build_site.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "7f05277ea9d094fe20897878eb16f6ced26e9d89",
+        "content": "sha256:02630b3e743d72883b7a6ce7a9eaf3a714c6b227612857716527e941f3f0fd46",
+        "locator": {
+          "kind": "symbol",
+          "name": "main"
+        }
+      },
+      "id": "RLZ-CQ01TB",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.2",
+        "leaf": "05"
+      },
+      "rationale": "Provides the rh-build-site console entry point returning exit code 0 on clean compilation and exit code 1 with zero writes on SiteBuildError or SiteDirectiveError.",
+      "role": "support"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "`_build_parser` defines `rh-build-site` with required `--repo`, `--memory`, `--out` paths and `--base-url` defaulting to `/ar-rh-proof-skeleton/`.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7f05277ea9d094fe20897878eb16f6ced26e9d89",
+            "content": "sha256:1b426ad1c21fa16a24c1c44dc07fd601644a3b8add63a4c8ab60aa1c212b5785",
+            "locator": {
+              "kind": "symbol",
+              "name": "_build_parser"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "`main` delegates to `compile_site`, catches `SiteBuildError` and `SiteDirectiveError` to emit `ERROR:` on stderr with exit code 1, and prints compiled counts with exit code 0 on success.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7f05277ea9d094fe20897878eb16f6ced26e9d89",
+            "content": "sha256:02630b3e743d72883b7a6ce7a9eaf3a714c6b227612857716527e941f3f0fd46",
+            "locator": {
+              "kind": "symbol",
+              "name": "main"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

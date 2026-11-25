@@ -1,0 +1,23 @@
+{
+  "path": "site/docs/.vitepress/theme/index.ts",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Extends `DefaultTheme`, imports `./tokens.css` and globally registers `VerificationBanner`, `ConceptReveal`, `ConceptHover` and `ZoomTabs` in `enhanceApp`.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "95b59511cf66313a796cfa3b60ca6e2189e28cfd",
+            "content": "sha256:4c992aa5ca12c0ed6c56b79939d95d684168d57fb7a13fe0c503d18f7ae49a7d",
+            "locator": {
+              "kind": "symbol",
+              "name": "enhanceApp"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

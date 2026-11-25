@@ -17,7 +17,7 @@ This repository builds a public, concept-first mathematical explainer on GitHub 
 
 ## Core Design Principles
 
-- **Typography & reading comfort first:** Generous line height, readable measure (~65–75ch for prose), clean math rendering (KaTeX), high contrast (≥7:1 body text, ≥4.5:1 labels).
+- **Typography & reading comfort first:** Generous line height, readable measure (~65–75ch for prose), clean build-time LaTeX math rendering (MathJax 3 SVG via VitePress `markdown.math: true` and `markdown-it-mathjax3`), high contrast (≥7:1 body text, ≥4.5:1 labels).
 - **Color never carries meaning alone:** Inline concept spans, verification status banners, and diagram states always pair color with clear labels, borders, or markers.
 - **Full prose without script:** Every essay, inline explanation, *"Where this analogy breaks"* callout, and formal Lean contract stays readable in static HTML before JavaScript executes.
 - **No decorative AI slop:** Every figure answers a specific mathematical question; zero gratuitous gradients, glow effects, stock imagery, or looping animations.

@@ -1,0 +1,138 @@
+{
+  "path": "src/rh_pipeline/site/compiler.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+        "content": "sha256:c1edcb8dea7221a1bcdfcbd0f3a9181b009a9fb10dd05b43c57cf7ef76f16d42",
+        "locator": {
+          "kind": "symbol",
+          "name": "compile_site"
+        }
+      },
+      "id": "RLZ-GVGMY6",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "RH-R05@v1 §2.2",
+        "leaf": "05"
+      },
+      "rationale": "Orchestrates fail-closed validation, in-memory page/backlink compilation, atomic temporary-file staging, and managed-directory stale pruning without touching .vitepress/.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "`compile_site` validates base URL, audit/DAG commit parity, Concept Card and explainer gates, Stage 00 overview presence, asset containment and `visual_ref` existence in memory before touching `out_docs_dir`.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+            "content": "sha256:c1edcb8dea7221a1bcdfcbd0f3a9181b009a9fb10dd05b43c57cf7ef76f16d42",
+            "locator": {
+              "kind": "symbol",
+              "name": "compile_site"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+            "content": "sha256:6ecb84c78a9b52a507037b0a36c94f10d4d08854b97c5d1dea88a6244b8950a0",
+            "locator": {
+              "end": 157,
+              "kind": "line_range",
+              "start": 76
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+            "content": "sha256:57d2eda17090fd92723a4786e4099b431afd515c0bea52a7ce91feeeb443ce28",
+            "locator": {
+              "end": 356,
+              "kind": "line_range",
+              "start": 343
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "`_rewrite_assets` normalizes Markdown and HTML asset URLs outside code spans to `/assets/...` while rejecting traversal or missing files, and `_compile_all_outputs` dual-emits assets under `assets/` and `public/assets/`.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+            "content": "sha256:8f6e71f7418037f3fcb9e73ff5fc8f525022b5eca79a7bd3751489f8f2c9a3b6",
+            "locator": {
+              "kind": "symbol",
+              "name": "_rewrite_assets"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+            "content": "sha256:6884b325ba5128f2b945ab5de8e421f63d97d1cab88c5c6c7d01cf14134ad9ae",
+            "locator": {
+              "end": 440,
+              "kind": "line_range",
+              "start": 420
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "`_compile_stage_pages` and `_compile_concept_pages` compose directive expansion, stage markers, zoom tabs, banners, glossaries, backtick-preserving titles and deterministic Stage-before-Concept backlinks.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+            "content": "sha256:a2423b12eeb271487053edebb01cade99a5ded103f209bc4154d8b2efcff20ea",
+            "locator": {
+              "kind": "symbol",
+              "name": "_compile_stage_pages"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+            "content": "sha256:4ca2b7847edf9ce9fcfcd37b53e554b977e4f1c501d6b682cc3b46bc49df897c",
+            "locator": {
+              "end": 286,
+              "kind": "line_range",
+              "start": 247
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "`_write_outputs_atomically` stages fsynced temp files before `os.replace` and `_prune_managed_dirs` removes stale entries only inside `stages/`, `concepts/`, `assets/` and `public/assets/` without touching `.vitepress/`.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "05abfe23bc088375876fa4c5a4ba368a9e6522d3",
+            "content": "sha256:9b2f6088689df42a911cd913953191e9a55458e52ae0ae28457d561d5d666d33",
+            "locator": {
+              "kind": "symbol",
+              "name": "_write_outputs_atomically"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}
