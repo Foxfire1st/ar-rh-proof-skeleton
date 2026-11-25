@@ -1,0 +1,58 @@
+{
+  "path": "src/rh_pipeline/cli/extract.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "150b6d24db72d8bc86dec8ed99a0b3a0658fdd54",
+        "content": "sha256:0b26f060e0dcb033777de3a3461a270a0296d4b22f9366bf61066914056f9de4",
+        "locator": {
+          "kind": "symbol",
+          "name": "main"
+        }
+      },
+      "id": "RLZ-S8Z078",
+      "invariant": "INV-01DVB3",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §5",
+        "leaf": "03"
+      },
+      "rationale": "Wires --upstream, --stage-map, --out-skeleton, and --out-dag with exit code 0 on success and exit code 2 on StageMapError or UnsupportedLeanFormError.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Defines the rh-extract argument parser with required --upstream and default paths for stage map, skeleton directory and DAG JSON.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "150b6d24db72d8bc86dec8ed99a0b3a0658fdd54",
+            "content": "sha256:14fd9065f5b83e5ced3ba069655fe404bae869072f3db41d150b29edad71102a",
+            "locator": {
+              "kind": "symbol",
+              "name": "_build_parser"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Delegates to extract_and_write, translating StageMapError and UnsupportedLeanFormError to stderr ERROR lines and exit code 2 while printing a summary and returning 0 on success.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "150b6d24db72d8bc86dec8ed99a0b3a0658fdd54",
+            "content": "sha256:0b26f060e0dcb033777de3a3461a270a0296d4b22f9366bf61066914056f9de4",
+            "locator": {
+              "kind": "symbol",
+              "name": "main"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

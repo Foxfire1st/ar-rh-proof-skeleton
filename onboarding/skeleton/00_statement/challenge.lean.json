@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/00_statement/challenge.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/Challenge.lean at c900e67c2fcd1fdb041685820bbd2b867fbc5a4b with Preserve defs true.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "936be9ee90ff548f351c476d3487e9d9c9c94ece",
+            "content": "sha256:18ab22fed366d44e2218d4bd6adae8abad4cee6a07c1ac36442401055f3491ff",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Preserves all four statement Prop definitions verbatim with EXTRACTED_DEF provenance tags.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "936be9ee90ff548f351c476d3487e9d9c9c94ece",
+            "content": "sha256:091f2f11e7c195178c3dfa77e925d9d87168a96f523f2081e013e6d4b11da888",
+            "locator": {
+              "end": 22,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs all five challenge theorems with EXTRACTED_STUB sorry lines and upstream line ranges.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "936be9ee90ff548f351c476d3487e9d9c9c94ece",
+            "content": "sha256:1547b5f3ae3f4b3d8f6aab52238a096bf8c0b728dd91aebb805dd1bea41337c9",
+            "locator": {
+              "end": 38,
+              "kind": "line_range",
+              "start": 24
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

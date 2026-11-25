@@ -1,0 +1,148 @@
+{
+  "path": "src/rh_pipeline/graph/stage_map.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+        "content": "sha256:2010a8bd09dd45d27dadb06a2ad70b9a519d2fc6b51eae376dfbc6a0dbb79e01",
+        "locator": {
+          "kind": "symbol",
+          "name": "build_dag"
+        }
+      },
+      "id": "RLZ-3T5NFB",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §4",
+        "leaf": "03"
+      },
+      "rationale": "Builds DagGraph with import-only depends_on edges and rejects missing modules or duplicate declarations per skeleton file.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+        "content": "sha256:f1e90d2d9d181a30ce22c49093ba2c07eedd9a126329a2a07d0e9f938cb7ca9a",
+        "locator": {
+          "kind": "symbol",
+          "name": "load_stage_map"
+        }
+      },
+      "id": "RLZ-53XXZ1",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §4",
+        "leaf": "03"
+      },
+      "rationale": "Loads and validates rh-stage-map/v1 stage ordering, unique paths, unique skeleton targets, and unique Lean module names, failing closed with StageMapError.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+        "content": "sha256:382136f2ca10a4ae33e455b17bd37e7e5572cdf07eca923ecc664a7e4a3dd3bc",
+        "locator": {
+          "kind": "symbol",
+          "name": "extract_and_write"
+        }
+      },
+      "id": "RLZ-WVRNF2",
+      "invariant": "INV-01DVB3",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §5",
+        "leaf": "03"
+      },
+      "rationale": "Performs full in-memory read, parse, render, and DAG validation before atomic temp-file fsync+replace output emission.",
+      "role": "enforcement"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Resolves Lean module names from src/ and comparator/ paths and validates consecutive 0..N-1 stage ordering and global uniqueness of stages, paths, skeleton targets and modules.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "content": "sha256:9e203f1e5bef0e8bf37e36d620987fde33d53f15ca44010ffe2c4573f4b5ec88",
+            "locator": {
+              "kind": "symbol",
+              "name": "lean_module_name_for_path"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "content": "sha256:f1e90d2d9d181a30ce22c49093ba2c07eedd9a126329a2a07d0e9f938cb7ca9a",
+            "locator": {
+              "kind": "symbol",
+              "name": "load_stage_map"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Builds DagNodes with strictly import-derived depends_on edges, unique per-file declaration names and theorem/lemma landmark classification.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "content": "sha256:2010a8bd09dd45d27dadb06a2ad70b9a519d2fc6b51eae376dfbc6a0dbb79e01",
+            "locator": {
+              "kind": "symbol",
+              "name": "build_dag"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Verifies the upstream Git repository root read-only and blocks symlink or path escapes when reading mapped source files.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "content": "sha256:4ab376d424ecbe3cf2fec4611da1dafe0eafe09ae55c1a2eb04185e324561ab1",
+            "locator": {
+              "kind": "symbol",
+              "name": "_inspect_upstream_repo"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "content": "sha256:85ecd81a95e613167175ba90525a9a5ceeafb3b96fbbb4e3713c332a3c515649",
+            "locator": {
+              "kind": "symbol",
+              "name": "_read_upstream_source"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "Completes all parsing, stub rendering and DAG construction in memory before staging fsynced temporary files and atomically replacing outputs with cleanup on error.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "content": "sha256:382136f2ca10a4ae33e455b17bd37e7e5572cdf07eca923ecc664a7e4a3dd3bc",
+            "locator": {
+              "kind": "symbol",
+              "name": "extract_and_write"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

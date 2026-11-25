@@ -1,0 +1,45 @@
+{
+  "admission": {
+    "criteria": [
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Unit tests and nine synthetic fixtures verify all ten admitted declaration kinds, nested := handling and default-deny refusals, preventing silent misparsing or mid-signature splitting of upstream Lean files."
+  },
+  "applicability": "Closed-world top-level Lean 4 declaration and import extraction in src/rh_pipeline/lean/parser.py.",
+  "conditions": [
+    "Normalizes CRLF/CR line endings, tracks nested block comments, strings, raw strings, char literals, guillemet names and four delimiter pairs ((), [], {}, ⦃⦄) to locate top-level := at depth 0, permits unclosed section frames to EOF and enforces balanced namespace/end.",
+    "Any unlisted top-level command, local/scoped modifier or attribute, depth-0 termination_by/decreasing_by, anonymous instance, unbalanced namespace/end, orphan doc/attribute or unclosed literal/comment/delimiter raises UnsupportedLeanFormError(rel_path, line, form)."
+  ],
+  "exclusions": [
+    "Syntactic namespace qualification rewrites only the declared name span and does not rewrite internal signature tokens; opaque accepts either no body or an explicit := body."
+  ],
+  "id": "INV-0WN2N4",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_lean_parser.py::test_admitted_full_fixture_extracts_all_declarations_and_imports; tests/unit/test_lean_parser.py::test_all_refused_fixture_files_are_listed; tests/unit/test_lean_parser.py::test_refused_fixtures_raise_unsupported_error; tests/unit/test_lean_parser.py::test_additional_closed_world_refusals; tests/unit/test_lean_parser.py::test_refuses_col0_where_after_def"
+      ],
+      "path": "rh-r03-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R03@v1 §2",
+    "leaf": "03",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "extract_declarations parses admitted top-level Lean 4 forms using delimiter-depth-aware scanning for top-level := (supporting unclosed sections, balanced namespaces, Unicode/dotted/prime/guillemet names, where+deriving blocks, and term/tactic proofs) while failing closed with UnsupportedLeanFormError(rel_path, line, form) on any unsupported construct.",
+  "supersedes": [],
+  "title": "Closed-world delimiter-aware Lean 4 declaration extractor",
+  "writer": {
+    "at": "2026-11-25T19:03:13+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "03",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+    "task": "261123-RH"
+  }
+}

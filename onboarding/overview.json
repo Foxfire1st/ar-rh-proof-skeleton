@@ -38,14 +38,14 @@
       ]
     },
     "3": {
-      "note": "Package metadata registers both rh-audit and rh-file-size-gate console scripts.\n\nAnchor: `rh-audit`",
+      "note": "Package metadata registers rh-audit, rh-extract and rh-file-size-gate console scripts.\n\nAnchor: `rh-extract`",
       "targets": [
         {
           "anchor": {
-            "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
-            "content": "sha256:6bda1cd6c8e3aca8c44f81e30466287dd7d70fd17fd4cf3216e70456e5ad7f38",
+            "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
+            "content": "sha256:0601791c0d3613f14ee53243de248020cc721fbed11300613d490409e90de243",
             "locator": {
-              "end": 23,
+              "end": 24,
               "kind": "line_range",
               "start": 21
             },
@@ -67,6 +67,23 @@
               "name": "main"
             },
             "path": "src/rh_pipeline/cli/audit.py"
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "5": {
+      "note": "The rh-extract CLI orchestrates stage-map validation, closed-world Lean extraction, stub rendering, import-only DAG construction and atomic emission.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "150b6d24db72d8bc86dec8ed99a0b3a0658fdd54",
+            "content": "sha256:0b26f060e0dcb033777de3a3461a270a0296d4b22f9366bf61066914056f9de4",
+            "locator": {
+              "kind": "symbol",
+              "name": "main"
+            },
+            "path": "src/rh_pipeline/cli/extract.py"
           },
           "kind": "code"
         }

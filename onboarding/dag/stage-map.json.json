@@ -1,0 +1,59 @@
+{
+  "path": "dag/stage-map.json",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "5ff863b7880c404cd0f26a5dab2277dee1c3920b",
+        "content": "sha256:9451b2cd80906348904f90b38e0d0ecd529f761490e7be3cbb2c6b1283a4c924",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-29ESHV",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §4",
+        "leaf": "03"
+      },
+      "rationale": "Authoritative versioned 21-stage mapping defining Stage 00 files and empty Stages 01-20.",
+      "role": "propagation-persistence"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Declares schema_version rh-stage-map/v1 and maps all five Stage 00 upstream files with preserve_defs true on statements, challenge and formal_conjectures_statement and false on main and formal_conjectures_challenge.\n\nAnchor: `00_statement`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5ff863b7880c404cd0f26a5dab2277dee1c3920b",
+            "content": "sha256:856117d557a1548cb13374d8be4db9a8162d6a85a2f27dabbf88a516080cd4fb",
+            "locator": {
+              "end": 36,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Defines placeholder proof stages 01_stepanov_determinant through 20_grh (orders 1..20) with empty files arrays.\n\nAnchor: `01_stepanov_determinant`; `20_grh`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5ff863b7880c404cd0f26a5dab2277dee1c3920b",
+            "content": "sha256:78e1ff48413fa42704ff0fbdc9a86df7a4e68ba2922965c2c853e9de47e6dd3f",
+            "locator": {
+              "end": 176,
+              "kind": "line_range",
+              "start": 37
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

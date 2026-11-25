@@ -1,0 +1,46 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Realized across src/rh_pipeline/models/lean.py and src/rh_pipeline/models/dag.py with unit tests verifying exact-key deserialization, skeleton-relative path enforcement and canonical JSON, preventing silent schema drift or malformed skeleton paths."
+  },
+  "applicability": "Immutable Phase 1 Lean declaration and DAG domain dataclasses and canonical JSON formatting in src/rh_pipeline/models/lean.py and src/rh_pipeline/models/dag.py.",
+  "conditions": [
+    "Every dataclass is frozen with slots and validates exact key sets, non-boolean integers and strict types in __post_init__ and from_dict.",
+    "StageFileMapping and DagNode enforce relative POSIX paths and reject any leading skeleton/ prefix on skeleton_file; StageMap and DagGraph pin exact schema versions rh-stage-map/v1 and rh-dag/v1 and format sorted-key JSON with a trailing newline."
+  ],
+  "exclusions": [
+    "Cross-entry uniqueness and consecutive stage ordering are enforced in graph/stage_map.py, and LeanDeclaration relies on lean/parser.py to sort imports and compute body_sha256."
+  ],
+  "id": "INV-BEGWB0",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_lean_parser.py::test_model_serialization_round_trip_and_strict_validation; tests/unit/test_stage_map.py::test_dag_models_strict_validation"
+      ],
+      "path": "rh-r03-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R03@v1 §1",
+    "leaf": "03",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "Phase 1 Lean declaration and DAG domain models are immutable frozen dataclasses with strict exact-key from_dict validation, relative POSIX path enforcement (rejecting skeleton/ prefix on skeleton_file), bool-rejected integer checks, and deterministic sorted-key canonical JSON formatting.",
+  "supersedes": [],
+  "title": "Immutable Phase 1 Lean/DAG models and canonical JSON",
+  "writer": {
+    "at": "2026-11-25T19:03:13+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "03",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+    "task": "261123-RH"
+  }
+}

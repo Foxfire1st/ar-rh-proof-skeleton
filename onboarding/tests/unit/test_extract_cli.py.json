@@ -1,0 +1,136 @@
+{
+  "path": "tests/unit/test_extract_cli.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "8a1c9f76e713179a14603cccce145e8ae8a460c6",
+        "content": "sha256:104c0621b11b0121665394d888b424a14f80e05baa421dafbd8af07a5bb450ae",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_end_to_end_and_byte_identical_determinism"
+        }
+      },
+      "facet": "Demonstrates rh-extract exits 0, preserves unmapped skeleton/README.md, writes canonical timestamp-free dag.json and reproduces byte-identical outputs across repeated runs.",
+      "id": "PRF-7Z1B3Y",
+      "invariant": "INV-01DVB3",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §5",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "8a1c9f76e713179a14603cccce145e8ae8a460c6",
+        "content": "sha256:2083971342750746b65feebcd9e957b19f0aad58e626903f2eae8b15be694b12",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_zero_writes_on_stage_map_errors"
+        }
+      },
+      "facet": "Demonstrates missing upstream directories, non-root subdirectories, missing mapped files and escaping symlinks fail closed with zero created output files or directories.",
+      "id": "PRF-AACB68",
+      "invariant": "INV-01DVB3",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §5",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "8a1c9f76e713179a14603cccce145e8ae8a460c6",
+        "content": "sha256:9b4b4f46b81b53aa259c4ba3848091c7dad307fdd729c12489a20f93cb96aa84",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_atomic_write_cleans_up_temp_files_on_failure"
+        }
+      },
+      "facet": "Demonstrates an injected os.fsync OSError leaves existing sentinel outputs intact and unlinks all staged temporary files.",
+      "id": "PRF-NDEY2P",
+      "invariant": "INV-01DVB3",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §5",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "8a1c9f76e713179a14603cccce145e8ae8a460c6",
+        "content": "sha256:d49c2c3045621213399aebebcc23220fdebf2fe1ef00435f1160fb63a7b8cf79",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_zero_writes_on_unsupported_lean_form_error"
+        }
+      },
+      "facet": "Demonstrates a mid-run UnsupportedLeanFormError returns exit code 2 with formatted stderr error and creates zero skeleton or DAG files.",
+      "id": "PRF-S8VE8N",
+      "invariant": "INV-01DVB3",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §5",
+        "leaf": "03"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Verifies end-to-end rh-extract CLI execution, sentinel preservation, canonical DAG output and byte-identical determinism across repeated runs.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "8a1c9f76e713179a14603cccce145e8ae8a460c6",
+            "content": "sha256:104c0621b11b0121665394d888b424a14f80e05baa421dafbd8af07a5bb450ae",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_end_to_end_and_byte_identical_determinism"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Verifies injected os.fsync failure preserves existing sentinel outputs and removes all staged temporary files.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "8a1c9f76e713179a14603cccce145e8ae8a460c6",
+            "content": "sha256:9b4b4f46b81b53aa259c4ba3848091c7dad307fdd729c12489a20f93cb96aa84",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_atomic_write_cleans_up_temp_files_on_failure"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Verifies exit code 2 and zero filesystem writes on StageMapError inputs, symlink escapes and mid-run UnsupportedLeanFormError.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "8a1c9f76e713179a14603cccce145e8ae8a460c6",
+            "content": "sha256:2083971342750746b65feebcd9e957b19f0aad58e626903f2eae8b15be694b12",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_zero_writes_on_stage_map_errors"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "8a1c9f76e713179a14603cccce145e8ae8a460c6",
+            "content": "sha256:d49c2c3045621213399aebebcc23220fdebf2fe1ef00435f1160fb63a7b8cf79",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_zero_writes_on_unsupported_lean_form_error"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

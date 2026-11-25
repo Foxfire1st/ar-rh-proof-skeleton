@@ -1,0 +1,742 @@
+{
+  "closed": true,
+  "leaf": "03",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-25T19:18:07+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "03",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+      "task": "261123-RH"
+    },
+    "reviewer": {
+      "at": "2026-11-25T19:18:07+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "03",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "9a4e1c73-6b20-4d85-a3f1-2e8c5b9d4017",
+      "task": "261123-RH",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "25707db309d45347e9c203e992cbac845344a22b",
+    "verdictRef": "notes/reports/reviewer/9a4e1c73-6b20-4d85-a3f1-2e8c5b9d4017/role-launch/03-phase1-memory-round-1-verdict.md"
+  },
+  "rows": [
+    {
+      "disposition": "updated",
+      "id": "ROW-21N345",
+      "items": [
+        "sha256:b6d50cb0cc67fe303cb8f11bdfa49c34e392005fc612388e4f35025f74f0b729"
+      ],
+      "reason": "Updated repository overview to document the Phase 1 Lean 4 extractor, newly populated lean and graph packages, Phase 1 models and rh-extract console script registration alongside Stage 00 skeleton and DAG artifacts.",
+      "sources": [
+        {
+          "blob": "f6d315bb77b49bd993b68a9353ab75d60d32bd29",
+          "path": "dag/dag.json"
+        },
+        {
+          "blob": "5ff863b7880c404cd0f26a5dab2277dee1c3920b",
+          "path": "dag/stage-map.json"
+        },
+        {
+          "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
+          "path": "pyproject.toml"
+        },
+        {
+          "blob": "936be9ee90ff548f351c476d3487e9d9c9c94ece",
+          "path": "skeleton/00_statement/challenge.lean"
+        },
+        {
+          "blob": "e355c84aa6f5ee1590da3b7625f0bcbe4fae187b",
+          "path": "skeleton/00_statement/formal_conjectures_challenge.lean"
+        },
+        {
+          "blob": "831a5954cb84492a2ecd09bc9ee2c9253a32ba93",
+          "path": "skeleton/00_statement/formal_conjectures_statement.lean"
+        },
+        {
+          "blob": "7a3b257ac601fcf907f4871245f368d71a50f9d0",
+          "path": "skeleton/00_statement/main.lean"
+        },
+        {
+          "blob": "ca73f028df3d20761dd1d09795881af456898df1",
+          "path": "skeleton/00_statement/statements.lean"
+        },
+        {
+          "blob": "150b6d24db72d8bc86dec8ed99a0b3a0658fdd54",
+          "path": "src/rh_pipeline/cli/extract.py"
+        },
+        {
+          "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+          "path": "src/rh_pipeline/graph/stage_map.py"
+        },
+        {
+          "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+          "path": "src/rh_pipeline/lean/parser.py"
+        },
+        {
+          "blob": "eccce6f15dafc301b98c8498611ceef9bbb987e8",
+          "path": "src/rh_pipeline/lean/stub_emitter.py"
+        },
+        {
+          "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+          "path": "src/rh_pipeline/models/dag.py"
+        },
+        {
+          "blob": "c2e52d4b199aa79110541ce33cf169da3dc44f27",
+          "path": "src/rh_pipeline/models/lean.py"
+        },
+        {
+          "blob": "2ee3364cbfe57f6ab7298826a9ac9d0835768949",
+          "path": "tests/fixtures/lean_parser/admitted_full.lean"
+        },
+        {
+          "blob": "b73839183ac567ddc828e03922134c9d8707a8d4",
+          "path": "tests/fixtures/lean_parser/refused_anonymous_instance.lean"
+        },
+        {
+          "blob": "cc471b2d61596959ee9dbe75360733cff3d16f61",
+          "path": "tests/fixtures/lean_parser/refused_macro.lean"
+        },
+        {
+          "blob": "e1e8b1c6a5be16f889e3995c3d65adcdc8552624",
+          "path": "tests/fixtures/lean_parser/refused_mutual.lean"
+        },
+        {
+          "blob": "7edde2142d9b499762b9da43f22ac45162b751de",
+          "path": "tests/fixtures/lean_parser/refused_open.lean"
+        },
+        {
+          "blob": "809ae739650616a9ab80561688d312275624fa6c",
+          "path": "tests/fixtures/lean_parser/refused_set_option.lean"
+        },
+        {
+          "blob": "43cee2e5f2328f34aaf750bd1e5cec25f63109b6",
+          "path": "tests/fixtures/lean_parser/refused_termination_by.lean"
+        },
+        {
+          "blob": "2b7fd1f5284d6ec974621acc9a7ee0e7d33e470f",
+          "path": "tests/fixtures/lean_parser/refused_unbalanced_namespace.lean"
+        },
+        {
+          "blob": "cff398c57eb97020dff6f2480eb0d7ce5564beed",
+          "path": "tests/fixtures/lean_parser/refused_variable.lean"
+        },
+        {
+          "blob": "8a1c9f76e713179a14603cccce145e8ae8a460c6",
+          "path": "tests/unit/test_extract_cli.py"
+        },
+        {
+          "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+          "path": "tests/unit/test_lean_parser.py"
+        },
+        {
+          "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+          "path": "tests/unit/test_stage_map.py"
+        },
+        {
+          "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+          "path": "tests/unit/test_stub_emitter.py"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3AMEFJ",
+      "items": [
+        "sha256:4f64831d2490fd21727f7d70eddbc09f114260df7560212f6ca6c749ec4cfdc5"
+      ],
+      "reason": "Authored file card explaining the generated Stage 00 challenge.lean skeleton preserving four Prop definitions verbatim and stubbing five challenge theorems.",
+      "sources": [
+        {
+          "blob": "936be9ee90ff548f351c476d3487e9d9c9c94ece",
+          "path": "skeleton/00_statement/challenge.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/00_statement/challenge.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3HZRDE",
+      "items": [
+        "sha256:2e0301c7f32c6ab723301bb06399fabaae0dacf062fd5e8b8dd287182bcfdb59"
+      ],
+      "reason": "Authored file card explaining the generated deterministic rh-dag/v1 Stage 00 DAG, pinned upstream commit, 24 declaration references, strict import-only edges (main->statements only) and regeneration rule.",
+      "sources": [
+        {
+          "blob": "f6d315bb77b49bd993b68a9353ab75d60d32bd29",
+          "path": "dag/dag.json"
+        }
+      ],
+      "subject": "onboarding:dag/dag.json"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-6DCH32",
+      "items": [
+        "sha256:3c08ed920f58d4be0a6627cc7750f66608b4bbf61816a90761f2d52735fb0ae3"
+      ],
+      "reason": "Synthetic positive Lean 4 parser test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_lean_parser.py.md.",
+      "sources": [
+        {
+          "blob": "2ee3364cbfe57f6ab7298826a9ac9d0835768949",
+          "path": "tests/fixtures/lean_parser/admitted_full.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/admitted_full.lean"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-6GGHFK",
+      "items": [
+        "sha256:a2f44dbb5338e37d1c7654178e96f33dcad78539f8cd08063feae8fa69c3f4fd"
+      ],
+      "reason": "Synthetic Lean 4 macro refusal test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_lean_parser.py.md.",
+      "sources": [
+        {
+          "blob": "cc471b2d61596959ee9dbe75360733cff3d16f61",
+          "path": "tests/fixtures/lean_parser/refused_macro.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_macro.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-70AHKR",
+      "items": [
+        "sha256:b0335d316ffc560030c32cd75b8e643d49ada81cfc30624216bae9dcdf69caf6"
+      ],
+      "reason": "Authored file card covering closed-world Lean 4 parser extraction, refusal fixture and inline refusal suites, lexical/scope edge cases and Lean model strict serialization tests.",
+      "sources": [
+        {
+          "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+          "path": "tests/unit/test_lean_parser.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_lean_parser.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-81B2QA",
+      "items": [
+        "sha256:e50835f9cd6afecfc7435c3aff5ddb9522bfbaf48db2faf7d5ea9e02123208a6"
+      ],
+      "reason": "Updated pyproject.toml card and refreshed references [1] and [2] to cover the newly registered rh-extract console script alongside rh-audit and rh-file-size-gate.",
+      "sources": [
+        {
+          "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
+          "path": "pyproject.toml"
+        }
+      ],
+      "subject": "onboarding:pyproject.toml"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-83KJEZ",
+      "items": [
+        "sha256:1710513015824b86da36da7b31783e81278931d134251f6c14c166ac244e571c"
+      ],
+      "reason": "Synthetic Lean 4 mutual-block refusal test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_lean_parser.py.md.",
+      "sources": [
+        {
+          "blob": "e1e8b1c6a5be16f889e3995c3d65adcdc8552624",
+          "path": "tests/fixtures/lean_parser/refused_mutual.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_mutual.lean"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-AWKW9Q",
+      "items": [
+        "sha256:3193172f718e531b276a76bfc96039e58b30922820c6b1c3cab52367d2141ab3"
+      ],
+      "reason": "Synthetic Lean 4 termination_by refusal test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_lean_parser.py.md.",
+      "sources": [
+        {
+          "blob": "43cee2e5f2328f34aaf750bd1e5cec25f63109b6",
+          "path": "tests/fixtures/lean_parser/refused_termination_by.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_termination_by.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-BAXHRD",
+      "items": [
+        "sha256:b658ce2daed3baeeb8f9c4c502ec3a8e97facc0d9484e908b545a691f913a9b7"
+      ],
+      "reason": "Authored file card covering module-name resolution, 21-stage map validation, strict import-only DAG edge derivation, DAG model validation and committed Stage 00 round-trip tests.",
+      "sources": [
+        {
+          "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+          "path": "tests/unit/test_stage_map.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_stage_map.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-BMSS7C",
+      "items": [
+        "sha256:2546267ea1e71118b92c4525254a5bb03b171690d3aff53440663fff134cdf58"
+      ],
+      "reason": "Authored file card explaining the closed ten-kind Lean declaration vocabulary, LeanDeclaration and ExtractedModule frozen dataclasses and strict exact-key validation.",
+      "sources": [
+        {
+          "blob": "c2e52d4b199aa79110541ce33cf169da3dc44f27",
+          "path": "src/rh_pipeline/models/lean.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/models/lean.py"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-7MVB06",
+          "revision": 1
+        },
+        {
+          "id": "INV-MVJ01Q",
+          "revision": 1
+        },
+        {
+          "id": "INV-VAZE4Y",
+          "revision": 1
+        },
+        {
+          "id": "INV-YAHFY5",
+          "revision": 1
+        },
+        {
+          "id": "INV-ZSMC71",
+          "revision": 1
+        }
+      ],
+      "id": "ROW-BT8W2B",
+      "items": [
+        "sha256:065ed30e893bc54c0fdbfe659482c72993b64644ab1e2784a6c23ea828c7c2b9"
+      ],
+      "reason": "Examined all five members of FAM-AWJSBW; only INV-7MVB06's pyproject.toml script-block anchor moved when rh-extract was added on line 23, and the Phase 0 audit pipeline guarantee, members and routes remain unchanged.",
+      "revision": 1,
+      "subject": "FAM-AWJSBW"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-BZRGPC",
+      "items": [
+        "sha256:eead3ae519e81fd5c592417c6bd6fde59ea438a27d1f82d2953c972a64b9437a"
+      ],
+      "reason": "Authored file card explaining the generated Stage 00 formal_conjectures_statement.lean skeleton stubbing the named DirichletCharacter instance while preserving GRH.trivialZeros verbatim.",
+      "sources": [
+        {
+          "blob": "831a5954cb84492a2ecd09bc9ee2c9253a32ba93",
+          "path": "skeleton/00_statement/formal_conjectures_statement.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/00_statement/formal_conjectures_statement.lean"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-CD5FY4",
+      "items": [
+        "sha256:2c50765cab25bdb5455397a758d012749d358492922db8b6949519ffede17aae"
+      ],
+      "reason": "Synthetic Lean 4 set_option refusal test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_lean_parser.py.md.",
+      "sources": [
+        {
+          "blob": "809ae739650616a9ab80561688d312275624fa6c",
+          "path": "tests/fixtures/lean_parser/refused_set_option.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_set_option.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-CRV96Q",
+      "items": [
+        "sha256:a6e51870c3871c06d4ba2cf39e425189f9f64cc44c4723be05c58ab171eb0d59"
+      ],
+      "reason": "Authored file card explaining the generated Stage 00 statements.lean skeleton preserving all four Prop definitions verbatim under preserve_defs=true.",
+      "sources": [
+        {
+          "blob": "ca73f028df3d20761dd1d09795881af456898df1",
+          "path": "skeleton/00_statement/statements.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/00_statement/statements.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-DW12TY",
+      "items": [
+        "sha256:a195faab8dc6dcb64974c602456551d4b472b07ddbd631216fc09eb67a90ca2a"
+      ],
+      "reason": "Authored file card explaining the thin rh-extract CLI argument parser, extract_and_write delegation and exit-code 0/2 error translation.",
+      "sources": [
+        {
+          "blob": "150b6d24db72d8bc86dec8ed99a0b3a0658fdd54",
+          "path": "src/rh_pipeline/cli/extract.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/cli/extract.py"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-GH64AR",
+      "items": [
+        "sha256:cdf07462dc0c5f92b108bb1bedbe0e97474302d5e9b0b9d08ecfd3ca77cad852"
+      ],
+      "reason": "Synthetic Lean 4 open-command refusal test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_lean_parser.py.md.",
+      "sources": [
+        {
+          "blob": "7edde2142d9b499762b9da43f22ac45162b751de",
+          "path": "tests/fixtures/lean_parser/refused_open.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_open.lean"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-HK0NY5",
+      "items": [
+        "sha256:1efd52faba35d0110304b52bfb9ea56ed176850247e3722e19267a9100340c69"
+      ],
+      "reason": "Synthetic Lean 4 variable-command refusal test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_lean_parser.py.md.",
+      "sources": [
+        {
+          "blob": "cff398c57eb97020dff6f2480eb0d7ce5564beed",
+          "path": "tests/fixtures/lean_parser/refused_variable.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_variable.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-K03F9H",
+      "items": [
+        "sha256:7a3b8524a3649e2963b627c5355d987a96a7bdb59b043ace49e4dc5414bd0920"
+      ],
+      "reason": "Authored file card covering end-to-end rh-extract CLI execution, deterministic regeneration, atomic temp-file cleanup on fsync failure and zero-write refusal tests.",
+      "sources": [
+        {
+          "blob": "8a1c9f76e713179a14603cccce145e8ae8a460c6",
+          "path": "tests/unit/test_extract_cli.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_extract_cli.py"
+    },
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
+            "content": "sha256:12392afb314b25867740b6c9d0de665e7b89ad3d2d1f3bd35cd82d71266c38c2",
+            "locator": {
+              "end": 22,
+              "kind": "line_range",
+              "start": 21
+            },
+            "path": "pyproject.toml"
+          },
+          "before": {
+            "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
+            "content": "sha256:6bda1cd6c8e3aca8c44f81e30466287dd7d70fd17fd4cf3216e70456e5ad7f38",
+            "locator": {
+              "end": 23,
+              "kind": "line_range",
+              "start": 21
+            },
+            "path": "pyproject.toml"
+          },
+          "id": "RLZ-D9S8AP"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-KH777D",
+      "items": [
+        "sha256:2ba9cefec3fd2ea4aab85f7e61410b4cae9c62a7ba320f94558c9df1e90b05a6"
+      ],
+      "reason": "Inserting rh-extract at pyproject.toml:23 shifted [project.scripts] from lines 21-23 to 21-24; re-anchored RLZ-D9S8AP to lines 21-22 ([project.scripts] and rh-audit) while INV-7MVB06 meaning, CLI exit codes and audit snapshots remain unchanged.",
+      "revision": 1,
+      "subject": "INV-7MVB06"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-PP3107",
+      "items": [
+        "sha256:b9230c699e39895900e2e3c19223b6105df3dc5acf4f9bf75f9327d8712fb80a"
+      ],
+      "reason": "Authored file card explaining deterministic skeleton rendering, preserve_defs routing across all ten kinds, EXTRACTED_DEF vs EXTRACTED_STUB formatting and DagDeclarationRef end_line boundaries.",
+      "sources": [
+        {
+          "blob": "eccce6f15dafc301b98c8498611ceef9bbb987e8",
+          "path": "src/rh_pipeline/lean/stub_emitter.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/lean/stub_emitter.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-Q71VX2",
+      "items": [
+        "sha256:4cc669c89d1b1355eb93970c1ebd746862ff3fde98def476752b54743f2b0c62"
+      ],
+      "reason": "Authored file card explaining rh-stage-map/v1 validation, Lean module-name resolution, strict import-only DAG construction, read-only upstream Git root safety and in-memory-before-write atomic replacement.",
+      "sources": [
+        {
+          "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+          "path": "src/rh_pipeline/graph/stage_map.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/graph/stage_map.py"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-QG9VTZ",
+      "items": [
+        "sha256:cc3841b7e3ee4a6516da6da4d841896fd271251b33229164b296509777c2a01c"
+      ],
+      "reason": "Synthetic Lean 4 anonymous-instance refusal test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_lean_parser.py.md.",
+      "sources": [
+        {
+          "blob": "b73839183ac567ddc828e03922134c9d8707a8d4",
+          "path": "tests/fixtures/lean_parser/refused_anonymous_instance.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_anonymous_instance.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-QK2V6Q",
+      "items": [
+        "sha256:8b99063f8a83296b0c16df8068d1012ac34aaba47d292ae4d9bd68cc7bf7e3e1"
+      ],
+      "reason": "Authored file card explaining the closed-world delimiter- and comment-aware Lean 4 lexer and parser, unclosed section vs balanced namespace handling, depth-0 := splitting and UnsupportedLeanFormError refusals.",
+      "sources": [
+        {
+          "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+          "path": "src/rh_pipeline/lean/parser.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/lean/parser.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-RAQXCA",
+      "items": [
+        "sha256:bd52247db5305828b6202a56a069e022c6798df6490d22147b284bf01d329f0f"
+      ],
+      "reason": "Authored file card explaining the generated Stage 00 main.lean skeleton stubbing all five top-level solution theorems under preserve_defs=false.",
+      "sources": [
+        {
+          "blob": "7a3b257ac601fcf907f4871245f368d71a50f9d0",
+          "path": "skeleton/00_statement/main.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/00_statement/main.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-S5XS92",
+      "items": [
+        "sha256:a6fa3b341f21a963b03b54bd766ec82c2cc86dac7a0e92eba1a33a0ced61f135"
+      ],
+      "reason": "Authored file card explaining the generated Stage 00 formal_conjectures_challenge.lean skeleton stubbing all four declarations including GRH.trivialZeros under preserve_defs=false.",
+      "sources": [
+        {
+          "blob": "e355c84aa6f5ee1590da3b7625f0bcbe4fae187b",
+          "path": "skeleton/00_statement/formal_conjectures_challenge.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/00_statement/formal_conjectures_challenge.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-TV8XV8",
+      "items": [
+        "sha256:28416b4abdc3ce08eb5d01f99ec9a570d332147cde5920140f5e70302f8b8770"
+      ],
+      "reason": "Authored file card covering all-ten-kind preserve_defs routing, verbatim/stub formatting, DagDeclarationRef line alignment and byte-identical re-rendering tests.",
+      "sources": [
+        {
+          "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+          "path": "tests/unit/test_stub_emitter.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_stub_emitter.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-XA29Y7",
+      "items": [
+        "sha256:7d075fd441e8893f0d4d204d9b890d2f35986d4695031e1ce18fa1bb98887379"
+      ],
+      "reason": "Authored file card explaining the authoritative 21-stage rh-stage-map/v1 file, Stage 00 five-file mappings with preserve_defs flags and empty Stages 01-20 placeholders.",
+      "sources": [
+        {
+          "blob": "5ff863b7880c404cd0f26a5dab2277dee1c3920b",
+          "path": "dag/stage-map.json"
+        }
+      ],
+      "subject": "onboarding:dag/stage-map.json"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-YN8SQA",
+      "items": [
+        "sha256:7ebdcc92a59ae0cd4d73978a02f3ecc21345cd75bbb4ae199d2ca8c5f8a3bb84"
+      ],
+      "reason": "Authored file card explaining the six immutable stage-map and DAG dataclasses, pinned rh-stage-map/v1 and rh-dag/v1 schemas, relative POSIX path rules, skeleton/ prefix rejection and canonical JSON formatting.",
+      "sources": [
+        {
+          "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+          "path": "src/rh_pipeline/models/dag.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/models/dag.py"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-Z05XFS",
+      "items": [
+        "sha256:4efb7a31781af00038ceb79b811299f0403ab5e3baa4e88e2acbb78304a327f9"
+      ],
+      "reason": "Synthetic Lean 4 unbalanced-namespace refusal test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_lean_parser.py.md.",
+      "sources": [
+        {
+          "blob": "2b7fd1f5284d6ec974621acc9a7ee0e7d33e470f",
+          "path": "tests/fixtures/lean_parser/refused_unbalanced_namespace.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_unbalanced_namespace.lean"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:6f04d40b04de1c21a2dd08e1d8d430f476cbe7dd49d0ca0d4f8cbaaad6c2e1ed",
+      "record": "DEC-V5ASDJ",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T19:03:13+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "03",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:178512e2fcfde7c4066753ba69fb5aefc386b0f748bd957c1440bbe2022640e8",
+      "record": "FAM-ZD4QRG",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T19:03:13+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "03",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:29c86d1d5c797086116a4d1fadbc2470e101ad5c276129700ad0afa865d80794",
+      "record": "INV-01DVB3",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T19:03:13+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "03",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:2c78c8bbe410dc194b4658975432722abb0cd6b6c867bb6fa593cf55f67ff563",
+      "record": "INV-0SYK8A",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T19:03:13+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "03",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:13adf784ffb05bc7cf734c45940bfc80ecb3622d52ab0ac4261d4eaa192f0f8b",
+      "record": "INV-0WN2N4",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T19:03:13+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "03",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:558231462c42e8da9f8f5a7ef778125f5194604ba109784b87244f2fd0a9b6f1",
+      "record": "INV-BEGWB0",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T19:03:13+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "03",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:153c8fc0da77052f8ff30a86d77fc8479ab2063abb73ecf4413140ad87960de5",
+      "record": "INV-Y5X0FK",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T19:03:13+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "03",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+        "task": "261123-RH"
+      }
+    }
+  ]
+}

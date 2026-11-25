@@ -1,0 +1,46 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Realized across src/rh_pipeline/graph/stage_map.py, dag/stage-map.json and dag/dag.json with unit tests proving 21-stage validation, strict import-only edges and committed Stage 00 round-trip parity, preventing false dependency edges or stage renumbering."
+  },
+  "applicability": "Versioned stage-map validation and import-only proof dependency DAG construction across src/rh_pipeline/graph/stage_map.py, dag/stage-map.json and dag/dag.json.",
+  "conditions": [
+    "load_stage_map enforces non-empty stages, consecutive 0..N-1 orders and global uniqueness of stage IDs, upstream paths, skeleton files and derived Lean module names, raising StageMapError on violation.",
+    "build_dag derives sorted deduplicated depends_on edges strictly from resolved Lean import statements among mapped nodes, excludes self-edges, ignores unmapped external imports and rejects duplicate declaration names within one skeleton file."
+  ],
+  "exclusions": [
+    "Duplicate declaration names across separate files never create dependency edges; Stages 01-20 remain empty files arrays until later masters map them."
+  ],
+  "id": "INV-Y5X0FK",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_stage_map.py::test_load_real_stage_map; tests/unit/test_stage_map.py::test_build_dag_uses_strict_import_edges_no_false_challenge_edge; tests/unit/test_stage_map.py::test_committed_dag_and_stage00_skeleton_round_trip"
+      ],
+      "path": "rh-r03-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R03@v1 §4",
+    "leaf": "03",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "load_stage_map validates the 21-stage versioned dag/stage-map.json (mapping all 5 conforming Stage 00 files with empty Stage 01-20 lists) and build_dag constructs dag/dag.json with depends_on edges derived strictly from resolved Lean import statements among mapped nodes without cross-matching duplicate symbol names.",
+  "supersedes": [],
+  "title": "Versioned 21-stage map and import-only Stage 00 DAG",
+  "writer": {
+    "at": "2026-11-25T19:03:13+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "03",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+    "task": "261123-RH"
+  }
+}

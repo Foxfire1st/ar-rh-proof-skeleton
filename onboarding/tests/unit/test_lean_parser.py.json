@@ -1,0 +1,181 @@
+{
+  "path": "tests/unit/test_lean_parser.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+        "content": "sha256:82fd4c905ade4dad7f92b3ac8159cca38cb4180b48cb36ecd9a7fc6f58509b2a",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_admitted_full_fixture_extracts_all_declarations_and_imports"
+        }
+      },
+      "facet": "Demonstrates extraction of sorted imports and all 12 declarations across all 10 kinds from admitted_full.lean with nested binder := handling, namespace qualification, exact line spans and body_sha256.",
+      "id": "PRF-5W0TMV",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §2",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+        "content": "sha256:91dfa50fc4ff406048383bf9661149d1646e2b86c0bd6d9377b28e5dfed8a96f",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_additional_closed_world_refusals"
+        }
+      },
+      "facet": "Demonstrates default-deny UnsupportedLeanFormError across 46 inline cases covering unlisted commands, local/scoped modifiers, termination_by/decreasing_by, unbalanced scopes, unclosed literals/delimiters and missing bodies.",
+      "id": "PRF-66ZRCM",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §2",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+        "content": "sha256:8f20c22080b6c46557bd51bda651c546e014b9715ac069903358ea0adb4f7467",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_refuses_col0_where_after_def"
+        }
+      },
+      "facet": "Demonstrates a column-0 where line after a def is refused as form='where' rather than absorbed as a structure/inductive/class continuation.",
+      "id": "PRF-8RMK16",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §2",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+        "content": "sha256:5e8300728db8d9ba3c90bda22d2c698500bc551f7cf3092b1cfb98ee30d23213",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_all_refused_fixture_files_are_listed"
+        }
+      },
+      "facet": "Demonstrates that every refused_*.lean fixture file on disk under tests/fixtures/lean_parser/ is explicitly exercised in REFUSED_FIXTURE_CASES.",
+      "id": "PRF-9EYEA5",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §2",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+        "content": "sha256:a2547902579cc45532a3ab69286851ff10bad0893514705e5d19d7854ba859e9",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_refused_fixtures_raise_unsupported_error"
+        }
+      },
+      "facet": "Demonstrates all eight refusal fixtures raise UnsupportedLeanFormError with exact rel_path, line, form and formatted rel_path:line:form message.",
+      "id": "PRF-F0WBQV",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §2",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+        "content": "sha256:070e78edb79721c9eb1200c7046e2360134c6fc10a017410507303e1d8eb89bc",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_model_serialization_round_trip_and_strict_validation"
+        }
+      },
+      "facet": "Demonstrates ExtractedModule and LeanDeclaration JSON round-trips and rejects extra keys, unknown declaration kinds, body_lines mismatches, inverted line bounds and bool-as-int.",
+      "id": "PRF-HHGYJB",
+      "invariant": "INV-BEGWB0",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §1",
+        "leaf": "03"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Verifies extraction of all ten declaration kinds, sorted imports, nested binder assigns and SHA-256 body metadata on admitted_full.lean.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "content": "sha256:82fd4c905ade4dad7f92b3ac8159cca38cb4180b48cb36ecd9a7fc6f58509b2a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_admitted_full_fixture_extracts_all_declarations_and_imports"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Verifies default-deny UnsupportedLeanFormError refusals across all eight refusal fixtures, 46 inline cases and column-0 where after def.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "content": "sha256:a2547902579cc45532a3ab69286851ff10bad0893514705e5d19d7854ba859e9",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_refused_fixtures_raise_unsupported_error"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "content": "sha256:91dfa50fc4ff406048383bf9661149d1646e2b86c0bd6d9377b28e5dfed8a96f",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_additional_closed_world_refusals"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "content": "sha256:8f20c22080b6c46557bd51bda651c546e014b9715ac069903358ea0adb4f7467",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_refuses_col0_where_after_def"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Verifies LeanDeclaration and ExtractedModule JSON round-trips and strict key, kind, line-bound and bool-as-int rejections.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "content": "sha256:070e78edb79721c9eb1200c7046e2360134c6fc10a017410507303e1d8eb89bc",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_model_serialization_round_trip_and_strict_validation"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

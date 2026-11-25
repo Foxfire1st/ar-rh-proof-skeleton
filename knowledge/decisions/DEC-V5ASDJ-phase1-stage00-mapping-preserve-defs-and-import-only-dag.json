@@ -1,0 +1,76 @@
+{
+  "admission": {
+    "criteria": [
+      "real_alternatives",
+      "constrains_future_work"
+    ],
+    "justification": "Weighed alternative Stage 00 file mappings, def-preservation rules and edge-derivation strategies and constrains downstream validator, site-compilation and Stage 01-20 mapping schemas."
+  },
+  "alternatives": [
+    {
+      "option": "Map all five conforming Stage 00 files (Statements, Challenge, Main, FormalConjecturesStatement, FormalConjecturesChallenge), preserve def/abbrev bodies verbatim in Stage 00 statement files (preserve_defs=true on statements, challenge and formal_conjectures_statement; false on main and formal_conjectures_challenge), enforce closed-world default-deny Lean parsing, and derive DAG depends_on edges strictly from resolved Lean import statements among mapped nodes.",
+      "reason": "Keeps GRH.trivialZeros and both Mathlib and formal-conjectures RH/GRH formal definitions inspectable verbatim while stubbing proof bodies, fails closed on unsupported syntax, and prevents false edges where Challenge.lean or FormalConjecturesChallenge.lean share symbol names with statement files while importing only Mathlib.",
+      "status": "chosen"
+    },
+    {
+      "option": "Stub all def bodies uniformly, omit comparator/FormalConjecturesChallenge.lean, or infer DAG dependency edges by cross-matching duplicate declaration names across files.",
+      "reason": "Hides formal statement definitions such as GRH.trivialZeros behind sorry stubs, drops the independent formal-conjectures challenge comparison, and creates false dependency edges (such as Challenge -> Statements) that contradict upstream imports.",
+      "reconsider_when": "A future approved requirement removes verbatim statement definitions from Stage 00 skeletons or replaces import-only DAG edges with a compiler-backed semantic dependency graph.",
+      "status": "rejected"
+    },
+    {
+      "option": "Run Lake/Lean or read .olean files during Phase 1 extraction to obtain elaborated declarations and semantic dependencies, or populate Stages 01-20 in the same pass.",
+      "reason": "Out of scope for Phase 1 deterministic pure-Python extraction and Stage 00 vertical slice; Stage 01-20 mappings belong to later masters and any optional Lean elaboration oracle is reserved under RH-D11.",
+      "reconsider_when": "A later master maps Stages 01-20 into dag/stage-map.json or an approved requirement introduces an optional repo-local Lean elaboration oracle per RH-D11.",
+      "status": "deferred"
+    }
+  ],
+  "consequences": [
+    "Downstream validators (RH-R04) and the VitePress explainer builder (RH-R05) consume rh-stage-map/v1, rh-dag/v1 and verbatim Stage 00 statement definitions with exact upstream line ranges.",
+    "dag/dag.json records depends_on: ['00_statement/statements'] for 00_statement/main and depends_on: [] for 00_statement/challenge and 00_statement/formal_conjectures_challenge because both challenge files import only Mathlib upstream."
+  ],
+  "context": "Phase 1 extracts deterministic Stage 00 Lean 4 skeleton files and a proof dependency DAG from read-only upstream riemann-hypothesis without invoking Lake or Lean, while keeping formal RH/GRH statements directly inspectable and preventing false dependency edges between independent challenge and statement files.",
+  "decider": "Developer (rulings RH-D02 and RH-D07 approving RH-R03@v1)",
+  "id": "DEC-V5ASDJ",
+  "links": [
+    {
+      "relation": "constrains",
+      "target": "INV-0WN2N4"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-0SYK8A"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-Y5X0FK"
+    },
+    {
+      "relation": "explains",
+      "target": "FAM-ZD4QRG"
+    }
+  ],
+  "origin": {
+    "handoff": {
+      "path": "rh-r03-a1-curator-ingest.json"
+    },
+    "handoffEntry": "rh-d02-stage00-mapping-and-import-only-dag",
+    "leaf": "03",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-decision/v1",
+  "status": "active",
+  "supersedes": [],
+  "writer": {
+    "at": "2026-11-25T19:03:13+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "03",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+    "task": "261123-RH"
+  }
+}

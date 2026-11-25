@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/00_statement/formal_conjectures_challenge.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins comparator/FormalConjecturesChallenge.lean at c900e67c2fcd1fdb041685820bbd2b867fbc5a4b with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e355c84aa6f5ee1590da3b7625f0bcbe4fae187b",
+            "content": "sha256:3c8ffa48ff32bbe870e2fdc9b500e906d37ad2df9d4d543f84bb7e91ebc1a850",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs the DirichletCharacter decidability instance and RiemannHypothesis.riemannHypothesis with EXTRACTED_STUB lines.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e355c84aa6f5ee1590da3b7625f0bcbe4fae187b",
+            "content": "sha256:01d0c7b481a2bb385874f19c1e1dcb710440512aa0bb288ef22f5d0b40b6d387",
+            "locator": {
+              "end": 23,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs noncomputable def GRH.trivialZeros under Preserve defs false and theorem GRH.generalized_riemann_hypothesis with upstream spans.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e355c84aa6f5ee1590da3b7625f0bcbe4fae187b",
+            "content": "sha256:e0ae07fff976f1f56ba75d30a56c2e6438f5423565ef31fecb7e2123d9d2364f",
+            "locator": {
+              "end": 41,
+              "kind": "line_range",
+              "start": 25
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

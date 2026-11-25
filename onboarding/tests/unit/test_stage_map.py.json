@@ -1,0 +1,147 @@
+{
+  "path": "tests/unit/test_stage_map.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+        "content": "sha256:00eb0c4a746248bda9169fdadf0611d0fd1a888067f774833adeb00d48fbf104",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_build_dag_uses_strict_import_edges_no_false_challenge_edge"
+        }
+      },
+      "facet": "Demonstrates build_dag derives depends_on solely from mapped Lean imports, excludes self and external imports, creates no false challenge-to-statements edge and sets is_landmark for theorem/lemma nodes.",
+      "id": "PRF-PZAQK0",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §4",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+        "content": "sha256:093d84738b061bc2a0d5c5d3ef556ddcb169b7b8bf5b142cf666a2dab28b20dd",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_load_real_stage_map"
+        }
+      },
+      "facet": "Demonstrates committed dag/stage-map.json loads cleanly into 21 consecutively ordered stages (0..20) with five Stage 00 mappings and empty Stages 01-20.",
+      "id": "PRF-TY7QW9",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §4",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+        "content": "sha256:92da830c028e0119667ee9eeecf5d88946e88eee338963b8dfa8ce65b48e27f2",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_committed_dag_and_stage00_skeleton_round_trip"
+        }
+      },
+      "facet": "Demonstrates committed dag/dag.json round-trips byte-identically, matches audit/verification-status.json upstream_commit, records main->statements with empty challenge edges and aligns every declaration span with re-parsed Stage 00 skeletons.",
+      "id": "PRF-V6DD0Y",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §4",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+        "content": "sha256:0ce9d3808a534fe7ccd0dd81f8501581240e53a04e62c2e154ca3d41aa711d45",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_dag_models_strict_validation"
+        }
+      },
+      "facet": "Demonstrates StageMap, StageFileMapping, DagDeclarationRef and DagNode reject invalid schema versions, key mismatches, skeleton/-prefixed or traversal paths, non-boolean preserve_defs, inverted bounds and unknown kinds.",
+      "id": "PRF-X6JDS6",
+      "invariant": "INV-BEGWB0",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §1",
+        "leaf": "03"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Verifies Lean module-name resolution, real 21-stage map loading and StageMapError validation on duplicates, non-consecutive orders and malformed inputs.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "content": "sha256:093d84738b061bc2a0d5c5d3ef556ddcb169b7b8bf5b142cf666a2dab28b20dd",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_load_real_stage_map"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "content": "sha256:26186912666a32b5b0bc4d756d237f65a8ffc69ab0220a72677c7409b5857593",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_load_stage_map_validation_errors"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Verifies strict import-only DAG edge derivation without false symbol-name edges and strict DAG model validation rejections.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "content": "sha256:00eb0c4a746248bda9169fdadf0611d0fd1a888067f774833adeb00d48fbf104",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_dag_uses_strict_import_edges_no_false_challenge_edge"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "content": "sha256:0ce9d3808a534fe7ccd0dd81f8501581240e53a04e62c2e154ca3d41aa711d45",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_dag_models_strict_validation"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Guards committed dag/dag.json round-trip fidelity, upstream_commit parity with verification-status.json and declaration line-range parity with all five Stage 00 skeletons.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "content": "sha256:92da830c028e0119667ee9eeecf5d88946e88eee338963b8dfa8ce65b48e27f2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_committed_dag_and_stage00_skeleton_round_trip"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}
