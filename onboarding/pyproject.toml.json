@@ -3,10 +3,29 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
-        "content": "sha256:6bda1cd6c8e3aca8c44f81e30466287dd7d70fd17fd4cf3216e70456e5ad7f38",
+        "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
+        "content": "sha256:0601791c0d3613f14ee53243de248020cc721fbed11300613d490409e90de243",
         "locator": {
-          "end": 23,
+          "end": 24,
+          "kind": "line_range",
+          "start": 21
+        }
+      },
+      "id": "RLZ-BTVX2M",
+      "invariant": "INV-01DVB3",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §5",
+        "leaf": "03"
+      },
+      "rationale": "Registers the rh-extract console script entry point alongside existing rh-audit and rh-file-size-gate scripts.",
+      "role": "support"
+    },
+    {
+      "anchor": {
+        "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
+        "content": "sha256:12392afb314b25867740b6c9d0de665e7b89ad3d2d1f3bd35cd82d71266c38c2",
+        "locator": {
+          "end": 22,
           "kind": "line_range",
           "start": 21
         }
@@ -23,14 +42,14 @@
   ],
   "references": {
     "1": {
-      "note": "Registers rh-audit and rh-file-size-gate console scripts.\n\nAnchor: `rh-audit`",
+      "note": "Registers rh-audit, rh-extract and rh-file-size-gate console scripts.\n\nAnchor: `rh-extract`",
       "targets": [
         {
           "anchor": {
-            "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
-            "content": "sha256:6bda1cd6c8e3aca8c44f81e30466287dd7d70fd17fd4cf3216e70456e5ad7f38",
+            "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
+            "content": "sha256:0601791c0d3613f14ee53243de248020cc721fbed11300613d490409e90de243",
             "locator": {
-              "end": 23,
+              "end": 24,
               "kind": "line_range",
               "start": 21
             }
@@ -44,10 +63,10 @@
       "targets": [
         {
           "anchor": {
-            "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
-            "content": "sha256:e8a6580578ed9b9c8e35f2d413d2452e0778f548c6dca1bcd8af79057c073f3c",
+            "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
+            "content": "sha256:53f4bacefe756a93627d0c816aceb1b001cdc2d9c5371bbdefde7c0055b13f9f",
             "locator": {
-              "end": 43,
+              "end": 44,
               "kind": "line_range",
               "start": 5
             }

@@ -1,0 +1,148 @@
+{
+  "path": "src/rh_pipeline/models/dag.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+        "content": "sha256:6449c4e1afa6c80384ca28cd2280724bc11e72e78417f7382b91452a93154772",
+        "locator": {
+          "kind": "symbol",
+          "name": "DagDeclarationRef"
+        }
+      },
+      "id": "RLZ-6P0FHZ",
+      "invariant": "INV-BEGWB0",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §1",
+        "leaf": "03"
+      },
+      "rationale": "Preserves exact skeleton and upstream 1-based inclusive line ranges for every extracted declaration.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+        "content": "sha256:c9fef98c44206157636eec20fe88529faa0301955b516c4f17c09608787fff8b",
+        "locator": {
+          "kind": "symbol",
+          "name": "DagGraph"
+        }
+      },
+      "id": "RLZ-EFT0PX",
+      "invariant": "INV-BEGWB0",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §1",
+        "leaf": "03"
+      },
+      "rationale": "Defines the rh-dag/v1 root graph model with canonical sorted-key JSON output and strict from_dict validation.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+        "content": "sha256:30e8001e5edcde4a655629121a0f136a8e85cddf77285b056733ae962cc2639c",
+        "locator": {
+          "kind": "symbol",
+          "name": "StageFileMapping"
+        }
+      },
+      "id": "RLZ-GSS9SQ",
+      "invariant": "INV-BEGWB0",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §1",
+        "leaf": "03"
+      },
+      "rationale": "Enforces relative POSIX upstream_path, skeleton-relative skeleton_file (rejecting leading skeleton/ prefix), and strict boolean preserve_defs.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Pins rh-stage-map/v1 and rh-dag/v1 schema versions and deterministic sorted-key canonical JSON formatting.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+            "content": "sha256:3fdc53a5eaa6f8086d2fb1397398cbbba9c3fda4eafb2a713d61f7df8c3227f5",
+            "locator": {
+              "kind": "symbol",
+              "name": "format_canonical_json"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Enforces relative POSIX paths and rejects any leading skeleton/ prefix on skeleton_file fields.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+            "content": "sha256:008184c7431aabd0d1677a2a33a73555b57934e8f915b134c4bf62e1de017ad4",
+            "locator": {
+              "kind": "symbol",
+              "name": "_req_path"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "StageFileMapping and DagDeclarationRef validate strict booleans, skeleton-relative targets and 1-based inclusive skeleton and upstream line spans.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+            "content": "sha256:30e8001e5edcde4a655629121a0f136a8e85cddf77285b056733ae962cc2639c",
+            "locator": {
+              "kind": "symbol",
+              "name": "StageFileMapping"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+            "content": "sha256:6449c4e1afa6c80384ca28cd2280724bc11e72e78417f7382b91452a93154772",
+            "locator": {
+              "kind": "symbol",
+              "name": "DagDeclarationRef"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "StageMap and DagGraph enforce exact key sets, pinned schema versions and canonical to_json output.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+            "content": "sha256:17afaaed48c7ead94a42d090aa18f0e601a9a95a296169b05f85aee5cbfef2e5",
+            "locator": {
+              "kind": "symbol",
+              "name": "StageMap"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "92f785a2f4babbcf0843409b0f1c64ee4d7aa81e",
+            "content": "sha256:c9fef98c44206157636eec20fe88529faa0301955b516c4f17c09608787fff8b",
+            "locator": {
+              "kind": "symbol",
+              "name": "DagGraph"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

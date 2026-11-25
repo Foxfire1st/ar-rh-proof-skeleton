@@ -1,0 +1,92 @@
+{
+  "path": "src/rh_pipeline/models/lean.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "c2e52d4b199aa79110541ce33cf169da3dc44f27",
+        "content": "sha256:3a2d0bc6a786abd9012cb5dc3dcd2c8c040c014f6c5ebf4d1d85f785e4aacb5f",
+        "locator": {
+          "kind": "symbol",
+          "name": "LeanDeclaration"
+        }
+      },
+      "id": "RLZ-DD2D5G",
+      "invariant": "INV-BEGWB0",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §1",
+        "leaf": "03"
+      },
+      "rationale": "Defines the immutable LeanDeclaration dataclass with strict line-range, kind, body_lines, and exact-key serialization validation.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "c2e52d4b199aa79110541ce33cf169da3dc44f27",
+        "content": "sha256:2e4d061acf747a2c719cb97a0dcfee7f4ede7917c280f2e90f4271613eb7e899",
+        "locator": {
+          "kind": "symbol",
+          "name": "ExtractedModule"
+        }
+      },
+      "id": "RLZ-WPXHRP",
+      "invariant": "INV-BEGWB0",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §1",
+        "leaf": "03"
+      },
+      "rationale": "Defines the immutable ExtractedModule container holding sorted imports and extracted LeanDeclaration records with strict from_dict validation.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Pins the closed ten-kind Lean declaration vocabulary used across models, parser and emitter.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c2e52d4b199aa79110541ce33cf169da3dc44f27",
+            "content": "sha256:6eb4c164d87f09217c1747124b9c0fa2ea7bb50943cb7cfca405ebaff6d7711c",
+            "locator": {
+              "kind": "symbol",
+              "name": "VALID_DECLARATION_KINDS"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "LeanDeclaration enforces exact ten-key deserialization, bool-rejected 1-based line bounds and the empty-body body_lines invariant.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c2e52d4b199aa79110541ce33cf169da3dc44f27",
+            "content": "sha256:3a2d0bc6a786abd9012cb5dc3dcd2c8c040c014f6c5ebf4d1d85f785e4aacb5f",
+            "locator": {
+              "kind": "symbol",
+              "name": "LeanDeclaration"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "ExtractedModule enforces strict tuple storage for imports and declarations with exact four-key dictionary round-tripping.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c2e52d4b199aa79110541ce33cf169da3dc44f27",
+            "content": "sha256:2e4d061acf747a2c719cb97a0dcfee7f4ede7917c280f2e90f4271613eb7e899",
+            "locator": {
+              "kind": "symbol",
+              "name": "ExtractedModule"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

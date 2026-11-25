@@ -1,0 +1,130 @@
+{
+  "path": "src/rh_pipeline/lean/parser.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+        "content": "sha256:1b120ce85caa514c448a1b017aaa3358861fcfc2713ecb71746089354aca7b11",
+        "locator": {
+          "kind": "symbol",
+          "name": "UnsupportedLeanFormError"
+        }
+      },
+      "id": "RLZ-CYQKPV",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §2",
+        "leaf": "03"
+      },
+      "rationale": "Provides the structured closed-world refusal error formatted as rel_path:line:form.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+        "content": "sha256:17464037981b8e80728ca46cee5308fa650874530e3df330a750d0cc5ea8fb56",
+        "locator": {
+          "kind": "symbol",
+          "name": "extract_declarations"
+        }
+      },
+      "id": "RLZ-ZS7RPJ",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §2",
+        "leaf": "03"
+      },
+      "rationale": "Owns the closed-world Lean 4 lexer and parser extracting imports and qualified declarations with exact upstream spans and body hashes.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "The lexer tracks nested block comments, strings, raw strings, char literals, guillemet names and four delimiter pairs to compute exact nesting depth.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+            "content": "sha256:dfa508619baabad9a6ad17519c4cdbef40d99c54b3f35f98caef68a6a29df784",
+            "locator": {
+              "kind": "symbol",
+              "name": "_Lexer"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Scope handling allows unclosed sections to EOF while failing closed on unbalanced namespaces, stray end or mismatched end.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+            "content": "sha256:91d02310a457dee342445d6583b8cffb8b188c6d1d2ba97380da946bccb2dbf8",
+            "locator": {
+              "kind": "symbol",
+              "name": "_Parser"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Declaration span scanning restricts column-0 where, pipe and deriving continuations to structure, inductive and class and rejects depth-0 termination_by and decreasing_by.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+            "content": "sha256:88167c9a306f31be610a4ad552fe70d449e3dad9aa7468c31bb8a4fdcee470dd",
+            "locator": {
+              "kind": "symbol",
+              "name": "_find_decl_end"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+            "content": "sha256:86ca7a80fca96bc0d3aa118431830db2451fba6ccd2c23b6039bbef046ff1d78",
+            "locator": {
+              "kind": "symbol",
+              "name": "_is_col0_continuation"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "Signature and body splitting scans depth-0 assign tokens, allows optional-body opaque and refuses missing or empty bodies on proof and def kinds.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+            "content": "sha256:83d1f1f1af5c7808b12670ad8ed7cb1433280c8a3d9f30c758320d6936eefd5e",
+            "locator": {
+              "kind": "symbol",
+              "name": "_split_sig_body"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+            "content": "sha256:dbc4b6b4e9f9ff67e0fa92417d129995c4d8c8589b546e59e929e118c634d8fc",
+            "locator": {
+              "kind": "symbol",
+              "name": "_find_top_level_assign"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

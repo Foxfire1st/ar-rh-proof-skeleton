@@ -1,0 +1,45 @@
+{
+  "admission": {
+    "criteria": [
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Unit tests verify verbatim-vs-stub routing across all ten kinds, exact line alignment and byte-identical re-rendering, preventing broken declaration links or accidentally stubbed Stage 00 formal definitions."
+  },
+  "applicability": "Deterministic Lean 4 skeleton file rendering and DagDeclarationRef line-range alignment in src/rh_pipeline/lean/stub_emitter.py.",
+  "conditions": [
+    "Emits structure, inductive, class, opaque and axiom always verbatim, def and abbrev verbatim iff preserve_defs=True, and theorem, lemma, instance and non-preserved def/abbrev bodies as sorry EXTRACTED_STUB lines.",
+    "Returned DagDeclarationRef spans match rendered 1-based lines exactly, with end_line excluding the trailing EXTRACTED_DEF comment on verbatim blocks and including the sorry line on stub blocks."
+  ],
+  "exclusions": [
+    "Omits module and import lines from emitted skeleton files; imports remain on ExtractedModule for DAG construction."
+  ],
+  "id": "INV-0SYK8A",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_stub_emitter.py::test_all_ten_kinds_verbatim_vs_stub_and_exact_line_alignment[True]; tests/unit/test_stub_emitter.py::test_all_ten_kinds_verbatim_vs_stub_and_exact_line_alignment[False]; tests/unit/test_stub_emitter.py::test_verbatim_def_single_line_and_multiline_indented_bodies; tests/unit/test_stub_emitter.py::test_deterministic_byte_identical_rerendering"
+      ],
+      "path": "rh-r03-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R03@v1 §3",
+    "leaf": "03",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "render_skeleton_file emits deterministic self-contained Lean skeleton files with provenance headers, preserving structure/inductive/class/opaque/axiom and (when preserve_defs=True) def/abbrev bodies with EXTRACTED_DEF comments while replacing theorem/lemma/instance (and non-preserved def/abbrev) bodies with EXTRACTED_STUB sorry lines and returning exact DagDeclarationRef line ranges.",
+  "supersedes": [],
+  "title": "Deterministic provenance-preserving Lean stub emission",
+  "writer": {
+    "at": "2026-11-25T19:03:13+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "03",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+    "task": "261123-RH"
+  }
+}

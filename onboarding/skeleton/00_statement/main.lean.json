@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/00_statement/main.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/Main.lean at c900e67c2fcd1fdb041685820bbd2b867fbc5a4b with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7a3b257ac601fcf907f4871245f368d71a50f9d0",
+            "content": "sha256:260c786680af5412edc95595e090f7ef6f0190b81cbffa9329e61cc35b688c80",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs LFunction_ne_zero_of_half_lt_re, riemannHypothesis and riemannZeta_eq_zero_re with EXTRACTED_STUB provenance markers.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7a3b257ac601fcf907f4871245f368d71a50f9d0",
+            "content": "sha256:c42c08cb084ceb556858d55fdf90532089d6e8e8ab5cf50dd221021920060122",
+            "locator": {
+              "end": 12,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs LFunction_eq_zero_re and LFunction_eq_zero_re_of_isPrimitive with body line counts and SHA-256 digests.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7a3b257ac601fcf907f4871245f368d71a50f9d0",
+            "content": "sha256:904d99aceb86dd4b03b9f08bcd6a78ede975013216b7263a3e4f99c8d436c3b3",
+            "locator": {
+              "end": 18,
+              "kind": "line_range",
+              "start": 14
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

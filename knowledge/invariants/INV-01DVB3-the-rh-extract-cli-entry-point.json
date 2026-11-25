@@ -1,0 +1,46 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Realized across src/rh_pipeline/cli/extract.py, src/rh_pipeline/graph/stage_map.py and pyproject.toml with CLI tests proving deterministic output, temp-file cleanup and zero writes on typed errors, preventing partial or corrupted skeleton trees."
+  },
+  "applicability": "Command-line invocation of rh-extract across src/rh_pipeline/cli/extract.py, src/rh_pipeline/graph/stage_map.py and pyproject.toml.",
+  "conditions": [
+    "Upstream Git root verification, symlink/path-escape checks, Lean parsing, stub rendering and DAG assembly complete entirely in memory before any file is staged or replaced.",
+    "StageMapError and UnsupportedLeanFormError print ERROR: to stderr and return exit code 2 with zero output files created; staging failures unlink all temporary files before propagating."
+  ],
+  "exclusions": [
+    "Unexpected OS errors during staging or per-file os.replace propagate uncaught, argparse usage errors follow standard exit code 2 behavior, and unmapped files in out_skeleton_dir remain untouched."
+  ],
+  "id": "INV-01DVB3",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_extract_cli.py::test_cli_end_to_end_and_byte_identical_determinism; tests/unit/test_extract_cli.py::test_zero_writes_on_stage_map_errors; tests/unit/test_extract_cli.py::test_zero_writes_on_unsupported_lean_form_error; tests/unit/test_extract_cli.py::test_atomic_write_cleans_up_temp_files_on_failure"
+      ],
+      "path": "rh-r03-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R03@v1 §5",
+    "leaf": "03",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "The rh-extract CLI entry point validates, parses, renders, and builds the DAG completely in memory before atomically writing skeleton files and dag/dag.json, exiting 2 with zero writes on StageMapError or UnsupportedLeanFormError and regenerating Stage 00 outputs byte-identically.",
+  "supersedes": [],
+  "title": "Fail-closed atomic rh-extract CLI and deterministic outputs",
+  "writer": {
+    "at": "2026-11-25T19:03:13+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "03",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
+    "task": "261123-RH"
+  }
+}

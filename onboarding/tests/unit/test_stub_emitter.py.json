@@ -1,0 +1,119 @@
+{
+  "path": "tests/unit/test_stub_emitter.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+        "content": "sha256:fae435289cdffee67d64d12ea028bb5a6de238e509ce781bd95de0b771c6791a",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_verbatim_def_single_line_and_multiline_indented_bodies"
+        }
+      },
+      "facet": "Demonstrates exact rendered output and DagDeclarationRef ranges for inline, space-indented multiline and tab-indented verbatim def/abbrev bodies under preserve_defs=True.",
+      "id": "PRF-09YHHK",
+      "invariant": "INV-0SYK8A",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §3",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+        "content": "sha256:3ec2a143b828338d039b7e84b5c62090aca0bba9f48592c667c001687094642a",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_deterministic_byte_identical_rerendering"
+        }
+      },
+      "facet": "Demonstrates repeated render_skeleton_file calls produce byte-identical UTF-8 output and equal DagDeclarationRef tuples under both preserve_defs values.",
+      "id": "PRF-56FECF",
+      "invariant": "INV-0SYK8A",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §3",
+        "leaf": "03"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+        "content": "sha256:5fdc3b56bf072391eb0e97f1da54b72b09c7dcb80c9dbaacb6188f4f42b34009",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_all_ten_kinds_verbatim_vs_stub_and_exact_line_alignment"
+        }
+      },
+      "facet": "Demonstrates verbatim-vs-stub routing, provenance comment placement and exact 1-based DagDeclarationRef line alignment across all 10 declaration kinds for both preserve_defs=False and preserve_defs=True.",
+      "id": "PRF-SR0W1D",
+      "invariant": "INV-0SYK8A",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §3",
+        "leaf": "03"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Verifies verbatim versus stub routing, provenance markers and exact 1-based line alignment across all ten declaration kinds under both preserve_defs modes.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "content": "sha256:5fdc3b56bf072391eb0e97f1da54b72b09c7dcb80c9dbaacb6188f4f42b34009",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_all_ten_kinds_verbatim_vs_stub_and_exact_line_alignment"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Verifies exact full-file layout for inline, space-indented and tab-indented verbatim bodies and stubbed multiline declarations.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "content": "sha256:fae435289cdffee67d64d12ea028bb5a6de238e509ce781bd95de0b771c6791a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_verbatim_def_single_line_and_multiline_indented_bodies"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "content": "sha256:bff32dfbd2e89252d0279d35e646c51769d11f8a5c4108817c0ca30c89380e7e",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_stubbed_def_and_theorem_exact_rendered_output"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Verifies byte-identical UTF-8 output and identical DagDeclarationRef tuples on repeated rendering.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "content": "sha256:3ec2a143b828338d039b7e84b5c62090aca0bba9f48592c667c001687094642a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_deterministic_byte_identical_rerendering"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}
