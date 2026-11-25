@@ -1,0 +1,45 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "guarded_by_test"
+    ],
+    "justification": "Realized across src/rh_pipeline/cli/audit.py, pyproject.toml and the generated audit/*.json snapshots, with CLI tests proving exit codes 0, 1 and 2 and honest artifact emission."
+  },
+  "applicability": "Command-line invocation of rh-audit (src/rh_pipeline/cli/audit.py and pyproject.toml) and the generated audit/provenance.json and audit/verification-status.json snapshots.",
+  "conditions": [
+    "Collection, scanning and status assembly complete before any write so AuditInputError and AuditScanError return exit code 2 without creating or modifying output files.",
+    "Exit code 1 still writes both audit JSON files so solution forbidden-token findings remain visible; exit code 0 requires zero solution forbidden tokens."
+  ],
+  "exclusions": [
+    "Uncaught OS write failures after validation and argparse usage errors follow standard Python/argparse exit behavior."
+  ],
+  "id": "INV-7MVB06",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_audit_cli.py::test_cli_clean_repo_entry_full_and_replay | tests/unit/test_audit_cli.py::test_cli_forbidden_tokens_exit_1_and_still_write_json | tests/unit/test_audit_cli.py::test_cli_input_and_scan_errors_exit_2_without_writing"
+      ],
+      "path": "rh-r02-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R02@v1 §5",
+    "leaf": "02",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "The rh-audit CLI entry point wires --upstream, --out, --scope, and --replay with exit codes 0 (clean), 1 (solution forbidden tokens found, still writing honest JSON), and 2 (input/scan error without writing), and emits deterministic audit/provenance.json and audit/verification-status.json.",
+  "supersedes": [],
+  "title": "Deterministic rh-audit CLI exit codes and emitted Phase 0 audit snapshots",
+  "writer": {
+    "at": "2026-11-25T17:00:49+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "02",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+    "task": "261123-RH"
+  }
+}

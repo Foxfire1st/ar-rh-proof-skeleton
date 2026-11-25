@@ -1,0 +1,42 @@
+{
+  "admission": {
+    "criteria": [
+      "joint_guarantee"
+    ],
+    "justification": "End-to-end deterministic, read-only, fail-closed emission of provenance.json and verification-status.json requires immutable models, read-only Git/file collection, Lean lexical scanning, atomic staging and CLI exit-code wiring to hold together."
+  },
+  "guarantee": "Invoking rh-audit against read-only upstream checkouts reproduces byte-identical, timestamp-free provenance.json and verification-status.json without executing Lean or leaving partial writes on error, while surfacing any solution forbidden token via exit code 1 alongside honest artifacts.",
+  "id": "FAM-AWJSBW",
+  "members": [
+    "INV-VAZE4Y",
+    "INV-MVJ01Q",
+    "INV-YAHFY5",
+    "INV-ZSMC71",
+    "INV-7MVB06"
+  ],
+  "origin": {
+    "handoff": {
+      "path": "rh-r02-a1-curator-ingest.json"
+    },
+    "handoffEntry": "phase0-audit-pipeline",
+    "leaf": "02",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "routes": [
+    "."
+  ],
+  "schema": "ar-family/v1",
+  "title": "Phase 0 deterministic upstream audit pipeline",
+  "writer": {
+    "at": "2026-11-25T17:00:49+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "02",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+    "task": "261123-RH"
+  }
+}

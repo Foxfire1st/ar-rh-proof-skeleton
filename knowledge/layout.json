@@ -1,4 +1,18 @@
 {
   "conversion": "1",
+  "dependent_links": {
+    "file:audit/provenance.json": [
+      "knowledge/dependents/DPD-GF9S0R-audit-readme.json"
+    ],
+    "file:audit/verification-status.json": [
+      "knowledge/dependents/DPD-GF9S0R-audit-readme.json"
+    ],
+    "file:src/rh_pipeline/models/audit.py": [
+      "knowledge/dependents/DPD-GF9S0R-audit-readme.json"
+    ],
+    "record:INV-ZSMC71": [
+      "knowledge/dependents/DPD-GF9S0R-audit-readme.json"
+    ]
+  },
   "schema": "ar-memory-layout/v2"
 }

@@ -1,0 +1,45 @@
+{
+  "admission": {
+    "criteria": [
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Unit tests verify strict exact-key deserialization, non-boolean type validation and timestamp-free canonical JSON, preventing silent schema drift or nondeterministic diffs in downstream validators and site banners."
+  },
+  "applicability": "All Phase 0 audit domain dataclasses and canonical JSON serialization under src/rh_pipeline/models/audit.py.",
+  "conditions": [
+    "Every dataclass is frozen with slots, wraps mapping fields in sorted read-only views, and validates exact key sets and field types in from_dict.",
+    "VerificationStatus restricts build_status to 'unverified-locally' and format_canonical_json emits sorted-key indent=2 JSON with a trailing newline."
+  ],
+  "exclusions": [
+    "Cross-field consistency between VerificationStatus top-level counts and its nested scan summary is enforced by build_verification_status rather than from_dict."
+  ],
+  "id": "INV-VAZE4Y",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_audit_provenance.py::test_provenance_models_strict_roundtrip_and_rejection | tests/unit/test_audit_provenance.py::test_canonical_json_determinism_and_no_timestamps | tests/unit/test_audit_cli.py::test_build_verification_status_and_strict_round_trip"
+      ],
+      "path": "rh-r02-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R02@v1 §1",
+    "leaf": "02",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "Phase 0 audit domain models are immutable frozen dataclasses with strict exact-key to_dict/from_dict validation and deterministic sorted-key canonical JSON formatting without wall-clock timestamps.",
+  "supersedes": [],
+  "title": "Immutable Phase 0 audit models and timestamp-free canonical JSON",
+  "writer": {
+    "at": "2026-11-25T17:00:49+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "02",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+    "task": "261123-RH"
+  }
+}

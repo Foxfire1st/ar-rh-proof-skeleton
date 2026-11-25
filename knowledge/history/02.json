@@ -1,0 +1,444 @@
+{
+  "closed": true,
+  "leaf": "02",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-25T17:18:53+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "02",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+      "task": "261123-RH"
+    },
+    "reviewer": {
+      "at": "2026-11-25T17:18:53+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "02",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "fa5e328f-a660-43a2-a030-26a32d689797",
+      "task": "261123-RH",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "39024d9f7fdcd4faa40a6fe3068c59aa72c7c887",
+    "verdictRef": "notes/reports/reviewer/fa5e328f-a660-43a2-a030-26a32d689797/role-launch/memory-round-1-verdict.md"
+  },
+  "rows": [
+    {
+      "disposition": "updated",
+      "id": "ROW-25CSKK",
+      "items": [
+        "sha256:a5cab1c5c051650536b0d669886ee21653a14f6644150c816d6a4d90af8d274f"
+      ],
+      "reason": "Authored file card explaining the committed deterministic Phase 0 provenance snapshot, pinned upstream and replay revisions and regeneration rule.",
+      "sources": [
+        {
+          "blob": "075b06c7f88fa8939baf29ea7befad2cf64a3a16",
+          "path": "audit/provenance.json"
+        }
+      ],
+      "subject": "onboarding:audit/provenance.json"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-2BKW4V",
+      "items": [
+        "sha256:6d5ff4f91cfcbcc607decfacaa95720416f33daa689de29886dd2e85f40c019c"
+      ],
+      "reason": "Authored file card explaining self-contained VerificationStatus assembly (build_status='unverified-locally') and same-directory fsynced atomic replacement with cleanup on failure.",
+      "sources": [
+        {
+          "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
+          "path": "src/rh_pipeline/audit/status.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/audit/status.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-5CYPC1",
+      "items": [
+        "sha256:50def843446f459efb4689f705bc88e319357b0f372f196caace9b47c3f550be"
+      ],
+      "reason": "Authored file card covering VerificationStatus assembly, atomic write cleanup on fsync failure and rh-audit CLI exit-code tests.",
+      "sources": [
+        {
+          "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+          "path": "tests/unit/test_audit_cli.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_audit_cli.py"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-5NYPAF",
+      "items": [
+        "sha256:5630538119f4969acf58fbf5e598f500f943dc5f1be714b17944b05e7310beba"
+      ],
+      "reason": "Synthetic Lean 4 positive-detection test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_audit_static_scan.py.md.",
+      "sources": [
+        {
+          "blob": "21f39c2be034ab166357a0b04c762fe15a3caf45",
+          "path": "tests/fixtures/lean_audit/forbidden_tokens.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_audit/forbidden_tokens.lean"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-6R2RWK",
+      "items": [
+        "sha256:50240bf1c169df5f0fa659f4810cff9749c90d82a4a4136da9e2c0daee6bdf94"
+      ],
+      "reason": "Synthetic Lean 4 fail-closed unclosed-comment test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_audit_static_scan.py.md.",
+      "sources": [
+        {
+          "blob": "adda292d98aea295cdd3aca889acfeee5e5a4030",
+          "path": "tests/fixtures/lean_audit/unclosed_block_comment.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_audit/unclosed_block_comment.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-949XRH",
+      "items": [
+        "sha256:39117e290f6d73b99d6f2ef852b1dc7a2cbf5bab5217795fe7224dc6391c6179"
+      ],
+      "reason": "Authored file card for package metadata covering rh-audit and rh-file-size-gate console scripts and Python 3.12 quality tool settings.",
+      "sources": [
+        {
+          "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
+          "path": "pyproject.toml"
+        }
+      ],
+      "subject": "onboarding:pyproject.toml"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-D30Q5J",
+      "items": [
+        "sha256:3380065e3d2f7858699386ce20b08adff446ef0c173f40ed3784cdfeba17ba44"
+      ],
+      "reason": "Authored file card explaining the seven immutable Phase 0 audit dataclasses, strict exact-key validation, BuildStatus restriction and canonical JSON formatter.",
+      "sources": [
+        {
+          "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+          "path": "src/rh_pipeline/models/audit.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/models/audit.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-FQVSAN",
+      "items": [
+        "sha256:7edfaaa0b196c1c97f990364f9639736815873929c42213ad39a32cb5481341a"
+      ],
+      "reason": "Authored file card explaining read-only Git root inspection, lean-toolchain and Mathlib pinning, dual comparator configs, recursive digests, optional ReplayPin and AuditInputError.",
+      "sources": [
+        {
+          "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+          "path": "src/rh_pipeline/audit/provenance.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/audit/provenance.py"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-M6ECYS",
+      "items": [
+        "sha256:36ed31bc32cd39ee5602a8f80848de3f416d0d4f6c6b5ee9de9371bb6dac0ae4"
+      ],
+      "reason": "Synthetic Lean 4 false-positive test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_audit_static_scan.py.md.",
+      "sources": [
+        {
+          "blob": "10da03ed92af8d9805e281bf823899942866f7e5",
+          "path": "tests/fixtures/lean_audit/clean_comments_and_literals.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_audit/clean_comments_and_literals.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-PRXF38",
+      "items": [
+        "sha256:b1d9866a03d5e4a18a920d77f6c6d3c75bdb945a5558e1cd5f93a116dde995a6"
+      ],
+      "reason": "Authored file card explaining the committed self-contained verification-status snapshot, 0 solution forbidden tokens, 7 challenge sorrys and regeneration rule.",
+      "sources": [
+        {
+          "blob": "4122eaf392b1a3a24ee33e8ecce9d84230cdd550",
+          "path": "audit/verification-status.json"
+        }
+      ],
+      "subject": "onboarding:audit/verification-status.json"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-R89RJJ",
+      "items": [
+        "sha256:0225a0be61d700cec504fcb3ca460f3ca31aea64d8e4b8887059914e6baa986d"
+      ],
+      "reason": "Authored file card explaining the Lean 4 lexical scanner, comment and literal skipping, forbidden and attribute token rules, entry/full scopes, challenge-vs-solution partitioning and known lexer limits.",
+      "sources": [
+        {
+          "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+          "path": "src/rh_pipeline/audit/static_scan.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/audit/static_scan.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-VX3TVJ",
+      "items": [
+        "sha256:71bebfa7b68f6af2d15270469cc6d17a270ef0c4c4e36401a0c99482956bab2c"
+      ],
+      "reason": "Authored file card covering Lean lexical scanning, word boundaries, attribute forms, scope/challenge routing and synthetic fixture tests.",
+      "sources": [
+        {
+          "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+          "path": "tests/unit/test_audit_static_scan.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_audit_static_scan.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-XV5CHV",
+      "items": [
+        "sha256:1cb5f6c0a9b6d75596c83e925f07b908a6a634c419a01aedbda1442c6904b226"
+      ],
+      "reason": "Authored file card covering provenance collection, detached HEAD, model round-trip/rejection and fail-closed AuditInputError unit tests.",
+      "sources": [
+        {
+          "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+          "path": "tests/unit/test_audit_provenance.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_audit_provenance.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-YNQGQ7",
+      "items": [
+        "sha256:31887ce522e9a913ac46b052a236423196019e9e570f470fb0dd0b4507ad748c"
+      ],
+      "reason": "Authored file card explaining the thin rh-audit CLI argument parser, pipeline wiring and 0/1/2 exit-code semantics.",
+      "sources": [
+        {
+          "blob": "025c72a3b7868581d1ba0cf37d2cfa370eb29e86",
+          "path": "src/rh_pipeline/cli/audit.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/cli/audit.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-YPVCKR",
+      "items": [
+        "sha256:91449daee90f86515ead20aca21eb2735883a72136b6b0461020491dcc805944"
+      ],
+      "reason": "Updated repository overview to document the Phase 0 audit emitter, newly populated models, audit and cli packages, rh-audit console script registration and generated audit snapshots.",
+      "sources": [
+        {
+          "blob": "075b06c7f88fa8939baf29ea7befad2cf64a3a16",
+          "path": "audit/provenance.json"
+        },
+        {
+          "blob": "4122eaf392b1a3a24ee33e8ecce9d84230cdd550",
+          "path": "audit/verification-status.json"
+        },
+        {
+          "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
+          "path": "pyproject.toml"
+        },
+        {
+          "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+          "path": "src/rh_pipeline/audit/provenance.py"
+        },
+        {
+          "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+          "path": "src/rh_pipeline/audit/static_scan.py"
+        },
+        {
+          "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
+          "path": "src/rh_pipeline/audit/status.py"
+        },
+        {
+          "blob": "025c72a3b7868581d1ba0cf37d2cfa370eb29e86",
+          "path": "src/rh_pipeline/cli/audit.py"
+        },
+        {
+          "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+          "path": "src/rh_pipeline/models/audit.py"
+        },
+        {
+          "blob": "10da03ed92af8d9805e281bf823899942866f7e5",
+          "path": "tests/fixtures/lean_audit/clean_comments_and_literals.lean"
+        },
+        {
+          "blob": "21f39c2be034ab166357a0b04c762fe15a3caf45",
+          "path": "tests/fixtures/lean_audit/forbidden_tokens.lean"
+        },
+        {
+          "blob": "adda292d98aea295cdd3aca889acfeee5e5a4030",
+          "path": "tests/fixtures/lean_audit/unclosed_block_comment.lean"
+        },
+        {
+          "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+          "path": "tests/unit/test_audit_cli.py"
+        },
+        {
+          "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+          "path": "tests/unit/test_audit_provenance.py"
+        },
+        {
+          "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+          "path": "tests/unit/test_audit_static_scan.py"
+        }
+      ],
+      "subject": "onboarding:overview"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:a31e0bb7476fc4ce5a3ffff7b5c55aaebe46b777bca2f74f78ce2b06de31a3ad",
+      "record": "DEC-Y3A1S7",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T17:00:49+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:6c100561a3a6205de97b92b786c032803974254f88431f90b8259a1b3b2af585",
+      "record": "DPD-GF9S0R",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T17:00:49+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:a5722a2e7b3c37f1d614011608f616aa08f3346520762a4637ed45fa3a89a7aa",
+      "record": "FAM-AWJSBW",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T17:00:49+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:420347e8c27e17dbe47ac3d1c58e284c77ed1ff0687878e1fdc7f683b0bc4296",
+      "record": "INV-7MVB06",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T17:00:49+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:17c1511a953a5f63cbb90ae53e2924aa8c82c2046382db55de1d316acae0c9ba",
+      "record": "INV-MVJ01Q",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T17:00:49+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:bb92d3e38e032f5537e96c5627a17500501842c887a7ea83f258662d02d465a2",
+      "record": "INV-VAZE4Y",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T17:00:49+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:88ccd3ae84e5f4f97d6077229da8431399f2cc0500e4822823be79e69bcc3fb9",
+      "record": "INV-YAHFY5",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T17:00:49+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:1ff23292e1a53ed0c02c7056e7762b1aa0eadaeb38dfeda06a0f93e39cea129c",
+      "record": "INV-ZSMC71",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T17:00:49+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+        "task": "261123-RH"
+      }
+    }
+  ]
+}

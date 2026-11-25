@@ -1,0 +1,76 @@
+{
+  "admission": {
+    "criteria": [
+      "real_alternatives",
+      "constrains_future_work"
+    ],
+    "justification": "Weighed alternative challenge-file classification, timestamping and local-verification designs and constrains downstream validator and site banner schemas."
+  },
+  "alternatives": [
+    {
+      "option": "Classify both src/Challenge.lean and comparator/FormalConjecturesChallenge.lean as role='challenge' (7 challenge sorrys total), hard-code build_status='unverified-locally' in Phase 0, and omit all wall-clock timestamps from emitted audit JSON.",
+      "reason": "Matches the actual upstream comparator/ layout without misreporting comparator challenge sorrys as solution findings, keeps epistemic status honest when Lean is not executed, and guarantees deterministic byte-identical regeneration for git diff --exit-code audit/.",
+      "status": "chosen"
+    },
+    {
+      "option": "Classify only src/Challenge.lean as role='challenge' (5 sorrys) and emit wall-clock generation timestamps or an invented local kernel-receipt format.",
+      "reason": "Misclassifies the two sorrys in comparator/FormalConjecturesChallenge.lean as solution failures, breaks deterministic regeneration on every run, and risks overstating verification status without an executed Lean kernel check.",
+      "reconsider_when": "Upstream removes comparator/FormalConjecturesChallenge.lean or a future approved requirement replaces byte-identical committed audit snapshots with signed timestamped build receipts.",
+      "status": "rejected"
+    },
+    {
+      "option": "Execute Lake/Lean locally during Phase 0 auditing to emit build_status='verified' with kernel-check receipts.",
+      "reason": "Out of scope for Phase 0 deterministic metadata/static-scan auditing, which must run without executing Lean or mutating upstream checkouts.",
+      "reconsider_when": "A future approved requirement adds a reproducible local or CI Lean kernel-verification pipeline and defines a formal receipt schema.",
+      "status": "deferred"
+    }
+  ],
+  "consequences": [
+    "Downstream validators and the site verification banner consume deterministic, timestamp-free JSON with build_status='unverified-locally' and challenge_sorry_count=7 across both challenge files.",
+    "Introducing verified local or CI Lean kernel receipts requires a later approved requirement revision that extends BuildStatus and the audit schema."
+  ],
+  "context": "Phase 0 emits machine-generated audit JSON committed in the repository for downstream validators and the public site banner without running Lean locally; the pipeline had to classify upstream comparator challenge files accurately, represent unverified local build status honestly, and guarantee byte-identical regeneration.",
+  "decider": "Developer (ruling RH-D07 approving RH-R02@v1)",
+  "id": "DEC-Y3A1S7",
+  "links": [
+    {
+      "relation": "constrains",
+      "target": "INV-VAZE4Y"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-YAHFY5"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-ZSMC71"
+    },
+    {
+      "relation": "explains",
+      "target": "FAM-AWJSBW"
+    }
+  ],
+  "origin": {
+    "handoff": {
+      "path": "rh-r02-a1-curator-ingest.json"
+    },
+    "handoffEntry": "rh-d07-phase0-audit-contract",
+    "leaf": "02",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-decision/v1",
+  "status": "active",
+  "supersedes": [],
+  "writer": {
+    "at": "2026-11-25T17:00:49+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "02",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+    "task": "261123-RH"
+  }
+}

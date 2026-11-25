@@ -1,0 +1,59 @@
+{
+  "path": "audit/verification-status.json",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "4122eaf392b1a3a24ee33e8ecce9d84230cdd550",
+        "content": "sha256:2f2ce10add8162a9f50ede56a578944cc754248e504784d5822019a0f6f43795",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-XGV4V0",
+      "invariant": "INV-7MVB06",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §5",
+        "leaf": "02"
+      },
+      "rationale": "Committed deterministic verification-status snapshot reporting 0 solution forbidden tokens and 7 challenge sorrys.",
+      "role": "propagation-persistence"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Records unverified-locally build_status, entry scan scope over 7 files, 0 solution forbidden tokens and 7 challenge sorrys.\n\nAnchor: `build_status`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "4122eaf392b1a3a24ee33e8ecce9d84230cdd550",
+            "content": "sha256:149a3c87940a18bd4ac0c2bcbeabda4f8dc3a465b98da66a876aa7cfa55fe5a1",
+            "locator": {
+              "end": 82,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Lists all seven deduplicated theorem names, upstream commit and upstream static-scan digest matching provenance.json.\n\nAnchor: `theorem_names`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "4122eaf392b1a3a24ee33e8ecce9d84230cdd550",
+            "content": "sha256:1039241fdd2bc7389257e40582a71dcc64ed12e0e26b5c102ec717e43774d65c",
+            "locator": {
+              "end": 93,
+              "kind": "line_range",
+              "start": 82
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

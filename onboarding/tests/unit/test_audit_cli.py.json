@@ -1,0 +1,160 @@
+{
+  "path": "tests/unit/test_audit_cli.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "content": "sha256:939a1611305d4517ba2e0cef2d352b8bdd6af7490a56c2f17e5d2b427828bcf6",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_input_and_scan_errors_exit_2_without_writing"
+        }
+      },
+      "facet": "Demonstrates missing roots, missing required upstream files and unclosed block comments return exit code 2 with ERROR on stderr and create no output directory.",
+      "id": "PRF-857J73",
+      "invariant": "INV-7MVB06",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §5",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "content": "sha256:bfe4a1f058c66d0b9d4522a1e1decdfe9c4f8d1d6374e603781be00e4d7c58ed",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_write_audit_artifacts_cleans_up_temp_files_on_failure"
+        }
+      },
+      "facet": "Demonstrates an os.fsync OSError leaves existing audit JSON files intact and removes all staged temporary files.",
+      "id": "PRF-8PZXYW",
+      "invariant": "INV-ZSMC71",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §4",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "content": "sha256:606f332d69b934c9ea8b07d072bbfcfbc611992b74241e877b253f141253e629",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_write_audit_artifacts_deterministic_and_atomic"
+        }
+      },
+      "facet": "Demonstrates write_audit_artifacts creates nested directories and writes byte-identical canonical timestamp-free provenance.json and verification-status.json.",
+      "id": "PRF-M5JGDK",
+      "invariant": "INV-ZSMC71",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §4",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "content": "sha256:bf9cb9b119a1525f92791f74c7a1796fd156ec2bdcfa24a0b98e691264ad038f",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_forbidden_tokens_exit_1_and_still_write_json"
+        }
+      },
+      "facet": "Demonstrates solution forbidden tokens, solution @[extern] and non-sorry challenge tokens return exit code 1 while still writing honest audit JSON.",
+      "id": "PRF-P7PMF4",
+      "invariant": "INV-7MVB06",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §5",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "content": "sha256:f525f3f29f4e924c0e5453bf08e641d9d79a4c9be930183c042710364b2f1df8",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_build_verification_status_and_strict_round_trip"
+        }
+      },
+      "facet": "Demonstrates VerificationStatus to_dict/from_dict round-trip equality and ValueError rejection of invalid build_status values such as 'verified'.",
+      "id": "PRF-S9JKJX",
+      "invariant": "INV-VAZE4Y",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §1",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "content": "sha256:a819e93a0d9d17f70baee93ddb7684c502ccdbab131e1620dce1d6851bf300a8",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_clean_repo_entry_full_and_replay"
+        }
+      },
+      "facet": "Demonstrates rh-audit exits 0 on clean repos in entry and full+replay modes and writes schema-valid provenance and verification-status JSON.",
+      "id": "PRF-VK9PSA",
+      "invariant": "INV-7MVB06",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §5",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "content": "sha256:f525f3f29f4e924c0e5453bf08e641d9d79a4c9be930183c042710364b2f1df8",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_build_verification_status_and_strict_round_trip"
+        }
+      },
+      "facet": "Demonstrates build_verification_status deduplicates theorems and axioms, hard-codes build_status='unverified-locally' and raises AuditInputError on missing note digests.",
+      "id": "PRF-X92CAG",
+      "invariant": "INV-ZSMC71",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §4",
+        "leaf": "02"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Verifies VerificationStatus assembly, strict round-trip, atomic writing and temp-file cleanup on fsync failure.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "content": "sha256:bfe4a1f058c66d0b9d4522a1e1decdfe9c4f8d1d6374e603781be00e4d7c58ed",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_write_audit_artifacts_cleans_up_temp_files_on_failure"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Verifies rh-audit CLI exit codes 0, 1 (writing honest JSON) and 2 (writing nothing) across clean, forbidden-token and error scenarios.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "content": "sha256:939a1611305d4517ba2e0cef2d352b8bdd6af7490a56c2f17e5d2b427828bcf6",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_input_and_scan_errors_exit_2_without_writing"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

@@ -1,0 +1,59 @@
+{
+  "path": "audit/provenance.json",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "075b06c7f88fa8939baf29ea7befad2cf64a3a16",
+        "content": "sha256:cd2c4304a80bf771508713480343fb0ebe5affc97d159361552ae7f10fa7758c",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-DBEEPP",
+      "invariant": "INV-7MVB06",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §5",
+        "leaf": "02"
+      },
+      "rationale": "Committed deterministic provenance snapshot generated from local riemann-hypothesis and alpoge-rh-replay checkouts.",
+      "role": "propagation-persistence"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Pins both comparator configurations and recursive SHA-256 digests of all six files under comparator/.\n\nAnchor: `comparator_file_digests`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "075b06c7f88fa8939baf29ea7befad2cf64a3a16",
+            "content": "sha256:c5e24a23f45fa552aaa7d219369e5a423957b6f8a88841dcfccab539a290c015",
+            "locator": {
+              "end": 62,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Pins verification note digests, alpoge-rh-replay metadata, schema_version 1.0.0 and riemann-hypothesis commit and toolchain.\n\nAnchor: `replay_pin`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "075b06c7f88fa8939baf29ea7befad2cf64a3a16",
+            "content": "sha256:c771e692f79b541eb2faa90454f94adb7659d951d3a76672d04982d156b4be30",
+            "locator": {
+              "end": 83,
+              "kind": "line_range",
+              "start": 63
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}
