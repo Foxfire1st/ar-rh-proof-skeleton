@@ -1,0 +1,76 @@
+{
+  "path": "src/rh_pipeline/models/validation.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "6aa2d7d94b3c0dee91bc746b6acbae19f4f6f87a",
+        "content": "sha256:aa515fce4825e10a183d8dbf634cf62a6a2be1379d5e17d133ce50815a047678",
+        "locator": {
+          "kind": "symbol",
+          "name": "sort_findings"
+        }
+      },
+      "id": "RLZ-T86V3R",
+      "invariant": "INV-D1FB14",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §1",
+        "leaf": "04"
+      },
+      "rationale": "Sorts arbitrary finding iterables deterministically using ValidationFinding.sort_key.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "6aa2d7d94b3c0dee91bc746b6acbae19f4f6f87a",
+        "content": "sha256:7bdafd3d9cee4a9b096595f5dbd1f3aff009e376753984c2c89f877986f0169a",
+        "locator": {
+          "kind": "symbol",
+          "name": "ValidationFinding"
+        }
+      },
+      "id": "RLZ-YPSKM4",
+      "invariant": "INV-D1FB14",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §1",
+        "leaf": "04"
+      },
+      "rationale": "Defines the immutable frozen ValidationFinding dataclass, canonical rule:path:line:message formatting, and deterministic (path, line, rule, message) sort key.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "ValidationFinding enforces non-empty text fields and non-negative non-bool line numbers, renders rule:path:line:message and provides canonical (path, line, rule, message) sorting.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "6aa2d7d94b3c0dee91bc746b6acbae19f4f6f87a",
+            "content": "sha256:7bdafd3d9cee4a9b096595f5dbd1f3aff009e376753984c2c89f877986f0169a",
+            "locator": {
+              "kind": "symbol",
+              "name": "ValidationFinding"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "sort_findings sorts arbitrary finding iterables deterministically into a tuple using ValidationFinding.sort_key.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "6aa2d7d94b3c0dee91bc746b6acbae19f4f6f87a",
+            "content": "sha256:aa515fce4825e10a183d8dbf634cf62a6a2be1379d5e17d133ce50815a047678",
+            "locator": {
+              "kind": "symbol",
+              "name": "sort_findings"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

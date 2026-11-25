@@ -38,16 +38,16 @@
       ]
     },
     "3": {
-      "note": "Package metadata registers rh-audit, rh-extract and rh-file-size-gate console scripts.\n\nAnchor: `rh-extract`",
+      "note": "Package metadata registers rh-audit, rh-extract, rh-file-size-gate and rh-validate console scripts.",
       "targets": [
         {
           "anchor": {
-            "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
-            "content": "sha256:0601791c0d3613f14ee53243de248020cc721fbed11300613d490409e90de243",
+            "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
+            "content": "sha256:0d8f4dcccf69e49c0202d56e124a80afc3b68c5af9221638aac41c808086de1a",
             "locator": {
-              "end": 24,
+              "end": 28,
               "kind": "line_range",
-              "start": 21
+              "start": 24
             },
             "path": "pyproject.toml"
           },
@@ -84,6 +84,23 @@
               "name": "main"
             },
             "path": "src/rh_pipeline/cli/extract.py"
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "6": {
+      "note": "The rh-validate CLI composes repository schema validation with optional Concept Card, Lean-anchor and Level-1 jargon checks under docs/.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "690b1c9d3b7be0d72011aa90645d879d6fc0023d",
+            "content": "sha256:f9b5409424744947d9726e22944421c34d64403b8a1e350f42d72003d29ce75c",
+            "locator": {
+              "kind": "symbol",
+              "name": "main"
+            },
+            "path": "src/rh_pipeline/cli/validate.py"
           },
           "kind": "code"
         }

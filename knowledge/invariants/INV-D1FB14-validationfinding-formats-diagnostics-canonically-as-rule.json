@@ -1,0 +1,46 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Realized across models/validation.py and models/concepts.py and proved by unit tests; prevents filesystem I/O leaking into pure models, silent frontmatter schema drift, path-traversal visual_ref values, and off-by-N diagnostic line numbers."
+  },
+  "applicability": "Construction and formatting of ValidationFinding diagnostics and pure-text parsing of Concept Card YAML frontmatter across src/rh_pipeline/models/validation.py and src/rh_pipeline/models/concepts.py.",
+  "conditions": [
+    "ValidationFinding enforces non-empty rule, path and message strings and non-negative non-bool line integers, formatting as rule:path:line:message and sorting by (path, line, rule, message).",
+    "parse_concept_card performs zero filesystem I/O, normalizes CRLF/CR line endings, requires exact required/optional keys, rejects YAML body_markdown and unknown keys, validates docs-relative visual_ref paths, and returns exact body_line_offset."
+  ],
+  "exclusions": [
+    "Filesystem existence checks for visual_ref, Lean skeleton anchors, cross-card child_concepts resolution and card sourcing rules (sources or lean_anchors) belong to src/rh_pipeline/validate/concepts.py."
+  ],
+  "id": "INV-D1FB14",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        ".venv/bin/pytest tests/unit/test_validate_concepts.py -> 15 passed; see 04-worker-f4b2c819-3e7a-4d05-8c61-9a2e5f7b4d30.evidence-a1.md"
+      ],
+      "path": "rh-r04-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R04@v1 §1",
+    "leaf": "04",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "ValidationFinding formats diagnostics canonically as rule:path:line:message sorted by (path, line, rule, message), and parse_concept_card parses Concept Card YAML frontmatter purely without filesystem I/O while enforcing exact required/optional keys, rejecting unknown keys and frontmatter body_markdown, validating docs-relative visual_ref paths, and returning exact body_line_offset.",
+  "supersedes": [],
+  "title": "Canonical ValidationFinding and pure zero-I/O ConceptCard YAML parser",
+  "writer": {
+    "at": "2026-11-25T20:26:44+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "04",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+    "task": "261123-RH"
+  }
+}

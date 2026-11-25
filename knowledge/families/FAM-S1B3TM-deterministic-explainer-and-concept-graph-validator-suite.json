@@ -1,0 +1,42 @@
+{
+  "admission": {
+    "criteria": [
+      "joint_guarantee"
+    ],
+    "justification": "End-to-end deterministic epistemic and Concept-First validation across local and CI runs requires pure finding/card models, strict artifact schema checks, Concept Card and Lean-anchor verification, Level-1 jargon ordering and check-quality.sh CLI wiring to hold together."
+  },
+  "guarantee": "Invoking rh-validate locally or through scripts/check-quality.sh deterministically enforces strict audit/DAG artifact schemas, sourced Concept Cards with resolved Lean skeleton anchors and optional visuals, all-level directive resolution, and Level-1 concept-first jargon order strictly under <memory>/docs/{concepts,stages}/ while leaving AR onboarding/ untouched and reporting canonically sorted diagnostics.",
+  "id": "FAM-S1B3TM",
+  "members": [
+    "INV-D1FB14",
+    "INV-EWYG1N",
+    "INV-ZN8F2W",
+    "INV-9NDAGK",
+    "INV-H9CTX9"
+  ],
+  "origin": {
+    "handoff": {
+      "path": "rh-r04-a1-curator-ingest.json"
+    },
+    "handoffEntry": "deterministic-explainer-and-concept-graph-validator-suite",
+    "leaf": "04",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "routes": [
+    "."
+  ],
+  "schema": "ar-family/v1",
+  "title": "Deterministic explainer, Concept Card and artifact schema validator suite",
+  "writer": {
+    "at": "2026-11-25T20:26:44+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "04",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+    "task": "261123-RH"
+  }
+}

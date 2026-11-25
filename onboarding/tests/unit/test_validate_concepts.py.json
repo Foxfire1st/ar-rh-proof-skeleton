@@ -1,0 +1,244 @@
+{
+  "path": "tests/unit/test_validate_concepts.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:6b9a3bd25af63e1051a570b8de3de8de0d812b861e24b0ada9519e43cf22afe6",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_validate_corpus_child_concepts_dangling_self_and_mutual_cycle"
+        }
+      },
+      "facet": "Demonstrates direct self-cycles emit concept-self-cycle and dangling slugs emit concept-missing-child while distinct mutual cycles pass.",
+      "id": "PRF-0HF8VF",
+      "invariant": "INV-ZN8F2W",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §3",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:96326d7e9a63f3d8c53afed269b7d34ba31b35d12080fc5c956f04eda448c7fe",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_parse_concept_card_slug_visual_ref_and_sources_errors"
+        }
+      },
+      "facet": "Demonstrates parse_concept_card rejects malformed or filename-mismatched slugs, unsafe visual_ref paths and invalid sources mappings.",
+      "id": "PRF-450T6T",
+      "invariant": "INV-D1FB14",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §1",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:90f48de21c44de4a6eadd19e906bdec02ed585d1ce2d98b1acac07d8612d8d1a",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_validate_corpus_sourcing_rules"
+        }
+      },
+      "facet": "Demonstrates cards with sources-only or lean_anchors-only pass while cards lacking both emit concept-unsourced.",
+      "id": "PRF-4ASVY8",
+      "invariant": "INV-ZN8F2W",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §3",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:76e2212f4c23d5750361f6cccbec095d7a3bcee9f1c58ab528345eec9dda189b",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_validate_corpus_caches_skeleton_file_parsing"
+        }
+      },
+      "facet": "Demonstrates _AnchorResolver parses each referenced valid or broken skeleton file once across multiple Concept Cards.",
+      "id": "PRF-917RFV",
+      "invariant": "INV-ZN8F2W",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §3",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:3ab0bbf09929f3d56677fe611ee3f7644225b1577c93f6ea7cc73c6a58744643",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_validate_corpus_visual_ref_states"
+        }
+      },
+      "facet": "Demonstrates existing or omitted visual_ref passes while missing files and symlink escapes outside docs_root emit concept-missing-visual.",
+      "id": "PRF-9ZVJQ5",
+      "invariant": "INV-ZN8F2W",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §3",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:99440879d6a7268e7e8eb51bfd6696ac33dd68f4e26a85953dd8a83750bdcc28",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_validate_corpus_real_skeleton_anchors"
+        }
+      },
+      "facet": "Demonstrates Lean anchors resolve against live repository skeleton/00_statement/ declarations extracted by rh_pipeline.lean.parser.",
+      "id": "PRF-E97N4P",
+      "invariant": "INV-ZN8F2W",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §3",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:d95b84c70563f77cc2aa16f6ed655544218989ee944d017a60671a3cc9f016b5",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_parse_concept_card_valid_and_body_line_offset"
+        }
+      },
+      "facet": "Demonstrates pure Concept Card parsing across optional fields and LF/CRLF line endings returns exact body_line_offset matching real file lines.",
+      "id": "PRF-ER3ZS5",
+      "invariant": "INV-D1FB14",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §1",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:cd3946352a8137fd45112c57297384f86a06f0f508196e55a2471d9365952e07",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_parse_concept_card_unknown_and_body_markdown_and_missing_required_keys"
+        }
+      },
+      "facet": "Demonstrates parse_concept_card rejects frontmatter body_markdown, unknown keys and omitted required keys with canonical findings.",
+      "id": "PRF-JTZX02",
+      "invariant": "INV-D1FB14",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §1",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:521f3479d7604ebc9c5416b37038d94109af85be2d93fecd9e807f216af9e787",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_validate_corpus_lean_anchor_validation_and_parse_errors"
+        }
+      },
+      "facet": "Demonstrates malformed anchor formats, missing or symlink-escaped skeleton files, unsupported Lean syntax and missing declarations each emit their distinct lean-anchor findings.",
+      "id": "PRF-S6F547",
+      "invariant": "INV-ZN8F2W",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §3",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:140b4a5bbdfec9e1f2cc0106d4e9865cd3bdf36509b26e16de7ef0a1731936a0",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_validation_finding_format_sort_and_invariants"
+        }
+      },
+      "facet": "Demonstrates ValidationFinding formats as rule:path:line:message, sort_findings orders canonically by (path, line, rule, message), and constructor rejects empty strings, negative lines and bool lines.",
+      "id": "PRF-S9EZAH",
+      "invariant": "INV-D1FB14",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §1",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+        "content": "sha256:660fc86199f1030363c5f5d2c72c1a3df4834b415d80baca8811e52f10eb13cb",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_validate_corpus_synthetic_fixtures_with_mutual_cycle"
+        }
+      },
+      "facet": "Demonstrates synthetic mutual-cycle fixtures with valid visual_ref and Lean anchors validate with zero findings.",
+      "id": "PRF-ZJPCP4",
+      "invariant": "INV-ZN8F2W",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §3",
+        "leaf": "04"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "ValidationFinding formatting, sorting and constructor guards and pure parse_concept_card frontmatter and body_line_offset rules are verified.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+            "content": "sha256:d95b84c70563f77cc2aa16f6ed655544218989ee944d017a60671a3cc9f016b5",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_parse_concept_card_valid_and_body_line_offset"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Synthetic mutual-cycle fixtures under tests/fixtures/validate/concepts/ and real Stage 00 skeleton anchors validate cleanly.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+            "content": "sha256:660fc86199f1030363c5f5d2c72c1a3df4834b415d80baca8811e52f10eb13cb",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_synthetic_fixtures_with_mutual_cycle"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Lean anchor format, containment, parse-error, missing-declaration and per-file parser caching rules are enforced.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+            "content": "sha256:521f3479d7604ebc9c5416b37038d94109af85be2d93fecd9e807f216af9e787",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_lean_anchor_validation_and_parse_errors"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

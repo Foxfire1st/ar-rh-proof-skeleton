@@ -1,0 +1,617 @@
+{
+  "closed": true,
+  "leaf": "04",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-25T20:41:05+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "04",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+      "task": "261123-RH"
+    },
+    "reviewer": {
+      "at": "2026-11-25T20:41:05+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "04",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "e7c1a542-8d3b-4f96-b204-6a1f9c8d3e52",
+      "task": "261123-RH",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "32ccfad01700c9c49346b1991571e5266e6ad643",
+    "verdictRef": "notes/reports/reviewer/e7c1a542-8d3b-4f96-b204-6a1f9c8d3e52/role-launch/04-memory-round-1-verdict.md"
+  },
+  "rows": [
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
+            "content": "sha256:0d8f4dcccf69e49c0202d56e124a80afc3b68c5af9221638aac41c808086de1a",
+            "locator": {
+              "end": 28,
+              "kind": "line_range",
+              "start": 24
+            },
+            "path": "pyproject.toml"
+          },
+          "before": {
+            "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
+            "content": "sha256:0601791c0d3613f14ee53243de248020cc721fbed11300613d490409e90de243",
+            "locator": {
+              "end": 24,
+              "kind": "line_range",
+              "start": 21
+            },
+            "path": "pyproject.toml"
+          },
+          "id": "RLZ-BTVX2M"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-3P8QSJ",
+      "items": [],
+      "reason": "Adding PyYAML>=6.0 and types-PyYAML>=6.0 shifted [project.scripts] in pyproject.toml from lines 21-24 to lines 24-28; re-anchored RLZ-BTVX2M to lines 24-28 covering [project.scripts] and rh-extract while INV-01DVB3 meaning, CLI atomic behavior and Stage 00 outputs remain unchanged.",
+      "revision": 1,
+      "subject": "INV-01DVB3"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3S3KY3",
+      "items": [
+        "sha256:73a5b2c3fef7b1185fadff2f5687552cf95b5bfcb92532b60f4c9559a2f4141c"
+      ],
+      "reason": "Authored file card covering rh-validate CLI omitted/empty/missing/populated --memory paths, sorted cross-gate findings, non-UTF-8 resilience and installed console-script execution.",
+      "sources": [
+        {
+          "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+          "path": "tests/unit/test_validate_cli.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_validate_cli.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-4GFB7Q",
+      "items": [
+        "sha256:47176b2110c7cb0e9b28e89bdb3575ab59c953c40da794778f4790299ff0d7eb"
+      ],
+      "reason": "Authored file card explaining check_page_jargon and validate_explainer_docs: code/math/link masking, first-pipe concept and term directives, Level-1 jargon-before-reveal ordering, exemptions and strict docs/{concepts,stages}/ scoping.",
+      "sources": [
+        {
+          "blob": "36f15282690697a49025d874de56de9d073e7141",
+          "path": "src/rh_pipeline/validate/jargon.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/validate/jargon.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-4GGXNQ",
+      "items": [
+        "sha256:98391c819c9f18692ecad190799fb7061481c320b160e090b694f3febc18a123"
+      ],
+      "reason": "Authored file card covering conforming Level-1 prose, premature raw/alias/plural/term findings, first-pipe math/brace directives, code/math/link/hyphen/Level-2/3/own_slug exemptions, line_offset and strict docs/{concepts,stages}/ scoping.",
+      "sources": [
+        {
+          "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+          "path": "tests/unit/test_validate_jargon.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_validate_jargon.py"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-67PR0Q",
+      "items": [
+        "sha256:8c4702b93edc6f79973de49918c9ad9cf583a8fcfd136e2b8416baf886f79f16"
+      ],
+      "reason": "Synthetic SVG visual_ref test fixture under tests/ (outside onboarding include paths and fileTypes); its stable contract is documented in onboarding/tests/unit/test_validate_concepts.py.md.",
+      "sources": [
+        {
+          "blob": "35a487804f5716529e574f6e0189921b0fb6892c",
+          "path": "tests/fixtures/validate/concepts/docs/assets/zeta-strip.svg"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/validate/concepts/docs/assets/zeta-strip.svg"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-6R23CN",
+      "items": [
+        "sha256:7eecba8f8b5d2212515027ade392596d2eedf5f21ff89780af1af3685d7559aa"
+      ],
+      "reason": "Updated repository overview and references [3] and [6] to cover the deterministic schema, Concept Card, Lean-anchor and Level-1 jargon validation suite, new models/validate/cli modules and rh-validate console script and quality-runner wiring.",
+      "sources": [
+        {
+          "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
+          "path": "pyproject.toml"
+        },
+        {
+          "blob": "b2755c44cf90d2f83fb1fc0b801cfdd751448cb0",
+          "path": "scripts/check-quality.sh"
+        },
+        {
+          "blob": "690b1c9d3b7be0d72011aa90645d879d6fc0023d",
+          "path": "src/rh_pipeline/cli/validate.py"
+        },
+        {
+          "blob": "2ededcdc5f2dd1fb793b5a7eb29e9182c1b2125d",
+          "path": "src/rh_pipeline/models/concepts.py"
+        },
+        {
+          "blob": "6aa2d7d94b3c0dee91bc746b6acbae19f4f6f87a",
+          "path": "src/rh_pipeline/models/validation.py"
+        },
+        {
+          "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+          "path": "src/rh_pipeline/validate/concepts.py"
+        },
+        {
+          "blob": "36f15282690697a49025d874de56de9d073e7141",
+          "path": "src/rh_pipeline/validate/jargon.py"
+        },
+        {
+          "blob": "737520b761f5bf41cad218c1d18a1c32be846dae",
+          "path": "src/rh_pipeline/validate/schemas.py"
+        },
+        {
+          "blob": "35a487804f5716529e574f6e0189921b0fb6892c",
+          "path": "tests/fixtures/validate/concepts/docs/assets/zeta-strip.svg"
+        },
+        {
+          "blob": "8b5a3f14d3590af0950e08ca27585d6640bceef3",
+          "path": "tests/fixtures/validate/concepts/docs/concepts/critical-strip.md"
+        },
+        {
+          "blob": "1518a8c98739a2397f12035371c603b71088a3b6",
+          "path": "tests/fixtures/validate/concepts/docs/concepts/riemann-zeta.md"
+        },
+        {
+          "blob": "53d8d4bc8bb16f9a82c59d8f4f251b4cad1c520c",
+          "path": "tests/fixtures/validate/concepts/skeleton/00_statement/sample.lean"
+        },
+        {
+          "blob": "1ec6f4d231a74e8505fba1a9cd9fd19fc30eb185",
+          "path": "tests/unit/test_quality_scripts.py"
+        },
+        {
+          "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+          "path": "tests/unit/test_validate_cli.py"
+        },
+        {
+          "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+          "path": "tests/unit/test_validate_concepts.py"
+        },
+        {
+          "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+          "path": "tests/unit/test_validate_jargon.py"
+        },
+        {
+          "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+          "path": "tests/unit/test_validate_schemas.py"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-6X7P80",
+      "items": [
+        "sha256:a51b85a8ddae4098cb26d544026b208d020cd8d1373ee3180a2b5c113f8cb49f"
+      ],
+      "reason": "Authored file card explaining ConceptSource, ConceptCard and the pure zero-I/O parse_concept_card YAML frontmatter parser with exact key validation, safe docs-relative visual_ref checks and body_line_offset tracking.",
+      "sources": [
+        {
+          "blob": "2ededcdc5f2dd1fb793b5a7eb29e9182c1b2125d",
+          "path": "src/rh_pipeline/models/concepts.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/models/concepts.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-89NB8R",
+      "items": [
+        "sha256:9c1ac31504697dbc06d98ee22f6336210fae8fa622f293e6a6af1f7e903aa85b"
+      ],
+      "reason": "Authored file card explaining the immutable ValidationFinding diagnostic model, rule:path:line:message formatting, runtime constructor guards and deterministic sort_findings ordering.",
+      "sources": [
+        {
+          "blob": "6aa2d7d94b3c0dee91bc746b6acbae19f4f6f87a",
+          "path": "src/rh_pipeline/models/validation.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/models/validation.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-8G5EV8",
+      "items": [
+        "sha256:0dca6f9a313c16e14d9eda9b4c28938e1387b48c26609687171b134748d27b2c"
+      ],
+      "reason": "Authored file card covering ValidationFinding, pure parse_concept_card, synthetic mutual-cycle fixtures, live Stage 00 anchors, sourcing, visual_ref symlink-escape checks, Lean anchor error classes and parser caching.",
+      "sources": [
+        {
+          "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+          "path": "tests/unit/test_validate_concepts.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_validate_concepts.py"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-01DVB3",
+          "revision": 1
+        },
+        {
+          "id": "INV-0SYK8A",
+          "revision": 1
+        },
+        {
+          "id": "INV-0WN2N4",
+          "revision": 1
+        },
+        {
+          "id": "INV-BEGWB0",
+          "revision": 1
+        },
+        {
+          "id": "INV-Y5X0FK",
+          "revision": 1
+        }
+      ],
+      "id": "ROW-BZVTXH",
+      "items": [],
+      "reason": "Examined all five members of FAM-ZD4QRG; only INV-01DVB3's pyproject.toml script-block anchor shifted from lines 21-24 to 24-28 when PyYAML, types-PyYAML and rh-validate were added, and the Phase 1 extractor guarantee, members and routes remain unchanged.",
+      "revision": 1,
+      "subject": "FAM-ZD4QRG"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-CGYBCA",
+      "items": [
+        "sha256:e3981c4d2edda67ca8cb97a67b87fd8553b7894b79baa4e564b0f7ba3d0a5585"
+      ],
+      "reason": "Authored file card explaining the thin rh-validate CLI entry point, optional --memory INFO-skip vs missing-path behavior, sorted canonical output and exit codes 0 and 1.",
+      "sources": [
+        {
+          "blob": "690b1c9d3b7be0d72011aa90645d879d6fc0023d",
+          "path": "src/rh_pipeline/cli/validate.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/cli/validate.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-DC278E",
+      "items": [
+        "sha256:4b2906487551013eeecb97ef525091003098684a77cdf9a7f612c478ae0762bf"
+      ],
+      "reason": "Authored file card explaining strict audit/ and dag/ JSON schema validation, AUDIT_SCHEMA_VERSION and load_stage_map checks, and cross-file upstream_commit consistency verification.",
+      "sources": [
+        {
+          "blob": "737520b761f5bf41cad218c1d18a1c32be846dae",
+          "path": "src/rh_pipeline/validate/schemas.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/validate/schemas.py"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-DNQ0F4",
+      "items": [
+        "sha256:8abd4c9c2855bb648652d2c69dfb34b1416e326702703ee9e2abe285d49e0c59"
+      ],
+      "reason": "Synthetic Concept Card test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_validate_concepts.py.md.",
+      "sources": [
+        {
+          "blob": "1518a8c98739a2397f12035371c603b71088a3b6",
+          "path": "tests/fixtures/validate/concepts/docs/concepts/riemann-zeta.md"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/validate/concepts/docs/concepts/riemann-zeta.md"
+    },
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
+            "content": "sha256:12392afb314b25867740b6c9d0de665e7b89ad3d2d1f3bd35cd82d71266c38c2",
+            "locator": {
+              "end": 25,
+              "kind": "line_range",
+              "start": 24
+            },
+            "path": "pyproject.toml"
+          },
+          "before": {
+            "blob": "3aa8741fa7836ae32b4cacf0b78cdcf8e8f44152",
+            "content": "sha256:12392afb314b25867740b6c9d0de665e7b89ad3d2d1f3bd35cd82d71266c38c2",
+            "locator": {
+              "end": 22,
+              "kind": "line_range",
+              "start": 21
+            },
+            "path": "pyproject.toml"
+          },
+          "id": "RLZ-D9S8AP"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-DWT2K8",
+      "items": [],
+      "reason": "Adding PyYAML>=6.0 and types-PyYAML>=6.0 shifted [project.scripts] and rh-audit in pyproject.toml from lines 21-22 to lines 24-25; re-anchored RLZ-D9S8AP to lines 24-25 while INV-7MVB06 meaning, CLI exit codes and audit snapshots remain unchanged.",
+      "revision": 1,
+      "subject": "INV-7MVB06"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-FRDEKM",
+      "items": [
+        "sha256:7a973e44de2d8ca365f15c4c271945fdf25653af1a728fdf46cc4a9e88b05099"
+      ],
+      "reason": "Authored file card explaining validate_concept_corpus, sourcing rules, child_concepts self-cycle rejection vs mutual-cycle allowance, _AnchorResolver containment/caching and visual_ref existence checks.",
+      "sources": [
+        {
+          "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+          "path": "src/rh_pipeline/validate/concepts.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/validate/concepts.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-KM5DE5",
+      "items": [
+        "sha256:2f64a5f6373853c99f74ec2a48f576612a468773fe428615dd3d1959ff5c8714",
+        "sha256:5423eea95d9d932123347c6044e7085e492b741d213e708e7599c36687c6a9dd",
+        "sha256:62fa8cb1dcce59296309eeb408fbc18b6a15e24c08b34d55a7c2ac7b1b8d44b6"
+      ],
+      "reason": "Updated scripts/check-quality.sh card and references [1] and [2] to cover rh-validate verification in verify_venv and rh-validate --repo . (with optional RH_MEMORY_ROOT) execution before pytest.",
+      "sources": [
+        {
+          "blob": "b2755c44cf90d2f83fb1fc0b801cfdd751448cb0",
+          "path": "scripts/check-quality.sh"
+        }
+      ],
+      "subject": "onboarding:scripts/check-quality.sh"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-M1GTQS",
+      "items": [
+        "sha256:1986a928adb1e028105c60150f03f513b0702692bcf800c26ea929ce663d6bcf",
+        "sha256:2a37d542e6c0090545838b6ce97e31715a64fe2b0c5899c6df1babacab1cf9a4",
+        "sha256:44808d02620dbb006b7a3baf12cdea4a8a8298a86adfcb8b1450976cb7f710c9",
+        "sha256:5612bdf963f6fb4ad9c97b25008aadcebc85a861310c56379662f1f55cd72d3a",
+        "sha256:d86f85e379f46bc9b1c68bd2cde023520c8de1c30bba600f66149eef5ffaee4b"
+      ],
+      "reason": "Updated tests/unit/test_quality_scripts.py card and references [1] and [2] to cover the seven-tool CI-order assertion including rh-validate and the new RH_MEMORY_ROOT forwarding test.",
+      "sources": [
+        {
+          "blob": "1ec6f4d231a74e8505fba1a9cd9fd19fc30eb185",
+          "path": "tests/unit/test_quality_scripts.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_quality_scripts.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-MAEZE7",
+      "items": [
+        "sha256:e8dbbcd61c3a15ac9a0d6e98cacef7203a26e8e53c91ae28f3c732b2ff47266c"
+      ],
+      "reason": "Authored file card covering live/synthetic schema validation, unknown-key/missing-field/bool-as-int/version rejections, stage-map structural checks and six upstream_commit mismatch cases.",
+      "sources": [
+        {
+          "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+          "path": "tests/unit/test_validate_schemas.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_validate_schemas.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-N51SAT",
+      "items": [
+        "sha256:e50835f9cd6afecfc7435c3aff5ddb9522bfbaf48db2faf7d5ea9e02123208a6"
+      ],
+      "reason": "Updated pyproject.toml card and references [1] and [2] to replace the obsolete zero-runtime-dependencies and three-scripts claims with PyYAML>=6.0, types-PyYAML>=6.0 and the four registered console scripts including rh-validate.",
+      "sources": [
+        {
+          "blob": "2c3d0a3b1cd893263e8d25d8e0fe1ab766041cf7",
+          "path": "pyproject.toml"
+        }
+      ],
+      "subject": "onboarding:pyproject.toml"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-WDRQ25",
+      "items": [
+        "sha256:2210a9577072a89549524e02fb31d9d558f55d5077b8bace3f94387b444bc00f"
+      ],
+      "reason": "Synthetic Concept Card test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_validate_concepts.py.md.",
+      "sources": [
+        {
+          "blob": "8b5a3f14d3590af0950e08ca27585d6640bceef3",
+          "path": "tests/fixtures/validate/concepts/docs/concepts/critical-strip.md"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/validate/concepts/docs/concepts/critical-strip.md"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-Z7QPWN",
+      "items": [
+        "sha256:7682ed9014280b10fd8acc02ea607a8486a38e96cab1288c0227f067ace23404"
+      ],
+      "reason": "Synthetic Lean skeleton anchor test fixture under tests/ (outside onboarding include paths); its stable contract is documented in onboarding/tests/unit/test_validate_concepts.py.md.",
+      "sources": [
+        {
+          "blob": "53d8d4bc8bb16f9a82c59d8f4f251b4cad1c520c",
+          "path": "tests/fixtures/validate/concepts/skeleton/00_statement/sample.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/validate/concepts/skeleton/00_statement/sample.lean"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-7MVB06",
+          "revision": 1
+        },
+        {
+          "id": "INV-MVJ01Q",
+          "revision": 1
+        },
+        {
+          "id": "INV-VAZE4Y",
+          "revision": 1
+        },
+        {
+          "id": "INV-YAHFY5",
+          "revision": 1
+        },
+        {
+          "id": "INV-ZSMC71",
+          "revision": 1
+        }
+      ],
+      "id": "ROW-ZTT1W4",
+      "items": [],
+      "reason": "Examined all five members of FAM-AWJSBW; only INV-7MVB06's pyproject.toml script-block anchor shifted from lines 21-22 to 24-25 when PyYAML, types-PyYAML and rh-validate were added, and the Phase 0 audit pipeline guarantee, members and routes remain unchanged.",
+      "revision": 1,
+      "subject": "FAM-AWJSBW"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:ed9dc0c21d0f5d9cd135d89e56541e3195a8cd6b994156acb5c82229de8059b0",
+      "record": "DEC-K89BWV",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T20:26:44+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "04",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:28b7a2650b8d277c0b88eecd419fa46f8eff4034190e8a3feff3b7fb17109dcd",
+      "record": "FAM-S1B3TM",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T20:26:44+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "04",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:3675cedd78f576dee4a71618f47193c767821e4be78829a42b32fcc6fb4ab9e2",
+      "record": "INV-9NDAGK",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T20:26:44+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "04",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:f94478b172785001169b36cf86e431da0ed505afb8d9601b1e0e2f92401c695a",
+      "record": "INV-D1FB14",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T20:26:44+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "04",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:d6c8338ffbb427911673a7288d565faffa70fdb8fb0fe24da7f6d228a3e7d918",
+      "record": "INV-EWYG1N",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T20:26:44+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "04",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:91c6ffca7ffb76d0e6239202307aeefbc763c4c33589f4cb98cce64ecf1fa055",
+      "record": "INV-H9CTX9",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T20:26:44+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "04",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:a0bc96a85e2ad1e5374c6cb20b893353aafee8fb27d8e3a11f19d78efbaec233",
+      "record": "INV-ZN8F2W",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T20:26:44+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "04",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+        "task": "261123-RH"
+      }
+    }
+  ]
+}

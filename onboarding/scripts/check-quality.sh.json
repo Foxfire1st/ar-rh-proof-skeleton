@@ -1,14 +1,34 @@
 {
   "path": "scripts/check-quality.sh",
-  "realizes": [],
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "b2755c44cf90d2f83fb1fc0b801cfdd751448cb0",
+        "content": "sha256:b0816bf6c916ab43dd50ef1d04d0abd9a2f12cb5c223b786473792af200ff634",
+        "locator": {
+          "end": 85,
+          "kind": "line_range",
+          "start": 44
+        }
+      },
+      "id": "RLZ-FB3325",
+      "invariant": "INV-H9CTX9",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §5",
+        "leaf": "04"
+      },
+      "rationale": "Verifies the rh-validate executable in the worktree venv and invokes rh-validate --repo . (with --memory \"$RH_MEMORY_ROOT\" when set) in local and CI quality runs.",
+      "role": "enforcement"
+    }
+  ],
   "references": {
     "1": {
-      "note": "Isolated preflight verifies the local prefix and editable package before validating the tool executables.",
+      "note": "Isolated preflight verifies the local prefix, editable package and all five tool executables including rh-validate.",
       "targets": [
         {
           "anchor": {
-            "blob": "16018f302075861204d417d21cf4cd8416d467de",
-            "content": "sha256:faf267decaf9a213ec602afba730dd5704fc05e6293e31cc77f3eddbb30b5812",
+            "blob": "b2755c44cf90d2f83fb1fc0b801cfdd751448cb0",
+            "content": "sha256:4814e31508886bb95480105700e246776326486ba456a1e446722adc65ed65ed",
             "locator": {
               "end": 50,
               "kind": "line_range",
@@ -20,14 +40,14 @@
       ]
     },
     "2": {
-      "note": "The runner emits Radon output and stops on tool failure or a syntax diagnostic before continuing to file size and tests.",
+      "note": "The runner emits Radon output and stops on tool failure or a syntax diagnostic before continuing through file size, rh-validate (with optional RH_MEMORY_ROOT) and pytest.",
       "targets": [
         {
           "anchor": {
-            "blob": "16018f302075861204d417d21cf4cd8416d467de",
-            "content": "sha256:0272a54c8b426157b6f78dcf6bd70dff3ae1116b66de4920421e9f31bcc15722",
+            "blob": "b2755c44cf90d2f83fb1fc0b801cfdd751448cb0",
+            "content": "sha256:6bd6388458fee24beca94e832cfe2f50d2ea3411332f94c7e68d11c5d96809f8",
             "locator": {
-              "end": 77,
+              "end": 83,
               "kind": "line_range",
               "start": 52
             }

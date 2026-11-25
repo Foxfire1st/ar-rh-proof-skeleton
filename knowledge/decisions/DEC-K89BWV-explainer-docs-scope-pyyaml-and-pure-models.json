@@ -1,0 +1,80 @@
+{
+  "admission": {
+    "criteria": [
+      "real_alternatives",
+      "constrains_future_work"
+    ],
+    "justification": "Weighed storing/scanning explainer content under onboarding/ and hand-rolled YAML parsing against strict docs/{concepts,stages}/ isolation and PyYAML pure models, constraining Leaf 05 Stage 00 authoring and all downstream explainer stages."
+  },
+  "alternatives": [
+    {
+      "option": "Scope explainer validation strictly to <memory>/docs/{concepts,stages}/ (never AR onboarding/), add PyYAML>=6.0 and types-PyYAML>=6.0 for pure zero-I/O frontmatter parsing in models/concepts.py, allow mutual cycles between distinct Concept Cards while rejecting self-cycles, and exempt Level-2/3 prose from jargon-before-reveal.",
+      "reason": "Keeps public explainer prose cleanly decoupled from internal code-onboarding cards, preserves strict Pyright and models/ I/O purity with standard YAML parsing, supports mutually explanatory classical concepts, and preserves rigorous undergrad/formal prose in Levels 2 and 3.",
+      "status": "chosen"
+    },
+    {
+      "option": "Store public explainer pages inside onboarding/ or scan AR onboarding/ code cards with the Abitur Level-1 jargon validator.",
+      "reason": "Conflates internal engineering contracts with public Abitur-level mathematical exposition and would cause pervasive false jargon-before-reveal failures on code-onboarding cards.",
+      "reconsider_when": "A future approved requirement merges public explainer authoring into onboarding/ or defines a separate jargon policy for engineering cards.",
+      "status": "rejected"
+    },
+    {
+      "option": "Parse Concept Card YAML frontmatter with an ad-hoc parser or perform filesystem I/O inside models/concepts.py, or enforce jargon-before-reveal in Level-2 and Level-3 sections.",
+      "reason": "Ad-hoc YAML parsing is brittle on nested source mappings, filesystem I/O in models/ violates package-ownership purity, and blocking Level-2/3 prose on jargon order impedes formal exposition.",
+      "reconsider_when": "A future approved requirement replaces YAML frontmatter with JSON/TOML or introduces a jargon-ordering rule for Level-2/3 sections.",
+      "status": "rejected"
+    }
+  ],
+  "consequences": [
+    "Leaf 05 and all later explainer stages author Concept Cards under <memory>/docs/concepts/, stage pages under <memory>/docs/stages/<stage_id>/ and visual assets under <memory>/docs/assets/, while AR onboarding/ remains untouched by rh-validate.",
+    "Every checkout bootstrapping .venv installs PyYAML>=6.0 and types-PyYAML>=6.0 and runs rh-validate inside scripts/check-quality.sh before pytest."
+  ],
+  "context": "Before authoring Stage 00 explainer essays and Concept Cards, the deterministic validator suite needed an explicit boundary separating public mathematical explainer files from AR code-onboarding cards, a strict YAML frontmatter parser compatible with zero-I/O models/ and strict Pyright, and clear rules for concept graph cycles and Level-2/3 prose.",
+  "decider": "Developer (rulings RH-D01, RH-D05 and RH-D07 approving RH-R04@v1)",
+  "id": "DEC-K89BWV",
+  "links": [
+    {
+      "relation": "constrains",
+      "target": "INV-D1FB14"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-ZN8F2W"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-9NDAGK"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-H9CTX9"
+    },
+    {
+      "relation": "explains",
+      "target": "FAM-S1B3TM"
+    }
+  ],
+  "origin": {
+    "handoff": {
+      "path": "rh-r04-a1-curator-ingest.json"
+    },
+    "handoffEntry": "rh-d01-rh-d05-explainer-docs-scope-pyyaml-and-pure-models",
+    "leaf": "04",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-decision/v1",
+  "status": "active",
+  "supersedes": [],
+  "writer": {
+    "at": "2026-11-25T20:26:44+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "04",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+    "task": "261123-RH"
+  }
+}
