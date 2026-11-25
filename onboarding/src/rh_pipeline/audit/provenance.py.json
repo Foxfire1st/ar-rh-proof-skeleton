@@ -1,0 +1,92 @@
+{
+  "path": "src/rh_pipeline/audit/provenance.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+        "content": "sha256:6b09fb6b21a1ab03f39a5ea50705bde6ec10a2d93d2dd916ba95d74f46289787",
+        "locator": {
+          "kind": "symbol",
+          "name": "AuditInputError"
+        }
+      },
+      "id": "RLZ-08BD53",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §2",
+        "leaf": "02"
+      },
+      "rationale": "Typed fail-closed error raised whenever required upstream or replay roots, Git metadata, files, or JSON fields are missing or invalid.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+        "content": "sha256:eb350854c972e94b54a49378f9e9e9e2af0f478a36acffc051211f51a0ed2f48",
+        "locator": {
+          "kind": "symbol",
+          "name": "collect_provenance"
+        }
+      },
+      "id": "RLZ-6B1W55",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §2",
+        "leaf": "02"
+      },
+      "rationale": "Orchestrates read-only Git, toolchain, Mathlib, dual comparator, digest, and optional ReplayPin extraction from upstream checkouts.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Enforces Git repository root identity and reads HEAD and branch read-only via git rev-parse.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+            "content": "sha256:e7154d5c8fb5897b980bdf0bb3ac39e16c2067335207bd622d99afa95bb142d4",
+            "locator": {
+              "kind": "symbol",
+              "name": "_inspect_git_root"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Reads lean-toolchain, mathlib rev, dual comparator configs, recursive comparator digests, note digests and optional ReplayPin.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+            "content": "sha256:eb350854c972e94b54a49378f9e9e9e2af0f478a36acffc051211f51a0ed2f48",
+            "locator": {
+              "kind": "symbol",
+              "name": "collect_provenance"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Raises AuditInputError when required upstream or replay roots, files, Git metadata, JSON or model fields fail validation.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+            "content": "sha256:6b09fb6b21a1ab03f39a5ea50705bde6ec10a2d93d2dd916ba95d74f46289787",
+            "locator": {
+              "kind": "symbol",
+              "name": "AuditInputError"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

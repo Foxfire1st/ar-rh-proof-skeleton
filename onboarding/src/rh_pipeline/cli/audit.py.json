@@ -1,0 +1,58 @@
+{
+  "path": "src/rh_pipeline/cli/audit.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "025c72a3b7868581d1ba0cf37d2cfa370eb29e86",
+        "content": "sha256:43e09a01fd9555908e1a00e57551ea6a825cc6a19b21bf729c625206663bb438",
+        "locator": {
+          "kind": "symbol",
+          "name": "main"
+        }
+      },
+      "id": "RLZ-JK05WZ",
+      "invariant": "INV-7MVB06",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §5",
+        "leaf": "02"
+      },
+      "rationale": "Thin CLI entry point mapping audit service results and AuditInputError/AuditScanError to exit codes 0, 1, and 2.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Parses --upstream, --out (default audit), --scope (entry or full) and optional --replay arguments.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "025c72a3b7868581d1ba0cf37d2cfa370eb29e86",
+            "content": "sha256:8f8ffdf07730baa5495c180df545570f9c6395230af9cdd400b46c959cd68d2f",
+            "locator": {
+              "kind": "symbol",
+              "name": "_build_parser"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Returns exit 2 without writing on AuditInputError or AuditScanError, exit 1 after writing honest JSON on solution findings, and exit 0 when clean.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "025c72a3b7868581d1ba0cf37d2cfa370eb29e86",
+            "content": "sha256:43e09a01fd9555908e1a00e57551ea6a825cc6a19b21bf729c625206663bb438",
+            "locator": {
+              "kind": "symbol",
+              "name": "main"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

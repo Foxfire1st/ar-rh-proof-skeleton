@@ -1,0 +1,126 @@
+{
+  "path": "src/rh_pipeline/models/audit.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+        "content": "sha256:64e47778c51e3b9637c5feea5d04021aa528e0d0c45daad75db1605f908fc918",
+        "locator": {
+          "kind": "symbol",
+          "name": "ProvenanceRecord"
+        }
+      },
+      "id": "RLZ-4HFRAD",
+      "invariant": "INV-VAZE4Y",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §1",
+        "leaf": "02"
+      },
+      "rationale": "Defines the immutable provenance root record, strict exact-key deserialization, and canonical sorted-key JSON output.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+        "content": "sha256:c0f3e6721992e2ed58072f34e1624e19bc544a7b23916cdfdf8d859846482013",
+        "locator": {
+          "kind": "symbol",
+          "name": "VerificationStatus"
+        }
+      },
+      "id": "RLZ-K93BEJ",
+      "invariant": "INV-VAZE4Y",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §1",
+        "leaf": "02"
+      },
+      "rationale": "Defines the self-contained verification banner record enforcing build_status='unverified-locally' and strict schema round-trip validation.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+        "content": "sha256:3fdc53a5eaa6f8086d2fb1397398cbbba9c3fda4eafb2a713d61f7df8c3227f5",
+        "locator": {
+          "kind": "symbol",
+          "name": "format_canonical_json"
+        }
+      },
+      "id": "RLZ-PPZMKG",
+      "invariant": "INV-VAZE4Y",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §1",
+        "leaf": "02"
+      },
+      "rationale": "Produces deterministic indent=2 sorted-key JSON with a trailing newline for all audit JSON outputs.",
+      "role": "enforcement"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Formats deterministic sorted-key JSON with indent=2 and a trailing newline without timestamps.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+            "content": "sha256:3fdc53a5eaa6f8086d2fb1397398cbbba9c3fda4eafb2a713d61f7df8c3227f5",
+            "locator": {
+              "kind": "symbol",
+              "name": "format_canonical_json"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Enforces exact key sets, non-empty strings, non-boolean integers and strict literal values during deserialization.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+            "content": "sha256:3b214d8b16d786d11834badc9485e5a267565f94dc73de55862eed78c6ea6b88",
+            "locator": {
+              "kind": "symbol",
+              "name": "_as_object"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Freezes mapping fields in sorted MappingProxyType views on ProvenanceRecord and ComparatorSummary.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+            "content": "sha256:64e47778c51e3b9637c5feea5d04021aa528e0d0c45daad75db1605f908fc918",
+            "locator": {
+              "kind": "symbol",
+              "name": "ProvenanceRecord"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "Restricts VerificationStatus build_status to unverified-locally and enforces exact-key round-trip serialization.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+            "content": "sha256:c0f3e6721992e2ed58072f34e1624e19bc544a7b23916cdfdf8d859846482013",
+            "locator": {
+              "kind": "symbol",
+              "name": "VerificationStatus"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

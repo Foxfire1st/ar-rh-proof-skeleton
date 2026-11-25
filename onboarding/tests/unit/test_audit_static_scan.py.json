@@ -1,0 +1,177 @@
+{
+  "path": "tests/unit/test_audit_static_scan.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "content": "sha256:6d096024bbeddde13e2778de5ae4d7fdf2554477cccaf2df20226371785391c9",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_word_boundaries_and_qualified_names"
+        }
+      },
+      "facet": "Demonstrates substring, primed and Unicode identifiers avoid false positives while dot-qualified names expose forbidden leaf tokens.",
+      "id": "PRF-040YGZ",
+      "invariant": "INV-YAHFY5",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §3",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "content": "sha256:6bbd215583285e66b25cfddaa1473d48b810506357c4a92fd68308f2f07088cd",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_all_forbidden_tokens_and_attribute_forms"
+        }
+      },
+      "facet": "Demonstrates all nine forbidden tokens and extern/implemented_by attribute forms inside @[...] and attribute [...] blocks are detected on exact lines.",
+      "id": "PRF-2A3JWD",
+      "invariant": "INV-YAHFY5",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §3",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "content": "sha256:e32416703bbdb25f107f612a6c911635bb41cf6e71ab53f2d0c9fc36086c7d1d",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_strings_raw_strings_char_literals_and_identifier_primes"
+        }
+      },
+      "facet": "Demonstrates double-quoted strings, multi-hash raw strings, char literals and primed identifiers are skipped without desyncing line numbers.",
+      "id": "PRF-AZE79N",
+      "invariant": "INV-YAHFY5",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §3",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "content": "sha256:abc2369dd0813f92d084423cdb73e27a01e5fbfb3093c032a0c8245ba9d610df",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_scan_upstream_repo_entry_vs_full_and_challenge_routing"
+        }
+      },
+      "facet": "Demonstrates entry vs full scope excluding scripts/, challenge sorry routing to challenge_findings and non-sorry challenge tokens routing to solution_findings.",
+      "id": "PRF-DYT97F",
+      "invariant": "INV-YAHFY5",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §3",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "content": "sha256:74389bb8fd598a82f7b9edc08a1d0b4c7fe44786e7f8cafba836059e40df4236",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_static_scan_models_round_trip"
+        }
+      },
+      "facet": "Demonstrates StaticScanFinding and StaticScanSummary preserve equality across to_dict/from_dict round-trips.",
+      "id": "PRF-E1NESZ",
+      "invariant": "INV-VAZE4Y",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §1",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "content": "sha256:116d6ea5b1ccc0e95d3da924969ce9043e8defd9130d392c5677e2787fb58ad7",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_comments_nested_blocks_and_line_numbers"
+        }
+      },
+      "facet": "Demonstrates line, doc and nested block comments suppress false positives while preserving exact 1-based line numbers for subsequent tokens.",
+      "id": "PRF-PPFT9P",
+      "invariant": "INV-YAHFY5",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §3",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "content": "sha256:83f0feebe19f0359aea6ec65ca5ea6dc2546b5d029980f6ed7a96db7ac778863",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_unclosed_block_comment_raises_with_path_and_line"
+        }
+      },
+      "facet": "Demonstrates unclosed outer and nested block comments raise AuditScanError naming rel_path and the innermost unclosed opening line.",
+      "id": "PRF-VC9ZY9",
+      "invariant": "INV-YAHFY5",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §3",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "content": "sha256:79f8d2f92b9029e4b4f0434e31acc3b69186ff8b2341bf38c4716b6c450529e8",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_synthetic_lean_audit_fixtures"
+        }
+      },
+      "facet": "Demonstrates the three synthetic Lean fixtures under tests/fixtures/lean_audit/ produce 0 clean hits, 15 expected forbidden hits and AuditScanError at line 5.",
+      "id": "PRF-X38G51",
+      "invariant": "INV-YAHFY5",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §3",
+        "leaf": "02"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Verifies comment, nested-block, string, raw-string, char-literal, prime, word-boundary, qualified-name and attribute-form detection.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "content": "sha256:6bbd215583285e66b25cfddaa1473d48b810506357c4a92fd68308f2f07088cd",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_all_forbidden_tokens_and_attribute_forms"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Verifies unclosed-block-comment AuditScanError, entry vs full scope, challenge vs solution routing, input validation, model round-trips and synthetic fixtures.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "content": "sha256:abc2369dd0813f92d084423cdb73e27a01e5fbfb3093c032a0c8245ba9d610df",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_scan_upstream_repo_entry_vs_full_and_challenge_routing"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

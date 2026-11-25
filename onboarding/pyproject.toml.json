@@ -1,0 +1,61 @@
+{
+  "path": "pyproject.toml",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
+        "content": "sha256:6bda1cd6c8e3aca8c44f81e30466287dd7d70fd17fd4cf3216e70456e5ad7f38",
+        "locator": {
+          "end": 23,
+          "kind": "line_range",
+          "start": 21
+        }
+      },
+      "id": "RLZ-D9S8AP",
+      "invariant": "INV-7MVB06",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §5",
+        "leaf": "02"
+      },
+      "rationale": "Registers the rh-audit console script pointing to rh_pipeline.cli.audit:main.",
+      "role": "support"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Registers rh-audit and rh-file-size-gate console scripts.\n\nAnchor: `rh-audit`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
+            "content": "sha256:6bda1cd6c8e3aca8c44f81e30466287dd7d70fd17fd4cf3216e70456e5ad7f38",
+            "locator": {
+              "end": 23,
+              "kind": "line_range",
+              "start": 21
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Enforces Python 3.12, zero runtime dependencies and strict Pyright and Ruff settings over src and tests.\n\nAnchor: `typeCheckingMode`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
+            "content": "sha256:e8a6580578ed9b9c8e35f2d413d2452e0778f548c6dca1bcd8af79057c073f3c",
+            "locator": {
+              "end": 43,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

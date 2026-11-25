@@ -1,0 +1,194 @@
+{
+  "path": "tests/unit/test_audit_provenance.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "content": "sha256:d6957adf76480382b7af20114af0e636817bde8746cc96e01ab1875e49b7d687",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_collect_provenance_missing_replay_files"
+        }
+      },
+      "facet": "Demonstrates missing parts.sha256 or tracker/summary.json in replay_root raises AuditInputError.",
+      "id": "PRF-2X6H5Y",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §2",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "content": "sha256:d9b6f0c214452e9f519e3efce866a64d9dcbe042dbb3a0d7863b7aee07579198",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_canonical_json_determinism_and_no_timestamps"
+        }
+      },
+      "facet": "Demonstrates byte-identical indent=2 sorted-key JSON output across repeated serializations with no wall-clock timestamp keys.",
+      "id": "PRF-9DEMRW",
+      "invariant": "INV-VAZE4Y",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §1",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "content": "sha256:b04fdbf427fa17a171284a352932c600d6e2c18c6d7abbdc976f86e89a32e841",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_collect_provenance_without_and_with_replay"
+        }
+      },
+      "facet": "Demonstrates read-only provenance pinning of upstream commit, toolchain, mathlib rev, dual comparators, sorted digests and optional ReplayPin.",
+      "id": "PRF-A4N39N",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §2",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "content": "sha256:662d73d71b19f0e21583a1e94cc54972693e0a7605a7a1466a6c2d6b613a6aba",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_collect_provenance_git_root_errors"
+        }
+      },
+      "facet": "Demonstrates nonexistent paths, non-Git directories and Git subdirectories raise AuditInputError.",
+      "id": "PRF-CD4M4R",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §2",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "content": "sha256:feb6242b25f5c7f687ea05d41481c2a3e668bc48483129b7b1d885ddc7b1d106",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_collect_provenance_malformed_json_and_missing_mathlib"
+        }
+      },
+      "facet": "Demonstrates malformed comparator JSON and a missing mathlib entry in lake-manifest.json raise AuditInputError.",
+      "id": "PRF-KSN3GN",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §2",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "content": "sha256:39cbf67661bad5b3e249dc61fc92b76e435ebf25cc9da700baa60d8fd7c084fd",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_collect_provenance_missing_required_upstream_file"
+        }
+      },
+      "facet": "Demonstrates deleting any of the six required upstream files raises AuditInputError.",
+      "id": "PRF-Q6GWYD",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §2",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "content": "sha256:de5e779635a01ec504b192997b6898984177113655aa40327824086df51164a7",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_provenance_models_strict_roundtrip_and_rejection"
+        }
+      },
+      "facet": "Demonstrates to_dict/from_dict round-trip equality and ValueError rejection of missing keys, extra keys and wrong field types across provenance models.",
+      "id": "PRF-R26QA6",
+      "invariant": "INV-VAZE4Y",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §1",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "content": "sha256:96bd231827bb283459ba34c80783daf1dc5a018d2a6fbcb9dedff338315909c3",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_collect_provenance_rejects_bool_module_count_in_replay"
+        }
+      },
+      "facet": "Demonstrates boolean module_count in replay tracker/summary.json is rejected with AuditInputError.",
+      "id": "PRF-VCG0CK",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §2",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "content": "sha256:bb43c4db152de72078ffc118cdde8f877c5318aebdd5e13540de87ea5184e4c2",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_collect_provenance_detached_head"
+        }
+      },
+      "facet": "Demonstrates detached-HEAD upstream checkouts record the commit SHA and report branch as 'HEAD'.",
+      "id": "PRF-WXW971",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §2",
+        "leaf": "02"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Verifies provenance collection with and without replay, detached HEAD and canonical timestamp-free JSON determinism.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:b04fdbf427fa17a171284a352932c600d6e2c18c6d7abbdc976f86e89a32e841",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_without_and_with_replay"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Verifies strict model round-trips, key-mismatch and type rejections, and fail-closed AuditInputError paths for missing or malformed upstream and replay inputs.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:de5e779635a01ec504b192997b6898984177113655aa40327824086df51164a7",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_provenance_models_strict_roundtrip_and_rejection"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

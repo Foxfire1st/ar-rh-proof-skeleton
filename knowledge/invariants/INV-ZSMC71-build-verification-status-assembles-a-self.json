@@ -1,0 +1,45 @@
+{
+  "admission": {
+    "criteria": [
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Unit tests verify self-contained unverified-locally status assembly and fsync-failure temp-file cleanup, preventing misleading verification claims or truncated audit artifacts on disk."
+  },
+  "applicability": "Assembly of VerificationStatus and disk persistence of provenance.json and verification-status.json in src/rh_pipeline/audit/status.py.",
+  "conditions": [
+    "provenance.note_digests must contain non-empty SHA-256 digests for verification/NOTES.md and verification/static-scan.txt.",
+    "Both JSON payloads are serialized before creating audit_dir, written and fsynced to temporary files inside audit_dir, replaced via os.replace, and unlinked on failure."
+  ],
+  "exclusions": [
+    "ReplayPin metadata stays in provenance.json and is not copied into VerificationStatus; filesystem OSError failures propagate directly to the caller."
+  ],
+  "id": "INV-ZSMC71",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_audit_cli.py::test_build_verification_status_and_strict_round_trip | tests/unit/test_audit_cli.py::test_write_audit_artifacts_deterministic_and_atomic | tests/unit/test_audit_cli.py::test_write_audit_artifacts_cleans_up_temp_files_on_failure"
+      ],
+      "path": "rh-r02-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R02@v1 §4",
+    "leaf": "02",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "build_verification_status assembles a self-contained VerificationStatus with build_status='unverified-locally', and write_audit_artifacts stages both temporary files in audit_dir before atomically replacing provenance.json and verification-status.json with cleanup on failure.",
+  "supersedes": [],
+  "title": "Self-contained VerificationStatus and atomic audit artifact replacement",
+  "writer": {
+    "at": "2026-11-25T17:00:49+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "02",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
+    "task": "261123-RH"
+  }
+}

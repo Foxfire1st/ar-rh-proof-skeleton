@@ -36,6 +36,41 @@
           "kind": "code"
         }
       ]
+    },
+    "3": {
+      "note": "Package metadata registers both rh-audit and rh-file-size-gate console scripts.\n\nAnchor: `rh-audit`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "9ada04471812d90b574c199779c4547b94ea9e84",
+            "content": "sha256:6bda1cd6c8e3aca8c44f81e30466287dd7d70fd17fd4cf3216e70456e5ad7f38",
+            "locator": {
+              "end": 23,
+              "kind": "line_range",
+              "start": 21
+            },
+            "path": "pyproject.toml"
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "The rh-audit CLI runs provenance collection, static scanning, status assembly and atomic artifact emission.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "025c72a3b7868581d1ba0cf37d2cfa370eb29e86",
+            "content": "sha256:43e09a01fd9555908e1a00e57551ea6a825cc6a19b21bf729c625206663bb438",
+            "locator": {
+              "kind": "symbol",
+              "name": "main"
+            },
+            "path": "src/rh_pipeline/cli/audit.py"
+          },
+          "kind": "code"
+        }
+      ]
     }
   },
   "schema": "ar-onboarding-route/v1"

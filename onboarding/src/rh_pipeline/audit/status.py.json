@@ -1,0 +1,76 @@
+{
+  "path": "src/rh_pipeline/audit/status.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
+        "content": "sha256:4d315f7f62a99ff64017cabc518ccddb829fa0ffa1175e460dbaca26a4cd8b3c",
+        "locator": {
+          "kind": "symbol",
+          "name": "write_audit_artifacts"
+        }
+      },
+      "id": "RLZ-B4G6CG",
+      "invariant": "INV-ZSMC71",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §4",
+        "leaf": "02"
+      },
+      "rationale": "Stages flushed and fsynced temp files inside audit_dir before atomic os.replace and unlinks temp files on failure.",
+      "role": "propagation-persistence"
+    },
+    {
+      "anchor": {
+        "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
+        "content": "sha256:b1296de2a02b91e503ad81298986f17d1190a0c54e39a65df99ae58622285367",
+        "locator": {
+          "kind": "symbol",
+          "name": "build_verification_status"
+        }
+      },
+      "id": "RLZ-CEQ7BZ",
+      "invariant": "INV-ZSMC71",
+      "origin": {
+        "handoffEntry": "RH-R02@v1 §4",
+        "leaf": "02"
+      },
+      "rationale": "Combines provenance and static-scan results into a self-contained VerificationStatus hard-coding build_status='unverified-locally'.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Assembles a self-contained VerificationStatus with deduplicated theorems and axioms, required note digests and hard-coded build_status unverified-locally.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
+            "content": "sha256:b1296de2a02b91e503ad81298986f17d1190a0c54e39a65df99ae58622285367",
+            "locator": {
+              "kind": "symbol",
+              "name": "build_verification_status"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stages flushed and fsynced temporary files in audit_dir before os.replace and cleans up staged files on failure.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
+            "content": "sha256:4d315f7f62a99ff64017cabc518ccddb829fa0ffa1175e460dbaca26a4cd8b3c",
+            "locator": {
+              "kind": "symbol",
+              "name": "write_audit_artifacts"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}
