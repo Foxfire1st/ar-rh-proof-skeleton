@@ -1,0 +1,220 @@
+{
+  "closed": true,
+  "leaf": "01",
+  "rows": [
+    {
+      "disposition": "updated",
+      "id": "ROW-0ZPNH9",
+      "items": [
+        "sha256:41454f1e7656ce7d667307e3eae936120db24e134e855d6120fdc4ad7e945d3b"
+      ],
+      "reason": "Identify the fixture checks for checkout provenance, command order and replacement behavior.",
+      "sources": [
+        {
+          "blob": "f8c5eec4d91b4dbd3eee95ad4dc8e85d474acfd1",
+          "path": "tests/unit/test_quality_scripts.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_quality_scripts.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-6KA4FE",
+      "items": [
+        "sha256:d7f5a6cd79971c99606f15a58b1aa5442c7b82170853031e6a5ed5948fd1663d"
+      ],
+      "reason": "Explain where the quality routines and file-size gate live and how the bootstrap, local runner and CI fit together.",
+      "sources": [
+        {
+          "blob": "100afc185482ac302f46f16bbd03ff8f1eef89c7",
+          "path": ".github/workflows/quality.yml"
+        },
+        {
+          "blob": "c30bd35b0ecb148bbee69f98c4e99dab8d781c74",
+          "path": "README.md"
+        },
+        {
+          "blob": "2c247e56cf3c225e5784712a5810dc90c867c124",
+          "path": "scripts/bootstrap-venv.sh"
+        },
+        {
+          "blob": "16018f302075861204d417d21cf4cd8416d467de",
+          "path": "scripts/check-quality.sh"
+        },
+        {
+          "blob": "98595d0b087dd266bde6907a479adb6abcf997bd",
+          "path": "src/rh_pipeline/validate/file_size.py"
+        },
+        {
+          "blob": "a76c22a518fbb9a1a5cdcbbdbac0c407909c2b47",
+          "path": "tests/unit/test_file_size_gate.py"
+        },
+        {
+          "blob": "f8c5eec4d91b4dbd3eee95ad4dc8e85d474acfd1",
+          "path": "tests/unit/test_quality_scripts.py"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-8GF2DZ",
+      "items": [
+        "sha256:34e230cf9e7bac5d5660fa93e1cd03f82190745f72e3e95e9892eb95ed5e482e",
+        "sha256:15171245ec2d726a568d7e234b23f81c072eb7538f7b264150557cb3555e84cc",
+        "sha256:cff0422a22c38dca63de4428143c9a32a30e2afd2b55a30807fab82c483e7b52"
+      ],
+      "reason": "Explain the five default bands, watchful reporting and the hard-limit exit condition.",
+      "sources": [
+        {
+          "blob": "98595d0b087dd266bde6907a479adb6abcf997bd",
+          "path": "src/rh_pipeline/validate/file_size.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/validate/file_size.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-9A7JAN",
+      "items": [
+        "sha256:5423eea95d9d932123347c6044e7085e492b741d213e708e7599c36687c6a9dd",
+        "sha256:36f69af4f93ffd7717bbb6d27999099cfd6231ebde7b41e3a772efa46402ac39"
+      ],
+      "reason": "Explain the shared local-package preflight, gate order and Radon output and error behavior.",
+      "sources": [
+        {
+          "blob": "16018f302075861204d417d21cf4cd8416d467de",
+          "path": "scripts/check-quality.sh"
+        }
+      ],
+      "subject": "onboarding:scripts/check-quality.sh"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-GC3GD4",
+      "items": [
+        "sha256:ac3b6d2838cf09d366e2702bd8505a9038d91e9af41e07dbd35ba268f07486e4",
+        "sha256:0ee8cbf996b9b207eabde10ae77c2331ef1260f663b2660380f5a5e529f38974",
+        "sha256:488896c256c42e5923f38d6e80ea7996e5d19b69ec87bafb12a5b1e77a169485"
+      ],
+      "reason": "Describe the worktree commands, environment replacement and the shared sequence developers run.",
+      "sources": [
+        {
+          "blob": "c30bd35b0ecb148bbee69f98c4e99dab8d781c74",
+          "path": "README.md"
+        }
+      ],
+      "subject": "onboarding:README.md"
+    },
+    {
+      "considered": [],
+      "disposition": "no_family",
+      "id": "ROW-HMW2Z3",
+      "items": [
+        "sha256:56ccdbd65bcd250a0af621259f3310057ebd989bcbd4590c7cbcf397af3e7db3"
+      ],
+      "reason": "Package ownership is an architecture placement rule on its own. The file-size threshold is an independent validation obligation.",
+      "revision": 1,
+      "subject": "membership:INV-N55EQ7"
+    },
+    {
+      "considered": [],
+      "disposition": "no_family",
+      "id": "ROW-JFAHA1",
+      "items": [
+        "sha256:03e5bab70722ac41b0db651eb6783cf04c0d1f92c86f811679764b66f1927e02"
+      ],
+      "reason": "The five-band rail has a complete system and proof boundary on its own. Package ownership adds no joint promise about its measured outcomes.",
+      "revision": 1,
+      "subject": "membership:INV-SVRW7Z"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-QZH5MJ",
+      "items": [
+        "sha256:b551b222b095cd396832314cff9df2edf2c33fec8a7f95b7122ee07e1911fcf6",
+        "sha256:9d0fe7bb6a19e9aa3744068652a79ac36b4b4d654d7f8ef55f834dd170ffe15d",
+        "sha256:e155bda688e898b43e30bbc5fdd8b702d1fe13ddcb887b4dbfce27c8c8892169",
+        "sha256:9bb141151322b7e164b09b752c50c56a36f2f83542390e201e67c2988ad454d0",
+        "sha256:9a125ab209b8144d20a2c358926310da62385933b0dde4d536a50d186d6fa3bb",
+        "sha256:ea502aec084b6c3aee8f2dc07fe34f0711529431043f5bb13e19760b1f695bb2",
+        "sha256:2a0b4cd6cf51b1ea46216fc1244770453e202289993b33c6a8ea65c3c7e708ed"
+      ],
+      "reason": "Identify the cases for each inclusive boundary, watchful success and an over-limit failure.",
+      "sources": [
+        {
+          "blob": "a76c22a518fbb9a1a5cdcbbdbac0c407909c2b47",
+          "path": "tests/unit/test_file_size_gate.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_file_size_gate.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-SRCMC3",
+      "items": [
+        "sha256:61b5ee49e43f5b0bb3a90537da91ec80b8c7543e348e08a82dee128a3f4df5a2",
+        "sha256:55e8f9612af02aeeac5f9c8096545da9147186c3360eab90a0465f08cc01830b"
+      ],
+      "reason": "Explain editable installation, safe interpreter selection during replacement, and validation before reuse.",
+      "sources": [
+        {
+          "blob": "2c247e56cf3c225e5784712a5810dc90c867c124",
+          "path": "scripts/bootstrap-venv.sh"
+        }
+      ],
+      "subject": "onboarding:scripts/bootstrap-venv.sh"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-V5QSWX",
+      "items": [
+        "sha256:201ff1eb3bf16cc9fba28244b2ec26c933aacc9ba6d5b04ab9660a601012f5f8",
+        "sha256:7637def55cfb7db3bb748e1a23bae217b48bfb42effd24e57e8639f83f08afb3"
+      ],
+      "reason": "Describe the GitHub Actions job that sets up Python 3.12 and invokes the worktree bootstrap and quality runner directly.",
+      "sources": [
+        {
+          "blob": "100afc185482ac302f46f16bbd03ff8f1eef89c7",
+          "path": ".github/workflows/quality.yml"
+        }
+      ],
+      "subject": "onboarding:.github/workflows/quality.yml"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:93d6c9e93ab2f8b0b66d226ec66d8b8b6a790b9ef04d809319542e5a21f7fef8",
+      "record": "INV-N55EQ7",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T15:38:58+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "8da2e41d-7ba4-46b0-b322-f3aa7cb1ff04",
+        "task": "261123-RH"
+      }
+    },
+    {
+      "contentDigest": "sha256:3fe157500a016ad2cf4a46e644395852d6070b695ea959dce2cbd85cf975cd13",
+      "record": "INV-SVRW7Z",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-25T15:38:58+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "8da2e41d-7ba4-46b0-b322-f3aa7cb1ff04",
+        "task": "261123-RH"
+      }
+    }
+  ]
+}

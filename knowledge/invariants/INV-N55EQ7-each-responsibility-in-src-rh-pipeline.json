@@ -1,0 +1,45 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Keeping implementation in its declared package prevents a second copy of validation rules from diverging in a consumer or command entry point."
+  },
+  "applicability": "Placement and ownership of behavior under the Python package src/rh_pipeline.",
+  "conditions": [
+    "Name the owning package and module before implementing behavior.",
+    "Keep command wiring in cli and domain behavior in the package that owns it."
+  ],
+  "exclusions": [
+    "Repository-level scripts and CI are outside the Python package map."
+  ],
+  "id": "INV-N55EQ7",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "RH-R01@v1 §5 and system/coding-guidelines.md Core Rule and Package Ownership govern this obligation. README.md:13-25 documents package ownership and src/rh_pipeline/validate/file_size.py realizes the validation owner on RH-R01-A3."
+      ],
+      "path": "rh-r01-a3-ingest-v3.json"
+    },
+    "handoffEntry": "RH-R01@v1 §5 package ownership",
+    "leaf": "01",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "Each responsibility in src/rh_pipeline has one owning package and module.",
+  "supersedes": [],
+  "title": "Single-responsibility package ownership under src/rh_pipeline",
+  "writer": {
+    "at": "2026-11-25T15:38:58+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "01",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "8da2e41d-7ba4-46b0-b322-f3aa7cb1ff04",
+    "task": "261123-RH"
+  }
+}

@@ -10,3 +10,7 @@ No mathematical statement or proof step may rest on "trust me bro." Every claim 
 2. **Canonical External Mathematical Literature (for Concept Cards):**
    - Standard peer-reviewed textbooks, papers, Mathlib documentation, or established expository references explaining each classical concept (e.g., Riemann zeta function, Dirichlet L-functions, analytic continuation, modular forms, CM curves, Galois cohomology).
    - Wherever a classical theorem is also formalized inside `leanprover-community/riemann-hypothesis`, Concept Cards cite **both** the external source and the internal Lean anchor.
+
+## Churn Guardrail
+
+Anchor provenance directly to stable contract and audit files in the read-only `riemann-hypothesis@main` checkout first. Expand citations into deeper subtrees selectively as those areas settle. Reassess deeper anchors as the pipeline develops and favor sources that remain stable enough to support the claim.

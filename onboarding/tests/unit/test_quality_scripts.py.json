@@ -1,0 +1,41 @@
+{
+  "path": "tests/unit/test_quality_scripts.py",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "The ordered-run case verifies shared preflight reuse, the candidate import and all six tool calls.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f8c5eec4d91b4dbd3eee95ad4dc8e85d474acfd1",
+            "content": "sha256:61526a4cee52fbc01cfa66f687c1e4ec8d1493488a19751349abe318313f8993",
+            "locator": {
+              "end": 193,
+              "kind": "line_range",
+              "start": 168
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "The Radon and replacement cases check report location and selection through a launcher or checkout alias.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f8c5eec4d91b4dbd3eee95ad4dc8e85d474acfd1",
+            "content": "sha256:96fea77b9361c8475dfdb7647d22874e815cc19a1d31c05a828cb39779f5ce39",
+            "locator": {
+              "end": 353,
+              "kind": "line_range",
+              "start": 284
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

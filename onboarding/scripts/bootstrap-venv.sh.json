@@ -1,0 +1,41 @@
+{
+  "path": "scripts/bootstrap-venv.sh",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Replacement selects an executable interpreter outside the virtual environment before removing it.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "2c247e56cf3c225e5784712a5810dc90c867c124",
+            "content": "sha256:2a654e2e9fe900cb20879bce20bddb7601b20674b0110c6ddd76704f1d3bee5e",
+            "locator": {
+              "end": 70,
+              "kind": "line_range",
+              "start": 38
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Bootstrap binds the installation destination and removes partial environments on failure.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "2c247e56cf3c225e5784712a5810dc90c867c124",
+            "content": "sha256:59bb7a29ce7311ab3a5a048f02680d39dc0e81dc6104da35ca3925ae908bc096",
+            "locator": {
+              "end": 99,
+              "kind": "line_range",
+              "start": 72
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

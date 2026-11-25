@@ -1,0 +1,42 @@
+{
+  "path": ".",
+  "references": {
+    "1": {
+      "note": "The layout assigns package responsibilities and documents the worktree commands.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c30bd35b0ecb148bbee69f98c4e99dab8d781c74",
+            "content": "sha256:e5c1f034d491d259d4dd9cae07933e3e7d0053e8b24943f9fd93a4dcda7c0446",
+            "locator": {
+              "end": 51,
+              "kind": "line_range",
+              "start": 13
+            },
+            "path": "README.md"
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "GitHub Actions invokes the bootstrap and runner directly.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "100afc185482ac302f46f16bbd03ff8f1eef89c7",
+            "content": "sha256:e0f5044f8275d2a925736c502d9d879717dc1a0825f1c3560596f1d37b926a3f",
+            "locator": {
+              "end": 17,
+              "kind": "line_range",
+              "start": 8
+            },
+            "path": ".github/workflows/quality.yml"
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-route/v1"
+}

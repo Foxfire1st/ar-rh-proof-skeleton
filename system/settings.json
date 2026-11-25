@@ -63,6 +63,7 @@
           "dag/**",
           "audit/**",
           "site/**",
+          "scripts/**",
           ".github/workflows/**"
         ]
       }

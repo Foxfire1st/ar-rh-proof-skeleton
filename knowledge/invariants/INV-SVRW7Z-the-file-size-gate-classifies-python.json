@@ -1,0 +1,44 @@
+{
+  "admission": {
+    "criteria": [
+      "guarded_by_test"
+    ],
+    "justification": "Executable checks pin each band boundary and the different exit statuses for watchful and over-limit files."
+  },
+  "applicability": "Line-count classification and hard-rail status for readable Python files measured by the file-size gate.",
+  "conditions": [
+    "With default limits, the inclusive band ceilings are 300, 600, 900 and 1200 lines. Watchful starts at 301 lines.",
+    "The CLI defaults to scanning src and tests. With an explicit --hard-limit, the hard rail follows that limit."
+  ],
+  "exclusions": [
+    "Tool invocation and source-read errors are outside the size-based exit rule."
+  ],
+  "id": "INV-SVRW7Z",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_file_size_gate.py::test_classify_line_count_bands | tests/unit/test_file_size_gate.py::test_cli_reports_watchful_file_without_failing | tests/unit/test_file_size_gate.py::test_measure_tree_detects_hard_limit_violation"
+      ],
+      "path": "rh-r01-a3-ingest-v3.json"
+    },
+    "handoffEntry": "RH-R01@v1 §4",
+    "leaf": "01",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "The file-size gate classifies Python files into five ordered bands, reports watchful files starting at 301 lines and fails only when a file exceeds the hard limit.",
+  "supersedes": [],
+  "title": "Five-band Python file-size gate and hard limit",
+  "writer": {
+    "at": "2026-11-25T15:38:58+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "01",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "8da2e41d-7ba4-46b0-b322-f3aa7cb1ff04",
+    "task": "261123-RH"
+  }
+}

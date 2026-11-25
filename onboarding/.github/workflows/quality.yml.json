@@ -1,0 +1,24 @@
+{
+  "path": ".github/workflows/quality.yml",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "The job calls both worktree scripts directly after setting up Python.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "100afc185482ac302f46f16bbd03ff8f1eef89c7",
+            "content": "sha256:e0f5044f8275d2a925736c502d9d879717dc1a0825f1c3560596f1d37b926a3f",
+            "locator": {
+              "end": 17,
+              "kind": "line_range",
+              "start": 8
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

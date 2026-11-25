@@ -1,0 +1,61 @@
+{
+  "path": "README.md",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "c30bd35b0ecb148bbee69f98c4e99dab8d781c74",
+        "content": "sha256:79a0fef17d0d7841b7ff575d7ca57d568cda90568769da4c00adbafb4d6d1991",
+        "locator": {
+          "end": 25,
+          "kind": "line_range",
+          "start": 13
+        }
+      },
+      "id": "RLZ-67K651",
+      "invariant": "INV-N55EQ7",
+      "origin": {
+        "handoffEntry": "RH-R01@v1 §5 package ownership",
+        "leaf": "01"
+      },
+      "rationale": "The package map assigns each rh_pipeline responsibility to a distinct package and reserves cli for command wiring.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "The package map assigns deterministic gates to validate and command wiring to cli.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c30bd35b0ecb148bbee69f98c4e99dab8d781c74",
+            "content": "sha256:79a0fef17d0d7841b7ff575d7ca57d568cda90568769da4c00adbafb4d6d1991",
+            "locator": {
+              "end": 25,
+              "kind": "line_range",
+              "start": 13
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "The documented worktree commands use the same scripts as CI.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c30bd35b0ecb148bbee69f98c4e99dab8d781c74",
+            "content": "sha256:eb60ef52d4bb8e04ec053d5850a8097da52823581b8d0fbef3b079edf192f2ec",
+            "locator": {
+              "end": 51,
+              "kind": "line_range",
+              "start": 32
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}
