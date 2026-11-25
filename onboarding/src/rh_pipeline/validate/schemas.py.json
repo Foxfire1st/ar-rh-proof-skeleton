@@ -1,0 +1,76 @@
+{
+  "path": "src/rh_pipeline/validate/schemas.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "737520b761f5bf41cad218c1d18a1c32be846dae",
+        "content": "sha256:5af45b76c4c99219793c9a00e2323fd0af17a2fd81f86c418c967f0618f31010",
+        "locator": {
+          "kind": "symbol",
+          "name": "_check_dag_commit"
+        }
+      },
+      "id": "RLZ-1P3FZV",
+      "invariant": "INV-EWYG1N",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §2",
+        "leaf": "04"
+      },
+      "rationale": "Enforces that dag/dag.json upstream_commit matches audit/verification-status.json or falls back to audit/provenance.json upstream.head_commit when available.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "737520b761f5bf41cad218c1d18a1c32be846dae",
+        "content": "sha256:329d56eeeb69f16915785a5690c2ebbaa519baf04c5a9ad71281f90980ab43cb",
+        "locator": {
+          "kind": "symbol",
+          "name": "validate_repo_artifacts"
+        }
+      },
+      "id": "RLZ-ZFT7AJ",
+      "invariant": "INV-EWYG1N",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §2",
+        "leaf": "04"
+      },
+      "rationale": "Orchestrates strict model deserialization and cross-file upstream_commit consistency checks across audit/ and dag/ JSON artifacts, returning canonically sorted findings.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "validate_repo_artifacts deserializes all four audit and DAG JSON artifacts strictly, enforces AUDIT_SCHEMA_VERSION and stage-map structural invariants, and returns canonically sorted findings.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "737520b761f5bf41cad218c1d18a1c32be846dae",
+            "content": "sha256:329d56eeeb69f16915785a5690c2ebbaa519baf04c5a9ad71281f90980ab43cb",
+            "locator": {
+              "kind": "symbol",
+              "name": "validate_repo_artifacts"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "_check_dag_commit enforces that dag/dag.json upstream_commit matches audit/verification-status.json or falls back to audit/provenance.json upstream.head_commit when available.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "737520b761f5bf41cad218c1d18a1c32be846dae",
+            "content": "sha256:5af45b76c4c99219793c9a00e2323fd0af17a2fd81f86c418c967f0618f31010",
+            "locator": {
+              "kind": "symbol",
+              "name": "_check_dag_commit"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

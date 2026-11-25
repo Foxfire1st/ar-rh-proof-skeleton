@@ -1,0 +1,125 @@
+{
+  "path": "tests/unit/test_validate_cli.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+        "content": "sha256:1d22c8fbc92b33c44aa58b9a00f37b06f6eb8d6439fd1a70e8dd37ceaa9bbea2",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_reports_sorted_canonical_findings_across_gates"
+        }
+      },
+      "facet": "Demonstrates combined schema and jargon failures print canonically sorted rule:path:line:message diagnostics and return exit 1.",
+      "id": "PRF-5XZHTJ",
+      "invariant": "INV-H9CTX9",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §5",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+        "content": "sha256:9a577ea3a2ae5b6e10ad7a2045750775f805c3514eeca53c07d6e1026a498f5c",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_missing_memory_path_exits_one"
+        }
+      },
+      "facet": "Demonstrates a nonexistent --memory directory emits cli-missing-memory and returns exit 1.",
+      "id": "PRF-688YFR",
+      "invariant": "INV-H9CTX9",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §5",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+        "content": "sha256:8f63e9d1fb339013da70966ca680907874a1a8580938a5ea2305c91af45c5462",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_memory_without_concepts_dir_passes_with_info"
+        }
+      },
+      "facet": "Demonstrates a memory root lacking docs/concepts prints an explicit INFO skip note and returns exit 0 when schemas pass.",
+      "id": "PRF-ECBWTH",
+      "invariant": "INV-H9CTX9",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §5",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+        "content": "sha256:9fed74d51fa5cb2da5e09b15aec2904b57422eaf3407b2ccd86c5daa3019fa87",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_without_memory_validates_repo_and_prints_skip_info"
+        }
+      },
+      "facet": "Demonstrates rh-validate --repo validates live schemas, prints the no-memory INFO note and returns exit 0.",
+      "id": "PRF-WKZ5BH",
+      "invariant": "INV-H9CTX9",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §5",
+        "leaf": "04"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Omitting --memory or passing a memory root without populated docs/concepts prints explicit INFO notes and exits 0 when schemas pass.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+            "content": "sha256:9fed74d51fa5cb2da5e09b15aec2904b57422eaf3407b2ccd86c5daa3019fa87",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_without_memory_validates_repo_and_prints_skip_info"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Combined schema and jargon failures print canonically sorted rule:path:line:message findings and return exit code 1.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+            "content": "sha256:1d22c8fbc92b33c44aa58b9a00f37b06f6eb8d6439fd1a70e8dd37ceaa9bbea2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_reports_sorted_canonical_findings_across_gates"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Populated memory passes end-to-end while ignoring onboarding/, and installed rh-validate runs cleanly against the repository.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+            "content": "sha256:edf0acf0bd5c27cdb66047337890aacbb3b4c3b3b6d06104ee22be1ed0ca6b97",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_populated_memory_passes_and_ignores_onboarding"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

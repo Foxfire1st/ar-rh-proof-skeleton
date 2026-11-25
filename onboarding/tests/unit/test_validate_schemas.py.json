@@ -1,0 +1,171 @@
+{
+  "path": "tests/unit/test_validate_schemas.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+        "content": "sha256:749a39330544626c8e406a999f7e1e40b3d11c03a55fd84a93a9b44dfe337f9b",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_real_repo_artifacts_pass_cleanly"
+        }
+      },
+      "facet": "Demonstrates the live repository audit/ and dag/ JSON artifacts pass strict schema and cross-file commit validation with zero findings.",
+      "id": "PRF-5Z7PB9",
+      "invariant": "INV-EWYG1N",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §2",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+        "content": "sha256:dc563546bedc49c83c0bfbfa875ecd3c78563fe9c0c8af7e450330381e0fe520",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_bool_where_int_expected_emits_schema_invalid"
+        }
+      },
+      "facet": "Demonstrates JSON booleans supplied in integer fields emit schema-invalid across all four repository artifacts.",
+      "id": "PRF-7WAQF6",
+      "invariant": "INV-EWYG1N",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §2",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+        "content": "sha256:49c6d5871e577bae5d0ca93dab34482892957012daa30d44af4e1db87ecc453b",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_commit_mismatch_dag_falls_back_to_provenance_when_verification_missing"
+        }
+      },
+      "facet": "Demonstrates _check_dag_commit falls back to audit/provenance.json upstream.head_commit when audit/verification-status.json is absent.",
+      "id": "PRF-FQ5H6J",
+      "invariant": "INV-EWYG1N",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §2",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+        "content": "sha256:c4d12ef90bb5155fa74c02d0699cc49f458d5a81ae1d46dd10f7d85078661523",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_invalid_stage_map_structure_emits_schema_invalid"
+        }
+      },
+      "facet": "Demonstrates structural stage-map violations (empty stages, duplicate IDs, non-consecutive order, non-.lean paths and duplicate upstream/skeleton/module names) emit schema-invalid.",
+      "id": "PRF-J2JGXY",
+      "invariant": "INV-EWYG1N",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §2",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+        "content": "sha256:a37ce5a51f2fc5e389e79be33a3b35e00f1d201fb1e1a220a960c28cefc420e3",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_commit_mismatch_dag_vs_verification"
+        }
+      },
+      "facet": "Demonstrates a mismatch between dag/dag.json upstream_commit and audit/verification-status.json emits schema-commit-mismatch on dag/dag.json.",
+      "id": "PRF-TZ2F7E",
+      "invariant": "INV-EWYG1N",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §2",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+        "content": "sha256:b2521014449a680976447a5faebe7a4ea078f150cb70b61956823b69c29df90f",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_unknown_key_emits_schema_invalid"
+        }
+      },
+      "facet": "Demonstrates extra unknown keys emit schema-invalid across provenance.json, verification-status.json, stage-map.json and dag.json.",
+      "id": "PRF-WNRS07",
+      "invariant": "INV-EWYG1N",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §2",
+        "leaf": "04"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Live repository audit and DAG JSON artifacts pass strict schema and commit-consistency checks with zero findings.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+            "content": "sha256:749a39330544626c8e406a999f7e1e40b3d11c03a55fd84a93a9b44dfe337f9b",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_real_repo_artifacts_pass_cleanly"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Unknown keys and bool-where-int values emit schema-invalid across all four repository JSON artifacts.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+            "content": "sha256:b2521014449a680976447a5faebe7a4ea078f150cb70b61956823b69c29df90f",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_unknown_key_emits_schema_invalid"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+            "content": "sha256:172d646d32759ad3f42ae8dfcf8a25713aa1eb99fd93bfe5f0af36acb73c388c",
+            "locator": {
+              "end": 225,
+              "kind": "line_range",
+              "start": 209
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Cross-file upstream_commit mismatches between dag.json, verification-status.json and provenance.json emit schema-commit-mismatch.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0772b4f0aedf9de5f779371ab1ff860b39b93187",
+            "content": "sha256:a37ce5a51f2fc5e389e79be33a3b35e00f1d201fb1e1a220a960c28cefc420e3",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_commit_mismatch_dag_vs_verification"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

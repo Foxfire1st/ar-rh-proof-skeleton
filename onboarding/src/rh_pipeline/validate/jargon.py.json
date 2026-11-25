@@ -1,0 +1,110 @@
+{
+  "path": "src/rh_pipeline/validate/jargon.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "36f15282690697a49025d874de56de9d073e7141",
+        "content": "sha256:2607a1ba5b8e62d014365ec430fa7bf48dd8c83f4e4952bb42f11d5292186f1f",
+        "locator": {
+          "kind": "symbol",
+          "name": "_build_term_matcher"
+        }
+      },
+      "id": "RLZ-3ZHHB7",
+      "invariant": "INV-9NDAGK",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §4",
+        "leaf": "04"
+      },
+      "rationale": "Builds the case-insensitive longest-match-first regex over registered terms, aliases, and -s/-es plurals using non-alphanumeric/non-hyphen boundaries.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "36f15282690697a49025d874de56de9d073e7141",
+        "content": "sha256:a626480a3ac4c5d14ed36cf3fd07d0a2539a87d81244d1e664683d6ebc6fcc89",
+        "locator": {
+          "kind": "symbol",
+          "name": "check_page_jargon"
+        }
+      },
+      "id": "RLZ-75XWZE",
+      "invariant": "INV-9NDAGK",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §4",
+        "leaf": "04"
+      },
+      "rationale": "Masks code, math, and link URLs without drifting line numbers, resolves all concept/term directives, and evaluates Level-1 jargon order in offset order with line_offset.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "36f15282690697a49025d874de56de9d073e7141",
+        "content": "sha256:afa169d1777211f5d1e28079521b0aaa02b0a6ec3f87b1731b6357a386873bb1",
+        "locator": {
+          "kind": "symbol",
+          "name": "validate_explainer_docs"
+        }
+      },
+      "id": "RLZ-DF37YF",
+      "invariant": "INV-9NDAGK",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §4",
+        "leaf": "04"
+      },
+      "rationale": "Restricts explainer scanning strictly to <docs_root>/concepts/*.md and <docs_root>/stages/<stage_id>/*.md so AR onboarding cards are never scanned.",
+      "role": "enforcement"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "check_page_jargon masks code, math and link URLs without line drift, resolves concept and term directives in all sections and enforces Level-1 jargon order with line_offset.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "36f15282690697a49025d874de56de9d073e7141",
+            "content": "sha256:a626480a3ac4c5d14ed36cf3fd07d0a2539a87d81244d1e664683d6ebc6fcc89",
+            "locator": {
+              "kind": "symbol",
+              "name": "check_page_jargon"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "_build_term_matcher compiles a case-insensitive longest-match-first pattern over terms, aliases and -s/-es plurals with non-alphanumeric/non-hyphen boundaries.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "36f15282690697a49025d874de56de9d073e7141",
+            "content": "sha256:2607a1ba5b8e62d014365ec430fa7bf48dd8c83f4e4952bb42f11d5292186f1f",
+            "locator": {
+              "kind": "symbol",
+              "name": "_build_term_matcher"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "validate_explainer_docs scans strictly docs/concepts/*.md and one-level docs/stages/<stage_id>/*.md while ignoring onboarding/ and non-explainer paths.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "36f15282690697a49025d874de56de9d073e7141",
+            "content": "sha256:afa169d1777211f5d1e28079521b0aaa02b0a6ec3f87b1731b6357a386873bb1",
+            "locator": {
+              "kind": "symbol",
+              "name": "validate_explainer_docs"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

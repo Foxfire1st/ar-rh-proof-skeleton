@@ -1,0 +1,110 @@
+{
+  "path": "src/rh_pipeline/validate/concepts.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+        "content": "sha256:37d5d8e20d5ea4a8af338bdfeef20a4d5db4e5f1128b5dc0611ed759d9c9e287",
+        "locator": {
+          "kind": "symbol",
+          "name": "_validate_child_concepts"
+        }
+      },
+      "id": "RLZ-ECKZ92",
+      "invariant": "INV-ZN8F2W",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §3",
+        "leaf": "04"
+      },
+      "rationale": "Rejects self-cycles and dangling child_concepts slugs while permitting mutual cycles between distinct concepts.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+        "content": "sha256:38795fe067a2e2e2001808cf4dffcd39d18448682d740d770f57718229ab8930",
+        "locator": {
+          "kind": "symbol",
+          "name": "_AnchorResolver"
+        }
+      },
+      "id": "RLZ-J1YFQ7",
+      "invariant": "INV-ZN8F2W",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §3",
+        "leaf": "04"
+      },
+      "rationale": "Enforces containment under skeleton_root and caches rh_pipeline.lean.parser.extract_declarations results per relative skeleton file.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+        "content": "sha256:87d002c92ade84e74c4712dad5fb0f279a0671c4ece65a3be0b769ba711be5be",
+        "locator": {
+          "kind": "symbol",
+          "name": "validate_concept_corpus"
+        }
+      },
+      "id": "RLZ-SK19GS",
+      "invariant": "INV-ZN8F2W",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §3",
+        "leaf": "04"
+      },
+      "rationale": "Loads the Concept Card corpus from <docs_root>/concepts/*.md and coordinates sourcing, child-graph, Lean-anchor, and visual_ref checks.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "validate_concept_corpus loads docs/concepts/*.md and enforces sourcing, child-concept resolution, Lean skeleton anchor checks and optional visual_ref containment.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+            "content": "sha256:87d002c92ade84e74c4712dad5fb0f279a0671c4ece65a3be0b769ba711be5be",
+            "locator": {
+              "kind": "symbol",
+              "name": "validate_concept_corpus"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "_AnchorResolver enforces resolved skeleton_root containment and caches extract_declarations results per relative skeleton path.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+            "content": "sha256:38795fe067a2e2e2001808cf4dffcd39d18448682d740d770f57718229ab8930",
+            "locator": {
+              "kind": "symbol",
+              "name": "_AnchorResolver"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "_validate_child_concepts rejects self-cycles and missing child slugs while permitting mutual cycles between distinct concepts.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+            "content": "sha256:37d5d8e20d5ea4a8af338bdfeef20a4d5db4e5f1128b5dc0611ed759d9c9e287",
+            "locator": {
+              "kind": "symbol",
+              "name": "_validate_child_concepts"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

@@ -1,0 +1,45 @@
+{
+  "admission": {
+    "criteria": [
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Guarded by schema unit tests; prevents stale or mismatched upstream_commit snapshots, unknown keys, bool-as-int coercions and structural stage-map drift from entering downstream explainer builds undetected."
+  },
+  "applicability": "Validation of audit/provenance.json, audit/verification-status.json, dag/stage-map.json and dag/dag.json by src/rh_pipeline/validate/schemas.py::validate_repo_artifacts.",
+  "conditions": [
+    "All four JSON artifacts are deserialized through Phase 0 and Phase 1 strict models enforcing exact keys, bool-rejected integers, pinned AUDIT_SCHEMA_VERSION, and load_stage_map structural invariants.",
+    "Cross-file upstream_commit consistency checks verification-status against provenance and dag against verification-status, falling back to provenance when verification-status is unavailable."
+  ],
+  "exclusions": [
+    "Per-file deserialization stops at the first ValueError raised by a model parser; external memory repository docs/ artifacts are validated separately."
+  ],
+  "id": "INV-EWYG1N",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        ".venv/bin/pytest tests/unit/test_validate_schemas.py -> 31 passed; see 04-worker-f4b2c819-3e7a-4d05-8c61-9a2e5f7b4d30.evidence-a1.md"
+      ],
+      "path": "rh-r04-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R04@v1 §2",
+    "leaf": "04",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "validate_repo_artifacts strictly validates audit/provenance.json, audit/verification-status.json, dag/stage-map.json, and dag/dag.json against Phase 0 and Phase 1 models, rejecting missing files, malformed JSON, unknown keys, bool-as-int values, invalid stage-map structure, and upstream_commit mismatches across audit and DAG artifacts.",
+  "supersedes": [],
+  "title": "Strict audit and DAG artifact schema and commit-consistency gate",
+  "writer": {
+    "at": "2026-11-25T20:26:44+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "04",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+    "task": "261123-RH"
+  }
+}

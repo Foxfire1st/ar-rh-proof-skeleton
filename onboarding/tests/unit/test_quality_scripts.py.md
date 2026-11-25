@@ -10,7 +10,7 @@ Verifies the worktree scripts in isolated fixtures with local package and execut
 
 ## Code Commentary
 
-The cases cover invalid invocations, foreign and non-editable package installs, installation failures, command order, Radon output, and replacement through aliased launchers. The ordered-run case traces the tool calls, and the Radon output case delegates to real Radon.
+The cases cover invalid invocations, foreign and non-editable package installs, installation failures, command order, `RH_MEMORY_ROOT` forwarding to `rh-validate`, Radon output, and replacement through aliased launchers. The ordered-run case traces all seven tool calls (including `rh-validate --repo .`), a companion case checks `--memory "$RH_MEMORY_ROOT"` forwarding, and the Radon output case delegates to real Radon.
 
 ## Relationships
 
@@ -18,5 +18,5 @@ The [bootstrap](../../scripts/bootstrap-venv.sh.md) and [runner](../../scripts/c
 
 ## Evidence
 
-- The ordered-run case verifies shared preflight reuse, the candidate import and all six tool calls. [1]
+- The ordered-run and memory-root cases verify shared preflight reuse, candidate import, all seven tool calls in CI order and RH_MEMORY_ROOT forwarding to rh-validate. [1]
 - The Radon and replacement cases check report location and selection through a launcher or checkout alias. [2]

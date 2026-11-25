@@ -1,0 +1,46 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Realized across cli/validate.py, pyproject.toml and scripts/check-quality.sh and proved by CLI and quality-script tests; prevents local and CI gate drift, missing PyYAML dependencies, and silent skips on nonexistent --memory paths."
+  },
+  "applicability": "Registration of PyYAML>=6.0, types-PyYAML>=6.0 and rh-validate in pyproject.toml, CLI execution in src/rh_pipeline/cli/validate.py, and local/CI gate invocation in scripts/check-quality.sh.",
+  "conditions": [
+    "rh-validate --repo <path> [--memory <path>] runs schema checks unconditionally, prints explicit INFO skip notes when --memory is omitted or docs/concepts has no regular *.md cards, fails with exit 1 on missing --repo or --memory or any finding, and prints canonically sorted rule:path:line:message diagnostics.",
+    "scripts/check-quality.sh verifies rh-validate in the worktree venv preflight and runs rh-validate --repo . (plus --memory \"$RH_MEMORY_ROOT\" when set) before pytest so local runs and GitHub Actions stay in parity."
+  ],
+  "exclusions": [
+    "Argparse usage errors follow standard exit code 2 behavior; if docs/concepts exists as a non-directory regular file, CLI has_cards treats it as unpopulated rather than invoking validate_concept_corpus's concept-dir finding."
+  ],
+  "id": "INV-H9CTX9",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        ".venv/bin/pytest tests/unit/test_validate_cli.py tests/unit/test_quality_scripts.py -> 27 passed; see 04-worker-f4b2c819-3e7a-4d05-8c61-9a2e5f7b4d30.evidence-a1.md"
+      ],
+      "path": "rh-r04-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R04@v1 §5",
+    "leaf": "04",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "The rh-validate CLI entry point is registered in pyproject.toml with PyYAML and types-PyYAML dependencies, wired into scripts/check-quality.sh (with optional RH_MEMORY_ROOT parity for CI), prints explicit INFO notes when --memory is omitted or docs/concepts is unpopulated, and fails with exit code 1 and sorted canonical diagnostics when --memory is missing or any gate fails.",
+  "supersedes": [],
+  "title": "Deterministic rh-validate CLI, packaging and check-quality.sh gate parity",
+  "writer": {
+    "at": "2026-11-25T20:26:44+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "04",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+    "task": "261123-RH"
+  }
+}

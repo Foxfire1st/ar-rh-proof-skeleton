@@ -1,0 +1,45 @@
+{
+  "admission": {
+    "criteria": [
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Guarded by concept corpus unit tests; prevents unsourced mathematical claims, broken or symlink-escaping visual references, dangling or self-cyclic concept links, and non-existent Lean declaration citations."
+  },
+  "applicability": "Corpus validation of <memory>/docs/concepts/*.md against repository skeleton/ files by src/rh_pipeline/validate/concepts.py::validate_concept_corpus.",
+  "conditions": [
+    "Every valid Concept Card must declare at least one entry in sources or lean_anchors, resolve every child_concepts slug without direct self-cycles while allowing mutual cycles between distinct cards, and resolve any set visual_ref to an existing file contained inside docs_root.",
+    "Every lean_anchors entry must match <skeleton_rel_path>#<DeclarationName> without a skeleton/ prefix or traversal, stay contained inside skeleton_root against symlink escapes, and match a declaration parsed via cached rh_pipeline.lean.parser.extract_declarations."
+  ],
+  "exclusions": [
+    "Missing docs/concepts/ (when not a symlink) returns an empty registry with zero findings; inline directives and Level-1 jargon order are validated by src/rh_pipeline/validate/jargon.py."
+  ],
+  "id": "INV-ZN8F2W",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        ".venv/bin/pytest tests/unit/test_validate_concepts.py -> 15 passed; see 04-worker-f4b2c819-3e7a-4d05-8c61-9a2e5f7b4d30.evidence-a1.md"
+      ],
+      "path": "rh-r04-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R04@v1 §3",
+    "leaf": "04",
+    "task": "261123-RH"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "validate_concept_corpus loads <memory>/docs/concepts/*.md and enforces sourcing via sources or lean_anchors, child_concepts resolution rejecting self-cycles while allowing distinct mutual cycles, cached Lean skeleton anchor resolution via rh_pipeline.lean.parser, and optional visual_ref file existence under docs/.",
+  "supersedes": [],
+  "title": "Concept Card corpus sourcing, child-graph, Lean-anchor and visual_ref gate",
+  "writer": {
+    "at": "2026-11-25T20:26:44+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "04",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
+    "task": "261123-RH"
+  }
+}

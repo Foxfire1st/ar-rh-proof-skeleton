@@ -19,9 +19,11 @@ ruff format --check .
 pyright
 radon cc src -s -a -n B --output-file=
 python -m rh_pipeline.validate.file_size
+rh-validate --repo .
 pytest
 ```
 
+- Run `rh-validate --repo . --memory <memory-root>` (or set `RH_MEMORY_ROOT=<memory-root>` when calling `scripts/check-quality.sh`) to also run Concept Card, Lean-anchor, directive, and Level-1 jargon-order checks under `<memory>/docs/{concepts,stages}/`.
 - Run focused checks during implementation and report exact commands, scope, and any checks not run.
 - Preview autofixes with `ruff check --fix --diff .` / `ruff format --diff .` before applying.
 - Treat Radon complexity findings as risk maps: simplify or split by responsibility rather than fragmenting into trivial helpers.

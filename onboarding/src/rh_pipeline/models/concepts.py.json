@@ -1,0 +1,76 @@
+{
+  "path": "src/rh_pipeline/models/concepts.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "2ededcdc5f2dd1fb793b5a7eb29e9182c1b2125d",
+        "content": "sha256:780b49e111c132ba54b462cb134455d8c82a725199678bb1cfd5f9e3de01855a",
+        "locator": {
+          "kind": "symbol",
+          "name": "ConceptCard"
+        }
+      },
+      "id": "RLZ-EX8W0V",
+      "invariant": "INV-D1FB14",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §1",
+        "leaf": "04"
+      },
+      "rationale": "Defines the immutable ConceptCard domain contract with slug, required text fields, and safe docs-relative visual_ref invariants.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "2ededcdc5f2dd1fb793b5a7eb29e9182c1b2125d",
+        "content": "sha256:45f8305f5dfc4fd7c1258ea8fd7be3409590a6cf08dbcc40fd9c44a1e0edbd29",
+        "locator": {
+          "kind": "symbol",
+          "name": "parse_concept_card"
+        }
+      },
+      "id": "RLZ-YM72KP",
+      "invariant": "INV-D1FB14",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §1",
+        "leaf": "04"
+      },
+      "rationale": "Parses Concept Card YAML frontmatter purely from text with zero filesystem I/O, rejecting unknown keys and YAML body_markdown while returning exact body_line_offset.",
+      "role": "enforcement"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "ConceptSource and ConceptCard enforce closed source kinds, strict slug regex, non-empty required text and safe docs-relative visual_ref invariants without filesystem I/O.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "2ededcdc5f2dd1fb793b5a7eb29e9182c1b2125d",
+            "content": "sha256:780b49e111c132ba54b462cb134455d8c82a725199678bb1cfd5f9e3de01855a",
+            "locator": {
+              "kind": "symbol",
+              "name": "ConceptCard"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "parse_concept_card parses YAML frontmatter purely from text with exact required/optional keys, rejects YAML body_markdown and unknown keys, and returns exact body_line_offset.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "2ededcdc5f2dd1fb793b5a7eb29e9182c1b2125d",
+            "content": "sha256:45f8305f5dfc4fd7c1258ea8fd7be3409590a6cf08dbcc40fd9c44a1e0edbd29",
+            "locator": {
+              "kind": "symbol",
+              "name": "parse_concept_card"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

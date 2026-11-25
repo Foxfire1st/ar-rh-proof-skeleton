@@ -1,0 +1,176 @@
+{
+  "path": "tests/unit/test_validate_jargon.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+        "content": "sha256:295de1319c70374682663353ec3de410e89a2fa734ed469091da326a43dbbc7e",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_concept_directive_math_pipe_latex_braces_and_inline_code"
+        }
+      },
+      "facet": "Demonstrates first-pipe concept directive parsing handles $|z| < 1$, LaTeX braces, display math and inline code without mis-splitting.",
+      "id": "PRF-0HCYGW",
+      "invariant": "INV-9NDAGK",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §4",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+        "content": "sha256:ed509b424fd1151ff18b6cd816789ff171c06fdaf321abca0e7f636a4adf866a",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_concept_card_own_slug_level_slicing_and_line_offset"
+        }
+      },
+      "facet": "Demonstrates own_slug exemption, Concept Card Level-1 section slicing and frontmatter line_offset accuracy.",
+      "id": "PRF-1V88J4",
+      "invariant": "INV-9NDAGK",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §4",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+        "content": "sha256:d7efceca743a5ea108ee64cd7579356d4f2468d22df36b91dce044f038fe6df5",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_validate_explainer_docs_scans_strictly_concepts_and_stages"
+        }
+      },
+      "facet": "Demonstrates validate_explainer_docs scans strictly docs/concepts/*.md and docs/stages/<stage_id>/*.md while ignoring onboarding/ and non-explainer paths.",
+      "id": "PRF-BB65AQ",
+      "invariant": "INV-9NDAGK",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §4",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+        "content": "sha256:38039784d09e416dfe084c1169ae7e5170a4ab46d392ceb1d26552dde18c1fa2",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_unknown_concept_and_invalid_directive_in_all_levels"
+        }
+      },
+      "facet": "Demonstrates invalid-directive and unknown-concept findings are enforced across Level 1, Level 2 and Level 3.",
+      "id": "PRF-BFHRG4",
+      "invariant": "INV-9NDAGK",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §4",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+        "content": "sha256:1a619d38afe81c0c18bb7ddfafb3921d336b0c19d7cb08d98f351ea17038f996",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_exemptions_word_boundaries_math_code_links_and_sections"
+        }
+      },
+      "facet": "Demonstrates fences, inline code, math, link URLs, hyphenated compounds such as non-analytic and Level-2/3 sections are exempt from jargon-before-reveal.",
+      "id": "PRF-H0WGN9",
+      "invariant": "INV-9NDAGK",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §4",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+        "content": "sha256:28cb20ded287f0ab91a841f2d69d7c7b1f88fb1c1f162eb7394d0b3af24060e7",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_conforming_level1_prose_passes"
+        }
+      },
+      "facet": "Demonstrates Level-1 prose using {{concept:slug|...}} before {{term:...}}, raw terms, plurals and aliases passes with zero findings.",
+      "id": "PRF-PD86YG",
+      "invariant": "INV-9NDAGK",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §4",
+        "leaf": "04"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+        "content": "sha256:418e3535c02f6f6b18eb7aae2c84f643b725c7fbd6dd0ca5156ae993941c4f5a",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_raw_term_alias_plurals_and_premature_term_directive_emit_exact_lines"
+        }
+      },
+      "facet": "Demonstrates unrevealed raw terms, aliases, -s/-es plurals and premature {{term:...}} directives in Level-1 prose emit jargon-before-reveal on exact line numbers.",
+      "id": "PRF-Y0AHP8",
+      "invariant": "INV-9NDAGK",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §4",
+        "leaf": "04"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Premature raw terms, aliases, simple plurals and term directives in Level-1 prose emit exact-line jargon-before-reveal findings.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+            "content": "sha256:418e3535c02f6f6b18eb7aae2c84f643b725c7fbd6dd0ca5156ae993941c4f5a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_raw_term_alias_plurals_and_premature_term_directive_emit_exact_lines"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Fenced/inline code, math, link URLs, hyphenated compounds and Level-2/3 sections are exempt from jargon-before-reveal while directives still resolve everywhere.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+            "content": "sha256:1a619d38afe81c0c18bb7ddfafb3921d336b0c19d7cb08d98f351ea17038f996",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_exemptions_word_boundaries_math_code_links_and_sections"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "validate_explainer_docs scans strictly docs/concepts/*.md and docs/stages/<stage_id>/*.md and never scans onboarding/.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+            "content": "sha256:d7efceca743a5ea108ee64cd7579356d4f2468d22df36b91dce044f038fe6df5",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_explainer_docs_scans_strictly_concepts_and_stages"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

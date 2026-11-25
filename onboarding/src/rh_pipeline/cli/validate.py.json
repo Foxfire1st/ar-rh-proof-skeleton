@@ -1,0 +1,58 @@
+{
+  "path": "src/rh_pipeline/cli/validate.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "690b1c9d3b7be0d72011aa90645d879d6fc0023d",
+        "content": "sha256:f9b5409424744947d9726e22944421c34d64403b8a1e350f42d72003d29ce75c",
+        "locator": {
+          "kind": "symbol",
+          "name": "main"
+        }
+      },
+      "id": "RLZ-64VH6V",
+      "invariant": "INV-H9CTX9",
+      "origin": {
+        "handoffEntry": "RH-R04@v1 §5",
+        "leaf": "04"
+      },
+      "rationale": "Provides thin CLI wiring for rh-validate --repo <path> [--memory <path>], emitting sorted canonical findings and exit code 0 or 1.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "main parses --repo and optional --memory, runs schema and memory gates, prints canonically sorted rule:path:line:message findings and returns exit code 0 or 1.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "690b1c9d3b7be0d72011aa90645d879d6fc0023d",
+            "content": "sha256:f9b5409424744947d9726e22944421c34d64403b8a1e350f42d72003d29ce75c",
+            "locator": {
+              "kind": "symbol",
+              "name": "main"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "_run_memory_checks handles omitted, missing, unpopulated and populated memory roots with explicit INFO notes and strict docs/ scoping.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "690b1c9d3b7be0d72011aa90645d879d6fc0023d",
+            "content": "sha256:8cbdbf2b30d4664424f04c9df30455d759ce46e8780ad543dd4bcc37dcc64473",
+            "locator": {
+              "kind": "symbol",
+              "name": "_run_memory_checks"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}
