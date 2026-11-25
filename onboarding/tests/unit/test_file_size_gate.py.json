@@ -1,0 +1,94 @@
+{
+  "path": "tests/unit/test_file_size_gate.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "a76c22a518fbb9a1a5cdcbbdbac0c407909c2b47",
+        "content": "sha256:1f27976574e4cae73f9591acd3a7cc2c14898a8ae3fc98221781f5a17338490c",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_classify_line_count_bands"
+        }
+      },
+      "facet": "The classifier returns the expected band for each inclusive endpoint and the following line.",
+      "id": "PRF-23B2CA",
+      "invariant": "INV-SVRW7Z",
+      "origin": {
+        "handoffEntry": "RH-R01@v1 §4",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "a76c22a518fbb9a1a5cdcbbdbac0c407909c2b47",
+        "content": "sha256:848644ccf39eeca7dab3f734f634990f8aeef5f928dd53b19e08cbbcbc795481",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_measure_tree_detects_hard_limit_violation"
+        }
+      },
+      "facet": "A 1201-line file is measured as a hard failure and the CLI returns one.",
+      "id": "PRF-98F6VP",
+      "invariant": "INV-SVRW7Z",
+      "origin": {
+        "handoffEntry": "RH-R01@v1 §4",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "a76c22a518fbb9a1a5cdcbbdbac0c407909c2b47",
+        "content": "sha256:1ef0cf7f37914a29289e0a1b3ea21a0d4c663cc453ee1510e1f4815a36fd71c0",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_reports_watchful_file_without_failing"
+        }
+      },
+      "facet": "The CLI prints watchful for a 450-line file and returns zero.",
+      "id": "PRF-EDM85C",
+      "invariant": "INV-SVRW7Z",
+      "origin": {
+        "handoffEntry": "RH-R01@v1 §4",
+        "leaf": "01"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Boundary cases exercise all five classification bands.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "a76c22a518fbb9a1a5cdcbbdbac0c407909c2b47",
+            "content": "sha256:1f27976574e4cae73f9591acd3a7cc2c14898a8ae3fc98221781f5a17338490c",
+            "locator": {
+              "end": 21,
+              "kind": "line_range",
+              "start": 12
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "CLI cases verify failure at 1201 lines and a successful watchful report at 450 lines.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "a76c22a518fbb9a1a5cdcbbdbac0c407909c2b47",
+            "content": "sha256:3a2280d2320f1009f698388bc58256e3a95f1a866bb679c5d552e6a49f6fda4c",
+            "locator": {
+              "end": 43,
+              "kind": "line_range",
+              "start": 24
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

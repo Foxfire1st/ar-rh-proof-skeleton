@@ -1,0 +1,41 @@
+{
+  "path": "scripts/check-quality.sh",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Isolated preflight verifies the local prefix and editable package before validating the tool executables.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "16018f302075861204d417d21cf4cd8416d467de",
+            "content": "sha256:faf267decaf9a213ec602afba730dd5704fc05e6293e31cc77f3eddbb30b5812",
+            "locator": {
+              "end": 50,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "The runner emits Radon output and stops on tool failure or a syntax diagnostic before continuing to file size and tests.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "16018f302075861204d417d21cf4cd8416d467de",
+            "content": "sha256:0272a54c8b426157b6f78dcf6bd70dff3ae1116b66de4920421e9f31bcc15722",
+            "locator": {
+              "end": 77,
+              "kind": "line_range",
+              "start": 52
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

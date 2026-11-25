@@ -1,14 +1,23 @@
 # Coding Tools & Verification Commands
 
-Run all commands from the `rh-proof-skeleton` repository root (inside the task's own code worktree and virtual environment).
+Run the Python checks from the root of the task's own code worktree.
 
 ## Python Quality Gates
+
+```sh
+scripts/bootstrap-venv.sh
+scripts/check-quality.sh
+```
+
+Bootstrap creates or verifies the worktree's editable `.venv`. It prefers Python 3.12 and accepts a Python 3.12 or newer override through `PYTHON_BIN`. Run `scripts/bootstrap-venv.sh --replace` to rebuild the environment.
+
+The runner verifies the isolated import and uses the worktree's executables. GitHub Actions runs the same two scripts. For focused verification, invoke the corresponding tool from `.venv/bin/`.
 
 ```text
 ruff check .
 ruff format --check .
 pyright
-radon cc src -s -a -n B
+radon cc src -s -a -n B --output-file=
 python -m rh_pipeline.validate.file_size
 pytest
 ```

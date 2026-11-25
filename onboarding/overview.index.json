@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "kind": "agents-remember-route-index",
+  "repository": "rh-proof-skeleton",
+  "route": "",
+  "overview": "overview.md",
+  "index": "overview.index.json",
+  "sourceScope": [
+    "**"
+  ],
+  "childRoutes": [],
+  "coveredFiles": [
+    ".github/workflows/quality.yml",
+    "README.md",
+    "scripts/bootstrap-venv.sh",
+    "scripts/check-quality.sh",
+    "src/rh_pipeline/validate/file_size.py",
+    "tests/unit/test_file_size_gate.py",
+    "tests/unit/test_quality_scripts.py"
+  ],
+  "coverageCounts": {
+    "sourceFilesInScope": 20,
+    "fileSidecars": 7,
+    "childRoutes": 0
+  },
+  "routingTerms": [
+    "bootstrap",
+    "check",
+    "file",
+    "file_size",
+    "gate",
+    "github",
+    "pipeline",
+    "quality",
+    "readme",
+    "rh_pipeline",
+    "scripts",
+    "size",
+    "src",
+    "test",
+    "test_file_size_gate",
+    "test_quality_scripts",
+    "tests",
+    "unit",
+    "validate",
+    "venv",
+    "workflows",
+    "yml"
+  ],
+  "hotPath": {
+    "summary": "",
+    "candidateHints": [
+      "github/workflows",
+      "github/workflows/quality.yml",
+      "README.md",
+      "scripts",
+      "scripts/bootstrap-venv.sh",
+      "scripts/check-quality.sh",
+      "src/rh_pipeline/validate",
+      "src/rh_pipeline/validate/file_size.py",
+      "tests/unit",
+      "tests/unit/test_file_size_gate.py",
+      "tests/unit/test_quality_scripts.py"
+    ],
+    "anchorHints": [
+      "quality.yml",
+      "quality",
+      "README.md",
+      "README",
+      "bootstrap-venv.sh",
+      "bootstrap-venv",
+      "check-quality.sh",
+      "check-quality",
+      "file_size.py",
+      "file_size",
+      "test_file_size_gate.py",
+      "test_file_size_gate",
+      "test_quality_scripts.py",
+      "test_quality_scripts",
+      "validate",
+      "cli",
+      "github/workflows/quality.yml",
+      "rh_pipeline",
+      "GitHub"
+    ]
+  },
+  "fallback": {
+    "governingOverview": "overview.md",
+    "sidecarAbsence": "inferFromCoveredFiles"
+  }
+}
