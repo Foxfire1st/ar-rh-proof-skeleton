@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/03_upper_bound/archimedean_size.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/UpperBound/Size/ArchimedeanSize.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "dd43f977d5871e1568aa2b5934a20b11fb83877a",
+            "content": "sha256:c573ba6bafcf1abcd1e6f3e598e2eef5184b4e74f987594b409e4448bd96e083",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.Data.chainSize and New.Data.sqrt_weylNormSq_jetMap_le bounding one theta kernel jet map (upstream 215-262).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "dd43f977d5871e1568aa2b5934a20b11fb83877a",
+            "content": "sha256:865a7f40f9bf19bbde1df4b94b317bd2b3c440426376f0dc3372f0ebee302804",
+            "locator": {
+              "end": 101,
+              "kind": "line_range",
+              "start": 80
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the sole theorem New.Data.weylNormSq_compositeLift_le bounding the archimedean size of the composite theta lift (upstream 430-451, body_lines=6).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "dd43f977d5871e1568aa2b5934a20b11fb83877a",
+            "content": "sha256:07fca0a76f1b0bf3966426ed7df3cb9473740e97b60103553c3a3e2c9ca5b8b0",
+            "locator": {
+              "end": 178,
+              "kind": "line_range",
+              "start": 161
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

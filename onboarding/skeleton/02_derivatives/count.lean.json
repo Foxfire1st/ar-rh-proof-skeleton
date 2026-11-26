@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/02_derivatives/count.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Derivatives/Divisibility/Count.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "86fbc9ae22e902447afc5e64dae868ce5776fa92",
+            "content": "sha256:82d0c6f2dbff1612994e44a0884357c0babde2f6fd25e1af1f1df699d829ad2a",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs the three count theorems New.Parameters.norm_jet_minorProd_le_of_isChargeExponent, norm_jet_minorProd_le_of_charges and norm_jet_minorProd_le_of_hasNormalForm with EXTRACTED_STUB markers.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "86fbc9ae22e902447afc5e64dae868ce5776fa92",
+            "content": "sha256:af9a57b3610d2c26eb2b8ea98fc0653c0e66135f92b4c005d431824e457f1554",
+            "locator": {
+              "end": 360,
+              "kind": "line_range",
+              "start": 283
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs New.exists_norm_schurJet_le_norm_jet_minorProd replacing a Schur matrix jet entry by a product of minors (upstream 790-821, body_lines=21).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "86fbc9ae22e902447afc5e64dae868ce5776fa92",
+            "content": "sha256:18c0966c727a1df287e56469f1e8c72e91aa19fc1b3ec5a81f807de221623786",
+            "locator": {
+              "end": 400,
+              "kind": "line_range",
+              "start": 388
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

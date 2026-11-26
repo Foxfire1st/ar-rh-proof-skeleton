@@ -9,7 +9,7 @@
   },
   "applicability": "Command-line invocation of rh-extract across src/rh_pipeline/cli/extract.py, src/rh_pipeline/graph/stage_map.py and pyproject.toml.",
   "conditions": [
-    "Upstream Git root verification, symlink/path-escape checks, Lean parsing, stub rendering and DAG assembly complete entirely in memory before any file is staged or replaced.",
+    "Upstream Git root verification, symlink/path-escape checks, Lean parsing, stub rendering, nearest-landmark import projection (wrapping unmapped read/decode failures in StageMapError) and DAG assembly complete entirely in memory before any file is staged or replaced.",
     "StageMapError and UnsupportedLeanFormError print ERROR: to stderr and return exit code 2 with zero output files created; staging failures unlink all temporary files before propagating."
   ],
   "exclusions": [
@@ -27,20 +27,20 @@
     "leaf": "03",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
-  "statement": "The rh-extract CLI entry point validates, parses, renders, and builds the DAG completely in memory before atomically writing skeleton files and dag/dag.json, exiting 2 with zero writes on StageMapError or UnsupportedLeanFormError and regenerating Stage 00 outputs byte-identically.",
+  "statement": "The rh-extract CLI entry point validates, parses, renders, computes nearest-landmark import projection, and builds the DAG completely in memory before atomically writing all 8-stage skeleton files and dag/dag.json, exiting 2 with zero writes on StageMapError or UnsupportedLeanFormError and regenerating outputs byte-identically.",
   "supersedes": [],
   "title": "Fail-closed atomic rh-extract CLI and deterministic outputs",
   "writer": {
-    "at": "2026-11-25T19:03:13+01:00",
+    "at": "2026-11-26T15:11:11+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "03",
+    "leaf": "02",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
-    "task": "261123-RH"
+    "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+    "task": "261126-EXP"
   }
 }

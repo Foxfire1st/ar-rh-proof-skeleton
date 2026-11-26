@@ -3,9 +3,9 @@
     "criteria": [
       "joint_guarantee"
     ],
-    "justification": "Combining immutable Lean/DAG models, closed-world parsing, provenance-preserving stub emission, stage-map validation and atomic CLI emission guarantees reproducible, zero-partial-write Stage 00 skeleton and DAG artifacts without executing Lean."
+    "justification": "Combining immutable Lean/DAG models, hardened closed-world parsing, provenance-preserving stub emission, 8-stage map validation, bounded nearest-landmark import projection and atomic CLI emission guarantees reproducible, zero-partial-write 8-stage skeleton and DAG artifacts without executing Lean."
   },
-  "guarantee": "Invoking rh-extract against read-only upstream checkouts validates the 8-stage condensed map, parses all mapped Lean 4 files under a closed-world grammar, and atomically emits byte-identical provenance-preserving skeleton files and an import-only DAG without executing Lean or leaving partial writes on error.",
+  "guarantee": "Invoking rh-extract against read-only upstream checkouts validates the 8-stage 41-landmark condensed map, parses all mapped Lean 4 files under a hardened closed-world grammar, projects nearest-landmark import dependencies strictly through unmapped src/ and root Lean headers, and atomically emits byte-identical provenance-preserving skeleton files and an acyclic proof DAG without executing Lean or leaving partial writes on error.",
   "id": "FAM-ZD4QRG",
   "members": [
     "INV-BEGWB0",
@@ -22,21 +22,21 @@
     "leaf": "03",
     "task": "261123-RH"
   },
-  "revision": 2,
+  "revision": 3,
   "routes": [
     "."
   ],
   "schema": "ar-family/v1",
-  "title": "Phase 1 deterministic Lean 4 extractor, stage map and Stage 00 skeleton pipeline",
+  "title": "Phase 1 deterministic Lean 4 extractor, 8-stage map and nearest-landmark DAG pipeline",
   "writer": {
-    "at": "2026-11-26T12:10:47+01:00",
+    "at": "2026-11-26T15:11:11+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "01",
+    "leaf": "02",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
     "task": "261126-EXP"
   }
 }

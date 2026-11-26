@@ -4,12 +4,12 @@
       "guarded_by_test",
       "prevents_costly_mistake"
     ],
-    "justification": "Unit tests verify verbatim-vs-stub routing across all ten kinds, exact line alignment and byte-identical re-rendering, preventing broken declaration links or accidentally stubbed Stage 00 formal definitions."
+    "justification": "Unit tests verify verbatim-vs-stub routing across all ten kinds, verbatim where and equation-arm | formatting without :=, exact line alignment and byte-identical re-rendering, preventing broken declaration links or malformed verbatim stubs."
   },
   "applicability": "Deterministic Lean 4 skeleton file rendering and DagDeclarationRef line-range alignment in src/rh_pipeline/lean/stub_emitter.py.",
   "conditions": [
     "Emits structure, inductive, class, opaque and axiom always verbatim, def and abbrev verbatim iff preserve_defs=True, and theorem, lemma, instance and non-preserved def/abbrev bodies as sorry EXTRACTED_STUB lines.",
-    "Returned DagDeclarationRef spans match rendered 1-based lines exactly, with end_line excluding the trailing EXTRACTED_DEF comment on verbatim blocks and including the sorry line on stub blocks."
+    "_format_verbatim_declaration omits := for where bodies and line-initial equation-compiler | arms while retaining := for norm (|x|) and ordinary bodies; returned DagDeclarationRef spans match rendered 1-based lines exactly, with end_line excluding the trailing EXTRACTED_DEF comment on verbatim blocks and including the sorry line on stub blocks."
   ],
   "exclusions": [
     "Omits module and import lines from emitted skeleton files; imports remain on ExtractedModule for DAG construction."
@@ -26,20 +26,20 @@
     "leaf": "03",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
-  "statement": "render_skeleton_file emits deterministic self-contained Lean skeleton files with provenance headers, preserving structure/inductive/class/opaque/axiom and (when preserve_defs=True) def/abbrev bodies with EXTRACTED_DEF comments while replacing theorem/lemma/instance (and non-preserved def/abbrev) bodies with EXTRACTED_STUB sorry lines and returning exact DagDeclarationRef line ranges.",
+  "statement": "render_skeleton_file emits deterministic self-contained Lean skeleton files with provenance headers, preserving structure/inductive/class/opaque/axiom and (when preserve_defs=True) def/abbrev bodies with EXTRACTED_DEF comments—omitting := for verbatim where and equation-compiler | arm bodies—while replacing theorem/lemma/instance (and non-preserved def/abbrev) bodies with EXTRACTED_STUB sorry lines and returning exact DagDeclarationRef line ranges.",
   "supersedes": [],
   "title": "Deterministic provenance-preserving Lean stub emission",
   "writer": {
-    "at": "2026-11-25T19:03:13+01:00",
+    "at": "2026-11-26T15:11:11+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "03",
+    "leaf": "02",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
-    "task": "261123-RH"
+    "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+    "task": "261126-EXP"
   }
 }

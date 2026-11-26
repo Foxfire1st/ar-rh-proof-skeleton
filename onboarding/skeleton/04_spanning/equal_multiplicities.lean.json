@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/04_spanning/equal_multiplicities.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Spanning/Multiplicities/EqualMultiplicities.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "625db0cb052335a73b6d544028b59defbba983dc",
+            "content": "sha256:12b2228fe80c1fe932e4d487b0d8d2c71c0d463fb67b0749541af25093726c2b",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs theorems New.Data.trace_heckeOnGood_eq, charpoly_heckeOnGood_eq and det_heckeOnGood_eq equating Hecke invariants across hermitian signatures (upstream 273-299).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "625db0cb052335a73b6d544028b59defbba983dc",
+            "content": "sha256:7fb2ed515f5c0f07ce973b79bdb9a70bb2449f22f39333ffc6740019f95933ab",
+            "locator": {
+              "end": 111,
+              "kind": "line_range",
+              "start": 90
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs theorems New.Data.finrank_goodForms_inf_eigenPart_eq and New.Data.targetDim_eq_finrank_goodForms_spaceW establishing equal eigenspace multiplicities and target dimension (upstream 376-415).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "625db0cb052335a73b6d544028b59defbba983dc",
+            "content": "sha256:a705f5cb7d34a6bf495cbd910a9664b862507317499a87c1b525a699734aca99",
+            "locator": {
+              "end": 179,
+              "kind": "line_range",
+              "start": 157
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

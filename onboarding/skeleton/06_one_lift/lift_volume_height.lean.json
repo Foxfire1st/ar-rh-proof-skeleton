@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/06_one_lift/lift_volume_height.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/OneLift/LiftVolumeHeight.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e27732c8aff47fb2ef5083589c8481a0b35c11e4",
+            "content": "sha256:cbe9458d366e8445433b837af65df0aef6e0554ad9f52e4db7ba5469a24d3709",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Preserves structure New.Data.IsComparisonOperator verbatim with EXTRACTED_DEF tag and stubs def New.Data.comparisonOp.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e27732c8aff47fb2ef5083589c8481a0b35c11e4",
+            "content": "sha256:0f035cc1c7ac0d27d6d485bcd76a9bc481c204b22a28cacf609bb3fdcfebf957",
+            "locator": {
+              "end": 96,
+              "kind": "line_range",
+              "start": 62
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs theorem New.Data.isComparisonOperator_comparisonOp, New.Data.IsComparisonOperator.exists_normDet_sq_mul_det_eq and the one-lift cost bound New.Data.heightLe_liftDeterminant_ratio.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e27732c8aff47fb2ef5083589c8481a0b35c11e4",
+            "content": "sha256:d693d7d88553a1462a7290b5e310f69566d555dea80e7d6bcec8344e21df8e78",
+            "locator": {
+              "end": 350,
+              "kind": "line_range",
+              "start": 245
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

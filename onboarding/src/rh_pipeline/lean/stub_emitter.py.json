@@ -3,7 +3,7 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "eccce6f15dafc301b98c8498611ceef9bbb987e8",
+        "blob": "77bcf8aaeb5d60007426e1f135533fb2014dc98b",
         "content": "sha256:9b41d37dd85606d752b3f78defc86d039028f7ab4ba4917cd22f78de55e3f46b",
         "locator": {
           "kind": "symbol",
@@ -18,6 +18,24 @@
       },
       "rationale": "Renders deterministic provenance-preserving skeleton Lean files and aligned DagDeclarationRef records honoring preserve_defs.",
       "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "77bcf8aaeb5d60007426e1f135533fb2014dc98b",
+        "content": "sha256:dc1b295f448e67eb04626da86640b5aba24c077ee7d657c94601a6ecfa2923b7",
+        "locator": {
+          "kind": "symbol",
+          "name": "_format_verbatim_declaration"
+        }
+      },
+      "id": "RLZ-JVA3QE",
+      "invariant": "INV-0SYK8A",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-0syk8a",
+        "leaf": "02"
+      },
+      "rationale": "Formats verbatim empty, where, equation-arm |, inline and indented declarations without inserting := on where or equation-compiler arm bodies while keeping := for norm |x| and ordinary bodies.",
+      "role": "enforcement"
     }
   ],
   "references": {
@@ -26,7 +44,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "eccce6f15dafc301b98c8498611ceef9bbb987e8",
+            "blob": "77bcf8aaeb5d60007426e1f135533fb2014dc98b",
             "content": "sha256:27f15963b3d6eb450a6f79792bd2848758373cc57c24ff936b11d8adb2e238b6",
             "locator": {
               "kind": "symbol",
@@ -38,11 +56,22 @@
       ]
     },
     "2": {
-      "note": "Formats verbatim declarations with trailing EXTRACTED_DEF comments outside DagDeclarationRef.end_line.",
+      "note": "Formats verbatim empty, where, equation-arm, inline and indented declarations (omitting := only for where and equation-arm bodies) with trailing EXTRACTED_DEF comments outside DagDeclarationRef.end_line.",
       "targets": [
         {
           "anchor": {
-            "blob": "eccce6f15dafc301b98c8498611ceef9bbb987e8",
+            "blob": "77bcf8aaeb5d60007426e1f135533fb2014dc98b",
+            "content": "sha256:dc1b295f448e67eb04626da86640b5aba24c077ee7d657c94601a6ecfa2923b7",
+            "locator": {
+              "kind": "symbol",
+              "name": "_format_verbatim_declaration"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "77bcf8aaeb5d60007426e1f135533fb2014dc98b",
             "content": "sha256:92be5ccc7604f1d3341d80ba30c992929cbc726c52a51344fe1c188dc4323936",
             "locator": {
               "kind": "symbol",
@@ -58,7 +87,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "eccce6f15dafc301b98c8498611ceef9bbb987e8",
+            "blob": "77bcf8aaeb5d60007426e1f135533fb2014dc98b",
             "content": "sha256:9b41d37dd85606d752b3f78defc86d039028f7ab4ba4917cd22f78de55e3f46b",
             "locator": {
               "kind": "symbol",

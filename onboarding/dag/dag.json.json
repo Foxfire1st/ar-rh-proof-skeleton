@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "97ec49000a152001d88321ccb25baf1737388130",
-        "content": "sha256:d125a8fa4e0f56431e2b33d7a0ccec5d598f06684b7146986ae275d0402a35ea",
+        "blob": "bb5544eaafbcc71e09aee7bd91270219619605e1",
+        "content": "sha256:df7e9e75b265d70e8b55c0bc80c51f7712608ea315666c14cf95bb711ca10b9f",
         "locator": {
           "kind": "file"
         }
@@ -15,20 +15,20 @@
         "handoffEntry": "RH-R03@v1 §4",
         "leaf": "03"
       },
-      "rationale": "Generated deterministic Stage 00 DAG linking skeleton declaration line ranges to exact upstream line ranges and import-only edges.",
+      "rationale": "Generated deterministic 8-stage 41-node, 101-edge, 0-isolated acyclic proof DAG linking 970 skeleton declaration line ranges to exact upstream line ranges and nearest-landmark import edges.",
       "role": "propagation-persistence"
     }
   ],
   "references": {
     "1": {
-      "note": "Records three Stage 00 DagNodes (00_statement/statements, 00_statement/challenge, 00_statement/main) carrying 14 skeleton and upstream line-anchored declaration references.",
+      "note": "Records 41 DagNodes across all 8 stages carrying 970 skeleton and upstream line-anchored declaration references (40 landmark nodes and 1 non-landmark node 00_statement/statements).",
       "targets": [
         {
           "anchor": {
-            "blob": "97ec49000a152001d88321ccb25baf1737388130",
-            "content": "sha256:4dcc11c76cb7bac7074e09b0bf49427d4ff3c8b80957e9ff52128d37b8f37e3a",
+            "blob": "bb5544eaafbcc71e09aee7bd91270219619605e1",
+            "content": "sha256:029b9ba8e321157c90e4b22fc0f4e37f72ab6703146ef01f47d665a022eeb04f",
             "locator": {
-              "end": 164,
+              "end": 9317,
               "kind": "line_range",
               "start": 2
             }
@@ -38,14 +38,14 @@
       ]
     },
     "2": {
-      "note": "Derives strictly import-only dependency edges so 00_statement/challenge depends on 00_statement/statements while 00_statement/main carries an empty depends_on array.",
+      "note": "Records nearest-landmark projected import edges (101 total, acyclic, zero isolated nodes), connecting 00_statement/challenge to 00_statement/statements and 00_statement/main through 01_reduction/new_main into Stages 01–07.",
       "targets": [
         {
           "anchor": {
-            "blob": "97ec49000a152001d88321ccb25baf1737388130",
-            "content": "sha256:ea8e36d044b2c2e7752b2f5c32fdbd89a333570a57971411afb0c29bf55a8197",
+            "blob": "bb5544eaafbcc71e09aee7bd91270219619605e1",
+            "content": "sha256:111335aa0ccc25a26f77ed105b8d682540e68eb246328fa5ca70c41ee205c68e",
             "locator": {
-              "end": 163,
+              "end": 293,
               "kind": "line_range",
               "start": 98
             }
@@ -55,16 +55,16 @@
       ]
     },
     "3": {
-      "note": "Pins schema_version rh-dag/v1, embeds all 8 condensed stage definitions and matches upstream_commit 41c2716658c42ba08eb0648994a2efe83082a95c.",
+      "note": "Pins schema_version rh-dag/v1, embeds all 8 populated condensed stage definitions (41 mapped files), and matches upstream_commit 41c2716658c42ba08eb0648994a2efe83082a95c.",
       "targets": [
         {
           "anchor": {
-            "blob": "97ec49000a152001d88321ccb25baf1737388130",
-            "content": "sha256:793d806338153ac47b85ad098423b64d85fbd291ce363979ad3e0f9502ac0351",
+            "blob": "bb5544eaafbcc71e09aee7bd91270219619605e1",
+            "content": "sha256:1f97a055e006824a2b75dfe33a341b0fb353c7356771f376e1e8230be2668947",
             "locator": {
-              "end": 240,
+              "end": 9591,
               "kind": "line_range",
-              "start": 165
+              "start": 9318
             }
           },
           "kind": "code"

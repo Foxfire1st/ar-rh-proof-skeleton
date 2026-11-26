@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
-        "content": "sha256:2010a8bd09dd45d27dadb06a2ad70b9a519d2fc6b51eae376dfbc6a0dbb79e01",
+        "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
+        "content": "sha256:8aff96252cef093935079d800fce7197759e297edf162e878f837a1b418b5a3e",
         "locator": {
           "kind": "symbol",
           "name": "build_dag"
@@ -16,12 +16,12 @@
         "handoffEntry": "RH-R03@v1 §4",
         "leaf": "03"
       },
-      "rationale": "Builds DagGraph with import-only depends_on edges and rejects missing modules or duplicate declarations per skeleton file.",
+      "rationale": "Builds DagGraph with strict direct mapped Lean imports by default or validated, deduplicated, self-edge-stripped projected_depends_on overrides.",
       "role": "primary-authority"
     },
     {
       "anchor": {
-        "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+        "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
         "content": "sha256:f1e90d2d9d181a30ce22c49093ba2c07eedd9a126329a2a07d0e9f938cb7ca9a",
         "locator": {
           "kind": "symbol",
@@ -39,8 +39,8 @@
     },
     {
       "anchor": {
-        "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
-        "content": "sha256:382136f2ca10a4ae33e455b17bd37e7e5572cdf07eca923ecc664a7e4a3dd3bc",
+        "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
+        "content": "sha256:b6a011244fbd4160f9a1415e1016ac3b1a46aec8dcbde3f9bccba10aea4886ac",
         "locator": {
           "kind": "symbol",
           "name": "extract_and_write"
@@ -52,7 +52,7 @@
         "handoffEntry": "RH-R03@v1 §5",
         "leaf": "03"
       },
-      "rationale": "Performs full in-memory read, parse, render, and DAG validation before atomic temp-file fsync+replace output emission.",
+      "rationale": "Performs full in-memory read, parse, render, nearest-landmark import projection and DAG validation before atomic temp-file fsync+replace output emission.",
       "role": "enforcement"
     }
   ],
@@ -62,7 +62,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
             "content": "sha256:9e203f1e5bef0e8bf37e36d620987fde33d53f15ca44010ffe2c4573f4b5ec88",
             "locator": {
               "kind": "symbol",
@@ -73,7 +73,7 @@
         },
         {
           "anchor": {
-            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
             "content": "sha256:f1e90d2d9d181a30ce22c49093ba2c07eedd9a126329a2a07d0e9f938cb7ca9a",
             "locator": {
               "kind": "symbol",
@@ -85,12 +85,12 @@
       ]
     },
     "2": {
-      "note": "Builds DagNodes with strictly import-derived depends_on edges, unique per-file declaration names and theorem/lemma landmark classification.",
+      "note": "Builds DagNodes with direct mapped Lean import edges by default or validated, deduplicated, self-edge-stripped projected_depends_on overrides, enforcing unique per-file declaration names and theorem/lemma landmark classification.",
       "targets": [
         {
           "anchor": {
-            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
-            "content": "sha256:2010a8bd09dd45d27dadb06a2ad70b9a519d2fc6b51eae376dfbc6a0dbb79e01",
+            "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
+            "content": "sha256:8aff96252cef093935079d800fce7197759e297edf162e878f837a1b418b5a3e",
             "locator": {
               "kind": "symbol",
               "name": "build_dag"
@@ -105,7 +105,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
             "content": "sha256:4ab376d424ecbe3cf2fec4611da1dafe0eafe09ae55c1a2eb04185e324561ab1",
             "locator": {
               "kind": "symbol",
@@ -116,7 +116,7 @@
         },
         {
           "anchor": {
-            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
             "content": "sha256:85ecd81a95e613167175ba90525a9a5ceeafb3b96fbbb4e3713c332a3c515649",
             "locator": {
               "kind": "symbol",
@@ -128,12 +128,12 @@
       ]
     },
     "4": {
-      "note": "Completes all parsing, stub rendering and DAG construction in memory before staging fsynced temporary files and atomically replacing outputs with cleanup on error.",
+      "note": "Completes all parsing, stub rendering, nearest-landmark import projection (wrapping unmapped read/decode failures in StageMapError), and DAG construction in memory before staging fsynced temporary files and atomically replacing outputs with cleanup on error.",
       "targets": [
         {
           "anchor": {
-            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
-            "content": "sha256:382136f2ca10a4ae33e455b17bd37e7e5572cdf07eca923ecc664a7e4a3dd3bc",
+            "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
+            "content": "sha256:b6a011244fbd4160f9a1415e1016ac3b1a46aec8dcbde3f9bccba10aea4886ac",
             "locator": {
               "kind": "symbol",
               "name": "extract_and_write"

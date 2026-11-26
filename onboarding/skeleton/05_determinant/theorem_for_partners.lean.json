@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/05_determinant/theorem_for_partners.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Determinant/Exchange/TheoremForPartners.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5060351582bf1313ef5ab8c3f8e12253be1a5723",
+            "content": "sha256:b4ab3e11003fe5df463c59cfb73a8eb87a6e39805599bb78ef5a87b9cd0f6873",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs partner-matching and equal-rank theta-ratio lemmas from New.Exchange.exchange_of_matches through New.Exchange.exists_equalRankThetaRatio_eq_const.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5060351582bf1313ef5ab8c3f8e12253be1a5723",
+            "content": "sha256:d80489e699075ab2288cbadea608553d6bb7538d3796a8a37550c24b02136c9a",
+            "locator": {
+              "end": 325,
+              "kind": "line_range",
+              "start": 126
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs New.Exchange.exists_areMatched_modDatum_eq, New.Exchange.exchange_theorem and the capstone theorem New.Exchange.exchange_identity.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5060351582bf1313ef5ab8c3f8e12253be1a5723",
+            "content": "sha256:7d7821a751aaf07763c9f3e50b5855424fad197d13d169b5caf9fe38e4115436",
+            "locator": {
+              "end": 408,
+              "kind": "line_range",
+              "start": 336
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

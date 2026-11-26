@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/06_one_lift/periods_of_false_lifts.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/OneLift/FalseLifts/PeriodsOfFalseLifts.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0c5ee8c7a863bc316de11c4133bcbd194b80f6f8",
+            "content": "sha256:de5c79ebb1337ed1edf3fa0dfb866281e9dccf46ace21861d6bfe6d0840ab9a0",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs both false-lift vanishing theorems New.Rows.integral_conj_pairTheta_mul_algFormCoeff_eq_zero and New.Rows.stdClassSum_gramForm_eq_zero.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0c5ee8c7a863bc316de11c4133bcbd194b80f6f8",
+            "content": "sha256:0b60251e64ec539e76ed0658553fb9c716e5acd9a18f47bc0b37e25fa97db44a",
+            "locator": {
+              "end": 109,
+              "kind": "line_range",
+              "start": 53
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the period-vanishing and orthogonality lemmas New.Rows.stdClassSum_period_eq_zero and New.Rows.DividedSplitting.stdClassSum_inner_productForm_eq_zero.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0c5ee8c7a863bc316de11c4133bcbd194b80f6f8",
+            "content": "sha256:ad560c038a0ab9e5c6fd16a52a3aaa13cfcd27b46d830f9456677d3f9e4de4da",
+            "locator": {
+              "end": 277,
+              "kind": "line_range",
+              "start": 195
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

@@ -3,7 +3,58 @@
   "proves": [
     {
       "anchor": {
-        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+        "content": "sha256:1b18f7439cc36b7673d71cd08907c5e4aadc29922c554c94f56de1dc8dbebb64",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_root_prefix_overrides_open_namespace"
+        }
+      },
+      "facet": "Demonstrates that a _root_. declaration name prefix overrides enclosing namespaces and strips _root_. from both the qualified name and signature.",
+      "id": "PRF-1KF7CN",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-0wn2n4",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+        "content": "sha256:91dfa50fc4ff406048383bf9661149d1646e2b86c0bd6d9377b28e5dfed8a96f",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_additional_closed_world_refusals"
+        }
+      },
+      "facet": "Demonstrates default-deny UnsupportedLeanFormError across 44 inline cases covering unlisted commands, scoped and non-instance local modifiers, standalone seal/unseal, termination_by/decreasing_by, unbalanced scopes, unclosed lexical forms, orphan prefixes/docs/attributes, missing bodies and colonless anonymous instances.",
+      "id": "PRF-3KV61C",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-0wn2n4",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+        "content": "sha256:2d192926ffb00baca09cf6b491a3ae7b0ff2a6527d2eb48c2599dd27e28f91bc",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_equation_compiler_bars_vs_norm_bars_and_round_trip"
+        }
+      },
+      "facet": "Demonstrates that equation-compiler | ... => arms split declaration bodies while inline and line-initial norm bars |x| remain in signatures, and both forms round-trip through render_skeleton_file.",
+      "id": "PRF-5D5YCX",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-0wn2n4",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
         "content": "sha256:82fd4c905ade4dad7f92b3ac8159cca38cb4180b48cb36ecd9a7fc6f58509b2a",
         "locator": {
           "kind": "symbol",
@@ -20,24 +71,24 @@
     },
     {
       "anchor": {
-        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
-        "content": "sha256:91dfa50fc4ff406048383bf9661149d1646e2b86c0bd6d9377b28e5dfed8a96f",
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+        "content": "sha256:8de7150e4ad759831873398fdc410d9f28144ff123733c134a77b6e8b0963adc",
         "locator": {
           "kind": "symbol",
-          "name": "test_additional_closed_world_refusals"
+          "name": "test_admitted_commands_sections_and_local_instances"
         }
       },
-      "facet": "Demonstrates default-deny UnsupportedLeanFormError across 46 inline cases covering unlisted commands, local/scoped modifiers, termination_by/decreasing_by, unbalanced scopes, unclosed literals/delimiters and missing bodies.",
-      "id": "PRF-66ZRCM",
+      "facet": "Demonstrates admission of standalone commands, noncomputable sections, local/scoped attributes inside @[...] and local instance declarations while preserving exact signatures.",
+      "id": "PRF-8JBDK1",
       "invariant": "INV-0WN2N4",
       "origin": {
-        "handoffEntry": "RH-R03@v1 §2",
-        "leaf": "03"
+        "handoffEntry": "rh-r08-inv-0wn2n4",
+        "leaf": "02"
       }
     },
     {
       "anchor": {
-        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
         "content": "sha256:8f20c22080b6c46557bd51bda651c546e014b9715ac069903358ea0adb4f7467",
         "locator": {
           "kind": "symbol",
@@ -54,7 +105,7 @@
     },
     {
       "anchor": {
-        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
         "content": "sha256:5e8300728db8d9ba3c90bda22d2c698500bc551f7cf3092b1cfb98ee30d23213",
         "locator": {
           "kind": "symbol",
@@ -71,24 +122,7 @@
     },
     {
       "anchor": {
-        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
-        "content": "sha256:a2547902579cc45532a3ab69286851ff10bad0893514705e5d19d7854ba859e9",
-        "locator": {
-          "kind": "symbol",
-          "name": "test_refused_fixtures_raise_unsupported_error"
-        }
-      },
-      "facet": "Demonstrates all eight refusal fixtures raise UnsupportedLeanFormError with exact rel_path, line, form and formatted rel_path:line:form message.",
-      "id": "PRF-F0WBQV",
-      "invariant": "INV-0WN2N4",
-      "origin": {
-        "handoffEntry": "RH-R03@v1 §2",
-        "leaf": "03"
-      }
-    },
-    {
-      "anchor": {
-        "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
         "content": "sha256:070e78edb79721c9eb1200c7046e2360134c6fc10a017410507303e1d8eb89bc",
         "locator": {
           "kind": "symbol",
@@ -102,6 +136,57 @@
         "handoffEntry": "RH-R03@v1 §1",
         "leaf": "03"
       }
+    },
+    {
+      "anchor": {
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+        "content": "sha256:20ff947aed90431f7068be752a870a05cd14456ccc6048372aa720aed292968a",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_where_bodies_and_anonymous_instances_round_trip"
+        }
+      },
+      "facet": "Demonstrates extraction of where bodies and sequential namespace-qualified _instance_N naming for colon-typed anonymous instances and round-trip identity through render_skeleton_file.",
+      "id": "PRF-K9KA1N",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-0wn2n4",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+        "content": "sha256:b73ffc90c5d809f4dc95e13e7bac3a2119c42f996a70500f1a164dc7291e0f39",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_scoped_in_prefixes_stripped_before_and_after_docs"
+        }
+      },
+      "facet": "Demonstrates that chained scoped open/omit/seal/unseal/variable/include ... in prefixes are stripped cleanly from extracted signatures both before and after doc comments and attributes.",
+      "id": "PRF-YSRBVB",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-0wn2n4",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+        "content": "sha256:a2547902579cc45532a3ab69286851ff10bad0893514705e5d19d7854ba859e9",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_refused_fixtures_raise_unsupported_error"
+        }
+      },
+      "facet": "Demonstrates all five refusal fixtures raise UnsupportedLeanFormError with exact rel_path, line, form and formatted rel_path:line:form message.",
+      "id": "PRF-Z2F01G",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-0wn2n4",
+        "leaf": "02"
+      }
     }
   ],
   "realizes": [],
@@ -111,7 +196,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
             "content": "sha256:82fd4c905ade4dad7f92b3ac8159cca38cb4180b48cb36ecd9a7fc6f58509b2a",
             "locator": {
               "kind": "symbol",
@@ -123,11 +208,11 @@
       ]
     },
     "2": {
-      "note": "Verifies default-deny UnsupportedLeanFormError refusals across all eight refusal fixtures, 46 inline cases and column-0 where after def.",
+      "note": "Verifies default-deny UnsupportedLeanFormError refusals across all five refusal fixtures, 44 inline cases and column-0 where after def.",
       "targets": [
         {
           "anchor": {
-            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
             "content": "sha256:a2547902579cc45532a3ab69286851ff10bad0893514705e5d19d7854ba859e9",
             "locator": {
               "kind": "symbol",
@@ -138,7 +223,7 @@
         },
         {
           "anchor": {
-            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
             "content": "sha256:91dfa50fc4ff406048383bf9661149d1646e2b86c0bd6d9377b28e5dfed8a96f",
             "locator": {
               "kind": "symbol",
@@ -149,7 +234,7 @@
         },
         {
           "anchor": {
-            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
             "content": "sha256:8f20c22080b6c46557bd51bda651c546e014b9715ac069903358ea0adb4f7467",
             "locator": {
               "kind": "symbol",
@@ -165,11 +250,76 @@
       "targets": [
         {
           "anchor": {
-            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
             "content": "sha256:070e78edb79721c9eb1200c7046e2360134c6fc10a017410507303e1d8eb89bc",
             "locator": {
               "kind": "symbol",
               "name": "test_model_serialization_round_trip_and_strict_validation"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "4": {
+      "note": "Verifies admitted commands, noncomputable sections, local/scoped attributes, local instances, stripped scoped in prefixes and _root_. namespace overrides.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:8de7150e4ad759831873398fdc410d9f28144ff123733c134a77b6e8b0963adc",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_admitted_commands_sections_and_local_instances"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:b73ffc90c5d809f4dc95e13e7bac3a2119c42f996a70500f1a164dc7291e0f39",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_scoped_in_prefixes_stripped_before_and_after_docs"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:1b18f7439cc36b7673d71cd08907c5e4aadc29922c554c94f56de1dc8dbebb64",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_root_prefix_overrides_open_namespace"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "5": {
+      "note": "Verifies where bodies, sequential _instance_N anonymous instances, equation-compiler bars versus norm bars and render_skeleton_file round-trips.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:20ff947aed90431f7068be752a870a05cd14456ccc6048372aa720aed292968a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_where_bodies_and_anonymous_instances_round_trip"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:2d192926ffb00baca09cf6b491a3ae7b0ff2a6527d2eb48c2599dd27e28f91bc",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_equation_compiler_bars_vs_norm_bars_and_round_trip"
             }
           },
           "kind": "test"

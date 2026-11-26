@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/05_determinant/spanning_forms.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Determinant/AuxiliaryForms/SpanningForms.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b42daa079bc53d892603c4538e666ddf6c80fb47",
+            "content": "sha256:241a7f5d2996e2fce16c9c5e4feff80e95936f280582a49c2fec694f9542cf0a",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.Data.liftDenominator and lower-chain period and integrality lemmas culminating in New.Data.exists_integral_lowerChainUpTo_eq_lastPathPeriod.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b42daa079bc53d892603c4538e666ddf6c80fb47",
+            "content": "sha256:47fdab1e60f4d5e9316f4e5705e05ec8df6158b81b5e88778bdc84dab4c2a294",
+            "locator": {
+              "end": 152,
+              "kind": "line_range",
+              "start": 12
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the short auxiliary-form spanning lemmas New.Data.exists_lowerChain_integral_and_weylNormSq_le, New.Data.span_isShort_eq_top_gridLevelForms and New.Data.exists_span_short_lifts_eq_top.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b42daa079bc53d892603c4538e666ddf6c80fb47",
+            "content": "sha256:4cc11c202ef2a41ed0b3d0234ed5e3da2fb6ce49709bef91bb50fb4f687c9e97",
+            "locator": {
+              "end": 331,
+              "kind": "line_range",
+              "start": 281
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

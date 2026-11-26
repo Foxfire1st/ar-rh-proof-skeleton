@@ -5,15 +5,16 @@
       "guarded_by_test",
       "prevents_costly_mistake"
     ],
-    "justification": "Realized across src/rh_pipeline/graph/stage_map.py, dag/stage-map.json and dag/dag.json with unit tests proving 21-stage validation, strict import-only edges and committed Stage 00 round-trip parity, preventing false dependency edges or stage renumbering."
+    "justification": "Realized across src/rh_pipeline/graph/stage_map.py, src/rh_pipeline/graph/import_projection.py, dag/stage-map.json and dag/dag.json with unit tests proving 8-stage 41-landmark validation, direct-import preservation, nearest-landmark projection containment and committed 41-node round-trip parity, preventing false or out-of-scope dependency edges."
   },
-  "applicability": "Versioned stage-map validation and import-only proof dependency DAG construction across src/rh_pipeline/graph/stage_map.py, dag/stage-map.json and dag/dag.json.",
+  "applicability": "Versioned stage-map validation, nearest-landmark import projection and proof dependency DAG construction across src/rh_pipeline/graph/stage_map.py, src/rh_pipeline/graph/import_projection.py, dag/stage-map.json and dag/dag.json.",
   "conditions": [
     "load_stage_map enforces non-empty stages, consecutive 0..N-1 orders and global uniqueness of stage IDs, upstream paths, skeleton files and derived Lean module names, raising StageMapError on violation.",
-    "build_dag derives sorted deduplicated depends_on edges strictly from resolved Lean import statements among mapped nodes (yielding challenge -> statements and empty depends_on on statements and main at 41c2716658c4), excludes self-edges, ignores unmapped external imports and rejects duplicate declaration names within one skeleton file."
+    "build_dag derives sorted deduplicated direct mapped Lean import edges when projected_depends_on is omitted and validates, deduplicates and strips self-edges from supplied projected_depends_on overrides, rejecting unknown node or dependency IDs and duplicate per-file declaration names.",
+    "project_nearest_landmarks scans Lean header imports across unmapped upstream .lean files strictly under src/ or repository root (_CANDIDATE_PREFIXES = ('src/', ''), excluding comparator/, external packages and escaping symlinks), stops BFS at mapped landmarks, handles diamonds and cycles, and yields the 41-node, 101-edge, 0-isolated acyclic dag/dag.json at 41c2716658c4."
   ],
   "exclusions": [
-    "Duplicate declaration names across separate files never create dependency edges; Stages 01-07 remain empty files arrays until later leaves map them."
+    "Duplicate declaration names across separate files never create dependency edges; unmapped upstream files under comparator/ or external packages such as Mathlib never contribute projected edges."
   ],
   "id": "INV-Y5X0FK",
   "origin": {
@@ -27,20 +28,20 @@
     "leaf": "03",
     "task": "261123-RH"
   },
-  "revision": 2,
+  "revision": 3,
   "schema": "ar-invariant/v1",
-  "statement": "load_stage_map validates the versioned 8-stage condensed dag/stage-map.json (00_statement..07_congruences, mapping the 3 live Stage 00 files with empty Stage 01-07 lists) and build_dag constructs dag/dag.json with depends_on edges derived strictly from resolved Lean import statements among mapped nodes without cross-matching duplicate symbol names.",
+  "statement": "load_stage_map validates the versioned 8-stage condensed dag/stage-map.json (00_statement..07_congruences, 41 mapped landmarks), build_dag derives direct mapped Lean import edges by default or applies validated projected_depends_on overrides, and project_nearest_landmarks computes bounded BFS nearest-landmark edges strictly through unmapped upstream src/ and root Lean headers to emit the acyclic 41-node, 101-edge, 0-isolated dag/dag.json without cross-matching duplicate symbol names.",
   "supersedes": [],
-  "title": "Versioned 8-stage condensed map and import-only Stage 00 DAG",
+  "title": "Versioned 8-stage condensed map and nearest-landmark proof DAG",
   "writer": {
-    "at": "2026-11-26T12:10:47+01:00",
+    "at": "2026-11-26T15:11:11+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "01",
+    "leaf": "02",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
     "task": "261126-EXP"
   }
 }

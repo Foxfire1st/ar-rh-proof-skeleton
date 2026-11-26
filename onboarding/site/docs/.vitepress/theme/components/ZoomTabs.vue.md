@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Renders all three Stage 00 explanation zoom levels (`Abitur | Undergrad | Formal Lean`) stacked in static/script-off/print HTML and upgrades after hydration to keyboard-navigable tabs with shareable URL state.
+Renders all three explanation zoom levels (`Abitur | Undergrad | Formal Lean`) stacked in static/script-off/print HTML and upgrades after hydration to keyboard-navigable tabs with shareable URL state.
 
 ## Code Commentary
 

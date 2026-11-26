@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/04_spanning/remaining_terms_sum.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Spanning/RemainingTerms/Sum.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e85c4f111e3dd6c21931982f69b99b4e8138daa8",
+            "content": "sha256:fdc4f0b129ed3cabb39e3e03d41a0b2cbb7ead1d1ebe8b5118608f493193f753",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs pair-bound theorems New.Filling.sum_termSize_mul_not_inSameLinkClass_le and New.Filling.sum_termSize_mul_inSameLinkClass_le (upstream 377-491).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e85c4f111e3dd6c21931982f69b99b4e8138daa8",
+            "content": "sha256:15274533b9bad1e91005704e5dd0c41e95c227a54f1fa9a2da1ed7733402b930",
+            "locator": {
+              "end": 176,
+              "kind": "line_range",
+              "start": 147
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs theorems New.Filling.secondMoment_remainingTerms_le and New.Filling.linkSecondMoment_le_of_le_meetNorm bounding remaining terms link by link (upstream 678-837).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e85c4f111e3dd6c21931982f69b99b4e8138daa8",
+            "content": "sha256:1113c22da8b59e0707bf972ad458b914607884d0ce5ab6d47b0567e681e5ee4c",
+            "locator": {
+              "end": 325,
+              "kind": "line_range",
+              "start": 289
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

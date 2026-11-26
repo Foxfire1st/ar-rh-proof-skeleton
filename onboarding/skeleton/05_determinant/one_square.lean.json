@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/05_determinant/one_square.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Determinant/Exchange/OneSquare.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d730ef1d47507efc901fbd705dbc7ff72eb52ea9",
+            "content": "sha256:17793e8a733d51e48c98513ac6ce628639e5476e9c7afa0ce8e22ca6a3e3e54f",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Preserves structure New.Exchange.IsSquare verbatim with EXTRACTED_DEF tag and stubs theorem New.Exchange.exists_sum_pairLift_comp_pairTransposedLift_eq_smul.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d730ef1d47507efc901fbd705dbc7ff72eb52ea9",
+            "content": "sha256:5652c658fc11580226926ea7f942d142f3be76b35157959a3ee7e3d176d8e72b",
+            "locator": {
+              "end": 461,
+              "kind": "line_range",
+              "start": 387
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs theorem New.Exchange.equivariant_and_exists_sum_eq_of_areMatched and lemma New.Exchange.one_square_identity_of_isEdgeFamily for the one-square exchange identity.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d730ef1d47507efc901fbd705dbc7ff72eb52ea9",
+            "content": "sha256:08ce34edc3445b403cc6dfac449c07b850bb876df2280c575b880dbf0d2d4674",
+            "locator": {
+              "end": 564,
+              "kind": "line_range",
+              "start": 463
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

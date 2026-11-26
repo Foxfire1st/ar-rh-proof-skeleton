@@ -14,7 +14,7 @@ Auto-generated from upstream `src/Statements.lean` at commit `41c2716658c42ba08e
 
 ## Relationships
 
-Mapped in [the 8-stage map](../../dag/stage-map.json.md), rendered by [the stub emitter](../../src/rh_pipeline/lean/stub_emitter.py.md) via [the stage-map extractor](../../src/rh_pipeline/graph/stage_map.py.md) and [`rh-extract`](../../src/rh_pipeline/cli/extract.py.md), indexed as node `00_statement/statements` in [the Stage 00 DAG](../../dag/dag.json.md) (imported by [challenge.lean](challenge.lean.md)) and round-trip checked by [stage-map unit tests](../../tests/unit/test_stage_map.py.md).
+Mapped in [the 8-stage map](../../dag/stage-map.json.md), rendered by [the stub emitter](../../src/rh_pipeline/lean/stub_emitter.py.md) via [the stage-map extractor](../../src/rh_pipeline/graph/stage_map.py.md) and [`rh-extract`](../../src/rh_pipeline/cli/extract.py.md), indexed as node `00_statement/statements` in [the proof DAG](../../dag/dag.json.md) (depended on by [challenge.lean](challenge.lean.md) and [one_sided_bound.lean](../01_reduction/one_sided_bound.lean.md)) and round-trip checked by [stage-map unit tests](../../tests/unit/test_stage_map.py.md).
 
 ## Evidence
 

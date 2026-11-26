@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/01_reduction/short_and_enough.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Reduction/ShortAndEnough.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "06347fc88d9de186e2300317d30507649fb5da6e",
+            "content": "sha256:133a0ee2871f78149a99eabb5737071759e4ae71c0cdb930981e9d03a92e3c56",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs Theorem A (a) New.Data.span_short_integralRamified_eq_top through Theorem A (b) New.Data.indexLe_normalizedPoincare with EXTRACTED_STUB markers.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "06347fc88d9de186e2300317d30507649fb5da6e",
+            "content": "sha256:99c9f78fe84823fb4df37e7e5964a325784786700c52b7affafeae72cd95cc33",
+            "locator": {
+              "end": 142,
+              "kind": "line_range",
+              "start": 89
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs New.Data.exists_le_finrank_iSup_range_normalizedPoincare and Theorem B New.Data.enough_forms bounding the dimension spanned by few translates.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "06347fc88d9de186e2300317d30507649fb5da6e",
+            "content": "sha256:2a923523f1d14a4b811197dacdd5ac69d8b81947f94965a48b23303f879c3317",
+            "locator": {
+              "end": 181,
+              "kind": "line_range",
+              "start": 160
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

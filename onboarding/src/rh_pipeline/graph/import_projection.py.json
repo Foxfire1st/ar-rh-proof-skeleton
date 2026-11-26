@@ -1,0 +1,125 @@
+{
+  "path": "src/rh_pipeline/graph/import_projection.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+        "content": "sha256:08c73917247585eb83a04c9d31a02da5777b7c4489bea4e5fa98053ddbb6436d",
+        "locator": {
+          "kind": "symbol",
+          "name": "project_nearest_landmarks"
+        }
+      },
+      "id": "RLZ-5DJH72",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-y5x0fk",
+        "leaf": "02"
+      },
+      "rationale": "Computes bounded cached BFS nearest-landmark import projection strictly across unmapped upstream src/ and root Lean files, stopping at mapped landmarks and excluding self-edges and out-of-scope directories.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+        "content": "sha256:0dfa22bf54a69d576daa3d76277e081ad71e2aa3465a488b8f65f8cd0b813cd7",
+        "locator": {
+          "kind": "symbol",
+          "name": "scan_lean_header_imports"
+        }
+      },
+      "id": "RLZ-R0HBJT",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-y5x0fk",
+        "leaf": "02"
+      },
+      "rationale": "Scans comment-aware leading Lean 4 file headers for sorted unique imports and halts at the first non-header token without full closed-world body parsing.",
+      "role": "support"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Scans leading Lean 4 file headers for sorted unique imports across module/prelude and public/meta/all modifiers while skipping line and nested block comments and stopping at the first non-header token.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+            "content": "sha256:0dfa22bf54a69d576daa3d76277e081ad71e2aa3465a488b8f65f8cd0b813cd7",
+            "locator": {
+              "kind": "symbol",
+              "name": "scan_lean_header_imports"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+            "content": "sha256:d4b6d532e87e6aadafac848264449f25688fbb24248ed8561810595ee808d9f7",
+            "locator": {
+              "kind": "symbol",
+              "name": "_parse_import_target"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Resolves unmapped upstream modules strictly under src/ or repository root (omitting comparator/) while rejecting unsafe path segments and symlink escapes outside resolved_root.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+            "content": "sha256:7f537334242bb1f0c188985c01fa1da4af4bcec4c53a2c29b7dd60502eae0a54",
+            "locator": {
+              "kind": "symbol",
+              "name": "_CANDIDATE_PREFIXES"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+            "content": "sha256:704b7b2de92e3e12d83cd226fbc55ea5822989025b61312e115583da29400524",
+            "locator": {
+              "kind": "symbol",
+              "name": "_resolve_unmapped_module"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Projects each mapped node's imports via cached BFS across unmapped intermediates to nearest mapped landmarks, stopping at mapped nodes, handling diamonds and cycles, and excluding self-edges.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+            "content": "sha256:08c73917247585eb83a04c9d31a02da5777b7c4489bea4e5fa98053ddbb6436d",
+            "locator": {
+              "kind": "symbol",
+              "name": "project_nearest_landmarks"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+            "content": "sha256:fefe23de9e1d9293610af0553a4cba8ffc3623846f8df0fd246e952ee19c45e4",
+            "locator": {
+              "kind": "symbol",
+              "name": "_project_node_dependencies"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

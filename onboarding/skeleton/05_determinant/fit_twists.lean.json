@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/05_determinant/fit_twists.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Determinant/Twist/FitTwists.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "6d144268fa8f8c4dfed87ae622dca523d0ce57b1",
+            "content": "sha256:6fc54f4aa23000c2a15b931f1f649abe3340c9091e01a33cd2b39139dcfe1182",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.Data.CriticalPair.ratio, New.Data.RankOneIndex, New.Data.goodLift and New.Data.CriticalPair.IsRamified and preserves structure New.Data.CriticalPair.IsMainPair verbatim with EXTRACTED_DEF tag.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "6d144268fa8f8c4dfed87ae622dca523d0ce57b1",
+            "content": "sha256:2640713736beba1008e12559220117bbf03866121f19792eff4a094ab849ce0f",
+            "locator": {
+              "end": 72,
+              "kind": "line_range",
+              "start": 24
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Preserves denominator-bound and twist-family structures New.Data.HasDenominatorsLe, New.Data.IsDenominatorBound, New.Data.IsNegligible, New.Data.HasSmallRatios and New.Data.IsRegularFamily verbatim with EXTRACTED_DEF tags.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "6d144268fa8f8c4dfed87ae622dca523d0ce57b1",
+            "content": "sha256:4adf915cc728ef3f1ac5bf841b8b2e7e9686bb127ca6d9fe7c884e5bbd911be3",
+            "locator": {
+              "end": 163,
+              "kind": "line_range",
+              "start": 102
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/06_one_lift/twisted_value_heights.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/OneLift/HeckeValues/TwistedValueHeights.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "bba4c3ad60197015cf0180274d3d96fef60f0faa",
+            "content": "sha256:3ca1bc5e77ff51cf0f7ebf6ade74482baac07f19da19daec98cee1f813d1db3a",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.exists_norm_le_norm_twisted_classSum and the seesaw-factorisation theorem New.Data.inner_pointForm_kernelForm.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "bba4c3ad60197015cf0180274d3d96fef60f0faa",
+            "content": "sha256:f4cbaad9353bafae2c807e083ab8064eefd02a73281bb2222dcae63aabf353b1",
+            "locator": {
+              "end": 171,
+              "kind": "line_range",
+              "start": 17
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the height-bound theorems New.Data.exists_isTestForm_le_norm_inner_trivialLift, New.Data.heightLe_inv_ratio and New.Data.heightLe_inv_heckeValueProd_div.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "bba4c3ad60197015cf0180274d3d96fef60f0faa",
+            "content": "sha256:254a17a3915b21a666b1f33a61356e1a8d55b95110164ec80ad5824113b55e2c",
+            "locator": {
+              "end": 359,
+              "kind": "line_range",
+              "start": 265
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

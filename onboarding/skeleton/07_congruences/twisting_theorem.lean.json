@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/07_congruences/twisting_theorem.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Congruences/Selmer/TwistingTheorem.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "27d77e27d3329c9e5400165a720fa8ee10b0970b",
+            "content": "sha256:8856a1760f90ec4a62ca3783fa027fc0a0b24fed95485b9e066d1b6e1bb41493",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.Selmer.IsSmallTwist.isAuxTwist and New.Selmer.SelmerDatum.TwistedLengthLe.hasDivisibleSelmerLengthLe.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "27d77e27d3329c9e5400165a720fa8ee10b0970b",
+            "content": "sha256:682cf364e7e98baf307bbf91f51a0a179338d80775345158a92c2af72a9fb408",
+            "locator": {
+              "end": 91,
+              "kind": "line_range",
+              "start": 24
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs New.Selmer.exists_selmerData_isTorsionLevel and the twisting theorem New.Selmer.exists_mFoldTwist_hasDivisibleSelmerLengthLe.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "27d77e27d3329c9e5400165a720fa8ee10b0970b",
+            "content": "sha256:abac73fe3d3a3c8641ee9e0ab5c6620e6861361903c9dd56b5848971f6ba4e75",
+            "locator": {
+              "end": 178,
+              "kind": "line_range",
+              "start": 120
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}
