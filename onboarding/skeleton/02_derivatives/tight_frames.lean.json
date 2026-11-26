@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/02_derivatives/tight_frames.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Derivatives/Vacuum/TightFrames.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1908063754b0006a51604de211d6754d844c64f8",
+            "content": "sha256:e49ee25f1406d04ee21c420ecaaeb1160d4d7033ba93864e9a7812aef9153366",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Preserves structure New.Parameters.IsResolutionProduct verbatim with trailing EXTRACTED_DEF provenance marker (upstream 674-689).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1908063754b0006a51604de211d6754d844c64f8",
+            "content": "sha256:3b533fed0a8fa12bc0c8d1f223f1351af4db1621b1ff34dc6e3a15c839d9e7b9",
+            "locator": {
+              "end": 297,
+              "kind": "line_range",
+              "start": 281
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs New.Parameters.exists_isResolutionProduct_of_isTightFrame constructing a resolution product from a tight frame (upstream 828-911, body_lines=61).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1908063754b0006a51604de211d6754d844c64f8",
+            "content": "sha256:ef528bc7a7f315b9ef0fa3ec6752626483e4520259a998bced0b8d9b1d4bdcd0",
+            "locator": {
+              "end": 393,
+              "kind": "line_range",
+              "start": 369
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

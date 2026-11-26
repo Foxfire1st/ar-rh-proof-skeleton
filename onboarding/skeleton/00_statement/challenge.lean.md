@@ -14,7 +14,7 @@ Auto-generated from root upstream `Challenge.lean` at commit `41c2716658c42ba08e
 
 ## Relationships
 
-Mapped in [the 8-stage map](../../dag/stage-map.json.md), rendered by [the stub emitter](../../src/rh_pipeline/lean/stub_emitter.py.md) via [the stage-map extractor](../../src/rh_pipeline/graph/stage_map.py.md) and [`rh-extract`](../../src/rh_pipeline/cli/extract.py.md), depends on [statements.lean](statements.lean.md) as landmark node `00_statement/challenge` in [the Stage 00 DAG](../../dag/dag.json.md), and round-trip checked by [stage-map unit tests](../../tests/unit/test_stage_map.py.md).
+Mapped in [the 8-stage map](../../dag/stage-map.json.md), rendered by [the stub emitter](../../src/rh_pipeline/lean/stub_emitter.py.md) via [the stage-map extractor](../../src/rh_pipeline/graph/stage_map.py.md) and [`rh-extract`](../../src/rh_pipeline/cli/extract.py.md), depends on [statements.lean](statements.lean.md) as landmark node `00_statement/challenge` in [the proof DAG](../../dag/dag.json.md), and round-trip checked by [stage-map unit tests](../../tests/unit/test_stage_map.py.md).
 
 ## Evidence
 

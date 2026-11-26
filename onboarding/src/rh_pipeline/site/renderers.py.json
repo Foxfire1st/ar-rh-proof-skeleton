@@ -3,7 +3,25 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+        "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+        "content": "sha256:4954cff86aa2322253bf5d7b75f17c569deaec20d71e832070b4a1b66c0f0e4c",
+        "locator": {
+          "kind": "symbol",
+          "name": "render_landing_index"
+        }
+      },
+      "id": "RLZ-E0DAKQ",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-v207jn",
+        "leaf": "02"
+      },
+      "rationale": "Conditionally emits the Proof Journey intro link only when present in stage_titles, excludes featured pages from Landmark Pages and invokes _render_proof_roadmap for the DAG-backed 8-pillar roadmap.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
         "content": "sha256:9eda09b18a724c7dce755b5a099fbfc984e176af43edc1987ebb3420733857d6",
         "locator": {
           "kind": "symbol",
@@ -21,7 +39,7 @@
     },
     {
       "anchor": {
-        "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+        "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
         "content": "sha256:01a2e1885b00d7a1d7fa9669023562af89534220e432e7d004f48ccf2e2506b2",
         "locator": {
           "kind": "symbol",
@@ -39,7 +57,7 @@
     },
     {
       "anchor": {
-        "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+        "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
         "content": "sha256:61f79cfb2372902b7b84a85312abf25ea220ccc574c119e46efbb5b0315e98ea",
         "locator": {
           "kind": "symbol",
@@ -54,6 +72,24 @@
       },
       "rationale": "Renders Concept Pages with VerificationBanner, visual figure, analogy-breaks callout, verbatim Lean anchors with upstream GitHub line links, related concepts, and automatic Stage/Concept backlinks.",
       "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+        "content": "sha256:f04a0de89792cd54200694b91c33dcfaef0a375b2ea4ce1442e3a608c57ee291",
+        "locator": {
+          "kind": "symbol",
+          "name": "_render_proof_roadmap"
+        }
+      },
+      "id": "RLZ-Q2CYRE",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-v207jn",
+        "leaf": "02"
+      },
+      "rationale": "Renders the ordered 8-pillar roadmap from ctx.dag.stages and ctx.dag.nodes with extracted landmark counts, published page links or unpublished-stage status fallbacks without dead links.",
+      "role": "enforcement"
     }
   ],
   "references": {
@@ -62,7 +98,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
             "content": "sha256:9eda09b18a724c7dce755b5a099fbfc984e176af43edc1987ebb3420733857d6",
             "locator": {
               "kind": "symbol",
@@ -73,7 +109,7 @@
         },
         {
           "anchor": {
-            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
             "content": "sha256:e539dfe126f68cd4b6b31fba7dc15660bfbbdc9bd022b219babad023d2024a49",
             "locator": {
               "kind": "symbol",
@@ -89,7 +125,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
             "content": "sha256:9624da6008c03709349afcfc54a4188716127b946fbd16f52bd936a957f3c5cc",
             "locator": {
               "kind": "symbol",
@@ -105,7 +141,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
             "content": "sha256:61f79cfb2372902b7b84a85312abf25ea220ccc574c119e46efbb5b0315e98ea",
             "locator": {
               "kind": "symbol",
@@ -117,12 +153,23 @@
       ]
     },
     "4": {
-      "note": "`render_concepts_index` and `render_landing_index` emit deterministic alphabetical concept listings and the Stage 00 landing page with minimap, landmark links and pinned upstream commit.",
+      "note": "`render_concepts_index`, `_render_proof_roadmap` and `render_landing_index` emit deterministic alphabetical concept listings and the landing page with conditional `proof-journey` intro surfacing, an ordered `## 8-Pillar Proof Roadmap` with extracted landmark counts and unpublished-stage status fallbacks, deduplicated `## Landmark Pages`, the `00_statement` minimap and pinned upstream commit.",
       "targets": [
         {
           "anchor": {
-            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
-            "content": "sha256:5cc0c57d3a1b243eee32d9ecf0133aa9feba086d424c803f9fa2068b61d73f84",
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "content": "sha256:f04a0de89792cd54200694b91c33dcfaef0a375b2ea4ce1442e3a608c57ee291",
+            "locator": {
+              "kind": "symbol",
+              "name": "_render_proof_roadmap"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "content": "sha256:4954cff86aa2322253bf5d7b75f17c569deaec20d71e832070b4a1b66c0f0e4c",
             "locator": {
               "kind": "symbol",
               "name": "render_landing_index"

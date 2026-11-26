@@ -1,0 +1,2475 @@
+{
+  "attempt": 2,
+  "closed": true,
+  "leaf": "02",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-26T15:53:01+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "02",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+      "task": "261126-EXP"
+    },
+    "reviewer": {
+      "at": "2026-11-26T15:53:01+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "02",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "589c77a0-3ac6-4a75-9834-f20d14d472d3",
+      "task": "261126-EXP",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 3,
+    "tree": "89ddc029614564c1f33b766e16a45e0a318abd98",
+    "verdictRef": "notes/reports/reviewer/589c77a0-3ac6-4a75-9834-f20d14d472d3/02-memory-review-verdict.md"
+  },
+  "rows": [
+    {
+      "disposition": "updated",
+      "id": "ROW-1E0QRN",
+      "items": [
+        "sha256:b44142912bfe4479851654ad50c50d7cd9b4d4e56e03d7dceaf71f82e5380128"
+      ],
+      "reason": "Updated test_site_compiler.py card (19 cases across 11 tests), refreshed [1]-[4], and added reference [5] for overview-only and proof-journey 8-pillar roadmap landing tests.",
+      "sources": [
+        {
+          "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+          "path": "tests/unit/test_site_compiler.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_site_compiler.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-1KBF8J",
+      "items": [
+        "sha256:4a23d7a83d7289c5270bab69b083f3eecefdeff2bdb4ea1b82b5558be4571680"
+      ],
+      "reason": "Private frozenset kind/continuation tables (_BODY_KINDS, _BAR_CONTINUATION_KINDS, _ALWAYS_COL0_CONT) in parser.py consumed exclusively by _Parser under INV-0WN2N4.",
+      "subject": "hunk:sha256:4a23d7a83d7289c5270bab69b083f3eecefdeff2bdb4ea1b82b5558be4571680"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-1MYHGP",
+      "items": [
+        "sha256:d305b82f1f5e999dfba3f6c09959511bf69af4bb808e3d7a33c342b51218d495"
+      ],
+      "reason": "Internal predicates _is_where_body and _is_equation_arm_body in stub_emitter.py called solely by _format_verbatim_declaration (RLZ-1J4Q8B, INV-0SYK8A); no standalone invariant.",
+      "subject": "hunk:sha256:d305b82f1f5e999dfba3f6c09959511bf69af4bb808e3d7a33c342b51218d495"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R08",
+          "packet": "RH-R08-v1-proof-cartography-and-journey-map.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
+            "content": "sha256:b6a011244fbd4160f9a1415e1016ac3b1a46aec8dcbde3f9bccba10aea4886ac",
+            "locator": {
+              "kind": "symbol",
+              "name": "extract_and_write"
+            },
+            "path": "src/rh_pipeline/graph/stage_map.py"
+          },
+          "before": {
+            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "content": "sha256:382136f2ca10a4ae33e455b17bd37e7e5572cdf07eca923ecc664a7e4a3dd3bc",
+            "locator": {
+              "kind": "symbol",
+              "name": "extract_and_write"
+            },
+            "path": "src/rh_pipeline/graph/stage_map.py"
+          },
+          "id": "RLZ-WVRNF2"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "strengthen",
+      "id": "ROW-2K9D6M",
+      "items": [
+        "sha256:af557ee0643aa81f90eff5f6d08704f759588c6072b6ea84a8aa79801b4cf3de"
+      ],
+      "reason": "Extended INV-01DVB3 statement and scope so extract_and_write also computes nearest-landmark import projection completely in memory (wrapping unmapped read/decode failures in StageMapError) before atomic 8-stage skeleton and DAG emission, and re-anchored RLZ-WVRNF2. Evidence (rh-r08-inv-01dvb3): RH-R08@v1 Leaf 02 curation; worker report 02-worker-22fbc0ef-439c-4a3b-b96c-67ed7713e62d.md (attempt-02, code tree 85be9028b1e9a04e706618456f8baeb2b2698a9e) and Round 2 CODE PASS verdict 02-route-review-verdict.md",
+      "revision": 2,
+      "subject": "INV-01DVB3"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-38EAWP",
+      "items": [
+        "sha256:2bf1992674aab3f70b15feadf0d603000afa2052f8cdad45870838cd99a23410"
+      ],
+      "reason": "Retired refusal fixture deleted under RH-R08@v1 after standalone and scoped open commands were admitted; fixture never had an individual onboarding card and tests/unit/test_lean_parser.py.md was updated to the 5 remaining refusal fixtures.",
+      "sources": [
+        {
+          "blob": "absent",
+          "path": "tests/fixtures/lean_parser/refused_open.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_open.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3NVTMX",
+      "items": [
+        "sha256:d9276522d3cc034f3fcc22e5843baff947f6a4a30858ddcdd0201915b8367c7e"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/07_congruences/crystalline_defect.lean (upstream src/New/Congruences/LocalLoss/CrystallineDefect.lean, node 07_congruences/crystalline_defect, 18 declarations).",
+      "sources": [
+        {
+          "blob": "1ef78464e68a98594dffa45d983983edb17747bd",
+          "path": "skeleton/07_congruences/crystalline_defect.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/07_congruences/crystalline_defect.lean"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R08",
+          "packet": "RH-R08-v1-proof-cartography-and-journey-map.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "content": "sha256:54e741cc67ceb24a017e256855667f4bad3ce6e8557efe22cfeee17f61b02943",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_end_to_end_determinism_and_pruning"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:54e741cc67ceb24a017e256855667f4bad3ce6e8557efe22cfeee17f61b02943",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_end_to_end_determinism_and_pruning"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "id": "PRF-2Z57V5"
+        },
+        {
+          "after": {
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "content": "sha256:bd5c7554c857909423057a539421b7ae6001fad33e0813060011621183551477",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_verification_banner_repo_layout"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:bd5c7554c857909423057a539421b7ae6001fad33e0813060011621183551477",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_verification_banner_repo_layout"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "id": "PRF-7YMV6H"
+        },
+        {
+          "after": {
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_preserves_backticks_in_stage_titles_and_deduplicates_concept_h1"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_preserves_backticks_in_stage_titles_and_deduplicates_concept_h1"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "id": "PRF-HNTFCY"
+        },
+        {
+          "after": {
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "content": "sha256:526ac537b13604b3de8038d84f541901d7d9897306c4d90f1d13229ff79c10d9",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_landing_index_with_proof_journey"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": "absent",
+          "id": "PRF-MMCSHN"
+        },
+        {
+          "after": {
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "content": "sha256:9b726b94bbf02d58878b191de8bf3b6c9420e68de90e62d901b946a2d5e6e5e0",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_site_cli_exit_codes"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:9b726b94bbf02d58878b191de8bf3b6c9420e68de90e62d901b946a2d5e6e5e0",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_site_cli_exit_codes"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "id": "PRF-NA2VQC"
+        },
+        {
+          "after": {
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_fail_closed_zero_writes"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_fail_closed_zero_writes"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "id": "PRF-RPWW7H"
+        },
+        {
+          "after": {
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "content": "sha256:2d781b159dd6faf7e40923bacb34664ca7b5d79c718adee62902887a6cfbd327",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_landing_index_overview_only_roadmap"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": "absent",
+          "id": "PRF-W2P6FE"
+        },
+        {
+          "after": {
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "content": "sha256:4954cff86aa2322253bf5d7b75f17c569deaec20d71e832070b4a1b66c0f0e4c",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_landing_index"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "before": "absent",
+          "id": "RLZ-E0DAKQ"
+        },
+        {
+          "after": {
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "content": "sha256:9eda09b18a724c7dce755b5a099fbfc984e176af43edc1987ebb3420733857d6",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_verification_banner"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "before": {
+            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+            "content": "sha256:9eda09b18a724c7dce755b5a099fbfc984e176af43edc1987ebb3420733857d6",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_verification_banner"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "id": "RLZ-EY4F3D"
+        },
+        {
+          "after": {
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "content": "sha256:01a2e1885b00d7a1d7fa9669023562af89534220e432e7d004f48ccf2e2506b2",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_stage_minimap"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "before": {
+            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+            "content": "sha256:01a2e1885b00d7a1d7fa9669023562af89534220e432e7d004f48ccf2e2506b2",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_stage_minimap"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "id": "RLZ-FDJPVT"
+        },
+        {
+          "after": {
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "content": "sha256:61f79cfb2372902b7b84a85312abf25ea220ccc574c119e46efbb5b0315e98ea",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_concept_page"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "before": {
+            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+            "content": "sha256:61f79cfb2372902b7b84a85312abf25ea220ccc574c119e46efbb5b0315e98ea",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_concept_page"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "id": "RLZ-NBTAGN"
+        },
+        {
+          "after": {
+            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "content": "sha256:f04a0de89792cd54200694b91c33dcfaef0a375b2ea4ce1442e3a608c57ee291",
+            "locator": {
+              "kind": "symbol",
+              "name": "_render_proof_roadmap"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "before": "absent",
+          "id": "RLZ-Q2CYRE"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "strengthen",
+      "id": "ROW-3PBF7S",
+      "items": [],
+      "reason": "Extended INV-V207JN statement and scope for conditional Proof Journey intro linking (CI dead-link safe on overview-only fixtures) and DAG-backed 8-pillar roadmap rendering in renderers.py; attached render_landing_index and _render_proof_roadmap realizations and both landing-index roadmap tests. Evidence (rh-r08-inv-v207jn): RH-R08@v1 Leaf 02 curation; worker report 02-worker-22fbc0ef-439c-4a3b-b96c-67ed7713e62d.md (attempt-02, code tree 85be9028b1e9a04e706618456f8baeb2b2698a9e) and Round 2 CODE PASS verdict 02-route-review-verdict.md",
+      "revision": 3,
+      "subject": "INV-V207JN"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3QVXC9",
+      "items": [
+        "sha256:47dffedfe41d5e5af999896512c9f9b0bb8998d172cd3e737d52c9d95e45a8b4"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/05_determinant/spanning_forms.lean (upstream src/New/Determinant/AuxiliaryForms/SpanningForms.lean, node 05_determinant/spanning_forms, 29 declarations).",
+      "sources": [
+        {
+          "blob": "b42daa079bc53d892603c4538e666ddf6c80fb47",
+          "path": "skeleton/05_determinant/spanning_forms.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/05_determinant/spanning_forms.lean"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-3RE0PH",
+      "items": [
+        "sha256:ac3f5ababa262042f36a78e31a71141e5d5d2e74301ffdf74a72b714250632c9"
+      ],
+      "reason": "Retired refusal fixture deleted under RH-R08@v1 after standalone and scoped variable commands were admitted; fixture never had an individual onboarding card and tests/unit/test_lean_parser.py.md was updated to the 5 remaining refusal fixtures.",
+      "sources": [
+        {
+          "blob": "absent",
+          "path": "tests/fixtures/lean_parser/refused_variable.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_variable.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3VFXKF",
+      "items": [
+        "sha256:500d1a9cff05339fd4e6db1f5c9f24ae721885278422a94b4802ec80928c5fc8"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/04_spanning/energy_estimate.lean (upstream src/New/Spanning/MainTerm/EnergyEstimate.lean, node 04_spanning/energy_estimate, 15 declarations).",
+      "sources": [
+        {
+          "blob": "e7e03eab739385489ed78625da0fa1ae2f03cf04",
+          "path": "skeleton/04_spanning/energy_estimate.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/04_spanning/energy_estimate.lean"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-40NAS9",
+      "items": [
+        "sha256:41917872559633f4bba91e4d9690c800fcc1663f00694770a9558de02b368faa"
+      ],
+      "reason": "Delete-only removal of obsolete import in parser.py after extracting lexer primitives into src/rh_pipeline/lean/_lexer.py.",
+      "subject": "hunk:sha256:41917872559633f4bba91e4d9690c800fcc1663f00694770a9558de02b368faa"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-45NT65",
+      "items": [
+        "sha256:d042ec64ff661ea10b2902b2ae9d23c22142da656074b5ebd3059fa2056cc5b5"
+      ],
+      "reason": "Internal _apply_sig_edits string-splice helper in parser.py replacing the 121-line lexer implementation extracted to src/rh_pipeline/lean/_lexer.py (RLZ-C96JCS, INV-0WN2N4).",
+      "subject": "hunk:sha256:d042ec64ff661ea10b2902b2ae9d23c22142da656074b5ebd3059fa2056cc5b5"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-46WE2N",
+      "items": [
+        "sha256:492a1017160406e741c609b75807cd6b09097eb5ef710c28386b53057af70e16"
+      ],
+      "reason": "Updated repository overview for 8-stage 41-landmark skeleton/DAG generation, linked new _lexer.py and import_projection.py modules, and refreshed rh-extract evidence [5] for nearest-landmark projected DAG construction.",
+      "sources": [
+        {
+          "blob": "bb5544eaafbcc71e09aee7bd91270219619605e1",
+          "path": "dag/dag.json"
+        },
+        {
+          "blob": "3d1fd6eb1511be9cb3c43d397325840b1496dd0a",
+          "path": "dag/stage-map.json"
+        },
+        {
+          "blob": "3bebdfa04ce78288dca2d118c32db64bb572516e",
+          "path": "site/docs/.vitepress/config.mts"
+        },
+        {
+          "blob": "96a8ff15b18e1912da5faa609f4b155d9a9fb1dd",
+          "path": "skeleton/01_reduction/criterion.lean"
+        },
+        {
+          "blob": "e5c41806dc2b401d176a99446b6777fa3686537c",
+          "path": "skeleton/01_reduction/main_inequality.lean"
+        },
+        {
+          "blob": "b3fa797bd1267c35d45115e9bc94cb6309e99ace",
+          "path": "skeleton/01_reduction/new_main.lean"
+        },
+        {
+          "blob": "7ff5f2e69105109d86eea09b49d36bbd8e7b7f73",
+          "path": "skeleton/01_reduction/one_sided_bound.lean"
+        },
+        {
+          "blob": "06347fc88d9de186e2300317d30507649fb5da6e",
+          "path": "skeleton/01_reduction/short_and_enough.lean"
+        },
+        {
+          "blob": "4ea744cc1172e3c39cc6900e92333cbaee1091d8",
+          "path": "skeleton/01_reduction/twisted_lattice.lean"
+        },
+        {
+          "blob": "d87fd62f6834596fea53f2fcc10831c4fc504dc8",
+          "path": "skeleton/02_derivatives/bound_attained.lean"
+        },
+        {
+          "blob": "86fbc9ae22e902447afc5e64dae868ce5776fa92",
+          "path": "skeleton/02_derivatives/count.lean"
+        },
+        {
+          "blob": "8db6843e406beb6f7a68d6a98831e4e7176e33ca",
+          "path": "skeleton/02_derivatives/integral_vacuum.lean"
+        },
+        {
+          "blob": "70cc99e2609b8f0343cb52c143b95a10043a556d",
+          "path": "skeleton/02_derivatives/theta_products.lean"
+        },
+        {
+          "blob": "1908063754b0006a51604de211d6754d844c64f8",
+          "path": "skeleton/02_derivatives/tight_frames.lean"
+        },
+        {
+          "blob": "dd43f977d5871e1568aa2b5934a20b11fb83877a",
+          "path": "skeleton/03_upper_bound/archimedean_size.lean"
+        },
+        {
+          "blob": "5d31aadf27866fa24bae5faee3f1046c69c765fb",
+          "path": "skeleton/03_upper_bound/elementary_divisor_theorem.lean"
+        },
+        {
+          "blob": "7210be4af01c387ce927f38d874c7bf3d9811ea6",
+          "path": "skeleton/03_upper_bound/local_divisibility.lean"
+        },
+        {
+          "blob": "f3e46b921dcc99dc3c9fc0a44090a1c10e28c716",
+          "path": "skeleton/03_upper_bound/seesaw_identity.lean"
+        },
+        {
+          "blob": "f37a1e185348740b5f3a430f15d5c8622285b53d",
+          "path": "skeleton/03_upper_bound/short_columns.lean"
+        },
+        {
+          "blob": "e7e03eab739385489ed78625da0fa1ae2f03cf04",
+          "path": "skeleton/04_spanning/energy_estimate.lean"
+        },
+        {
+          "blob": "625db0cb052335a73b6d544028b59defbba983dc",
+          "path": "skeleton/04_spanning/equal_multiplicities.lean"
+        },
+        {
+          "blob": "d4bd4b0ccd438ae088a6e7f1e49078ae52382f1d",
+          "path": "skeleton/04_spanning/moments.lean"
+        },
+        {
+          "blob": "e85c4f111e3dd6c21931982f69b99b4e8138daa8",
+          "path": "skeleton/04_spanning/remaining_terms_sum.lean"
+        },
+        {
+          "blob": "108f9d3e604cbe8fcd87ca0ac3dce117bb8eb793",
+          "path": "skeleton/04_spanning/spanning_theorem.lean"
+        },
+        {
+          "blob": "6d144268fa8f8c4dfed87ae622dca523d0ce57b1",
+          "path": "skeleton/05_determinant/fit_twists.lean"
+        },
+        {
+          "blob": "1beaf5fd3e31ace503575dcb6ce2d5709e8264ec",
+          "path": "skeleton/05_determinant/long_forms.lean"
+        },
+        {
+          "blob": "f1f3f06f35cb475518b1d48687fc011763eaf170",
+          "path": "skeleton/05_determinant/norm_of_chain.lean"
+        },
+        {
+          "blob": "d730ef1d47507efc901fbd705dbc7ff72eb52ea9",
+          "path": "skeleton/05_determinant/one_square.lean"
+        },
+        {
+          "blob": "b42daa079bc53d892603c4538e666ddf6c80fb47",
+          "path": "skeleton/05_determinant/spanning_forms.lean"
+        },
+        {
+          "blob": "5060351582bf1313ef5ab8c3f8e12253be1a5723",
+          "path": "skeleton/05_determinant/theorem_for_partners.lean"
+        },
+        {
+          "blob": "71291a6deeb83f1a414a4cdbb1103168b0a1bac7",
+          "path": "skeleton/06_one_lift/gluing_maps.lean"
+        },
+        {
+          "blob": "e27732c8aff47fb2ef5083589c8481a0b35c11e4",
+          "path": "skeleton/06_one_lift/lift_volume_height.lean"
+        },
+        {
+          "blob": "0c5ee8c7a863bc316de11c4133bcbd194b80f6f8",
+          "path": "skeleton/06_one_lift/periods_of_false_lifts.lean"
+        },
+        {
+          "blob": "d874d631b3f195ecd3789fc8979fe1b21f0d10d6",
+          "path": "skeleton/06_one_lift/three_exchanges.lean"
+        },
+        {
+          "blob": "bba4c3ad60197015cf0180274d3d96fef60f0faa",
+          "path": "skeleton/06_one_lift/twisted_value_heights.lean"
+        },
+        {
+          "blob": "1ef78464e68a98594dffa45d983983edb17747bd",
+          "path": "skeleton/07_congruences/crystalline_defect.lean"
+        },
+        {
+          "blob": "44a8d81f68fac38c847756e88ccf0b4350eaf545",
+          "path": "skeleton/07_congruences/cup_orthogonality_bounds.lean"
+        },
+        {
+          "blob": "c8545382e6c6ce146adffe8c8d21454981e07d4f",
+          "path": "skeleton/07_congruences/denominator_bound.lean"
+        },
+        {
+          "blob": "3cdd3bff2980582e4c042d1c05ebe68dd5b3f00a",
+          "path": "skeleton/07_congruences/fit_twists_exist.lean"
+        },
+        {
+          "blob": "fcc3f0ab5764e5178503c0f7ddfdaca1a4d58c22",
+          "path": "skeleton/07_congruences/rows_from_eigensystems.lean"
+        },
+        {
+          "blob": "27d77e27d3329c9e5400165a720fa8ee10b0970b",
+          "path": "skeleton/07_congruences/twisting_theorem.lean"
+        },
+        {
+          "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+          "path": "src/rh_pipeline/graph/import_projection.py"
+        },
+        {
+          "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
+          "path": "src/rh_pipeline/graph/stage_map.py"
+        },
+        {
+          "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+          "path": "src/rh_pipeline/lean/_lexer.py"
+        },
+        {
+          "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+          "path": "src/rh_pipeline/lean/parser.py"
+        },
+        {
+          "blob": "77bcf8aaeb5d60007426e1f135533fb2014dc98b",
+          "path": "src/rh_pipeline/lean/stub_emitter.py"
+        },
+        {
+          "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+          "path": "src/rh_pipeline/site/renderers.py"
+        },
+        {
+          "blob": "absent",
+          "path": "tests/fixtures/lean_parser/refused_anonymous_instance.lean"
+        },
+        {
+          "blob": "absent",
+          "path": "tests/fixtures/lean_parser/refused_open.lean"
+        },
+        {
+          "blob": "absent",
+          "path": "tests/fixtures/lean_parser/refused_variable.lean"
+        },
+        {
+          "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+          "path": "tests/unit/test_lean_parser.py"
+        },
+        {
+          "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+          "path": "tests/unit/test_site_compiler.py"
+        },
+        {
+          "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+          "path": "tests/unit/test_stage_map.py"
+        },
+        {
+          "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
+          "path": "tests/unit/test_stub_emitter.py"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-4AA68N",
+      "items": [
+        "sha256:32ddff7bf23695e4de9e330931ddcbeb9c87e37288ec8f03b3f3f6b35affdfc8"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/02_derivatives/integral_vacuum.lean (upstream src/New/Derivatives/Vacuum/IntegralVacuum.lean, node 02_derivatives/integral_vacuum, 36 declarations).",
+      "sources": [
+        {
+          "blob": "8db6843e406beb6f7a68d6a98831e4e7176e33ca",
+          "path": "skeleton/02_derivatives/integral_vacuum.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/02_derivatives/integral_vacuum.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-4N3SC4",
+      "items": [
+        "sha256:21102c631acca52f781d3fd857c44da4f18bbb2f75bf2150b85855c5c8587416"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/02_derivatives/count.lean (upstream src/New/Derivatives/Divisibility/Count.lean, node 02_derivatives/count, 40 declarations).",
+      "sources": [
+        {
+          "blob": "86fbc9ae22e902447afc5e64dae868ce5776fa92",
+          "path": "skeleton/02_derivatives/count.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/02_derivatives/count.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-4S19A7",
+      "items": [
+        "sha256:0162a70d9ee346945f588ecc07053bb7fa197eb1dacabc5b7e1656b717c2300d",
+        "sha256:1e9b208fd2d0307f585777af011786f854f866801611d84d9cc8d3fa772aaff3",
+        "sha256:3d74db9dd026951a4e2e3522addf623a26733bdb837ed9fe9f7a442803431322",
+        "sha256:4cf5ea1383fb98a90e8024dde01c9050ca3a96a772ac88c9bf959c3d9d1d6a7f",
+        "sha256:589c93ba3ef88ab994b50dae6621cfa6f4ab66d91f1224f1562a08ad5bdc2722",
+        "sha256:6438b2df988fc42f59f25b8af3377231bef25cca196bc9912da3d5a36b2f70ee",
+        "sha256:7cb91374849372ba86c06cb071a12377b256f870b5de4480a6fb18f6b777adcd",
+        "sha256:840637e14659faa0659bdd4d78fdde7f12fe0c2959b51ac5b52864e9c5bd4c0a",
+        "sha256:846531cf9813ee34eed5ffc0a4ec5d15ae9b850631737498821b47f38d9575ec",
+        "sha256:c3fecbc525a9816f813328c195bdad036da6355a900d5affb3e8996a9f843a1a",
+        "sha256:d6fe4b152bd23b970fa2399a6ed9feb2c1974aba068e827fb1b039de994d58b0",
+        "sha256:ec1808560937c2ee33749b24d1145b4e96cb8b8250e930c8b6390c17e8064c57",
+        "sha256:f959b1ec61938924d5339d397e22b5b36a862afc7470b6de42dc4619a58f9b73"
+      ],
+      "reason": "Updated test_lean_parser.py card, reference [2] (5 refusal fixtures, 44 inline cases), refreshed [1]/[3], and added references [4]-[5] for the five new src/New/ admission and round-trip tests.",
+      "sources": [
+        {
+          "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+          "path": "tests/unit/test_lean_parser.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_lean_parser.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-4ZHCZ0",
+      "items": [
+        "sha256:857dcf8d5b81a5bebc0ca260e0d1f0d6833a98bfc82e8cd14e5aa2a104da6d41"
+      ],
+      "reason": "Delete-only removal of obsolete import in parser.py after moving LeanLexer into src/rh_pipeline/lean/_lexer.py.",
+      "subject": "hunk:sha256:857dcf8d5b81a5bebc0ca260e0d1f0d6833a98bfc82e8cd14e5aa2a104da6d41"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-5K8MV9",
+      "items": [
+        "sha256:e60bbce64b57671a07038742d4d92bc40e6cb535412fbd2f0cfd3d2ff49c3126"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/01_reduction/main_inequality.lean (upstream src/New/Reduction/MainInequality.lean, node 01_reduction/main_inequality, 1 declarations).",
+      "sources": [
+        {
+          "blob": "e5c41806dc2b401d176a99446b6777fa3686537c",
+          "path": "skeleton/01_reduction/main_inequality.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/01_reduction/main_inequality.lean"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-5T6X42",
+      "items": [
+        "sha256:d36720a18d72fe07b8a8bd892074db3a3dbf55eb6a29f5524fc132807fe4bdd2"
+      ],
+      "reason": "Delete-only removal of superseded refusal branch inside _Parser in parser.py for standalone commands now admitted under INV-0WN2N4 (RH-R08@v1).",
+      "subject": "hunk:sha256:d36720a18d72fe07b8a8bd892074db3a3dbf55eb6a29f5524fc132807fe4bdd2"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-660E5Y",
+      "items": [
+        "sha256:2d93f033a83348628c653351896d5673ec39dfa1fc921d56ddbfae9c5ba96579"
+      ],
+      "reason": "Updated stage_map.py card and references [2], [4] (refreshed [1], [3]) for optional projected_depends_on overrides in build_dag and in-memory project_nearest_landmarks invocation in extract_and_write.",
+      "sources": [
+        {
+          "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
+          "path": "src/rh_pipeline/graph/stage_map.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/graph/stage_map.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-68Y0ES",
+      "items": [
+        "sha256:979576f4cdb3e370de3d84d36750f3a0ee71140edc68e95e3867237dc8db7b8a"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/04_spanning/moments.lean (upstream src/New/Spanning/Unfolding/Moments.lean, node 04_spanning/moments, 40 declarations).",
+      "sources": [
+        {
+          "blob": "d4bd4b0ccd438ae088a6e7f1e49078ae52382f1d",
+          "path": "skeleton/04_spanning/moments.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/04_spanning/moments.lean"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-6C7E0X",
+      "items": [
+        "sha256:884b48c88b90ddb7668719a88b2a45ba31c1462a563a65fd3db2c9c091ec290d"
+      ],
+      "reason": "Private frozenset keyword tables (_SECTION_MODS, _SCOPED_PREFIX_KW, _STANDALONE_CMD_KW, _POST_SCOPED_CMD_KW) in parser.py consumed exclusively by _Parser under INV-0WN2N4.",
+      "subject": "hunk:sha256:884b48c88b90ddb7668719a88b2a45ba31c1462a563a65fd3db2c9c091ec290d"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-6MYZD9",
+      "items": [
+        "sha256:1d0801be36baab819d15bb32832f6a985a6431ba244d27d7c1d42f9486ffeed9"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/06_one_lift/gluing_maps.lean (upstream src/New/OneLift/ComparisonOperator/GluingMaps.lean, node 06_one_lift/gluing_maps, 68 declarations).",
+      "sources": [
+        {
+          "blob": "71291a6deeb83f1a414a4cdbb1103168b0a1bac7",
+          "path": "skeleton/06_one_lift/gluing_maps.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/06_one_lift/gluing_maps.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-6PRVQ4",
+      "items": [
+        "sha256:2952685442c0300b53b374c43799216ebf27c2f81c2024c0ec8b80ec33b1d26c"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/01_reduction/criterion.lean (upstream src/New/Reduction/Zeros/Criterion.lean, node 01_reduction/criterion, 1 declarations).",
+      "sources": [
+        {
+          "blob": "96a8ff15b18e1912da5faa609f4b155d9a9fb1dd",
+          "path": "skeleton/01_reduction/criterion.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/01_reduction/criterion.lean"
+    },
+    {
+      "disposition": "changed",
+      "effect": "replace",
+      "examined": [
+        {
+          "id": "INV-01DVB3",
+          "revision": 2
+        },
+        {
+          "id": "INV-0SYK8A",
+          "revision": 2
+        },
+        {
+          "id": "INV-0WN2N4",
+          "revision": 2
+        },
+        {
+          "id": "INV-BEGWB0",
+          "revision": 1
+        },
+        {
+          "id": "INV-Y5X0FK",
+          "revision": 3
+        }
+      ],
+      "id": "ROW-73YWH2",
+      "items": [
+        "sha256:1acefaa159fcf8ec5909812d6a8d5dd1bad8bb4acb2140cd08268b70bf3aeae2"
+      ],
+      "reason": "Examined all five members of FAM-ZD4QRG (INV-0WN2N4, INV-0SYK8A, INV-Y5X0FK, INV-01DVB3 updated for RH-R08@v1; INV-BEGWB0 unchanged) and extended the joint guarantee to cover 8-stage 41-landmark extraction, hardened closed-world src/New/ parsing and bounded BFS nearest-landmark import projection.",
+      "revision": 3,
+      "subject": "FAM-ZD4QRG"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-7DC83D",
+      "items": [
+        "sha256:cf4adb125d10c9eecd79409ccdd26f49517a8780d295e2d6cbeb8e83b327f94f"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/07_congruences/cup_orthogonality_bounds.lean (upstream src/New/Congruences/Lifting/CupOrthogonalityBounds.lean, node 07_congruences/cup_orthogonality_bounds, 25 declarations).",
+      "sources": [
+        {
+          "blob": "44a8d81f68fac38c847756e88ccf0b4350eaf545",
+          "path": "skeleton/07_congruences/cup_orthogonality_bounds.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/07_congruences/cup_orthogonality_bounds.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-7NBW2F",
+      "items": [
+        "sha256:2c54702a2537961ea3ac8e390f2726555dfadc38cc4050ad0afedff34141aaeb"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/06_one_lift/three_exchanges.lean (upstream src/New/OneLift/ComparisonOperator/ThreeExchanges.lean, node 06_one_lift/three_exchanges, 43 declarations).",
+      "sources": [
+        {
+          "blob": "d874d631b3f195ecd3789fc8979fe1b21f0d10d6",
+          "path": "skeleton/06_one_lift/three_exchanges.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/06_one_lift/three_exchanges.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-7NGHQT",
+      "items": [
+        "sha256:506241de4b07cc46e85e8fbd99ad173d4762e73dbb3cfb700b935fa04c40ac33"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/04_spanning/remaining_terms_sum.lean (upstream src/New/Spanning/RemainingTerms/Sum.lean, node 04_spanning/remaining_terms_sum, 26 declarations).",
+      "sources": [
+        {
+          "blob": "e85c4f111e3dd6c21931982f69b99b4e8138daa8",
+          "path": "skeleton/04_spanning/remaining_terms_sum.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/04_spanning/remaining_terms_sum.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-7X90EY",
+      "items": [
+        "sha256:090195389bb526623ead549de522255f3fb67bab642a9cfda0e3f538a0fb4346"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/07_congruences/rows_from_eigensystems.lean (upstream src/New/Congruences/GaloisRepresentations/RowsFromEigensystems.lean, node 07_congruences/rows_from_eigensystems, 15 declarations).",
+      "sources": [
+        {
+          "blob": "fcc3f0ab5764e5178503c0f7ddfdaca1a4d58c22",
+          "path": "skeleton/07_congruences/rows_from_eigensystems.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/07_congruences/rows_from_eigensystems.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-85BK31",
+      "items": [
+        "sha256:3a8f3aca1b52b32c4de4d209c836672594db5c44bd3dce1f084832f90134f20c"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/02_derivatives/tight_frames.lean (upstream src/New/Derivatives/Vacuum/TightFrames.lean, node 02_derivatives/tight_frames, 47 declarations).",
+      "sources": [
+        {
+          "blob": "1908063754b0006a51604de211d6754d844c64f8",
+          "path": "skeleton/02_derivatives/tight_frames.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/02_derivatives/tight_frames.lean"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-8KBFX4",
+      "items": [
+        "sha256:5d14a635686ea1dcf3c0f02e38c2e476fdc60ed6f1ac264922c7155f71f31349"
+      ],
+      "reason": "Formatting/indentation adjustment of direct-import fallback return inside _resolve_depends_on in stage_map.py; no semantic rule change.",
+      "subject": "hunk:sha256:5d14a635686ea1dcf3c0f02e38c2e476fdc60ed6f1ac264922c7155f71f31349"
+    },
+    {
+      "disposition": "still_rejected",
+      "id": "ROW-97QH9H",
+      "items": [
+        "sha256:6976e281c04c3c8ec30589a5907e6b0a4e8c10c0010e6fc89a6c412e1d6ca8b6"
+      ],
+      "reason": "site/docs/.vitepress/config.mts only added Proof Journey links to top navigation and the Stage 00 sidebar; VitePress, build-time MathJax 3 SVG (markdown.math: true), cleanUrls, light-only appearance and ar-rh-proof-skeleton Pages deployment remain unchanged, so the KaTeX/code-repo Pages rejection still holds.",
+      "subject": "reconsider:DEC-0XZ8V5#1"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-9WD914",
+      "items": [
+        "sha256:6cbfdd0b9295e042c41c9eca837bc6c71a206006630a36e5c9f62c019c7c1e5d",
+        "sha256:92388ddee0df32a31f47015042bcad463255059efee20623ffaa48677fb2df84",
+        "sha256:ebdefddaba4e55fd05ff4c8abd812bee82acaf5d316715a619218db437bc68bf"
+      ],
+      "reason": "Updated test_stage_map.py card, references [1] and [3] (renamed test_committed_dag_and_skeleton_round_trip across 41 skeletons), refreshed [2], and added reference [4] for header-scan and nearest-landmark projection tests.",
+      "sources": [
+        {
+          "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+          "path": "tests/unit/test_stage_map.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_stage_map.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-A15M6S",
+      "items": [
+        "sha256:79d5060b8cbdf7c955b0452b14358553317b86bcf1c1dc2fd731149ee42293dc"
+      ],
+      "reason": "Module import of project_nearest_landmarks in stage_map.py wiring extract_and_write (INV-01DVB3) to import_projection.py (INV-Y5X0FK); no standalone rule beyond those invariants.",
+      "subject": "hunk:sha256:79d5060b8cbdf7c955b0452b14358553317b86bcf1c1dc2fd731149ee42293dc"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-A60APR",
+      "items": [
+        "sha256:48ec350628754f2a7fc885fa11c38d10202fae0710a35e9bd9a52030b0e6d840"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/05_determinant/norm_of_chain.lean (upstream src/New/Determinant/Chain/NormOfChain.lean, node 05_determinant/norm_of_chain, 24 declarations).",
+      "sources": [
+        {
+          "blob": "f1f3f06f35cb475518b1d48687fc011763eaf170",
+          "path": "skeleton/05_determinant/norm_of_chain.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/05_determinant/norm_of_chain.lean"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-B128SQ",
+      "items": [
+        "sha256:513fcd4c1aeb6f1e0758b1f852fefd3427f748065f2bcc9a0d262f55d15b211a"
+      ],
+      "reason": "Internal frozen dataclass _DeclTarget in parser.py replacing old token/error definitions extracted into src/rh_pipeline/lean/_lexer.py (RLZ-CYQKPV, RLZ-C96JCS).",
+      "subject": "hunk:sha256:513fcd4c1aeb6f1e0758b1f852fefd3427f748065f2bcc9a0d262f55d15b211a"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-CA672N",
+      "items": [
+        "sha256:e51bac6ee949f2bacc8da506f5e3a7d20ff5403f5dc1b11fc6c2f90b70e8752f"
+      ],
+      "reason": "Internal _build_dag_node helper signature extracted from build_dag in stage_map.py (INV-Y5X0FK); structural decomposition with no standalone rule.",
+      "subject": "hunk:sha256:e51bac6ee949f2bacc8da506f5e3a7d20ff5403f5dc1b11fc6c2f90b70e8752f"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-CXHMSH",
+      "items": [
+        "sha256:24443db8f70ab4fbac8cc5327d028356a82db411f982e9d93f03f05b031a39cd"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/02_derivatives/theta_products.lean (upstream src/New/Derivatives/FormalGroup/ThetaProducts.lean, node 02_derivatives/theta_products, 17 declarations).",
+      "sources": [
+        {
+          "blob": "70cc99e2609b8f0343cb52c143b95a10043a556d",
+          "path": "skeleton/02_derivatives/theta_products.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/02_derivatives/theta_products.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-DCYC04",
+      "items": [
+        "sha256:4fa094eaeb67b6e7f096a0666a3ec6d1437907582349f66e3af414b493b2d7ff",
+        "sha256:8f29bfd4e872ca079355ecf346859372f113d294d9737adebc49af0114edb2b1"
+      ],
+      "reason": "Updated test_stub_emitter.py card, refreshed [1]-[3], and added reference [4] for test_verbatim_where_and_equation_arm_bodies_omit_assign.",
+      "sources": [
+        {
+          "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
+          "path": "tests/unit/test_stub_emitter.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_stub_emitter.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-E2GPKK",
+      "items": [
+        "sha256:712967fd63889eed4b5d9f08890501dcac7de07c6c90d02eb9df174215e8cd3e"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/01_reduction/new_main.lean (upstream src/New/Main.lean, node 01_reduction/new_main, 2 declarations).",
+      "sources": [
+        {
+          "blob": "b3fa797bd1267c35d45115e9bc94cb6309e99ace",
+          "path": "skeleton/01_reduction/new_main.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/01_reduction/new_main.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-E2NVX9",
+      "items": [
+        "sha256:71dd1d5ce7ea0d9c46a57c7be343ec5db096d7f02c968bfc8eac9fca9f5440cb"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/03_upper_bound/archimedean_size.lean (upstream src/New/UpperBound/Size/ArchimedeanSize.lean, node 03_upper_bound/archimedean_size, 19 declarations).",
+      "sources": [
+        {
+          "blob": "dd43f977d5871e1568aa2b5934a20b11fb83877a",
+          "path": "skeleton/03_upper_bound/archimedean_size.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/03_upper_bound/archimedean_size.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-E40JTJ",
+      "items": [],
+      "reason": "Updated config.mts card and reference [3] (refreshed [1]-[2]) for 5 top-nav items (adding Proof Journey) and 5 Stage 00 sidebar items (adding Full Proof Journey & 20-Step Map).",
+      "sources": [
+        {
+          "blob": "3bebdfa04ce78288dca2d118c32db64bb572516e",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/config.mts"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-EKAZNH",
+      "items": [
+        "sha256:3bad0ea4c565787f386102fad7b9b425ff3ea5a0588bee0cbe2b93c49288489c"
+      ],
+      "reason": "Delete-only parameter-line cleanup when extracting _resolve_depends_on helper in stage_map.py supporting build_dag (INV-Y5X0FK).",
+      "subject": "hunk:sha256:3bad0ea4c565787f386102fad7b9b425ff3ea5a0588bee0cbe2b93c49288489c"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-EQR357",
+      "items": [
+        "sha256:cd2f2d960bef475edaac7a783ef8c9ac6b9393d2e7ee90b0ca19ecd2695fba58"
+      ],
+      "reason": "Updated dag/dag.json card and references [1]-[3] for 8 populated stages, 41 nodes, 970 declaration refs, 101 acyclic nearest-landmark projected edges (0 isolated) and 00_statement/main -> 01_reduction/new_main.",
+      "sources": [
+        {
+          "blob": "bb5544eaafbcc71e09aee7bd91270219619605e1",
+          "path": "dag/dag.json"
+        }
+      ],
+      "subject": "onboarding:dag/dag.json"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-G891R9",
+      "items": [
+        "sha256:a37c52541fa18f396210246792719774f26cb4e2c0ce919daf77736f79cc2a2b"
+      ],
+      "reason": "Updated parser.py card and references [1]-[4] for _lexer.py delegation, admitted src/New/ commands/sections/scoped prefixes/local instances/_root_. overrides/where+equation-arm bodies and synthetic anonymous instances.",
+      "sources": [
+        {
+          "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+          "path": "src/rh_pipeline/lean/parser.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/lean/parser.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-GD0CAW",
+      "items": [
+        "sha256:d0720f9efc8556633d9f60c5359668f9f54887bfa9e2b1240e44f06d10576286"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/06_one_lift/twisted_value_heights.lean (upstream src/New/OneLift/HeckeValues/TwistedValueHeights.lean, node 06_one_lift/twisted_value_heights, 24 declarations).",
+      "sources": [
+        {
+          "blob": "bba4c3ad60197015cf0180274d3d96fef60f0faa",
+          "path": "skeleton/06_one_lift/twisted_value_heights.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/06_one_lift/twisted_value_heights.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-GGM7PZ",
+      "items": [
+        "sha256:e39e31577dcb4adfbcd1a2eed111943fb63cb0602ae72ea50593ca6a1f582041"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/07_congruences/fit_twists_exist.lean (upstream src/New/Congruences/FitTwistsExist.lean, node 07_congruences/fit_twists_exist, 19 declarations).",
+      "sources": [
+        {
+          "blob": "3cdd3bff2980582e4c042d1c05ebe68dd5b3f00a",
+          "path": "skeleton/07_congruences/fit_twists_exist.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/07_congruences/fit_twists_exist.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-GHX4F8",
+      "items": [
+        "sha256:09f9c237469670d641d95842f673bce603f1eaf2ed70dee641c90d6d1ae659b6"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/03_upper_bound/seesaw_identity.lean (upstream src/New/UpperBound/Seesaw/SeesawIdentity.lean, node 03_upper_bound/seesaw_identity, 23 declarations).",
+      "sources": [
+        {
+          "blob": "f3e46b921dcc99dc3c9fc0a44090a1c10e28c716",
+          "path": "skeleton/03_upper_bound/seesaw_identity.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/03_upper_bound/seesaw_identity.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-GP897P",
+      "items": [
+        "sha256:87a4aa535824d3cf3ad9ad3b7feac9bd36fd35cf4bbe76673e12fd8371c4caab"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/04_spanning/equal_multiplicities.lean (upstream src/New/Spanning/Multiplicities/EqualMultiplicities.lean, node 04_spanning/equal_multiplicities, 17 declarations).",
+      "sources": [
+        {
+          "blob": "625db0cb052335a73b6d544028b59defbba983dc",
+          "path": "skeleton/04_spanning/equal_multiplicities.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/04_spanning/equal_multiplicities.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-H4XX9J",
+      "items": [
+        "sha256:da0a29c6b7384016b7a4bc8d20a71728568bf7deee5d1eb2e54637b55c34b616"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/01_reduction/short_and_enough.lean (upstream src/New/Reduction/ShortAndEnough.lean, node 01_reduction/short_and_enough, 24 declarations).",
+      "sources": [
+        {
+          "blob": "06347fc88d9de186e2300317d30507649fb5da6e",
+          "path": "skeleton/01_reduction/short_and_enough.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/01_reduction/short_and_enough.lean"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R08",
+          "packet": "RH-R08-v1-proof-cartography-and-journey-map.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        },
+        "DEC-V5ASDJ"
+      ],
+      "covers": [
+        {
+          "after": "absent",
+          "before": {
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "content": "sha256:255a1cd65b9324bcd118d6d9a2324fedb7d9da8c62eeb7813e1599c2519f7a65",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_committed_dag_and_stage00_skeleton_round_trip"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "id": "PRF-1Q7FJ2"
+        },
+        {
+          "after": "absent",
+          "before": {
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "content": "sha256:0904903b1069f3a31e0132d0f689a80f4214d1259a3195f43e5ff3212b086456",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_load_real_stage_map"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "id": "PRF-A48A5B"
+        },
+        {
+          "after": {
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:dce34efdccebdb7fb4cc526bb287cdfba9d9ede48ba8a4cc66144ef669f0d34c",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_dag_with_projected_depends_on_and_validation"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "before": "absent",
+          "id": "PRF-HJN5RB"
+        },
+        {
+          "after": {
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:26defb7242dfe0f3ebf3b1f1930973ed2cdee1686a8ce9fddbac3fb4e5eb072e",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_extract_and_write_nearest_landmark_import_projection"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "before": "absent",
+          "id": "PRF-JKVDCV"
+        },
+        {
+          "after": {
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:f93fc3ff1808050614aa77cb00956e32671f2c13bc1779f92c4c24cd301e4f81",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_scan_lean_header_imports_handles_comments_and_module_syntax"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "before": "absent",
+          "id": "PRF-JN3C66"
+        },
+        {
+          "after": {
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:00eb0c4a746248bda9169fdadf0611d0fd1a888067f774833adeb00d48fbf104",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_dag_uses_strict_import_edges_no_false_challenge_edge"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "before": {
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "content": "sha256:00eb0c4a746248bda9169fdadf0611d0fd1a888067f774833adeb00d48fbf104",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_dag_uses_strict_import_edges_no_false_challenge_edge"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "id": "PRF-PZAQK0"
+        },
+        {
+          "after": {
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:d87d8bd1a4f5a298c4ef953d70e90d2ba3659212085a31eb1580e8a8d95727ae",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_load_real_stage_map"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "before": "absent",
+          "id": "PRF-Q6NTEB"
+        },
+        {
+          "after": {
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:9f63d1452a69fe13772069782da573a1d4f951c3e1223d6164eb5b83d0d1350f",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_committed_dag_and_skeleton_round_trip"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "before": "absent",
+          "id": "PRF-ZHNHMN"
+        },
+        {
+          "after": {
+            "blob": "3d1fd6eb1511be9cb3c43d397325840b1496dd0a",
+            "content": "sha256:26a46788867a30c99d5738e21f6d090c696928f8fea7bb698efd1c2388242b32",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "dag/stage-map.json"
+          },
+          "before": {
+            "blob": "fb9691744549cd274702a86dfa75d7b5ef815b50",
+            "content": "sha256:432bf99075f26929f0cb1743d84a91db432082efc5d55f57d3c2625d87e5f4e0",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "dag/stage-map.json"
+          },
+          "id": "RLZ-29ESHV"
+        },
+        {
+          "after": {
+            "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
+            "content": "sha256:8aff96252cef093935079d800fce7197759e297edf162e878f837a1b418b5a3e",
+            "locator": {
+              "kind": "symbol",
+              "name": "build_dag"
+            },
+            "path": "src/rh_pipeline/graph/stage_map.py"
+          },
+          "before": {
+            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "content": "sha256:2010a8bd09dd45d27dadb06a2ad70b9a519d2fc6b51eae376dfbc6a0dbb79e01",
+            "locator": {
+              "kind": "symbol",
+              "name": "build_dag"
+            },
+            "path": "src/rh_pipeline/graph/stage_map.py"
+          },
+          "id": "RLZ-3T5NFB"
+        },
+        {
+          "after": {
+            "blob": "bb5544eaafbcc71e09aee7bd91270219619605e1",
+            "content": "sha256:df7e9e75b265d70e8b55c0bc80c51f7712608ea315666c14cf95bb711ca10b9f",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "dag/dag.json"
+          },
+          "before": {
+            "blob": "97ec49000a152001d88321ccb25baf1737388130",
+            "content": "sha256:d125a8fa4e0f56431e2b33d7a0ccec5d598f06684b7146986ae275d0402a35ea",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "dag/dag.json"
+          },
+          "id": "RLZ-4V4PZR"
+        },
+        {
+          "after": {
+            "blob": "8b56e0b27418b7af9aa9371cda6584d60eba0c33",
+            "content": "sha256:f1e90d2d9d181a30ce22c49093ba2c07eedd9a126329a2a07d0e9f938cb7ca9a",
+            "locator": {
+              "kind": "symbol",
+              "name": "load_stage_map"
+            },
+            "path": "src/rh_pipeline/graph/stage_map.py"
+          },
+          "before": {
+            "blob": "f0495102c19858238e5ccfd6487b3b3b4767c22c",
+            "content": "sha256:f1e90d2d9d181a30ce22c49093ba2c07eedd9a126329a2a07d0e9f938cb7ca9a",
+            "locator": {
+              "kind": "symbol",
+              "name": "load_stage_map"
+            },
+            "path": "src/rh_pipeline/graph/stage_map.py"
+          },
+          "id": "RLZ-53XXZ1"
+        },
+        {
+          "after": {
+            "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+            "content": "sha256:08c73917247585eb83a04c9d31a02da5777b7c4489bea4e5fa98053ddbb6436d",
+            "locator": {
+              "kind": "symbol",
+              "name": "project_nearest_landmarks"
+            },
+            "path": "src/rh_pipeline/graph/import_projection.py"
+          },
+          "before": "absent",
+          "id": "RLZ-5DJH72"
+        },
+        {
+          "after": {
+            "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+            "content": "sha256:0dfa22bf54a69d576daa3d76277e081ad71e2aa3465a488b8f65f8cd0b813cd7",
+            "locator": {
+              "kind": "symbol",
+              "name": "scan_lean_header_imports"
+            },
+            "path": "src/rh_pipeline/graph/import_projection.py"
+          },
+          "before": "absent",
+          "id": "RLZ-R0HBJT"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-HBSSD6",
+      "items": [
+        "sha256:cb0a8c147656eb2eceff40fcd5698aa8c5061884580908e5920fa351199395c1"
+      ],
+      "reason": "Extended INV-Y5X0FK statement, scope and admission for 41 mapped landmarks across all 8 condensed stages, build_dag optional projected_depends_on overrides, and bounded BFS nearest-landmark import projection strictly under src/ and repo root in import_projection.py; attached project_nearest_landmarks and scan_lean_header_imports realizations, replaced renamed/stale proofs and added three import-projection proofs. Evidence (rh-r08-inv-y5x0fk): RH-R08@v1 Leaf 02 curation; worker report 02-worker-22fbc0ef-439c-4a3b-b96c-67ed7713e62d.md (attempt-02, code tree 85be9028b1e9a04e706618456f8baeb2b2698a9e) and Round 2 CODE PASS verdict 02-route-review-verdict.md",
+      "revision": 3,
+      "subject": "INV-Y5X0FK"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-HJAKE5",
+      "items": [
+        "sha256:317058bfbb3ed8172a586919ed23096e07b77fd421cd746612f90225760977d3"
+      ],
+      "reason": "Module __all__ export list in parser.py preserving public re-export of UnsupportedLeanFormError and extract_declarations; mechanical module surface.",
+      "subject": "hunk:sha256:317058bfbb3ed8172a586919ed23096e07b77fd421cd746612f90225760977d3"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-GXDXCT",
+          "revision": 1
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 3
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 2
+        }
+      ],
+      "id": "ROW-HK0ATD",
+      "items": [
+        "sha256:15112f1adc802764438fa971460e14967bf61eb9d11c28f690745927072e329e"
+      ],
+      "reason": "Examined all four members of FAM-033QTE (INV-V207JN extended for conditional Proof Journey intro and 8-pillar roadmap; INV-VGNZKV re-anchored on config.mts; INV-HK005W and INV-GXDXCT unchanged); the Phase 4 static-site compilation, VitePress theme and dual-repo CI joint guarantee remains accurate.",
+      "revision": 1,
+      "subject": "FAM-033QTE"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-HNDKH9",
+      "items": [
+        "sha256:61727963fda90a9625c8bf1c7f1ae45f4faeb0bdee0eff9ebf5f37e7f12fa3a9"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/01_reduction/twisted_lattice.lean (upstream src/New/Reduction/Lattices/TwistedLattice.lean, node 01_reduction/twisted_lattice, 32 declarations).",
+      "sources": [
+        {
+          "blob": "4ea744cc1172e3c39cc6900e92333cbaee1091d8",
+          "path": "skeleton/01_reduction/twisted_lattice.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/01_reduction/twisted_lattice.lean"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-HS4YS4",
+      "items": [
+        "sha256:644cff075d533520a701fe26d283402c28f9cf7703f381150df4102b040e08d5"
+      ],
+      "reason": "Delete-only removal of superseded name-qualification helper lines inside _Parser in parser.py replaced by _qualify_name and _has_anon_instance_colon under INV-0WN2N4.",
+      "subject": "hunk:sha256:644cff075d533520a701fe26d283402c28f9cf7703f381150df4102b040e08d5"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-HTJ3PW",
+      "items": [
+        "sha256:6062099765314009837778f9145ea2df609d47a4a6c9a55e2d4b28ece403c46d"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/02_derivatives/bound_attained.lean (upstream src/New/Derivatives/Sharpness/BoundAttained.lean, node 02_derivatives/bound_attained, 15 declarations).",
+      "sources": [
+        {
+          "blob": "d87fd62f6834596fea53f2fcc10831c4fc504dc8",
+          "path": "skeleton/02_derivatives/bound_attained.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/02_derivatives/bound_attained.lean"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R08",
+          "packet": "RH-R08-v1-proof-cartography-and-journey-map.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-JD0VKR",
+      "items": [],
+      "reason": "Refreshed reconsider_on anchor on site/docs/.vitepress/config.mts at candidate tree 85be9028b1e9a04e706618456f8baeb2b2698a9e after confirming DEC-0XZ8V5#1 remains still_rejected.",
+      "revision": 2,
+      "subject": "DEC-0XZ8V5"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-JFJHCE",
+      "items": [
+        "sha256:83d8f7c69f90d3395f12b11a8a4e3574a1f0325c1768dc36063eeaa0ad76d167"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/03_upper_bound/short_columns.lean (upstream src/New/UpperBound/Size/ShortColumns.lean, node 03_upper_bound/short_columns, 62 declarations).",
+      "sources": [
+        {
+          "blob": "f37a1e185348740b5f3a430f15d5c8622285b53d",
+          "path": "skeleton/03_upper_bound/short_columns.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/03_upper_bound/short_columns.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-JQ2KAH",
+      "items": [
+        "sha256:f8cbba12ea22705f2db3fb6d0e27fde802cf8ffef422bd560b1dcfeb523466a6"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/05_determinant/theorem_for_partners.lean (upstream src/New/Determinant/Exchange/TheoremForPartners.lean, node 05_determinant/theorem_for_partners, 27 declarations).",
+      "sources": [
+        {
+          "blob": "5060351582bf1313ef5ab8c3f8e12253be1a5723",
+          "path": "skeleton/05_determinant/theorem_for_partners.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/05_determinant/theorem_for_partners.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-JR85HD",
+      "items": [
+        "sha256:c8116b5ce784dd4a68e987d156a02c5b682c8f51ce82d6764322a2a8632890c5"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/05_determinant/one_square.lean (upstream src/New/Determinant/Exchange/OneSquare.lean, node 05_determinant/one_square, 32 declarations).",
+      "sources": [
+        {
+          "blob": "d730ef1d47507efc901fbd705dbc7ff72eb52ea9",
+          "path": "skeleton/05_determinant/one_square.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/05_determinant/one_square.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-K6TJ13",
+      "items": [
+        "sha256:71e5e7598544ecd064edc7b184a078713591f87041ac7232225b1e7ec5b97e6d"
+      ],
+      "reason": "Authored onboarding card and sidecar for extracted Lean 4 lexer and UnsupportedLeanFormError module src/rh_pipeline/lean/_lexer.py.",
+      "sources": [
+        {
+          "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+          "path": "src/rh_pipeline/lean/_lexer.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/lean/_lexer.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-KBXEQG",
+      "items": [
+        "sha256:51f93df4ff1072a67cf4e5d678354135c9874f73f326d84a46da0a83b10368de"
+      ],
+      "reason": "Updated renderers.py card and reference [4] (refreshed [1]-[3]) for conditional Proof Journey intro linking, excluded featured pages and DAG-backed _render_proof_roadmap 8-pillar roadmap.",
+      "sources": [
+        {
+          "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+          "path": "src/rh_pipeline/site/renderers.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/site/renderers.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-KWG6C2",
+      "items": [
+        "sha256:908d9cacb4e412c54fe42225a30a28cf3547624e6c094f5d0dcf1a552c373d8d"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/07_congruences/twisting_theorem.lean (upstream src/New/Congruences/Selmer/TwistingTheorem.lean, node 07_congruences/twisting_theorem, 11 declarations).",
+      "sources": [
+        {
+          "blob": "27d77e27d3329c9e5400165a720fa8ee10b0970b",
+          "path": "skeleton/07_congruences/twisting_theorem.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/07_congruences/twisting_theorem.lean"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R08",
+          "packet": "RH-R08-v1-proof-cartography-and-journey-map.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-MG9VWT",
+      "items": [],
+      "reason": "Extended DEC-V5ASDJ for RH-R08@v1 Proof Cartography: all 8 condensed pillars are now populated with 41 landmarks, closed-world Lean parsing covers all 305 src/New/ files, and extract_and_write computes bounded BFS nearest-landmark import projection strictly under src/ or repo root while build_dag preserves direct-import behavior and optional Lake elaboration stays deferred under RH-D11.",
+      "revision": 3,
+      "subject": "DEC-V5ASDJ"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-MGRC9R",
+      "items": [
+        "sha256:773c5e8a676b5fbfbd6128f0a2d814517dd6ea2203429b8049ecf65b014a0a24"
+      ],
+      "reason": "Internal frozen dataclass _DeclSpan in parser.py holding declaration span indices for _Parser (INV-0WN2N4); no independent rule.",
+      "subject": "hunk:sha256:773c5e8a676b5fbfbd6128f0a2d814517dd6ea2203429b8049ecf65b014a0a24"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-MKK7ZJ",
+      "items": [
+        "sha256:f5e1ca8f52d350f0e319a900ddd88ae32b621fa4bd6f792ab27d34e35058ba31"
+      ],
+      "reason": "Authored onboarding card and sidecar for new nearest-landmark Lean import projection module src/rh_pipeline/graph/import_projection.py.",
+      "sources": [
+        {
+          "blob": "af33e807946358fa22d9be804bf4629e9e03a9d5",
+          "path": "src/rh_pipeline/graph/import_projection.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/graph/import_projection.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-MN64EC",
+      "items": [
+        "sha256:07d82c951ba55b533a293734b4c2dce623fd38b8053c883bd00df66202a92cc4"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/06_one_lift/lift_volume_height.lean (upstream src/New/OneLift/LiftVolumeHeight.lean, node 06_one_lift/lift_volume_height, 29 declarations).",
+      "sources": [
+        {
+          "blob": "e27732c8aff47fb2ef5083589c8481a0b35c11e4",
+          "path": "skeleton/06_one_lift/lift_volume_height.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/06_one_lift/lift_volume_height.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-PD4HRT",
+      "items": [
+        "sha256:e55454a5af2e96d407db1954e03aa21030142ee8eb0d4eb4914bf345b7180b64"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/06_one_lift/periods_of_false_lifts.lean (upstream src/New/OneLift/FalseLifts/PeriodsOfFalseLifts.lean, node 06_one_lift/periods_of_false_lifts, 13 declarations).",
+      "sources": [
+        {
+          "blob": "0c5ee8c7a863bc316de11c4133bcbd194b80f6f8",
+          "path": "skeleton/06_one_lift/periods_of_false_lifts.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/06_one_lift/periods_of_false_lifts.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-PEKEE2",
+      "items": [
+        "sha256:ab56a7f15ffcfe810ab2deb30f51cf47395c6d63862548c298950acc490b17a2"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/05_determinant/long_forms.lean (upstream src/New/Determinant/Twist/LongForms.lean, node 05_determinant/long_forms, 9 declarations).",
+      "sources": [
+        {
+          "blob": "1beaf5fd3e31ace503575dcb6ce2d5709e8264ec",
+          "path": "skeleton/05_determinant/long_forms.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/05_determinant/long_forms.lean"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-R2GHQ9",
+      "items": [
+        "sha256:77bcccf647a01fbffbdb6b9c3a28dd36defb666da5e2eb6d8bc511ead18c15bc"
+      ],
+      "reason": "Module import of CLOSE_DELIMS, LeanLexer, Token, UnsupportedLeanFormError and split_dotted_name from _lexer.py in parser.py wiring INV-0WN2N4 realizations; no standalone invariant.",
+      "subject": "hunk:sha256:77bcccf647a01fbffbdb6b9c3a28dd36defb666da5e2eb6d8bc511ead18c15bc"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R08",
+          "packet": "RH-R08-v1-proof-cartography-and-journey-map.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        },
+        "DEC-V5ASDJ"
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:1b18f7439cc36b7673d71cd08907c5e4aadc29922c554c94f56de1dc8dbebb64",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_root_prefix_overrides_open_namespace"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "before": "absent",
+          "id": "PRF-1KF7CN"
+        },
+        {
+          "after": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:91dfa50fc4ff406048383bf9661149d1646e2b86c0bd6d9377b28e5dfed8a96f",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_additional_closed_world_refusals"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "before": "absent",
+          "id": "PRF-3KV61C"
+        },
+        {
+          "after": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:2d192926ffb00baca09cf6b491a3ae7b0ff2a6527d2eb48c2599dd27e28f91bc",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_equation_compiler_bars_vs_norm_bars_and_round_trip"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "before": "absent",
+          "id": "PRF-5D5YCX"
+        },
+        {
+          "after": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:82fd4c905ade4dad7f92b3ac8159cca38cb4180b48cb36ecd9a7fc6f58509b2a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_admitted_full_fixture_extracts_all_declarations_and_imports"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "before": {
+            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "content": "sha256:82fd4c905ade4dad7f92b3ac8159cca38cb4180b48cb36ecd9a7fc6f58509b2a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_admitted_full_fixture_extracts_all_declarations_and_imports"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "id": "PRF-5W0TMV"
+        },
+        {
+          "after": "absent",
+          "before": {
+            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "content": "sha256:91dfa50fc4ff406048383bf9661149d1646e2b86c0bd6d9377b28e5dfed8a96f",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_additional_closed_world_refusals"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "id": "PRF-66ZRCM"
+        },
+        {
+          "after": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:8de7150e4ad759831873398fdc410d9f28144ff123733c134a77b6e8b0963adc",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_admitted_commands_sections_and_local_instances"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "before": "absent",
+          "id": "PRF-8JBDK1"
+        },
+        {
+          "after": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:8f20c22080b6c46557bd51bda651c546e014b9715ac069903358ea0adb4f7467",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_refuses_col0_where_after_def"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "before": {
+            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "content": "sha256:8f20c22080b6c46557bd51bda651c546e014b9715ac069903358ea0adb4f7467",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_refuses_col0_where_after_def"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "id": "PRF-8RMK16"
+        },
+        {
+          "after": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:5e8300728db8d9ba3c90bda22d2c698500bc551f7cf3092b1cfb98ee30d23213",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_all_refused_fixture_files_are_listed"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "before": {
+            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "content": "sha256:5e8300728db8d9ba3c90bda22d2c698500bc551f7cf3092b1cfb98ee30d23213",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_all_refused_fixture_files_are_listed"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "id": "PRF-9EYEA5"
+        },
+        {
+          "after": "absent",
+          "before": {
+            "blob": "7fea8cee2f656940595b1aa216e56a5d4c776f2a",
+            "content": "sha256:a2547902579cc45532a3ab69286851ff10bad0893514705e5d19d7854ba859e9",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_refused_fixtures_raise_unsupported_error"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "id": "PRF-F0WBQV"
+        },
+        {
+          "after": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:20ff947aed90431f7068be752a870a05cd14456ccc6048372aa720aed292968a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_where_bodies_and_anonymous_instances_round_trip"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "before": "absent",
+          "id": "PRF-K9KA1N"
+        },
+        {
+          "after": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:b73ffc90c5d809f4dc95e13e7bac3a2119c42f996a70500f1a164dc7291e0f39",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_scoped_in_prefixes_stripped_before_and_after_docs"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "before": "absent",
+          "id": "PRF-YSRBVB"
+        },
+        {
+          "after": {
+            "blob": "30790e869561b711e46258ff51dba3717a88b73a",
+            "content": "sha256:a2547902579cc45532a3ab69286851ff10bad0893514705e5d19d7854ba859e9",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_refused_fixtures_raise_unsupported_error"
+            },
+            "path": "tests/unit/test_lean_parser.py"
+          },
+          "before": "absent",
+          "id": "PRF-Z2F01G"
+        },
+        {
+          "after": {
+            "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+            "content": "sha256:847c72334cc4464a8513fd0a62405a130213045e7221b8f51e0f3fbdd97f5c4f",
+            "locator": {
+              "kind": "symbol",
+              "name": "_Parser"
+            },
+            "path": "src/rh_pipeline/lean/parser.py"
+          },
+          "before": "absent",
+          "id": "RLZ-1J9YRV"
+        },
+        {
+          "after": {
+            "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+            "content": "sha256:48b24bb94820ceb8dbffe31ce28bccb9b50e95dc035f38fe35265bf590e324c9",
+            "locator": {
+              "kind": "symbol",
+              "name": "LeanLexer"
+            },
+            "path": "src/rh_pipeline/lean/_lexer.py"
+          },
+          "before": "absent",
+          "id": "RLZ-C96JCS"
+        },
+        {
+          "after": {
+            "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+            "content": "sha256:1b120ce85caa514c448a1b017aaa3358861fcfc2713ecb71746089354aca7b11",
+            "locator": {
+              "kind": "symbol",
+              "name": "UnsupportedLeanFormError"
+            },
+            "path": "src/rh_pipeline/lean/_lexer.py"
+          },
+          "before": {
+            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+            "content": "sha256:1b120ce85caa514c448a1b017aaa3358861fcfc2713ecb71746089354aca7b11",
+            "locator": {
+              "kind": "symbol",
+              "name": "UnsupportedLeanFormError"
+            },
+            "path": "src/rh_pipeline/lean/parser.py"
+          },
+          "id": "RLZ-CYQKPV"
+        },
+        {
+          "after": {
+            "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+            "content": "sha256:337994ec8c9fc70feb02b3edfc7a3529a95fca773b9d17b857e7a1e31f95e64b",
+            "locator": {
+              "kind": "symbol",
+              "name": "extract_declarations"
+            },
+            "path": "src/rh_pipeline/lean/parser.py"
+          },
+          "before": {
+            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
+            "content": "sha256:17464037981b8e80728ca46cee5308fa650874530e3df330a750d0cc5ea8fb56",
+            "locator": {
+              "kind": "symbol",
+              "name": "extract_declarations"
+            },
+            "path": "src/rh_pipeline/lean/parser.py"
+          },
+          "id": "RLZ-ZS7RPJ"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-R2JF1C",
+      "items": [
+        "sha256:3431f729e596a4ef48d3b5f3ba71cd3a8d8e3e269cc3932092db4945cd8deee4"
+      ],
+      "reason": "Updated INV-0WN2N4 statement, scope and admission for RH-R08@v1 hardened closed-world Lean 4 parsing across parser.py and _lexer.py, covering moved RLZ-CYQKPV at _lexer.py, re-anchored RLZ-ZS7RPJ, attached LeanLexer (RLZ-C96JCS) and _Parser (RLZ-1J9YRV) realizations, removed superseded refusal proofs PRF-66ZRCM and PRF-F0WBQV, and added replacement refusal and src/New/ admission/round-trip proofs.",
+      "revision": 2,
+      "subject": "INV-0WN2N4"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-RAG2A5",
+      "items": [
+        "sha256:dae3b58ab1671ef2b68cd6ea65311fbaa31e4f00fa782ba93132962386b706c6"
+      ],
+      "reason": "Internal _resolve_depends_on parameter plumbing and projection override branch in stage_map.py called exclusively by build_dag (INV-Y5X0FK); no separate invariant.",
+      "subject": "hunk:sha256:dae3b58ab1671ef2b68cd6ea65311fbaa31e4f00fa782ba93132962386b706c6"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R08",
+          "packet": "RH-R08-v1-proof-cartography-and-journey-map.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        },
+        "DEC-V5ASDJ"
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
+            "content": "sha256:fae435289cdffee67d64d12ea028bb5a6de238e509ce781bd95de0b771c6791a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_verbatim_def_single_line_and_multiline_indented_bodies"
+            },
+            "path": "tests/unit/test_stub_emitter.py"
+          },
+          "before": {
+            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "content": "sha256:fae435289cdffee67d64d12ea028bb5a6de238e509ce781bd95de0b771c6791a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_verbatim_def_single_line_and_multiline_indented_bodies"
+            },
+            "path": "tests/unit/test_stub_emitter.py"
+          },
+          "id": "PRF-09YHHK"
+        },
+        {
+          "after": {
+            "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
+            "content": "sha256:3ec2a143b828338d039b7e84b5c62090aca0bba9f48592c667c001687094642a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_deterministic_byte_identical_rerendering"
+            },
+            "path": "tests/unit/test_stub_emitter.py"
+          },
+          "before": {
+            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "content": "sha256:3ec2a143b828338d039b7e84b5c62090aca0bba9f48592c667c001687094642a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_deterministic_byte_identical_rerendering"
+            },
+            "path": "tests/unit/test_stub_emitter.py"
+          },
+          "id": "PRF-56FECF"
+        },
+        {
+          "after": {
+            "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
+            "content": "sha256:07f7866b95fd42b5c529fd09b11f28d21b13cc64ed85f007d82b75a87b3119e7",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_verbatim_where_and_equation_arm_bodies_omit_assign"
+            },
+            "path": "tests/unit/test_stub_emitter.py"
+          },
+          "before": "absent",
+          "id": "PRF-FBNBWS"
+        },
+        {
+          "after": {
+            "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
+            "content": "sha256:5fdc3b56bf072391eb0e97f1da54b72b09c7dcb80c9dbaacb6188f4f42b34009",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_all_ten_kinds_verbatim_vs_stub_and_exact_line_alignment"
+            },
+            "path": "tests/unit/test_stub_emitter.py"
+          },
+          "before": {
+            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "content": "sha256:5fdc3b56bf072391eb0e97f1da54b72b09c7dcb80c9dbaacb6188f4f42b34009",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_all_ten_kinds_verbatim_vs_stub_and_exact_line_alignment"
+            },
+            "path": "tests/unit/test_stub_emitter.py"
+          },
+          "id": "PRF-SR0W1D"
+        },
+        {
+          "after": {
+            "blob": "77bcf8aaeb5d60007426e1f135533fb2014dc98b",
+            "content": "sha256:9b41d37dd85606d752b3f78defc86d039028f7ab4ba4917cd22f78de55e3f46b",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_skeleton_file"
+            },
+            "path": "src/rh_pipeline/lean/stub_emitter.py"
+          },
+          "before": {
+            "blob": "eccce6f15dafc301b98c8498611ceef9bbb987e8",
+            "content": "sha256:9b41d37dd85606d752b3f78defc86d039028f7ab4ba4917cd22f78de55e3f46b",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_skeleton_file"
+            },
+            "path": "src/rh_pipeline/lean/stub_emitter.py"
+          },
+          "id": "RLZ-GYEY7B"
+        },
+        {
+          "after": {
+            "blob": "77bcf8aaeb5d60007426e1f135533fb2014dc98b",
+            "content": "sha256:dc1b295f448e67eb04626da86640b5aba24c077ee7d657c94601a6ecfa2923b7",
+            "locator": {
+              "kind": "symbol",
+              "name": "_format_verbatim_declaration"
+            },
+            "path": "src/rh_pipeline/lean/stub_emitter.py"
+          },
+          "before": "absent",
+          "id": "RLZ-JVA3QE"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "strengthen",
+      "id": "ROW-RB5EDS",
+      "items": [],
+      "reason": "Extended INV-0SYK8A statement and scope for verbatim where and equation-compiler | arm formatting without := in _format_verbatim_declaration, attached _format_verbatim_declaration realization and test_verbatim_where_and_equation_arm_bodies_omit_assign proof, and re-anchored existing entries. Evidence (rh-r08-inv-0syk8a): RH-R08@v1 Leaf 02 curation; worker report 02-worker-22fbc0ef-439c-4a3b-b96c-67ed7713e62d.md (attempt-02, code tree 85be9028b1e9a04e706618456f8baeb2b2698a9e) and Round 2 CODE PASS verdict 02-route-review-verdict.md",
+      "revision": 2,
+      "subject": "INV-0SYK8A"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-SYJYTH",
+      "items": [
+        "sha256:20c0a204c95313da524171ca0d6e3b65fc734dbcce1910fda9687392de0068f5"
+      ],
+      "reason": "Delete-only removal of old lexer constant tables in parser.py relocated into src/rh_pipeline/lean/_lexer.py (RLZ-C96JCS).",
+      "subject": "hunk:sha256:20c0a204c95313da524171ca0d6e3b65fc734dbcce1910fda9687392de0068f5"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-TGSEYG",
+      "items": [
+        "sha256:506385cbb021d83ddc0f6138d8a56f331ad004d0aa756d081f0128d35fd8484a"
+      ],
+      "reason": "Updated dag/stage-map.json card and reference [2] (refreshed [1]) for all 41 mapped upstream Lean files across 00_statement..07_congruences with preserve_defs=false on the 38 src/New/ landmarks.",
+      "sources": [
+        {
+          "blob": "3d1fd6eb1511be9cb3c43d397325840b1496dd0a",
+          "path": "dag/stage-map.json"
+        }
+      ],
+      "subject": "onboarding:dag/stage-map.json"
+    },
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "3bebdfa04ce78288dca2d118c32db64bb572516e",
+            "content": "sha256:aa00008e0ff6132295bf954bf2f03187f95e8fe80835ff30de3c25ff311c1f84",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "before": {
+            "blob": "a9af210d293d35c220e5ca1e5bb08e560cf6bba3",
+            "content": "sha256:6bb5a00705ba14938b20ebe7e659f75a5c3dfd4ceba38c7dd8eb9ab71899eba1",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "id": "RLZ-CRCTC9"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-TRQ5RS",
+      "items": [
+        "sha256:47566c327fc7377bb74886578315168e633e7894c9d54597496b8137170cd47a"
+      ],
+      "reason": "Re-anchored RLZ-CRCTC9 on site/docs/.vitepress/config.mts after adding Proof Journey to top navigation and the Stage 00 sidebar; MathJax 3 SVG, VITEPRESS_BASE, editorial light palette and script-off Vue component guarantees remain unchanged.",
+      "revision": 2,
+      "subject": "INV-VGNZKV"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-WD3PB6",
+      "items": [
+        "sha256:f33dd0679abbac9d3d51cfd4a0763943261457e71aeacc0f641a13d8eebec6d1"
+      ],
+      "reason": "Updated stub_emitter.py card and reference [2] (refreshed [1], [3]) for verbatim where and equation-compiler | arm formatting without := in _format_verbatim_declaration.",
+      "sources": [
+        {
+          "blob": "77bcf8aaeb5d60007426e1f135533fb2014dc98b",
+          "path": "src/rh_pipeline/lean/stub_emitter.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/lean/stub_emitter.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-WY7GMW",
+      "items": [
+        "sha256:27eadfec95885e6f173df4803752b853cb553b8a2ae38da29de6f021933d76bc"
+      ],
+      "reason": "Internal validation helpers _validate_projected_keys and _normalize_projected_deps in stage_map.py called exclusively by build_dag (RLZ-743519, INV-Y5X0FK); no separate invariant.",
+      "subject": "hunk:sha256:27eadfec95885e6f173df4803752b853cb553b8a2ae38da29de6f021933d76bc"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-X0YJ4D",
+      "items": [
+        "sha256:4e0cae79a944b556d55cf3c86dd8f7468fec9adb49846296bed10b24b120a45c"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/01_reduction/one_sided_bound.lean (upstream src/New/Reduction/OneSidedBound.lean, node 01_reduction/one_sided_bound, 9 declarations).",
+      "sources": [
+        {
+          "blob": "7ff5f2e69105109d86eea09b49d36bbd8e7b7f73",
+          "path": "skeleton/01_reduction/one_sided_bound.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/01_reduction/one_sided_bound.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-X1HR0E",
+      "items": [
+        "sha256:96f8f5a63f10498ba32a8834f00ef662d72dda4eae0720fe2cc811325cda16ca"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/05_determinant/fit_twists.lean (upstream src/New/Determinant/Twist/FitTwists.lean, node 05_determinant/fit_twists, 17 declarations).",
+      "sources": [
+        {
+          "blob": "6d144268fa8f8c4dfed87ae622dca523d0ce57b1",
+          "path": "skeleton/05_determinant/fit_twists.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/05_determinant/fit_twists.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-XHV3M4",
+      "items": [
+        "sha256:cabce655b5a90aebbdd221e968785e0d7eabf8b4086f808a0781af97902432a8"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/03_upper_bound/elementary_divisor_theorem.lean (upstream src/New/UpperBound/ElementaryDivisors/ElementaryDivisorTheorem.lean, node 03_upper_bound/elementary_divisor_theorem, 54 declarations).",
+      "sources": [
+        {
+          "blob": "5d31aadf27866fa24bae5faee3f1046c69c765fb",
+          "path": "skeleton/03_upper_bound/elementary_divisor_theorem.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/03_upper_bound/elementary_divisor_theorem.lean"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-XYN3TC",
+      "items": [
+        "sha256:f20d8a2d0e9bb55999dc9e51c6b9d086b313d7e09acabff60a8b167ae63cd326"
+      ],
+      "reason": "Retired refusal fixture deleted under RH-R08@v1 after anonymous colon-typed instances were admitted; fixture never had an individual onboarding card and tests/unit/test_lean_parser.py.md was updated to the 5 remaining refusal fixtures.",
+      "sources": [
+        {
+          "blob": "absent",
+          "path": "tests/fixtures/lean_parser/refused_anonymous_instance.lean"
+        }
+      ],
+      "subject": "onboarding:tests/fixtures/lean_parser/refused_anonymous_instance.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-Y10ZS8",
+      "items": [
+        "sha256:1f072249be9aa1650b779f5fff04591654d7d55f8cf19b815520412e871a49c0"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/04_spanning/spanning_theorem.lean (upstream src/New/Spanning/SecondMoment/SpanningTheorem.lean, node 04_spanning/spanning_theorem, 21 declarations).",
+      "sources": [
+        {
+          "blob": "108f9d3e604cbe8fcd87ca0ac3dce117bb8eb793",
+          "path": "skeleton/04_spanning/spanning_theorem.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/04_spanning/spanning_theorem.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-YRXRYA",
+      "items": [
+        "sha256:e09c51314b9c4c7a07e020027eac83ba0b64bd7a97a0575d0e14f5476bef0900"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/03_upper_bound/local_divisibility.lean (upstream src/New/UpperBound/Divisibility/LocalDivisibility.lean, node 03_upper_bound/local_divisibility, 15 declarations).",
+      "sources": [
+        {
+          "blob": "7210be4af01c387ce927f38d874c7bf3d9811ea6",
+          "path": "skeleton/03_upper_bound/local_divisibility.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/03_upper_bound/local_divisibility.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-Z80921",
+      "items": [
+        "sha256:e03fc261233f36c2b31905155759c227179850f233f3b67cd04d2558d4777c90"
+      ],
+      "reason": "Authored onboarding card and line-anchored sidecar for newly extracted landmark skeleton skeleton/07_congruences/denominator_bound.lean (upstream src/New/Congruences/FirstOrder/DenominatorBound.lean, node 07_congruences/denominator_bound, 37 declarations).",
+      "sources": [
+        {
+          "blob": "c8545382e6c6ce146adffe8c8d21454981e07d4f",
+          "path": "skeleton/07_congruences/denominator_bound.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/07_congruences/denominator_bound.lean"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-ZNBM27",
+      "items": [
+        "sha256:e6788eba164fe6c3a7c6fdaa39f1a178d50e5b87cfaf0dfdb26ca7d6e373b8ff"
+      ],
+      "reason": "Internal frozen dataclass _DeclPrefix in parser.py holding prefix token state for _Parser (INV-0WN2N4); no independent rule.",
+      "subject": "hunk:sha256:e6788eba164fe6c3a7c6fdaa39f1a178d50e5b87cfaf0dfdb26ca7d6e373b8ff"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:0389fc67f95eca89611cec849d8f9a29a6cbf80961cc5f187da1818647d18a0d",
+      "record": "DEC-0XZ8V5",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T15:11:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:57a2385b7c425dbcb4f062f788d1c592b3072563fb7d0c6568cc9008ccdf0607",
+      "record": "DEC-V5ASDJ",
+      "revision": 3,
+      "writer": {
+        "at": "2026-11-26T15:11:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:2640da615c944c3475ded7e1f896b80326b4222b6ba379fb03dc804caa2b9f41",
+      "record": "FAM-ZD4QRG",
+      "revision": 3,
+      "writer": {
+        "at": "2026-11-26T15:11:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:42d2360825ca6001d7df4bf44e32ad7d2cc18221e998dd5a5d4b3b8d3b642225",
+      "record": "INV-01DVB3",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T15:11:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:de47a4275c07c2e112ebf1c38fe5088eda230652eab0067a771633d8287baa72",
+      "record": "INV-0SYK8A",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T15:11:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:340b242deb56fa9633b16d8a2b4b991422809a24e2f5bb2b93ec7d6048250fdc",
+      "record": "INV-0WN2N4",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T15:11:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:af6c44529c2df14a962235313e4870754ae7e259f15b5bf4c82d2b4e8900ef4c",
+      "record": "INV-V207JN",
+      "revision": 3,
+      "writer": {
+        "at": "2026-11-26T15:11:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:28d9b362e192ac1b0fdebc9df84c672c85e4fba8aeb21e938b4056e087bfdd7c",
+      "record": "INV-Y5X0FK",
+      "revision": 3,
+      "writer": {
+        "at": "2026-11-26T15:11:11+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "02",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}

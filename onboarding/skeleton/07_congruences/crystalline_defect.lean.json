@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/07_congruences/crystalline_defect.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Congruences/LocalLoss/CrystallineDefect.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1ef78464e68a98594dffa45d983983edb17747bd",
+            "content": "sha256:52da4622828827a17c25cbf43c5df600e06b2d863d0b44cf10b577319fecbeaf",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.Selmer.eventually_exists_lettersReadThick and New.Selmer.crystalline_bound_le_defectBound and preserves structure New.Selmer.IsSummandClass verbatim with EXTRACTED_DEF tag.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1ef78464e68a98594dffa45d983983edb17747bd",
+            "content": "sha256:04b2cbe722334d9a428de6f10ea77ffcd34e2453b67bf514b2f4fed73b51e4bd",
+            "locator": {
+              "end": 183,
+              "kind": "line_range",
+              "start": 88
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the tame and general local dual-defect bounds New.Selmer.normLength_dualDefect_le_defectBound_of_isTameType and New.Selmer.normLength_dualDefect_le_of_isSummandClass.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1ef78464e68a98594dffa45d983983edb17747bd",
+            "content": "sha256:6a4eb53deeefa939687e9ba2c8e9d660dce98e878b642b181da331e417355acb",
+            "locator": {
+              "end": 301,
+              "kind": "line_range",
+              "start": 223
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/03_upper_bound/short_columns.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/UpperBound/Size/ShortColumns.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f37a1e185348740b5f3a430f15d5c8622285b53d",
+            "content": "sha256:aad23252b2c96cd8c8623516de22fab314a9f881a9e103ffa01805a705097843",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs the sole theorem New.Data.sum_scalingGenerator_pow_eq_zero_iff_exists_eq_sub characterizing vanishing scaling-generator sums (upstream 767-791, body_lines=10).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f37a1e185348740b5f3a430f15d5c8622285b53d",
+            "content": "sha256:83106a9855660c35a40149db16d3ac93af2203173585306769699e39ff0787da",
+            "locator": {
+              "end": 398,
+              "kind": "line_range",
+              "start": 382
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs New.Data.span_isShort_eq_top and New.Data.span_isShort_ramifiedSourceForms_eq_top proving B-short forms span the ramified source forms (upstream 985-1020).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f37a1e185348740b5f3a430f15d5c8622285b53d",
+            "content": "sha256:5cd0ffcd45ff286a18d961a5b77a0ba0ee85833dd18b643ec14ab257ac420024",
+            "locator": {
+              "end": 505,
+              "kind": "line_range",
+              "start": 491
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

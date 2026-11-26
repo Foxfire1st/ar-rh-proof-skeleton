@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/02_derivatives/theta_products.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Derivatives/FormalGroup/ThetaProducts.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "70cc99e2609b8f0343cb52c143b95a10043a556d",
+            "content": "sha256:6d4c4887634fa178203a24ee6fe41c617fdf4caffa2bbdc7826febe540de1581",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.Parameters.piPrimeInt_dvd_sum_linearSeries_sub_coupling proving pi_p-divisibility of linear-series sums minus couplings (upstream 243-276, body_lines=20).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "70cc99e2609b8f0343cb52c143b95a10043a556d",
+            "content": "sha256:20ea4893329c2640373f930061712bfdcf0e115815066527a13f5b31547dbbd9",
+            "locator": {
+              "end": 101,
+              "kind": "line_range",
+              "start": 86
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs New.CMLattice.rescale_thetaProd_eq_mul_expSubst and New.Parameters.exists_hasNormalForm constructing normal-form factorizations of rescaled theta products.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "70cc99e2609b8f0343cb52c143b95a10043a556d",
+            "content": "sha256:068869e8a1bafcc1c549a2481df1d4bafaacbb2803d758763d4a2edc639be68f",
+            "locator": {
+              "end": 183,
+              "kind": "line_range",
+              "start": 152
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

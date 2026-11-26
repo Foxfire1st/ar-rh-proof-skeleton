@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/05_determinant/long_forms.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Determinant/Twist/LongForms.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1beaf5fd3e31ace503575dcb6ce2d5709e8264ec",
+            "content": "sha256:05824b8a3632426bc8e4b291fc1633624a4d29637a9108fc17094247e7b3e542",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Preserves structure New.Data.IsAuxiliaryForm verbatim with EXTRACTED_DEF tag and stubs New.Data.exists_span_isAuxiliaryForm_eq_top and New.Data.exists_hasSmallRatios_heightLe_liftDeterminant_div.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1beaf5fd3e31ace503575dcb6ce2d5709e8264ec",
+            "content": "sha256:2de7c18ad111187718054cc6fc37bc5cb9a221776f47388ac7173104c3e4d785",
+            "locator": {
+              "end": 60,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the covolume lower-bound theorems New.Data.integral_forms_long_with_completion_cost and New.Data.integral_forms_long.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "1beaf5fd3e31ace503575dcb6ce2d5709e8264ec",
+            "content": "sha256:d57f8b329a5a239f716611edb5908c152c00f52910f0cd867e9eee18447f7ef2",
+            "locator": {
+              "end": 112,
+              "kind": "line_range",
+              "start": 92
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

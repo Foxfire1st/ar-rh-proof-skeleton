@@ -1,15 +1,16 @@
 {
   "admission": {
     "criteria": [
+      "spans_locations",
       "guarded_by_test",
       "prevents_costly_mistake"
     ],
-    "justification": "Unit tests and nine synthetic fixtures verify all ten admitted declaration kinds, nested := handling and default-deny refusals, preventing silent misparsing or mid-signature splitting of upstream Lean files."
+    "justification": "Realized across src/rh_pipeline/lean/parser.py and src/rh_pipeline/lean/_lexer.py and proved by unit tests and six synthetic fixtures covering all 305 src/New/ syntax forms and default-deny refusals, preventing silent misparsing or mid-signature splitting of upstream Lean files."
   },
-  "applicability": "Closed-world top-level Lean 4 declaration and import extraction in src/rh_pipeline/lean/parser.py.",
+  "applicability": "Closed-world top-level Lean 4 lexing, declaration and import extraction across src/rh_pipeline/lean/_lexer.py and src/rh_pipeline/lean/parser.py.",
   "conditions": [
-    "Normalizes CRLF/CR line endings, tracks nested block comments, strings, raw strings, char literals, guillemet names and four delimiter pairs ((), [], {}, ⦃⦄) to locate top-level := at depth 0, permits unclosed section frames to EOF and enforces balanced namespace/end.",
-    "Any unlisted top-level command, local/scoped modifier or attribute, depth-0 termination_by/decreasing_by, anonymous instance, unbalanced namespace/end, orphan doc/attribute or unclosed literal/comment/delimiter raises UnsupportedLeanFormError(rel_path, line, form)."
+    "Normalizes CRLF/CR line endings and lexes via LeanLexer.tokenize() tracking nested block comments, strings, raw strings, char literals, guillemet names, => operators and four delimiter pairs ((), [], {}, ⦃⦄), scanning depth-0 := or where before line-initial equation-compiler | arms (preserving inline |x| norms), permitting unclosed sections to EOF and enforcing balanced namespace/end.",
+    "Strips chained scoped open/omit/seal/unseal/variable/include ... in prefixes from extracted signatures, overrides open namespaces on _root_. prefixes, synthesizes sequential namespace-qualified _instance_N names inserted into anonymous colon-typed instance signatures for round-trip parity, and raises UnsupportedLeanFormError(rel_path, line, form) on unlisted commands (macro, syntax, notation, mutual, set_option, universes, variables, standalone seal/unseal, example, #check), scoped or non-instance local modifiers, depth-0 termination_by/decreasing_by, colonless anonymous instances, unbalanced scopes, orphan prefixes/docs/attributes or unclosed lexical forms."
   ],
   "exclusions": [
     "Syntactic namespace qualification rewrites only the declared name span and does not rewrite internal signature tokens; opaque accepts either no body or an explicit := body."
@@ -26,20 +27,20 @@
     "leaf": "03",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
-  "statement": "extract_declarations parses admitted top-level Lean 4 forms using delimiter-depth-aware scanning for top-level := (supporting unclosed sections, balanced namespaces, Unicode/dotted/prime/guillemet names, where+deriving blocks, and term/tactic proofs) while failing closed with UnsupportedLeanFormError(rel_path, line, form) on any unsupported construct.",
+  "statement": "extract_declarations parses admitted top-level Lean 4 forms across src/rh_pipeline/lean/parser.py and src/rh_pipeline/lean/_lexer.py—including standalone open/variable/include/omit/export/universe/attribute/grind_pattern/local grind_pattern commands, chained scoped ... in prefixes, noncomputable sections, local/scoped attributes inside @[...], local instances, _root_. namespace overrides, depth-0 :=/where/equation-arm | body splitting, and namespace-qualified anonymous instances—while failing closed with UnsupportedLeanFormError(rel_path, line, form) on any unsupported construct.",
   "supersedes": [],
   "title": "Closed-world delimiter-aware Lean 4 declaration extractor",
   "writer": {
-    "at": "2026-11-25T19:03:13+01:00",
+    "at": "2026-11-26T15:11:11+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "03",
+    "leaf": "02",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
-    "task": "261123-RH"
+    "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+    "task": "261126-EXP"
   }
 }

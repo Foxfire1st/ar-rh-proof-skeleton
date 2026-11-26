@@ -1,0 +1,41 @@
+{
+  "path": "skeleton/01_reduction/main_inequality.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Reduction/MainInequality.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e5c41806dc2b401d176a99446b6777fa3686537c",
+            "content": "sha256:8f20d8d96175eaed47f58a9abf1a2ae4bb7f259a19eb2e934b6a62045107906c",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs the sole theorem New.star_inequality (main inequality m rem <= f a log^5 b) with preserved docstring and EXTRACTED_STUB provenance marker (upstream 86-160, body_lines=69).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e5c41806dc2b401d176a99446b6777fa3686537c",
+            "content": "sha256:2e51a954637f00b779f32be8791b49b03985f73be1e6aad1811c26b528ffc9d2",
+            "locator": {
+              "end": 12,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

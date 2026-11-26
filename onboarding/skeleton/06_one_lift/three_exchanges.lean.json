@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/06_one_lift/three_exchanges.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/OneLift/ComparisonOperator/ThreeExchanges.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d874d631b3f195ecd3789fc8979fe1b21f0d10d6",
+            "content": "sha256:30f2672094fcd8c9cabbe4a291b263071954384b0641da14c92c990a73b92053",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.Data.exchangePair, New.Data.heckeValueProd and carrier-form lemmas culminating in New.Rows.carrierForm_ne_zero.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d874d631b3f195ecd3789fc8979fe1b21f0d10d6",
+            "content": "sha256:9d6bd56b4c59275eb28ba02d894508fea35009294dc03e6cc00851370a6e7180",
+            "locator": {
+              "end": 165,
+              "kind": "line_range",
+              "start": 49
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the third-exchange identity New.Data.exists_mul_thirdExchangeLeftSide_eq_choiceFn through the theta-series representation New.Data.exists_choiceFn_eq_mul_kernelClassSum.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d874d631b3f195ecd3789fc8979fe1b21f0d10d6",
+            "content": "sha256:ba31ca368a29e8e5a2baea84b5fee7c3327e47b1074988ea282a3fc7faef3e8b",
+            "locator": {
+              "end": 454,
+              "kind": "line_range",
+              "start": 328
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

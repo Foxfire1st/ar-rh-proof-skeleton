@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "fb9691744549cd274702a86dfa75d7b5ef815b50",
-        "content": "sha256:432bf99075f26929f0cb1743d84a91db432082efc5d55f57d3c2625d87e5f4e0",
+        "blob": "3d1fd6eb1511be9cb3c43d397325840b1496dd0a",
+        "content": "sha256:26a46788867a30c99d5738e21f6d090c696928f8fea7bb698efd1c2388242b32",
         "locator": {
           "kind": "file"
         }
@@ -15,7 +15,7 @@
         "handoffEntry": "RH-R03@v1 §4",
         "leaf": "03"
       },
-      "rationale": "Authoritative versioned 8-stage condensed mapping (00_statement..07_congruences) defining the 3 live Stage 00 files and empty Stages 01-07.",
+      "rationale": "Authoritative 8-stage condensed stage map mapping all 41 upstream landmark Lean files across 00_statement through 07_congruences with preserve_defs flags.",
       "role": "propagation-persistence"
     }
   ],
@@ -25,7 +25,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "fb9691744549cd274702a86dfa75d7b5ef815b50",
+            "blob": "3d1fd6eb1511be9cb3c43d397325840b1496dd0a",
             "content": "sha256:377c4693da1b5090822b521982ccb27d8f19ba246c5fde5f05df94d89e77ef3a",
             "locator": {
               "end": 26,
@@ -38,14 +38,14 @@
       ]
     },
     "2": {
-      "note": "Defines placeholder condensed proof stages 01_reduction through 07_congruences (orders 1..7) with empty files arrays.",
+      "note": "Maps 38 landmark upstream files across condensed proof stages 01_reduction through 07_congruences (orders 1..7; counts 6, 5, 5, 5, 6, 5, 6), all with preserve_defs false.",
       "targets": [
         {
           "anchor": {
-            "blob": "fb9691744549cd274702a86dfa75d7b5ef815b50",
-            "content": "sha256:29adb00eca9f8d407e8a99f658be93c2a6fbef909d756a00aa9e74120b6b7f3e",
+            "blob": "3d1fd6eb1511be9cb3c43d397325840b1496dd0a",
+            "content": "sha256:42e307555a10b457d1adbc8b3f573fb1216167f4057815c7fc6946b202026a75",
             "locator": {
-              "end": 75,
+              "end": 274,
               "kind": "line_range",
               "start": 27
             }

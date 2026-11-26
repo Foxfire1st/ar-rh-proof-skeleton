@@ -1,0 +1,103 @@
+{
+  "path": "src/rh_pipeline/lean/_lexer.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+        "content": "sha256:48b24bb94820ceb8dbffe31ce28bccb9b50e95dc035f38fe35265bf590e324c9",
+        "locator": {
+          "kind": "symbol",
+          "name": "LeanLexer"
+        }
+      },
+      "id": "RLZ-C96JCS",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-0wn2n4",
+        "leaf": "02"
+      },
+      "rationale": "Owns the delimiter- and comment-aware Lean 4 tokenizer tracking nested block comments, literals, guillemet identifiers, four delimiter pairs and => operator tokens while failing closed on lexical errors.",
+      "role": "support"
+    },
+    {
+      "anchor": {
+        "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+        "content": "sha256:1b120ce85caa514c448a1b017aaa3358861fcfc2713ecb71746089354aca7b11",
+        "locator": {
+          "kind": "symbol",
+          "name": "UnsupportedLeanFormError"
+        }
+      },
+      "id": "RLZ-CYQKPV",
+      "invariant": "INV-0WN2N4",
+      "origin": {
+        "handoffEntry": "RH-R03@v1 §2",
+        "leaf": "03"
+      },
+      "rationale": "Provides the structured closed-world refusal error formatted as rel_path:line:form.",
+      "role": "enforcement"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Defines UnsupportedLeanFormError(rel_path, line, form) formatted canonically as rel_path:line:form.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+            "content": "sha256:1b120ce85caa514c448a1b017aaa3358861fcfc2713ecb71746089354aca7b11",
+            "locator": {
+              "kind": "symbol",
+              "name": "UnsupportedLeanFormError"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Defines frozen Token span/depth records and guillemet-safe split_dotted_name.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+            "content": "sha256:58fbdc8c7a9e952328f1adce455b22e25f5ff132d1bd47dd30a55804893fca26",
+            "locator": {
+              "kind": "symbol",
+              "name": "Token"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+            "content": "sha256:6c2df9b308ae34cfadf49f7f7e4477fd1e2de3ec324c5483443824d0fabb620b",
+            "locator": {
+              "kind": "symbol",
+              "name": "split_dotted_name"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Lexes nested block comments, doc comments, strings, raw strings, char escapes, Unicode/guillemet identifiers and four delimiter pairs while failing closed on unclosed or unbalanced forms.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+            "content": "sha256:48b24bb94820ceb8dbffe31ce28bccb9b50e95dc035f38fe35265bf590e324c9",
+            "locator": {
+              "kind": "symbol",
+              "name": "LeanLexer"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

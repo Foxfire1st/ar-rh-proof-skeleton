@@ -3,7 +3,7 @@
   "proves": [
     {
       "anchor": {
-        "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+        "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
         "content": "sha256:fae435289cdffee67d64d12ea028bb5a6de238e509ce781bd95de0b771c6791a",
         "locator": {
           "kind": "symbol",
@@ -20,7 +20,7 @@
     },
     {
       "anchor": {
-        "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+        "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
         "content": "sha256:3ec2a143b828338d039b7e84b5c62090aca0bba9f48592c667c001687094642a",
         "locator": {
           "kind": "symbol",
@@ -37,7 +37,24 @@
     },
     {
       "anchor": {
-        "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+        "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
+        "content": "sha256:07f7866b95fd42b5c529fd09b11f28d21b13cc64ed85f007d82b75a87b3119e7",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_verbatim_where_and_equation_arm_bodies_omit_assign"
+        }
+      },
+      "facet": "Demonstrates that verbatim emission omits := for inline/indented where bodies and equation-compiler | arms while retaining := for norm (|x|) and identifier (whereas) bodies, round-tripping through extract_declarations and stubbing under preserve_defs=False.",
+      "id": "PRF-FBNBWS",
+      "invariant": "INV-0SYK8A",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-0syk8a",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
         "content": "sha256:5fdc3b56bf072391eb0e97f1da54b72b09c7dcb80c9dbaacb6188f4f42b34009",
         "locator": {
           "kind": "symbol",
@@ -60,7 +77,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
             "content": "sha256:5fdc3b56bf072391eb0e97f1da54b72b09c7dcb80c9dbaacb6188f4f42b34009",
             "locator": {
               "kind": "symbol",
@@ -76,7 +93,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
             "content": "sha256:fae435289cdffee67d64d12ea028bb5a6de238e509ce781bd95de0b771c6791a",
             "locator": {
               "kind": "symbol",
@@ -87,7 +104,7 @@
         },
         {
           "anchor": {
-            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
             "content": "sha256:bff32dfbd2e89252d0279d35e646c51769d11f8a5c4108817c0ca30c89380e7e",
             "locator": {
               "kind": "symbol",
@@ -103,11 +120,27 @@
       "targets": [
         {
           "anchor": {
-            "blob": "52efd9bf4d7716b8d42fd581adf341532a54a433",
+            "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
             "content": "sha256:3ec2a143b828338d039b7e84b5c62090aca0bba9f48592c667c001687094642a",
             "locator": {
               "kind": "symbol",
               "name": "test_deterministic_byte_identical_rerendering"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "4": {
+      "note": "Verifies verbatim where and equation-arm bodies omit := while norm and identifier bodies retain :=, round-tripping through extract_declarations and stubbing under preserve_defs=False.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "06b027ca4c85e92d03015d78191b14233abf0d91",
+            "content": "sha256:07f7866b95fd42b5c529fd09b11f28d21b13cc64ed85f007d82b75a87b3119e7",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_verbatim_where_and_equation_arm_bodies_omit_assign"
             }
           },
           "kind": "test"

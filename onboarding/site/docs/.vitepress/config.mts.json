@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "a9af210d293d35c220e5ca1e5bb08e560cf6bba3",
-        "content": "sha256:6bb5a00705ba14938b20ebe7e659f75a5c3dfd4ceba38c7dd8eb9ab71899eba1",
+        "blob": "3bebdfa04ce78288dca2d118c32db64bb572516e",
+        "content": "sha256:aa00008e0ff6132295bf954bf2f03187f95e8fe80835ff30de3c25ff311c1f84",
         "locator": {
           "kind": "file"
         }
@@ -15,7 +15,7 @@
         "handoffEntry": "RH-R05@v1 §3",
         "leaf": "05"
       },
-      "rationale": "Configures VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, cleanUrls, locked light editorial appearance, MathJax 3 SVG math, and Stage 00 / Concept sidebar navigation.",
+      "rationale": "Configures VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, cleanUrls, locked light editorial appearance, MathJax 3 SVG math, and top nav plus Stage 00 (including Proof Journey) and Concept sidebar navigation.",
       "role": "primary-authority"
     }
   ],
@@ -25,7 +25,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "a9af210d293d35c220e5ca1e5bb08e560cf6bba3",
+            "blob": "3bebdfa04ce78288dca2d118c32db64bb572516e",
             "content": "sha256:46596c6b9b41198c5626445b4355742d30a6ccf0d4f0a91292a638ef962fa8e2",
             "locator": {
               "kind": "symbol",
@@ -41,7 +41,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "a9af210d293d35c220e5ca1e5bb08e560cf6bba3",
+            "blob": "3bebdfa04ce78288dca2d118c32db64bb572516e",
             "content": "sha256:777c6bdaa9811d8e42a0b70cd41da0d453fed398717b418c0d20dbb654df0670",
             "locator": {
               "end": 23,
@@ -54,14 +54,14 @@
       ]
     },
     "3": {
-      "note": "`themeConfig` defines top navigation, Stage 00 (4 pages) and Foundational Concepts (index + 12 slugs) sidebar groups, `[2, 3]` outline and `ariaLabel`-annotated GitHub `socialLinks`.\n\nAnchor: `themeConfig`",
+      "note": "`themeConfig` defines 5 top navigation links (including `Proof Journey`), Stage 00 (5 pages including `Full Proof Journey & 20-Step Map`) and Foundational Concepts (index + 12 slugs) sidebar groups, `[2, 3]` outline and `ariaLabel`-annotated GitHub `socialLinks`.",
       "targets": [
         {
           "anchor": {
-            "blob": "a9af210d293d35c220e5ca1e5bb08e560cf6bba3",
-            "content": "sha256:e86df5343b6176491e4d286f13be4d460e1d090e5f9f85160c768ff39dd007b4",
+            "blob": "3bebdfa04ce78288dca2d118c32db64bb572516e",
+            "content": "sha256:6c9cdc91602212e5ebb2fa72bb9e7788ae41a0289c9e93a813d49db8f735eb05",
             "locator": {
-              "end": 110,
+              "end": 115,
               "kind": "line_range",
               "start": 24
             }

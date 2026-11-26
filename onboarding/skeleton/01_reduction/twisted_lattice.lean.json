@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/01_reduction/twisted_lattice.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Reduction/Lattices/TwistedLattice.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "4ea744cc1172e3c39cc6900e92333cbaee1091d8",
+            "content": "sha256:47d41c76457b2ec3b87bd51c12b61f2ab10ac0256fb0b492fe566116e9a62caf",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Preserves structure New.TwistedLattice verbatim with its fields and trailing EXTRACTED_DEF provenance marker (upstream 109-138).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "4ea744cc1172e3c39cc6900e92333cbaee1091d8",
+            "content": "sha256:c6b14c5b11ec1c0af42714dedd52575b74b7cab2c6eb0a01b5eb9d4669fe4fae",
+            "locator": {
+              "end": 86,
+              "kind": "line_range",
+              "start": 56
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the sole theorem New.TwistedLattice.covolume_add_index_nonneg with preserved docstring and EXTRACTED_STUB marker (upstream 444-485, body_lines=21).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "4ea744cc1172e3c39cc6900e92333cbaee1091d8",
+            "content": "sha256:a153f997c77063fe37d80b2a720065113f6189634b31827639af4242af3a760d",
+            "locator": {
+              "end": 281,
+              "kind": "line_range",
+              "start": 259
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

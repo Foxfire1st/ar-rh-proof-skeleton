@@ -3,41 +3,58 @@
   "proves": [
     {
       "anchor": {
-        "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
-        "content": "sha256:255a1cd65b9324bcd118d6d9a2324fedb7d9da8c62eeb7813e1599c2519f7a65",
+        "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+        "content": "sha256:dce34efdccebdb7fb4cc526bb287cdfba9d9ede48ba8a4cc66144ef669f0d34c",
         "locator": {
           "kind": "symbol",
-          "name": "test_committed_dag_and_stage00_skeleton_round_trip"
+          "name": "test_build_dag_with_projected_depends_on_and_validation"
         }
       },
-      "facet": "Demonstrates committed dag/dag.json round-trips byte-identically with 8 stages and 3 Stage 00 nodes, matches audit/verification-status.json upstream_commit, records challenge->statements with empty statements and main edges, and aligns every declaration span with all three re-parsed Stage 00 skeletons.",
-      "id": "PRF-1Q7FJ2",
+      "facet": "Demonstrates build_dag applies projected_depends_on overrides with deduplication, self-edge stripping and sorting while preserving direct-import fallback and rejecting unknown node or dependency IDs with StageMapError.",
+      "id": "PRF-HJN5RB",
       "invariant": "INV-Y5X0FK",
       "origin": {
-        "handoffEntry": "rh-r07-inv-y5x0fk",
-        "leaf": "01"
+        "handoffEntry": "rh-r08-inv-y5x0fk",
+        "leaf": "02"
       }
     },
     {
       "anchor": {
-        "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
-        "content": "sha256:0904903b1069f3a31e0132d0f689a80f4214d1259a3195f43e5ff3212b086456",
+        "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+        "content": "sha256:26defb7242dfe0f3ebf3b1f1930973ed2cdee1686a8ce9fddbac3fb4e5eb072e",
         "locator": {
           "kind": "symbol",
-          "name": "test_load_real_stage_map"
+          "name": "test_extract_and_write_nearest_landmark_import_projection"
         }
       },
-      "facet": "Demonstrates committed dag/stage-map.json loads cleanly into 8 consecutively ordered stages (00_statement..07_congruences, orders 0..7) with three Stage 00 mappings and empty Stages 01-07.",
-      "id": "PRF-A48A5B",
+      "facet": "Demonstrates extract_and_write projects multi-hop unmapped src/ and root imports across diamonds and cycles, stops at mapped landmarks, strips self-edges and blocks comparator/ intermediates, external imports and escaping symlinks.",
+      "id": "PRF-JKVDCV",
       "invariant": "INV-Y5X0FK",
       "origin": {
-        "handoffEntry": "rh-r07-inv-y5x0fk",
-        "leaf": "01"
+        "handoffEntry": "rh-r08-inv-y5x0fk",
+        "leaf": "02"
       }
     },
     {
       "anchor": {
-        "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+        "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+        "content": "sha256:f93fc3ff1808050614aa77cb00956e32671f2c13bc1779f92c4c24cd301e4f81",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_scan_lean_header_imports_handles_comments_and_module_syntax"
+        }
+      },
+      "facet": "Demonstrates scan_lean_header_imports skips line/nested-block comments, ignores module/prelude, parses public/meta/all import forms, halts at non-header tokens and returns sorted unique module names.",
+      "id": "PRF-JN3C66",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-y5x0fk",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
         "content": "sha256:00eb0c4a746248bda9169fdadf0611d0fd1a888067f774833adeb00d48fbf104",
         "locator": {
           "kind": "symbol",
@@ -54,7 +71,24 @@
     },
     {
       "anchor": {
-        "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+        "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+        "content": "sha256:d87d8bd1a4f5a298c4ef953d70e90d2ba3659212085a31eb1580e8a8d95727ae",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_load_real_stage_map"
+        }
+      },
+      "facet": "Demonstrates committed dag/stage-map.json loads cleanly into 8 consecutively ordered non-empty stages (00_statement..07_congruences, orders 0..7) with 41 mapped files and preserve_defs=True only on statements.lean and challenge.lean.",
+      "id": "PRF-Q6NTEB",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-y5x0fk",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
         "content": "sha256:0ce9d3808a534fe7ccd0dd81f8501581240e53a04e62c2e154ca3d41aa711d45",
         "locator": {
           "kind": "symbol",
@@ -68,17 +102,34 @@
         "handoffEntry": "RH-R03@v1 §1",
         "leaf": "03"
       }
+    },
+    {
+      "anchor": {
+        "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+        "content": "sha256:9f63d1452a69fe13772069782da573a1d4f951c3e1223d6164eb5b83d0d1350f",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_committed_dag_and_skeleton_round_trip"
+        }
+      },
+      "facet": "Demonstrates committed dag/dag.json round-trips byte-identically with 8 stages, 41 nodes, acyclicity, zero isolated nodes, challenge->statements and 01_reduction/new_main in main.depends_on, matching upstream_commit and exact declaration spans across all 41 skeletons.",
+      "id": "PRF-ZHNHMN",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-y5x0fk",
+        "leaf": "02"
+      }
     }
   ],
   "realizes": [],
   "references": {
     "1": {
-      "note": "Verifies Lean module-name resolution, real 8-stage map loading (00_statement..07_congruences, 3 Stage 00 files, empty Stages 01-07) and StageMapError validation on duplicates, non-consecutive orders and malformed inputs.",
+      "note": "Verifies Lean module-name resolution, real 8-stage map loading (00_statement..07_congruences, 41 mapped files across all 8 non-empty stages) and StageMapError validation on duplicates, non-consecutive orders and malformed inputs.",
       "targets": [
         {
           "anchor": {
-            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
-            "content": "sha256:0904903b1069f3a31e0132d0f689a80f4214d1259a3195f43e5ff3212b086456",
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:d87d8bd1a4f5a298c4ef953d70e90d2ba3659212085a31eb1580e8a8d95727ae",
             "locator": {
               "kind": "symbol",
               "name": "test_load_real_stage_map"
@@ -88,7 +139,7 @@
         },
         {
           "anchor": {
-            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
             "content": "sha256:26186912666a32b5b0bc4d756d237f65a8ffc69ab0220a72677c7409b5857593",
             "locator": {
               "kind": "symbol",
@@ -104,7 +155,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
             "content": "sha256:00eb0c4a746248bda9169fdadf0611d0fd1a888067f774833adeb00d48fbf104",
             "locator": {
               "kind": "symbol",
@@ -115,7 +166,7 @@
         },
         {
           "anchor": {
-            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
             "content": "sha256:0ce9d3808a534fe7ccd0dd81f8501581240e53a04e62c2e154ca3d41aa711d45",
             "locator": {
               "kind": "symbol",
@@ -127,15 +178,53 @@
       ]
     },
     "3": {
-      "note": "Guards committed dag/dag.json round-trip fidelity (8 stages, 3 Stage 00 nodes with challenge -> statements and empty statements/main edges), upstream_commit parity with verification-status.json and declaration line-range parity across all three Stage 00 skeletons.",
+      "note": "Guards committed dag/dag.json round-trip fidelity (8 stages, 41 nodes, acyclic, zero isolated nodes, challenge -> statements and 01_reduction/new_main in main.depends_on), upstream_commit parity with verification-status.json, and declaration line-range parity across all 41 skeletons.",
       "targets": [
         {
           "anchor": {
-            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
-            "content": "sha256:255a1cd65b9324bcd118d6d9a2324fedb7d9da8c62eeb7813e1599c2519f7a65",
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:9f63d1452a69fe13772069782da573a1d4f951c3e1223d6164eb5b83d0d1350f",
             "locator": {
               "kind": "symbol",
-              "name": "test_committed_dag_and_stage00_skeleton_round_trip"
+              "name": "test_committed_dag_and_skeleton_round_trip"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "4": {
+      "note": "Verifies Lean header import scanning, projected_depends_on validation/normalization, and end-to-end nearest-landmark BFS projection across unmapped src/ and root intermediates while blocking comparator/ files and escaping symlinks.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:f93fc3ff1808050614aa77cb00956e32671f2c13bc1779f92c4c24cd301e4f81",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_scan_lean_header_imports_handles_comments_and_module_syntax"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:dce34efdccebdb7fb4cc526bb287cdfba9d9ede48ba8a4cc66144ef669f0d34c",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_dag_with_projected_depends_on_and_validation"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "78032c9dd722a6b2e670762943bc09565ef84b6a",
+            "content": "sha256:26defb7242dfe0f3ebf3b1f1930973ed2cdee1686a8ce9fddbac3fb4e5eb072e",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_extract_and_write_nearest_landmark_import_projection"
             }
           },
           "kind": "test"

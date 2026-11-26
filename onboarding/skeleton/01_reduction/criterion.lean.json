@@ -1,0 +1,41 @@
+{
+  "path": "skeleton/01_reduction/criterion.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Reduction/Zeros/Criterion.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "96a8ff15b18e1912da5faa609f4b155d9a9fb1dd",
+            "content": "sha256:ecdcb960ce850dec13ac84bd6665681d27478d3083d27c253005b30e0f1d27f4",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs the sole theorem New.LFunction_ne_zero_of_primeRemainder_le (one-sided non-vanishing criterion) with preserved docstring and EXTRACTED_STUB provenance marker (upstream 35-90, body_lines=45).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "96a8ff15b18e1912da5faa609f4b155d9a9fb1dd",
+            "content": "sha256:1d7831bb7e21d9987744e659ec157d000fc3149eda41f23f13d5d3f844fc0f83",
+            "locator": {
+              "end": 17,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

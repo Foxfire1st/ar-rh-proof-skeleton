@@ -3,7 +3,7 @@
   "proves": [
     {
       "anchor": {
-        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
         "content": "sha256:54e741cc67ceb24a017e256855667f4bad3ce6e8557efe22cfeee17f61b02943",
         "locator": {
           "kind": "symbol",
@@ -20,7 +20,7 @@
     },
     {
       "anchor": {
-        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
         "content": "sha256:39c1194ccb133a1d16b9fda4934d298fbe0087c87a18ebdf9c9cdc5ac7bb60ba",
         "locator": {
           "kind": "symbol",
@@ -37,7 +37,7 @@
     },
     {
       "anchor": {
-        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
         "content": "sha256:698076d3e1673e2476908f6d60c79d0071c0544d8a17b94b3280bc30cc4bb1ea",
         "locator": {
           "kind": "symbol",
@@ -54,7 +54,7 @@
     },
     {
       "anchor": {
-        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
         "content": "sha256:bd5c7554c857909423057a539421b7ae6001fad33e0813060011621183551477",
         "locator": {
           "kind": "symbol",
@@ -71,7 +71,7 @@
     },
     {
       "anchor": {
-        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
         "content": "sha256:365511864f6b258809176c0e0ea440539df3626867fe5a7eaee579d3368c9aca",
         "locator": {
           "kind": "symbol",
@@ -88,7 +88,7 @@
     },
     {
       "anchor": {
-        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
         "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
         "locator": {
           "kind": "symbol",
@@ -105,7 +105,24 @@
     },
     {
       "anchor": {
-        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "content": "sha256:526ac537b13604b3de8038d84f541901d7d9897306c4d90f1d13229ff79c10d9",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_landing_index_with_proof_journey"
+        }
+      },
+      "facet": "Proves render_landing_index surfaces the Proof Journey link in intro and Stage 00 roadmap when present, excludes overview and proof-journey from Landmark Pages and emits no unpublished-stage links.",
+      "id": "PRF-MMCSHN",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-v207jn",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
         "content": "sha256:9b726b94bbf02d58878b191de8bf3b6c9420e68de90e62d901b946a2d5e6e5e0",
         "locator": {
           "kind": "symbol",
@@ -122,7 +139,7 @@
     },
     {
       "anchor": {
-        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
         "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
         "locator": {
           "kind": "symbol",
@@ -139,7 +156,24 @@
     },
     {
       "anchor": {
-        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "content": "sha256:2d781b159dd6faf7e40923bacb34664ca7b5d79c718adee62902887a6cfbd327",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_landing_index_overview_only_roadmap"
+        }
+      },
+      "facet": "Proves compile_site omits the Proof Journey link when proof-journey.md is absent, renders the 8-pillar roadmap with exact landmark counts and status fallbacks and emits no unpublished-stage links.",
+      "id": "PRF-W2P6FE",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "rh-r08-inv-v207jn",
+        "leaf": "02"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
         "content": "sha256:de48a0798b056dc3f684063955edb874be7446b8ba782ef524ab73bf71a1eff3",
         "locator": {
           "kind": "symbol",
@@ -162,7 +196,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
             "content": "sha256:365511864f6b258809176c0e0ea440539df3626867fe5a7eaee579d3368c9aca",
             "locator": {
               "kind": "symbol",
@@ -178,7 +212,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
             "content": "sha256:54e741cc67ceb24a017e256855667f4bad3ce6e8557efe22cfeee17f61b02943",
             "locator": {
               "kind": "symbol",
@@ -189,7 +223,7 @@
         },
         {
           "anchor": {
-            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
             "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
             "locator": {
               "kind": "symbol",
@@ -205,7 +239,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
             "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
             "locator": {
               "kind": "symbol",
@@ -221,11 +255,38 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
             "content": "sha256:bd5c7554c857909423057a539421b7ae6001fad33e0813060011621183551477",
             "locator": {
               "kind": "symbol",
               "name": "test_verification_banner_repo_layout"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "5": {
+      "note": "Verifies landing-index 8-pillar proof roadmap ordering, extracted landmark counts, unpublished-stage status fallbacks without dead links, and conditional `proof-journey` surfacing in intro/roadmap with `## Landmark Pages` exclusion.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "content": "sha256:2d781b159dd6faf7e40923bacb34664ca7b5d79c718adee62902887a6cfbd327",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_landing_index_overview_only_roadmap"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "content": "sha256:526ac537b13604b3de8038d84f541901d7d9897306c4d90f1d13229ff79c10d9",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_landing_index_with_proof_journey"
             }
           },
           "kind": "test"

@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/07_congruences/denominator_bound.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Congruences/FirstOrder/DenominatorBound.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c8545382e6c6ce146adffe8c8d21454981e07d4f",
+            "content": "sha256:348c4dd1cde3e367c013a0b3cde1c9548b7058f10ac10358694bff75d266ef8f",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Preserves structures New.Selmer.IsNonzeroIn and New.Selmer.IsLiftGenerator verbatim with EXTRACTED_DEF tags alongside intermediate Taylor-Wiles and Ribet lemmas.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c8545382e6c6ce146adffe8c8d21454981e07d4f",
+            "content": "sha256:f8b4f298a73e2f52275105f25ba85abef092cb8b2dd1eec87575a8da6136967a",
+            "locator": {
+              "end": 380,
+              "kind": "line_range",
+              "start": 41
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the three capstone denominator-bound theorems New.Selmer.exists_operator_ellVal_le_liftValuationBound, New.Selmer.exists_operator_det_clearingBound and New.Selmer.denominatorLe_clearingBound.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c8545382e6c6ce146adffe8c8d21454981e07d4f",
+            "content": "sha256:46ffaba005c5b580f37ffb8e87ee40ba2131f8ffef0678f1b21a4dc12be9fb76",
+            "locator": {
+              "end": 669,
+              "kind": "line_range",
+              "start": 593
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/04_spanning/moments.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Spanning/Unfolding/Moments.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d4bd4b0ccd438ae088a6e7f1e49078ae52382f1d",
+            "content": "sha256:ee829decf7fb2c953663bc42ab139cf608bffec76ddd1949a98bda9f90476fa7",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs near-isometry theorem New.Filling.HasAmplitudeBlocks.hilbertSchmidtNorm_sub_one_sq_le and second-moment theorem sum_hilbertSchmidtNorm_sq_le (upstream 473-583).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d4bd4b0ccd438ae088a6e7f1e49078ae52382f1d",
+            "content": "sha256:f90dcadba1e1ceb64196160265f8676aa6266f73cb6431c7631c53c0c4ea7317",
+            "locator": {
+              "end": 320,
+              "kind": "line_range",
+              "start": 260
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs theorems New.Filling.HasAmplitudeBlocks.hilbertSchmidtNorm_one_sub_piTensorElem_comp_sq_le and isNearIsometry_piTensorElem_comp for good forms at both primes (upstream 1177-1256).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "d4bd4b0ccd438ae088a6e7f1e49078ae52382f1d",
+            "content": "sha256:e65846766a0be72447d77c698dfe3553ed47b4d4407a8009133b2948db2423a1",
+            "locator": {
+              "end": 598,
+              "kind": "line_range",
+              "start": 548
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

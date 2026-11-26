@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/07_congruences/rows_from_eigensystems.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Congruences/GaloisRepresentations/RowsFromEigensystems.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "fcc3f0ab5764e5178503c0f7ddfdaca1a4d58c22",
+            "content": "sha256:b6480576422f389c36076b55038d3248095e75866b4aaf409805bb75d8de33a0",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs the weight-condition lemmas New.Selmer.isMainSummandWeights_descentPair and New.Selmer.isMainSummandWeights_mainPair.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "fcc3f0ab5764e5178503c0f7ddfdaca1a4d58c22",
+            "content": "sha256:4b3b5a7f06249e3df19c7d3724ff9428ed620172f71fd095ca3747f6fd700528",
+            "locator": {
+              "end": 87,
+              "kind": "line_range",
+              "start": 51
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs New.Selmer.exists_isMainSummand_of_isRepOfType and theorems New.Data.isEigenform_of_hasHeckePolyAt and New.Selmer.exists_isMainSummand_descentPair.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "fcc3f0ab5764e5178503c0f7ddfdaca1a4d58c22",
+            "content": "sha256:c3e3697d5e28cd3d86dcc366f33587767ee1cbe33a953d875e3c8e145c073c69",
+            "locator": {
+              "end": 217,
+              "kind": "line_range",
+              "start": 164
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

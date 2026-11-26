@@ -14,7 +14,7 @@ Designates `stage-map.json` as the authoritative, versioned deterministic mappin
 
 ## Relationships
 
-Summarizes [the 8-stage map](stage-map.json.md) and [the generated Stage 00 DAG](dag.json.md), paired with the top-level ownership map in [README.md](../README.md.md).
+Summarizes [the 8-stage map](stage-map.json.md) and [the generated proof DAG](dag.json.md), paired with the top-level ownership map in [README.md](../README.md.md).
 
 ## Evidence
 

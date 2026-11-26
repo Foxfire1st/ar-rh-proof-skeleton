@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/03_upper_bound/seesaw_identity.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/UpperBound/Seesaw/SeesawIdentity.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f3e46b921dcc99dc3c9fc0a44090a1c10e28c716",
+            "content": "sha256:83cab4cc2619ba0ba5a582be04bd1233d506d08ef49c66c438df04ad03303c21",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.Data.seesawDatum and New.Data.isInvariant_seesawDatum defining the finite-data tensor for the upper chain (upstream 506-538).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f3e46b921dcc99dc3c9fc0a44090a1c10e28c716",
+            "content": "sha256:cb65287fe5988fbeb6bbe405b289181eb32ae926b786f7ce669b0e4966bc1ffa",
+            "locator": {
+              "end": 227,
+              "kind": "line_range",
+              "start": 218
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the sole theorem New.Data.seesaw_identity equating the lower-chain lift to the upper-chain lift on seesawDatum (upstream 617-665, body_lines=33).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f3e46b921dcc99dc3c9fc0a44090a1c10e28c716",
+            "content": "sha256:14cf721775b2883d30626dedcb576dadc248335d2abc059ddfad77d300bac64d",
+            "locator": {
+              "end": 276,
+              "kind": "line_range",
+              "start": 259
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

@@ -4,33 +4,33 @@
       "real_alternatives",
       "constrains_future_work"
     ],
-    "justification": "Weighed the 8-pillar condensed architecture against preserving the legacy 21-stage layout and import-only vs symbol-matched DAG edges, constraining Leaf 02 Proof Cartography and all subsequent explainer stages."
+    "justification": "Weighed the 8-pillar 41-landmark condensed architecture with bounded nearest-landmark import projection against preserving the legacy 21-stage layout, symbol-matched edges or Lake elaboration, constraining all Stage 01-07 explainer leaves and future pin advances."
   },
   "alternatives": [
     {
-      "option": "Align dag/stage-map.json to the 8 condensed mathematical pillars (00_statement plus 01_reduction through 07_congruences), narrow Stage 00 to the 3 live files on condensed main (src/Statements.lean and root Challenge.lean with preserve_defs=true; src/Main.lean with preserve_defs=false), enforce closed-world default-deny Lean parsing, and derive DAG depends_on edges strictly from resolved direct Lean import statements among mapped nodes.",
-      "reason": "Matches the live condensed readable edition's src/New/ pillar structure directly while preserving a separate historical Alpoge 20-step map page, keeps formal statement definitions inspectable verbatim, fails closed on unsupported syntax, and reflects true direct imports without inventing edges.",
+      "option": "Align dag/stage-map.json to the 8 condensed mathematical pillars (00_statement plus 01_reduction through 07_congruences), map 41 landmarks (3 live Stage 00 files with preserve_defs=true on Statements/Challenge and false on Main, plus 38 src/New/ landmarks across Stages 01-07 with preserve_defs=false), harden closed-world default-deny Lean parsing across all 305 src/New/ files, keep build_dag direct-import by default, and compute DAG depends_on edges in extract_and_write via bounded BFS nearest-landmark import projection strictly through unmapped upstream src/ and root .lean headers.",
+      "reason": "Matches the live condensed readable edition's 8-pillar src/New/ structure while preserving a dedicated Alpoge 20-step historical map page, keeps Stage 00 formal definitions inspectable verbatim, fails closed on unsupported syntax, eliminates isolated DAG nodes via real upstream import chains without inventing symbol-matched edges, and stays pure-Python deterministic.",
       "status": "chosen"
     },
     {
       "option": "Retain the original 21-stage Alpoge development-step map (01_stepanov_determinant..20_grh) and stubbed formal_conjectures_* files, or infer DAG dependency edges by cross-matching duplicate declaration names across files.",
       "reason": "Diverges from the condensed 8-pillar proof layout on main@41c2716658c4, preserves stale deleted comparator/ stubs that fail extraction, and creates false dependency edges that contradict upstream imports.",
-      "reconsider_when": "Upstream re-integrates comparator/FormalConjectures*.lean onto condensed main (expanding Stage 00 from 3 to 5 files) or a future approved requirement replaces import-only DAG edges with a compiler-backed semantic dependency graph.",
+      "reconsider_when": "Upstream re-integrates comparator/FormalConjectures*.lean onto condensed main (expanding Stage 00 from 3 to 5 files) or a future approved requirement replaces import-derived DAG edges with a compiler-backed semantic dependency graph.",
       "status": "rejected"
     },
     {
-      "option": "Run Lake/Lean or read .olean files during Phase 1 extraction to obtain elaborated declarations and semantic dependencies, or populate Stages 01-07 in the same pass.",
-      "reason": "Out of scope for Leaf 01 upstream sync and deterministic pure-Python extraction; populating Stages 01-07 belongs to Leaf 02 (Proof Cartography) and any optional Lean elaboration oracle is reserved under RH-D11.",
-      "reconsider_when": "Leaf 02 maps Stages 01-07 into dag/stage-map.json or an approved requirement introduces an optional repo-local Lean elaboration oracle per RH-D11.",
+      "option": "Run Lake/Lean or read .olean files during Phase 1 extraction to obtain elaborated declarations and semantic dependencies.",
+      "reason": "Out of scope for deterministic pure-Python extraction and Proof Cartography; any optional repo-local Lean elaboration oracle remains reserved under RH-D11.",
+      "reconsider_when": "An approved requirement introduces an optional repo-local Lean elaboration oracle per RH-D11.",
       "status": "deferred"
     }
   ],
   "consequences": [
-    "Downstream validators, rh-check-upstream and the VitePress explainer builder consume the 8-stage rh-stage-map/v1, rh-dag/v1 and 3 live Stage 00 skeletons with exact upstream line ranges at 41c2716658c4.",
-    "dag/dag.json records depends_on: ['00_statement/statements'] for 00_statement/challenge (since root Challenge.lean imports Statements) and depends_on: [] for 00_statement/statements and 00_statement/main (since src/Main.lean does public import New.Main) until Leaf 02 maps New.Main."
+    "Downstream validators, rh-check-upstream and the VitePress explainer builder consume the 8-stage 41-file rh-stage-map/v1, the 41-node, 101-edge, 0-isolated acyclic rh-dag/v1 (970 declaration refs), and 41 skeleton files with exact upstream line ranges at 41c2716658c4.",
+    "dag/dag.json connects 00_statement/challenge -> 00_statement/statements and 00_statement/main -> 01_reduction/new_main -> Stages 01-07 via nearest-landmark import projection strictly under src/ or repo root (excluding comparator/ and external packages), while build_dag preserves pure direct-import behavior when called without projected_depends_on."
   ],
-  "context": "Phase 1 extracts deterministic Stage 00 Lean 4 skeleton files and a proof dependency DAG from read-only upstream riemann-hypothesis without invoking Lake or Lean; when upstream condensed into the 8-pillar readable edition at 41c2716658c4 (moving Challenge.lean to root with import Statements, delegating src/Main.lean through public import New.Main, and archiving comparator/ on alpoge@c900e67c2), the stage map and Stage 00 slice had to align with the live proof architecture.",
-  "decider": "Developer (rulings RH-D02 and RH-D07 approving RH-R03@v1, updated by RH-D18 Option 1 approving RH-R07@v1)",
+  "context": "Phase 1 extracts deterministic Lean 4 skeleton files and a proof dependency DAG from read-only upstream riemann-hypothesis without invoking Lake or Lean; after aligning Stage 00 to the 8-pillar condensed readable edition at 41c2716658c4, Proof Cartography (RH-R08@v1) had to populate 38 central src/New/ landmarks across Stages 01-07, harden the closed-world parser and stub emitter for all 305 src/New/ files, and connect landmarks across unmapped upstream helper modules without inventing symbol-matched edges.",
+  "decider": "Developer (rulings RH-D02 and RH-D07 approving RH-R03@v1, updated by RH-D18 Option 1 approving RH-R07@v1 and RH-D15/RH-D17/RH-D18 approving RH-R08@v1)",
   "id": "DEC-V5ASDJ",
   "links": [
     {
@@ -58,19 +58,19 @@
     "leaf": "03",
     "task": "261123-RH"
   },
-  "revision": 2,
+  "revision": 3,
   "schema": "ar-decision/v1",
   "status": "active",
   "supersedes": [],
   "writer": {
-    "at": "2026-11-26T12:10:47+01:00",
+    "at": "2026-11-26T15:11:11+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "01",
+    "leaf": "02",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
     "task": "261126-EXP"
   }
 }

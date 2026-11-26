@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/01_reduction/one_sided_bound.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Reduction/OneSidedBound.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7ff5f2e69105109d86eea09b49d36bbd8e7b7f73",
+            "content": "sha256:9d7dd84800f5b84f053337d6ddf0f2443ae495f4be16996432f7eacef864bb28",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.Data.primeRemainder_le bounding primeRemainder P.d P.q₀ D.x via D.logB, D.m and primeRemainder at D.x₁ (upstream 31-71, body_lines=33).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7ff5f2e69105109d86eea09b49d36bbd8e7b7f73",
+            "content": "sha256:95ea6d2268d5eb367e70e80017318529e95b4b63b6e60b57598357b5c1a55518",
+            "locator": {
+              "end": 14,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs top-level theorems New.eventually_primeRemainder_le_mul_rpow and New.grh (DirichletLNonvanishingRightOfHalf) with EXTRACTED_STUB markers.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "7ff5f2e69105109d86eea09b49d36bbd8e7b7f73",
+            "content": "sha256:788b03bc11c96ac6c332553ea38729722afadc384a44e8b95d9aea329895dbdd",
+            "locator": {
+              "end": 76,
+              "kind": "line_range",
+              "start": 65
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

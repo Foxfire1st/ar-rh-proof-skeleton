@@ -3,26 +3,26 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
-        "content": "sha256:1b120ce85caa514c448a1b017aaa3358861fcfc2713ecb71746089354aca7b11",
+        "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+        "content": "sha256:847c72334cc4464a8513fd0a62405a130213045e7221b8f51e0f3fbdd97f5c4f",
         "locator": {
           "kind": "symbol",
-          "name": "UnsupportedLeanFormError"
+          "name": "_Parser"
         }
       },
-      "id": "RLZ-CYQKPV",
+      "id": "RLZ-1J9YRV",
       "invariant": "INV-0WN2N4",
       "origin": {
-        "handoffEntry": "RH-R03@v1 §2",
-        "leaf": "03"
+        "handoffEntry": "rh-r08-inv-0wn2n4-parser",
+        "leaf": "02"
       },
-      "rationale": "Provides the structured closed-world refusal error formatted as rel_path:line:form.",
+      "rationale": "Implements the closed-world top-level Lean 4 parser state machine, scoped-prefix stripping, admitted command skipping, anonymous instance naming and line-initial bar/where body splitting enforcing INV-0WN2N4.",
       "role": "enforcement"
     },
     {
       "anchor": {
-        "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
-        "content": "sha256:17464037981b8e80728ca46cee5308fa650874530e3df330a750d0cc5ea8fb56",
+        "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+        "content": "sha256:337994ec8c9fc70feb02b3edfc7a3529a95fca773b9d17b857e7a1e31f95e64b",
         "locator": {
           "kind": "symbol",
           "name": "extract_declarations"
@@ -34,34 +34,46 @@
         "handoffEntry": "RH-R03@v1 §2",
         "leaf": "03"
       },
-      "rationale": "Owns the closed-world Lean 4 lexer and parser extracting imports and qualified declarations with exact upstream spans and body hashes.",
+      "rationale": "Owns the hardened closed-world Lean 4 parser (delegating lexing to _lexer.py) extracting imports and qualified declarations across all 305 src/New/ files with exact upstream spans and body hashes.",
       "role": "primary-authority"
     }
   ],
   "references": {
     "1": {
-      "note": "The lexer tracks nested block comments, strings, raw strings, char literals, guillemet names and four delimiter pairs to compute exact nesting depth.",
+      "note": "Normalizes CRLF/CR line endings and delegates delimiter- and comment-aware lexing to LeanLexer before running _Parser.",
       "targets": [
         {
           "anchor": {
-            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
-            "content": "sha256:dfa508619baabad9a6ad17519c4cdbef40d99c54b3f35f98caef68a6a29df784",
+            "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+            "content": "sha256:337994ec8c9fc70feb02b3edfc7a3529a95fca773b9d17b857e7a1e31f95e64b",
             "locator": {
               "kind": "symbol",
-              "name": "_Lexer"
+              "name": "extract_declarations"
             }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "5708fa2dad732a5ae7be265207bd44c7c82ae3bb",
+            "content": "sha256:48b24bb94820ceb8dbffe31ce28bccb9b50e95dc035f38fe35265bf590e324c9",
+            "locator": {
+              "kind": "symbol",
+              "name": "LeanLexer"
+            },
+            "path": "src/rh_pipeline/lean/_lexer.py"
           },
           "kind": "code"
         }
       ]
     },
     "2": {
-      "note": "Scope handling allows unclosed sections to EOF while failing closed on unbalanced namespaces, stray end or mismatched end.",
+      "note": "Admits headers, noncomputable/public/expose sections, standalone commands, scoped in prefixes, local instances and _root_. overrides while enforcing balanced namespaces and rejecting stray or mismatched end.",
       "targets": [
         {
           "anchor": {
-            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
-            "content": "sha256:91d02310a457dee342445d6583b8cffb8b188c6d1d2ba97380da946bccb2dbf8",
+            "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+            "content": "sha256:847c72334cc4464a8513fd0a62405a130213045e7221b8f51e0f3fbdd97f5c4f",
             "locator": {
               "kind": "symbol",
               "name": "_Parser"
@@ -72,12 +84,12 @@
       ]
     },
     "3": {
-      "note": "Declaration span scanning restricts column-0 where, pipe and deriving continuations to structure, inductive and class and rejects depth-0 termination_by and decreasing_by.",
+      "note": "Scans declaration spans with column-0 continuation rules for pipe, pre-body where and deriving clauses and rejects depth-0 termination_by and decreasing_by.",
       "targets": [
         {
           "anchor": {
-            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
-            "content": "sha256:88167c9a306f31be610a4ad552fe70d449e3dad9aa7468c31bb8a4fdcee470dd",
+            "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+            "content": "sha256:45fdfcced6d50d6067a0b37a9980cadacc6f71673d4b78f89f1fcdc686dfa86c",
             "locator": {
               "kind": "symbol",
               "name": "_find_decl_end"
@@ -87,11 +99,22 @@
         },
         {
           "anchor": {
-            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
-            "content": "sha256:86ca7a80fca96bc0d3aa118431830db2451fba6ccd2c23b6039bbef046ff1d78",
+            "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+            "content": "sha256:a3dd85c1f2f54597596f23d72df06053d8aa79b50d227a9a2658dd6a1d841ff3",
             "locator": {
               "kind": "symbol",
               "name": "_is_col0_continuation"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+            "content": "sha256:a668a9163b36b7a72fe4a7a490a4463554ff6100690b29339c7936bf31ce3d65",
+            "locator": {
+              "kind": "symbol",
+              "name": "_extract_declaration"
             }
           },
           "kind": "code"
@@ -99,26 +122,37 @@
       ]
     },
     "4": {
-      "note": "Signature and body splitting scans depth-0 assign tokens, allows optional-body opaque and refuses missing or empty bodies on proof and def kinds.",
+      "note": "Splits signatures and bodies at depth-0 assign, where or equation-arm pipe tokens, handles optional-body opaque, synthesizes anonymous instance names, excises skipped in prefixes and refuses missing or empty bodies.",
       "targets": [
         {
           "anchor": {
-            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
-            "content": "sha256:83d1f1f1af5c7808b12670ad8ed7cb1433280c8a3d9f30c758320d6936eefd5e",
+            "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+            "content": "sha256:04498058fc142bee5b0b13f08ce0424ca67901f91304cd38af42365b49f1a6c2",
             "locator": {
               "kind": "symbol",
-              "name": "_split_sig_body"
+              "name": "_find_body_delim"
             }
           },
           "kind": "code"
         },
         {
           "anchor": {
-            "blob": "1880173a2eace73e454617e8451813076fbeb0a5",
-            "content": "sha256:dbc4b6b4e9f9ff67e0fa92417d129995c4d8c8589b546e59e929e118c634d8fc",
+            "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+            "content": "sha256:0335b7c1ca11eee4fcf1ed6e6a91eae44e901ebfd6b8c1a94a6728f1f22b41dc",
             "locator": {
               "kind": "symbol",
-              "name": "_find_top_level_assign"
+              "name": "_build_sig_and_body"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+            "content": "sha256:483368f18763245da827e16cbec764b969bf96f8cbd5fa950cc1a58f54964758",
+            "locator": {
+              "kind": "symbol",
+              "name": "_sig_edits"
             }
           },
           "kind": "code"

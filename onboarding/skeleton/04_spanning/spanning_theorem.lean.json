@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/04_spanning/spanning_theorem.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Spanning/SecondMoment/SpanningTheorem.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "108f9d3e604cbe8fcd87ca0ac3dce117bb8eb793",
+            "content": "sha256:22588871933af2b2fe66decfe1cb609c7c266a99d585fa70426bb52e2c3c8830",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs theorems New.Data.bad_types_rare, New.Data.isNearIsometry_e₀_comp_scaledPoincare and New.Data.sum_hilbertSchmidtNorm_scaledPoincare_sq_le (upstream 234-276).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "108f9d3e604cbe8fcd87ca0ac3dce117bb8eb793",
+            "content": "sha256:a9f8f675eb750a978cec92049f5136310c430859cd4ed6faf5a211da99b40b3a",
+            "locator": {
+              "end": 130,
+              "kind": "line_range",
+              "start": 99
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs theorem New.Data.isSpread_goodPoincare proving one translate of goodPoincare is spread across the target (upstream 327-359, body_lines=26).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "108f9d3e604cbe8fcd87ca0ac3dce117bb8eb793",
+            "content": "sha256:9a257fcb6762f07b0c8948160796d2c3008abd178980466933110947e5a4d11f",
+            "locator": {
+              "end": 167,
+              "kind": "line_range",
+              "start": 159
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/04_spanning/energy_estimate.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Spanning/MainTerm/EnergyEstimate.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e7e03eab739385489ed78625da0fa1ae2f03cf04",
+            "content": "sha256:9a8d896d0f0e4aded95c41b2809d470d7fb718f672e00dd02ba557abd6463feb",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs Siegel's step New.Filling.IsFillingData.mul_sum_norm_sum_cosetAmplitude_sq_le bounding coset amplitude squares (upstream 465-551, body_lines=55).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e7e03eab739385489ed78625da0fa1ae2f03cf04",
+            "content": "sha256:92206991a145493c21085e4c10385c71af5aa342558e5e83272bfd6a7d09b2d6",
+            "locator": {
+              "end": 181,
+              "kind": "line_range",
+              "start": 148
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the sole theorem New.Filling.linkSecondMoment_isOpenElement_le bounding the main-term link second moment on open elements (upstream 620-685, body_lines=47).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e7e03eab739385489ed78625da0fa1ae2f03cf04",
+            "content": "sha256:7341712c8f13327d3369741729b3963eb46c20c5ff9911e4f0c6d418f7af88f2",
+            "locator": {
+              "end": 235,
+              "kind": "line_range",
+              "start": 215
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

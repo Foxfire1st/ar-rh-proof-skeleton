@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/07_congruences/fit_twists_exist.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Congruences/FitTwistsExist.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "3cdd3bff2980582e4c042d1c05ebe68dd5b3f00a",
+            "content": "sha256:353f12e5808227ea6e704aec480f37fc65e23f1d6ae3cd2b62b70f0f8d872460",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs theorem New.Selmer.range_goodLift_le_span_hasLiftHeckePolynomial and lemmas New.Selmer.exists_mFoldTwist_selmerLengthLe_inv_ratio_le and New.Selmer.denominatorLe_range_goodLift.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "3cdd3bff2980582e4c042d1c05ebe68dd5b3f00a",
+            "content": "sha256:700fa88cc87f65763babb6488cee588b6b0ae8151ed212a0fb49d637f7132a0e",
+            "locator": {
+              "end": 213,
+              "kind": "line_range",
+              "start": 136
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs New.Selmer.exists_mFoldTwist_hasDenominatorsLe and the Stage 07 capstone lemma New.exists_isRegularFamily.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "3cdd3bff2980582e4c042d1c05ebe68dd5b3f00a",
+            "content": "sha256:ca8c9241023acdd731ef84a20bfc4c840a1cc5b7c10cdab413807868def8a96a",
+            "locator": {
+              "end": 259,
+              "kind": "line_range",
+              "start": 236
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

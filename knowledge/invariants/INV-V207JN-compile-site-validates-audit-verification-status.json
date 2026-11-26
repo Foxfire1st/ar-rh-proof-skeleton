@@ -6,11 +6,12 @@
       "family_guarantee",
       "prevents_costly_mistake"
     ],
-    "justification": "Realized across compiler.py, renderers.py, cli/build_site.py and pyproject.toml and proved by compiler and CLI unit tests; prevents partial VitePress outputs, clobbered .vitepress/ configs, stale generated artifacts and unverified banner or Lean link drift."
+    "justification": "Realized across compiler.py, renderers.py, cli/build_site.py and pyproject.toml and proved by compiler and CLI unit tests; prevents partial VitePress outputs, clobbered .vitepress/ configs, stale generated artifacts, dead CI links on overview-only fixtures and unverified banner or Lean link drift."
   },
   "applicability": "End-to-end static-site compilation across src/rh_pipeline/site/{compiler,renderers}.py, src/rh_pipeline/cli/build_site.py and [project.scripts] in pyproject.toml.",
   "conditions": [
     "compile_site validates audit/verification-status.json, dag/dag.json (including upstream_commit parity), Concept Card and explainer gates, Stage 00 overview, asset containment and visual_ref existence in memory before touching out_docs_dir; render_verification_banner emits repo-layout='legacy' when community_verification_notes_sha256 is present and repo-layout='condensed' when None.",
+    "render_landing_index emits the /stages/00_statement/proof-journey intro link only when ('00_statement', 'proof-journey') is present in stage_titles, excludes featured overview and proof-journey pages from Landmark Pages, and renders an ordered 8-pillar roadmap from ctx.dag.stages and ctx.dag.nodes with unpublished-stage status fallbacks and zero dead links.",
     "Atomic temporary-file staging and managed-directory stale pruning run strictly inside stages/, concepts/, assets/ and public/assets/, never touching .vitepress/, and rh-build-site exits 1 with zero writes on SiteBuildError or SiteDirectiveError."
   ],
   "exclusions": [
@@ -28,20 +29,20 @@
     "leaf": "05",
     "task": "261123-RH"
   },
-  "revision": 2,
+  "revision": 3,
   "schema": "ar-invariant/v1",
-  "statement": "compile_site validates audit/verification-status.json, dag/dag.json, Concept Cards, explainer jargon, stage docs, and SVG assets completely in memory before atomically writing compiled VitePress pages (emitting layout-aware VerificationBanner repo-layout props), preserving .vitepress/ untouched and pruning stale generated files.",
+  "statement": "compile_site validates audit/verification-status.json, dag/dag.json, Concept Cards, explainer jargon, stage docs, and SVG assets completely in memory before atomically writing compiled VitePress pages (emitting layout-aware VerificationBanner repo-layout props, a conditional Proof Journey intro link safe for overview-only CI builds, and a DAG-backed 8-pillar roadmap), preserving .vitepress/ untouched and pruning stale generated files.",
   "supersedes": [],
   "title": "Fail-closed atomic rh-build-site compilation, rendering and stale pruning",
   "writer": {
-    "at": "2026-11-26T12:10:47+01:00",
+    "at": "2026-11-26T15:11:11+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "01",
+    "leaf": "02",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
     "task": "261126-EXP"
   }
 }

@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/01_reduction/new_main.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/Main.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b3fa797bd1267c35d45115e9bc94cb6309e99ace",
+            "content": "sha256:ed8b20eaa2172834661c2f9360a98bf1abd62278910a72ecf94d36433f18c629",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs New.zeros_on_line deriving DirichletLZerosOnLine from DirichletLNonvanishingRightOfHalf with EXTRACTED_STUB provenance (upstream 29-36, body_lines=4).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b3fa797bd1267c35d45115e9bc94cb6309e99ace",
+            "content": "sha256:e17bb908a92b66158295811dac522ee07ddd5c1a1df588d9931fe735040e9ce0",
+            "locator": {
+              "end": 9,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs New.zeta_zeros_on_line deriving RiemannZetaZerosOnLine from DirichletLNonvanishingRightOfHalf with EXTRACTED_STUB provenance (upstream 38-44, body_lines=4).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b3fa797bd1267c35d45115e9bc94cb6309e99ace",
+            "content": "sha256:8a7a5bf79181d670a3672f67514fe72364ff1fb991656a2aa2608ce1098dfd89",
+            "locator": {
+              "end": 15,
+              "kind": "line_range",
+              "start": 11
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

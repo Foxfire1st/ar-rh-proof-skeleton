@@ -73,7 +73,7 @@
       ]
     },
     "5": {
-      "note": "The rh-extract CLI orchestrates stage-map validation, closed-world Lean extraction, stub rendering, import-only DAG construction and atomic emission.",
+      "note": "The rh-extract CLI orchestrates stage-map validation, closed-world Lean extraction, stub rendering, nearest-landmark projected DAG construction and atomic emission.",
       "targets": [
         {
           "anchor": {

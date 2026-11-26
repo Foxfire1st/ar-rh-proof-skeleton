@@ -1,0 +1,58 @@
+{
+  "path": "skeleton/06_one_lift/gluing_maps.lean",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Auto-generated header pins upstream src/New/OneLift/ComparisonOperator/GluingMaps.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "71291a6deeb83f1a414a4cdbb1103168b0a1bac7",
+            "content": "sha256:707753c774954f4fb88500cf1151c9ed7ce7d5d632ded370eee8c55865bd46ba",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Stubs the three synthetic anonymous instances New.Rows._instance_1, New.Rows._instance_2 and New.Rows._instance_3 alongside cross-namespace abbrev New.Data.FormTuples.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "71291a6deeb83f1a414a4cdbb1103168b0a1bac7",
+            "content": "sha256:c00b6ce78832d3072f0c5cece86c17b89d8c0bf27373b54f7bbf1ca6d3ce36c8",
+            "locator": {
+              "end": 26,
+              "kind": "line_range",
+              "start": 13
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Stubs the four gluing-map theorems New.Rows.twistFactor_smul_adjoint_glue_comp, New.Rows.isOrthogonalToFalseLifts_glue_periodLift, New.Rows.periodLift_injective and New.Rows.twistFactor_ne_zero.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "71291a6deeb83f1a414a4cdbb1103168b0a1bac7",
+            "content": "sha256:f4129be45473c4ea90bd55e5b03a401abe2a47ff6fbbde0e52412aafd0ea4ae6",
+            "locator": {
+              "end": 524,
+              "kind": "line_range",
+              "start": 502
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}
