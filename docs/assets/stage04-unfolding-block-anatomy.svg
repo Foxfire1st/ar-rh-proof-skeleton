@@ -1,0 +1,389 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 756"
+     width="860"
+     height="756"
+     role="img"
+     aria-labelledby="stage04-unfolding-title stage04-unfolding-desc">
+  <title id="stage04-unfolding-title">Unfolded Block Anatomy of P_s = P* rho(s) P Across the Three Regimes of G_bar = G_{p_0} x G_{p_1}</title>
+  <desc id="stage04-unfolding-desc">Publication-grade editorial mathematical diagram of the relative-trace unfolding in src/New/Spanning/Unfolding/Moments.lean (Stage 04). Top left (cobalt, solid): schematic of the class-indexed block matrix P_s = P* rho(s) P acting on H_src = Classes x BesselCoord (dimension D_X) under HasAmplitudeBlocks, highlighting block (c, c') with formula block(c, c') = conj(A^full(c, s, c') / nu), where A^full(c, s, c') sums archimedean orbital overlap integrals A_gamma = integral beta_c(y) beta_{c'}(gamma^-1 y) W(y) tensor W(gamma^-1 y)* dy over gamma in S.termsOver c s c', giving ||P_s||_HS^2 = nu^-2 sum_{c,c'} ||A^full(c, s, c')||^2 (hilbertSchmidtNorm_sq_eq_secondMoment). Top right (rust, solid-to-dashed bridge): Archimedean Full to Cut Bridge passing from the smooth discrete-series Bessel vector W (.full, built via LargeFunction.lean and Appendix/DiscreteSeries/Periods.lean Laplace lower bound with derivative control from SchurBound.lean) via besselCut to the compactly supported cut Bessel function W^flat (.cut, supported on besselLength &lt;= b^{6n+2} with L^2 tail bound in CutTailBound.lean). Middle band: partition of G_bar = G_{p_0} x G_{p_1} into three regimes. Regime 1 (emerald, solid, filled circle): Bessel subgroup R_bar_0 carrying the unitary representation besselTranslate r_psi(s) with rho(t) P = P r_psi(t); off-R_bar_0 error on a one-prime slice is &lt;= b^-12 D_id (sum_hilbertSchmidtNorm_sub_besselTranslate_sq_le), which divides by #R_bar_0 to yield ||P* P - 1||_HS^2 &lt;= b^-12 D_X (hilbertSchmidtNorm_sub_one_sq_le). Regime 2 (cobalt, solid, filled diamond): Open Big Cell (IsOpenElement s, nonzero proper leading minors), fed to the EnergyEstimate.lean Kloosterman sieve to bound each link by (1 + b^-4) b^{-6k|S_g|} D_main and supply the leading (1 + b^-4) D_main term (linkSecondMoment_isOpenElement_le). Regime 3 (amber, dashed, filled triangle): Remaining Terms in RemainingTerms/Sum.lean splitting cross-link and g = 0 pairs (&lt;= b^{-kf} D_id, secondMoment_remainingTerms_le) and same-link meeting reductions with meetNorm s &gt;= z (&lt;= (b^{2f}/z)^k D_main). Bottom band (cobalt-accented synthesis): why two level primes M = p_0 p_1 close good-forms near-isometry. Step 1 splits 1 - g_0 tensor g_1 = (1 - g_0) tensor 1 + g_0 tensor (1 - g_1) with Re((1 - g_i)(1)) &lt;= b^-8 / 2. Step 2 holds s(i+1) = 1 at the complementary prime, forcing k in besselU (mem_besselU_of_reduction_eq_one) and simplifying tr(r_psi(s)) = D_X psi_U(s). Step 3 applies Cauchy-Schwarz against sum |psi_U^natural|^2 &lt;= 2 (sum_norm_reducedCharMean_sq_le) across both primes to get ||(1 - e_0) P||_HS^2 &lt;= 4 b^-4 D_X. Closing outcome cards state isNearIsometry_piTensorElem_comp with error 5 b^-4 alongside sum_hilbertSchmidtNorm_sq_le bounding sum_{s in G_bar} ||P* rho(s) P||_HS^2 &lt;= (1 + 9 b^-4) D_main.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+      .cal  { font-family: Georgia, 'Times New Roman', 'DejaVu Serif', serif; font-style: italic; font-weight: 700; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-slate-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+
+    <!-- Crisp card clip paths for rounded header fills and accent stripes -->
+    <clipPath id="clip-matrix-card"><rect x="14" y="48" width="544" height="204" rx="6"/></clipPath>
+    <clipPath id="clip-bridge-card"><rect x="570" y="48" width="276" height="204" rx="6"/></clipPath>
+    <clipPath id="clip-regime1"><rect x="14" y="288" width="276" height="208" rx="6"/></clipPath>
+    <clipPath id="clip-regime2"><rect x="301" y="288" width="267" height="208" rx="6"/></clipPath>
+    <clipPath id="clip-regime3"><rect x="579" y="288" width="267" height="208" rx="6"/></clipPath>
+    <clipPath id="clip-bottom-band"><rect x="14" y="524" width="832" height="220" rx="6"/></clipPath>
+    <clipPath id="clip-outcome-left"><rect x="28" y="676" width="398" height="58" rx="4"/></clipPath>
+    <clipPath id="clip-outcome-right"><rect x="438" y="676" width="396" height="58" rx="4"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="755" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="27" class="sans" font-size="15.5" font-weight="700" fill="#161b22">Unfolded Block Anatomy of P<tspan font-size="10.5" dy="3">s</tspan><tspan dy="-3"> = P* ρ(s) P in </tspan><tspan class="mono" font-size="14" fill="#1e40af">Moments.lean</tspan></text>
+    <text x="842" y="26" class="mono" font-size="11" fill="#3f4a56" text-anchor="end">src/New/Spanning/Unfolding/</text>
+    <line x1="14" y1="39" x2="846" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: UNFOLDED BLOCK MATRIX (LEFT) + ARCHIMEDEAN BRIDGE (RIGHT)     -->
+  <!-- ===================================================================== -->
+  <g id="band-top-unfolding">
+
+    <!-- LEFT CARD: UNFOLDED BLOCK MATRIX (HasAmplitudeBlocks) -->
+    <g id="card-block-matrix">
+      <rect x="14" y="48" width="544" height="204" rx="6" fill="#ffffff"/>
+      <rect x="14" y="48" width="544" height="26" fill="#edf4ff" clip-path="url(#clip-matrix-card)"/>
+      <line x1="14" y1="74" x2="558" y2="74" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="14" y="48" width="544" height="204" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+      <text x="26" y="65" class="sans" font-size="10.6" font-weight="700" fill="#1e40af">◆ UNFOLDED BLOCK MATRIX<tspan font-weight="400" font-size="9.8" fill="#3f4a56">  (</tspan><tspan class="mono" font-size="9.8" font-weight="700" fill="#161b22">HasAmplitudeBlocks</tspan><tspan font-weight="400" font-size="9.8" fill="#3f4a56">)</tspan></text>
+      <text x="546" y="65" class="sans" font-size="9.6" fill="#3f4a56" text-anchor="end"><tspan class="mono" font-size="9.3" fill="#161b22">Classes × BesselCoord</tspan>  (dim D<tspan font-size="7.2" dy="2">X</tspan><tspan dy="-2">)</tspan></text>
+
+      <!-- 3x3 Class-Indexed Block Matrix Schematic -->
+      <g id="matrix-schematic">
+        <text x="115" y="92" class="sans" font-size="10.8" font-weight="700" fill="#161b22" text-anchor="middle">P<tspan font-size="7.8" dy="2">s</tspan><tspan dy="-2"> = P* ρ(s) P</tspan></text>
+
+        <!-- Column labels -->
+        <text x="74" y="109" class="sans" font-size="9.4" fill="#3f4a56" text-anchor="middle">c<tspan font-size="7" dy="2">1</tspan><tspan dy="-2"/></text>
+        <text x="114" y="109" class="sans" font-size="10" fill="#3f4a56" text-anchor="middle">⋯</text>
+        <text x="154" y="109" class="sans" font-size="9.8" font-weight="700" fill="#1e40af" text-anchor="middle">c′</text>
+
+        <!-- Row labels -->
+        <text x="44" y="135" class="sans" font-size="9.4" fill="#3f4a56" text-anchor="end">c<tspan font-size="7" dy="2">1</tspan><tspan dy="-2"/></text>
+        <text x="44" y="169" class="sans" font-size="9.8" font-weight="700" fill="#1e40af" text-anchor="end">c</text>
+        <text x="44" y="203" class="sans" font-size="10" fill="#3f4a56" text-anchor="end">⋮</text>
+
+        <!-- Crisp Matrix Brackets -->
+        <path d="M 57 114 L 50 114 L 50 220 L 57 220" fill="none" stroke="#3f4a56" stroke-width="1.6"/>
+        <path d="M 173 114 L 180 114 L 180 220 L 173 220" fill="none" stroke="#3f4a56" stroke-width="1.6"/>
+
+        <!-- Row 0 blocks -->
+        <rect x="56" y="118" width="36" height="30" rx="3" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.1"/>
+        <rect x="96" y="118" width="36" height="30" rx="3" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+        <rect x="136" y="118" width="36" height="30" rx="3" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+        <text x="74" y="136.5" class="sans" font-size="8.6" fill="#065f46" text-anchor="middle">(c<tspan font-size="6.4" dy="1.8">1</tspan><tspan dy="-1.8">,c</tspan><tspan font-size="6.4" dy="1.8">1</tspan><tspan dy="-1.8">)</tspan></text>
+        <text x="114" y="136" class="sans" font-size="10" fill="#3f4a56" text-anchor="middle">⋯</text>
+        <text x="154" y="136.5" class="sans" font-size="8.6" fill="#3f4a56" text-anchor="middle">(c<tspan font-size="6.4" dy="1.8">1</tspan><tspan dy="-1.8">,c′)</tspan></text>
+
+        <!-- Row 1 blocks (highlighting (c, c') at rightmost column) -->
+        <rect x="56" y="152" width="36" height="30" rx="3" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+        <rect x="96" y="152" width="36" height="30" rx="3" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.1"/>
+        <rect x="136" y="152" width="36" height="30" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1.8"/>
+        <text x="74" y="170.5" class="sans" font-size="8.6" fill="#3f4a56" text-anchor="middle">(c,c<tspan font-size="6.4" dy="1.8">1</tspan><tspan dy="-1.8">)</tspan></text>
+        <text x="114" y="170.5" class="sans" font-size="8.6" fill="#065f46" text-anchor="middle">(c,c)</text>
+        <text x="154" y="170.5" class="sans" font-size="9.4" font-weight="700" fill="#1e40af" text-anchor="middle">(c,c′)</text>
+
+        <!-- Row 2 blocks -->
+        <rect x="56" y="186" width="36" height="30" rx="3" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+        <rect x="96" y="186" width="36" height="30" rx="3" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+        <rect x="136" y="186" width="36" height="30" rx="3" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.1"/>
+        <text x="74" y="204" class="sans" font-size="10" fill="#3f4a56" text-anchor="middle">⋮</text>
+        <text x="114" y="204" class="sans" font-size="10" fill="#3f4a56" text-anchor="middle">⋱</text>
+        <text x="154" y="204.5" class="sans" font-size="8.6" fill="#065f46" text-anchor="middle">(c′,c′)</text>
+
+        <!-- Matrix Footer Caption -->
+        <text x="115" y="236" class="sans" font-size="9.1" fill="#3f4a56" text-anchor="middle">Each block: #BesselCoord²</text>
+      </g>
+
+      <!-- Callout Arrow from highlighted block (c, c') to Formula Panel -->
+      <line x1="173" y1="167" x2="201" y2="167" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+
+      <!-- Formula Panel -->
+      <g id="unfolding-formula-panel">
+        <rect x="204" y="83" width="342" height="159" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+
+        <!-- Exact Block Unfolding Formula with crisp SVG overline -->
+        <text x="215" y="103" class="sans" font-size="10.4" font-weight="700" fill="#161b22">block(c, c′)  =</text>
+        <line x1="296" y1="89.5" x2="386" y2="89.5" stroke="#1e40af" stroke-width="1.15"/>
+        <text x="296" y="103" class="sans" font-size="10.5" font-weight="700" fill="#1e40af">A<tspan font-size="7.4" dy="-3.5">full</tspan><tspan dy="3.5">(c, s, c′) / ν</tspan></text>
+        <text x="396" y="103" class="sans" font-size="9.1" fill="#3f4a56">(complex conj.)</text>
+
+        <line x1="215" y1="112" x2="535" y2="112" stroke="#d8d3c8" stroke-width="1"/>
+
+        <!-- Sum over S.termsOver -->
+        <text x="215" y="128" class="sans" font-size="10" fill="#161b22"><tspan font-weight="700">A</tspan><tspan font-size="7.2" font-weight="700" dy="-3">full</tspan><tspan dy="3" font-weight="700">(c, s, c′)</tspan> = ∑<tspan font-size="7.8" dy="2.5">γ</tspan><tspan dy="-2.5"> A</tspan><tspan font-size="7.8" dy="2.5">γ</tspan><tspan dy="-2.5" font-size="9.3" fill="#3f4a56">    (γ ∈ </tspan><tspan class="mono" font-size="9" font-weight="600" fill="#161b22">S.termsOver c s c′</tspan><tspan font-size="9.3" fill="#3f4a56">)</tspan></text>
+
+        <!-- Orbital Overlap Integral A_gamma -->
+        <text x="215" y="147.5" class="sans" font-size="9.9" fill="#161b22"><tspan font-weight="700">A</tspan><tspan font-size="7.5" font-weight="700" dy="2.2">γ</tspan><tspan dy="-2.2"> = ∫ β</tspan><tspan font-size="7.5" dy="2.2">c</tspan><tspan dy="-2.2">(y) β</tspan><tspan font-size="7.5" dy="2.2">c′</tspan><tspan dy="-2.2">(γ</tspan><tspan font-size="7.2" dy="-3">−1</tspan><tspan dy="3">y) W(y) ⊗ W(γ</tspan><tspan font-size="7.2" dy="-3">−1</tspan><tspan dy="3">y)* dy</tspan></text>
+
+        <!-- Covolume note -->
+        <text x="215" y="164.5" class="sans" font-size="9.2" fill="#3f4a56">ν = <tspan class="mono" font-size="8.9" fill="#161b22">S.unipotentCovolume</tspan> &gt; 0   ·   archimedean overlap</text>
+
+        <!-- Hilbert-Schmidt Second-Moment Identity Box -->
+        <rect x="213" y="175" width="324" height="58" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1.1"/>
+        <text x="223" y="194" class="sans" font-size="10.8" font-weight="700" fill="#1e40af">‖P<tspan font-size="7.8" dy="2.2">s</tspan><tspan dy="-2.2">‖</tspan><tspan font-size="7.6" dy="-3.5">2</tspan><tspan dy="3.5" font-size="7.4">HS</tspan>  =  ν<tspan font-size="7.6" dy="-3.5">−2</tspan><tspan dy="3.5"> ∑</tspan><tspan font-size="7.4" dy="2.5">c,c′</tspan><tspan dy="-2.5"> ‖A</tspan><tspan font-size="7.4" dy="-3.5">full</tspan><tspan dy="3.5">(c, s, c′)‖</tspan><tspan font-size="7.6" dy="-3.5">2</tspan></text>
+        <text x="223" y="211" class="mono" font-size="9" font-weight="600" fill="#161b22">hilbertSchmidtNorm_sq_eq_secondMoment</text>
+        <text x="223" y="225" class="sans" font-size="9" fill="#3f4a56">Rescaled Poincaré inner products → unfolded 2nd moment</text>
+      </g>
+    </g>
+
+    <!-- RIGHT CARD: ARCHIMEDEAN FULL -> CUT BRIDGE -->
+    <g id="card-archimedean-bridge">
+      <rect x="570" y="48" width="276" height="204" rx="6" fill="#ffffff"/>
+      <rect x="570" y="48" width="276" height="26" fill="#fff5f0" clip-path="url(#clip-bridge-card)"/>
+      <line x1="570" y1="74" x2="846" y2="74" stroke="#fed7aa" stroke-width="1"/>
+      <rect x="570" y="48" width="276" height="204" rx="6" fill="none" stroke="#9a3412" stroke-width="1.5"/>
+
+      <text x="582" y="65" class="sans" font-size="10.2" font-weight="700" fill="#9a3412">■ ARCHIMEDEAN FULL → CUT BRIDGE</text>
+
+      <!-- Top Sub-box: .full discrete-series Bessel vector W -->
+      <rect x="580" y="82" width="256" height="68" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1.1"/>
+      <text x="590" y="97.5" class="sans" font-size="10" font-weight="700" fill="#161b22"><tspan class="mono" font-size="9.8" fill="#9a3412">.full</tspan>  discrete-series Bessel W</text>
+      <text x="590" y="113" class="sans" font-size="9.2" fill="#3f4a56">• <tspan class="mono" font-size="8.8" fill="#161b22">LargeFunction.lean</tspan> + <tspan class="mono" font-size="8.8" fill="#161b22">Periods.lean</tspan></text>
+      <text x="598" y="126.5" class="sans" font-size="9" fill="#3f4a56">Appendix/DiscreteSeries Laplace lower bd</text>
+      <text x="590" y="141.5" class="sans" font-size="9.2" fill="#3f4a56">• <tspan class="mono" font-size="8.8" fill="#161b22">SchurBound.lean</tspan> (derivs order ≤ 2n<tspan font-size="7" dy="-2.5">2</tspan><tspan dy="2.5">)</tspan></text>
+
+      <!-- Bridge Arrow .full -> .cut -->
+      <line x1="610" y1="150" x2="610" y2="167" stroke="#9a3412" stroke-width="1.7" marker-end="url(#arrow-rust-end)"/>
+      <text x="620" y="162.5" class="sans" font-size="9.2" font-weight="700" fill="#9a3412">truncate via <tspan class="mono" font-size="8.9">besselCut</tspan><tspan font-weight="400" fill="#3f4a56"> (21 files)</tspan></text>
+
+      <!-- Bottom Sub-box: .cut compactly supported W^flat -->
+      <rect x="580" y="170" width="256" height="72" rx="4" fill="#fff5f0" stroke="#9a3412" stroke-width="1.2" stroke-dasharray="4.5,2.5"/>
+      <text x="590" y="185.5" class="sans" font-size="10" font-weight="700" fill="#9a3412"><tspan class="mono" font-size="9.8">.cut</tspan>  compactly supported W<tspan font-size="8" dy="-3">♭</tspan></text>
+      <text x="590" y="201.5" class="sans" font-size="9.3" fill="#161b22">• Support: <tspan class="mono" font-size="8.9" font-weight="600">besselLength ≤ b</tspan><tspan font-size="7" font-weight="600" dy="-3">6n+2</tspan></text>
+      <text x="590" y="217.5" class="sans" font-size="9.2" fill="#3f4a56">• <tspan class="mono" font-size="8.8" fill="#161b22">CutTailBound.lean</tspan>: L<tspan font-size="7" dy="-2.5">2</tspan><tspan dy="2.5"> tail ‖W − W</tspan><tspan font-size="7.2" dy="-2.5">♭</tspan><tspan dy="2.5">‖</tspan></text>
+      <text x="590" y="233" class="sans" font-size="9" fill="#3f4a56">Required input for Regimes 2 &amp; 3 below</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION: BAND 1 -> THREE REGIMES OF G_bar                          -->
+  <!-- ===================================================================== -->
+  <g id="transition-top-to-regimes">
+    <!-- Left card drop to bus -->
+    <line x1="286" y1="252" x2="286" y2="266" stroke="#3f4a56" stroke-width="1.5"/>
+    <!-- Right card (.cut) dashed drop into Regimes 2 & 3 -->
+    <line x1="708" y1="252" x2="708" y2="266" stroke="#9a3412" stroke-width="1.5" stroke-dasharray="4,2.5"/>
+    <!-- Horizontal bus -->
+    <line x1="152" y1="266" x2="712.5" y2="266" stroke="#3f4a56" stroke-width="1.5"/>
+    <!-- Drops into 3 Regime cards -->
+    <line x1="152" y1="266" x2="152" y2="285" stroke="#065f46" stroke-width="1.6" marker-end="url(#arrow-emerald-end)"/>
+    <line x1="434.5" y1="266" x2="434.5" y2="285" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt-end)"/>
+    <line x1="712.5" y1="266" x2="712.5" y2="285" stroke="#92400e" stroke-width="1.6" stroke-dasharray="4,2" marker-end="url(#arrow-amber-end)"/>
+
+    <!-- Center Pill -->
+    <rect x="292" y="255" width="285" height="18" rx="9" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="434.5" y="267.5" class="sans" font-size="10" font-weight="700" fill="#3f4a56" text-anchor="middle">Three Regimes of Ḡ = G<tspan font-size="7.4" dy="2">p₀</tspan><tspan dy="-2"> × G</tspan><tspan font-size="7.4" dy="2">p₁</tspan><tspan dy="-2">  (two level primes)</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2: THREE REGIMES OF G_bar = G_{p_0} x G_{p_1}                    -->
+  <!-- ===================================================================== -->
+  <g id="band-three-regimes">
+
+    <!-- REGIME 1: BESSEL SUBGROUP R_bar_0 (EMERALD, SOLID, CIRCLE) -->
+    <g id="card-regime-1">
+      <rect x="14" y="288" width="276" height="208" rx="6" fill="#ffffff"/>
+      <rect x="14" y="288" width="276" height="26" fill="#ecfdf5" clip-path="url(#clip-regime1)"/>
+      <line x1="14" y1="314" x2="290" y2="314" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="14" y="288" width="276" height="208" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+      <text x="24" y="305" class="sans" font-size="10.2" font-weight="700" fill="#065f46">● REGIME 1 · BESSEL SUBGROUP R̄<tspan font-size="7.5" dy="2">0</tspan></text>
+
+      <text x="24" y="330.5" class="sans" font-size="9.9" fill="#161b22"><tspan class="mono" font-size="9.5" font-weight="700" fill="#065f46">besselTranslate</tspan> r<tspan font-size="7.5" dy="2">ψ</tspan><tspan dy="-2">(s): unitary rep</tspan></text>
+      <text x="24" y="346.5" class="sans" font-size="9.5" fill="#3f4a56">Intertwines R̄<tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2">:  </tspan><tspan font-weight="700" fill="#161b22">ρ(t) P = P r</tspan><tspan font-size="7.2" font-weight="700" fill="#161b22" dy="2">ψ</tspan><tspan dy="-2" font-weight="700" fill="#161b22">(t)</tspan><tspan>  (r</tspan><tspan font-size="7.2" dy="2">ψ</tspan><tspan dy="-2">(1)=1)</tspan></text>
+
+      <!-- One-prime slice error box -->
+      <rect x="22" y="356" width="260" height="58" rx="4" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.1"/>
+      <text x="30" y="370.5" class="sans" font-size="9.2" fill="#3f4a56">Off-R̄<tspan font-size="7" dy="2">0</tspan><tspan dy="-2"> error on one-prime slice (s</tspan><tspan font-size="7" dy="2">i+1</tspan><tspan dy="-2"> ∈ R̄</tspan><tspan font-size="7" dy="2">0,i+1</tspan><tspan dy="-2">):</tspan></text>
+      <text x="30" y="388" class="sans" font-size="10.4" font-weight="700" fill="#065f46">∑ ‖P<tspan font-size="7.5" dy="2">s</tspan><tspan dy="-2"> − r</tspan><tspan font-size="7.5" dy="2">ψ</tspan><tspan dy="-2">(s)‖</tspan><tspan font-size="7.4" dy="-3.5">2</tspan><tspan dy="3.5" font-size="7.2">HS</tspan>  ≤  b<tspan font-size="7.4" dy="-3.5">−12</tspan><tspan dy="3.5"> </tspan><tspan class="cal" font-size="11">D</tspan><tspan font-size="7.5" dy="2">id</tspan></text>
+      <text x="29" y="405" class="mono" font-size="7.8" fill="#3f4a56">sum_hilbertSchmidtNorm_sub_besselTranslate_sq_le</text>
+
+      <!-- Division step -->
+      <line x1="152" y1="414" x2="152" y2="428" stroke="#065f46" stroke-width="1.5" marker-end="url(#arrow-emerald-end)"/>
+      <text x="162" y="424.5" class="sans" font-size="9" font-weight="700" fill="#065f46">divide by #R̄<tspan font-size="7" dy="1.8">0</tspan></text>
+
+      <!-- Isometry Payoff Box -->
+      <rect x="22" y="431" width="260" height="57" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+      <text x="30" y="448.5" class="sans" font-size="10.8" font-weight="700" fill="#065f46">‖P* P − 1‖<tspan font-size="7.6" dy="-3.5">2</tspan><tspan dy="3.5" font-size="7.2">HS</tspan>  ≤  b<tspan font-size="7.6" dy="-3.5">−12</tspan><tspan dy="3.5"> D</tspan><tspan font-size="7.5" dy="2">X</tspan></text>
+      <text x="30" y="464.5" class="sans" font-size="9" fill="#3f4a56">Equal norm on all t ∈ R̄<tspan font-size="7" dy="1.8">0</tspan><tspan dy="-1.8"> (</tspan><tspan class="cal" font-size="9.5" fill="#161b22">D</tspan><tspan font-size="7" dy="1.8">id</tspan><tspan dy="-1.8"> = #R̄</tspan><tspan font-size="7" dy="1.8">0</tspan><tspan dy="-1.8">·D</tspan><tspan font-size="7" dy="1.8">X</tspan><tspan dy="-1.8">)</tspan></text>
+      <text x="30" y="479.5" class="mono" font-size="8.6" font-weight="700" fill="#065f46">hilbertSchmidtNorm_sub_one_sq_le</text>
+    </g>
+
+    <!-- REGIME 2: OPEN BIG CELL (COBALT, SOLID, DIAMOND) -->
+    <g id="card-regime-2">
+      <rect x="301" y="288" width="267" height="208" rx="6" fill="#ffffff"/>
+      <rect x="301" y="288" width="267" height="26" fill="#edf4ff" clip-path="url(#clip-regime2)"/>
+      <line x1="301" y1="314" x2="568" y2="314" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="301" y="288" width="267" height="208" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+      <text x="311" y="305" class="sans" font-size="10.2" font-weight="700" fill="#1e40af">◆ REGIME 2 · OPEN BIG CELL</text>
+
+      <text x="311" y="330.5" class="sans" font-size="9.9" fill="#161b22"><tspan class="mono" font-size="9.5" font-weight="700" fill="#1e40af">IsOpenElement s</tspan>  (big cell)</text>
+      <text x="311" y="346.5" class="sans" font-size="9.5" fill="#3f4a56">Nonzero proper leading minors mod p<tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2">, p</tspan><tspan font-size="7.2" dy="2">1</tspan></text>
+
+      <!-- Sieve Engine Sub-box -->
+      <rect x="309" y="356" width="251" height="58" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+      <text x="317" y="371.5" class="sans" font-size="9.5" font-weight="700" fill="#1e40af">Fed to <tspan class="mono" font-size="9.2">EnergyEstimate.lean</tspan></text>
+      <text x="317" y="387.5" class="sans" font-size="9.4" fill="#161b22">One-sided Poisson / Kloosterman sieve</text>
+      <text x="317" y="403.5" class="sans" font-size="9.1" fill="#3f4a56">Uses compactly supported <tspan class="mono" font-size="8.8" fill="#9a3412">.cut</tspan> vector W<tspan font-size="7.2" dy="-2.5">♭</tspan></text>
+
+      <!-- Sieve Output Arrow -->
+      <line x1="434.5" y1="414" x2="434.5" y2="428" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arrow-cobalt-end)"/>
+      <text x="444" y="424.5" class="sans" font-size="9" font-weight="700" fill="#1e40af">link bound</text>
+
+      <!-- Main Term Bound Box -->
+      <rect x="309" y="431" width="251" height="57" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+      <text x="317" y="448.5" class="sans" font-size="10.4" font-weight="700" fill="#1e40af">≤ (1 + b<tspan font-size="7.4" dy="-3.5">−4</tspan><tspan dy="3.5">) b</tspan><tspan font-size="7.4" dy="-3.5">−6k|S</tspan><tspan font-size="6.4" dy="1.8">g</tspan><tspan font-size="7.4" dy="-1.8">|</tspan><tspan dy="3.5"> </tspan><tspan class="cal" font-size="11">D</tspan><tspan font-size="7.4" dy="2">main</tspan></text>
+      <text x="317" y="464.5" class="sans" font-size="9.3" fill="#161b22">Supplies leading <tspan font-weight="700" fill="#1e40af">(1 + b</tspan><tspan font-size="7.2" font-weight="700" fill="#1e40af" dy="-3">−4</tspan><tspan dy="3" font-weight="700" fill="#1e40af">) </tspan><tspan class="cal" font-size="9.8" fill="#1e40af">D</tspan><tspan font-size="7.2" font-weight="700" fill="#1e40af" dy="2">main</tspan></text>
+      <text x="317" y="479.5" class="mono" font-size="8.4" font-weight="700" fill="#1e40af">linkSecondMoment_isOpenElement_le</text>
+    </g>
+
+    <!-- REGIME 3: REMAINING TERMS (AMBER, DASHED, TRIANGLE) -->
+    <g id="card-regime-3">
+      <rect x="579" y="288" width="267" height="208" rx="6" fill="#ffffff"/>
+      <rect x="579" y="288" width="267" height="26" fill="#fef6e4" clip-path="url(#clip-regime3)"/>
+      <line x1="579" y1="314" x2="846" y2="314" stroke="#e7c98f" stroke-width="1"/>
+      <rect x="579" y="288" width="267" height="208" rx="6" fill="none" stroke="#92400e" stroke-width="1.6" stroke-dasharray="6,3.5"/>
+
+      <text x="589" y="305" class="sans" font-size="10.2" font-weight="700" fill="#92400e">▲ REGIME 3 · REMAINING TERMS</text>
+
+      <text x="589" y="330.5" class="sans" font-size="9.8" fill="#161b22"><tspan class="mono" font-size="9.2" font-weight="700" fill="#92400e">RemainingTerms/Sum.lean</tspan></text>
+      <text x="589" y="346.5" class="sans" font-size="9.4" fill="#3f4a56">Common-link lattice + weighted Schur test</text>
+
+      <!-- Split A: Cross-link / g = 0 -->
+      <rect x="587" y="356" width="251" height="58" rx="4" fill="#faf9f5" stroke="#e5d5b5" stroke-width="1.1"/>
+      <text x="595" y="371" class="sans" font-size="9.4" font-weight="700" fill="#92400e">A · Cross-link &amp; g = 0 pairs</text>
+      <text x="595" y="388.5" class="sans" font-size="10.5" font-weight="700" fill="#161b22">≤  b<tspan font-size="7.5" dy="-3.5">−kf</tspan><tspan dy="3.5"> </tspan><tspan class="cal" font-size="11" fill="#92400e">D</tspan><tspan font-size="7.5" dy="2" fill="#92400e">id</tspan></text>
+      <text x="595" y="405" class="mono" font-size="8.4" fill="#3f4a56">secondMoment_remainingTerms_le</text>
+
+      <!-- Separator label -->
+      <text x="712.5" y="425" class="sans" font-size="9" font-weight="700" fill="#92400e" text-anchor="middle">+  same-link boundary reductions</text>
+
+      <!-- Split B: Same-link meeting reductions -->
+      <rect x="587" y="431" width="251" height="57" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.2" stroke-dasharray="4.5,2.5"/>
+      <text x="595" y="446.5" class="sans" font-size="9.3" font-weight="700" fill="#92400e">B · Meeting (<tspan class="mono" font-size="8.9" fill="#161b22">meetNorm s ≥ z</tspan>)</text>
+      <text x="595" y="464" class="sans" font-size="10.5" font-weight="700" fill="#161b22">≤  (b<tspan font-size="7.5" dy="-3.5">2f</tspan><tspan dy="3.5"> / z)</tspan><tspan font-size="7.5" dy="-3.5">k</tspan><tspan dy="3.5"> </tspan><tspan class="cal" font-size="11" fill="#92400e">D</tspan><tspan font-size="7.5" dy="2" fill="#92400e">main</tspan></text>
+      <text x="595" y="479.5" class="sans" font-size="8.8" fill="#3f4a56">Controls off-cell slices &amp; 2nd-moment tail</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION: REGIMES -> TWO-PRIME SYNTHESIS BANNER                     -->
+  <!-- ===================================================================== -->
+  <g id="transition-regimes-to-bottom">
+    <!-- Emerald feed from Regime 1 into Good-Forms Near-Isometry -->
+    <line x1="152" y1="496" x2="152" y2="521" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald-end)"/>
+    <text x="162" y="514" class="sans" font-size="9.3" font-weight="700" fill="#065f46">one-prime slice + P*P ≈ 1</text>
+
+    <!-- Cobalt merge from Regimes 2 & 3 into Whole-Group 2nd Moment -->
+    <path d="M 434.5 496 L 434.5 512 L 712.5 512 L 712.5 496" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+    <line x1="636" y1="512" x2="636" y2="521" stroke="#1e40af" stroke-width="1.7" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="573.5" y="507" class="sans" font-size="9.2" font-weight="700" fill="#1e40af" text-anchor="middle">combine all s ∈ Ḡ (+ .full/.cut tail)</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: TWO LEVEL PRIMES (M = p_0 p_1) CLOSE GOOD-FORMS NEAR-ISOMETRY -->
+  <!-- ===================================================================== -->
+  <g id="band-two-primes">
+    <rect x="14" y="524" width="832" height="220" rx="6" fill="#ffffff"/>
+    <rect x="14" y="524" width="832" height="26" fill="#edf4ff" clip-path="url(#clip-bottom-band)"/>
+    <rect x="14" y="524" width="6" height="220" fill="#1e40af" clip-path="url(#clip-bottom-band)"/>
+    <line x1="20" y1="550" x2="846" y2="550" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="524" width="832" height="220" rx="6" fill="none" stroke="#1e40af" stroke-width="1.7"/>
+
+    <!-- Band 3 Header -->
+    <text x="30" y="541" class="sans" font-size="10.6" font-weight="700" fill="#1e40af">WHY TWO LEVEL PRIMES (M = p<tspan font-size="7.6" dy="2">0</tspan><tspan dy="-2"> p</tspan><tspan font-size="7.6" dy="2">1</tspan><tspan dy="-2">) CLOSE GOOD-FORMS NEAR-ISOMETRY</tspan></text>
+    <text x="834" y="541" class="sans" font-size="9.7" fill="#3f4a56" text-anchor="end">e<tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2"> = g</tspan><tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2"> ⊗ g</tspan><tspan font-size="7.2" dy="2">1</tspan><tspan dy="-2">  (central idempotents on G</tspan><tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2"> × G</tspan><tspan font-size="7.2" dy="2">1</tspan><tspan dy="-2">)</tspan></text>
+
+    <!-- STEP 1: ALGEBRAIC SPLIT -->
+    <g id="step-1-split">
+      <rect x="28" y="558" width="248" height="108" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1.1"/>
+      <text x="38" y="573.5" class="sans" font-size="9.5" font-weight="700" fill="#1e40af">① ALGEBRAIC COMPLEMENT SPLIT</text>
+
+      <rect x="36" y="581" width="232" height="26" rx="3" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="152" y="598" class="sans" font-size="9.3" font-weight="700" fill="#161b22" text-anchor="middle">1 − g<tspan font-size="7" dy="2">0</tspan><tspan dy="-2"> ⊗ g</tspan><tspan font-size="7" dy="2">1</tspan><tspan dy="-2"> = (1 − g</tspan><tspan font-size="7" dy="2">0</tspan><tspan dy="-2">) ⊗ 1 + g</tspan><tspan font-size="7" dy="2">0</tspan><tspan dy="-2"> ⊗ (1 − g</tspan><tspan font-size="7" dy="2">1</tspan><tspan dy="-2">)</tspan></text>
+
+      <text x="38" y="623.5" class="sans" font-size="9.3" fill="#3f4a56">Bound x<tspan font-size="7" dy="2">i</tspan><tspan dy="-2"> = 1 − g</tspan><tspan font-size="7" dy="2">i</tspan><tspan dy="-2"> at prime p</tspan><tspan font-size="7" dy="2">i</tspan><tspan dy="-2"> while</tspan></text>
+      <text x="38" y="638" class="sans" font-size="9.3" fill="#161b22">holding <tspan font-weight="700" fill="#065f46">s(i+1) = 1</tspan> at other prime p<tspan font-size="7" dy="2">i+1</tspan></text>
+      <text x="38" y="655" class="sans" font-size="9.3" fill="#3f4a56">Bad-type share: <tspan font-weight="700" fill="#161b22">Re((1−g</tspan><tspan font-size="7" font-weight="700" fill="#161b22" dy="2">i</tspan><tspan dy="-2" font-weight="700" fill="#161b22">)(1)) ≤ b</tspan><tspan font-size="7" font-weight="700" fill="#161b22" dy="-3">−8</tspan><tspan dy="3" font-weight="700" fill="#161b22">/2</tspan></text>
+    </g>
+
+    <!-- Arrow 1 -> 2 -->
+    <line x1="276" y1="612" x2="297" y2="612" stroke="#3f4a56" stroke-width="1.6" marker-end="url(#arrow-slate-end)"/>
+
+    <!-- STEP 2: UNIPOTENT ISOLATION -->
+    <g id="step-2-unipotent">
+      <rect x="300" y="558" width="256" height="108" rx="4" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.1"/>
+      <text x="310" y="573.5" class="sans" font-size="9.5" font-weight="700" fill="#065f46">② UNIPOTENT ISOLATION (s(i+1) = 1)</text>
+
+      <text x="310" y="590.5" class="sans" font-size="9.3" fill="#161b22">Holding s(i+1) = 1 forces k ∈ <tspan class="mono" font-size="9.1" font-weight="700" fill="#065f46">besselU</tspan></text>
+      <text x="310" y="605" class="mono" font-size="8.4" fill="#065f46">mem_besselU_of_reduction_eq_one</text>
+
+      <rect x="308" y="613" width="240" height="25" rx="3" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="428" y="629.5" class="sans" font-size="10.2" font-weight="700" fill="#065f46" text-anchor="middle">tr(r<tspan font-size="7.4" dy="2">ψ</tspan><tspan dy="-2">(s))  =  D</tspan><tspan font-size="7.4" dy="2">X</tspan><tspan dy="-2"> · ψ</tspan><tspan font-size="7.4" dy="2">U</tspan><tspan dy="-2">(s)</tspan></text>
+
+      <text x="310" y="655" class="sans" font-size="9.2" fill="#3f4a56">Conjugation avg ⇒ class mean ψ<tspan font-size="7" dy="2">U</tspan><tspan font-size="7.4" dy="-5">♮</tspan><tspan dy="3"> (on Ḡ)</tspan></text>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <line x1="556" y1="612" x2="577" y2="612" stroke="#3f4a56" stroke-width="1.6" marker-end="url(#arrow-slate-end)"/>
+
+    <!-- STEP 3: CAUCHY-SCHWARZ & TWO-PRIME SUM -->
+    <g id="step-3-cauchy-schwarz">
+      <rect x="580" y="558" width="254" height="108" rx="4" fill="#faf9f5" stroke="#e7c98f" stroke-width="1.1"/>
+      <text x="590" y="573.5" class="sans" font-size="9.5" font-weight="700" fill="#92400e">③ CAUCHY–SCHWARZ &amp; SUM</text>
+
+      <text x="590" y="590.5" class="sans" font-size="9.5" fill="#161b22">Class-mean L<tspan font-size="7" dy="-2.5">2</tspan><tspan dy="2.5">:  </tspan><tspan font-weight="700">∑ |ψ</tspan><tspan font-size="7" font-weight="700" dy="2">U</tspan><tspan font-size="7.4" font-weight="700" dy="-5">♮</tspan><tspan dy="3" font-weight="700">|</tspan><tspan font-size="7" font-weight="700" dy="-2.5">2</tspan><tspan dy="2.5" font-weight="700"> ≤ 2</tspan></text>
+      <text x="590" y="605" class="mono" font-size="8.4" fill="#92400e">sum_norm_reducedCharMean_sq_le</text>
+
+      <text x="590" y="622.5" class="sans" font-size="9" fill="#3f4a56">Per prime: (√2·√(b<tspan font-size="6.8" dy="-2.5">−8</tspan><tspan dy="2.5">/2) + b</tspan><tspan font-size="6.8" dy="-2.5">−6</tspan><tspan dy="2.5">) D</tspan><tspan font-size="6.8" dy="2">X</tspan><tspan dy="-2"> ≤ 2 b</tspan><tspan font-size="6.8" dy="-2.5">−4</tspan><tspan dy="2.5"> D</tspan><tspan font-size="6.8" dy="2">X</tspan></text>
+
+      <rect x="588" y="631" width="238" height="27" rx="3" fill="#fef6e4" stroke="#e7c98f" stroke-width="1"/>
+      <text x="707" y="648.5" class="sans" font-size="10.2" font-weight="700" fill="#92400e" text-anchor="middle">‖(1 − e<tspan font-size="7.4" dy="2">0</tspan><tspan dy="-2">) P‖</tspan><tspan font-size="7.4" dy="-3.5">2</tspan><tspan dy="3.5" font-size="7">HS</tspan>  ≤  4 b<tspan font-size="7.4" dy="-3.5">−4</tspan><tspan dy="3.5"> D</tspan><tspan font-size="7.4" dy="2">X</tspan></text>
+    </g>
+
+    <!-- CLOSING OUTCOME PAIR -->
+    <!-- LEFT OUTCOME: isNearIsometry_piTensorElem_comp -->
+    <g id="outcome-near-isometry">
+      <rect x="28" y="676" width="398" height="58" rx="4" fill="#ecfdf5"/>
+      <rect x="28" y="676" width="5" height="58" fill="#065f46" clip-path="url(#clip-outcome-left)"/>
+      <rect x="28" y="676" width="398" height="58" rx="4" fill="none" stroke="#065f46" stroke-width="1.4"/>
+
+      <text x="41" y="692.5" class="sans" font-size="9.5" font-weight="700" fill="#065f46">● NEAR-ISOMETRY  ·  <tspan class="mono" font-size="9.2" fill="#161b22">isNearIsometry_piTensorElem_comp</tspan></text>
+      <text x="41" y="710" class="sans" font-size="10.7" font-weight="700" fill="#161b22"><tspan class="mono" font-size="10.2" fill="#065f46">IsNearIsometry (e</tspan><tspan class="mono" font-size="7.4" fill="#065f46" dy="2">0</tspan><tspan class="mono" font-size="10.2" fill="#065f46" dy="-2"> ∘ P) (5 b</tspan><tspan class="mono" font-size="7.4" fill="#065f46" dy="-3">−4</tspan><tspan class="mono" font-size="10.2" fill="#065f46" dy="3">)</tspan></text>
+      <text x="41" y="726" class="sans" font-size="9" fill="#3f4a56">Combines ‖P*P − 1‖<tspan font-size="6.8" dy="-2.5">2</tspan><tspan dy="2.5" font-size="6.6">HS</tspan> ≤ b<tspan font-size="6.8" dy="-2.5">−12</tspan><tspan dy="2.5"> D</tspan><tspan font-size="6.8" dy="1.8">X</tspan><tspan dy="-1.8">  +  ‖(1 − e</tspan><tspan font-size="6.8" dy="1.8">0</tspan><tspan dy="-1.8">)P‖</tspan><tspan font-size="6.8" dy="-2.5">2</tspan><tspan dy="2.5" font-size="6.6">HS</tspan> ≤ 4 b<tspan font-size="6.8" dy="-2.5">−4</tspan><tspan dy="2.5"> D</tspan><tspan font-size="6.8" dy="1.8">X</tspan></text>
+    </g>
+
+    <!-- RIGHT OUTCOME: sum_hilbertSchmidtNorm_sq_le -->
+    <g id="outcome-second-moment">
+      <rect x="438" y="676" width="396" height="58" rx="4" fill="#edf4ff"/>
+      <rect x="438" y="676" width="5" height="58" fill="#1e40af" clip-path="url(#clip-outcome-right)"/>
+      <rect x="438" y="676" width="396" height="58" rx="4" fill="none" stroke="#1e40af" stroke-width="1.4"/>
+
+      <text x="451" y="692.5" class="sans" font-size="9.5" font-weight="700" fill="#1e40af">◆ SECOND MOMENT  ·  <tspan class="mono" font-size="9.2" fill="#161b22">sum_hilbertSchmidtNorm_sq_le</tspan></text>
+      <text x="451" y="710" class="sans" font-size="10.7" font-weight="700" fill="#161b22">∑<tspan font-size="7.4" dy="2">s∈Ḡ</tspan><tspan dy="-2"> ‖P* ρ(s) P‖</tspan><tspan font-size="7.4" dy="-3.5">2</tspan><tspan dy="3.5" font-size="7">HS</tspan>  ≤  <tspan fill="#1e40af">(1 + 9 b</tspan><tspan font-size="7.4" fill="#1e40af" dy="-3.5">−4</tspan><tspan dy="3.5" fill="#1e40af">) </tspan><tspan class="cal" font-size="11.2" fill="#1e40af">D</tspan><tspan font-size="7.4" fill="#1e40af" dy="2">main</tspan></text>
+      <text x="451" y="726" class="sans" font-size="9" fill="#3f4a56">Sums Regimes 1 + 2 + 3 + .full/.cut tail   (<tspan class="cal" font-size="9.5" fill="#161b22">D</tspan><tspan font-size="6.8" dy="1.8">main</tspan><tspan dy="-1.8"> = D</tspan><tspan font-size="6.8" dy="1.8">X</tspan><tspan font-size="6.8" dy="-4.3">2</tspan><tspan dy="2.5"> / (deg·mass</tspan><tspan font-size="6.8" dy="1.8">r</tspan><tspan dy="-1.8">))</tspan></text>
+    </g>
+  </g>
+</svg>

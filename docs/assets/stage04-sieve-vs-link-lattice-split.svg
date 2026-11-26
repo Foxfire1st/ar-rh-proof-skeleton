@@ -1,0 +1,283 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 774"
+     width="860"
+     height="774"
+     role="img"
+     aria-labelledby="stage04-split-title stage04-split-desc">
+  <title id="stage04-split-title">Side-by-Side Split of the Two Analytic Engines Feeding Moments.lean in Stage 04</title>
+  <desc id="stage04-split-desc">Editorial mathematical diagram of the two parallel analytic engines feeding Moments.lean in Stage 04 of the Riemann Hypothesis proof. At the top, an entry splitter takes cut Bessel amplitude sums over rational elements gamma outside R_bar_0 and routes them into two lanes. The Left Lane (cobalt, diamond markers) shows the Main Term Big-Cell Kloosterman Sieve in EnergyEstimate.lean and GlobalSieve.lean in three steps: (1) Open Reduction implies Big Cell via IsOpenElement.leadingMinor_ne_zero, where nonzero proper leading minors yield Bruhat head factorization gamma = u w_p sigma u'^{-1}; (2) Siegel's Step via prod_bandLimit_eq_gram, gramScalar_mul_headDensity, and mul_sum_norm_sum_cosetAmplitude_sq_le pairs the archimedean band-limited Gram matrix bandLimit n against the finite Kloosterman density G.lastEntryDensity / Y.massRatio while the global product formula cancels head powers p_a; (3) Entry-by-Entry One-Sided Poisson Summation via GlobalSieve.lean::sieve, prod_poissonConst_eq, and sieve_constant_le peels off n = varrho + 1 head coordinates one by one, preserving sharp constant 1 at zero frequency and absorbing nonzero frequencies into b^{-10}. Its output box gives linkSecondMoment_isOpenElement_le: at most (1 + b^{-4}) b^{-6k|S_g|} D_main nu^2. The Right Lane (emerald and amber/rust, circle and triangle markers) shows the Remaining Terms Link-Lattice Engine in RemainingTerms/Sum.lean, SiegelLemma.lean, and SchurTest.lean: (1) Near Pairs Over Agreeing Block via corank_le_and_pairDiscriminant_le and pairDiscriminant_sq_le bounds the common link Lambda_gamma intersect Lambda_gamma' with corank l &lt;= n^3, discriminant d &lt;= b^{n^3 f}, and congruence compression d^2 &lt;= (2/M)^{2if} G(gamma) G(gamma'); (2) Branching on InSameLinkClass splits into Branch A (not InSameLinkClass: cross-link or g = 0, rust/amber) combining the (2/M)^{2if} congruence gain, Bombieri-Vaaler Siegel's lemma (tsum_sublatticeDiscriminant_inv_le), and weighted Schur test (amplitudeMajorant_sq_le, sum_termSize_mul_not_inSameLinkClass_le) to prove secondMoment_remainingTerms_le with tail at most b^{-kf} D_id, and Branch B (InSameLinkClass, g != 0, meeting reduction meetNorm s &gt;= z, emerald) extracting the frame-meeting norm gain (b^{2f}/z)^k via sum_termSize_mul_inSameLinkClass_le to prove linkSecondMoment_le_of_le_meetNorm: at most (b^{2f}/z)^k D_main nu^2. At the bottom, both lanes converge into Moments.lean, establishing both the near-R_bar_0 bound (&lt;= b^{-12} D_id implying ||P* P - 1||^2 &lt;= b^{-12} D_X) and the whole-group second moment (&lt;= (1 + 9 b^{-4}) D_main), accompanied by a rust callout noting the fundamental asymmetry: the Left Lane wins via genuine Fourier duality preserving exact constant 1, whereas the Right Lane uses absolute-value triangle inequality with no phase cancellation and wins via rank-k arithmetic sparsity.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+      .cal  { font-family: Georgia, 'Times New Roman', 'DejaVu Serif', serif; font-style: italic; font-weight: 700; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-slate-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+
+    <!-- Card clip paths for crisp header fills and accent stripes -->
+    <clipPath id="clip-left-lane"><rect x="14" y="122" width="408" height="466" rx="6"/></clipPath>
+    <clipPath id="clip-left-output"><rect x="24" y="494" width="388" height="82" rx="5"/></clipPath>
+    <clipPath id="clip-right-lane"><rect x="438" y="122" width="408" height="466" rx="6"/></clipPath>
+    <clipPath id="clip-branch-a"><rect x="472" y="306" width="364" height="136" rx="5"/></clipPath>
+    <clipPath id="clip-branch-b"><rect x="472" y="452" width="364" height="124" rx="5"/></clipPath>
+    <clipPath id="clip-convergence"><rect x="14" y="614" width="832" height="146" rx="6"/></clipPath>
+    <clipPath id="clip-asymmetry"><rect x="28" y="697" width="806" height="54" rx="4"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="773" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="27" class="sans" font-size="16" font-weight="700" fill="#161b22">Two Analytic Engines Feeding <tspan class="mono" font-size="14.5" fill="#1e40af">Moments.lean</tspan></text>
+    <text x="842" y="26" class="mono" font-size="10.8" fill="#3f4a56" text-anchor="end">src/New/Spanning/{MainTerm,RemainingTerms}/</text>
+    <line x1="14" y1="39" x2="846" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: ENTRY SPLITTER                                                -->
+  <!-- ===================================================================== -->
+  <g id="entry-splitter">
+    <rect x="14" y="47" width="832" height="48" rx="6" fill="#ffffff" stroke="#3f4a56" stroke-width="1.4"/>
+    <text x="26" y="65" class="sans" font-size="10.8" font-weight="700" fill="#161b22">ENTRY SPLITTER · CUT BESSEL AMPLITUDE SUMS OUTSIDE <tspan text-decoration="overline">R</tspan><tspan font-size="7.8" dy="2">0</tspan><tspan dy="-2"/></text>
+    <text x="834" y="65" class="sans" font-size="10.2" fill="#3f4a56" text-anchor="end">γ ∈ Γ<tspan font-size="8" dy="-3">*</tspan><tspan dy="3"> = G(E) \ </tspan><tspan text-decoration="overline">R</tspan><tspan font-size="7.6" dy="2">0</tspan><tspan dy="-2">  over block (c, s, c')</tspan></text>
+    <text x="26" y="83" class="sans" font-size="10" fill="#3f4a56"><tspan font-weight="700" fill="#1e40af">◆ Open reductions s</tspan> (same link, <tspan font-weight="700" fill="#161b22">g</tspan> ≠ 0) → Left Lane   │   <tspan font-weight="700" fill="#065f46">● Cross-link,</tspan> <tspan font-weight="700" fill="#161b22">g</tspan><tspan font-weight="700" fill="#065f46"> = 0, or meeting s</tspan> (<tspan class="mono" font-size="9.3" fill="#161b22">meetNorm s ≥ z</tspan>) → Right Lane</text>
+  </g>
+
+  <!-- Split Connectors: Entry Splitter -> Left & Right Lanes -->
+  <g id="split-connectors">
+    <line x1="218" y1="95" x2="218" y2="119" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="228" y="111" class="sans" font-size="9.5" font-weight="700" fill="#1e40af">open s · same link · g ≠ 0</text>
+
+    <line x1="642" y1="95" x2="642" y2="119" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+    <text x="652" y="111" class="sans" font-size="9.5" font-weight="700" fill="#065f46">cross-link · g = 0 · meeting s</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2A: LEFT LANE — MAIN TERM (BIG-CELL KLOOSTERMAN SIEVE, COBALT)   -->
+  <!-- ===================================================================== -->
+  <g id="lane-left-main-term">
+    <rect x="14" y="122" width="408" height="466" rx="6" fill="#ffffff"/>
+    <rect x="14" y="122" width="408" height="36" fill="#edf4ff" clip-path="url(#clip-left-lane)"/>
+    <line x1="14" y1="158" x2="422" y2="158" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="122" width="408" height="466" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+    <!-- Lane Header -->
+    <text x="24" y="137" class="sans" font-size="10.6" font-weight="700" fill="#1e40af">◆ LEFT LANE · MAIN TERM: KLOOSTERMAN SIEVE</text>
+    <text x="24" y="151.5" class="mono" font-size="9.3" fill="#3f4a56">EnergyEstimate.lean + GlobalSieve.lean</text>
+
+    <!-- STEP 1: OPEN REDUCTION => BIG CELL -->
+    <g id="left-step-1">
+      <rect x="24" y="168" width="388" height="76" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.2"/>
+      <rect x="32" y="174" width="76" height="18" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="70" y="186.2" class="sans" font-size="8.8" font-weight="700" fill="#1e40af" text-anchor="middle">① BIG CELL</text>
+      <text x="116" y="186.5" class="sans" font-size="10.6" font-weight="700" fill="#161b22">Open Reduction ⇒ Big Cell</text>
+
+      <text x="34" y="205" class="mono" font-size="9.4" font-weight="700" fill="#1e40af">IsOpenElement.leadingMinor_ne_zero</text>
+      <text x="34" y="220.5" class="sans" font-size="9.9" fill="#161b22">Nonzero proper leading minors of <tspan class="mono" font-size="9.2">frameProducts γ</tspan></text>
+      <text x="34" y="236" class="sans" font-size="9.8" fill="#3f4a56">⇒ Bruhat head factorization  <tspan font-weight="700" fill="#161b22">γ = u w</tspan><tspan font-size="7.5" font-weight="700" fill="#161b22" dy="2">p</tspan><tspan dy="-2" font-weight="700" fill="#161b22"> σ u'</tspan><tspan font-size="7.5" font-weight="700" fill="#161b22" dy="-3">−1</tspan><tspan dy="3">  (p : Fin ϱ → T</tspan><tspan font-size="7.4" dy="2">0</tspan><tspan dy="-2">)</tspan></text>
+    </g>
+
+    <!-- Arrow Step 1 -> Step 2 -->
+    <line x1="218" y1="244" x2="218" y2="257" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt-end)"/>
+
+    <!-- STEP 2: SIEGEL'S STEP -->
+    <g id="left-step-2">
+      <rect x="24" y="260" width="388" height="96" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.2"/>
+      <rect x="32" y="266" width="68" height="18" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="66" y="278.2" class="sans" font-size="8.8" font-weight="700" fill="#1e40af" text-anchor="middle">② SIEGEL</text>
+      <text x="108" y="278.5" class="sans" font-size="10.6" font-weight="700" fill="#161b22">Siegel's Step: ∞-Gram × Finite Density</text>
+
+      <text x="34" y="297" class="sans" font-size="9.8" fill="#161b22">• ∞-Gram: <tspan class="mono" font-size="9.1" font-weight="700" fill="#1e40af">prod_bandLimit_eq_gram</tspan> (<tspan class="mono" font-size="9">bandLimit n</tspan>)</text>
+      <text x="34" y="312.5" class="sans" font-size="9.8" fill="#161b22">• Finite density: <tspan class="mono" font-size="9.1" fill="#161b22">G.lastEntryDensity / Y.massRatio</tspan></text>
+      <text x="34" y="328" class="sans" font-size="9.8" fill="#3f4a56">• Product formula (<tspan class="mono" font-size="8.9" fill="#1e40af">gramScalar_mul_headDensity</tspan>): cancels p<tspan font-size="7.4" dy="2">a</tspan><tspan dy="-2"/></text>
+      <text x="34" y="344" class="sans" font-size="9.6" fill="#3f4a56">• Mass bound: <tspan class="mono" font-size="8.8" fill="#161b22">mul_sum_norm_sum_cosetAmplitude_sq_le</tspan></text>
+    </g>
+
+    <!-- Arrow Step 2 -> Step 3 -->
+    <line x1="218" y1="356" x2="218" y2="371" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt-end)"/>
+
+    <!-- STEP 3: ENTRY-BY-ENTRY ONE-SIDED POISSON SUMMATION -->
+    <g id="left-step-3">
+      <rect x="24" y="374" width="388" height="100" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.2"/>
+      <rect x="32" y="380" width="76" height="18" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="70" y="392.2" class="sans" font-size="8.8" font-weight="700" fill="#1e40af" text-anchor="middle">③ POISSON</text>
+      <text x="116" y="392.5" class="sans" font-size="10.6" font-weight="700" fill="#161b22">Entry-by-Entry One-Sided Poisson</text>
+
+      <text x="34" y="411" class="sans" font-size="9.6" fill="#3f4a56"><tspan class="mono" font-size="9.2" font-weight="700" fill="#1e40af">GlobalSieve.lean::sieve</tspan>  ·  <tspan class="mono" font-size="9.1" fill="#161b22">prod_poissonConst_eq</tspan></text>
+      <text x="34" y="427" class="sans" font-size="9.8" fill="#161b22">Removes <tspan font-weight="700">n = ϱ + 1</tspan> head coordinates one entry at a time</text>
+      <text x="34" y="443" class="sans" font-size="9.8" fill="#161b22">Zero frequency keeps sharp constant <tspan font-weight="700" fill="#1e40af">1</tspan> (<tspan class="mono" font-size="9" fill="#1e40af">sieve_constant_le</tspan>)</text>
+      <text x="34" y="459" class="sans" font-size="9.8" fill="#3f4a56">Nonzero frequencies absorbed into <tspan font-weight="700" fill="#161b22">b</tspan><tspan font-size="7.4" font-weight="700" fill="#161b22" dy="-3">−10</tspan><tspan dy="3"> (total ≤ 1 + b</tspan><tspan font-size="7.4" dy="-3">−4</tspan><tspan dy="3">)</tspan></text>
+    </g>
+
+    <!-- Arrow Step 3 -> Output -->
+    <line x1="218" y1="474" x2="218" y2="491" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt-end)"/>
+
+    <!-- LEFT OUTPUT BOX -->
+    <g id="left-output">
+      <rect x="24" y="494" width="388" height="82" rx="5" fill="#edf4ff"/>
+      <rect x="24" y="494" width="5" height="82" fill="#1e40af" clip-path="url(#clip-left-output)"/>
+      <rect x="24" y="494" width="388" height="82" rx="5" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+      <text x="37" y="511" class="sans" font-size="9.3" font-weight="700" fill="#1e40af">◆ LEFT OUTPUT · OPEN-CELL LINK BOUND</text>
+      <text x="37" y="528" class="mono" font-size="10" font-weight="700" fill="#161b22">linkSecondMoment_isOpenElement_le</text>
+      <text x="37" y="549.5" class="sans" font-size="12.2" font-weight="700" fill="#1e40af">≤  (1 + b<tspan font-size="8.4" dy="-3.5">−4</tspan><tspan dy="3.5">) · b</tspan><tspan font-size="8.4" dy="-3.5">−6k|S</tspan><tspan font-size="6.8" dy="1.5">g</tspan><tspan font-size="8.4" dy="-1.5">|</tspan><tspan dy="3.5"> · </tspan><tspan class="cal" font-size="12.8">D</tspan><tspan font-size="8.2" dy="2.5">main</tspan><tspan dy="-2.5"> · ν</tspan><tspan font-size="8.4" dy="-3.5">2</tspan><tspan dy="3.5"/></text>
+      <text x="37" y="566.5" class="sans" font-size="9.4" fill="#3f4a56">Extra b<tspan font-size="7.2" dy="-3">−6k</tspan><tspan dy="3"> gain per place in S</tspan><tspan font-size="7.2" dy="2">g</tspan><tspan dy="-2"> where s fixes a frame vector</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2B: RIGHT LANE — REMAINING TERMS (LINK-LATTICE ENGINE)           -->
+  <!-- ===================================================================== -->
+  <g id="lane-right-remaining-terms">
+    <rect x="438" y="122" width="408" height="466" rx="6" fill="#ffffff"/>
+    <rect x="438" y="122" width="408" height="36" fill="#ecfdf5" clip-path="url(#clip-right-lane)"/>
+    <line x1="438" y1="158" x2="846" y2="158" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="438" y="122" width="408" height="466" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+    <!-- Lane Header -->
+    <text x="448" y="137" class="sans" font-size="10.4" font-weight="700" fill="#065f46">● RIGHT LANE · REMAINING TERMS: LINK-LATTICE ENGINE</text>
+    <text x="448" y="151.5" class="mono" font-size="9.1" fill="#3f4a56">RemainingTerms/Sum.lean + SiegelLemma.lean + SchurTest.lean</text>
+
+    <!-- STEP 1: NEAR PAIRS OVER AGREEING BLOCK -->
+    <g id="right-step-1">
+      <rect x="448" y="168" width="388" height="96" rx="5" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.2"/>
+      <rect x="456" y="174" width="84" height="18" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="498" y="186.2" class="sans" font-size="8.8" font-weight="700" fill="#065f46" text-anchor="middle">① NEAR PAIRS</text>
+      <text x="548" y="186.5" class="sans" font-size="10.5" font-weight="700" fill="#161b22">Near Pairs Over Agreeing Block</text>
+
+      <text x="458" y="204.5" class="mono" font-size="9.2" font-weight="700" fill="#065f46">corank_le_and_pairDiscriminant_le</text>
+      <text x="458" y="220" class="sans" font-size="9.8" fill="#161b22">Common link Λ<tspan font-size="7.4" dy="2">γ</tspan><tspan dy="-2"> ∩ Λ</tspan><tspan font-size="7.4" dy="2">γ'</tspan><tspan dy="-2">: corank </tspan><tspan font-weight="700">l ≤ n</tspan><tspan font-size="7.4" font-weight="700" dy="-3">3</tspan><tspan dy="3">,  discriminant </tspan><tspan font-weight="700">d ≤ b</tspan><tspan font-size="7.4" font-weight="700" dy="-3">n³f</tspan><tspan dy="3"/></text>
+      <text x="458" y="235.5" class="sans" font-size="9.7" fill="#3f4a56">Congruence compression (<tspan class="mono" font-size="9" fill="#065f46">pairDiscriminant_sq_le</tspan>):</text>
+      <text x="458" y="252" class="sans" font-size="10.2" fill="#161b22"><tspan font-weight="700">d</tspan><tspan font-size="7.6" font-weight="700" dy="-3">2</tspan><tspan dy="3" font-weight="700"> ≤ (2 / M)</tspan><tspan font-size="7.6" font-weight="700" dy="-3">2if</tspan><tspan dy="3" font-weight="700"> · G(γ) · G(γ')</tspan><tspan font-size="9.4" fill="#3f4a56">   (i = linkCorank)</tspan></text>
+    </g>
+
+    <!-- Arrow Step 1 -> Branch Decision Bar -->
+    <line x1="642" y1="264" x2="642" y2="274" stroke="#92400e" stroke-width="1.5" marker-end="url(#arrow-amber-end)"/>
+
+    <!-- STEP 2 DECISION BAR: BRANCH ON InSameLinkClass -->
+    <g id="right-branch-bar">
+      <rect x="448" y="276" width="388" height="22" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.2"/>
+      <text x="458" y="290.5" class="sans" font-size="9.6" font-weight="700" fill="#92400e">② BRANCH ON <tspan class="mono" font-size="9.5" fill="#161b22">InSameLinkClass</tspan></text>
+      <text x="826" y="290.5" class="sans" font-size="9.1" fill="#3f4a56" text-anchor="end">master: <tspan class="mono" font-size="8.9" fill="#92400e">sum_termSize_mul_le</tspan></text>
+    </g>
+
+    <!-- Fork Spine into Branch A & Branch B -->
+    <g id="right-fork-spine">
+      <line x1="458" y1="298" x2="458" y2="504" stroke="#3f4a56" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="458" y1="340" x2="469" y2="340" stroke="#9a3412" stroke-width="1.6" marker-end="url(#arrow-rust-end)"/>
+      <line x1="458" y1="504" x2="469" y2="504" stroke="#065f46" stroke-width="1.6" marker-end="url(#arrow-emerald-end)"/>
+    </g>
+
+    <!-- BRANCH A: CROSS-LINK OR g = 0 (RUST / AMBER) -->
+    <g id="right-branch-a">
+      <rect x="472" y="306" width="364" height="136" rx="5" fill="#ffffff"/>
+      <rect x="472" y="306" width="364" height="22" fill="#fef6e4" clip-path="url(#clip-branch-a)"/>
+      <line x1="472" y1="328" x2="836" y2="328" stroke="#e7c98f" stroke-width="1"/>
+      <rect x="472" y="306" width="364" height="136" rx="5" fill="none" stroke="#9a3412" stroke-width="1.4"/>
+
+      <text x="482" y="320.5" class="sans" font-size="9.6" font-weight="700" fill="#9a3412">▲ BRANCH A · <tspan class="mono" font-size="9.2">¬InSameLinkClass</tspan>  (cross-link or g = 0)</text>
+
+      <text x="482" y="342.5" class="sans" font-size="9.6" fill="#161b22">• <tspan font-weight="700">(2/M)</tspan><tspan font-size="7.4" font-weight="700" dy="-3">2if</tspan><tspan dy="3"> congruence gain (or rank drop when </tspan><tspan font-weight="700">g</tspan> = 0)</text>
+      <text x="482" y="358" class="sans" font-size="9.5" fill="#161b22">• Bombieri–Vaaler Siegel: <tspan class="mono" font-size="8.6" fill="#92400e">tsum_sublatticeDiscriminant_inv_le</tspan></text>
+      <text x="482" y="373.5" class="sans" font-size="9.5" fill="#161b22">• Weighted Schur test: <tspan class="mono" font-size="8.8" fill="#92400e">amplitudeMajorant_sq_le</tspan></text>
+      <text x="482" y="389" class="sans" font-size="9.5" fill="#3f4a56">• Pair sum: <tspan class="mono" font-size="8.6" fill="#161b22">sum_termSize_mul_not_inSameLinkClass_le</tspan></text>
+
+      <!-- Branch A Output Strip -->
+      <rect x="480" y="398" width="348" height="37" rx="4" fill="#fff5f0" stroke="#e5c1b0" stroke-width="1"/>
+      <text x="489" y="412.5" class="mono" font-size="9.3" font-weight="700" fill="#9a3412">secondMoment_remainingTerms_le</text>
+      <text x="489" y="428.5" class="sans" font-size="10.4" font-weight="700" fill="#9a3412">Tail  ≤  b<tspan font-size="7.6" dy="-3">−kf</tspan><tspan dy="3"> · </tspan><tspan class="cal" font-size="11">D</tspan><tspan font-size="7.6" dy="2">id</tspan><tspan dy="-2" font-size="9.2" font-weight="400" fill="#3f4a56">   (isolates single-link square w)</tspan></text>
+    </g>
+
+    <!-- BRANCH B: SAME LINK, g != 0, MEETING REDUCTION (EMERALD) -->
+    <g id="right-branch-b">
+      <rect x="472" y="452" width="364" height="124" rx="5" fill="#ffffff"/>
+      <rect x="472" y="452" width="364" height="22" fill="#ecfdf5" clip-path="url(#clip-branch-b)"/>
+      <line x1="472" y1="474" x2="836" y2="474" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="472" y="452" width="364" height="124" rx="5" fill="none" stroke="#065f46" stroke-width="1.4"/>
+
+      <text x="482" y="466.5" class="sans" font-size="9.5" font-weight="700" fill="#065f46">● BRANCH B · <tspan class="mono" font-size="9">InSameLinkClass</tspan>, g ≠ 0  (<tspan class="mono" font-size="8.8">meetNorm s ≥ z</tspan>)</text>
+
+      <text x="482" y="488.5" class="sans" font-size="9.6" fill="#161b22">• Non-open s: frame span meets s-image mod primes ∣ M</text>
+      <text x="482" y="504" class="sans" font-size="9.5" fill="#161b22">• Gain <tspan font-weight="700">(b</tspan><tspan font-size="7.2" font-weight="700" dy="-3">2f</tspan><tspan dy="3" font-weight="700">/z)</tspan><tspan font-size="7.2" font-weight="700" dy="-3">k</tspan><tspan dy="3"> via </tspan><tspan class="mono" font-size="8.6" fill="#065f46">sum_termSize_mul_inSameLinkClass_le</tspan></text>
+
+      <!-- Branch B Output Strip -->
+      <rect x="480" y="514" width="348" height="54" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.1"/>
+      <text x="489" y="528" class="sans" font-size="8.8" font-weight="700" fill="#065f46">● RIGHT OUTPUT · MEETING-REDUCTION LINK BOUND</text>
+      <text x="489" y="544" class="mono" font-size="9.6" font-weight="700" fill="#161b22">linkSecondMoment_le_of_le_meetNorm</text>
+      <text x="489" y="561" class="sans" font-size="11.2" font-weight="700" fill="#065f46">≤  (b<tspan font-size="7.8" dy="-3">2f</tspan><tspan dy="3"> / z)</tspan><tspan font-size="7.8" dy="-3">k</tspan><tspan dy="3"> · </tspan><tspan class="cal" font-size="11.8">D</tspan><tspan font-size="7.8" dy="2">main</tspan><tspan dy="-2"> · ν</tspan><tspan font-size="7.8" dy="-3">2</tspan><tspan dy="3"/></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION: BOTH LANES -> CONVERGENCE STRIP                           -->
+  <!-- ===================================================================== -->
+  <g id="merge-connectors">
+    <line x1="218" y1="588" x2="218" y2="611" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+    <line x1="642" y1="588" x2="642" y2="611" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+
+    <rect x="292" y="592" width="276" height="17" rx="8.5" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="430" y="603.8" class="sans" font-size="9.6" font-weight="700" fill="#3f4a56" text-anchor="middle">Both lanes merge into <tspan class="mono" font-size="9.3" fill="#1e40af">Moments.lean</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: BOTTOM CONVERGENCE STRIP (Moments.lean + ASYMMETRY NOTE)      -->
+  <!-- ===================================================================== -->
+  <g id="band-convergence">
+    <rect x="14" y="614" width="832" height="146" rx="6" fill="#ffffff"/>
+    <rect x="14" y="614" width="832" height="26" fill="#edf4ff" clip-path="url(#clip-convergence)"/>
+    <rect x="14" y="614" width="6" height="146" fill="#1e40af" clip-path="url(#clip-convergence)"/>
+    <line x1="20" y1="640" x2="846" y2="640" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="614" width="832" height="146" rx="6" fill="none" stroke="#1e40af" stroke-width="1.7"/>
+
+    <!-- Convergence Header -->
+    <text x="30" y="631" class="sans" font-size="10.8" font-weight="700" fill="#1e40af">CONVERGENCE  ·  <tspan class="mono" font-size="11.2" fill="#161b22">Moments.lean</tspan></text>
+    <text x="834" y="631" class="sans" font-size="9.9" fill="#3f4a56" text-anchor="end">Combines open-cell sieve + cross-link/g=0 tail + meeting-reduction bounds</text>
+
+    <!-- RESULT 1: NEAR-R0 SECOND MOMENT -->
+    <g id="result-near-r0">
+      <rect x="28" y="647" width="396" height="43" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+      <text x="38" y="662.5" class="sans" font-size="9.5" font-weight="700" fill="#1e40af">◆ NEAR-<tspan text-decoration="overline">R</tspan><tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2"> SECOND MOMENT</tspan></text>
+      <text x="414" y="662.5" class="sans" font-size="9" fill="#3f4a56" text-anchor="end">orthogonality defect</text>
+      <text x="38" y="681" class="sans" font-size="11.4" font-weight="700" fill="#161b22">≤ b<tspan font-size="8" dy="-3.5">−12</tspan><tspan dy="3.5"> · </tspan><tspan class="cal" font-size="12">D</tspan><tspan font-size="7.8" dy="2">id</tspan><tspan dy="-2">   ⇒   ‖P</tspan><tspan font-size="8" dy="-3.5">*</tspan><tspan dy="3.5"> P − 1‖</tspan><tspan font-size="8" dy="-3.5">2</tspan><tspan dy="3.5">  ≤  b</tspan><tspan font-size="8" dy="-3.5">−12</tspan><tspan dy="3.5"> · </tspan><tspan class="cal" font-size="12">D</tspan><tspan font-size="7.8" dy="2">X</tspan><tspan dy="-2"/></text>
+    </g>
+
+    <!-- RESULT 2: WHOLE-GROUP SECOND MOMENT -->
+    <g id="result-whole-group">
+      <rect x="436" y="647" width="398" height="43" rx="4" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.1"/>
+      <text x="446" y="662.5" class="sans" font-size="9.5" font-weight="700" fill="#065f46">● WHOLE-GROUP SECOND MOMENT</text>
+      <text x="824" y="662.5" class="sans" font-size="9" fill="#3f4a56" text-anchor="end">open + non-open + tail</text>
+      <text x="446" y="681" class="sans" font-size="11.4" font-weight="700" fill="#161b22"><tspan class="mono" font-size="10.8" fill="#065f46">secondMoment</tspan>  ≤  (1 + 9 b<tspan font-size="8" dy="-3.5">−4</tspan><tspan dy="3.5">) · </tspan><tspan class="cal" font-size="12">D</tspan><tspan font-size="7.8" dy="2">main</tspan><tspan dy="-2"/></text>
+    </g>
+
+    <!-- RUST ASYMMETRY NOTE -->
+    <g id="callout-asymmetry">
+      <rect x="28" y="697" width="806" height="54" rx="4" fill="#fff5f0"/>
+      <rect x="28" y="697" width="5" height="54" fill="#9a3412" clip-path="url(#clip-asymmetry)"/>
+      <rect x="28" y="697" width="806" height="54" rx="4" fill="none" stroke="#9a3412" stroke-width="1.4"/>
+
+      <text x="42" y="712.5" class="sans" font-size="9.8" font-weight="700" fill="#9a3412">▲ ANALYTIC ASYMMETRY · WHY THE TWO LANES WIN DIFFERENTLY</text>
+      <text x="42" y="728" class="sans" font-size="9.5" fill="#161b22"><tspan font-weight="700" fill="#1e40af">◆ Left lane</tspan> wins via genuine <tspan font-weight="700">Fourier duality</tspan> (one-sided Poisson summation on PSD kernels), preserving exact constant <tspan font-weight="700">1</tspan> (error ≤ b<tspan font-size="7.4" dy="-3">−4</tspan><tspan dy="3">).</tspan></text>
+      <text x="42" y="743.5" class="sans" font-size="9.5" fill="#161b22"><tspan font-weight="700" fill="#065f46">● Right lane</tspan> uses <tspan font-weight="700">absolute-value triangle inequality</tspan> (no phase cancellation), winning via <tspan font-weight="700">rank-k arithmetic sparsity</tspan> ((2/M)<tspan font-size="7.4" dy="-3">2if</tspan><tspan dy="3">, z</tspan><tspan font-size="7.4" dy="-3">−1</tspan><tspan dy="3"> to k).</tspan></text>
+    </g>
+  </g>
+</svg>

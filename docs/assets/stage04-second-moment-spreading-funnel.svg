@@ -1,0 +1,290 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 752"
+     width="860"
+     height="752"
+     role="img"
+     aria-labelledby="stage04-funnel-title stage04-funnel-desc">
+  <title id="stage04-funnel-title">Four-Input Spreading Funnel in Stage 04 (SpanningTheorem.lean)</title>
+  <desc id="stage04-funnel-desc">Editorial mathematical diagram of the Stage 04 four-input spreading funnel proving Theorem B across EqualMultiplicities.lean, Moments.lean, SpanningTheorem.lean, FewTranslates.lean, and ShortAndEnough.lean. The top layer presents three parallel analytic inputs: (1) Trace Comparison in EqualMultiplicities.lean (cobalt) transfers traces between the indefinite space Y_0 and definite twin W_m via a cuspidal primitive polynomial label c_x (trace_heckeOnGood_eq, targetDim_eq_finrank_goodForms_spaceW), yielding the target-dimension ceiling d_T &lt;= #G_bar * deg * mass_r (targetDim_le_card_mul_besselDegree_mul_mass), with a cross-pillar rust badge noting that det_rallisOnGood_eq also feeds Stage 05 (05_determinant/norm_of_chain); (2) Whole-Group Second Moment in Moments.lean (amber) bounds the sum over s in G_bar of ||P* s P||_HS^2 by (1 + 9 b^-4) D_main (sum_hilbertSchmidtNorm_scaledPoincare_sq_le), where D_main = D_X^2 / (deg * mass_r); (3) Good Idempotent and Near-Isometry in SpanningTheorem.lean and Moments.lean (emerald) forms e_0 = e_{p_0} tensor e_{p_1} with bad share Re((1 - e_{p_i})(1)) &lt;= b^-8 / 2 (bad_types_rare) and combines ||(1 - e_0) P||_HS^2 &lt;= 4 b^-4 D_X with ||P* P - 1||_HS^2 &lt;= b^-12 D_X to establish IsNearIsometry (e_0 P) (5 b^-4). In the middle layer (Cancellation and Welch-Style Spreading, FewTranslates.lean::isSpread_of_second_moment), multiplying Input 1 by Input 2 cancels deg * mass_r cleanly to give d_T * sum_{s in G_bar} ||P* s P||_HS^2 &lt;= #G_bar * (1 + 9 b^-4) * D_X^2 (targetDim_mul_sum_hilbertSchmidtNorm_sq_le), nearly tight against the Welch floor #G_bar * D_X^2; pairing with Input 3 at uniform error eps_0 = (8 b^2)^-1 via Cauchy-Schwarz and AM-GM proves New.Data.isSpread_goodPoincare: for every target subspace F of share alpha = dim F / d_T, some translate s in G_bar satisfies dim (e_0 s P)^-1(F) &lt;= ((1 + alpha + 3 eps_0) / 2) D_X. The bottom layer runs Wolsey greedy covering (IsSpread.exists_few_le_finrank_iSup_range), shrinking codimension by (1 - 2 D_X / (5 d_T)) per step down to 16 eps_0 = 2 / b^2, restricts to ramifiedSourceForms at an additional loss of at most 2 / b^2, and delivers Stage 01 Theorem B (D.enough_forms in ShortAndEnough.lean): a finite translate set t subset G_bar with #t * dim(src) &lt;= 5 d_T log(1 + 2 b^2) spanning at least (1 - 4 / b^2) d_T dimensions, feeding 01_reduction/short_and_enough and 06_one_lift/gluing_maps.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+      .cal  { font-family: Georgia, 'Times New Roman', 'DejaVu Serif', serif; font-style: italic; font-weight: 700; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-slate-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+
+    <!-- Crisp card clip paths for rounded header fills and accent stripes -->
+    <clipPath id="clip-input1"><rect x="14" y="48" width="270" height="230" rx="6"/></clipPath>
+    <clipPath id="clip-cross-pillar"><rect x="24" y="215" width="250" height="53" rx="4"/></clipPath>
+    <clipPath id="clip-input2"><rect x="295" y="48" width="270" height="230" rx="6"/></clipPath>
+    <clipPath id="clip-input3"><rect x="576" y="48" width="270" height="230" rx="6"/></clipPath>
+    <clipPath id="clip-funnel"><rect x="14" y="318" width="832" height="222" rx="6"/></clipPath>
+    <clipPath id="clip-spread-out"><rect x="26" y="460" width="808" height="70" rx="5"/></clipPath>
+    <clipPath id="clip-greedy-banner"><rect x="14" y="576" width="832" height="162" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="751" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="27" class="sans" font-size="15.8" font-weight="700" fill="#161b22">Four-Input Spreading Funnel in <tspan class="mono" font-size="14.2" fill="#1e40af">SpanningTheorem.lean</tspan></text>
+    <text x="842" y="26" class="mono" font-size="11" fill="#3f4a56" text-anchor="end">src/New/Spanning/  →  Reduction/</text>
+    <line x1="14" y1="39" x2="846" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: TOP LAYER — 3 PARALLEL ANALYTIC INPUT CARDS                   -->
+  <!-- ===================================================================== -->
+  <g id="band-top-inputs">
+
+    <!-- INPUT 1 (LEFT): TRACE COMPARISON — COBALT -->
+    <g id="card-input-trace">
+      <rect x="14" y="48" width="270" height="230" rx="6" fill="#ffffff"/>
+      <rect x="14" y="48" width="270" height="26" fill="#edf4ff" clip-path="url(#clip-input1)"/>
+      <line x1="14" y1="74" x2="284" y2="74" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="14" y="48" width="270" height="230" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+      <text x="24" y="64.5" class="sans" font-size="10.2" font-weight="700" fill="#1e40af">◆ ① TRACE COMPARISON</text>
+      <text x="274" y="64.5" class="sans" font-size="9.2" font-weight="600" fill="#3f4a56" text-anchor="end">Target dim</text>
+
+      <text x="24" y="89" class="mono" font-size="9.4" font-weight="700" fill="#1e40af">EqualMultiplicities.lean</text>
+      <text x="24" y="106" class="sans" font-size="10.2" font-weight="700" fill="#161b22">Y<tspan font-size="7.8" dy="2.2">0</tspan><tspan dy="-2.2"> ↔ W</tspan><tspan font-size="7.8" dy="2.2">m</tspan><tspan dy="-2.2">  via primitive label c</tspan><tspan font-size="7.8" dy="2.2">x</tspan><tspan dy="-2.2"/></text>
+      <text x="24" y="121.5" class="sans" font-size="9.4" fill="#3f4a56">Cuspidality kills non-elliptic traces:</text>
+      <text x="24" y="135.5" class="mono" font-size="8.9" fill="#1e40af">trace_heckeOnGood_eq</text>
+      <text x="24" y="148.5" class="mono" font-size="8.2" fill="#1e40af">targetDim_eq_finrank_goodForms_spaceW</text>
+
+      <!-- Target-dim ceiling formula box -->
+      <rect x="24" y="157" width="250" height="50" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+      <text x="149" y="176" class="sans" font-size="11.2" font-weight="700" fill="#161b22" text-anchor="middle">d<tspan font-size="8" dy="2.2">T</tspan><tspan dy="-2.2">  ≤  #Ḡ · </tspan><tspan fill="#9a3412">deg · mass</tspan><tspan font-size="8" dy="2.2" fill="#9a3412">r</tspan><tspan dy="-2.2"/></text>
+      <text x="149" y="194" class="mono" font-size="7.8" fill="#3f4a56" text-anchor="middle">targetDim_le_card_mul_besselDegree_mul_mass</text>
+
+      <!-- Cross-pillar Stage 05 badge -->
+      <rect x="24" y="215" width="250" height="53" rx="4" fill="#fff5f0"/>
+      <rect x="24" y="215" width="4" height="53" fill="#9a3412" clip-path="url(#clip-cross-pillar)"/>
+      <rect x="24" y="215" width="250" height="53" rx="4" fill="none" stroke="#9a3412" stroke-width="1.1"/>
+      <text x="36" y="230" class="sans" font-size="8.8" font-weight="700" fill="#9a3412">↗ CROSS-PILLAR  →  STAGE 05</text>
+      <text x="36" y="244.5" class="sans" font-size="9.2" fill="#3f4a56"><tspan class="mono" font-size="9" font-weight="700" fill="#161b22">det_rallisOnGood_eq</tspan> also feeds</text>
+      <text x="36" y="258.5" class="mono" font-size="8.7" font-weight="600" fill="#9a3412">05_determinant/norm_of_chain</text>
+    </g>
+
+    <!-- INPUT 2 (CENTER): WHOLE-GROUP SECOND MOMENT — AMBER -->
+    <g id="card-input-moment">
+      <rect x="295" y="48" width="270" height="230" rx="6" fill="#ffffff"/>
+      <rect x="295" y="48" width="270" height="26" fill="#fef6e4" clip-path="url(#clip-input2)"/>
+      <line x1="295" y1="74" x2="565" y2="74" stroke="#e7c98f" stroke-width="1"/>
+      <rect x="295" y="48" width="270" height="230" rx="6" fill="none" stroke="#92400e" stroke-width="1.6"/>
+
+      <text x="305" y="64.5" class="sans" font-size="10.2" font-weight="700" fill="#92400e">▲ ② WHOLE-GROUP 2ND MOMENT</text>
+
+      <text x="305" y="89" class="sans" font-size="9.3" fill="#3f4a56"><tspan class="mono" font-size="9.4" font-weight="700" fill="#92400e">Moments.lean</tspan>  (Kloosterman sieve)</text>
+      <text x="305" y="106" class="sans" font-size="10.1" font-weight="700" fill="#161b22">Sum squared overlaps over all s ∈ Ḡ:</text>
+
+      <!-- Main second-moment inequality box -->
+      <rect x="305" y="116" width="250" height="66" rx="4" fill="#faf9f5" stroke="#e7c98f" stroke-width="1.1"/>
+      <text x="430" y="138" class="sans" font-size="10.3" font-weight="700" fill="#161b22" text-anchor="middle">∑<tspan font-size="7.5" dy="2.5">s∈Ḡ</tspan><tspan dy="-2.5"> ‖P* s P‖</tspan><tspan font-size="7.5" dy="-3.2">2</tspan><tspan dy="3.2"/><tspan font-size="7.2" dy="2.5">HS</tspan><tspan dy="-2.5"> ≤ (1 + 9 b</tspan><tspan font-size="7.5" dy="-3.2">−4</tspan><tspan dy="3.2">) </tspan><tspan class="cal" font-size="11.2" fill="#92400e">D</tspan><tspan font-size="7.5" dy="2.2" fill="#92400e">main</tspan><tspan dy="-2.2"/></text>
+      <text x="430" y="156.5" class="mono" font-size="7.8" fill="#3f4a56" text-anchor="middle">sum_hilbertSchmidtNorm_scaledPoincare_sq_le</text>
+      <text x="430" y="171.5" class="sans" font-size="8.9" fill="#3f4a56" text-anchor="middle">Main term + remaining-term bound (9 b<tspan font-size="7" dy="-2.8">−4</tspan><tspan dy="2.8">)</tspan></text>
+
+      <!-- D_main scale box -->
+      <rect x="305" y="190" width="250" height="78" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.1" stroke-dasharray="4,2.5"/>
+      <text x="430" y="207" class="sans" font-size="8.9" font-weight="700" fill="#92400e" text-anchor="middle">MAIN-TERM NORMALIZATION</text>
+      <text x="430" y="228.5" class="sans" font-size="11" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="cal" font-size="11.8" fill="#92400e">D</tspan><tspan font-size="7.8" dy="2.2" fill="#92400e">main</tspan><tspan dy="-2.2">  =  D</tspan><tspan font-size="7.8" dy="-3.2">2</tspan><tspan dy="3.2"/><tspan font-size="7.8" dy="2.2">X</tspan><tspan dy="-2.2"> / (</tspan><tspan fill="#9a3412">deg · mass</tspan><tspan font-size="7.8" dy="2.2" fill="#9a3412">r</tspan><tspan dy="-2.2">)</tspan></text>
+      <text x="430" y="246.5" class="sans" font-size="9.2" fill="#3f4a56" text-anchor="middle">Denominator <tspan font-weight="700" fill="#9a3412">deg · mass</tspan><tspan font-size="7.2" dy="2" font-weight="700" fill="#9a3412">r</tspan><tspan dy="-2"> matches</tspan></text>
+      <text x="430" y="260" class="sans" font-size="9.2" fill="#3f4a56" text-anchor="middle">① numerator → cancels cleanly below</text>
+    </g>
+
+    <!-- INPUT 3 (RIGHT): GOOD IDEMPOTENT & NEAR-ISOMETRY — EMERALD -->
+    <g id="card-input-isometry">
+      <rect x="576" y="48" width="270" height="230" rx="6" fill="#ffffff"/>
+      <rect x="576" y="48" width="270" height="26" fill="#ecfdf5" clip-path="url(#clip-input3)"/>
+      <line x1="576" y1="74" x2="846" y2="74" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="576" y="48" width="270" height="230" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+      <text x="586" y="64.5" class="sans" font-size="10.1" font-weight="700" fill="#065f46">● ③ GOOD IDEMPOTENT &amp; ISOMETRY</text>
+
+      <text x="586" y="89" class="mono" font-size="8.7" font-weight="700" fill="#065f46">SpanningTheorem.lean + Moments.lean</text>
+      <text x="586" y="106" class="sans" font-size="10.1" font-weight="700" fill="#161b22">e<tspan font-size="7.6" dy="2.2">0</tspan><tspan dy="-2.2"> = e</tspan><tspan font-size="7.4" dy="2.2">p</tspan><tspan font-size="6" dy="1.3">0</tspan><tspan dy="-3.5"> ⊗ e</tspan><tspan font-size="7.4" dy="2.2">p</tspan><tspan font-size="6" dy="1.3">1</tspan><tspan dy="-3.5" font-weight="400" font-size="9.2" fill="#3f4a56">  (good projection)</tspan></text>
+      <text x="586" y="122.5" class="sans" font-size="9.4" fill="#161b22">Re((1 − e<tspan font-size="7.2" dy="2">p</tspan><tspan font-size="6" dy="1.2" font-style="italic">i</tspan><tspan dy="-3.2">)(1)) ≤ b</tspan><tspan font-size="7.2" dy="-3">−8</tspan><tspan dy="3">/2  </tspan><tspan class="mono" font-size="8.4" fill="#065f46">bad_types_rare</tspan></text>
+
+      <!-- Two HS error bounds box -->
+      <rect x="586" y="132" width="250" height="56" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="596" y="149" class="sans" font-size="9.8" font-weight="700" fill="#161b22">‖(1 − e<tspan font-size="7.4" dy="2">0</tspan><tspan dy="-2">) P‖</tspan><tspan font-size="7.4" dy="-3">2</tspan><tspan dy="3"/><tspan font-size="7" dy="2.2">HS</tspan><tspan dy="-2.2">  ≤  4 b</tspan><tspan font-size="7.4" dy="-3">−4</tspan><tspan dy="3"> D</tspan><tspan font-size="7.4" dy="2">X</tspan><tspan dy="-2"/></text>
+      <text x="596" y="165.5" class="sans" font-size="9.8" font-weight="700" fill="#161b22">‖P* P − 1‖<tspan font-size="7.4" dy="-3">2</tspan><tspan dy="3"/><tspan font-size="7" dy="2.2">HS</tspan><tspan dy="-2.2">   ≤  b</tspan><tspan font-size="7.4" dy="-3">−12</tspan><tspan dy="3"> D</tspan><tspan font-size="7.4" dy="2">X</tspan><tspan dy="-2"/></text>
+      <text x="596" y="180.5" class="sans" font-size="8.8" fill="#3f4a56">Unfolded Petersson amplitude blocks</text>
+
+      <!-- Small internal arrow -->
+      <line x1="711" y1="188" x2="711" y2="203" stroke="#065f46" stroke-width="1.5" marker-end="url(#arrow-emerald-end)"/>
+
+      <!-- Near-Isometry result box -->
+      <rect x="586" y="206" width="250" height="62" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+      <text x="711" y="224" class="mono" font-size="9.2" font-weight="700" fill="#065f46" text-anchor="middle">IsNearIsometry (e<tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2"> P) (5 b</tspan><tspan font-size="7.2" dy="-3">−4</tspan><tspan dy="3">)</tspan></text>
+      <text x="711" y="241" class="sans" font-size="9.5" fill="#161b22" text-anchor="middle">‖e<tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2"> P pr</tspan><tspan font-size="7.2" dy="2">U</tspan><tspan dy="-2">‖</tspan><tspan font-size="7.2" dy="-3">2</tspan><tspan dy="3"/><tspan font-size="6.8" dy="2">HS</tspan><tspan dy="-2"> ≥ dim U − 5 b</tspan><tspan font-size="7.2" dy="-3">−4</tspan><tspan dy="3"> D</tspan><tspan font-size="7.2" dy="2">X</tspan><tspan dy="-2"/></text>
+      <text x="711" y="257" class="sans" font-size="9.3" font-weight="700" fill="#065f46" text-anchor="middle">5 b<tspan font-size="7.2" dy="-2.8">−4</tspan><tspan dy="2.8"> ≤ 9 b</tspan><tspan font-size="7.2" dy="-2.8">−4</tspan><tspan dy="2.8"> ≤ ε</tspan><tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2"> := (8 b</tspan><tspan font-size="7.2" dy="-2.8">2</tspan><tspan dy="2.8">)</tspan><tspan font-size="7.2" dy="-2.8">−1</tspan><tspan dy="2.8"/></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION 1 -> 2: FUNNEL CONVERGENCE CONNECTORS                      -->
+  <!-- ===================================================================== -->
+  <g id="transition-top-to-middle">
+    <!-- Input 1 + Input 2 merge into Cancellation pill -> Middle Left -->
+    <path d="M 149 278 L 149 298 L 197 298" fill="none" stroke="#1e40af" stroke-width="1.8"/>
+    <path d="M 430 278 L 430 298 L 381 298" fill="none" stroke="#92400e" stroke-width="1.8"/>
+    <line x1="289" y1="308" x2="289" y2="315" stroke="#9a3412" stroke-width="1.8" marker-end="url(#arrow-rust-end)"/>
+    <rect x="197" y="288" width="184" height="20" rx="10" fill="#fff5f0" stroke="#9a3412" stroke-width="1.2"/>
+    <text x="289" y="301.5" class="sans" font-size="9.4" font-weight="700" fill="#9a3412" text-anchor="middle">① × ②  cancel deg · mass<tspan font-size="7.2" dy="2">r</tspan><tspan dy="-2"/></text>
+
+    <!-- Input 3 straight drop -> Middle Right -->
+    <line x1="711" y1="278" x2="711" y2="315" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+    <rect x="633" y="288" width="156" height="20" rx="10" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+    <text x="711" y="301.5" class="sans" font-size="9.2" font-weight="700" fill="#065f46" text-anchor="middle">③ pairs at ε<tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2"> = (8 b</tspan><tspan font-size="7.2" dy="-2.8">2</tspan><tspan dy="2.8">)</tspan><tspan font-size="7.2" dy="-2.8">−1</tspan><tspan dy="2.8"/></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2: MIDDLE LAYER — CANCELLATION & WELCH-STYLE SPREADING           -->
+  <!-- ===================================================================== -->
+  <g id="band-middle-funnel">
+    <rect x="14" y="318" width="832" height="222" rx="6" fill="#ffffff"/>
+    <rect x="14" y="318" width="832" height="26" fill="#fef6e4" clip-path="url(#clip-funnel)"/>
+    <line x1="14" y1="344" x2="846" y2="344" stroke="#e7c98f" stroke-width="1"/>
+    <rect x="14" y="318" width="832" height="222" rx="6" fill="none" stroke="#92400e" stroke-width="1.6"/>
+
+    <!-- Band 2 Header -->
+    <text x="26" y="335" class="sans" font-size="10.8" font-weight="700" fill="#92400e">▲ CANCELLATION &amp; WELCH-STYLE SPREADING FUNNEL</text>
+    <text x="834" y="335" class="sans" font-size="10" fill="#3f4a56" text-anchor="end"><tspan class="mono" font-size="9.8">FewTranslates.lean :: </tspan><tspan class="mono" font-size="10" font-weight="700" fill="#161b22">isSpread_of_second_moment</tspan></text>
+
+    <!-- SUB-CARD A: ALGEBRAIC CANCELLATION & WELCH PRODUCT (LEFT) -->
+    <g id="subcard-cancellation">
+      <rect x="26" y="352" width="542" height="90" rx="5" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1.2"/>
+      <text x="38" y="369" class="sans" font-size="9.6" font-weight="700" fill="#161b22">A. CANCEL <tspan fill="#9a3412">deg · mass</tspan><tspan font-size="7.4" dy="2" fill="#9a3412">r</tspan><tspan dy="-2">  (① × ②)</tspan></text>
+      <text x="556" y="369" class="mono" font-size="8.4" font-weight="600" fill="#92400e" text-anchor="end">targetDim_mul_sum_hilbertSchmidtNorm_sq_le</text>
+
+      <!-- Main canceled inequality strip -->
+      <rect x="36" y="377" width="522" height="36" rx="4" fill="#ffffff" stroke="#e7c98f" stroke-width="1.1"/>
+      <text x="48" y="399.5" class="sans" font-size="11.4" font-weight="700" fill="#161b22">d<tspan font-size="8" dy="2.2">T</tspan><tspan dy="-2.2"> ∑</tspan><tspan font-size="7.8" dy="2.5">s∈Ḡ</tspan><tspan dy="-2.5"> ‖P* s P‖</tspan><tspan font-size="7.8" dy="-3.2">2</tspan><tspan dy="3.2"/><tspan font-size="7.4" dy="2.5">HS</tspan><tspan dy="-2.5">  ≤  #Ḡ (1 + 9 b</tspan><tspan font-size="7.8" dy="-3.2">−4</tspan><tspan dy="3.2">) D</tspan><tspan font-size="7.8" dy="-3.2">2</tspan><tspan dy="3.2"/><tspan font-size="7.8" dy="2.2">X</tspan><tspan dy="-2.2"/></text>
+
+      <!-- Explicit cancellation pill -->
+      <rect x="384" y="383" width="166" height="24" rx="4" fill="#fff5f0" stroke="#9a3412" stroke-width="1"/>
+      <text x="467" y="398.5" class="sans" font-size="9" font-weight="700" fill="#9a3412" text-anchor="middle">(deg·mass<tspan font-size="7" dy="1.8">r</tspan><tspan dy="-1.8">) / (deg·mass</tspan><tspan font-size="7" dy="1.8">r</tspan><tspan dy="-1.8">) = 1</tspan></text>
+
+      <!-- Welch floor comparison -->
+      <text x="38" y="431" class="sans" font-size="9.3" fill="#3f4a56">Nearly tight vs. Welch floor <tspan font-weight="700" fill="#161b22">#Ḡ D</tspan><tspan font-size="7.2" dy="-2.8" font-weight="700" fill="#161b22">2</tspan><tspan dy="2.8"/><tspan font-size="7.2" dy="2" font-weight="700" fill="#161b22">X</tspan><tspan dy="-2">  (S</tspan><tspan font-size="7.2" dy="2">P</tspan><tspan dy="-2"> = ∑ s P P* s</tspan><tspan font-size="7.2" dy="-2.8">−1</tspan><tspan dy="2.8">; excess only </tspan><tspan font-weight="700" fill="#9a3412">9 b</tspan><tspan font-size="7.2" dy="-2.8" font-weight="700" fill="#9a3412">−4</tspan><tspan dy="2.8">)</tspan></text>
+    </g>
+
+    <!-- SUB-CARD B: NEAR-ISOMETRY PAIRING GATE (RIGHT) -->
+    <g id="subcard-isometry-gate">
+      <rect x="580" y="352" width="254" height="90" rx="5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+      <text x="592" y="369" class="sans" font-size="9.6" font-weight="700" fill="#065f46">B. NEAR-ISOMETRY GATE (③)</text>
+      <text x="592" y="388" class="mono" font-size="9" font-weight="700" fill="#161b22">IsNearIsometry (e<tspan font-size="7" dy="2">0</tspan><tspan dy="-2"> P) (5 b</tspan><tspan font-size="7" dy="-2.8">−4</tspan><tspan dy="2.8">)</tspan></text>
+      <text x="592" y="405" class="sans" font-size="9.8" font-weight="700" fill="#065f46">Uniform error  ε<tspan font-size="7.4" dy="2">0</tspan><tspan dy="-2"> = (8 b</tspan><tspan font-size="7.4" dy="-2.8">2</tspan><tspan dy="2.8">)</tspan><tspan font-size="7.4" dy="-2.8">−1</tspan><tspan dy="2.8"/></text>
+      <text x="592" y="421" class="sans" font-size="9.3" fill="#161b22">Bounds preimage W' = (e<tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2"> s P)</tspan><tspan font-size="7.2" dy="-2.8">−1</tspan><tspan dy="2.8">(F)</tspan></text>
+      <text x="592" y="435" class="sans" font-size="9" fill="#3f4a56">dim W' ≤ ‖pr<tspan font-size="7" dy="1.8">F</tspan><tspan dy="-1.8"> s P‖</tspan><tspan font-size="7" dy="-2.6">2</tspan><tspan dy="2.6"/><tspan font-size="6.8" dy="1.8">HS</tspan><tspan dy="-1.8"> + ε</tspan><tspan font-size="7" dy="1.8">0</tspan><tspan dy="-1.8"> D</tspan><tspan font-size="7" dy="1.8">X</tspan><tspan dy="-1.8"/></text>
+    </g>
+
+    <!-- INTERNAL CONVERGENCE: A + B -> SPREADING OUTPUT -->
+    <line x1="297" y1="442" x2="297" y2="457" stroke="#92400e" stroke-width="1.6" marker-end="url(#arrow-amber-end)"/>
+    <line x1="707" y1="442" x2="707" y2="457" stroke="#065f46" stroke-width="1.6" marker-end="url(#arrow-emerald-end)"/>
+    <text x="502" y="454.5" class="sans" font-size="9.3" font-weight="700" fill="#92400e" text-anchor="middle">Cauchy–Schwarz + AM–GM  ( √(α(1 + ε<tspan font-size="7" dy="1.8">0</tspan><tspan dy="-1.8">)) ≤ (1 + α + ε</tspan><tspan font-size="7" dy="1.8">0</tspan><tspan dy="-1.8">) / 2 )</tspan></text>
+
+    <!-- SPREADING OUTPUT BAR -->
+    <g id="subcard-spread-output">
+      <rect x="26" y="460" width="808" height="70" rx="5" fill="#ffffff"/>
+      <rect x="26" y="460" width="5" height="70" fill="#1e40af" clip-path="url(#clip-spread-out)"/>
+      <rect x="26" y="460" width="808" height="70" rx="5" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+      <text x="40" y="478" class="sans" font-size="10.2" font-weight="700" fill="#161b22">◆ ONE-TRANSLATE SPREADING  ·  <tspan class="mono" font-size="10.4" fill="#1e40af">New.Data.isSpread_goodPoincare</tspan></text>
+      <text x="822" y="478" class="mono" font-size="9" fill="#3f4a56" text-anchor="end">IsSpread D.goodPoincare (3/2 · ε<tspan font-size="7" dy="1.8">0</tspan><tspan dy="-1.8">)</tspan></text>
+
+      <text x="40" y="500.5" class="sans" font-size="10.3" fill="#161b22">∀ target subspace F (share α = dim F / d<tspan font-size="7.6" dy="2">T</tspan><tspan dy="-2">),  ∃ s ∈ Ḡ :   </tspan><tspan font-size="11.2" font-weight="700" fill="#1e40af">dim (e</tspan><tspan font-size="7.8" dy="2" font-weight="700" fill="#1e40af">0</tspan><tspan dy="-2" font-size="11.2" font-weight="700" fill="#1e40af"> s P)</tspan><tspan font-size="7.8" dy="-3.2" font-weight="700" fill="#1e40af">−1</tspan><tspan dy="3.2" font-size="11.2" font-weight="700" fill="#1e40af">(F)  ≤  ((1 + α + 3 ε</tspan><tspan font-size="7.8" dy="2" font-weight="700" fill="#1e40af">0</tspan><tspan dy="-2" font-size="11.2" font-weight="700" fill="#1e40af">) / 2) · D</tspan><tspan font-size="7.8" dy="2" font-weight="700" fill="#1e40af">X</tspan><tspan dy="-2"/></text>
+
+      <text x="40" y="519.5" class="sans" font-size="9.2" fill="#3f4a56">No proper subspace F traps every translate · <tspan class="mono" font-size="8.8" fill="#161b22">comap_scaledPoincare_eq_comap_goodPoincare</tspan> bridges to integer scaling</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION 2 -> 3: SPREADING -> WOLSEY GREEDY COVERING                -->
+  <!-- ===================================================================== -->
+  <g id="transition-middle-to-bottom">
+    <line x1="430" y1="540" x2="430" y2="573" stroke="#1e40af" stroke-width="2" marker-end="url(#arrow-cobalt-end)"/>
+    <rect x="218" y="546" width="424" height="19" rx="9.5" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1.1"/>
+    <text x="430" y="559" class="sans" font-size="9.5" font-weight="700" fill="#1e40af" text-anchor="middle">Wolsey Greedy Covering  (<tspan class="mono" font-size="9">IsSpread.exists_few_le_finrank_iSup_range</tspan>)</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: BOTTOM LAYER — WOLSEY GREEDY COVERING -> STAGE 01 THEOREM B   -->
+  <!-- ===================================================================== -->
+  <g id="band-bottom-theorem-b">
+    <rect x="14" y="576" width="832" height="162" rx="6" fill="#ffffff"/>
+    <rect x="14" y="576" width="832" height="27" fill="#edf4ff" clip-path="url(#clip-greedy-banner)"/>
+    <rect x="14" y="576" width="6" height="162" fill="#1e40af" clip-path="url(#clip-greedy-banner)"/>
+    <line x1="20" y1="603" x2="846" y2="603" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="576" width="832" height="162" rx="6" fill="none" stroke="#1e40af" stroke-width="1.75"/>
+
+    <!-- Band 3 Header -->
+    <text x="30" y="594" class="sans" font-size="11" font-weight="700" fill="#1e40af">■ WOLSEY GREEDY COVERING  →  STAGE 01 THEOREM B</text>
+    <text x="834" y="594" class="mono" font-size="9.6" fill="#3f4a56" text-anchor="end">FewTranslates.lean  →  ShortAndEnough.lean :: <tspan font-weight="700" fill="#161b22">D.enough_forms</tspan></text>
+
+    <!-- STEP 1: GREEDY LOOP -->
+    <g id="step-greedy-loop">
+      <rect x="28" y="611" width="254" height="86" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+      <text x="38" y="627" class="sans" font-size="9.4" font-weight="700" fill="#1e40af">① GREEDY LOOP<tspan class="mono" font-size="8.3" font-weight="400" fill="#3f4a56">  (FewTranslates.lean)</tspan></text>
+      <text x="38" y="644" class="sans" font-size="9.5" fill="#3f4a56">Each step shrinks codimension by:</text>
+      <text x="38" y="661.5" class="sans" font-size="10.8" font-weight="700" fill="#161b22">1 − 2 D<tspan font-size="7.6" dy="2">X</tspan><tspan dy="-2"> / (5 d</tspan><tspan font-size="7.6" dy="2">T</tspan><tspan dy="-2">)</tspan><tspan font-weight="400" font-size="8.7" fill="#3f4a56">  ≤ exp(−2 D</tspan><tspan font-size="6.8" dy="1.8" font-weight="400" fill="#3f4a56">X</tspan><tspan dy="-1.8" font-weight="400" font-size="8.7" fill="#3f4a56">/5d</tspan><tspan font-size="6.8" dy="1.8" font-weight="400" fill="#3f4a56">T</tspan><tspan dy="-1.8" font-weight="400" font-size="8.7" fill="#3f4a56">)</tspan></text>
+      <text x="38" y="677.5" class="sans" font-size="9.5" fill="#161b22">Halts at share <tspan font-weight="700" fill="#1e40af">16 ε</tspan><tspan font-size="7.2" dy="2" font-weight="700" fill="#1e40af">0</tspan><tspan dy="-2" font-weight="700" fill="#1e40af"> = 2 / b</tspan><tspan font-size="7.2" dy="-2.8" font-weight="700" fill="#1e40af">2</tspan><tspan dy="2.8"/></text>
+      <text x="38" y="691" class="sans" font-size="8.9" fill="#3f4a56">Spans ≥ (1 − 2/b<tspan font-size="6.8" dy="-2.6">2</tspan><tspan dy="2.6">) d</tspan><tspan font-size="6.8" dy="1.8">T</tspan><tspan dy="-1.8"> on SourceForm</tspan></text>
+    </g>
+
+    <!-- ARROW 1 -> 2 -->
+    <line x1="282" y1="654" x2="299" y2="654" stroke="#3f4a56" stroke-width="1.6" marker-end="url(#arrow-slate-end)"/>
+
+    <!-- STEP 2: RAMIFIED SOURCE RESTRICTION -->
+    <g id="step-ramified-restriction">
+      <rect x="302" y="611" width="216" height="86" rx="4" fill="#fff5f0" stroke="#9a3412" stroke-width="1.1" stroke-dasharray="4,2.5"/>
+      <text x="312" y="627" class="sans" font-size="9.4" font-weight="700" fill="#9a3412">② RAMIFIED RESTRICTION</text>
+      <text x="312" y="644" class="sans" font-size="9.4" fill="#3f4a56">Pass to <tspan class="mono" font-size="9" font-weight="700" fill="#161b22">ramifiedSourceForms</tspan></text>
+      <text x="312" y="661" class="sans" font-size="9.7" fill="#161b22">codim ≤ f / (N − 1) ≤ b<tspan font-size="7.2" dy="-2.8">−8</tspan><tspan dy="2.8"/></text>
+      <text x="312" y="677" class="sans" font-size="9.3" fill="#3f4a56">Extra loss across all s ∈ t:</text>
+      <text x="312" y="691" class="sans" font-size="9.7" font-weight="700" fill="#9a3412">≤ 2 / b<tspan font-size="7.2" dy="-2.8">2</tspan><tspan dy="2.8" font-weight="400" font-size="9" fill="#3f4a56">  (total loss ≤ 4 / b</tspan><tspan font-size="6.8" dy="-2.6" font-weight="400" fill="#3f4a56">2</tspan><tspan dy="2.6" font-weight="400" font-size="9" fill="#3f4a56">)</tspan></text>
+    </g>
+
+    <!-- ARROW 2 -> 3 -->
+    <line x1="518" y1="654" x2="535" y2="654" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+
+    <!-- STEP 3: THEOREM B (D.enough_forms) -->
+    <g id="step-theorem-b">
+      <rect x="538" y="611" width="296" height="86" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.5"/>
+      <text x="549" y="627" class="sans" font-size="9.6" font-weight="700" fill="#1e40af">③ THEOREM B  ·  <tspan class="mono" font-size="9.8" fill="#161b22">D.enough_forms</tspan></text>
+      <text x="549" y="644.5" class="sans" font-size="9.4" fill="#3f4a56">∃ finite translate set t ⊆ Ḡ with</text>
+      <text x="549" y="662.5" class="sans" font-size="10.6" font-weight="700" fill="#161b22">#t · dim(src) ≤ 5 d<tspan font-size="7.6" dy="2">T</tspan><tspan dy="-2"> log(1 + 2 b</tspan><tspan font-size="7.6" dy="-2.8">2</tspan><tspan dy="2.8">)</tspan></text>
+      <text x="549" y="679" class="sans" font-size="10.4" font-weight="700" fill="#1e40af">spanning  ≥ (1 − 4 / b<tspan font-size="7.4" dy="-2.8">2</tspan><tspan dy="2.8">) d</tspan><tspan font-size="7.4" dy="2">T</tspan><tspan dy="-2">  dimensions</tspan></text>
+      <text x="549" y="692" class="sans" font-size="8.8" fill="#3f4a56">with d<tspan font-size="6.8" dy="1.8">T</tspan><tspan dy="-1.8"> &gt; 0  (non-vanishing + near-full spanning)</tspan></text>
+    </g>
+
+    <!-- DOWNSTREAM FEEDS STRIP -->
+    <g id="strip-downstream-feeds">
+      <rect x="28" y="704" width="806" height="25" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="40" y="720" class="sans" font-size="9.2" fill="#3f4a56"><tspan font-weight="700" fill="#161b22">FEEDS:</tspan>   ◆ Stage 01 <tspan class="mono" font-size="9" font-weight="700" fill="#1e40af">01_reduction/short_and_enough</tspan>   ·   ◆ Stage 06 <tspan class="mono" font-size="9" font-weight="700" fill="#065f46">06_one_lift/gluing_maps</tspan>   ·   ↗ Stage 05 <tspan class="mono" font-size="9" font-weight="700" fill="#9a3412">05_determinant/norm_of_chain</tspan></text>
+    </g>
+  </g>
+</svg>

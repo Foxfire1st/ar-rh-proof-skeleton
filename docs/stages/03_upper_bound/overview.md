@@ -33,7 +33,7 @@ Explore Stage 03 across its three landmark essays, return to [Stage 02 — Deriv
 
 ### Where this analogy breaks
 
-Describing Stage 03 as "proving an identity between two chains, then estimating size and divisibility on the easier chain" omits two essential logical boundaries. First, the seesaw identity `New.Data.seesaw_identity` proves that the proportionality constant $c \in \mathbb{C}^\times$ is nonzero and independent of the twist, **not** that either side is nonzero; proving that the Poincaré images actually span a large subspace of target forms belongs to Theorem B in Stage 04 (`04_spanning`). Second, Stage 03 is not a self-contained leaf behind Stage 01: its `short_columns` module defines the prime-sum gains, exceptional primes, and ramified source forms used across the rest of the proof, including an acyclic backward dependency from Stage 02's sharpness file `02_derivatives/bound_attained`.
+Describing Stage 03 as "proving an identity between two chains, then estimating size and divisibility on the easier chain" omits two essential logical boundaries. First, the seesaw identity `New.Data.seesaw_identity` proves that the proportionality constant $c \in \mathbb{C}^\times$ is nonzero and independent of the twist, **not** that either side is nonzero; proving that the Poincaré images actually span a large subspace of target forms belongs to Theorem B in [Stage 04 (`04_spanning`)](../04_spanning/overview.md). Second, Stage 03 is not a self-contained leaf behind Stage 01: its `short_columns` module defines the prime-sum gains, exceptional primes, and ramified source forms used across the rest of the proof, including an acyclic backward dependency from Stage 02's sharpness file `02_derivatives/bound_attained`.
 
 ## Level 2 — Undergrad Bridge
 
