@@ -22,7 +22,7 @@ One-shot "read → dump page" authoring produces shallow summaries and skips sou
 
 Every stage essay uses the exact `## Level N — ...` heading syntax expected by `rh-validate` (so the Level-1 jargon-order gate scopes accurately):
 
-1. **`## Level 1 — Abitur / First-Principles`:** High-school calculus, vectors/matrices, determinants, basic complex numbers, induction; deep prerequisites framed as honestly typed input/output black boxes. Always includes **"Where this analogy breaks."**
+1. **`## Level 1 — First-Principles`:** High-school calculus, vectors/matrices, determinants, basic complex numbers, induction; deep prerequisites framed as honestly typed input/output black boxes. Always includes **"Where this analogy breaks."**
 2. **`## Level 2 — Undergrad Bridge`:** Concrete toy analogies and actual spaces, norms, sums, or identities bridging intuition to the real proof mechanism.
 3. **`## Level 3 — Formal Lean Contract`:** Exact anchored Lean declaration signature, plain-math translation of hypotheses and conclusion, upstream file/line provenance, and verification status inherited from `audit/verification-status.json`.
 

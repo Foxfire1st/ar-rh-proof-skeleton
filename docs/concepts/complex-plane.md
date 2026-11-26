@@ -26,7 +26,7 @@ child_concepts:
 
 # Complex Plane
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Every point on the familiar number line is fixed by one coordinate. Extend that line into a flat two-dimensional grid by adding a vertical axis measured in multiples of the imaginary unit $i$, defined by $i^2 = -1$. A point $s = \sigma + it$ (with real numbers $\sigma$ and $t$) is a **complex number**, and the full two-dimensional grid of all such points is the **complex plane**. Here $\sigma = \operatorname{Re}(s)$ is the horizontal coordinate (real part) and $t = \operatorname{Im}(s)$ is the vertical coordinate (imaginary part).
 

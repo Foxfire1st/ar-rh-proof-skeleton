@@ -2,7 +2,7 @@
 
 This landmark page traces the top half of Stage 01 — from `New.star_inequality` through two-cutoff elimination (`New.Reduction.OneSidedBound`), Landau and Suzuki's one-sided criterion (`New.Reduction.Zeros.Criterion`), and functional-equation reflection (`New.Main`) to the Generalized Riemann Hypothesis and the Riemann Hypothesis. Return to the [Stage 01 Overview](./overview.md) for the full stage map, or continue to [The Main Cancellation Inequality and Theorems A & B](./main-inequality.md) to see how `New.star_inequality` itself is proved.
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Suppose a suspension bridge is monitored by a single pressure gauge that measures how much traffic piles up above the long-term average. If a hidden resonant wave existed inside the bridge, it would force the pressure gauge to swing wildly both above and below zero with a growing amplitude. Therefore, you do not need to cap swings in both directions: if you can prove a **one-sided ceiling** — showing that the pressure never spikes far *above* zero — no destructive wave can exist above that growth rate.
 

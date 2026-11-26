@@ -26,7 +26,7 @@ child_concepts:
 
 # Infinite Series
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Given a sequence of numbers $a_1, a_2, a_3, \dots$, form the running totals $S_N = a_1 + a_2 + \dots + a_N$. If those running totals settle closer and closer to a single finite value $S$ as $N$ grows without bound, the **infinite series** $\sum_{n=1}^{\infty} a_n$ converges to $S$. For example, $\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \dots$ converges to $1$, whereas the harmonic sum $1 + \frac{1}{2} + \frac{1}{3} + \dots$ grows past every bound and diverges.
 

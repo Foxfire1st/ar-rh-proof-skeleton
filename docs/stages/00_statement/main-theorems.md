@@ -2,7 +2,7 @@
 
 This landmark page explains the five headline theorems exposed at the top of the proof (`src/Main.lean`), their frozen counterparts in root `Challenge.lean`, and why proving zero-freeness strictly to the right of $\operatorname{Re}(s) = 1/2$ suffices to pin every nontrivial zero onto $\operatorname{Re}(s) = 1/2$. Return to the [Stage 00 Overview](./overview.md) for the full stage map.
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Imagine a mirror running vertically down the exact center of a hallway. Suppose you know two facts: every stain in the hallway has a twin reflected across the center mirror, and the entire right half of the hallway is completely clean. Without ever inspecting the left half directly, you know the left half must also be clean—otherwise a stain on the left would cast a reflected stain onto the clean right half. The only place any stain can exist is directly on the center line itself.
 

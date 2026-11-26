@@ -27,7 +27,7 @@ child_concepts:
 
 # Primitive Character
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Take the modulo-$4$ pattern $\chi_4$ ($0, +1, 0, -1, \dots$) and pretend you only know it modulo $12$. For every number coprime to $12$, set $\chi_{12}(n) = \chi_4(n)$, and set $\chi_{12}(n) = 0$ whenever $n$ is divisible by $2$ or $3$. This gives a valid {{concept:dirichlet-character|periodic multiplicative label}} modulo $12$, yet its values on units are completely inherited from modulus $4$—the factor $3$ only punched extra zeros into the sequence at multiples of $3$.
 

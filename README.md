@@ -22,7 +22,7 @@ No mathematical term enters Level-1 prose without an immediate plain-language ex
 
 Every stage essay presents the same mathematical landmark at three parallel depths:
 
-1. **Level 1 — Abitur / First-Principles:** High-school calculus, vectors and matrices, determinants, basic complex numbers, and honestly typed black boxes for deeper prerequisites, paired with *"Where this analogy breaks."*
+1. **Level 1 — First-Principles:** High-school calculus, vectors and matrices, determinants, basic complex numbers, and honestly typed black boxes for deeper prerequisites, paired with *"Where this analogy breaks."*
 2. **Level 2 — Undergrad Bridge:** Concrete toy analogies, actual spaces, norms, sums, and identities connecting intuition to the proof mechanism.
 3. **Level 3 — Formal Lean Contract:** Exact anchored Lean declaration signature, plain-math translation of hypotheses and conclusions, upstream file and line provenance, and verification status inherited from `audit/verification-status.json`.
 

@@ -2,7 +2,7 @@
 
 This guide maps the complete architecture of the Lean 4 formalization in `leanprover-community/riemann-hypothesis` (`main@41c2716658c4`, the November 25, 2026 condensed readable edition). It bridges the formal statement contracts of [Stage 00](./overview.md) to the seven proof pillars (`01_reduction` through `07_congruences`) in `src/New/`, and reconciles the condensed eight-pillar layout with Levent Alpöge's original 20-step development roadmap (`alpo.ge/remark.pdf`). Local Lean compilation remains `unverified-locally`; every theorem name and dependency edge below is extracted statically from the pinned upstream commit.
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 To settle the Riemann Hypothesis and the Generalized Riemann Hypothesis, the formalization does not hunt for individual zeros of {{concept:riemann-zeta-function|the global function $\zeta(s)$ extending $\sum_{n=1}^{\infty} n^{-s}$}} or of {{concept:dirichlet-l-function|the family of twisted functions $L(\chi, s)$ built from periodic multiplicative weights $\chi(n)$}}. Instead, it works directly with how irregularly {{concept:prime-number|whole numbers greater than $1$ with no smaller positive divisors}} deviate from their smooth average.
 

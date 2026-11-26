@@ -26,7 +26,7 @@ child_concepts:
 
 # Gram Determinant
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Take two vectors $v_1, v_2$ in space. The parallelogram they span has area $\|v_1\| \|v_2\| \sin\theta$, so its squared area is
 $$\|v_1\|^2 \|v_2\|^2 (1 - \cos^2\theta) = \|v_1\|^2 \|v_2\|^2 - \langle v_1, v_2 \rangle^2 = \det \begin{pmatrix} \langle v_1, v_1 \rangle & \langle v_1, v_2 \rangle \\ \langle v_2, v_1 \rangle & \langle v_2, v_2 \rangle \end{pmatrix}.$$

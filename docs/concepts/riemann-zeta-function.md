@@ -31,7 +31,7 @@ child_concepts:
 
 # Riemann Zeta Function
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 For any real number $s > 1$, add the reciprocals of all positive whole numbers raised to the power $s$:
 $$\zeta(s) = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + \dots$$

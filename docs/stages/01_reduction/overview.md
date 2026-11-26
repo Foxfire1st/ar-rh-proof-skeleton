@@ -2,7 +2,7 @@
 
 Stage 01 is the architectural bridge between the formal statement contracts of [Stage 00](../00_statement/overview.md) and the deep automorphic, $p$-adic, and Galois-theoretic engines of Stages 02–07. It proves in full how a single upper bound on a smoothed prime-counting remainder implies the Generalized Riemann Hypothesis and the Riemann Hypothesis, and how that upper bound itself follows once a balanced cancellation inequality traps the prime remainder between an upper bound on lifted vectors and an arithmetic lower bound on their determinant.
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Finding every zero of a function across an entire two-dimensional plane looks hopeless if you try to hunt them one point at a time. Stage 01 trades that hunt for a much sharper target: controlling how far the distribution of {{concept:prime-number|whole numbers greater than $1$ with no smaller positive divisors}} can surge above its expected average.
 

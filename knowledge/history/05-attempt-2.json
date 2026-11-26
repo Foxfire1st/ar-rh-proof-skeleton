@@ -1,0 +1,525 @@
+{
+  "attempt": 2,
+  "closed": true,
+  "leaf": "05",
+  "rows": [
+    {
+      "disposition": "updated",
+      "id": "ROW-0CEHJT",
+      "items": [
+        "sha256:00c898c652ebc65f0a605ce7fe4aeb0dc18d99bd02cde066f7fe0bbcccdc90fc",
+        "sha256:6295b041ba8067626d62199f83631988aaf8e7abeb5b8c989aca9cf8c7fc34af"
+      ],
+      "reason": "Reviewed the two Level-1 heading fixture replacements at lines 119 and 132 in test_cli_populated_memory_passes_and_ignores_onboarding (which introduce no new invariant), repaired an encountered pre-existing false Limits sentence claiming the console-script test skips when .venv/bin/rh-validate is missing (the test executes REPO_ROOT/.venv/bin/rh-validate unconditionally), and refreshed sidecar references [1]-[3] via citation_fix (expanding [3] to cite both test_cli_populated_memory_passes_and_ignores_onboarding and test_cli_console_script_runs_on_repo).",
+      "sources": [
+        {
+          "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+          "path": "tests/unit/test_validate_cli.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_validate_cli.py"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R11",
+          "packet": "RH-R11-v1-first-principles-terminology-sweep.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "4f8adbd8a0ff4ad049ca4a4ad3c5e9b9f7d93883",
+            "content": "sha256:dcde57da092517a03424880d3ceb9631413f2e8b39d02a0139731b9e40759c0c",
+            "locator": {
+              "end": 86,
+              "kind": "line_range",
+              "start": 19
+            },
+            "path": ".github/workflows/quality.yml"
+          },
+          "before": {
+            "blob": "a4fea456633855d028009ee4158b1aec1cf48ccb",
+            "content": "sha256:0a9922a035b7bac24d1cf9c53ef710e5047784390a5bda97feac4cdb92495474",
+            "locator": {
+              "end": 86,
+              "kind": "line_range",
+              "start": 19
+            },
+            "path": ".github/workflows/quality.yml"
+          },
+          "id": "RLZ-SJ8BQ4"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-512XAY",
+      "items": [
+        "sha256:05108da20510b43c6626c7e97bd6f7b72674d3ce775acd97b6c197f928b2197e"
+      ],
+      "reason": "Re-anchored RLZ-SJ8BQ4 on .github/workflows/quality.yml (lines 19-86) at code tree 908d60ccceecd6ad3042568d7b174fbffa30c8e9 after line 70 updated the synthetic Stage 00 overview fixture heading from '## Level 1 — Abitur / First-Principles' to '## Level 1 — First-Principles'. The site-build-check job structure, gitignored outputs and dual-repo Pages split of INV-GXDXCT remain unchanged.",
+      "revision": 1,
+      "subject": "INV-GXDXCT"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-9NDAGK",
+          "revision": 1
+        },
+        {
+          "id": "INV-D1FB14",
+          "revision": 1
+        },
+        {
+          "id": "INV-EWYG1N",
+          "revision": 1
+        },
+        {
+          "id": "INV-H9CTX9",
+          "revision": 1
+        },
+        {
+          "id": "INV-ZN8F2W",
+          "revision": 1
+        }
+      ],
+      "id": "ROW-GEPE8Z",
+      "items": [
+        "sha256:acedd759d1b796da337e6af09dcb34efae9abb4a7cce9e53ebae1dc03c7faea7"
+      ],
+      "reason": "Examined all five members of FAM-S1B3TM (INV-9NDAGK rev 1 and INV-H9CTX9 rev 1 re-anchored after test fixture Level-1 heading strings aligned to 'First-Principles'; INV-D1FB14 rev 1, INV-EWYG1N rev 1 and INV-ZN8F2W rev 1 untouched). The deterministic explainer, Concept Card and artifact schema validator suite joint guarantee and root route '.' remain accurate.",
+      "revision": 1,
+      "subject": "FAM-S1B3TM"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-HP6W0A",
+      "items": [
+        "sha256:91e1851f46a41c23269e9e3dc1682917a0fead5a9e019ac40bab6a4035de0bac"
+      ],
+      "reason": "Updated onboarding/site/docs/.vitepress/theme/components/ZoomTabs.vue.md Purpose, Code Commentary and Evidence [1]-[2] and refreshed sidecar references [1]-[3] via citation_fix to reflect Level 1 id 'first-principles', label 'Level 1 · First-Principles', default activeLevel 'first-principles', and backwards-compatible ?level=abitur/#level-abitur URL aliases with zero user-facing 'Abitur' wording.",
+      "sources": [
+        {
+          "blob": "e74a07979d856de700ad603591ff60fc07cd7e3a",
+          "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/theme/components/ZoomTabs.vue"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R11",
+          "packet": "RH-R11-v1-first-principles-terminology-sweep.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+            "content": "sha256:295de1319c70374682663353ec3de410e89a2fa734ed469091da326a43dbbc7e",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_concept_directive_math_pipe_latex_braces_and_inline_code"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "before": {
+            "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+            "content": "sha256:295de1319c70374682663353ec3de410e89a2fa734ed469091da326a43dbbc7e",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_concept_directive_math_pipe_latex_braces_and_inline_code"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "id": "PRF-0HCYGW"
+        },
+        {
+          "after": {
+            "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+            "content": "sha256:ed509b424fd1151ff18b6cd816789ff171c06fdaf321abca0e7f636a4adf866a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_concept_card_own_slug_level_slicing_and_line_offset"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "before": {
+            "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+            "content": "sha256:ed509b424fd1151ff18b6cd816789ff171c06fdaf321abca0e7f636a4adf866a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_concept_card_own_slug_level_slicing_and_line_offset"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "id": "PRF-1V88J4"
+        },
+        {
+          "after": {
+            "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+            "content": "sha256:d7efceca743a5ea108ee64cd7579356d4f2468d22df36b91dce044f038fe6df5",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_explainer_docs_scans_strictly_concepts_and_stages"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "before": {
+            "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+            "content": "sha256:d7efceca743a5ea108ee64cd7579356d4f2468d22df36b91dce044f038fe6df5",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_explainer_docs_scans_strictly_concepts_and_stages"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "id": "PRF-BB65AQ"
+        },
+        {
+          "after": {
+            "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+            "content": "sha256:38039784d09e416dfe084c1169ae7e5170a4ab46d392ceb1d26552dde18c1fa2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_unknown_concept_and_invalid_directive_in_all_levels"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "before": {
+            "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+            "content": "sha256:38039784d09e416dfe084c1169ae7e5170a4ab46d392ceb1d26552dde18c1fa2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_unknown_concept_and_invalid_directive_in_all_levels"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "id": "PRF-BFHRG4"
+        },
+        {
+          "after": {
+            "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+            "content": "sha256:1a619d38afe81c0c18bb7ddfafb3921d336b0c19d7cb08d98f351ea17038f996",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_exemptions_word_boundaries_math_code_links_and_sections"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "before": {
+            "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+            "content": "sha256:1a619d38afe81c0c18bb7ddfafb3921d336b0c19d7cb08d98f351ea17038f996",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_exemptions_word_boundaries_math_code_links_and_sections"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "id": "PRF-H0WGN9"
+        },
+        {
+          "after": {
+            "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+            "content": "sha256:e040a5bd478a2391ffd5c057ad54224a83584be2f375d6ad125be27e09423118",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_conforming_level1_prose_passes"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "before": {
+            "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+            "content": "sha256:28cb20ded287f0ab91a841f2d69d7c7b1f88fb1c1f162eb7394d0b3af24060e7",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_conforming_level1_prose_passes"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "id": "PRF-PD86YG"
+        },
+        {
+          "after": {
+            "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+            "content": "sha256:418e3535c02f6f6b18eb7aae2c84f643b725c7fbd6dd0ca5156ae993941c4f5a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_raw_term_alias_plurals_and_premature_term_directive_emit_exact_lines"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "before": {
+            "blob": "b7a7b51b7cfac9e701f1b9d50817290784c2d5c5",
+            "content": "sha256:418e3535c02f6f6b18eb7aae2c84f643b725c7fbd6dd0ca5156ae993941c4f5a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_raw_term_alias_plurals_and_premature_term_directive_emit_exact_lines"
+            },
+            "path": "tests/unit/test_validate_jargon.py"
+          },
+          "id": "PRF-Y0AHP8"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-NS9MEX",
+      "items": [
+        "sha256:de44d638148e8bd9b300476a1e439863fc2cb98f7f604142ca3889119a4f1282"
+      ],
+      "reason": "Re-anchored PRF-PD86YG (test_conforming_level1_prose_passes) and the six carried proof entries in tests/unit/test_validate_jargon.py at code tree 908d60ccceecd6ad3042568d7b174fbffa30c8e9 after line 47 replaced '## Level 1 — Abitur Intuition' with '## Level 1 — First-Principles'. src/rh_pipeline/validate/jargon.py is untouched and INV-9NDAGK's directive-resolution and Level-1 jargon-before-reveal obligations remain unchanged (verified by Worker 260 passed and Reviewer 60 focused tests passed).",
+      "revision": 1,
+      "subject": "INV-9NDAGK"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-GXDXCT",
+          "revision": 1
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 3
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 4
+        }
+      ],
+      "id": "ROW-Q96D7B",
+      "items": [
+        "sha256:8f71e253ac01774f24e179f4919c2ebb43f110f9b3106c9bd592d409f69291da"
+      ],
+      "reason": "Examined all four members of FAM-033QTE (INV-VGNZKV strengthened to revision 4 for ZoomTabs 'first-principles' default and legacy 'abitur' URL aliases; INV-GXDXCT re-anchored at revision 1 for the quality.yml synthetic fixture heading; INV-HK005W rev 1 and INV-V207JN rev 3 untouched). The Phase 4 static-site compilation, editorial light VitePress shell and dual-repo CI/Pages joint guarantee and root route '.' remain accurate.",
+      "revision": 2,
+      "subject": "FAM-033QTE"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-QNGHGA",
+      "items": [
+        "sha256:201ff1eb3bf16cc9fba28244b2ec26c933aacc9ba6d5b04ab9660a601012f5f8"
+      ],
+      "reason": "Reviewed onboarding/.github/workflows/quality.yml.md against the single-line synthetic Stage 00 fixture heading update at line 70 of .github/workflows/quality.yml; all card prose remains accurate and sidecar references [1]-[2] were re-anchored at code tree 908d60ccceecd6ad3042568d7b174fbffa30c8e9 via citation_fix.",
+      "sources": [
+        {
+          "blob": "4f8adbd8a0ff4ad049ca4a4ad3c5e9b9f7d93883",
+          "path": ".github/workflows/quality.yml"
+        }
+      ],
+      "subject": "onboarding:.github/workflows/quality.yml"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R11",
+          "packet": "RH-R11-v1-first-principles-terminology-sweep.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "e74a07979d856de700ad603591ff60fc07cd7e3a",
+            "content": "sha256:8eddbc9db33391d83148570becd617c1457fd63dfc62d824c7bda6fbbae7e9da",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue"
+          },
+          "before": {
+            "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
+            "content": "sha256:5957798a2b3303ea298360fccd331e8154e20d8d8aacf72182e890f862235987",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue"
+          },
+          "id": "RLZ-TJXJ4B"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "strengthen",
+      "id": "ROW-QZB4SN",
+      "items": [
+        "sha256:0dca9a092b975bc90872b45ab7e85a45f93549b5aaaef5f200013e348d1ecd5e"
+      ],
+      "reason": "Strengthened INV-VGNZKV under RH-R11@v1 (RH-D20) to require ZoomTabs.vue to default Level 1 to id 'first-principles' and label 'Level 1 · First-Principles' with zero user-facing 'Abitur' labels while keeping backwards-compatible ?level=abitur and #level-abitur URL aliases mapping to 'first-principles', and re-anchored RLZ-TJXJ4B with updated rationale at code tree 908d60ccceecd6ad3042568d7b174fbffa30c8e9. Verified by Worker attempt 05-A1 (Playwright round-1-evidence.tar.gz) and Reviewer 05-R1 CODE/docs PASS (05-code-review-verdict.md).",
+      "revision": 4,
+      "subject": "INV-VGNZKV"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R11",
+          "packet": "RH-R11-v1-first-principles-terminology-sweep.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+            "content": "sha256:fa80c90b434320debfaf74f130b6bed22fda2c5ffa8772b80b319197d3a7fb18",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_reports_sorted_canonical_findings_across_gates"
+            },
+            "path": "tests/unit/test_validate_cli.py"
+          },
+          "before": {
+            "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+            "content": "sha256:1d22c8fbc92b33c44aa58b9a00f37b06f6eb8d6439fd1a70e8dd37ceaa9bbea2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_reports_sorted_canonical_findings_across_gates"
+            },
+            "path": "tests/unit/test_validate_cli.py"
+          },
+          "id": "PRF-5XZHTJ"
+        },
+        {
+          "after": {
+            "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+            "content": "sha256:9a577ea3a2ae5b6e10ad7a2045750775f805c3514eeca53c07d6e1026a498f5c",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_missing_memory_path_exits_one"
+            },
+            "path": "tests/unit/test_validate_cli.py"
+          },
+          "before": {
+            "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+            "content": "sha256:9a577ea3a2ae5b6e10ad7a2045750775f805c3514eeca53c07d6e1026a498f5c",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_missing_memory_path_exits_one"
+            },
+            "path": "tests/unit/test_validate_cli.py"
+          },
+          "id": "PRF-688YFR"
+        },
+        {
+          "after": {
+            "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+            "content": "sha256:8f63e9d1fb339013da70966ca680907874a1a8580938a5ea2305c91af45c5462",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_memory_without_concepts_dir_passes_with_info"
+            },
+            "path": "tests/unit/test_validate_cli.py"
+          },
+          "before": {
+            "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+            "content": "sha256:8f63e9d1fb339013da70966ca680907874a1a8580938a5ea2305c91af45c5462",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_memory_without_concepts_dir_passes_with_info"
+            },
+            "path": "tests/unit/test_validate_cli.py"
+          },
+          "id": "PRF-ECBWTH"
+        },
+        {
+          "after": {
+            "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+            "content": "sha256:9fed74d51fa5cb2da5e09b15aec2904b57422eaf3407b2ccd86c5daa3019fa87",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_without_memory_validates_repo_and_prints_skip_info"
+            },
+            "path": "tests/unit/test_validate_cli.py"
+          },
+          "before": {
+            "blob": "10127eaae417a47cc7a8dc180b2565040b1daa35",
+            "content": "sha256:9fed74d51fa5cb2da5e09b15aec2904b57422eaf3407b2ccd86c5daa3019fa87",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_without_memory_validates_repo_and_prints_skip_info"
+            },
+            "path": "tests/unit/test_validate_cli.py"
+          },
+          "id": "PRF-WKZ5BH"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-SGE38J",
+      "items": [
+        "sha256:6546fbff0f940cbed8509195c145eb69b5c7d76f7df643da2571811a33d5ec64"
+      ],
+      "reason": "Re-anchored PRF-5XZHTJ (test_cli_reports_sorted_canonical_findings_across_gates) and the three carried proof entries in tests/unit/test_validate_cli.py at code tree 908d60ccceecd6ad3042568d7b174fbffa30c8e9 after line 156 replaced '## Level 1 — Abitur / First-Principles' with '## Level 1 — First-Principles'. src/rh_pipeline/cli/validate.py, pyproject.toml and scripts/check-quality.sh are untouched and INV-H9CTX9 remains unchanged.",
+      "revision": 1,
+      "subject": "INV-H9CTX9"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-Y40A3Z",
+      "items": [
+        "sha256:1137c9e6a8db2535ba869947bba4e4d89a5c1297b927116eccb01f9fc6f3a814"
+      ],
+      "reason": "Reviewed onboarding/overview.md and onboarding/overview.json against all four changed code files (ZoomTabs.vue, quality.yml, test_validate_cli.py, test_validate_jargon.py); overview prose carries zero 'Abitur' wording and remains completely accurate, and sidecar reference [2] targeting .github/workflows/quality.yml:8-86 was re-anchored at code tree 908d60ccceecd6ad3042568d7b174fbffa30c8e9 via citation_fix.",
+      "sources": [
+        {
+          "blob": "4f8adbd8a0ff4ad049ca4a4ad3c5e9b9f7d93883",
+          "path": ".github/workflows/quality.yml"
+        },
+        {
+          "blob": "e74a07979d856de700ad603591ff60fc07cd7e3a",
+          "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue"
+        },
+        {
+          "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+          "path": "tests/unit/test_validate_cli.py"
+        },
+        {
+          "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+          "path": "tests/unit/test_validate_jargon.py"
+        }
+      ],
+      "subject": "onboarding:overview"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:6ae7ccbedcdf5088b05f47def38c37a58d73a98f886ceba55b07851f9fc80db9",
+      "record": "INV-VGNZKV",
+      "revision": 4,
+      "writer": {
+        "at": "2026-11-26T19:43:17+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "05",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "50c624db-5488-53d3-a74e-eba4248597c1",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}
