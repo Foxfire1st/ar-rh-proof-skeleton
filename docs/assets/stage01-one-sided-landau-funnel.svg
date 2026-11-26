@@ -1,0 +1,309 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 880 656"
+     width="880"
+     height="656"
+     role="img"
+     aria-labelledby="stage01-funnel-title stage01-funnel-desc">
+  <title id="stage01-funnel-title">Stage 01 One-Sided Landau Funnel: Prime Ceiling to Critical Line</title>
+  <desc id="stage01-funnel-desc">Two-panel editorial mathematical diagram of the Stage 01 one-sided reduction funnel. Left panel shows the smoothed prime remainder R_q0(x) = sum_{n &lt;= x} lambda(n)(1/n - 1/x) - (log x)/phi(q0) - c_q0 with nonnegative weight lambda(n) = Lambda(n)(1 - (n/d)) on n = 1 (mod q0), plotted as an oscillating curve staying strictly underneath the dashed one-sided ceiling A x^(beta - 1) = A x^(-1/2 + epsilon) with no lower barrier required. Below the plot, the two-cutoff scale ladder x &lt;&lt; x1 &lt;&lt; b (x^(10^6) &lt;= x1, (x1)^(10^6) &lt;= b, log x1 &gt;= x^(epsilon/12), m in [sqrt(x), 2 sqrt(x)]) shows classical PNT crushing |R_q0(x1)| and |R_1(x1)| &lt;= x^(-2), yielding R_q0(y) &lt;= (128 phi(q0) + 32) y^(-1/2 + epsilon) via New.eventually_primeRemainder_le_mul_rpow. Right panel shows the complex s-plane with critical strip 0 &lt; Re(s) &lt; 1, dashed critical line Re(s) = 1/2, Re(s) = beta &gt; 1/2, Re(s) = 1, and the target zero-avoidance box {Re(s) &gt;= beta, |Im(s)| &lt;= |Im(rho)|} containing candidate point rho. Three numbered cards explain: (1) quadratic-twist selection (exists_entireL_quadTwist_ne_zero) choosing prime d = d0 (mod q0) so all twisted L(chi chi_d, s) satisfy n'(s) = 0 inside the box; (2) real-axis sign positivity with no no-real-zeros assumption, since on (beta, 1] both x(1-x) &gt;= 0 and n(x) &gt;= 0 give Re r(x) &gt;= 0 while n(x) = 0 for x &gt;= 1; and (3) Landau's lemma (IsPolar.landau) forcing r(rho) = 0, n(rho) = 0, and L(psi, rho) != 0, feeding New.grh and functional-equation reflection s -&gt; 1 - s (New.zeros_on_line) onto Re(s) = 1/2. A compact bottom flow strip connects star_inequality to OneSidedBound to Criterion to New.grh to New.Main.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-slate" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-rust" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+
+    <!-- Clip paths for crisp rounded header bars and plot regions -->
+    <clipPath id="clip-left">
+      <rect x="16" y="54" width="412" height="520" rx="6"/>
+    </clipPath>
+    <clipPath id="clip-right">
+      <rect x="452" y="54" width="412" height="520" rx="6"/>
+    </clipPath>
+    <clipPath id="clip-left-plot">
+      <rect x="26" y="152" width="392" height="172" rx="4"/>
+    </clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="879" height="655" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- Main Header Bar -->
+  <text x="18" y="29" class="sans" font-size="16" font-weight="700" fill="#161b22">Stage 01 One-Sided Landau Funnel: Ceiling to Critical Line</text>
+  <text x="862" y="28" class="mono" font-size="11.5" fill="#3f4a56" text-anchor="end">OneSidedBound → Criterion → Main</text>
+  <line x1="16" y1="44" x2="864" y2="44" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- LEFT PANEL: Smoothed One-Sided Remainder & Two-Cutoff Scale Ladder    -->
+  <!-- ===================================================================== -->
+  <g id="left-panel">
+    <rect x="16" y="54" width="412" height="520" rx="6" fill="#ffffff"/>
+    <rect x="16" y="54" width="412" height="36" fill="#eff6ff" clip-path="url(#clip-left)"/>
+    <line x1="16" y1="90" x2="428" y2="90" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="16" y="54" width="412" height="520" rx="6" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+    <!-- Panel 1 Header -->
+    <text x="26" y="77" class="sans" font-size="13.5" font-weight="700" fill="#1e40af">1. Smoothed Remainder &amp; Scale Ladder</text>
+    <rect x="338" y="62" width="80" height="20" rx="4" fill="#dbeafe" stroke="#1e40af" stroke-width="0.9"/>
+    <text x="378" y="76" class="sans" font-size="11.5" font-weight="700" fill="#1e40af" text-anchor="middle">REAL AXIS</text>
+
+    <!-- 1A: Definition Formula Strip -->
+    <rect x="26" y="98" width="392" height="46" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="36" y="117" class="sans" font-size="12" font-weight="600" fill="#161b22">R<tspan font-size="10" baseline-shift="sub">q₀</tspan>(x) = Σ<tspan font-size="9.5" baseline-shift="sub">n≤x</tspan> λ(n)(1/n − 1/x) − (log x)/φ(q₀) − c<tspan font-size="10" baseline-shift="sub">q₀</tspan></text>
+    <text x="36" y="137" class="sans" font-size="11.5" fill="#3f4a56">λ(n) = Λ(n)(1 − (n/d)) ≥ 0 on n ≡ 1 (mod q₀), else 0</text>
+
+    <!-- 1B: Schematic Remainder Plot -->
+    <rect x="26" y="152" width="392" height="172" rx="4" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+
+    <!-- Subtle warm cap above the one-sided ceiling -->
+    <path d="M 64 157 L 402 157 L 402 236 C 328 232, 260 227, 202 220 C 154 214, 108 201, 64 176 Z"
+          fill="#fef6e4" opacity="0.85" clip-path="url(#clip-left-plot)"/>
+
+    <!-- Plot Axes -->
+    <line x1="58" y1="304" x2="58" y2="162" stroke="#3f4a56" stroke-width="1.3" marker-end="url(#arrow-slate)"/>
+    <line x1="53" y1="251" x2="408" y2="251" stroke="#3f4a56" stroke-width="1.3" marker-end="url(#arrow-slate)"/>
+    <text x="48" y="255" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="end">0</text>
+    <text x="66" y="170" class="sans" font-size="12" font-weight="700" fill="#1e40af">R<tspan font-size="9.5" baseline-shift="sub">q₀</tspan>(x)</text>
+    <text x="406" y="267" class="sans" font-size="11.5" font-style="italic" fill="#3f4a56" text-anchor="end">x → ∞</text>
+
+    <!-- Smooth One-Sided Ceiling Curve A x^(beta - 1) -->
+    <path d="M 64 176 C 108 201, 154 214, 202 220 C 260 227, 328 232, 402 236"
+          fill="none" stroke="#9a3412" stroke-width="2.4" stroke-dasharray="7,4"/>
+
+    <!-- Ceiling Label & Pointer -->
+    <text x="406" y="176" class="sans" font-size="12" font-weight="700" fill="#9a3412" text-anchor="end">One-sided ceiling: A·x<tspan font-size="10" baseline-shift="super">β−1</tspan> = A·x<tspan font-size="10" baseline-shift="super">−½+ε</tspan></text>
+    <text x="406" y="193" class="sans" font-size="11.5" fill="#92400e" text-anchor="end">β = ½ + ε (upper cap only)</text>
+    <line x1="256" y1="198" x2="249" y2="222" stroke="#9a3412" stroke-width="1.3" marker-end="url(#arrow-rust)"/>
+
+    <!-- Oscillating Remainder Curve R_{q0}(x) strictly below ceiling -->
+    <path d="M 64 229
+             C 76 229, 76 204, 88 204
+             C 101 204, 101 277, 114 277
+             C 129 277, 129 221, 144 221
+             C 159 221, 159 289, 174 289
+             C 189 289, 189 231, 204 231
+             C 220 231, 220 281, 236 281
+             C 252 281, 252 237, 268 237
+             C 284 237, 284 291, 300 291
+             C 316 291, 316 242, 332 242
+             C 347 242, 347 275, 362 275
+             C 374 275, 374 245, 386 245
+             C 394 245, 395 263, 402 263"
+          fill="none" stroke="#1e40af" stroke-width="2.1"/>
+
+    <!-- No Lower Barrier Callout -->
+    <text x="234" y="314" class="sans" font-size="11.5" font-weight="600" fill="#1e40af" text-anchor="middle">↓  No lower barrier needed (dips unrestricted)  ↓</text>
+
+    <!-- 1C: Two-Cutoff Scale Ladder Container -->
+    <rect x="26" y="332" width="392" height="232" rx="5" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="36" y="353" class="sans" font-size="12.5" font-weight="700" fill="#161b22">Two-Cutoff Scale Ladder (x ≪ x₁ ≪ b)</text>
+    <text x="408" y="353" class="sans" font-size="11.5" font-weight="600" fill="#3f4a56" text-anchor="end">m ∈ [√x, 2√x]</text>
+
+    <!-- Scale Ladder Track -->
+    <line x1="66" y1="386" x2="210" y2="386" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrow-slate)"/>
+    <line x1="220" y1="386" x2="370" y2="386" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrow-slate)"/>
+
+    <!-- Milestone x -->
+    <circle cx="66" cy="386" r="5" fill="#1e40af"/>
+    <text x="66" y="375" class="sans" font-size="12.5" font-weight="700" fill="#1e40af" text-anchor="middle">x</text>
+    <text x="66" y="407" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">target</text>
+
+    <!-- Jump 1: x^(10^6) <= x1 -->
+    <text x="142" y="377" class="sans" font-size="11.5" font-weight="600" fill="#161b22" text-anchor="middle">x<tspan font-size="9.5" baseline-shift="super">10⁶</tspan> ≤ x₁</text>
+
+    <!-- Milestone x1 -->
+    <circle cx="220" cy="386" r="5.5" fill="#9a3412"/>
+    <text x="220" y="375" class="sans" font-size="12.5" font-weight="700" fill="#9a3412" text-anchor="middle">x₁</text>
+    <text x="220" y="407" class="sans" font-size="11.5" font-weight="600" fill="#9a3412" text-anchor="middle">log x₁ ≥ x<tspan font-size="9.5" baseline-shift="super">ε/12</tspan></text>
+
+    <!-- Jump 2: (x1)^(10^6) <= b -->
+    <text x="300" y="377" class="sans" font-size="11.5" font-weight="600" fill="#161b22" text-anchor="middle">(x₁)<tspan font-size="9.5" baseline-shift="super">10⁶</tspan> ≤ b</text>
+
+    <!-- Milestone b -->
+    <circle cx="380" cy="386" r="5" fill="#3f4a56"/>
+    <text x="380" y="375" class="sans" font-size="12.5" font-weight="700" fill="#161b22" text-anchor="middle">b</text>
+    <text x="372" y="407" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">log b ≤ 2x<tspan font-size="9.5" baseline-shift="super">ε</tspan></text>
+
+    <!-- Classical PNT Elimination Card -->
+    <rect x="34" y="422" width="376" height="60" rx="4" fill="#ffffff" stroke="#fed7aa" stroke-width="1.2"/>
+    <rect x="34" y="422" width="4" height="60" rx="2" fill="#9a3412"/>
+    <text x="46" y="443" class="sans" font-size="12" font-weight="700" fill="#9a3412">Classical PNT crushes x₁ errors<tspan font-size="11.5" font-weight="400" fill="#3f4a56"> (B ≥ 24/ε)</tspan></text>
+    <text x="46" y="466" class="sans" font-size="11.5" fill="#161b22">|R<tspan font-size="9.5" baseline-shift="sub">q₀</tspan>(x₁)|, |R₁(x₁)| ≤ x⁻²  ⇒  only (log⁶b)/m survives</text>
+
+    <!-- Resulting Real-Variable One-Sided Bound Card -->
+    <rect x="34" y="492" width="376" height="62" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.4"/>
+    <text x="46" y="516" class="sans" font-size="12.5" font-weight="700" fill="#065f46">R<tspan font-size="10" baseline-shift="sub">q₀</tspan>(y) ≤ (128φ(q₀) + 32) y<tspan font-size="10" baseline-shift="super">−1/2+ε</tspan><tspan font-size="11.5" font-weight="400" fill="#3f4a56">  (y ∈ ℝ)</tspan></text>
+    <text x="46" y="540" class="mono" font-size="11.5" font-weight="600" fill="#161b22">New.eventually_primeRemainder_le_mul_rpow</text>
+  </g>
+
+  <!-- Panel-to-Panel Bridge Arrows -->
+  <line x1="428" y1="216" x2="450" y2="216" stroke="#1e40af" stroke-width="2.2" marker-end="url(#arrow-cobalt)"/>
+  <line x1="428" y1="523" x2="450" y2="523" stroke="#065f46" stroke-width="2.2" marker-end="url(#arrow-green)"/>
+
+  <!-- ===================================================================== -->
+  <!-- RIGHT PANEL: Complex s-Plane, Twist Avoidance & Landau's Lemma        -->
+  <!-- ===================================================================== -->
+  <g id="right-panel">
+    <rect x="452" y="54" width="412" height="520" rx="6" fill="#ffffff"/>
+    <rect x="452" y="54" width="412" height="36" fill="#f5f3ff" clip-path="url(#clip-right)"/>
+    <line x1="452" y1="90" x2="864" y2="90" stroke="#ddd6fe" stroke-width="1"/>
+    <rect x="452" y="54" width="412" height="520" rx="6" fill="none" stroke="#6d28d9" stroke-width="1.5"/>
+
+    <!-- Panel 2 Header -->
+    <text x="462" y="77" class="sans" font-size="13.5" font-weight="700" fill="#6d28d9">2. Complex s-Plane &amp; Landau's Lemma</text>
+    <rect x="772" y="62" width="82" height="20" rx="4" fill="#ede9fe" stroke="#6d28d9" stroke-width="0.9"/>
+    <text x="813" y="76" class="sans" font-size="11.5" font-weight="700" fill="#6d28d9" text-anchor="middle">s = σ + it</text>
+
+    <!-- 2A: Complex s-Plane Plot -->
+    <rect x="462" y="98" width="392" height="226" rx="4" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+
+    <!-- Critical strip 0 < Re(s) < 1 -->
+    <rect x="508" y="130" width="192" height="168" fill="#f3f1eb" opacity="0.72"/>
+
+    <!-- Target Zero-Avoidance Box {Re(s) >= beta, |Im(s)| <= |Im(rho)|} -->
+    <rect x="650" y="150" width="172" height="132" fill="#f5f3ff" opacity="0.92"/>
+    <path d="M 822 150 L 650 150 L 650 282 L 822 282" fill="none" stroke="#6d28d9" stroke-width="1.8"/>
+    <line x1="822" y1="150" x2="822" y2="282" stroke="#6d28d9" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+    <!-- Vertical Reference Lines -->
+    <!-- Re(s) = 0 (Im axis) -->
+    <line x1="508" y1="298" x2="508" y2="124" stroke="#3f4a56" stroke-width="1.3" marker-end="url(#arrow-slate)"/>
+    <!-- Re(s) = 1/2 (critical line) -->
+    <line x1="604" y1="130" x2="604" y2="298" stroke="#065f46" stroke-width="2" stroke-dasharray="5,3"/>
+    <!-- Re(s) = beta -->
+    <line x1="650" y1="130" x2="650" y2="298" stroke="#6d28d9" stroke-width="1.8"/>
+    <!-- Re(s) = 1 -->
+    <line x1="700" y1="130" x2="700" y2="298" stroke="#3f4a56" stroke-width="1.3" stroke-dasharray="3,3"/>
+
+    <!-- Real Axis Im(s) = 0 -->
+    <line x1="474" y1="216" x2="844" y2="216" stroke="#3f4a56" stroke-width="1.3" marker-end="url(#arrow-slate)"/>
+
+    <!-- Highlighted real segments: (beta, 1] positivity & [1, infinity) nonvanishing -->
+    <line x1="654" y1="216" x2="700" y2="216" stroke="#065f46" stroke-width="4.2"/>
+    <line x1="704" y1="216" x2="822" y2="216" stroke="#1e40af" stroke-width="3"/>
+    <circle cx="650" cy="216" r="3.6" fill="#ffffff" stroke="#065f46" stroke-width="1.8"/>
+    <circle cx="700" cy="216" r="3.6" fill="#065f46"/>
+
+    <!-- Candidate point rho (Re(rho) > beta, rho != 1) -->
+    <circle cx="678" cy="150" r="5" fill="#fff5f0" stroke="#9a3412" stroke-width="2.1"/>
+    <line x1="675.5" y1="147.5" x2="680.5" y2="152.5" stroke="#9a3412" stroke-width="1.6"/>
+    <line x1="680.5" y1="147.5" x2="675.5" y2="152.5" stroke="#9a3412" stroke-width="1.6"/>
+    <text x="687" y="144" class="sans" font-size="12.5" font-weight="700" fill="#9a3412">ρ</text>
+
+    <!-- Inside-Box Annotations -->
+    <text x="760" y="172" class="sans" font-size="12" font-weight="700" fill="#6d28d9" text-anchor="middle">n'(s) = 0</text>
+    <text x="760" y="188" class="sans" font-size="11.5" fill="#6d28d9" text-anchor="middle">no twisted zeros</text>
+
+    <!-- Leader from (beta, 1] to Re r(x) >= 0 label -->
+    <line x1="676" y1="222" x2="706" y2="232" stroke="#065f46" stroke-width="1.2"/>
+    <text x="710" y="235" class="sans" font-size="11.5" font-weight="700" fill="#065f46">Re r(x) ≥ 0</text>
+    <text x="710" y="252" class="sans" font-size="11.5" font-weight="600" fill="#1e40af">n(x) = 0 (x ≥ 1)</text>
+    <text x="760" y="275" class="sans" font-size="11.5" fill="#6d28d9" text-anchor="middle">|Im(s)| ≤ |Im(ρ)|</text>
+
+    <!-- Critical-Line Reflection & Pinned Zeros -->
+    <path d="M 644 180 Q 604 168, 560 180" fill="none" stroke="#065f46" stroke-width="1.6" stroke-dasharray="4,2" marker-end="url(#arrow-green)"/>
+    <text x="556" y="166" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">s ↦ 1−s</text>
+    <text x="556" y="198" class="sans" font-size="11.5" fill="#065f46" text-anchor="middle">clears (0, ½)</text>
+
+    <!-- Emerald markers for zeros pinned onto critical line Re(s) = 1/2 -->
+    <circle cx="604" cy="150" r="3.6" fill="#065f46"/>
+    <circle cx="604" cy="254" r="3.6" fill="#065f46"/>
+    <circle cx="604" cy="280" r="3.6" fill="#065f46"/>
+    <text x="556" y="251" class="sans" font-size="11.5" font-weight="600" fill="#065f46" text-anchor="middle">Zeros on</text>
+    <text x="556" y="267" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">Re(s) = ½</text>
+
+    <!-- Top Axis & Line Labels -->
+    <text x="500" y="118" class="sans" font-size="11.5" font-style="italic" fill="#3f4a56" text-anchor="end">Im(s)</text>
+    <text x="604" y="118" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">Re(s) = ½</text>
+    <text x="760" y="118" class="sans" font-size="11.5" font-weight="700" fill="#6d28d9" text-anchor="middle">Box: Re(s) ≥ β</text>
+
+    <!-- Bottom Axis Tick Labels -->
+    <text x="508" y="315" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">0</text>
+    <text x="604" y="315" class="sans" font-size="12" font-weight="700" fill="#065f46" text-anchor="middle">½</text>
+    <text x="650" y="315" class="sans" font-size="12" font-weight="700" fill="#6d28d9" text-anchor="middle">β</text>
+    <text x="700" y="315" class="sans" font-size="12" font-weight="700" fill="#161b22" text-anchor="middle">1</text>
+    <text x="846" y="315" class="sans" font-size="11.5" font-style="italic" fill="#3f4a56" text-anchor="end">Re(s)</text>
+
+    <!-- 2B: Three Annotated Mechanism Cards -->
+    <!-- Card 1: Quadratic-Twist Selection -->
+    <rect x="462" y="332" width="392" height="70" rx="4" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.2"/>
+    <rect x="462" y="332" width="4" height="70" rx="2" fill="#6d28d9"/>
+    <circle cx="480" cy="350" r="9" fill="#6d28d9"/>
+    <text x="480" y="354" class="sans" font-size="11.5" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="495" y="354" class="sans" font-size="12" font-weight="700" fill="#6d28d9">Twist:<tspan class="mono" font-size="11.5" font-weight="600" fill="#161b22"> exists_entireL_quadTwist_ne_zero</tspan></text>
+    <text x="474" y="375" class="sans" font-size="11.5" fill="#161b22">Pick prime d ≡ d₀ (mod q₀) via zero-density bound</text>
+    <text x="474" y="393" class="sans" font-size="11.5" fill="#3f4a56">so all twisted L(χχ<tspan font-size="9.5" baseline-shift="sub">d</tspan>, s) satisfy n'(s) = 0 inside box.</text>
+
+    <!-- Card 2: Real-Axis Sign Positivity -->
+    <rect x="462" y="410" width="392" height="70" rx="4" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.2"/>
+    <rect x="462" y="410" width="4" height="70" rx="2" fill="#065f46"/>
+    <circle cx="480" cy="428" r="9" fill="#065f46"/>
+    <text x="480" y="432" class="sans" font-size="11.5" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="495" y="432" class="sans" font-size="12" font-weight="700" fill="#065f46">Real-Axis Positivity<tspan font-size="11.5" font-weight="400" fill="#3f4a56"> (no "no real zeros" hyp.)</tspan></text>
+    <text x="474" y="453" class="sans" font-size="11.5" fill="#161b22">On (β, 1]: x(1−x) ≥ 0 and n(x) ≥ 0 ⇒ Re r(x) ≥ 0.</text>
+    <text x="474" y="471" class="sans" font-size="11.5" fill="#3f4a56">For x ≥ 1: classical nonvanishing forces n(x) = 0.</text>
+
+    <!-- Card 3: Landau's Lemma & Reflection -->
+    <rect x="462" y="488" width="392" height="76" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.4"/>
+    <rect x="462" y="488" width="4" height="76" rx="2" fill="#065f46"/>
+    <circle cx="480" cy="506" r="9" fill="#065f46"/>
+    <text x="480" y="510" class="sans" font-size="11.5" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="495" y="510" class="sans" font-size="12" font-weight="700" fill="#065f46">Landau's Lemma<tspan class="mono" font-size="11.5" font-weight="600" fill="#161b22"> (IsPolar.landau)</tspan></text>
+    <text x="474" y="532" class="sans" font-size="11.5" fill="#161b22">Bound + Re r(x) ≥ 0 ⇒ r(ρ) = 0 ⇒ n(ρ) = 0 ⇒ L(ψ, ρ) ≠ 0.</text>
+    <text x="474" y="552" class="sans" font-size="11.5" font-weight="600" fill="#065f46">Feeds New.grh &amp; s ↦ 1−s (New.zeros_on_line) to Re(s) = ½.</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM FLOW STRIP: End-to-End Stage 01 Reduction Chain                -->
+  <!-- ===================================================================== -->
+  <g id="bottom-flow-strip">
+    <rect x="16" y="586" width="848" height="54" rx="6" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+
+    <!-- Node 1: star_inequality -->
+    <rect x="24" y="594" width="150" height="38" rx="4" fill="#fef6e4" stroke="#9a3412" stroke-width="1.3"/>
+    <text x="99" y="610" class="mono" font-size="12" font-weight="700" fill="#9a3412" text-anchor="middle">star_inequality</text>
+    <text x="99" y="626" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">m·rem ≤ f a log⁵b</text>
+
+    <line x1="174" y1="613" x2="198" y2="613" stroke="#3f4a56" stroke-width="1.6" marker-end="url(#arrow-slate)"/>
+
+    <!-- Node 2: OneSidedBound -->
+    <rect x="200" y="594" width="156" height="38" rx="4" fill="#eff6ff" stroke="#1e40af" stroke-width="1.3"/>
+    <text x="278" y="610" class="mono" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">OneSidedBound</text>
+    <text x="278" y="626" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">R(y) ≤ C y<tspan font-size="9.5" baseline-shift="super">−½+ε</tspan></text>
+
+    <line x1="356" y1="613" x2="380" y2="613" stroke="#3f4a56" stroke-width="1.6" marker-end="url(#arrow-slate)"/>
+
+    <!-- Node 3: Criterion -->
+    <rect x="382" y="594" width="148" height="38" rx="4" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.3"/>
+    <text x="456" y="610" class="mono" font-size="12" font-weight="700" fill="#6d28d9" text-anchor="middle">Criterion</text>
+    <text x="456" y="626" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">twist d + Landau</text>
+
+    <line x1="530" y1="613" x2="554" y2="613" stroke="#3f4a56" stroke-width="1.6" marker-end="url(#arrow-slate)"/>
+
+    <!-- Node 4: New.grh -->
+    <rect x="556" y="594" width="136" height="38" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.3"/>
+    <text x="624" y="610" class="mono" font-size="12" font-weight="700" fill="#065f46" text-anchor="middle">New.grh</text>
+    <text x="624" y="626" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">Re(s) &gt; 1/2</text>
+
+    <line x1="692" y1="613" x2="716" y2="613" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+
+    <!-- Node 5: New.Main -->
+    <rect x="718" y="594" width="138" height="38" rx="4" fill="#d1fae5" stroke="#065f46" stroke-width="1.6"/>
+    <text x="787" y="610" class="mono" font-size="12" font-weight="700" fill="#065f46" text-anchor="middle">New.Main</text>
+    <text x="787" y="626" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">Re(s) = 1/2</text>
+  </g>
+</svg>

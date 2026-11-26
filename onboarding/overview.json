@@ -107,7 +107,7 @@
       ]
     },
     "7": {
-      "note": "The rh-build-site CLI compiles validated Stage 00 explainers, Concept Cards, SVG assets, audit status and DAG data atomically into VitePress docs.",
+      "note": "The rh-build-site CLI compiles validated stage explainers, Concept Cards, SVG assets, audit status and DAG data atomically into VitePress docs.",
       "targets": [
         {
           "anchor": {

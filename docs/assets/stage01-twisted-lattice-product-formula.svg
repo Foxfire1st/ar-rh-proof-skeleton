@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 880 726"
+     width="880"
+     height="726"
+     role="img"
+     aria-labelledby="stage01-tl-title stage01-tl-desc">
+  <title id="stage01-tl-title">Twisted Lattice Product Formula — A Twist for Each Prime</title>
+  <desc id="stage01-tl-desc">Editorial mathematical monograph schematic of New.TwistedLattice.covolume_add_index_nonneg ("a twist for each prime"). Top source box shows the basis w = Sum.elim y z of V (dimension n + n'): n short nearly-integral vectors y_1,...,y_n with CovolumeLe y c and IndexLe y delta, adjoined with n' completion vectors z_1,...,z_{n'} satisfying normSqAt (z_i) sigma &lt;= exp(b_short) and nonzero denominator scalars gamma(xi). Left column shows the Archimedean place (infinity) using the trivial twist Theta_1 = L.lift 1 into Space 1 with rational positive-definite gramMatrix G in M(Q), combining Hadamard (covolumeLe_of_normSqAt_le), Fischer (CovolumeLe.sumElim), and Galois conjugate bounds (CovolumeLe.norm_map_det_gram_le) to obtain ||sigma(Gram(1))|| &lt;= exp(c + n' * b_short) for all sigma in Aut(C). Right column shows finite primes (iota | l) choosing a different allowed twist xi_iota = theta(iota) per prime across parallel prime lanes (iota_1 | l_1, iota_2 | l_2, ..., iota | l), paired with a twist-independent clearing matrix u in M_n(O_iota) satisfying iota.Carries u y (integralVectors iota) and its conjugate u' in M_n(O_{iota bar}) via norm_inner_le_one, doubling the index contribution to 2*delta (heightLe_pow_mul_det_gram). Bottom convergence panel displays the exact three-factor identity collapsing prime-varying pieces back to constant Gram(1): Gram(1) = [|gamma(xi_iota)|^(2n') * Gram(xi_iota)] * [|gamma(xi_iota)|^(-2)]^(n') * [Z(1) / Z(xi_iota)], with explicit height badges HeightLe (2*delta) for index (both u and u'), HeightLe (n' * b_denom) for completion denominators, and HeightLe (b_volume) for volume ratio Z(1)/Z(xi_iota). Finally, a single nonzero global multiplier H and the rational log_product_formula (log|q| + sum log|q|_l = 0 on q = Norm_{Q(H)/Q}(H)) close the headline inequality: 0 &lt;= c + 2*delta + n'(b_short + b_denom) + b_volume.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+      .serif-it { font-family: Georgia, 'Liberation Serif', 'DejaVu Serif', serif; font-style: italic; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-rust" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#161b22"/>
+    </marker>
+
+    <!-- Rounded header clip paths -->
+    <clipPath id="clip-source"><rect x="20" y="54" width="840" height="80" rx="6"/></clipPath>
+    <clipPath id="clip-arch"><rect x="20" y="162" width="390" height="252" rx="6"/></clipPath>
+    <clipPath id="clip-finite"><rect x="426" y="162" width="434" height="252" rx="6"/></clipPath>
+    <clipPath id="clip-clearing"><rect x="438" y="288" width="410" height="116" rx="5"/></clipPath>
+    <clipPath id="clip-factors"><rect x="20" y="446" width="840" height="138" rx="6"/></clipPath>
+    <clipPath id="clip-closure"><rect x="20" y="608" width="840" height="100" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="879" height="725" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="20" y="29" class="sans" font-size="16" font-weight="700" fill="#161b22">Twisted Lattice Product Formula: “A Twist for Each Prime”</text>
+    <text x="860" y="28" class="mono" font-size="11.5" font-weight="600" fill="#3f4a56" text-anchor="end">TwistedLattice.covolume_add_index_nonneg</text>
+    <line x1="20" y1="42" x2="860" y2="42" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: SOURCE BASIS OF V                                             -->
+  <!-- ===================================================================== -->
+  <g id="source-basis">
+    <rect x="20" y="54" width="840" height="80" rx="6" fill="#ffffff"/>
+    <rect x="20" y="54" width="840" height="27" fill="#f3f1eb" clip-path="url(#clip-source)"/>
+    <line x1="20" y1="81" x2="860" y2="81" stroke="#d8d3c8" stroke-width="1"/>
+    <rect x="20" y="54" width="840" height="80" rx="6" fill="none" stroke="#3f4a56" stroke-width="1.4"/>
+
+    <text x="32" y="72" class="sans" font-size="13" font-weight="700" fill="#161b22">Source Basis of V :  <tspan class="mono" font-size="12.5" font-weight="700" fill="#161b22">w = Sum.elim y z</tspan><tspan font-weight="400" fill="#3f4a56">  (dim V = n + n')</tspan></text>
+    <rect x="752" y="58" width="96" height="19" rx="3" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="800" y="71.5" class="sans" font-size="11.5" font-weight="700" fill="#3f4a56" text-anchor="middle">INPUT BASIS</text>
+
+    <!-- Left half: y_1, ..., y_n -->
+    <text x="32" y="102" class="sans" font-size="13" fill="#161b22"><tspan font-weight="700" fill="#1e40af">y₁, …, yₙ</tspan><tspan fill="#3f4a56"> — n short nearly-integral vectors</tspan></text>
+    <text x="32" y="122" class="mono" font-size="11.8" fill="#161b22">CovolumeLe y c <tspan class="sans" font-size="11.5" fill="#3f4a56">(at ∞)</tspan>   ·   IndexLe y δ <tspan class="sans" font-size="11.5" fill="#3f4a56">(at ι | ℓ)</tspan></text>
+
+    <!-- Vertical divider -->
+    <line x1="440" y1="88" x2="440" y2="127" stroke="#d8d3c8" stroke-width="1" stroke-dasharray="3,2"/>
+
+    <!-- Right half: z_1, ..., z_{n'} -->
+    <text x="456" y="102" class="sans" font-size="13" fill="#161b22"><tspan font-weight="700" fill="#6d28d9">z₁, …, zₙ'</tspan><tspan fill="#3f4a56"> — n' completion vectors</tspan></text>
+    <text x="456" y="122" class="mono" font-size="11.8" fill="#161b22">normSqAt (zᵢ) σ ≤ exp b_short   <tspan class="sans" font-size="11.5" fill="#3f4a56">·  scalars</tspan> γ(ξ)</text>
+  </g>
+
+  <!-- Branch arrows from Source Basis to Left & Right Columns -->
+  <g id="top-arrows">
+    <line x1="215" y1="134" x2="215" y2="159" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt)"/>
+    <text x="225" y="151" class="sans" font-size="11.5" font-weight="700" fill="#1e40af">trivial twist Θ₁ only</text>
+
+    <line x1="643" y1="134" x2="643" y2="159" stroke="#9a3412" stroke-width="1.8" marker-end="url(#arrow-rust)"/>
+    <text x="653" y="151" class="sans" font-size="11.5" font-weight="700" fill="#9a3412">twist ξ_ι = θ(ι) per prime</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2 LEFT: ARCHIMEDEAN PLACE (∞, TRIVIAL TWIST Θ₁ ONLY)             -->
+  <!-- ===================================================================== -->
+  <g id="archimedean-column">
+    <rect x="20" y="162" width="390" height="252" rx="6" fill="#ffffff"/>
+    <rect x="20" y="162" width="390" height="30" fill="#eff6ff" clip-path="url(#clip-arch)"/>
+    <line x1="20" y1="192" x2="410" y2="192" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="20" y="162" width="390" height="252" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+    <text x="32" y="182" class="sans" font-size="13.5" font-weight="700" fill="#1e40af">Archimedean Place (∞)</text>
+    <rect x="262" y="167" width="136" height="20" rx="3" fill="#dbeafe" stroke="#1e40af" stroke-width="0.9"/>
+    <text x="330" y="181" class="sans" font-size="11.5" font-weight="700" fill="#1e40af" text-anchor="middle">TRIVIAL TWIST Θ₁</text>
+
+    <!-- Sub-card 2L-1: Map into Space 1 -->
+    <rect x="32" y="201" width="366" height="52" rx="5" fill="#f3f1eb" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="43" y="221" class="sans" font-size="13" font-weight="700" fill="#161b22">Map <tspan class="mono" font-size="12.5" fill="#1e40af">Θ₁ = L.lift 1 : V → Space 1</tspan></text>
+    <text x="43" y="242" class="sans" font-size="12" fill="#3f4a56">Rational pos.-def. <tspan class="mono" font-size="11.8" font-weight="600" fill="#161b22">gramMatrix G ∈ M(ℚ)</tspan></text>
+
+    <!-- Sub-card 2L-2: Hadamard + Fischer + Conjugates -->
+    <rect x="32" y="263" width="366" height="82" rx="5" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+    <circle cx="43" cy="280" r="2.2" fill="#1e40af"/>
+    <text x="51" y="284" class="sans" font-size="12" fill="#161b22"><tspan font-weight="700">Hadamard</tspan> (<tspan class="mono" font-size="11.5" fill="#3f4a56">covolumeLe_of_normSqAt_le</tspan>)</text>
+
+    <circle cx="43" cy="304" r="2.2" fill="#1e40af"/>
+    <text x="51" y="308" class="sans" font-size="12" fill="#161b22"><tspan font-weight="700">Fischer</tspan> (<tspan class="mono" font-size="11.5" fill="#3f4a56">CovolumeLe.sumElim</tspan>): <tspan class="mono" font-size="11.5" font-weight="600" fill="#1e40af">c + n'·b_short</tspan></text>
+
+    <circle cx="43" cy="328" r="2.2" fill="#1e40af"/>
+    <text x="51" y="332" class="sans" font-size="12" fill="#161b22"><tspan font-weight="700">Conjugates</tspan> (<tspan class="mono" font-size="11.5" fill="#3f4a56">CovolumeLe.norm_map_det_gram_le</tspan>)</text>
+
+    <!-- Sub-card 2L-3: Uniform Archimedean Bound -->
+    <rect x="32" y="355" width="366" height="49" rx="5" fill="#eff6ff" stroke="#1e40af" stroke-width="1.25"/>
+    <text x="215" y="373" class="sans" font-size="11.5" font-weight="700" fill="#1e40af" text-anchor="middle">UNIFORM CONJUGATE BOUND (∀ σ ∈ Aut(ℂ))</text>
+    <text x="215" y="395" class="sans" font-size="13.5" font-weight="700" fill="#161b22" text-anchor="middle">‖σ(Gram(1))‖ ≤ exp(c + n' · b_short)</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2 RIGHT: FINITE PRIMES (ι | ℓ, DIFFERENT TWIST ξ_ι PER PRIME)    -->
+  <!-- ===================================================================== -->
+  <g id="finite-primes-column">
+    <rect x="426" y="162" width="434" height="252" rx="6" fill="#ffffff"/>
+    <rect x="426" y="162" width="434" height="30" fill="#fff5f0" clip-path="url(#clip-finite)"/>
+    <line x1="426" y1="192" x2="860" y2="192" stroke="#fed7aa" stroke-width="1"/>
+    <rect x="426" y="162" width="434" height="252" rx="6" fill="none" stroke="#9a3412" stroke-width="1.6"/>
+
+    <text x="438" y="182" class="sans" font-size="13.5" font-weight="700" fill="#9a3412">Finite Primes (ι | ℓ)</text>
+    <rect x="646" y="167" width="202" height="20" rx="3" fill="#fef6e4" stroke="#9a3412" stroke-width="0.9"/>
+    <text x="747" y="181" class="sans" font-size="11.5" font-weight="700" fill="#9a3412" text-anchor="middle">NEW TWIST ξ_ι PER PRIME</text>
+
+    <!-- Prime Lanes Row: illustrating "a twist for each prime" -->
+    <!-- Lane 1: ι₁ | ℓ₁ -->
+    <rect x="438" y="201" width="120" height="75" rx="5" fill="#fef6e4" stroke="#92400e" stroke-width="1.1"/>
+    <text x="498" y="220" class="sans" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">ι₁ | ℓ₁</text>
+    <line x1="448" y1="227" x2="548" y2="227" stroke="#fed7aa" stroke-width="1"/>
+    <text x="498" y="246" class="sans" font-size="13" font-weight="700" fill="#161b22" text-anchor="middle">ξ<tspan dy="2.5" font-size="11.5">ι₁</tspan><tspan dy="-2.5"> = θ(ι₁)</tspan></text>
+    <text x="498" y="266" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">allowed at ℓ₁</text>
+
+    <!-- Lane 2: ι₂ | ℓ₂ -->
+    <rect x="568" y="201" width="120" height="75" rx="5" fill="#fef6e4" stroke="#92400e" stroke-width="1.1"/>
+    <text x="628" y="220" class="sans" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">ι₂ | ℓ₂</text>
+    <line x1="578" y1="227" x2="678" y2="227" stroke="#fed7aa" stroke-width="1"/>
+    <text x="628" y="246" class="sans" font-size="13" font-weight="700" fill="#161b22" text-anchor="middle">ξ<tspan dy="2.5" font-size="11.5">ι₂</tspan><tspan dy="-2.5"> = θ(ι₂)</tspan></text>
+    <text x="628" y="266" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">allowed at ℓ₂</text>
+
+    <!-- Ellipsis -->
+    <text x="703" y="244" class="sans" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">…</text>
+
+    <!-- Lane 3: ι | ℓ (general prime) -->
+    <rect x="718" y="201" width="130" height="75" rx="5" fill="#fff5f0" stroke="#9a3412" stroke-width="1.4"/>
+    <text x="783" y="220" class="sans" font-size="12" font-weight="700" fill="#9a3412" text-anchor="middle">ι | ℓ  (each)</text>
+    <line x1="728" y1="227" x2="838" y2="227" stroke="#fed7aa" stroke-width="1"/>
+    <text x="783" y="246" class="sans" font-size="13" font-weight="700" fill="#161b22" text-anchor="middle">ξ<tspan dy="2.5" font-size="11.5">ι</tspan><tspan dy="-2.5"> = θ(ι)</tspan></text>
+    <text x="783" y="266" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">allowed at ℓ</text>
+
+    <!-- Sub-card 2R-2: Twist-Independent Clearing Matrix & 2δ Doubling -->
+    <rect x="438" y="288" width="410" height="116" rx="5" fill="#ffffff" stroke="#9a3412" stroke-width="1.25"/>
+    <rect x="438" y="288" width="5" height="116" fill="#9a3412" clip-path="url(#clip-clearing)"/>
+
+    <text x="453" y="308" class="sans" font-size="12" font-weight="700" fill="#9a3412">Twist-independent: <tspan fill="#161b22">u ∈ Mₙ(<tspan class="serif-it">O</tspan><tspan dy="2.5" font-size="11.5">ι</tspan><tspan dy="-2.5">),  u' ∈ Mₙ(</tspan><tspan class="serif-it">O</tspan><tspan dy="2.5" font-size="11.5">ῑ</tspan><tspan dy="-2.5">)</tspan></tspan></text>
+
+    <text x="453" y="330" class="mono" font-size="11.5" font-weight="600" fill="#161b22">ι.Carries u y (integralVectors ι)<tspan class="sans" font-weight="400" fill="#3f4a56"> — fixed ∀ ξ</tspan></text>
+
+    <text x="453" y="351" class="sans" font-size="12" fill="#3f4a56">Paired via <tspan class="mono" font-size="11.5" font-weight="600" fill="#161b22">norm_inner_le_one</tspan> → both u and u' enter</text>
+
+    <!-- 2δ highlight strip -->
+    <rect x="451" y="362" width="387" height="33" rx="4" fill="#fef6e4" stroke="#fed7aa" stroke-width="1.1"/>
+    <text x="644" y="383" class="sans" font-size="12.5" font-weight="700" fill="#9a3412" text-anchor="middle">Index doubles to 2δ   (<tspan class="mono" font-size="11.5" font-weight="600" fill="#161b22">heightLe_pow_mul_det_gram</tspan>)</text>
+  </g>
+
+  <!-- Convergence Arrows from Band 2 down to Band 3 -->
+  <g id="mid-arrows">
+    <line x1="215" y1="414" x2="215" y2="443" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt)"/>
+    <text x="225" y="433" class="sans" font-size="11.5" font-weight="700" fill="#1e40af">constant Gram(1) conjugate bound</text>
+
+    <line x1="643" y1="414" x2="643" y2="443" stroke="#9a3412" stroke-width="1.8" marker-end="url(#arrow-rust)"/>
+    <text x="653" y="433" class="sans" font-size="11.5" font-weight="700" fill="#9a3412">prime-varying height bounds</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: THREE-FACTOR DECOMPOSITION                                    -->
+  <!-- ===================================================================== -->
+  <g id="three-factor-decomposition">
+    <rect x="20" y="446" width="840" height="138" rx="6" fill="#ffffff"/>
+    <rect x="20" y="446" width="840" height="28" fill="#ecfdf5" clip-path="url(#clip-factors)"/>
+    <line x1="20" y1="474" x2="860" y2="474" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="20" y="446" width="840" height="138" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+    <text x="32" y="465" class="sans" font-size="13" font-weight="700" fill="#065f46">Three-Factor Decomposition — Collapsing Prime-Varying Pieces Back to Constant Gram(1)</text>
+    <rect x="774" y="450" width="74" height="20" rx="3" fill="#ffffff" stroke="#065f46" stroke-width="0.9"/>
+    <text x="811" y="464" class="mono" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">h_factor</text>
+
+    <!-- Equation Row (y = 507) aligned cleanly above the 4 columns -->
+    <!-- LHS: Gram(1) -->
+    <text x="88" y="507" class="sans" font-size="14.5" font-weight="700" fill="#1e40af" text-anchor="middle">Gram(1)</text>
+    <line x1="88" y1="515" x2="88" y2="525" stroke="#1e40af" stroke-width="1.2"/>
+    <rect x="34" y="525" width="108" height="48" rx="5" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2"/>
+    <text x="88" y="544" class="sans" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">Constant in ι</text>
+    <text x="88" y="563" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">Gram(1) ≠ 0</text>
+
+    <!-- Equals sign -->
+    <text x="158" y="507" class="sans" font-size="16" font-weight="700" fill="#161b22" text-anchor="middle">=</text>
+
+    <!-- Factor 1: [|γ(ξ_ι)|^(2n') · Gram(ξ_ι)] -->
+    <text x="294" y="507" class="sans" font-size="14" font-weight="700" fill="#9a3412" text-anchor="middle">[ |γ(ξ<tspan dy="2.5" font-size="11.5">ι</tspan><tspan dy="-2.5">)|</tspan><tspan dy="-5" font-size="11.5">2n'</tspan><tspan dy="5"> · Gram(ξ</tspan><tspan dy="2.5" font-size="11.5">ι</tspan><tspan dy="-2.5">) ]</tspan></text>
+    <line x1="294" y1="515" x2="294" y2="525" stroke="#9a3412" stroke-width="1.2"/>
+    <rect x="174" y="525" width="240" height="48" rx="5" fill="#fef6e4" stroke="#9a3412" stroke-width="1.2"/>
+    <text x="294" y="544" class="mono" font-size="12.5" font-weight="700" fill="#9a3412" text-anchor="middle">HeightLe (2δ)</text>
+    <text x="294" y="563" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">Index clearing (both u and u')</text>
+
+    <!-- Multiplication dot 1 -->
+    <text x="425" y="507" class="sans" font-size="18" font-weight="700" fill="#161b22" text-anchor="middle">·</text>
+
+    <!-- Factor 2: [|γ(ξ_ι)|^(-2)]^(n') -->
+    <text x="540" y="507" class="sans" font-size="14" font-weight="700" fill="#6d28d9" text-anchor="middle">[ |γ(ξ<tspan dy="2.5" font-size="11.5">ι</tspan><tspan dy="-2.5">)|</tspan><tspan dy="-5" font-size="11.5">−2</tspan><tspan dy="5"> ]</tspan><tspan dy="-5" font-size="11.5">n'</tspan></text>
+    <line x1="540" y1="515" x2="540" y2="525" stroke="#6d28d9" stroke-width="1.2"/>
+    <rect x="436" y="525" width="208" height="48" rx="5" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.2"/>
+    <text x="540" y="544" class="mono" font-size="12.5" font-weight="700" fill="#6d28d9" text-anchor="middle">HeightLe (n' · b_denom)</text>
+    <text x="540" y="563" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">Completion denominators</text>
+
+    <!-- Multiplication dot 2 -->
+    <text x="654" y="507" class="sans" font-size="18" font-weight="700" fill="#161b22" text-anchor="middle">·</text>
+
+    <!-- Factor 3: [Z(1) / Z(ξ_ι)] -->
+    <text x="755" y="507" class="sans" font-size="14" font-weight="700" fill="#065f46" text-anchor="middle">[ Z(1) / Z(ξ<tspan dy="2.5" font-size="11.5">ι</tspan><tspan dy="-2.5">) ]</tspan></text>
+    <line x1="755" y1="515" x2="755" y2="525" stroke="#065f46" stroke-width="1.2"/>
+    <rect x="664" y="525" width="182" height="48" rx="5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+    <text x="755" y="544" class="mono" font-size="12.5" font-weight="700" fill="#065f46" text-anchor="middle">HeightLe (b_volume)</text>
+    <text x="755" y="563" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">Volume ratio Z(1)/Z(ξ_ι)</text>
+  </g>
+
+  <!-- Central Arrow from Three-Factor Decomposition to Product Formula Closure -->
+  <g id="bottom-arrow">
+    <line x1="440" y1="584" x2="440" y2="605" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald)"/>
+    <text x="428" y="599" class="sans" font-size="11.5" font-weight="700" fill="#3f4a56" text-anchor="end">global multiplier H ≠ 0</text>
+    <text x="452" y="599" class="sans" font-size="11.5" font-weight="700" fill="#065f46">× Gram(1)⁻¹  →  HeightLe (total) 1</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 4: GLOBAL MULTIPLIER & PRODUCT FORMULA CLOSURE                   -->
+  <!-- ===================================================================== -->
+  <g id="product-formula-closure">
+    <rect x="20" y="608" width="840" height="100" rx="6" fill="#ffffff"/>
+    <rect x="20" y="608" width="418" height="100" fill="#f3f1eb" clip-path="url(#clip-closure)"/>
+    <line x1="438" y1="608" x2="438" y2="708" stroke="#d8d3c8" stroke-width="1"/>
+    <rect x="20" y="608" width="840" height="100" rx="6" fill="none" stroke="#161b22" stroke-width="1.5"/>
+
+    <!-- Left Compartment: Global Multiplier H ≠ 0 & Rational Product Formula -->
+    <text x="32" y="630" class="sans" font-size="12.5" font-weight="700" fill="#161b22">Global Multiplier H ≠ 0  &amp;  Rational Product Formula</text>
+    <text x="32" y="653" class="sans" font-size="12.5" fill="#3f4a56">q = Norm<tspan dy="2.5" font-size="11.5">ℚ(H)/ℚ</tspan><tspan dy="-2.5">(H) ∈ ℚ×,   d = [ℚ(H) : ℚ] &gt; 0</tspan></text>
+    <text x="32" y="677" class="sans" font-size="13" font-weight="700" fill="#065f46">log|q| + ∑ log|q|<tspan dy="2.5" font-size="11.5">ℓ</tspan><tspan dy="-2.5"> = 0   </tspan><tspan class="mono" font-size="11.5" font-weight="600" fill="#3f4a56">(log_product_formula)</tspan></text>
+    <text x="32" y="697" class="sans" font-size="11.5" fill="#3f4a56">Uniform 2-adic bound ⇒ H algebraic; divide by d &gt; 0</text>
+
+    <!-- Connector arrow into Headline Inequality box -->
+    <line x1="438" y1="658" x2="462" y2="658" stroke="#161b22" stroke-width="1.8" marker-end="url(#arrow-ink)"/>
+
+    <!-- Right Compartment: Headline Inequality Box -->
+    <rect x="466" y="618" width="384" height="80" rx="5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.6"/>
+    <text x="658" y="638" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">HEADLINE INEQUALITY  (covolume_add_index_nonneg)</text>
+    <text x="658" y="666" class="sans" font-size="13.8" font-weight="700" fill="#161b22" text-anchor="middle">0 ≤ c + 2δ + n'(b_short + b_denom) + b_volume</text>
+    <text x="658" y="688" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">Archimedean (c, b_short) + Index (2δ) + Denom &amp; Volume</text>
+  </g>
+</svg>

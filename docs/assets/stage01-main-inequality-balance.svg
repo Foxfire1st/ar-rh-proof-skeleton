@@ -1,0 +1,320 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 652"
+     width="860"
+     height="652"
+     role="img"
+     aria-labelledby="stage01-balance-title stage01-balance-desc">
+  <title id="stage01-balance-title">Two-Sided Volume Sandwich and Main-Term Cancellation in New.star_inequality</title>
+  <desc id="stage01-balance-desc">Editorial mathematical diagram of New.star_inequality (src/New/Reduction/MainInequality.lean) in three horizontal bands. Band 1 shows the sandwiched quantity (V + 2 delta) / d_T (covolume plus twice the twist-independent index per target dimension for n linearly independent short integral forms y_1, ..., y_n with (1 - 4/b^2) d_T &lt;= n &lt;= d_T) trapped between the Lower Floor from Theorem C (D.integral_forms_long, Stages 05-07 input: mainAmount - 3 loss, using TwistedLattice.covolume_add_index_nonneg and determinant height bound, per-dimension error 3 f a log^4 b) and the Upper Ceiling from Theorems A and B (ShortAndEnough.lean: mainAmount - (n/d_T) m rem + loss + 2 indexPerDim, where Theorem A(a) span_short_integralRamified_eq_top plus Hadamard contributes V &lt;= n (mainAmount - m rem + f a log^4 b), and Theorem A(b) indexLe_normalizedPoincare plus Theorem B enough_forms with #t dim src &lt;= 5 d_T log(1 + 2 b^2) and n &gt;= (1 - 4/b^2) d_T &gt;= d_T / 2 contribute 2 indexPerDim = 20 log(1 + 2 b^2) f a log^3 b). Band 2 displays matched proportional horizontal bars for the Lower Floor and Upper Ceiling where the shared mainAmount baseline cancels identically (using n &lt;= d_T and mainAmount &gt;= 0), trapping the negative remainder signal -(n/d_T) m rem strictly inside the error budget err = 4 loss + 2 indexPerDim. Band 3 divides by n &gt;= d_T / 2 to isolate New.star_inequality: m totalRemainder &lt;= |2 err| &lt;= f a log^5 b, feeding OneSidedBound via totalRemainder = a (#Phi_b (R_{q_0}(x) - R_{q_0}(x_1)) + #Phi_a R_1(x_1)).</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-slate-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+
+    <!-- Subtle archival hatch patterns for canceled mainAmount blocks (non-color redundancy) -->
+    <pattern id="hatch-emerald" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#065f46" stroke-width="1" stroke-opacity="0.22"/>
+    </pattern>
+    <pattern id="hatch-cobalt" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#1e40af" stroke-width="1" stroke-opacity="0.22"/>
+    </pattern>
+
+    <!-- Crisp card clip paths for rounded header fills and left accent stripes -->
+    <clipPath id="clip-floor"><rect x="14" y="52" width="242" height="246" rx="6"/></clipPath>
+    <clipPath id="clip-center"><rect x="284" y="52" width="194" height="246" rx="6"/></clipPath>
+    <clipPath id="clip-ceiling"><rect x="506" y="52" width="340" height="246" rx="6"/></clipPath>
+    <clipPath id="clip-cancel"><rect x="14" y="326" width="832" height="190" rx="6"/></clipPath>
+    <clipPath id="clip-result"><rect x="14" y="544" width="390" height="96" rx="6"/></clipPath>
+    <clipPath id="clip-feed"><rect x="430" y="544" width="416" height="96" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="651" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="28" class="sans" font-size="16.5" font-weight="700" fill="#161b22">Two-Sided Volume Sandwich in <tspan class="mono" font-size="15.5" fill="#1e40af">New.star_inequality</tspan></text>
+    <text x="842" y="27" class="mono" font-size="12" fill="#3f4a56" text-anchor="end">src/New/Reduction/MainInequality.lean</text>
+    <line x1="14" y1="40" x2="846" y2="40" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: TOP SANDWICH (LOWER FLOOR <= SANDWICHED QUANTITY <= CEILING)  -->
+  <!-- ===================================================================== -->
+  <g id="band-1-sandwich">
+
+    <!-- LEFT CARD: LOWER FLOOR · THEOREM C -->
+    <g id="card-lower-floor">
+      <rect x="14" y="52" width="242" height="246" rx="6" fill="#ffffff"/>
+      <rect x="14" y="52" width="242" height="30" fill="#ecfdf5" clip-path="url(#clip-floor)"/>
+      <line x1="14" y1="82" x2="256" y2="82" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="14" y="52" width="242" height="246" rx="6" fill="none" stroke="#065f46" stroke-width="1.5"/>
+
+      <text x="24" y="71" class="sans" font-size="12" font-weight="700" fill="#065f46">LOWER FLOOR · THEOREM C</text>
+      <text x="24" y="98" class="sans" font-size="11.5" font-weight="600" fill="#3f4a56">Stages 05–07 input</text>
+
+      <!-- Floor Equation Box -->
+      <rect x="24" y="106" width="222" height="46" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="135" y="134" class="sans" font-size="14" font-weight="700" fill="#065f46" text-anchor="middle">mainAmount − 3 · loss</text>
+
+      <!-- Proof Input Details -->
+      <text x="24" y="170" class="mono" font-size="11.5" font-weight="700" fill="#161b22">D.integral_forms_long</text>
+      <text x="24" y="189" class="mono" font-size="11.5" fill="#3f4a56">TwistedLattice.</text>
+      <text x="32" y="204" class="mono" font-size="11.5" fill="#161b22">covolume_add_index_nonneg</text>
+      <text x="24" y="223" class="sans" font-size="11.5" fill="#3f4a56">+ determinant height bound</text>
+
+      <!-- Per-dim Error Callout -->
+      <rect x="24" y="242" width="222" height="46" rx="4" fill="#f3f1eb" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="34" y="260" class="sans" font-size="11.5" fill="#3f4a56">Per-dimension error (Thm C):</text>
+      <text x="34" y="278" class="sans" font-size="12.5" font-weight="700" fill="#065f46">3 · loss = 3 f a log⁴ b</text>
+    </g>
+
+    <!-- LEFT INEQUALITY CONNECTOR (<=) -->
+    <g id="connector-le-left">
+      <line x1="256" y1="129" x2="284" y2="129" stroke="#3f4a56" stroke-width="1.6"/>
+      <circle cx="270" cy="129" r="12" fill="#faf9f5" stroke="#065f46" stroke-width="1.5"/>
+      <text x="270" y="134" class="sans" font-size="15" font-weight="700" fill="#065f46" text-anchor="middle">≤</text>
+    </g>
+
+    <!-- CENTER CARD: SANDWICHED QUANTITY -->
+    <g id="card-sandwiched">
+      <rect x="284" y="52" width="194" height="246" rx="6" fill="#ffffff"/>
+      <rect x="284" y="52" width="194" height="30" fill="#f3f1eb" clip-path="url(#clip-center)"/>
+      <line x1="284" y1="82" x2="478" y2="82" stroke="#d8d3c8" stroke-width="1"/>
+      <rect x="284" y="52" width="194" height="246" rx="6" fill="none" stroke="#3f4a56" stroke-width="1.6"/>
+
+      <text x="381" y="71" class="sans" font-size="12" font-weight="700" fill="#161b22" text-anchor="middle">SANDWICHED QUANTITY</text>
+      <text x="381" y="98" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">Per target dimension d_T</text>
+
+      <!-- Central Fraction Box -->
+      <rect x="296" y="106" width="170" height="46" rx="4" fill="#faf9f5" stroke="#3f4a56" stroke-width="1.2"/>
+      <text x="381" y="123" class="sans" font-size="14" font-weight="700" fill="#161b22" text-anchor="middle">V + 2δ</text>
+      <line x1="346" y1="129" x2="416" y2="129" stroke="#161b22" stroke-width="1.4"/>
+      <text x="381" y="145" class="sans" font-size="14" font-weight="700" fill="#161b22" text-anchor="middle">d<tspan font-size="11.5" dy="2.5">T</tspan></text>
+
+      <!-- Meaning & Basis Conditions -->
+      <text x="381" y="171" class="sans" font-size="12" font-weight="600" fill="#161b22" text-anchor="middle">covolume + 2 · index</text>
+      <text x="381" y="187" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">per target dimension</text>
+
+      <line x1="302" y1="199" x2="460" y2="199" stroke="#d8d3c8" stroke-width="1"/>
+
+      <text x="381" y="216" class="sans" font-size="11.5" font-weight="600" fill="#161b22" text-anchor="middle">n short integral forms</text>
+      <text x="381" y="232" class="sans" font-size="11.5" fill="#3f4a56" text-anchor="middle">y₁, …, yₙ (lin. indep.)</text>
+
+      <rect x="294" y="242" width="174" height="46" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="381" y="261" class="sans" font-size="11.5" font-weight="700" fill="#1e40af" text-anchor="middle">(1 − 4/b²) d_T ≤ n ≤ d_T</text>
+      <text x="381" y="279" class="mono" font-size="11.5" fill="#3f4a56" text-anchor="middle">loss := f a log⁴ b</text>
+    </g>
+
+    <!-- RIGHT INEQUALITY CONNECTOR (<=) -->
+    <g id="connector-le-right">
+      <line x1="478" y1="129" x2="506" y2="129" stroke="#3f4a56" stroke-width="1.6"/>
+      <circle cx="492" cy="129" r="12" fill="#faf9f5" stroke="#1e40af" stroke-width="1.5"/>
+      <text x="492" y="134" class="sans" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle">≤</text>
+    </g>
+
+    <!-- RIGHT CARD: UPPER CEILING · THEOREMS A + B -->
+    <g id="card-upper-ceiling">
+      <rect x="506" y="52" width="340" height="246" rx="6" fill="#ffffff"/>
+      <rect x="506" y="52" width="340" height="30" fill="#eff6ff" clip-path="url(#clip-ceiling)"/>
+      <line x1="506" y1="82" x2="846" y2="82" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="506" y="52" width="340" height="246" rx="6" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+      <text x="516" y="71" class="sans" font-size="12" font-weight="700" fill="#1e40af">UPPER CEILING · THEOREMS A + B</text>
+      <text x="516" y="98" class="mono" font-size="11.5" font-weight="600" fill="#3f4a56">ShortAndEnough.lean</text>
+
+      <!-- Ceiling Equation Box -->
+      <rect x="516" y="106" width="320" height="46" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="676" y="125" class="sans" font-size="13.5" font-weight="700" fill="#1e40af" text-anchor="middle">mainAmount − (n/d_T) · m · rem</text>
+      <text x="676" y="144" class="sans" font-size="13.5" font-weight="700" fill="#1e40af" text-anchor="middle">+ loss + 2 · indexPerDim</text>
+
+      <!-- Sub-card: Theorem A(a) -->
+      <rect x="516" y="159" width="320" height="54" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="525" y="175" class="sans" font-size="11.5" font-weight="700" fill="#1e40af">Thm A(a)<tspan font-weight="400" fill="#3f4a56"> · Shortness + Hadamard</tspan></text>
+      <text x="525" y="191" class="mono" font-size="11.5" fill="#161b22">span_short_integralRamified_eq_top</text>
+      <text x="525" y="207" class="sans" font-size="11.5" font-weight="700" fill="#1e40af">V ≤ n · (mainAmount − m·rem + f a log⁴ b)</text>
+
+      <!-- Sub-card: Theorem A(b) + Theorem B -->
+      <rect x="516" y="219" width="320" height="71" rx="4" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1"/>
+      <text x="525" y="235" class="sans" font-size="11.5" font-weight="700" fill="#6d28d9">Thm A(b)+B · <tspan class="mono" font-weight="600" fill="#161b22">indexLe_normalizedPoincare</tspan></text>
+      <text x="525" y="251" class="sans" font-size="11.5" fill="#3f4a56"><tspan class="mono" fill="#161b22">enough_forms</tspan>: #t·dim src ≤ 5 d_T log(1+2b²)</text>
+      <text x="525" y="267" class="sans" font-size="11.5" fill="#3f4a56">n ≥ (1 − 4/b²) d_T ≥ d_T / 2</text>
+      <text x="525" y="283" class="sans" font-size="11.5" font-weight="700" fill="#6d28d9">2·indexPerDim = 20 log(1+2b²) f a log³ b</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION 1 -> 2                                                     -->
+  <!-- ===================================================================== -->
+  <g id="transition-1-2">
+    <path d="M 135 298 L 135 312 L 430 312 L 430 324" fill="none" stroke="#3f4a56" stroke-width="1.4" marker-end="url(#arrow-slate-end)"/>
+    <path d="M 676 298 L 676 312 L 430 312" fill="none" stroke="#3f4a56" stroke-width="1.4"/>
+    <rect x="275" y="302" width="310" height="20" rx="10" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="430" y="316" class="sans" font-size="11.5" font-weight="600" fill="#3f4a56" text-anchor="middle">Drop middle term: compare Floor ≤ Ceiling</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2: VISUAL CANCELLATION STRIP                                     -->
+  <!-- ===================================================================== -->
+  <g id="band-2-cancellation">
+    <rect x="14" y="326" width="832" height="190" rx="6" fill="#ffffff"/>
+    <rect x="14" y="326" width="832" height="28" fill="#f3f1eb" clip-path="url(#clip-cancel)"/>
+    <line x1="14" y1="354" x2="846" y2="354" stroke="#d8d3c8" stroke-width="1"/>
+    <rect x="14" y="326" width="832" height="190" rx="6" fill="none" stroke="#d8d3c8" stroke-width="1.3"/>
+
+    <text x="24" y="344" class="sans" font-size="12" font-weight="700" fill="#161b22">CANCELLATION STRIP · ALIGNED FLOOR vs. CEILING</text>
+    <text x="836" y="344" class="sans" font-size="12" font-weight="700" fill="#9a3412" text-anchor="end">mainAmount cancels identically (n ≤ d_T, mainAmount ≥ 0)</text>
+
+    <!-- Top Cancellation Bracket above mainAmount [122..424] -->
+    <path d="M 122 382 L 122 374 L 424 374 L 424 382" fill="none" stroke="#9a3412" stroke-width="1.3"/>
+    <rect x="175" y="361" width="196" height="20" rx="10" fill="#fff5f0" stroke="#fed7aa" stroke-width="1"/>
+    <text x="273" y="375" class="sans" font-size="11.5" font-weight="700" fill="#9a3412" text-anchor="middle">✕  mainAmount cancels out</text>
+
+    <!-- Row Labels -->
+    <text x="24" y="399" class="sans" font-size="12" font-weight="700" fill="#065f46">Lower Floor</text>
+    <text x="24" y="413" class="sans" font-size="11.5" fill="#3f4a56">(Theorem C)</text>
+
+    <text x="24" y="437" class="sans" font-size="12" font-weight="700" fill="#1e40af">Upper Ceiling</text>
+    <text x="24" y="451" class="sans" font-size="11.5" fill="#3f4a56">(Thms A + B)</text>
+
+    <!-- Vertical Alignment Guide Lines -->
+    <!-- Lower Floor stop wall at x = 366 -->
+    <line x1="366" y1="384" x2="366" y2="496" stroke="#065f46" stroke-width="1.6" stroke-dasharray="4,3"/>
+    <!-- mainAmount datum line at x = 424 -->
+    <line x1="424" y1="382" x2="424" y2="456" stroke="#3f4a56" stroke-width="1.3" stroke-dasharray="3,3"/>
+    <!-- Upper Ceiling gross edge at x = 584 -->
+    <line x1="584" y1="422" x2="584" y2="496" stroke="#6d28d9" stroke-width="1.6" stroke-dasharray="4,3"/>
+
+    <!-- BAR 1: LOWER FLOOR (y = 386..414) -->
+    <!-- mainAmount - 3*loss solid hatched portion [122..366] -->
+    <rect x="122" y="386" width="244" height="28" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1.3"/>
+    <rect x="122" y="386" width="244" height="28" rx="3" fill="url(#hatch-emerald)"/>
+    <rect x="185" y="390" width="118" height="20" rx="3" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.9"/>
+    <text x="244" y="404" class="sans" font-size="12" font-weight="700" fill="#065f46" text-anchor="middle">mainAmount</text>
+    <!-- Subtle strike line across canceled mainAmount label -->
+    <line x1="205" y1="400" x2="283" y2="400" stroke="#9a3412" stroke-width="1.4" stroke-opacity="0.8"/>
+
+    <!-- -3*loss dashed cutaway [366..424] -->
+    <rect x="366" y="386" width="58" height="28" rx="2" fill="#ffffff" stroke="#065f46" stroke-width="1.3" stroke-dasharray="4,3"/>
+    <text x="395" y="404" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">−3·loss</text>
+
+    <!-- Floor stop marker dot -->
+    <circle cx="366" cy="400" r="3.2" fill="#065f46"/>
+
+    <!-- BAR 2: UPPER CEILING (y = 424..452) -->
+    <!-- Baseline <= mainAmount hatched portion [122..424] -->
+    <rect x="122" y="424" width="302" height="28" rx="3" fill="#eff6ff" stroke="#1e40af" stroke-width="1.3"/>
+    <rect x="122" y="424" width="302" height="28" rx="3" fill="url(#hatch-cobalt)"/>
+    <rect x="155" y="428" width="236" height="20" rx="3" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.9"/>
+    <text x="273" y="442" class="sans" font-size="11.5" font-weight="700" fill="#1e40af" text-anchor="middle">(n/d_T)·mainAmount ≤ mainAmount</text>
+    <line x1="308" y1="438" x2="378" y2="438" stroke="#9a3412" stroke-width="1.4" stroke-opacity="0.8"/>
+
+    <!-- +loss Cobalt block [424..472] -->
+    <rect x="424" y="424" width="48" height="28" fill="#dbeafe" stroke="#1e40af" stroke-width="1.3"/>
+    <text x="448" y="442" class="sans" font-size="11.5" font-weight="700" fill="#1e40af" text-anchor="middle">+loss</text>
+
+    <!-- +2*indexPerDim Plum block [472..584] -->
+    <rect x="472" y="424" width="112" height="28" rx="2" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.3"/>
+    <text x="528" y="442" class="sans" font-size="11.5" font-weight="700" fill="#6d28d9" text-anchor="middle">+2·indexPerDim</text>
+
+    <!-- SQUEEZED SIGNAL & ERROR BUDGET ZONE BELOW BARS (y = 458..510) -->
+    <!-- Left explanatory caption [122..352] -->
+    <text x="122" y="472" class="sans" font-size="11.5" font-weight="700" fill="#161b22">Floor ≤ Ceiling traps signal</text>
+    <text x="122" y="488" class="sans" font-size="11.5" fill="#3f4a56">inside the tiny error gap</text>
+    <text x="122" y="504" class="sans" font-size="11.5" fill="#065f46">(cannot pass dashed floor wall)</text>
+
+    <!-- Leftward amber/rust signal arrow inside [366..584] -->
+    <line x1="582" y1="469" x2="373" y2="469" stroke="#9a3412" stroke-width="2" marker-end="url(#arrow-rust-end)"/>
+    <rect x="416" y="459" width="128" height="20" rx="10" fill="#fff5f0" stroke="#9a3412" stroke-width="1"/>
+    <text x="480" y="473" class="sans" font-size="11.5" font-weight="700" fill="#9a3412" text-anchor="middle">−(n/d_T)·m·rem</text>
+
+    <!-- Total error budget bracket [366..584] -->
+    <path d="M 366 484 L 366 492 L 584 492 L 584 484" fill="none" stroke="#161b22" stroke-width="1.3"/>
+    <text x="475" y="508" class="sans" font-size="11.5" font-weight="700" fill="#161b22" text-anchor="middle">err = 4·loss + 2·indexPerDim</text>
+
+    <!-- RIGHT SUMMARY PANEL INSIDE BAND 2 (x = 600..836) -->
+    <g id="surviving-inequality-panel">
+      <rect x="600" y="364" width="236" height="142" rx="5" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1.1"/>
+      <text x="612" y="383" class="sans" font-size="12" font-weight="700" fill="#161b22">Surviving Inequality</text>
+
+      <rect x="610" y="391" width="216" height="28" rx="4" fill="#fff5f0" stroke="#fed7aa" stroke-width="1"/>
+      <text x="718" y="410" class="sans" font-size="12.5" font-weight="700" fill="#9a3412" text-anchor="middle">(n / d_T) · m · rem ≤ err</text>
+
+      <text x="612" y="437" class="sans" font-size="11.5" font-weight="700" fill="#3f4a56">Error budget components:</text>
+
+      <rect x="612" y="446" width="9" height="9" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+      <text x="627" y="455" class="sans" font-size="11.5" fill="#161b22"><tspan font-weight="700" fill="#065f46">3·loss</tspan> — Thm C lower floor</text>
+
+      <rect x="612" y="465" width="9" height="9" rx="1.5" fill="#dbeafe" stroke="#1e40af" stroke-width="1.2"/>
+      <text x="627" y="474" class="sans" font-size="11.5" fill="#161b22"><tspan font-weight="700" fill="#1e40af">1·loss</tspan> — Thm A(a) Hadamard</text>
+
+      <rect x="612" y="484" width="9" height="9" rx="1.5" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.2"/>
+      <text x="627" y="493" class="sans" font-size="11.5" fill="#161b22"><tspan font-weight="700" fill="#6d28d9">2·indexPerDim</tspan> — Thm A(b)+B</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION 2 -> 3                                                     -->
+  <!-- ===================================================================== -->
+  <g id="transition-2-3">
+    <line x1="205" y1="516" x2="205" y2="541" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+    <rect x="218" y="520" width="310" height="20" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="373" y="534" class="sans" font-size="11.5" font-weight="700" fill="#1e40af" text-anchor="middle">Divide by n ≥ d_T / 2  (since 4/b² ≤ 1/2)</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: RESULT STRIP (New.star_inequality -> OneSidedBound)           -->
+  <!-- ===================================================================== -->
+  <g id="band-3-result">
+
+    <!-- LEFT RESULT CARD: New.star_inequality -->
+    <g id="card-star-inequality">
+      <rect x="14" y="544" width="390" height="96" rx="6" fill="#ffffff"/>
+      <rect x="14" y="544" width="6" height="96" fill="#1e40af" clip-path="url(#clip-result)"/>
+      <rect x="14" y="544" width="390" height="96" rx="6" fill="none" stroke="#1e40af" stroke-width="1.75"/>
+
+      <text x="30" y="563" class="sans" font-size="12" font-weight="700" fill="#1e40af">RESULT · <tspan class="mono" font-size="12">New.star_inequality</tspan></text>
+      <rect x="30" y="571" width="362" height="38" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="211" y="595" class="sans" font-size="13.5" font-weight="700" fill="#161b22" text-anchor="middle"><tspan fill="#9a3412">m · totalRemainder</tspan> ≤ |2·err| ≤ <tspan fill="#1e40af">f a log⁵ b</tspan></text>
+
+      <text x="30" y="627" class="sans" font-size="11.5" fill="#3f4a56">Uses d_T ≤ 2n and scale bound <tspan class="mono" font-weight="600" fill="#161b22">D.le_of_hasLogBound</tspan></text>
+    </g>
+
+    <!-- CONNECTOR ARROW TO OneSidedBound -->
+    <line x1="404" y1="592" x2="427" y2="592" stroke="#92400e" stroke-width="1.8" marker-end="url(#arrow-amber-end)"/>
+
+    <!-- RIGHT CALLOUT CARD: totalRemainder -> OneSidedBound -->
+    <g id="card-onesided-feed">
+      <rect x="430" y="544" width="416" height="96" rx="6" fill="#ffffff"/>
+      <rect x="430" y="544" width="6" height="96" fill="#92400e" clip-path="url(#clip-feed)"/>
+      <rect x="430" y="544" width="416" height="96" rx="6" fill="none" stroke="#92400e" stroke-width="1.5"/>
+
+      <text x="446" y="563" class="sans" font-size="12" font-weight="700" fill="#92400e">FEEDS <tspan class="mono" font-size="12">OneSidedBound</tspan></text>
+      <text x="836" y="563" class="mono" font-size="11.5" fill="#3f4a56" text-anchor="end">PrimeSums.lean</text>
+
+      <rect x="446" y="571" width="390" height="38" rx="4" fill="#fef6e4" stroke="#fed7aa" stroke-width="1"/>
+      <text x="641" y="586" class="sans" font-size="12" font-weight="700" fill="#161b22" text-anchor="middle">totalRemainder = a · (#Φ_b (R_q₀(x) − R_q₀(x₁))</text>
+      <text x="641" y="603" class="sans" font-size="12" font-weight="700" fill="#161b22" text-anchor="middle">+ #Φ_a R₁(x₁))</text>
+
+      <text x="446" y="627" class="sans" font-size="11.5" fill="#3f4a56">One-sided upper bound enters Landau's positivity criterion</text>
+    </g>
+  </g>
+</svg>
