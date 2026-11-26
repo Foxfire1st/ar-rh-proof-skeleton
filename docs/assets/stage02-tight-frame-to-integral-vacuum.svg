@@ -1,0 +1,324 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 680"
+     width="860"
+     height="680"
+     role="img"
+     aria-labelledby="stage02-vacuum-title stage02-vacuum-desc">
+  <title id="stage02-vacuum-title">Tight Frames, Chowla–Selberg Scaling, and the Integral Vacuum intVacuum</title>
+  <desc id="stage02-vacuum-desc">Publication-grade editorial mathematical diagram tracing the four-stage construction of the globally integral, conjugate-bounded vacuum theta^circ = intVacuum from a single CM elliptic curve in Stage 02 (src/New/Derivatives/Vacuum/TightFrames.lean and IntegralVacuum.lean). Stage 1 (top-left) depicts the anchor CM curve P.cmCurve = C / (Omega_0 O_K) for K = Q(sqrt(-d)) with d = 7 mod 8, period parallelogram of area |Omega_0|^2 sqrt(d)/2 and 2-torsion point t, together with the Chowla-Selberg unit u (|iota_p(u)| = 1 at every prime p) pinning every conjugate area via area(E^sigma) |sigma u|^2 = pi exp(c_d) (2 pi / sqrt(d)), and the exact scale formula jetScale = periodFactor sqrt(2 pi / sqrt(d)) / Omega_0 whose transcendental period Omega cancels across Galois conjugates to bigOmega^(-1). Stage 2 (top-right) displays a roots-of-unity tight frame spoke diagram 1, zeta, zeta^2, ..., zeta^(q_1 - 1) (isTightFrame_pow and isTightFrame_zeta_pow) realizing character orthogonality sum m_j Phi_sigma(w_j) conj(Phi_tau(w_j)) = M delta_{sigma,tau} and metric pullback sum pullForm(L_{j,k}, m_j H_C) = u^* v; pulling back 1D monomial sections theta^r (sigma^2)^t G^u builds IsResolutionProduct and specializes to a level-1 IsThetaProduct F with V.theta(F) = 1, |iota_p(F(finVec x))| &lt;= 1 at all primes p, and period lattice q_1 a_0^n. Stage 3 (bottom-left) descends from F to V.vacElem via an unnormalized finite Heisenberg sum (exists_smul_vacElem_eq_sum): c V.vacElem = sum_{j in Gamma} V.finHeisenbergOp(a_j)(V.rho(finVec b) F) over |Gamma| = (q_1^2)^(fn) &lt;= exp(2 q_1^2 n) shifts with explicitly NO division by |Gamma| so p-adic integrality is preserved at every prime, combined with a uniform torsion conjugate bound M giving archimedean control. Stage 4 (bottom-right) defines the rank-n integral vacuum theta^circ = intVacuum V = (vacuumScale)^n vacElem (isVacuumScale_vacuumScale) with three verified property badges: global p-adic integrality (norm_intVacuum_le_one), uniform conjugate bound |sigma(theta^circ(finVec x))| &lt;= exp(C q_1^2 n) for all sigma in Aut(C) (norm_ringEquiv_intVacuum_le), and nonvanishing plus Galois jet conjugation (exists_intVacuum_ne_zero, standardData V delta, exists_isJetConjugate_translates), feeding Count.lean and Stages 01 and 03-07.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+
+    <!-- Crisp card clip paths for rounded header fills and badge accent bars -->
+    <clipPath id="clip-stage1"><rect x="14" y="50" width="398" height="296" rx="6"/></clipPath>
+    <clipPath id="clip-stage2"><rect x="448" y="50" width="398" height="296" rx="6"/></clipPath>
+    <clipPath id="clip-stage3"><rect x="14" y="384" width="398" height="282" rx="6"/></clipPath>
+    <clipPath id="clip-stage4"><rect x="448" y="384" width="398" height="282" rx="6"/></clipPath>
+    <clipPath id="clip-badge1"><rect x="460" y="470" width="374" height="46" rx="4"/></clipPath>
+    <clipPath id="clip-badge2"><rect x="460" y="522" width="374" height="46" rx="4"/></clipPath>
+    <clipPath id="clip-badge3"><rect x="460" y="574" width="374" height="50" rx="4"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="679" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="27" class="sans" font-size="16" font-weight="700" fill="#161b22">Tight Frames &amp; Chowla–Selberg → <tspan class="mono" font-size="15" fill="#1e40af">θ° = intVacuum</tspan></text>
+    <text x="842" y="26" class="mono" font-size="11" fill="#3f4a56" text-anchor="end">Vacuum/TightFrames.lean · IntegralVacuum.lean</text>
+    <line x1="14" y1="39" x2="846" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- STAGE 1 (TOP-LEFT): CM CURVE & CHOWLA-SELBERG SCALING                 -->
+  <!-- ===================================================================== -->
+  <g id="stage-1-cm-curve">
+    <rect x="14" y="50" width="398" height="296" rx="6" fill="#ffffff"/>
+    <rect x="14" y="50" width="398" height="28" fill="#edf4ff" clip-path="url(#clip-stage1)"/>
+    <line x1="14" y1="78" x2="412" y2="78" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="50" width="398" height="296" rx="6" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+    <text x="26" y="68" class="sans" font-size="11.5" font-weight="700" fill="#1e40af">1. CM CURVE &amp; CHOWLA–SELBERG</text>
+    <text x="400" y="68" class="mono" font-size="10.5" fill="#3f4a56" text-anchor="end">TightFrames.lean</text>
+
+    <!-- Mini Lattice Sketch Box (x=26..194, y=86..196) -->
+    <g id="cm-lattice-sketch">
+      <rect x="26" y="86" width="168" height="110" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="34" y="100" class="sans" font-size="10.5" font-weight="700" fill="#161b22"><tspan font-style="italic">E</tspan> = ℂ / Ω<tspan font-size="8" dy="2">0</tspan><tspan dy="-2" font-style="italic">O</tspan><tspan font-size="8" dy="2">K</tspan></text>
+
+      <!-- Faint background lattice grid lines -->
+      <line x1="34" y1="166" x2="186" y2="166" stroke="#d8d3c8" stroke-width="0.9" stroke-dasharray="2.5,2.5"/>
+      <line x1="34" y1="122" x2="186" y2="122" stroke="#d8d3c8" stroke-width="0.9" stroke-dasharray="2.5,2.5"/>
+      <line x1="41" y1="178" x2="90" y2="112" stroke="#d8d3c8" stroke-width="0.9" stroke-dasharray="2.5,2.5"/>
+      <line x1="107" y1="178" x2="156" y2="112" stroke="#d8d3c8" stroke-width="0.9" stroke-dasharray="2.5,2.5"/>
+
+      <!-- Fundamental Period Parallelogram -->
+      <polygon points="50,166 116,166 149,122 83,122" fill="#edf4ff" stroke="#1e40af" stroke-width="1.4"/>
+
+      <!-- Extra neighbor lattice node -->
+      <circle cx="182" cy="166" r="2.3" fill="#94a3b8"/>
+      <!-- Parallelogram vertices -->
+      <circle cx="50" cy="166" r="3" fill="#161b22"/>
+      <circle cx="116" cy="166" r="3" fill="#1e40af"/>
+      <circle cx="83" cy="122" r="3" fill="#1e40af"/>
+      <circle cx="149" cy="122" r="2.8" fill="#1e40af"/>
+
+      <!-- 2-torsion point t at parallelogram center -->
+      <circle cx="99.5" cy="144" r="3.8" fill="#9a3412" stroke="#ffffff" stroke-width="1.2"/>
+      <text x="107" y="148" class="sans" font-size="10.5" font-weight="700" fill="#9a3412">t</text>
+
+      <!-- Lattice vertex labels -->
+      <text x="41" y="177" class="sans" font-size="9.5" fill="#3f4a56">0</text>
+      <text x="116" y="178" class="sans" font-size="10" font-weight="700" fill="#1e40af" text-anchor="middle">Ω<tspan font-size="7.5" dy="2">0</tspan></text>
+      <text x="64" y="135" class="sans" font-size="10" font-weight="700" fill="#1e40af" text-anchor="end">Ω<tspan font-size="7.5" dy="2">0</tspan><tspan dy="-2">ω</tspan></text>
+
+      <!-- Area caption -->
+      <text x="110" y="191" class="sans" font-size="10" font-weight="700" fill="#1e40af" text-anchor="middle">area = |Ω<tspan font-size="7.5" dy="2">0</tspan><tspan dy="-2">|²√d / 2</tspan></text>
+    </g>
+
+    <!-- Right Anchor & Chowla-Selberg Unit Column (x=202..400, y=86..196) -->
+    <g id="cm-anchor-details">
+      <text x="204" y="99" class="mono" font-size="10.5" font-weight="700" fill="#1e40af">P.cmCurve<tspan class="sans" font-weight="400" fill="#3f4a56"> · CM anchor</tspan></text>
+      <text x="204" y="115" class="sans" font-size="10.5" fill="#161b22"><tspan font-style="italic">K</tspan> = ℚ(√−d),  d ≡ 7 (mod 8)</text>
+      <text x="204" y="130" class="sans" font-size="10" fill="#3f4a56">Lattice Ω<tspan font-size="7.5" dy="2">0</tspan><tspan dy="-2" font-style="italic">O</tspan><tspan font-size="7.5" dy="2">K</tspan><tspan dy="-2"> · 2-torsion </tspan><tspan font-weight="700" fill="#9a3412">t</tspan></text>
+
+      <rect x="202" y="139" width="198" height="57" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="212" y="154" class="sans" font-size="10.5" font-weight="700" fill="#065f46">Chowla–Selberg Unit u</text>
+      <text x="212" y="171" class="sans" font-size="10.5" font-weight="700" fill="#161b22">‖ι<tspan font-size="8" dy="2">p</tspan><tspan dy="-2">(u)‖ = 1   ∀ prime p</tspan></text>
+      <text x="212" y="187" class="sans" font-size="10" fill="#3f4a56">c<tspan font-size="7.5" dy="2">d</tspan><tspan dy="-2"> = γ − Re(L′/L)(1, χ</tspan><tspan font-size="7.5" dy="2">K</tspan><tspan dy="-2">)</tspan></text>
+    </g>
+
+    <!-- Conjugate Area Pinning Box -->
+    <rect x="26" y="204" width="374" height="48" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="36" y="220" class="sans" font-size="10.5" font-weight="700" fill="#3f4a56">Conjugate Area Pinning</text>
+    <text x="390" y="220" class="mono" font-size="10" fill="#3f4a56" text-anchor="end">CMLattice.chowla_selberg</text>
+    <text x="213" y="241" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">area(<tspan font-style="italic">E</tspan><tspan font-size="8.5" dy="-4">σ</tspan><tspan dy="4">) · ‖σu‖² = π · exp(c</tspan><tspan font-size="8.5" dy="2">d</tspan><tspan dy="-2">) · (2π / √d)</tspan></text>
+
+    <!-- Jet Scale & Cancellation Box -->
+    <rect x="26" y="260" width="374" height="76" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="36" y="276" class="sans" font-size="10.5" font-weight="700" fill="#1e40af">Exact Jet Scale &amp; Galois Cancellation</text>
+    <text x="213" y="297" class="sans" font-size="11.5" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="mono" fill="#1e40af">jetScale</tspan> = periodFactor · √(2π / √d) / Ω<tspan font-size="8.5" dy="2">0</tspan></text>
+    <text x="213" y="314" class="sans" font-size="10" fill="#3f4a56" text-anchor="middle">periodFactor = vacuumRoot / u   (p-adic norm tracks α⁻¹)</text>
+    <text x="213" y="329" class="sans" font-size="10.5" font-weight="700" fill="#1e40af" text-anchor="middle">Under σ ∈ Gal(ℂ/K):  Ω cancels → |t|² = <tspan class="mono">bigOmega</tspan>⁻¹</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- CONNECTOR: STAGE 1 -> STAGE 2                                         -->
+  <!-- ===================================================================== -->
+  <g id="connector-1-2">
+    <line x1="412" y1="198" x2="445" y2="198" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="429" y="189" class="sans" font-size="9.5" font-weight="700" fill="#1e40af" text-anchor="middle">Ω<tspan font-size="7.5" dy="2">0</tspan><tspan dy="-2">, u</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- STAGE 2 (TOP-RIGHT): ROOTS-OF-UNITY TIGHT FRAME PULLBACK              -->
+  <!-- ===================================================================== -->
+  <g id="stage-2-tight-frame">
+    <rect x="448" y="50" width="398" height="296" rx="6" fill="#ffffff"/>
+    <rect x="448" y="50" width="398" height="28" fill="#ecfdf5" clip-path="url(#clip-stage2)"/>
+    <line x1="448" y1="78" x2="846" y2="78" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="448" y="50" width="398" height="296" rx="6" fill="none" stroke="#065f46" stroke-width="1.5"/>
+
+    <text x="460" y="68" class="sans" font-size="11.5" font-weight="700" fill="#065f46">2. TIGHT FRAME PULLBACK</text>
+    <text x="834" y="68" class="mono" font-size="10.5" fill="#3f4a56" text-anchor="end">TightFrames · IntegralVacuum</text>
+
+    <!-- Geometric Spoke Diagram of Roots of Unity (x=460..596, y=86..206) -->
+    <g id="roots-of-unity-spokes">
+      <rect x="460" y="86" width="136" height="120" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="466" y="97" class="mono" font-size="9" fill="#3f4a56">q<tspan font-size="7" dy="2">1</tspan><tspan dy="-2">-th roots</tspan></text>
+
+      <!-- Subtle axes and unit circle centered at (528, 149), R=29 -->
+      <line x1="491" y1="149" x2="565" y2="149" stroke="#d8d3c8" stroke-width="0.9"/>
+      <line x1="528" y1="115" x2="528" y2="184" stroke="#d8d3c8" stroke-width="0.9"/>
+      <circle cx="528" cy="149" r="29" fill="none" stroke="#a7f3d0" stroke-width="1.3" stroke-dasharray="3,2.5"/>
+
+      <!-- 7 equally spaced tight-frame spokes -->
+      <line x1="528" y1="149" x2="557.0" y2="149.0" stroke="#065f46" stroke-width="1.5"/>
+      <line x1="528" y1="149" x2="546.1" y2="126.3" stroke="#065f46" stroke-width="1.5"/>
+      <line x1="528" y1="149" x2="521.5" y2="120.7" stroke="#065f46" stroke-width="1.5"/>
+      <line x1="528" y1="149" x2="501.9" y2="136.4" stroke="#065f46" stroke-width="1.5"/>
+      <line x1="528" y1="149" x2="501.9" y2="161.6" stroke="#065f46" stroke-width="1.5" stroke-opacity="0.65"/>
+      <line x1="528" y1="149" x2="521.5" y2="177.3" stroke="#065f46" stroke-width="1.5" stroke-opacity="0.65"/>
+      <line x1="528" y1="149" x2="546.1" y2="171.7" stroke="#065f46" stroke-width="1.5"/>
+
+      <!-- Center dot & root vertices -->
+      <circle cx="528" cy="149" r="2.4" fill="#161b22"/>
+      <circle cx="557.0" cy="149.0" r="3.2" fill="#065f46"/>
+      <circle cx="546.1" cy="126.3" r="3.2" fill="#065f46"/>
+      <circle cx="521.5" cy="120.7" r="3.2" fill="#065f46"/>
+      <circle cx="501.9" cy="136.4" r="3.2" fill="#065f46"/>
+      <circle cx="501.9" cy="161.6" r="2.8" fill="#065f46" fill-opacity="0.7"/>
+      <circle cx="521.5" cy="177.3" r="2.8" fill="#065f46" fill-opacity="0.7"/>
+      <circle cx="546.1" cy="171.7" r="3.2" fill="#065f46"/>
+
+      <!-- Root labels -->
+      <text x="566" y="152" class="sans" font-size="10" font-weight="700" fill="#065f46">1</text>
+      <text x="553" y="122" class="sans" font-size="10" font-weight="700" fill="#065f46">ζ</text>
+      <text x="520" y="114" class="sans" font-size="10" font-weight="700" fill="#065f46" text-anchor="middle">ζ²</text>
+      <text x="489" y="136" class="sans" font-size="10" font-weight="700" fill="#065f46" text-anchor="middle">ζ³</text>
+      <text x="489" y="166" class="sans" font-size="10" font-weight="700" fill="#3f4a56" text-anchor="middle">…</text>
+      <text x="528" y="199" class="sans" font-size="9.5" font-weight="700" fill="#065f46" text-anchor="middle">1, ζ, ζ², …, ζ<tspan font-size="7.5" dy="-3">q₁−1</tspan></text>
+    </g>
+
+    <!-- Right Equations Column: Orthogonality & Metric Pullback -->
+    <g id="tight-frame-equations">
+      <text x="604" y="98" class="mono" font-size="10" font-weight="700" fill="#065f46">isTightFrame_pow / _zeta_pow</text>
+
+      <rect x="604" y="105" width="230" height="47" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="612" y="120" class="sans" font-size="10" font-weight="700" fill="#065f46">Character Orthogonality</text>
+      <text x="719" y="140" class="sans" font-size="10.5" font-weight="700" fill="#161b22" text-anchor="middle">∑ m<tspan font-size="8" dy="2">j</tspan><tspan dy="-2"> Φ</tspan><tspan font-size="8" dy="2">σ</tspan><tspan dy="-2">(w</tspan><tspan font-size="8" dy="2">j</tspan><tspan dy="-2">) </tspan><tspan text-decoration="overline">Φ<tspan font-size="8" dy="2">τ</tspan><tspan dy="-2">(w</tspan><tspan font-size="8" dy="2">j</tspan><tspan dy="-2">)</tspan></tspan> = M δ<tspan font-size="8" dy="2">στ</tspan></text>
+
+      <rect x="604" y="158" width="230" height="48" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="612" y="173" class="sans" font-size="10" font-weight="700" fill="#3f4a56">Metric Pullback (Id Resolution)</text>
+      <text x="719" y="193" class="sans" font-size="10.5" font-weight="700" fill="#161b22" text-anchor="middle">∑ pullForm(L<tspan font-size="8" dy="2">j,k</tspan><tspan dy="-2">, m</tspan><tspan font-size="8" dy="2">j</tspan><tspan dy="-2"> H</tspan><tspan font-size="8" dy="2">C</tspan><tspan dy="-2">) = u* v</tspan></text>
+    </g>
+
+    <!-- Pullback Pipeline: IsResolutionProduct -> Level-1 IsThetaProduct F -->
+    <g id="pullback-to-theta-product">
+      <rect x="460" y="214" width="374" height="40" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="470" y="230" class="sans" font-size="10.5" font-weight="700" fill="#1e40af"><tspan class="mono">IsResolutionProduct</tspan><tspan font-weight="400" fill="#3f4a56"> · Pullback along L</tspan><tspan font-size="8" font-weight="400" fill="#3f4a56" dy="2">j,k</tspan></text>
+      <text x="470" y="246" class="sans" font-size="10.5" fill="#161b22">1D monomials θ<tspan font-size="8" dy="-3">r</tspan><tspan dy="3">(σ²)</tspan><tspan font-size="8" dy="-3">t</tspan><tspan dy="3">G</tspan><tspan font-size="8" dy="-3">u</tspan><tspan dy="3">  →  factorized Taylor jets</tspan></text>
+
+      <!-- Short pullback arrow -->
+      <line x1="647" y1="254" x2="647" y2="270" stroke="#065f46" stroke-width="1.6" marker-end="url(#arrow-emerald-end)"/>
+      <text x="658" y="266" class="sans" font-size="9.5" font-weight="700" fill="#065f46">w<tspan font-size="7.5" dy="2">k</tspan><tspan dy="-2"> = ζ</tspan><tspan font-size="7.5" dy="-3">k</tspan><tspan dy="3">/q</tspan><tspan font-size="7.5" dy="2">1</tspan><tspan dy="-2">,  m</tspan><tspan font-size="7.5" dy="2">k</tspan><tspan dy="-2"> = q</tspan><tspan font-size="7.5" dy="2">1</tspan></text>
+
+      <!-- Level-1 IsThetaProduct F Box -->
+      <rect x="460" y="272" width="374" height="64" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+      <text x="470" y="289" class="sans" font-size="11" font-weight="700" fill="#065f46">Level-1 <tspan class="mono">IsThetaProduct</tspan> F</text>
+      <text x="824" y="289" class="sans" font-size="10.5" font-weight="700" fill="#065f46" text-anchor="end">V.θ(F) = 1</text>
+      <text x="470" y="307" class="sans" font-size="10.5" font-weight="700" fill="#161b22">‖ι<tspan font-size="8" dy="2">p</tspan><tspan dy="-2">(F(finVec x))‖ ≤ 1 ∀p  ·  Periods: q</tspan><tspan font-size="8" dy="2">1</tspan><tspan dy="-2"> </tspan><tspan font-style="italic">a</tspan><tspan font-size="8" dy="2">0</tspan><tspan font-size="8" dy="-5">n</tspan></text>
+      <text x="470" y="324" class="sans" font-size="10" fill="#3f4a56">On <tspan class="mono" fill="#161b22">P.cmCurve</tspan> (e = 1); translates span <tspan class="mono" fill="#161b22">V.finitePart</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- CORRIDOR CONNECTOR: STAGE 2 -> STAGE 3                                -->
+  <!-- ===================================================================== -->
+  <g id="connector-2-3">
+    <path d="M 647 346 L 647 365 L 213 365 L 213 381" fill="none" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald-end)"/>
+    <rect x="258" y="354" width="344" height="22" rx="11" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+    <text x="430" y="369" class="sans" font-size="10.5" font-weight="700" fill="#065f46" text-anchor="middle">Descend level-q<tspan font-size="8" dy="2">1</tspan><tspan dy="-2"> F → level-1 vacuum via finite Γ</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- STAGE 3 (BOTTOM-LEFT): FINITE HEISENBERG AVERAGING                    -->
+  <!-- ===================================================================== -->
+  <g id="stage-3-heisenberg">
+    <rect x="14" y="384" width="398" height="282" rx="6" fill="#ffffff"/>
+    <rect x="14" y="384" width="398" height="28" fill="#fff5f0" clip-path="url(#clip-stage3)"/>
+    <line x1="14" y1="412" x2="412" y2="412" stroke="#fed7aa" stroke-width="1"/>
+    <rect x="14" y="384" width="398" height="282" rx="6" fill="none" stroke="#9a3412" stroke-width="1.5"/>
+
+    <text x="26" y="402" class="sans" font-size="11.5" font-weight="700" fill="#9a3412">3. FINITE HEISENBERG AVERAGING</text>
+    <text x="400" y="402" class="mono" font-size="10.5" fill="#3f4a56" text-anchor="end">IntegralVacuum.lean</text>
+
+    <text x="26" y="428" class="mono" font-size="10.5" font-weight="700" fill="#9a3412">exists_smul_vacElem_eq_sum</text>
+
+    <!-- Main Unnormalized Sum Formula -->
+    <rect x="26" y="435" width="374" height="60" rx="4" fill="#fff5f0" stroke="#fed7aa" stroke-width="1"/>
+    <text x="38" y="457" class="sans" font-size="11.5" font-weight="700" fill="#161b22"><tspan fill="#9a3412">c · V.vacElem</tspan> = ∑<tspan font-size="8.5" dy="3">j∈Γ</tspan><tspan dy="-3"> V.finHeisenbergOp(a</tspan><tspan font-size="8.5" dy="3">j</tspan><tspan dy="-3">)</tspan></text>
+    <text x="114" y="480" class="sans" font-size="11.5" font-weight="700" fill="#161b22">(<tspan fill="#065f46">V.ρ(finVec b) F</tspan>)<tspan font-weight="400" fill="#3f4a56">    (c ∈ ℂ</tspan><tspan font-size="8.5" font-weight="400" fill="#3f4a56" dy="-3">×</tspan><tspan font-weight="400" fill="#3f4a56" dy="3">)</tspan></text>
+
+    <!-- Explicit NO DIVISION Callout -->
+    <rect x="26" y="503" width="374" height="52" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.2"/>
+    <rect x="36" y="512" width="88" height="19" rx="9.5" fill="#9a3412"/>
+    <text x="80" y="525" class="sans" font-size="9.5" font-weight="700" fill="#ffffff" text-anchor="middle">NO 1/|Γ| DIV.</text>
+    <text x="132" y="525" class="sans" font-size="11" font-weight="700" fill="#92400e">Unnormalized sum — zero denominators</text>
+    <text x="36" y="545" class="sans" font-size="10" fill="#3f4a56">No division by |Γ| = (q<tspan font-size="7.5" dy="2">1</tspan><tspan dy="-2">²)</tspan><tspan font-size="7.5" dy="-3">fn</tspan><tspan dy="3">; keeps p-adic integrality ∀p</tspan></text>
+
+    <!-- Bottom Left Sub-Card: Sum Size & Integrality -->
+    <rect x="26" y="563" width="182" height="91" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="36" y="580" class="sans" font-size="10.5" font-weight="700" fill="#161b22">Summand Count |Γ|</text>
+    <text x="36" y="599" class="sans" font-size="10" font-weight="700" fill="#9a3412">|Γ| = (q<tspan font-size="7.5" dy="2">1</tspan><tspan dy="-2">²)</tspan><tspan font-size="7.5" dy="-3">fn</tspan><tspan dy="3"> ≤ exp(2q</tspan><tspan font-size="7.5" dy="2">1</tspan><tspan dy="-2">²n)</tspan></text>
+    <text x="36" y="617" class="sans" font-size="10" fill="#3f4a56">Uses f ≤ q<tspan font-size="7.5" dy="2">1</tspan><tspan dy="-2">, q</tspan><tspan font-size="7.5" dy="2">1</tspan><tspan dy="-2"> ≤ exp(q</tspan><tspan font-size="7.5" dy="2">1</tspan><tspan dy="-2">)</tspan></text>
+    <text x="36" y="633" class="sans" font-size="10" font-weight="700" fill="#065f46">Shifts × roots of unity</text>
+    <text x="36" y="647" class="sans" font-size="10" fill="#065f46">⇒ ‖ι<tspan font-size="7.5" dy="2">p</tspan><tspan dy="-2">(c · vacElem)‖ ≤ 1</tspan></text>
+
+    <!-- Bottom Right Sub-Card: Uniform Torsion Bound M -->
+    <rect x="216" y="563" width="184" height="91" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="226" y="580" class="sans" font-size="10.5" font-weight="700" fill="#161b22">Torsion Conjugate Bound</text>
+    <text x="226" y="599" class="sans" font-size="10.5" font-weight="700" fill="#1e40af">Uniform M (indep. of s)</text>
+    <text x="226" y="617" class="sans" font-size="10" fill="#3f4a56">F: q<tspan font-size="7.5" dy="2">1</tspan><tspan dy="-2">² torsion-value prod</tspan></text>
+    <text x="226" y="633" class="sans" font-size="9.5" fill="#161b22">‖σ(F(finVec z))‖ ≤ exp(Mq<tspan font-size="7.5" dy="2">1</tspan><tspan dy="-2">²)</tspan></text>
+    <text x="226" y="647" class="sans" font-size="10" font-weight="700" fill="#9a3412">n=1 sum ≤ exp((⌈M⌉+2)q<tspan font-size="7.5" dy="2">1</tspan><tspan dy="-2">²)</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- CONNECTOR: STAGE 3 -> STAGE 4                                         -->
+  <!-- ===================================================================== -->
+  <g id="connector-3-4">
+    <line x1="412" y1="525" x2="445" y2="525" stroke="#9a3412" stroke-width="1.8" marker-end="url(#arrow-rust-end)"/>
+    <text x="429" y="516" class="sans" font-size="9.5" font-weight="700" fill="#9a3412" text-anchor="middle">c<tspan font-size="7.5" dy="2">s</tspan><tspan font-size="7.5" dy="-5">n</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- STAGE 4 (BOTTOM-RIGHT): OUTPUT INTEGRAL VACUUM & DOWNSTREAM           -->
+  <!-- ===================================================================== -->
+  <g id="stage-4-output">
+    <rect x="448" y="384" width="398" height="282" rx="6" fill="#ffffff"/>
+    <rect x="448" y="384" width="398" height="28" fill="#edf4ff" clip-path="url(#clip-stage4)"/>
+    <line x1="448" y1="412" x2="846" y2="412" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="448" y="384" width="398" height="282" rx="6" fill="none" stroke="#1e40af" stroke-width="1.75"/>
+
+    <text x="460" y="402" class="sans" font-size="11.5" font-weight="700" fill="#1e40af">4. OUTPUT: INTEGRAL VACUUM θ°</text>
+    <text x="834" y="402" class="mono" font-size="9.5" fill="#3f4a56" text-anchor="end">isVacuumScale_vacuumScale</text>
+
+    <!-- Hero Definition Box -->
+    <rect x="460" y="420" width="374" height="42" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+    <text x="647" y="438" class="sans" font-size="12" font-weight="700" fill="#161b22" text-anchor="middle"><tspan fill="#1e40af">θ° := <tspan class="mono">intVacuum</tspan> V</tspan> = (<tspan class="mono">vacuumScale</tspan>)<tspan font-size="8.5" dy="-4">n</tspan><tspan dy="4"> · vacElem</tspan></text>
+    <text x="647" y="454" class="sans" font-size="10" fill="#3f4a56" text-anchor="middle">Rank-n lift of c<tspan font-size="7.5" dy="2">s</tspan><tspan dy="-2"> (absorbs c with no denominators)</tspan></text>
+
+    <!-- Verified Property Badge 1: Global p-adic Integrality -->
+    <g id="badge-padic-integrality">
+      <rect x="460" y="470" width="374" height="46" rx="4" fill="#ecfdf5"/>
+      <rect x="460" y="470" width="5" height="46" fill="#065f46" clip-path="url(#clip-badge1)"/>
+      <rect x="460" y="470" width="374" height="46" rx="4" fill="none" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="474" y="487" class="sans" font-size="11" font-weight="700" fill="#065f46">Global p-adic Integrality</text>
+      <text x="824" y="487" class="mono" font-size="10" fill="#161b22" text-anchor="end">norm_intVacuum_le_one</text>
+      <text x="474" y="506" class="sans" font-size="11" font-weight="700" fill="#161b22">‖ι<tspan font-size="8" dy="2">p</tspan><tspan dy="-2">(θ°(finVec x))‖ ≤ 1   ∀ prime p and ι</tspan><tspan font-size="8" dy="2">p</tspan></text>
+    </g>
+
+    <!-- Verified Property Badge 2: Uniform Conjugate Bound -->
+    <g id="badge-conjugate-bound">
+      <rect x="460" y="522" width="374" height="46" rx="4" fill="#fff5f0"/>
+      <rect x="460" y="522" width="5" height="46" fill="#9a3412" clip-path="url(#clip-badge2)"/>
+      <rect x="460" y="522" width="374" height="46" rx="4" fill="none" stroke="#fed7aa" stroke-width="1"/>
+      <text x="474" y="539" class="sans" font-size="11" font-weight="700" fill="#9a3412">Uniform Conjugate Bound</text>
+      <text x="824" y="539" class="mono" font-size="10" fill="#161b22" text-anchor="end">norm_ringEquiv_intVacuum_le</text>
+      <text x="474" y="558" class="sans" font-size="11" font-weight="700" fill="#161b22">‖σ(θ°(finVec x))‖ ≤ exp(C q<tspan font-size="8" dy="2">1</tspan><tspan dy="-2">² n)   ∀ σ ∈ Aut(ℂ)</tspan></text>
+    </g>
+
+    <!-- Verified Property Badge 3: Nonzero + Galois Jets -->
+    <g id="badge-galois-jets">
+      <rect x="460" y="574" width="374" height="50" rx="4" fill="#edf4ff"/>
+      <rect x="460" y="574" width="5" height="50" fill="#1e40af" clip-path="url(#clip-badge3)"/>
+      <rect x="460" y="574" width="374" height="50" rx="4" fill="none" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="474" y="589" class="sans" font-size="11" font-weight="700" fill="#1e40af">Nonzero + Galois Jets</text>
+      <text x="824" y="589" class="mono" font-size="10" fill="#161b22" text-anchor="end">exists_intVacuum_ne_zero</text>
+      <text x="474" y="604" class="mono" font-size="10" fill="#161b22">standardData V δ · exists_isJetConjugate_translates</text>
+      <text x="474" y="618" class="sans" font-size="9.5" fill="#3f4a56">Conjugated translated jets pinned at |t|² = <tspan class="mono" fill="#1e40af">bigOmega</tspan>⁻¹</text>
+    </g>
+
+    <!-- Downstream Consumer Strip -->
+    <rect x="460" y="630" width="374" height="27" rx="4" fill="#fef6e4" stroke="#fed7aa" stroke-width="1"/>
+    <text x="647" y="647" class="sans" font-size="10.5" font-weight="700" fill="#92400e" text-anchor="middle">Feeds <tspan class="mono" fill="#9a3412">Count.lean</tspan>  →  Stages 01 &amp; 03–07</text>
+  </g>
+</svg>
