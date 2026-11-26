@@ -10,14 +10,14 @@ Stores the generated Stage 00 Lean 4 skeleton extracted from upstream `src/Main.
 
 ## Code Commentary
 
-Auto-generated from upstream `src/Main.lean` at commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b` with `preserve_defs: false`. Stubs all five top-level `theorem` declarations with `sorry -- [EXTRACTED_STUB ...]` provenance lines and body SHA-256 digests: `LFunction_ne_zero_of_half_lt_re` (lines 5–6, upstream 43–44, `body_lines=1`), `riemannHypothesis` (lines 8–9, upstream 46–47, `body_lines=1`), `riemannZeta_eq_zero_re` (lines 11–12, upstream 49–49, `body_lines=1`), `LFunction_eq_zero_re` (lines 14–15, upstream 51–52, `body_lines=1`) and `LFunction_eq_zero_re_of_isPrimitive` (lines 17–18, upstream 54–56, `body_lines=3`). Recorded as landmark node `00_statement/main` with `depends_on: ["00_statement/statements"]` in `dag/dag.json`. Never hand-edit; regenerate byte-identically with `rh-extract`.
+Auto-generated from upstream `src/Main.lean` at commit `41c2716658c42ba08eb0648994a2efe83082a95c` with `preserve_defs: false`. Stubs all five top-level `theorem` declarations with preserved leading docstrings, `sorry -- [EXTRACTED_STUB ...]` provenance lines (`body_lines=1` on all five) and body SHA-256 digests: `riemannHypothesis` (lines 5–7, upstream `src/Main.lean:8-9`), `riemannZeta_eq_zero_re` (lines 9–11, upstream `src/Main.lean:11-12`), `LFunction_ne_zero_of_half_lt_re` (lines 13–17, upstream `src/Main.lean:14-17`), `LFunction_eq_zero_re` (lines 19–22, upstream `src/Main.lean:19-21`) and `LFunction_eq_zero_re_of_isPrimitive` (lines 24–27, upstream `src/Main.lean:23-26`). Recorded as landmark node `00_statement/main` with `depends_on: []` in `dag/dag.json` because upstream `src/Main.lean` does `public import New.Main` rather than importing `Statements` directly. Never hand-edit; regenerate byte-identically with `rh-extract`.
 
 ## Relationships
 
-Mapped in [the 21-stage map](../../dag/stage-map.json.md), rendered by [the stub emitter](../../src/rh_pipeline/lean/stub_emitter.py.md) via [the stage-map extractor](../../src/rh_pipeline/graph/stage_map.py.md) and [`rh-extract`](../../src/rh_pipeline/cli/extract.py.md), depends on [statements.lean](statements.lean.md) in [the Stage 00 DAG](../../dag/dag.json.md) and is round-trip checked by [stage-map unit tests](../../tests/unit/test_stage_map.py.md).
+Mapped in [the 8-stage map](../../dag/stage-map.json.md), rendered by [the stub emitter](../../src/rh_pipeline/lean/stub_emitter.py.md) via [the stage-map extractor](../../src/rh_pipeline/graph/stage_map.py.md) and [`rh-extract`](../../src/rh_pipeline/cli/extract.py.md), indexed as landmark node `00_statement/main` in [the Stage 00 DAG](../../dag/dag.json.md) and round-trip checked by [stage-map unit tests](../../tests/unit/test_stage_map.py.md).
 
 ## Evidence
 
-- Auto-generated header pins upstream src/Main.lean at c900e67c2fcd1fdb041685820bbd2b867fbc5a4b with Preserve defs false. [1]
-- Stubs LFunction_ne_zero_of_half_lt_re, riemannHypothesis and riemannZeta_eq_zero_re with EXTRACTED_STUB provenance markers. [2]
-- Stubs LFunction_eq_zero_re and LFunction_eq_zero_re_of_isPrimitive with body line counts and SHA-256 digests. [3]
+- Auto-generated header pins upstream src/Main.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false. [1]
+- Stubs riemannHypothesis, riemannZeta_eq_zero_re and LFunction_ne_zero_of_half_lt_re with preserved docstrings and EXTRACTED_STUB provenance markers (body_lines=1). [2]
+- Stubs LFunction_eq_zero_re and LFunction_eq_zero_re_of_isPrimitive with preserved docstrings, body_lines=1 and SHA-256 digests. [3]

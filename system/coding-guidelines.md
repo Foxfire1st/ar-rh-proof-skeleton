@@ -15,7 +15,7 @@ Before implementing any task, name the exact owning package and module for every
 - `src/rh_pipeline/validate/` — Deterministic quality gates (file-size rail, schema checks, Lean anchor resolution, concept-slug and source-citation checks, jargon-order lint).
 - `src/rh_pipeline/site/` — Phase 4: static VitePress site compiler (inline concept reveals, hover cards, zoom levels, interactive DAG pages).
 - `src/rh_pipeline/cli/` — Thin command wiring only; zero business logic.
-- `skeleton/` — Generated deterministic `.lean` stubs grouped by stage (`00_statement/` … `20_grh/`). Never hand-edited; always regenerated cleanly from upstream + `dag/stage-map.json`.
+- `skeleton/` — Generated deterministic `.lean` stubs grouped by stage (`00_statement/` … `07_congruences/`). Never hand-edited; always regenerated cleanly from upstream + `dag/stage-map.json`.
 - `dag/` — Authoritative `stage-map.json` and generated `dag.json`.
 - `audit/` — Machine-generated `provenance.json` and `verification-status.json`.
 - `site/` — VitePress shell, design tokens, and reusable interactive components.

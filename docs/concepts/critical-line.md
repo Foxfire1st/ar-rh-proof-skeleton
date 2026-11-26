@@ -53,8 +53,8 @@ In Stage 00, the critical-line condition appears directly as the conclusion `s.r
   def RiemannZetaZerosOnLine : Prop :=
     ∀ s : ℂ, riemannZeta s = 0 → (¬∃ n : ℕ, s = -2 * ((n : ℂ) + 1)) → s ≠ 1 → s.re = 1 / 2
   ```
-- `00_statement/main.lean#riemannHypothesis` (upstream `src/Main.lean:46-47`):
+- `00_statement/main.lean#riemannHypothesis` (upstream `src/Main.lean:8-9`):
   ```lean
-  theorem riemannHypothesis : RiemannHypothesis := ...
+  theorem riemannHypothesis : RiemannHypothesis := New.zeta_zeros_on_line New.grh
   ```
-Here `RiemannHypothesis` is Mathlib's built-in definition (`Mathlib.NumberTheory.LSeries.RiemannZeta`), which is definitionally identical to `RiemannZetaZerosOnLine`, allowing `src/Main.lean:49` to prove `riemannZeta_eq_zero_re` in one word (`riemannHypothesis`). Upstream provenance is pinned at commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b` (`build_status: unverified-locally`).
+Here `RiemannHypothesis` is Mathlib's built-in definition (`Mathlib.NumberTheory.LSeries.RiemannZeta`), which is definitionally identical to `RiemannZetaZerosOnLine`, allowing `src/Main.lean:11-12` to prove `riemannZeta_eq_zero_re` in one word (`riemannHypothesis`). See the page's live verification banner (`audit/verification-status.json`) for the currently pinned upstream snapshot and local Lean build status (`build_status: unverified-locally`).

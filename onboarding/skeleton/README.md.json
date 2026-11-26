@@ -1,0 +1,41 @@
+{
+  "path": "skeleton/README.md",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Defines skeleton/ as generated deterministic .lean signature stubs grouped by the 8 condensed proof stages (00_statement/ through 07_congruences/).\n\nAnchor: `# Skeleton Directory`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "fb5d26d4555b98aa10b48903db8ad252748a2fe4",
+            "content": "sha256:9ab1b09c5a59c058f66c613050a7c8966679f4146ba5d8b91615005352fa7bf3",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Restricts stub generation exclusively to rh_pipeline.lean and rh_pipeline.graph and delegates verification truth to audit/verification-status.json.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "fb5d26d4555b98aa10b48903db8ad252748a2fe4",
+            "content": "sha256:98a31830fd43272a622da0d1d81311db12b5454e84b88fb20807689ee435185e",
+            "locator": {
+              "end": 6,
+              "kind": "line_range",
+              "start": 5
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

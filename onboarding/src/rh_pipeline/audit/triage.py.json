@@ -1,0 +1,108 @@
+{
+  "path": "src/rh_pipeline/audit/triage.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "bac83080429b79d4f5f4f654504d089d19dad618",
+        "content": "sha256:fa895e36093b02d4fda6b03a9bb6ada7d3505b5cb7f00ff25d4ccb074a3618a8",
+        "locator": {
+          "kind": "symbol",
+          "name": "check_upstream"
+        }
+      },
+      "id": "RLZ-4V4FMN",
+      "invariant": "INV-AXWQKZ",
+      "origin": {
+        "handoffEntry": "RH-R07@v1 R2",
+        "leaf": "01"
+      },
+      "rationale": "Implements strictly read-only Git ancestry and diff triage against provenance.json and stage-map.json, partitioning audit-tracked and stage-mapped paths, computing affected stages, and classifying optional replay pins informationally.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "bac83080429b79d4f5f4f654504d089d19dad618",
+        "content": "sha256:784d758a563fe1a7a0a6fa7e1b73c34dccb9cf8a82a24d21809e1d74e4c6d08c",
+        "locator": {
+          "kind": "symbol",
+          "name": "UpstreamTriageReport"
+        }
+      },
+      "id": "RLZ-5G2NJ6",
+      "invariant": "INV-AXWQKZ",
+      "origin": {
+        "handoffEntry": "RH-R07@v1 R2",
+        "leaf": "01"
+      },
+      "rationale": "Defines the immutable frozen triage result model and deterministic timestamp-free sorted-key JSON serializer consumed by automation and CLI output.",
+      "role": "primary-authority"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Defines triage and replay status literals, deterministic exit codes (0, 2, 10, 11) and audit-tracked path allowlists for freshness classification.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "bac83080429b79d4f5f4f654504d089d19dad618",
+            "content": "sha256:2e94012e7b39576e652ca740630fead2370bb652754da6d9c2417230965d45b6",
+            "locator": {
+              "kind": "symbol",
+              "name": "_AUDIT_TRACKED_FILES"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Classifies pinned-vs-target Git ancestry into up-to-date, history-switched, mapped-drift or unmapped-only using --no-renames NUL-delimited diffs.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "bac83080429b79d4f5f4f654504d089d19dad618",
+            "content": "sha256:0080465c49f5ecb2af484ca1602f1940fec8d04f0555c9ba4dc72466929a381d",
+            "locator": {
+              "kind": "symbol",
+              "name": "_classify_upstream"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "Evaluates optional local replay checkouts as informational replay_status without changing the primary upstream exit code.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "bac83080429b79d4f5f4f654504d089d19dad618",
+            "content": "sha256:7b4d85ef8f323b6bb06bf2448cbb68fdbcb8352e6b6b8248675c1b680371cb31",
+            "locator": {
+              "kind": "symbol",
+              "name": "_triage_replay"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "Orchestrates provenance and stage-map loading, read-only Git validation, upstream classification and replay triage into an immutable UpstreamTriageReport.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "bac83080429b79d4f5f4f654504d089d19dad618",
+            "content": "sha256:fa895e36093b02d4fda6b03a9bb6ada7d3505b5cb7f00ff25d4ccb074a3618a8",
+            "locator": {
+              "kind": "symbol",
+              "name": "check_upstream"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

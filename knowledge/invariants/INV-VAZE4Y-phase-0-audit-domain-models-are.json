@@ -8,8 +8,8 @@
   },
   "applicability": "All Phase 0 audit domain dataclasses and canonical JSON serialization under src/rh_pipeline/models/audit.py.",
   "conditions": [
-    "Every dataclass is frozen with slots, wraps mapping fields in sorted read-only views, and validates exact key sets and field types in from_dict.",
-    "VerificationStatus restricts build_status to 'unverified-locally' and format_canonical_json emits sorted-key indent=2 JSON with a trailing newline."
+    "Every dataclass is frozen with slots, wraps mapping fields in sorted read-only views, and validates required/optional key sets and field types in from_dict (rejecting missing required keys, unknown extra keys, bool-as-int and int-as-bool on ComparatorSummary.enable_nanoda).",
+    "ComparatorSummary accepts optional external_kernels (default {}), definition_names (default ()) and enable_nanoda (default None) while emitting all eight sorted keys in to_dict(); VerificationStatus restricts build_status to 'unverified-locally', permits None or non-empty strings for community_verification_notes_sha256 and upstream_static_scan_sha256, and format_canonical_json emits sorted-key indent=2 JSON with a trailing newline."
   ],
   "exclusions": [
     "Cross-field consistency between VerificationStatus top-level counts and its nested scan summary is enforced by build_verification_status rather than from_dict."
@@ -26,20 +26,20 @@
     "leaf": "02",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
-  "statement": "Phase 0 audit domain models are immutable frozen dataclasses with strict exact-key to_dict/from_dict validation and deterministic sorted-key canonical JSON formatting without wall-clock timestamps.",
+  "statement": "Phase 0 audit domain models are immutable frozen dataclasses with strict key-validated to_dict/from_dict deserialization (supporting optional condensed ComparatorSummary fields and nullable VerificationStatus verification-note digests) and deterministic sorted-key canonical JSON formatting without wall-clock timestamps.",
   "supersedes": [],
   "title": "Immutable Phase 0 audit models and timestamp-free canonical JSON",
   "writer": {
-    "at": "2026-11-25T17:00:49+01:00",
+    "at": "2026-11-26T12:10:47+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "02",
+    "leaf": "01",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
-    "task": "261123-RH"
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
   }
 }

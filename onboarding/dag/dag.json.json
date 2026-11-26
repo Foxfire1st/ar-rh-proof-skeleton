@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "f6d315bb77b49bd993b68a9353ab75d60d32bd29",
-        "content": "sha256:6c8d814b726d8ffeee8e17fb12776ee27d02b6482a91e93df59a94117abc05fa",
+        "blob": "97ec49000a152001d88321ccb25baf1737388130",
+        "content": "sha256:d125a8fa4e0f56431e2b33d7a0ccec5d598f06684b7146986ae275d0402a35ea",
         "locator": {
           "kind": "file"
         }
@@ -21,14 +21,14 @@
   ],
   "references": {
     "1": {
-      "note": "Records five Stage 00 DagNodes carrying 24 skeleton and upstream line-anchored declaration references.\n\nAnchor: `nodes`",
+      "note": "Records three Stage 00 DagNodes (00_statement/statements, 00_statement/challenge, 00_statement/main) carrying 14 skeleton and upstream line-anchored declaration references.",
       "targets": [
         {
           "anchor": {
-            "blob": "f6d315bb77b49bd993b68a9353ab75d60d32bd29",
-            "content": "sha256:24561fd9306e4e1925f5a37cab2ac65f7c434b3712e32a2da305c8892de21994",
+            "blob": "97ec49000a152001d88321ccb25baf1737388130",
+            "content": "sha256:4dcc11c76cb7bac7074e09b0bf49427d4ff3c8b80957e9ff52128d37b8f37e3a",
             "locator": {
-              "end": 276,
+              "end": 164,
               "kind": "line_range",
               "start": 2
             }
@@ -38,28 +38,16 @@
       ]
     },
     "2": {
-      "note": "Derives strictly import-only dependency edges so 00_statement/main depends on 00_statement/statements while 00_statement/challenge and 00_statement/formal_conjectures_challenge carry empty depends_on arrays.\n\nAnchor: `depends_on`",
+      "note": "Derives strictly import-only dependency edges so 00_statement/challenge depends on 00_statement/statements while 00_statement/main carries an empty depends_on array.",
       "targets": [
         {
           "anchor": {
-            "blob": "f6d315bb77b49bd993b68a9353ab75d60d32bd29",
-            "content": "sha256:59be6b43b0cdcf226ddd6b5456f916727695522524a1cd7a764a5e43f00d9bbd",
+            "blob": "97ec49000a152001d88321ccb25baf1737388130",
+            "content": "sha256:ea8e36d044b2c2e7752b2f5c32fdbd89a333570a57971411afb0c29bf55a8197",
             "locator": {
-              "end": 199,
+              "end": 163,
               "kind": "line_range",
-              "start": 134
-            }
-          },
-          "kind": "code"
-        },
-        {
-          "anchor": {
-            "blob": "f6d315bb77b49bd993b68a9353ab75d60d32bd29",
-            "content": "sha256:b2b1b744722e7f06639f8902d614ea7be9dde2207f22597b5f0b8fd15dc412cc",
-            "locator": {
-              "end": 275,
-              "kind": "line_range",
-              "start": 229
+              "start": 98
             }
           },
           "kind": "code"
@@ -67,16 +55,16 @@
       ]
     },
     "3": {
-      "note": "Pins schema_version rh-dag/v1, embeds all 21 stage definitions and matches upstream_commit c900e67c2fcd1fdb041685820bbd2b867fbc5a4b.\n\nAnchor: `schema_version`; `upstream_commit`",
+      "note": "Pins schema_version rh-dag/v1, embeds all 8 condensed stage definitions and matches upstream_commit 41c2716658c42ba08eb0648994a2efe83082a95c.",
       "targets": [
         {
           "anchor": {
-            "blob": "f6d315bb77b49bd993b68a9353ab75d60d32bd29",
-            "content": "sha256:d76ac5533087c4b218e9ac960d5c070f79456585336e25f7486c1e4ffebb38f8",
+            "blob": "97ec49000a152001d88321ccb25baf1737388130",
+            "content": "sha256:793d806338153ac47b85ad098423b64d85fbd291ce363979ad3e0f9502ac0351",
             "locator": {
-              "end": 454,
+              "end": 240,
               "kind": "line_range",
-              "start": 277
+              "start": 165
             }
           },
           "kind": "code"

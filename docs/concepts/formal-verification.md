@@ -18,7 +18,6 @@ sources:
     kind: reference
 lean_anchors:
   - 00_statement/challenge.lean#riemannHypothesis
-  - 00_statement/formal_conjectures_challenge.lean#RiemannHypothesis.riemannHypothesis
 child_concepts:
   - riemann-zeta-function
   - dirichlet-l-function
@@ -44,18 +43,22 @@ Lean 4 implements a dependent type theory (the Calculus of Inductive Constructio
 - `Classical.choice` (the axiom of choice).
 
 A *challenge-vs-solution* Comparator workflow splits trust into two isolated environments:
-1. **Challenge module** (`src/Challenge.lean` or `comparator/FormalConjecturesChallenge.lean`): imports only Mathlib, states the target theorems with `by sorry`, and is frozen against edits.
-2. **Solution module** (`src/Main.lean` or `comparator/FormalConjecturesSolution.lean`): imports the proof library and supplies actual proofs for the exact same declaration names.
+1. **Challenge module** (root `Challenge.lean`, importing only `Statements` which imports only Mathlib): states the five target theorems with `by sorry` and is frozen against edits.
+2. **Solution module** (`src/Main.lean`): imports the proof library (`New.Main`) and supplies actual proofs for the exact same declaration names.
 
-Comparator checks that every target theorem in the solution has the exact same elaborated type as in the challenge (with no hijacked typeclass instances or shadowed names), uses only the three permitted axioms, and passes independent external checkers (`leanchecker-paranoid` and `nanoda`).
+(Upstream's parallel `formal-conjectures` challenge/solution pair—`comparator/FormalConjecturesChallenge.lean` and `comparator/FormalConjecturesSolution.lean`—is archived on `alpoge@c900e67c2` pending re-integration on condensed `main`.)
+
+Comparator checks that every target theorem in the solution has the exact same elaborated type as in the challenge (with no hijacked typeclass instances or shadowed names), uses only the three permitted axioms (`propext`, `Quot.sound`, `Classical.choice`), and replays the exported proof term through an independent external kernel (`"enable_nanoda": true` in `comparator.json`).
 
 ## Level 3 — Formal Lean Contract
 
-Stage 00 anchors both challenge entry points in:
-- `00_statement/challenge.lean#riemannHypothesis` (upstream `src/Challenge.lean:18-19`), checked against `Main` via `comparator.json`:
+Stage 00 anchors the challenge entry point in:
+- `00_statement/challenge.lean#riemannHypothesis` (upstream root `Challenge.lean:7-8`), checked against `Main` via `comparator.json` (`"enable_nanoda": true`):
   ```lean
-  theorem riemannHypothesis : RiemannHypothesis := by sorry
+  theorem riemannHypothesis : RiemannHypothesis := by
+    sorry
   ```
-- `00_statement/formal_conjectures_challenge.lean#RiemannHypothesis.riemannHypothesis` (upstream `comparator/FormalConjecturesChallenge.lean:74-84`), checked against `FormalConjecturesSolution` via `comparator/formal-conjectures.json`.
 
-**Honest verification status (`audit/verification-status.json`):** Local Lean compilation and kernel replay in this repository are currently **`unverified-locally`**. What is verified locally here is provenance pinning to upstream commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b` (`leanprover/lean4:v4.37.0-rc1`, Mathlib rev `31ce06eaadf4a200c0e1407c5f10953cf606b8f8`), entry-file static token scanning (`0` forbidden tokens across solution files, `7` expected `sorry` tokens in the two challenge files), and SHA-256 digests of the Comparator specifications and community verification notes.
+The parallel `formal-conjectures` target (`comparator/FormalConjecturesChallenge.lean` and `comparator/formal-conjectures.json`) is archived on upstream `alpoge@c900e67c2` pending re-integration on condensed `main`.
+
+**Honest verification status (`audit/verification-status.json`):** Local Lean compilation and kernel replay in this repository are currently **`unverified-locally`**. See the page's live verification banner (`audit/verification-status.json`) for the currently pinned upstream snapshot (`leanprover/lean4:v4.37.0-rc1`, Mathlib rev `31ce06eaadf4a200c0e1407c5f10953cf606b8f8`), entry-file static token scanning (`0` forbidden tokens across solution files, `5` expected `sorry` tokens in root `Challenge.lean`), and SHA-256 digests of `comparator.json` and upstream's proof guides (`GUIDE.md`, `INDEX.md`).

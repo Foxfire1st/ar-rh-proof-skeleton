@@ -1,0 +1,58 @@
+{
+  "path": "src/rh_pipeline/cli/check_upstream.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "8aa774f0001c7a4ae74703cde3284471c55d4948",
+        "content": "sha256:88045757caf3e913f130ba99d6d22f26158a5cbd08909ce741982b7ac8ec4825",
+        "locator": {
+          "kind": "symbol",
+          "name": "main"
+        }
+      },
+      "id": "RLZ-0T727M",
+      "invariant": "INV-AXWQKZ",
+      "origin": {
+        "handoffEntry": "RH-R07@v1 R2",
+        "leaf": "01"
+      },
+      "rationale": "Wires --upstream, --ref, --provenance, --stage-map, --replay, --replay-ref, and --json to check_upstream and maps triage statuses and TriageInputError to exit codes 0, 10, 11, and 2.",
+      "role": "enforcement"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "Parses --upstream, --ref, --provenance, --stage-map, optional --replay/--replay-ref and --json flags for rh-check-upstream.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "8aa774f0001c7a4ae74703cde3284471c55d4948",
+            "content": "sha256:0dc9163aa98d1dce2413d1c3cf57e4011f2e9b11c6f141150106edb613e4ec18",
+            "locator": {
+              "kind": "symbol",
+              "name": "_build_parser"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Runs check_upstream, prints ERROR to stderr with exit code 2 on TriageInputError, and writes JSON or text output returning report.exit_code.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "8aa774f0001c7a4ae74703cde3284471c55d4948",
+            "content": "sha256:88045757caf3e913f130ba99d6d22f26158a5cbd08909ce741982b7ac8ec4825",
+            "locator": {
+              "kind": "symbol",
+              "name": "main"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

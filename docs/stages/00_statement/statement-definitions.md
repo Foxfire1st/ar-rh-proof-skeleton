@@ -37,14 +37,14 @@ Each hypothesis in the four predicates of `src/Statements.lean` matches a concre
   Confining $s$ to the open strip $0 < \operatorname{Re}(s) < 1$ avoids three boundary phenomena simultaneously: the pole at $s = 1$ (for $\chi = 1$), the non-positive integer trivial zeros in $\operatorname{Re}(s) \le 0$, and the infinitely many Euler-factor zeros on $\operatorname{Re}(s) = 0$ that appear whenever $\chi$ is imprimitive. Because `NeZero N` excludes $N = 0$, every modulus $N \ge 1$ is covered cleanly.
 
 - **`PrimitiveDirichletLZerosOnLine`**
-  Restricts `DirichletLZerosOnLine` by inserting `χ.IsPrimitive`. Mathematically it is strictly equivalent to `DirichletLZerosOnLine` (since deleting primes $p \mid N$ multiplies $L(\chi^*, s)$ by factors $1 - \chi^*(p)p^{-s}$ that never vanish for $\operatorname{Re}(s) > 0$), and it serves as the exact handoff interface to `comparator/FormalConjecturesBridge.lean`.
+  Restricts `DirichletLZerosOnLine` by inserting `χ.IsPrimitive`. Mathematically it is strictly equivalent to `DirichletLZerosOnLine` (since deleting primes $p \mid N$ multiplies $L(\chi^*, s)$ by factors $1 - \chi^*(p)p^{-s}$ that never vanish for $\operatorname{Re}(s) > 0$), and it serves as the handoff interface to the external `formal-conjectures` bridge (`comparator/FormalConjecturesBridge.lean`, archived on upstream's `alpoge` branch pending re-integration).
 
 ## Level 3 — Formal Lean Contract
 
-`src/Statements.lean` imports only `Mathlib.NumberTheory.LSeries.DirichletContinuation`—zero files from the proof submission—and uses Lean's `module` system with `@[expose] public section` so every definition unfolds transparently for downstream proofs and for Comparator.
+`src/Statements.lean` (lines `1–20`) declares `module` (line 1), `public import Mathlib` (line 3)—importing zero files from the proof submission—and `@[expose] public section` (line 5) so every definition unfolds transparently for downstream proofs and for Comparator.
 
-All four declarations are preserved verbatim (with `preserve_defs: true`) in `skeleton/00_statement/statements.lean` from upstream `src/Statements.lean:7-20` at pinned commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b`. Notice also that `src/Challenge.lean` duplicates all four definitions verbatim so `Challenge` imports only `Mathlib`, never `Statements`.
+All four declarations are preserved verbatim (with `preserve_defs: true`) in `skeleton/00_statement/statements.lean` from upstream `src/Statements.lean:7-20` at pinned commit `41c2716658c42ba08eb0648994a2efe83082a95c` (`41c2716658c4`). In the condensed tree, `Challenge.lean` now lives at the repository root and directly executes `import Statements` at line 1 rather than duplicating the four definitions; nothing in the submission imports `Challenge.lean`, and `Statements` imports only `Mathlib`.
 
-**Verification status (`audit/verification-status.json`):** Local Lean build verification is **`unverified-locally`** (entry static scan reports `0` forbidden tokens in `src/Statements.lean`). Proceed to [Independent Statement Equivalence](./formal-conjectures.md) to see how `PrimitiveDirichletLZerosOnLine` is proved equivalent to the external `formal-conjectures` statement of GRH.
+**Verification status (`audit/verification-status.json`):** Local Lean build verification is **`unverified-locally`** (pinned upstream commit `41c2716658c42ba08eb0648994a2efe83082a95c`; entry static scan reports `0` forbidden tokens in `src/Statements.lean`). Proceed to [Independent Statement Equivalence](./formal-conjectures.md) to see how `PrimitiveDirichletLZerosOnLine` bridges to the external `formal-conjectures` statement of GRH.
 
 <!-- rh:lean-node:00_statement/statements -->

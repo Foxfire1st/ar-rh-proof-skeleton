@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "4122eaf392b1a3a24ee33e8ecce9d84230cdd550",
-        "content": "sha256:2f2ce10add8162a9f50ede56a578944cc754248e504784d5822019a0f6f43795",
+        "blob": "5e3ad8463e5d5342c9aeeaff87de1eb4c9d267bc",
+        "content": "sha256:b0bd2c138def44e5eb5e927b2d28f27c0b1901f1cb5c6b956b7bf10b9c969bc0",
         "locator": {
           "kind": "file"
         }
@@ -15,20 +15,20 @@
         "handoffEntry": "RH-R02@v1 §5",
         "leaf": "02"
       },
-      "rationale": "Committed deterministic verification-status snapshot reporting 0 solution forbidden tokens and 7 challenge sorrys.",
+      "rationale": "Committed deterministic verification-status snapshot reporting 0 solution forbidden tokens and 5 challenge sorrys in root Challenge.lean.",
       "role": "propagation-persistence"
     }
   ],
   "references": {
     "1": {
-      "note": "Records unverified-locally build_status, entry scan scope over 7 files, 0 solution forbidden tokens and 7 challenge sorrys.\n\nAnchor: `build_status`",
+      "note": "Records unverified-locally build_status, null community_verification_notes_sha256, entry scan scope over 3 files (Challenge.lean, src/Main.lean, src/Statements.lean), 0 solution findings and 5 Challenge.lean sorry hits.",
       "targets": [
         {
           "anchor": {
-            "blob": "4122eaf392b1a3a24ee33e8ecce9d84230cdd550",
-            "content": "sha256:149a3c87940a18bd4ac0c2bcbeabda4f8dc3a465b98da66a876aa7cfa55fe5a1",
+            "blob": "5e3ad8463e5d5342c9aeeaff87de1eb4c9d267bc",
+            "content": "sha256:5806163f9956836a93384449e62522ae0252cb1bfbbb6f70731c2eacea82f0e3",
             "locator": {
-              "end": 82,
+              "end": 58,
               "kind": "line_range",
               "start": 1
             }
@@ -38,16 +38,16 @@
       ]
     },
     "2": {
-      "note": "Lists all seven deduplicated theorem names, upstream commit and upstream static-scan digest matching provenance.json.\n\nAnchor: `theorem_names`",
+      "note": "Records scan_scope entry, schema_version 1.0.0, 0 solution_forbidden_token_count, all five theorem names, upstream commit 41c2716658c4 and null upstream_static_scan_sha256.",
       "targets": [
         {
           "anchor": {
-            "blob": "4122eaf392b1a3a24ee33e8ecce9d84230cdd550",
-            "content": "sha256:1039241fdd2bc7389257e40582a71dcc64ed12e0e26b5c102ec717e43774d65c",
+            "blob": "5e3ad8463e5d5342c9aeeaff87de1eb4c9d267bc",
+            "content": "sha256:c01cd8cb9d2a9f7884967a848b35b666883949a799b5ad1f0dac8123b2e86302",
             "locator": {
-              "end": 93,
+              "end": 71,
               "kind": "line_range",
-              "start": 82
+              "start": 59
             }
           },
           "kind": "code"

@@ -1,0 +1,2915 @@
+{
+  "attempt": 2,
+  "closed": true,
+  "leaf": "01",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-26T12:30:47+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "01",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+      "task": "261126-EXP"
+    },
+    "reviewer": {
+      "at": "2026-11-26T12:30:47+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "01",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "7e583574-93ce-4bb4-afcf-ffbf32def720",
+      "task": "261126-EXP",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "732b54029a2466599abdbed12e4dd5863f338e9b",
+    "verdictRef": "notes/reports/reviewer/7e583574-93ce-4bb4-afcf-ffbf32def720/02-memory-verdict.md"
+  },
+  "rows": [
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-0K47CF",
+      "items": [
+        "sha256:f1e2c3d3dc46739d074e3111f39e65afc8c9934fbd401abdf162b2f41c0de733"
+      ],
+      "reason": "Descriptive CLI Commands summary table in README.md mirroring the six console scripts authoritatively registered in pyproject.toml [project.scripts].",
+      "subject": "hunk:sha256:f1e2c3d3dc46739d074e3111f39e65afc8c9934fbd401abdf162b2f41c0de733"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-0SF9YV",
+      "items": [
+        "sha256:2a92d7449cdc2ea8d10b9b817c6cb8444ebffd546f2facf6f786d3dc63369d27"
+      ],
+      "reason": "Authored onboarding card and sidecar for dag/README.md documenting stage-map.json (8 condensed stages) and dag.json.",
+      "sources": [
+        {
+          "blob": "6b136a88972a0db4b1bf4fbf4315ab60b3bda99e",
+          "path": "dag/README.md"
+        }
+      ],
+      "subject": "onboarding:dag/README.md"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-0TQG05",
+      "items": [
+        "sha256:a2f149755780896c61246a23e9d3beec493d679c169ffde5d9e9caae5eea015e"
+      ],
+      "reason": "Updated audit/status.py card and references [1]-[2] for paired-optional verification-note digest extraction via _resolve_verification_digests.",
+      "sources": [
+        {
+          "blob": "77b3fb2e959e54e13c8b06291115e680d151ac71",
+          "path": "src/rh_pipeline/audit/status.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/audit/status.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-12RB1T",
+      "items": [
+        "sha256:f5401d48105d5f9459fa715425f51cf3cabc161076e32286a36e8389e416f6d5"
+      ],
+      "reason": "Internal _resolve_entry_files loop initialization over _REQUIRED_ENTRY_FILES supporting scan_upstream_repo under INV-YAHFY5.",
+      "subject": "hunk:sha256:f5401d48105d5f9459fa715425f51cf3cabc161076e32286a36e8389e416f6d5"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-1J2EDE",
+      "items": [
+        "sha256:0153ca7009ba835e175c908294d0cd773aa1b2f047709ddf213dfc6339b85963",
+        "sha256:bdcdd859d15a92f54eb371a640bb414e34d4a7af400d20fe4a517997e5ba3d4a"
+      ],
+      "reason": "Removed obsolete onboarding card and sidecar after skeleton/00_statement/formal_conjectures_challenge.lean was deleted on condensed main@41c2716658c4 (archived on upstream alpoge@c900e67c2).",
+      "sources": [
+        {
+          "blob": "absent",
+          "path": "skeleton/00_statement/formal_conjectures_challenge.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/00_statement/formal_conjectures_challenge.lean"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R07",
+          "packet": "RH-R07-v1-upstream-sync-readable-edition-and-triage.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        },
+        "DEC-Y3A1S7"
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:bfe4a1f058c66d0b9d4522a1e1decdfe9c4f8d1d6374e603781be00e4d7c58ed",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_write_audit_artifacts_cleans_up_temp_files_on_failure"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "before": {
+            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "content": "sha256:bfe4a1f058c66d0b9d4522a1e1decdfe9c4f8d1d6374e603781be00e4d7c58ed",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_write_audit_artifacts_cleans_up_temp_files_on_failure"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "id": "PRF-8PZXYW"
+        },
+        {
+          "after": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:bda5cad98d9f459f12ce2ed40ffe8d43d32fc6ca6b97534cbb448e8592b7d7b2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_verification_status_nullable_and_paired_validation"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "before": "absent",
+          "id": "PRF-HC0KX8"
+        },
+        {
+          "after": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:606f332d69b934c9ea8b07d072bbfcfbc611992b74241e877b253f141253e629",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_write_audit_artifacts_deterministic_and_atomic"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "before": {
+            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "content": "sha256:606f332d69b934c9ea8b07d072bbfcfbc611992b74241e877b253f141253e629",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_write_audit_artifacts_deterministic_and_atomic"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "id": "PRF-M5JGDK"
+        },
+        {
+          "after": "absent",
+          "before": {
+            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "content": "sha256:f525f3f29f4e924c0e5453bf08e641d9d79a4c9be930183c042710364b2f1df8",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_verification_status_and_strict_round_trip"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "id": "PRF-X92CAG"
+        },
+        {
+          "after": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:f525f3f29f4e924c0e5453bf08e641d9d79a4c9be930183c042710364b2f1df8",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_verification_status_and_strict_round_trip"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "before": "absent",
+          "id": "PRF-YJ1VY2"
+        },
+        {
+          "after": {
+            "blob": "77b3fb2e959e54e13c8b06291115e680d151ac71",
+            "content": "sha256:665659b0b04d8654aec125c8a9b1a0770bd68b51bd4941d142efdc1c7b513a5b",
+            "locator": {
+              "kind": "symbol",
+              "name": "_resolve_verification_digests"
+            },
+            "path": "src/rh_pipeline/audit/status.py"
+          },
+          "before": "absent",
+          "id": "RLZ-4Y7NW0"
+        },
+        {
+          "after": {
+            "blob": "77b3fb2e959e54e13c8b06291115e680d151ac71",
+            "content": "sha256:4d315f7f62a99ff64017cabc518ccddb829fa0ffa1175e460dbaca26a4cd8b3c",
+            "locator": {
+              "kind": "symbol",
+              "name": "write_audit_artifacts"
+            },
+            "path": "src/rh_pipeline/audit/status.py"
+          },
+          "before": {
+            "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
+            "content": "sha256:4d315f7f62a99ff64017cabc518ccddb829fa0ffa1175e460dbaca26a4cd8b3c",
+            "locator": {
+              "kind": "symbol",
+              "name": "write_audit_artifacts"
+            },
+            "path": "src/rh_pipeline/audit/status.py"
+          },
+          "id": "RLZ-B4G6CG"
+        },
+        {
+          "after": {
+            "blob": "77b3fb2e959e54e13c8b06291115e680d151ac71",
+            "content": "sha256:1baaa402b3cba82bbcb9c00425ff46e459ee5b19c3be17cbdbb4ebc04b4c2d3a",
+            "locator": {
+              "kind": "symbol",
+              "name": "build_verification_status"
+            },
+            "path": "src/rh_pipeline/audit/status.py"
+          },
+          "before": {
+            "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
+            "content": "sha256:b1296de2a02b91e503ad81298986f17d1190a0c54e39a65df99ae58622285367",
+            "locator": {
+              "kind": "symbol",
+              "name": "build_verification_status"
+            },
+            "path": "src/rh_pipeline/audit/status.py"
+          },
+          "id": "RLZ-CEQ7BZ"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-1SYEQ3",
+      "items": [
+        "sha256:06bd4d0e172d707dee4258605272beeda5783489550e36fc0bd72bf76c777053"
+      ],
+      "reason": "Updated INV-ZSMC71 statement and scope for paired-optional verification digests, attached _resolve_verification_digests enforcement realization, replaced misleading PRF-X92CAG facet and added nullable/paired proof, and re-anchored existing entries. Evidence (rh-r07-inv-zsmc71): RH-R07@v1 Leaf 01 curation; worker report 01-worker-2d163d38-0d67-466a-8253-cd53b9ae869f.md and code PASS verdict 01-route-review-verdict.md",
+      "revision": 2,
+      "subject": "INV-ZSMC71"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-GXDXCT",
+          "revision": 1
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 2
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 2
+        }
+      ],
+      "id": "ROW-2B538Z",
+      "items": [
+        "sha256:6f4a84129a4b7e93bf6ed09e765b31973280f1deb56f32b897ec2942a5239d90"
+      ],
+      "reason": "Examined all four members of FAM-033QTE (INV-V207JN and INV-VGNZKV extended for layout-aware VerificationBanner repo-layout links; INV-HK005W and INV-GXDXCT unchanged); the Phase 4 static-site compilation, VitePress theme and dual-repo CI joint guarantee remains accurate.",
+      "revision": 1,
+      "subject": "FAM-033QTE"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-2P2T8H",
+      "items": [
+        "sha256:ab46cb4bf4004137560db10b8cb5d617ea88bc6c7c357c6740244c88bf70b66f"
+      ],
+      "reason": "Internal _ROOT_COMPARATOR_CONFIG, _FORMAL_CONJECTURES_CONFIG and _VERIFICATION_NOTE_PATHS constants supporting collect_provenance under INV-MVJ01Q.",
+      "subject": "hunk:sha256:ab46cb4bf4004137560db10b8cb5d617ea88bc6c7c357c6740244c88bf70b66f"
+    },
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "4766256e3cd884fc3c4649a578d4eba39550fca2",
+            "content": "sha256:1444ebbe65124cef3fa03aca12978142302881a9dd2aba7f66fda5aad6399dbb",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_quality_ci_order_ignores_inherited_memory_root"
+            },
+            "path": "tests/unit/test_quality_scripts.py"
+          },
+          "before": "absent",
+          "id": "PRF-B3BVWS"
+        },
+        {
+          "after": {
+            "blob": "4766256e3cd884fc3c4649a578d4eba39550fca2",
+            "content": "sha256:9cb72235edf254b50744fdbf30c6cdc0af7ce821916672a073e32c9b96d9e73b",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_quality_passes_memory_root_to_rh_validate"
+            },
+            "path": "tests/unit/test_quality_scripts.py"
+          },
+          "before": {
+            "blob": "1ec6f4d231a74e8505fba1a9cd9fd19fc30eb185",
+            "content": "sha256:9cb72235edf254b50744fdbf30c6cdc0af7ce821916672a073e32c9b96d9e73b",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_quality_passes_memory_root_to_rh_validate"
+            },
+            "path": "tests/unit/test_quality_scripts.py"
+          },
+          "id": "PRF-DTNH6R"
+        },
+        {
+          "after": {
+            "blob": "4766256e3cd884fc3c4649a578d4eba39550fca2",
+            "content": "sha256:650587319dcb53f9efb2d3ddac7c43fbe471dfc7aa21fbfbbb84b5b7e54197a6",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_quality_runs_worktree_tools_in_ci_order"
+            },
+            "path": "tests/unit/test_quality_scripts.py"
+          },
+          "before": {
+            "blob": "1ec6f4d231a74e8505fba1a9cd9fd19fc30eb185",
+            "content": "sha256:3e8c6e56bf6b22db3029dab4cc8a406a928fdde27fc079aef7e002beeaa14d82",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_quality_runs_worktree_tools_in_ci_order"
+            },
+            "path": "tests/unit/test_quality_scripts.py"
+          },
+          "id": "PRF-XF8KHB"
+        },
+        {
+          "after": {
+            "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+            "content": "sha256:9ea450aaca0324e6b88af2c90f4a3beaa722395418d6fbb94836a83d11607f2f",
+            "locator": {
+              "end": 30,
+              "kind": "line_range",
+              "start": 11
+            },
+            "path": "pyproject.toml"
+          },
+          "before": {
+            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+            "content": "sha256:5a9ed6532d4bed26466223970e64e05be7d4dd81da7223f1c2b23c95ce9d0c86",
+            "locator": {
+              "end": 29,
+              "kind": "line_range",
+              "start": 11
+            },
+            "path": "pyproject.toml"
+          },
+          "id": "RLZ-XJ5GW4"
+        }
+      ],
+      "disposition": "extended",
+      "id": "ROW-2ZCG8R",
+      "items": [
+        "sha256:1f37dc7705ea8b4c3396fd5524d6fa2f91c5dd948eb79652ca27dfbc8a28fda8"
+      ],
+      "reason": "Re-anchored RLZ-XJ5GW4 in pyproject.toml from lines 11-29 to lines 11-30 after adding rh-check-upstream, re-anchored test_quality_scripts.py proofs after the WKN-1K87DB env-isolation fix, and attached test_quality_ci_order_ignores_inherited_memory_root; INV-H9CTX9 meaning remains unchanged. Evidence (rh-r07-inv-h9ctx9): RH-R07@v1 Leaf 01 curation; worker report 01-worker-2d163d38-0d67-466a-8253-cd53b9ae869f.md and code PASS verdict 01-route-review-verdict.md",
+      "revision": 1,
+      "subject": "INV-H9CTX9"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-374M6B",
+      "items": [
+        "sha256:866cc5ace6cbe2852c0ba0764d09e324f8923c78422eb277b25f0375b1639f5a"
+      ],
+      "reason": "Ownership-table documentation line updated to 8 condensed stages (00_statement/..07_congruences/), reflecting dag/stage-map.json and INV-Y5X0FK without introducing a new invariant.",
+      "subject": "hunk:sha256:866cc5ace6cbe2852c0ba0764d09e324f8923c78422eb277b25f0375b1639f5a"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3CBN3S",
+      "items": [
+        "sha256:82ec040de60c75cc955fcc8bd5967f745f0bffb51c3d70ca305b0b646f087ce4"
+      ],
+      "reason": "Updated models/audit.py card and references [1]-[4] for _as_object optional_keys, optional ComparatorSummary fields (strict bool|None enable_nanoda), nullable VerificationStatus digests and triage.py consumer.",
+      "sources": [
+        {
+          "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+          "path": "src/rh_pipeline/models/audit.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/models/audit.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-3YG8PZ",
+      "items": [
+        "sha256:c251d0c3755fe2d4b46f34cc3cff3ec4c41db64965adc2e6974d8561775aff82"
+      ],
+      "reason": "Added root Challenge.lean to CHALLENGE_FILES constant supporting challenge-sorry routing in scan_upstream_repo under INV-YAHFY5.",
+      "subject": "hunk:sha256:c251d0c3755fe2d4b46f34cc3cff3ec4c41db64965adc2e6974d8561775aff82"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3Z56A0",
+      "items": [
+        "sha256:a55af8b7d1d98988342d943f77c5887296dae99a52f6cf9906260b6639494f8e"
+      ],
+      "reason": "Authored onboarding card and sidecar for new read-only upstream freshness triage module src/rh_pipeline/audit/triage.py.",
+      "sources": [
+        {
+          "blob": "bac83080429b79d4f5f4f654504d089d19dad618",
+          "path": "src/rh_pipeline/audit/triage.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/audit/triage.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-5F2N1S",
+      "items": [
+        "sha256:cd2f2d960bef475edaac7a783ef8c9ac6b9393d2e7ee90b0ca19ecd2695fba58"
+      ],
+      "reason": "Updated dag/dag.json card and references [1]-[3] for 8 condensed stages, 3 Stage 00 nodes, 14 declaration refs, challenge -> statements direct-import edge and empty depends_on on main at 41c2716658c4.",
+      "sources": [
+        {
+          "blob": "97ec49000a152001d88321ccb25baf1737388130",
+          "path": "dag/dag.json"
+        }
+      ],
+      "subject": "onboarding:dag/dag.json"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-5M9YWR",
+      "items": [
+        "sha256:c1f754ea8e8d82a3709308ad815fd3fd13ba7b916da0c19c1920972c1016212e"
+      ],
+      "reason": "Standard-library dataclasses.field import supporting ComparatorSummary default_factory; implementation detail of INV-VAZE4Y without a separate invariant.",
+      "subject": "hunk:sha256:c1f754ea8e8d82a3709308ad815fd3fd13ba7b916da0c19c1920972c1016212e"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-5MTZ4B",
+      "items": [
+        "sha256:affc970871f46be135b4c607d267f32a5c56b33f8b291f3df86bb0cc153b42af"
+      ],
+      "reason": "Updated audit/provenance.json card and references [1]-[2] to condensed main@41c2716658c4, single root comparator.json (enable_nanoda: true), empty comparator_file_digests, five doc note digests and replay pin c367a847a52c.",
+      "sources": [
+        {
+          "blob": "6aabc844c13208197cc78c916a343728f7129793",
+          "path": "audit/provenance.json"
+        }
+      ],
+      "subject": "onboarding:audit/provenance.json"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-64TJQR",
+      "items": [
+        "sha256:da90bf6b6bd2003ff40b6f81623ae693f5b19df7976b5dc1116e1a89d992afda"
+      ],
+      "reason": "Internal _resolve_entry_files assembly adding primary challenge file and optional comparator/FormalConjectures*.lean under INV-YAHFY5.",
+      "subject": "hunk:sha256:da90bf6b6bd2003ff40b6f81623ae693f5b19df7976b5dc1116e1a89d992afda"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R07",
+          "packet": "RH-R07-v1-upstream-sync-readable-edition-and-triage.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        },
+        "DEC-Y3A1S7"
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:d9b6f0c214452e9f519e3efce866a64d9dcbe042dbb3a0d7863b7aee07579198",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_canonical_json_determinism_and_no_timestamps"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:d9b6f0c214452e9f519e3efce866a64d9dcbe042dbb3a0d7863b7aee07579198",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_canonical_json_determinism_and_no_timestamps"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "id": "PRF-9DEMRW"
+        },
+        {
+          "after": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:74389bb8fd598a82f7b9edc08a1d0b4c7fe44786e7f8cafba836059e40df4236",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_static_scan_models_round_trip"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "before": {
+            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "content": "sha256:74389bb8fd598a82f7b9edc08a1d0b4c7fe44786e7f8cafba836059e40df4236",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_static_scan_models_round_trip"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "id": "PRF-E1NESZ"
+        },
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:431dfade188894980d5069c1be3b1dc6fcbebd0c84d8f1e92af31b06db036ef2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_comparator_summary_optional_fields_and_strict_enable_nanoda"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": "absent",
+          "id": "PRF-P17J3V"
+        },
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:de5e779635a01ec504b192997b6898984177113655aa40327824086df51164a7",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_provenance_models_strict_roundtrip_and_rejection"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:de5e779635a01ec504b192997b6898984177113655aa40327824086df51164a7",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_provenance_models_strict_roundtrip_and_rejection"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "id": "PRF-R26QA6"
+        },
+        {
+          "after": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:f525f3f29f4e924c0e5453bf08e641d9d79a4c9be930183c042710364b2f1df8",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_verification_status_and_strict_round_trip"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "before": {
+            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "content": "sha256:f525f3f29f4e924c0e5453bf08e641d9d79a4c9be930183c042710364b2f1df8",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_verification_status_and_strict_round_trip"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "id": "PRF-S9JKJX"
+        },
+        {
+          "after": {
+            "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+            "content": "sha256:64e47778c51e3b9637c5feea5d04021aa528e0d0c45daad75db1605f908fc918",
+            "locator": {
+              "kind": "symbol",
+              "name": "ProvenanceRecord"
+            },
+            "path": "src/rh_pipeline/models/audit.py"
+          },
+          "before": {
+            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+            "content": "sha256:64e47778c51e3b9637c5feea5d04021aa528e0d0c45daad75db1605f908fc918",
+            "locator": {
+              "kind": "symbol",
+              "name": "ProvenanceRecord"
+            },
+            "path": "src/rh_pipeline/models/audit.py"
+          },
+          "id": "RLZ-4HFRAD"
+        },
+        {
+          "after": {
+            "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+            "content": "sha256:7a69074d351fd7c157ff6ed849145c83f12a41ec13a2a3b457b79fbfbbe35859",
+            "locator": {
+              "kind": "symbol",
+              "name": "VerificationStatus"
+            },
+            "path": "src/rh_pipeline/models/audit.py"
+          },
+          "before": {
+            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+            "content": "sha256:c0f3e6721992e2ed58072f34e1624e19bc544a7b23916cdfdf8d859846482013",
+            "locator": {
+              "kind": "symbol",
+              "name": "VerificationStatus"
+            },
+            "path": "src/rh_pipeline/models/audit.py"
+          },
+          "id": "RLZ-K93BEJ"
+        },
+        {
+          "after": {
+            "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+            "content": "sha256:3fdc53a5eaa6f8086d2fb1397398cbbba9c3fda4eafb2a713d61f7df8c3227f5",
+            "locator": {
+              "kind": "symbol",
+              "name": "format_canonical_json"
+            },
+            "path": "src/rh_pipeline/models/audit.py"
+          },
+          "before": {
+            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+            "content": "sha256:3fdc53a5eaa6f8086d2fb1397398cbbba9c3fda4eafb2a713d61f7df8c3227f5",
+            "locator": {
+              "kind": "symbol",
+              "name": "format_canonical_json"
+            },
+            "path": "src/rh_pipeline/models/audit.py"
+          },
+          "id": "RLZ-PPZMKG"
+        },
+        {
+          "after": {
+            "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+            "content": "sha256:43effb1060744f01e6673b6dc82c7682aa30ec13ea0eed21f7ad6b6dd3ec19cc",
+            "locator": {
+              "kind": "symbol",
+              "name": "ComparatorSummary"
+            },
+            "path": "src/rh_pipeline/models/audit.py"
+          },
+          "before": "absent",
+          "id": "RLZ-Q06HER"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-670HZK",
+      "items": [
+        "sha256:934a9325690972bd64372ccc6fec1914c9cb4938cfeff12570c9371e864d933c"
+      ],
+      "reason": "Updated INV-VAZE4Y statement and scope for optional ComparatorSummary fields and nullable VerificationStatus verification digests, attached ComparatorSummary realization and condensed optional-field test proof, and re-anchored all existing realizations and proofs. Evidence (rh-r07-inv-vaze4y): RH-R07@v1 Leaf 01 curation; worker report 01-worker-2d163d38-0d67-466a-8253-cd53b9ae869f.md and code PASS verdict 01-route-review-verdict.md",
+      "revision": 2,
+      "subject": "INV-VAZE4Y"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-69SXVZ",
+      "items": [],
+      "reason": "Refreshed test_validate_concepts.py reference blobs via citation_fix; card prose remains accurate after repointing test_validate_corpus_real_skeleton_anchors to condensed Stage 00 anchors.",
+      "sources": [
+        {
+          "blob": "9f12673033ed63ea6b5b02564d3502070bb73245",
+          "path": "tests/unit/test_validate_concepts.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_validate_concepts.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-6CSGDV",
+      "items": [
+        "sha256:ac3b6d2838cf09d366e2702bd8505a9038d91e9af41e07dbd35ba268f07486e4"
+      ],
+      "reason": "Updated README.md card for the epistemic-status note, 8-stage skeleton layout and six-command CLI Commands table, refreshing references [1]-[2] and adding [3].",
+      "sources": [
+        {
+          "blob": "56ed6ec08b47e158e0e58c8407a8bc2e627738b0",
+          "path": "README.md"
+        }
+      ],
+      "subject": "onboarding:README.md"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-6VT173",
+      "items": [
+        "sha256:174af9ce8e9d3696e608f556c93c38c7fa7a772acddd7a76d55c67a894a2bcd1"
+      ],
+      "reason": "Updated test_quality_scripts.py card and references [1]-[2] for inherited RH_MEMORY_ROOT isolation (WKN-1K87DB fix) and regression test test_quality_ci_order_ignores_inherited_memory_root.",
+      "sources": [
+        {
+          "blob": "4766256e3cd884fc3c4649a578d4eba39550fca2",
+          "path": "tests/unit/test_quality_scripts.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_quality_scripts.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-7ACZQ1",
+      "items": [
+        "sha256:3bcf3168cac4079bef1d147ce30128dbac73e2d3b0824752a2ea75ac894942ad",
+        "sha256:c35dff76ff9a22426f0d33b4b3b6702a41cb69716cb91fcac0171c89482b0b5e"
+      ],
+      "reason": "Removed obsolete onboarding card and sidecar after skeleton/00_statement/formal_conjectures_statement.lean was deleted on condensed main@41c2716658c4 (archived on upstream alpoge@c900e67c2).",
+      "sources": [
+        {
+          "blob": "absent",
+          "path": "skeleton/00_statement/formal_conjectures_statement.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/00_statement/formal_conjectures_statement.lean"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-7CYA5B",
+      "items": [
+        "sha256:fe1b1689ff81f65f8f20d0a661fb578d0be715dddfd41f0ef7c3c386001486e0"
+      ],
+      "reason": "Internal _read_comparator_summary helper checks rejecting unknown comparator.json keys and bare schema-less objects under INV-MVJ01Q.",
+      "subject": "hunk:sha256:fe1b1689ff81f65f8f20d0a661fb578d0be715dddfd41f0ef7c3c386001486e0"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R07",
+          "packet": "RH-R07-v1-upstream-sync-readable-edition-and-triage.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-7K83VQ",
+      "items": [
+        "sha256:00047826d8e2b28b3b0ba9768c05c67f8c24a7989f6fa19a9570409437dc1ff4"
+      ],
+      "reason": "Re-anchored DPD-GF9S0R links on moved audit/provenance.json, audit/verification-status.json, and VerificationStatus, and updated confirmation prose noting VerificationBanner is now wired while audit/README.md still overstates replay status placement and axiom-audit execution.",
+      "revision": 2,
+      "subject": "DPD-GF9S0R"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-8D6JYX",
+      "items": [
+        "sha256:186b41611956a8bb6d8596d17b99b90bc5fe8aaf3e215f9984fb13c4a72aef4c",
+        "sha256:368a3459aaeb7d75a96fff59683449c680b270370440c5914f341c4a96b2650e",
+        "sha256:4ebd65ad6dbc92ba834769ec16853183a4ce5d37fb1c9ddc6360db62fbf7cfce",
+        "sha256:84c489cd3c12d1be451ad3dfd725c4e75c85a964c7968049322ad12d66a8a307",
+        "sha256:a822163a950bccfbb69b2a53838d1824a46ce3d2f3a1deb8209ed282d35f21db",
+        "sha256:ab5eeadc6b3d0bf2577875182bc6ae32181c03aaf1bf4a4b87874ad70fa05ce0",
+        "sha256:b645ab812a01c7fb88c9f31bcdf51550337ba46eb48342fb8c47e0c44fcd2b57",
+        "sha256:ba1cf720a35601313bfb6610226bcd13ffc3b8daba1d20f3276d8d08684dd485",
+        "sha256:c063f22af506ee9d0b87d14aafbbbdd354204de04d9c867314cea7dcbaffe064",
+        "sha256:fddf107841bd4eb34f207e7bd593f988a720f9a9988eba687a96f2cfe8b55ef5"
+      ],
+      "reason": "Updated main.lean card and references [1]-[3] for 41c2716658c4 declaration order, preserved docstrings, body_lines=1 and depends_on=[] under public import New.Main.",
+      "sources": [
+        {
+          "blob": "56b9c9bdbe40ece9e068eb565e09fa4605d62f4b",
+          "path": "skeleton/00_statement/main.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/00_statement/main.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-8NER38",
+      "items": [
+        "sha256:37c5b9d4c880cb89af27197c3d292c478658cac1b6deb74a9b10c5192e0cbf9a"
+      ],
+      "reason": "Updated audit/static_scan.py card and references [1]-[4] for single primary challenge resolution (Challenge.lean xor src/Challenge.lean), optional comparator/ scanning and three CHALLENGE_FILES.",
+      "sources": [
+        {
+          "blob": "965af2462316f40340cc327784042996722a7019",
+          "path": "src/rh_pipeline/audit/static_scan.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/audit/static_scan.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-96A5T3",
+      "items": [
+        "sha256:49df12aa3c779d048fa9445a6e337b72751183c4852531c06c7dce291ce3af4d"
+      ],
+      "reason": "Updated audit/verification-status.json card and references [1]-[2] to condensed main@41c2716658c4, 3 entry-scanned files, 5 root Challenge.lean sorrys, 0 solution forbidden tokens and null legacy verification digests.",
+      "sources": [
+        {
+          "blob": "5e3ad8463e5d5342c9aeeaff87de1eb4c9d267bc",
+          "path": "audit/verification-status.json"
+        }
+      ],
+      "subject": "onboarding:audit/verification-status.json"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-9W1HGB",
+      "items": [
+        "sha256:cdfb2505c84c7f57713e99ba6541b06c252515447b5685deec6b326be559aeba"
+      ],
+      "reason": "_as_object extra-key set subtraction permitting declared optional_keys while rejecting unknown keys under INV-VAZE4Y; internal helper detail.",
+      "subject": "hunk:sha256:cdfb2505c84c7f57713e99ba6541b06c252515447b5685deec6b326be559aeba"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-A9N2BF",
+      "items": [
+        "sha256:46851c46a68d61799948b3a3e96b498299fb387dc29167b65d38b3d82005b962"
+      ],
+      "reason": "Authored onboarding card and sidecar for skeleton/README.md documenting 8-stage generated Lean stubs and verification truth delegation to audit/verification-status.json.",
+      "sources": [
+        {
+          "blob": "fb5d26d4555b98aa10b48903db8ad252748a2fe4",
+          "path": "skeleton/README.md"
+        }
+      ],
+      "subject": "onboarding:skeleton/README.md"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-B3H39E",
+      "items": [
+        "sha256:e50835f9cd6afecfc7435c3aff5ddb9522bfbaf48db2faf7d5ea9e02123208a6"
+      ],
+      "reason": "Updated pyproject.toml card and references [1]-[2] for six console scripts including rh-check-upstream = rh_pipeline.cli.check_upstream:main.",
+      "sources": [
+        {
+          "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+          "path": "pyproject.toml"
+        }
+      ],
+      "subject": "onboarding:pyproject.toml"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-BEC669",
+      "items": [
+        "sha256:51f93df4ff1072a67cf4e5d678354135c9874f73f326d84a46da0a83b10368de"
+      ],
+      "reason": "Updated site/renderers.py card and reference [1] for render_verification_banner repo-layout ('legacy' vs 'condensed') emission.",
+      "sources": [
+        {
+          "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+          "path": "src/rh_pipeline/site/renderers.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/site/renderers.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-BVGECK",
+      "items": [
+        "sha256:15d77bb8ece89bcbdc2b2cdb4d3fd1ce9246f3512e1ca1db3e79e2d36af533b2"
+      ],
+      "reason": "Authored onboarding card and sidecar for new upstream freshness triage unit test suite tests/unit/test_check_upstream.py.",
+      "sources": [
+        {
+          "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+          "path": "tests/unit/test_check_upstream.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_check_upstream.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-C1K6HQ",
+      "items": [
+        "sha256:71ae3c4c3fd72c0be38b904b6adb1449600b01de7b1242a6eb3351d4d7c633d5"
+      ],
+      "reason": "Internal _COMPARATOR_REQUIRED_KEYS and _COMPARATOR_OPTIONAL_KEYS constant boundary refactoring under INV-MVJ01Q.",
+      "subject": "hunk:sha256:71ae3c4c3fd72c0be38b904b6adb1449600b01de7b1242a6eb3351d4d7c633d5"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R07",
+          "packet": "RH-R07-v1-upstream-sync-readable-edition-and-triage.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:54e741cc67ceb24a017e256855667f4bad3ce6e8557efe22cfeee17f61b02943",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_end_to_end_determinism_and_pruning"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": {
+            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "content": "sha256:00bf0437de56303af8888d5e62ae069a75790dcf8421a2128b58b50024b63193",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_end_to_end_determinism_and_pruning"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "id": "PRF-2Z57V5"
+        },
+        {
+          "after": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:bd5c7554c857909423057a539421b7ae6001fad33e0813060011621183551477",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_verification_banner_repo_layout"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": "absent",
+          "id": "PRF-7YMV6H"
+        },
+        {
+          "after": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_preserves_backticks_in_stage_titles_and_deduplicates_concept_h1"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": {
+            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_preserves_backticks_in_stage_titles_and_deduplicates_concept_h1"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "id": "PRF-HNTFCY"
+        },
+        {
+          "after": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:9b726b94bbf02d58878b191de8bf3b6c9420e68de90e62d901b946a2d5e6e5e0",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_site_cli_exit_codes"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": {
+            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "content": "sha256:9b726b94bbf02d58878b191de8bf3b6c9420e68de90e62d901b946a2d5e6e5e0",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_site_cli_exit_codes"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "id": "PRF-NA2VQC"
+        },
+        {
+          "after": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_fail_closed_zero_writes"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "before": {
+            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_fail_closed_zero_writes"
+            },
+            "path": "tests/unit/test_site_compiler.py"
+          },
+          "id": "PRF-RPWW7H"
+        },
+        {
+          "after": {
+            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+            "content": "sha256:9eda09b18a724c7dce755b5a099fbfc984e176af43edc1987ebb3420733857d6",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_verification_banner"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "before": "absent",
+          "id": "RLZ-EY4F3D"
+        },
+        {
+          "after": {
+            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+            "content": "sha256:01a2e1885b00d7a1d7fa9669023562af89534220e432e7d004f48ccf2e2506b2",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_stage_minimap"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "before": {
+            "blob": "3f3f88f2e6e03ff10c36545439416d7aae3e2aa9",
+            "content": "sha256:01a2e1885b00d7a1d7fa9669023562af89534220e432e7d004f48ccf2e2506b2",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_stage_minimap"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "id": "RLZ-FDJPVT"
+        },
+        {
+          "after": {
+            "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+            "content": "sha256:61f79cfb2372902b7b84a85312abf25ea220ccc574c119e46efbb5b0315e98ea",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_concept_page"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "before": {
+            "blob": "3f3f88f2e6e03ff10c36545439416d7aae3e2aa9",
+            "content": "sha256:61f79cfb2372902b7b84a85312abf25ea220ccc574c119e46efbb5b0315e98ea",
+            "locator": {
+              "kind": "symbol",
+              "name": "render_concept_page"
+            },
+            "path": "src/rh_pipeline/site/renderers.py"
+          },
+          "id": "RLZ-NBTAGN"
+        },
+        {
+          "after": {
+            "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+            "content": "sha256:f08798fba1800be9aa8fabf71784436f41cfd9715f4b2d23b8e46055b1c0c41a",
+            "locator": {
+              "end": 30,
+              "kind": "line_range",
+              "start": 24
+            },
+            "path": "pyproject.toml"
+          },
+          "before": {
+            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+            "content": "sha256:1bd0885231341923bb31813d35586cdfe85879a179e35d4551adadf784a06b79",
+            "locator": {
+              "end": 30,
+              "kind": "line_range",
+              "start": 24
+            },
+            "path": "pyproject.toml"
+          },
+          "id": "RLZ-W9K2GR"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "strengthen",
+      "id": "ROW-CCNTJD",
+      "items": [
+        "sha256:69bdce26ec77f0e595b99186844124e06567be9abe05608fec027491d5cb1896"
+      ],
+      "reason": "Updated INV-V207JN statement and conditions for layout-aware VerificationBanner rendering, attached render_verification_banner realization and test_verification_banner_repo_layout proof, updated RLZ-W9K2GR rationale to list rh-check-upstream, and re-anchored existing entries. Evidence (rh-r07-inv-v207jn): RH-R07@v1 Leaf 01 curation; worker report 01-worker-2d163d38-0d67-466a-8253-cd53b9ae869f.md and code PASS verdict 01-route-review-verdict.md",
+      "revision": 2,
+      "subject": "INV-V207JN"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-DJ10GH",
+      "items": [
+        "sha256:db4a32f60498af383d28b0c9b74998ea2634ce1296f6c0bad0b3a3d49a6ab749"
+      ],
+      "reason": "Internal _resolve_full_files body collecting src/**/*.lean, primary challenge file and optional comparator/**/*.lean excluding scripts/ under INV-YAHFY5.",
+      "subject": "hunk:sha256:db4a32f60498af383d28b0c9b74998ea2634ce1296f6c0bad0b3a3d49a6ab749"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-DV0QWV",
+      "items": [
+        "sha256:3dea57a99b6655463f8b2502d5d25487c986c4d49abe2247e573fd7f2d7b1850"
+      ],
+      "reason": "Internal _require_optional_str and _require_optional_bool validators enforcing nullable strings and strict bool|None checks for INV-VAZE4Y; helper implementation detail.",
+      "subject": "hunk:sha256:3dea57a99b6655463f8b2502d5d25487c986c4d49abe2247e573fd7f2d7b1850"
+    },
+    {
+      "considered": [
+        "FAM-AWJSBW",
+        "FAM-ZD4QRG"
+      ],
+      "disposition": "no_family",
+      "id": "ROW-DVH307",
+      "items": [
+        "sha256:aa1a94f4884b4cb77680f622b8fb385db09491efb6dd75252a23b9d27188ba04"
+      ],
+      "reason": "rh-check-upstream (INV-AXWQKZ) is an independent read-only pre-leaf freshness triage CLI consuming both audit/provenance.json and dag/stage-map.json between leaves; it adds no joint promise to rh-audit snapshot emission (FAM-AWJSBW) or rh-extract skeleton/DAG generation (FAM-ZD4QRG).",
+      "revision": 1,
+      "subject": "membership:INV-AXWQKZ"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R07",
+          "packet": "RH-R07-v1-upstream-sync-readable-edition-and-triage.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "ad47e7005173650840a461356f117dac6e001d1d",
+            "content": "sha256:d6877f9a1252884f166ab576eb9bc9022a16a5785c6a1d2b40a6e9e49ad42a36",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/theme/components/VerificationBanner.vue"
+          },
+          "before": {
+            "blob": "258d1053491ec32fa12ecd2bc329f1d58bbcfd32",
+            "content": "sha256:2c241ec52cf9d304c9f8a119fa127cfaa823daf8f634649f1f4b880358235cbc",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/theme/components/VerificationBanner.vue"
+          },
+          "id": "RLZ-3M0K97"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-DXVMGG",
+      "items": [
+        "sha256:d758bd3941a1b696216b646d1cdfdf2aab5336f45fc0204da32fae8ed4006b5c"
+      ],
+      "reason": "Updated INV-VGNZKV statement, conditions and exclusion text for VerificationBanner repoLayout link switching and the 8-pillar roadmap, and re-anchored RLZ-3M0K97 with updated rationale. Evidence (rh-r07-inv-vgnzkv): RH-R07@v1 Leaf 01 curation; worker report 01-worker-2d163d38-0d67-466a-8253-cd53b9ae869f.md and code PASS verdict 01-route-review-verdict.md",
+      "revision": 2,
+      "subject": "INV-VGNZKV"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-E01S8M",
+      "items": [
+        "sha256:2bcef7ec6b59cbd395ce98c60845b52fcc7a62b7b1e0ee224d6a370839dcf662",
+        "sha256:6ce13dd723e3b2fc9e697533bb7cb730c677d4d1a7a2b361a7d8ce51d14de846",
+        "sha256:b6a440c8846da37cab16fe44279b50b37b45b707ced99ec6f80d6752eac1bafc",
+        "sha256:bde3fe38b039a1d491b1d263343920863f44d228039ba267ce6bf84036ec53eb",
+        "sha256:c0f3d71138a1f020405bc974db829b45e2411f7337e9302aa3993c9160529ee1"
+      ],
+      "reason": "Updated test_site_compiler.py card, refreshed reference [2] and added reference [4] for 17 test cases across 9 functions including test_verification_banner_repo_layout.",
+      "sources": [
+        {
+          "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+          "path": "tests/unit/test_site_compiler.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_site_compiler.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-EJX1HY",
+      "items": [],
+      "reason": "Updated test_stage_map.py card and references [1] and [3] for the 8-stage condensed map, 3 live Stage 00 files and challenge -> statements direct-import edge.",
+      "sources": [
+        {
+          "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+          "path": "tests/unit/test_stage_map.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_stage_map.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-EW9F2T",
+      "items": [
+        "sha256:5cae7a8cd671c924476a781b508835dcc7ff10f5cc8acde1faed7def84ab8fec"
+      ],
+      "reason": "Removed obsolete full-scan directory constant superseded by explicit src/ + primary challenge + optional comparator/ collection under INV-YAHFY5.",
+      "subject": "hunk:sha256:5cae7a8cd671c924476a781b508835dcc7ff10f5cc8acde1faed7def84ab8fec"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R07",
+          "packet": "RH-R07-v1-upstream-sync-readable-edition-and-triage.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-F7ZTV9",
+      "items": [],
+      "reason": "Updated DEC-Y3A1S7 chosen option, alternatives, consequences, decider and links to reflect dual condensed-plus-legacy Phase 0 audit support under RH-D16 / RH-R07@v1.",
+      "revision": 2,
+      "subject": "DEC-Y3A1S7"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-7MVB06",
+          "revision": 1
+        },
+        {
+          "id": "INV-MVJ01Q",
+          "revision": 2
+        },
+        {
+          "id": "INV-VAZE4Y",
+          "revision": 2
+        },
+        {
+          "id": "INV-YAHFY5",
+          "revision": 2
+        },
+        {
+          "id": "INV-ZSMC71",
+          "revision": 2
+        }
+      ],
+      "id": "ROW-FD47WD",
+      "items": [
+        "sha256:065ed30e893bc54c0fdbfe659482c72993b64644ab1e2784a6c23ea828c7c2b9"
+      ],
+      "reason": "Examined all five members of FAM-AWJSBW at their updated revisions (INV-VAZE4Y, INV-MVJ01Q, INV-YAHFY5, INV-ZSMC71 extended for condensed-edition compatibility; INV-7MVB06 extended with condensed CLI proof); the Phase 0 deterministic upstream audit pipeline joint guarantee, membership and route remain accurate.",
+      "revision": 1,
+      "subject": "FAM-AWJSBW"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-H77899",
+      "items": [
+        "sha256:57e7f76af3c2d25fc87ab3dfc95a52dbe8646080f59ad69a6bcb9201d9307277"
+      ],
+      "reason": "Internal _has_comparator_dir helper checking optional comparator/ directory presence and rejecting non-directory comparator paths under INV-MVJ01Q.",
+      "subject": "hunk:sha256:57e7f76af3c2d25fc87ab3dfc95a52dbe8646080f59ad69a6bcb9201d9307277"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-HCWZDW",
+      "items": [
+        "sha256:4db73b4b5a511d8c46a74028769dbb7fc13bfd48383aee8f2399881f1069b17c"
+      ],
+      "reason": "Updated test_audit_static_scan.py card and added reference [3] covering condensed root Challenge.lean entry/full scanning and fail-closed challenge resolution tests.",
+      "sources": [
+        {
+          "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+          "path": "tests/unit/test_audit_static_scan.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_audit_static_scan.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-HKN22D",
+      "items": [
+        "sha256:0836d67778ac073559a58a0106b0a8b1a80260a810439a8551cfd4f93b79736e"
+      ],
+      "reason": "Internal _PRIMARY_CHALLENGE_CANDIDATES and _REQUIRED_ENTRY_FILES constants supporting condensed and legacy entry scanning under INV-YAHFY5.",
+      "subject": "hunk:sha256:0836d67778ac073559a58a0106b0a8b1a80260a810439a8551cfd4f93b79736e"
+    },
+    {
+      "disposition": "changed",
+      "effect": "replace",
+      "examined": [
+        {
+          "id": "INV-01DVB3",
+          "revision": 1
+        },
+        {
+          "id": "INV-0SYK8A",
+          "revision": 1
+        },
+        {
+          "id": "INV-0WN2N4",
+          "revision": 1
+        },
+        {
+          "id": "INV-BEGWB0",
+          "revision": 1
+        },
+        {
+          "id": "INV-Y5X0FK",
+          "revision": 2
+        }
+      ],
+      "id": "ROW-K995GW",
+      "items": [
+        "sha256:6f0fc64cf41fd2098ecdd3beb0a9245c2f8d25275f4c44dab08a12d81b7e9718"
+      ],
+      "reason": "Updated FAM-ZD4QRG guarantee from '21-stage map' to '8-stage condensed map' after examining all five members (INV-Y5X0FK updated to 8 stages and 3 Stage 00 files; INV-01DVB3 re-anchored in pyproject.toml; other three members unchanged); membership and route '.' remain unchanged.",
+      "revision": 2,
+      "subject": "FAM-ZD4QRG"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-KB53G4",
+      "items": [
+        "sha256:b6a8bbeedf9851905adc95f5e28d5a29fc31a041161598faad9dd88b63df6d18"
+      ],
+      "reason": "Internal _collect_note_digests helper hashing existing tracked docs and enforcing paired verification/ and GUIDE.md/NOTES.md presence under INV-MVJ01Q.",
+      "subject": "hunk:sha256:b6a8bbeedf9851905adc95f5e28d5a29fc31a041161598faad9dd88b63df6d18"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-KBT484",
+      "items": [
+        "sha256:b0053f7f7faee8e2a1f69374b78ed1b43572590f3dbd8651919f22737be2dafc"
+      ],
+      "reason": "Internal _empty_kernels default factory helper for ComparatorSummary.external_kernels under INV-VAZE4Y; carries no separate invariant.",
+      "subject": "hunk:sha256:b0053f7f7faee8e2a1f69374b78ed1b43572590f3dbd8651919f22737be2dafc"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-KQZHJ7",
+      "items": [
+        "sha256:638f6b2c31c717eb53764a63519b79b779bfd3dc1538b0df81a986969ee0708e"
+      ],
+      "reason": "Top-level README epistemic-status note referencing audit/verification-status.json; purely descriptive documentation carrying no separate runtime invariant.",
+      "subject": "hunk:sha256:638f6b2c31c717eb53764a63519b79b779bfd3dc1538b0df81a986969ee0708e"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-KVANBV",
+      "items": [
+        "sha256:ec9dec9e8a542f437aec42da44a96c7864d4adea90a65ad2006bff45b6100df6"
+      ],
+      "reason": "Authored onboarding card and sidecar for new rh-check-upstream CLI entry point src/rh_pipeline/cli/check_upstream.py.",
+      "sources": [
+        {
+          "blob": "8aa774f0001c7a4ae74703cde3284471c55d4948",
+          "path": "src/rh_pipeline/cli/check_upstream.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/cli/check_upstream.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-KZ7Q0S",
+      "items": [
+        "sha256:2f333fb568db7b603fc1dda54b2b58760122faa6ac297c8a0ebf51c6beb2e653",
+        "sha256:3da401d632c7569c9eb04c894646ffe1a7f2a8ba7eb36274c826873caf6c8a89",
+        "sha256:89210d8227438138e732489bd2a680ec46fafc4694b317252949dc772f7e332f",
+        "sha256:a35dbac06d806ed84eb3c41651786243a8565d44e588b4af65f080c0e82bb591",
+        "sha256:b843ac93c2f9db7f518264bda80c391e9167dd374ac8b3f2d8f9d23759754bb3",
+        "sha256:cca9b18de0bb44ae2b77bc2d5cfa8b06a05223f36281eb4e75e5f6a77ae49589"
+      ],
+      "reason": "Updated statements.lean card and references [1]-[3] for upstream commit 41c2716658c4 and updated DAG relationship (imported by challenge.lean).",
+      "sources": [
+        {
+          "blob": "951ebff8a526a970302f6381378ade4d71a48f84",
+          "path": "skeleton/00_statement/statements.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/00_statement/statements.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-M8BYN8",
+      "items": [
+        "sha256:44f5d1c90c6d5653411bef313103b257a71104321568778eda9d23ebad6448c3"
+      ],
+      "reason": "Updated audit/provenance.py card and references [1]-[3] for optional comparator/ directory, strict allowed comparator.json keys and flexible tracked documentation/verification note digests.",
+      "sources": [
+        {
+          "blob": "781ab896f1a231f9f0f721b3df0c39de966e9b61",
+          "path": "src/rh_pipeline/audit/provenance.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/audit/provenance.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-N38VES",
+      "items": [
+        "sha256:7ac72344ca7da253a7de4d82d7c6414b0dc54a7e234c553996df8349ceff5608"
+      ],
+      "reason": "Internal _resolve_primary_challenge_file and _collect_optional_comparator_files helpers enforcing Challenge.lean xor src/Challenge.lean and optional comparator/ under INV-YAHFY5.",
+      "subject": "hunk:sha256:7ac72344ca7da253a7de4d82d7c6414b0dc54a7e234c553996df8349ceff5608"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-NB5X3R",
+      "items": [
+        "sha256:162120caf9167f4154b3aba5fcb59a581c4306ee95865654c533d5c2b0760532"
+      ],
+      "reason": "Updated test_audit_provenance.py card and added reference [3] covering condensed-edition provenance, optional ComparatorSummary fields and condensed fail-closed tests.",
+      "sources": [
+        {
+          "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+          "path": "tests/unit/test_audit_provenance.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_audit_provenance.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-NDMGJ5",
+      "items": [
+        "sha256:34d1ad5458ca01be7b455f1ae55f3df7a5b87f77523b25781236b64c18e371d1",
+        "sha256:5e0f08f565606c41699b8ee95333ded5576a21b77c5a9dba6679780b549abbcf",
+        "sha256:5fd76deae766e02dcf9185797bf56b44098a6f85edbe9649ad80300901ccbee8",
+        "sha256:6371a083fece3c3d8e01cd31ee1a2597230bb2bc8b9bd5751605c03a6a50b1e1",
+        "sha256:8437425899bb5759b79d547fc3692ce7ec21c7f74a17ccf1b41574c1efd62e99",
+        "sha256:a5ff95b6720d950d2b9a4a7f5cb5a6052dbdab7372870edcc708d2caac6cc648",
+        "sha256:cdbac3ae837bec9904c733555c20e0c60cd89502fa3af6fdc257229f7f7e2ad7",
+        "sha256:dfb95034d7101deae7b82c9b24b23bbb79bfea02935551f7f50cad309b7fcc9d"
+      ],
+      "reason": "Updated challenge.lean card for root Challenge.lean at 41c2716658c4 (5 stubbed theorems, depends_on=['00_statement/statements']), refreshed references [1] and [3], and removed obsolete reference [2] for removed duplicate defs.",
+      "sources": [
+        {
+          "blob": "e67ddbbdcaa961622d23bc744129e5db49c5351b",
+          "path": "skeleton/00_statement/challenge.lean"
+        }
+      ],
+      "subject": "onboarding:skeleton/00_statement/challenge.lean"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-NJG8DA",
+      "items": [
+        "sha256:506385cbb021d83ddc0f6138d8a56f331ad004d0aa756d081f0128d35fd8484a"
+      ],
+      "reason": "Updated dag/stage-map.json card and references [1]-[2] for the 8-stage condensed map (00_statement..07_congruences), 3 live Stage 00 files and empty Stages 01-07.",
+      "sources": [
+        {
+          "blob": "fb9691744549cd274702a86dfa75d7b5ef815b50",
+          "path": "dag/stage-map.json"
+        }
+      ],
+      "subject": "onboarding:dag/stage-map.json"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-NQ0WRQ",
+      "items": [
+        "sha256:c4e76f47adb79509464e7dd9a38d93c52b0f57c21b85146770d1558289de1c30"
+      ],
+      "reason": "Updated test_audit_cli.py card and added reference [3] covering nullable/paired verification-note digest validation and condensed-edition rh-audit CLI tests.",
+      "sources": [
+        {
+          "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+          "path": "tests/unit/test_audit_cli.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_audit_cli.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-P2CH6E",
+      "items": [
+        "sha256:69862ebf4da428c36a4784345799228b5e8c893115b8237beee8c7c2440da395"
+      ],
+      "reason": "Internal _COMPARATOR_OPTIONAL_KEYS and _COMPARATOR_ALLOWED_KEYS constants enforcing allowed comparator.json keys under INV-MVJ01Q.",
+      "subject": "hunk:sha256:69862ebf4da428c36a4784345799228b5e8c893115b8237beee8c7c2440da395"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R07",
+          "packet": "RH-R07-v1-upstream-sync-readable-edition-and-triage.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        },
+        "DEC-V5ASDJ"
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "content": "sha256:255a1cd65b9324bcd118d6d9a2324fedb7d9da8c62eeb7813e1599c2519f7a65",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_committed_dag_and_stage00_skeleton_round_trip"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "before": "absent",
+          "id": "PRF-1Q7FJ2"
+        },
+        {
+          "after": {
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "content": "sha256:0904903b1069f3a31e0132d0f689a80f4214d1259a3195f43e5ff3212b086456",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_load_real_stage_map"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "before": "absent",
+          "id": "PRF-A48A5B"
+        },
+        {
+          "after": {
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "content": "sha256:00eb0c4a746248bda9169fdadf0611d0fd1a888067f774833adeb00d48fbf104",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_dag_uses_strict_import_edges_no_false_challenge_edge"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "before": {
+            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "content": "sha256:00eb0c4a746248bda9169fdadf0611d0fd1a888067f774833adeb00d48fbf104",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_dag_uses_strict_import_edges_no_false_challenge_edge"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "id": "PRF-PZAQK0"
+        },
+        {
+          "after": "absent",
+          "before": {
+            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "content": "sha256:093d84738b061bc2a0d5c5d3ef556ddcb169b7b8bf5b142cf666a2dab28b20dd",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_load_real_stage_map"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "id": "PRF-TY7QW9"
+        },
+        {
+          "after": "absent",
+          "before": {
+            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "content": "sha256:92da830c028e0119667ee9eeecf5d88946e88eee338963b8dfa8ce65b48e27f2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_committed_dag_and_stage00_skeleton_round_trip"
+            },
+            "path": "tests/unit/test_stage_map.py"
+          },
+          "id": "PRF-V6DD0Y"
+        },
+        {
+          "after": {
+            "blob": "fb9691744549cd274702a86dfa75d7b5ef815b50",
+            "content": "sha256:432bf99075f26929f0cb1743d84a91db432082efc5d55f57d3c2625d87e5f4e0",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "dag/stage-map.json"
+          },
+          "before": {
+            "blob": "5ff863b7880c404cd0f26a5dab2277dee1c3920b",
+            "content": "sha256:9451b2cd80906348904f90b38e0d0ecd529f761490e7be3cbb2c6b1283a4c924",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "dag/stage-map.json"
+          },
+          "id": "RLZ-29ESHV"
+        },
+        {
+          "after": {
+            "blob": "97ec49000a152001d88321ccb25baf1737388130",
+            "content": "sha256:d125a8fa4e0f56431e2b33d7a0ccec5d598f06684b7146986ae275d0402a35ea",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "dag/dag.json"
+          },
+          "before": {
+            "blob": "f6d315bb77b49bd993b68a9353ab75d60d32bd29",
+            "content": "sha256:6c8d814b726d8ffeee8e17fb12776ee27d02b6482a91e93df59a94117abc05fa",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "dag/dag.json"
+          },
+          "id": "RLZ-4V4PZR"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-P452TQ",
+      "items": [
+        "sha256:9767bdf789b25f1868ff7a061c96cb508be0fd129331bf7eb9a2f63339bf62da"
+      ],
+      "reason": "Updated INV-Y5X0FK title, statement and scope to the 8-stage condensed map and 3 live Stage 00 files, updated RLZ-29ESHV rationale, replaced stale 21-stage/inverted-edge proof facets (PRF-TY7QW9, PRF-V6DD0Y) with accurate 8-stage proofs, and re-anchored RLZ-4V4PZR and PRF-PZAQK0. Evidence (rh-r07-inv-y5x0fk): RH-R07@v1 Leaf 01 curation; worker report 01-worker-2d163d38-0d67-466a-8253-cd53b9ae869f.md and code PASS verdict 01-route-review-verdict.md",
+      "revision": 2,
+      "subject": "INV-Y5X0FK"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-Q0RKSV",
+      "items": [
+        "sha256:c626878cf7b09f4c8b4317e4a54d2877a67615314e43a8124e0bfc2214df8722"
+      ],
+      "reason": "Updated repository overview and references [1], [3] and [8] for six CLI commands including rh-check-upstream, new src/rh_pipeline/audit/triage.py, and the 8-stage condensed map.",
+      "sources": [
+        {
+          "blob": "56ed6ec08b47e158e0e58c8407a8bc2e627738b0",
+          "path": "README.md"
+        },
+        {
+          "blob": "6aabc844c13208197cc78c916a343728f7129793",
+          "path": "audit/provenance.json"
+        },
+        {
+          "blob": "5e3ad8463e5d5342c9aeeaff87de1eb4c9d267bc",
+          "path": "audit/verification-status.json"
+        },
+        {
+          "blob": "6b136a88972a0db4b1bf4fbf4315ab60b3bda99e",
+          "path": "dag/README.md"
+        },
+        {
+          "blob": "97ec49000a152001d88321ccb25baf1737388130",
+          "path": "dag/dag.json"
+        },
+        {
+          "blob": "fb9691744549cd274702a86dfa75d7b5ef815b50",
+          "path": "dag/stage-map.json"
+        },
+        {
+          "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+          "path": "pyproject.toml"
+        },
+        {
+          "blob": "ad47e7005173650840a461356f117dac6e001d1d",
+          "path": "site/docs/.vitepress/theme/components/VerificationBanner.vue"
+        },
+        {
+          "blob": "e67ddbbdcaa961622d23bc744129e5db49c5351b",
+          "path": "skeleton/00_statement/challenge.lean"
+        },
+        {
+          "blob": "absent",
+          "path": "skeleton/00_statement/formal_conjectures_challenge.lean"
+        },
+        {
+          "blob": "absent",
+          "path": "skeleton/00_statement/formal_conjectures_statement.lean"
+        },
+        {
+          "blob": "56b9c9bdbe40ece9e068eb565e09fa4605d62f4b",
+          "path": "skeleton/00_statement/main.lean"
+        },
+        {
+          "blob": "951ebff8a526a970302f6381378ade4d71a48f84",
+          "path": "skeleton/00_statement/statements.lean"
+        },
+        {
+          "blob": "fb5d26d4555b98aa10b48903db8ad252748a2fe4",
+          "path": "skeleton/README.md"
+        },
+        {
+          "blob": "781ab896f1a231f9f0f721b3df0c39de966e9b61",
+          "path": "src/rh_pipeline/audit/provenance.py"
+        },
+        {
+          "blob": "965af2462316f40340cc327784042996722a7019",
+          "path": "src/rh_pipeline/audit/static_scan.py"
+        },
+        {
+          "blob": "77b3fb2e959e54e13c8b06291115e680d151ac71",
+          "path": "src/rh_pipeline/audit/status.py"
+        },
+        {
+          "blob": "bac83080429b79d4f5f4f654504d089d19dad618",
+          "path": "src/rh_pipeline/audit/triage.py"
+        },
+        {
+          "blob": "8aa774f0001c7a4ae74703cde3284471c55d4948",
+          "path": "src/rh_pipeline/cli/check_upstream.py"
+        },
+        {
+          "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+          "path": "src/rh_pipeline/models/audit.py"
+        },
+        {
+          "blob": "f3f47927405d9c97d620cc355b77621a57f91647",
+          "path": "src/rh_pipeline/site/renderers.py"
+        },
+        {
+          "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+          "path": "tests/unit/test_audit_cli.py"
+        },
+        {
+          "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+          "path": "tests/unit/test_audit_provenance.py"
+        },
+        {
+          "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+          "path": "tests/unit/test_audit_static_scan.py"
+        },
+        {
+          "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+          "path": "tests/unit/test_check_upstream.py"
+        },
+        {
+          "blob": "4766256e3cd884fc3c4649a578d4eba39550fca2",
+          "path": "tests/unit/test_quality_scripts.py"
+        },
+        {
+          "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+          "path": "tests/unit/test_site_compiler.py"
+        },
+        {
+          "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+          "path": "tests/unit/test_stage_map.py"
+        },
+        {
+          "blob": "9f12673033ed63ea6b5b02564d3502070bb73245",
+          "path": "tests/unit/test_validate_concepts.py"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+            "content": "sha256:f08798fba1800be9aa8fabf71784436f41cfd9715f4b2d23b8e46055b1c0c41a",
+            "locator": {
+              "end": 30,
+              "kind": "line_range",
+              "start": 24
+            },
+            "path": "pyproject.toml"
+          },
+          "before": {
+            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+            "content": "sha256:aac44b3608721dbe8ce839128962ab198b77ea0165d09af707709f76ba7105a7",
+            "locator": {
+              "end": 29,
+              "kind": "line_range",
+              "start": 24
+            },
+            "path": "pyproject.toml"
+          },
+          "id": "RLZ-BTVX2M"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-RHSKG7",
+      "items": [
+        "sha256:65869c113bd0aab6a4c00b92686ea2d655dd9a8990476db127687bc7da300f50"
+      ],
+      "reason": "Adding rh-check-upstream to [project.scripts] in pyproject.toml shifted the scripts block from lines 24-29 to lines 24-30; re-anchored RLZ-BTVX2M to lines 24-30 and updated its rationale while INV-01DVB3 meaning, CLI atomic behavior and proofs remain unchanged.",
+      "revision": 1,
+      "subject": "INV-01DVB3"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-SJX0SZ",
+      "items": [
+        "sha256:84f1009536b8c134e64bf94ccd57fb304b1642fd91f9935c2ddebcf5a3dc9c82"
+      ],
+      "reason": "Delete-only removal of 'external_kernels' from ComparatorSummary.from_dict required_keys as it moved to optional_keys under INV-VAZE4Y (realized by RLZ-Q06HER); carries no separate invariant.",
+      "subject": "hunk:sha256:84f1009536b8c134e64bf94ccd57fb304b1642fd91f9935c2ddebcf5a3dc9c82"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-SY3GGK",
+      "items": [
+        "sha256:0e8f4c1cc672dfbd51926ce8dfed2b4b5c23fc7c9cf91bdf65b6e887d5f2b11e"
+      ],
+      "reason": "Updated VerificationBanner.vue card and references [1]-[2] for optional repoLayout ('condensed' | 'legacy', default 'condensed') and layout-conditional upstreamLinks.",
+      "sources": [
+        {
+          "blob": "ad47e7005173650840a461356f117dac6e001d1d",
+          "path": "site/docs/.vitepress/theme/components/VerificationBanner.vue"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/theme/components/VerificationBanner.vue"
+    },
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:939a1611305d4517ba2e0cef2d352b8bdd6af7490a56c2f17e5d2b427828bcf6",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_input_and_scan_errors_exit_2_without_writing"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "before": {
+            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "content": "sha256:939a1611305d4517ba2e0cef2d352b8bdd6af7490a56c2f17e5d2b427828bcf6",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_input_and_scan_errors_exit_2_without_writing"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "id": "PRF-857J73"
+        },
+        {
+          "after": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:e383ac4aab3d4a271f7edf6de367977e8047e45ded747c6af24796984c46e5dc",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_condensed_edition_entry_full_replay_and_failure"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "before": "absent",
+          "id": "PRF-C8KG4E"
+        },
+        {
+          "after": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:bf9cb9b119a1525f92791f74c7a1796fd156ec2bdcfa24a0b98e691264ad038f",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_forbidden_tokens_exit_1_and_still_write_json"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "before": {
+            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "content": "sha256:bf9cb9b119a1525f92791f74c7a1796fd156ec2bdcfa24a0b98e691264ad038f",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_forbidden_tokens_exit_1_and_still_write_json"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "id": "PRF-P7PMF4"
+        },
+        {
+          "after": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:a819e93a0d9d17f70baee93ddb7684c502ccdbab131e1620dce1d6851bf300a8",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_clean_repo_entry_full_and_replay"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "before": {
+            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "content": "sha256:a819e93a0d9d17f70baee93ddb7684c502ccdbab131e1620dce1d6851bf300a8",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_clean_repo_entry_full_and_replay"
+            },
+            "path": "tests/unit/test_audit_cli.py"
+          },
+          "id": "PRF-VK9PSA"
+        },
+        {
+          "after": {
+            "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+            "content": "sha256:12392afb314b25867740b6c9d0de665e7b89ad3d2d1f3bd35cd82d71266c38c2",
+            "locator": {
+              "end": 25,
+              "kind": "line_range",
+              "start": 24
+            },
+            "path": "pyproject.toml"
+          },
+          "before": {
+            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+            "content": "sha256:12392afb314b25867740b6c9d0de665e7b89ad3d2d1f3bd35cd82d71266c38c2",
+            "locator": {
+              "end": 25,
+              "kind": "line_range",
+              "start": 24
+            },
+            "path": "pyproject.toml"
+          },
+          "id": "RLZ-D9S8AP"
+        },
+        {
+          "after": {
+            "blob": "6aabc844c13208197cc78c916a343728f7129793",
+            "content": "sha256:6f4639421015f23fbe0accd4d434518de91a4c4d1107c2588c5b99b8b759e4b7",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "audit/provenance.json"
+          },
+          "before": {
+            "blob": "075b06c7f88fa8939baf29ea7befad2cf64a3a16",
+            "content": "sha256:cd2c4304a80bf771508713480343fb0ebe5affc97d159361552ae7f10fa7758c",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "audit/provenance.json"
+          },
+          "id": "RLZ-DBEEPP"
+        },
+        {
+          "after": {
+            "blob": "5e3ad8463e5d5342c9aeeaff87de1eb4c9d267bc",
+            "content": "sha256:b0bd2c138def44e5eb5e927b2d28f27c0b1901f1cb5c6b956b7bf10b9c969bc0",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "audit/verification-status.json"
+          },
+          "before": {
+            "blob": "4122eaf392b1a3a24ee33e8ecce9d84230cdd550",
+            "content": "sha256:2f2ce10add8162a9f50ede56a578944cc754248e504784d5822019a0f6f43795",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "audit/verification-status.json"
+          },
+          "id": "RLZ-XGV4V0"
+        }
+      ],
+      "disposition": "extended",
+      "id": "ROW-T3GC7N",
+      "items": [
+        "sha256:03d316885187a7b49912b5d7c565678d4fe3e43a615a12c97b49ce419c0792a7"
+      ],
+      "reason": "Re-anchored committed audit/provenance.json, audit/verification-status.json (updating RLZ-XGV4V0 rationale from 7 to 5 challenge sorrys), pyproject.toml and test_audit_cli.py proofs at 41c2716658c4, and attached the new condensed-edition CLI proof; rh-audit CLI exit-code semantics remain unchanged. Evidence (rh-r07-inv-7mvb06): RH-R07@v1 Leaf 01 curation; worker report 01-worker-2d163d38-0d67-466a-8253-cd53b9ae869f.md and code PASS verdict 01-route-review-verdict.md",
+      "revision": 1,
+      "subject": "INV-7MVB06"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-T6V0SJ",
+      "items": [
+        "sha256:e6456f22b9d15b2aad7a2558215a9e630f08799f679d8fb8eb92152c44b3fdf6"
+      ],
+      "reason": "_as_object optional_keys parameter signature supporting ComparatorSummary optional-key deserialization under INV-VAZE4Y; internal helper detail.",
+      "subject": "hunk:sha256:e6456f22b9d15b2aad7a2558215a9e630f08799f679d8fb8eb92152c44b3fdf6"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R07",
+          "packet": "RH-R07-v1-upstream-sync-readable-edition-and-triage.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        },
+        "DEC-Y3A1S7"
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:6d096024bbeddde13e2778de5ae4d7fdf2554477cccaf2df20226371785391c9",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_word_boundaries_and_qualified_names"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "before": {
+            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "content": "sha256:6d096024bbeddde13e2778de5ae4d7fdf2554477cccaf2df20226371785391c9",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_word_boundaries_and_qualified_names"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "id": "PRF-040YGZ"
+        },
+        {
+          "after": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:cf790b470ed10cc460f22bc2b88b848e04b71a683b7401a0a8b25f7c90e3b5fe",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_scan_upstream_repo_condensed_entry_and_full"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "before": "absent",
+          "id": "PRF-27EH0A"
+        },
+        {
+          "after": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:6bbd215583285e66b25cfddaa1473d48b810506357c4a92fd68308f2f07088cd",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_all_forbidden_tokens_and_attribute_forms"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "before": {
+            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "content": "sha256:6bbd215583285e66b25cfddaa1473d48b810506357c4a92fd68308f2f07088cd",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_all_forbidden_tokens_and_attribute_forms"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "id": "PRF-2A3JWD"
+        },
+        {
+          "after": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:e32416703bbdb25f107f612a6c911635bb41cf6e71ab53f2d0c9fc36086c7d1d",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_strings_raw_strings_char_literals_and_identifier_primes"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "before": {
+            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "content": "sha256:e32416703bbdb25f107f612a6c911635bb41cf6e71ab53f2d0c9fc36086c7d1d",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_strings_raw_strings_char_literals_and_identifier_primes"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "id": "PRF-AZE79N"
+        },
+        {
+          "after": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:abc2369dd0813f92d084423cdb73e27a01e5fbfb3093c032a0c8245ba9d610df",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_scan_upstream_repo_entry_vs_full_and_challenge_routing"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "before": {
+            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "content": "sha256:abc2369dd0813f92d084423cdb73e27a01e5fbfb3093c032a0c8245ba9d610df",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_scan_upstream_repo_entry_vs_full_and_challenge_routing"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "id": "PRF-DYT97F"
+        },
+        {
+          "after": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:116d6ea5b1ccc0e95d3da924969ce9043e8defd9130d392c5677e2787fb58ad7",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_comments_nested_blocks_and_line_numbers"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "before": {
+            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "content": "sha256:116d6ea5b1ccc0e95d3da924969ce9043e8defd9130d392c5677e2787fb58ad7",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_comments_nested_blocks_and_line_numbers"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "id": "PRF-PPFT9P"
+        },
+        {
+          "after": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:83f0feebe19f0359aea6ec65ca5ea6dc2546b5d029980f6ed7a96db7ac778863",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_unclosed_block_comment_raises_with_path_and_line"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "before": {
+            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "content": "sha256:83f0feebe19f0359aea6ec65ca5ea6dc2546b5d029980f6ed7a96db7ac778863",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_unclosed_block_comment_raises_with_path_and_line"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "id": "PRF-VC9ZY9"
+        },
+        {
+          "after": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:79f8d2f92b9029e4b4f0434e31acc3b69186ff8b2341bf38c4716b6c450529e8",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_synthetic_lean_audit_fixtures"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "before": {
+            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "content": "sha256:79f8d2f92b9029e4b4f0434e31acc3b69186ff8b2341bf38c4716b6c450529e8",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_synthetic_lean_audit_fixtures"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "id": "PRF-X38G51"
+        },
+        {
+          "after": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:38d63a76d063563c919f4168463ab2b7132ba416b7b6ae4824778d5035402c02",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_scan_upstream_repo_challenge_resolution_fail_closed"
+            },
+            "path": "tests/unit/test_audit_static_scan.py"
+          },
+          "before": "absent",
+          "id": "PRF-YAZNKS"
+        },
+        {
+          "after": {
+            "blob": "965af2462316f40340cc327784042996722a7019",
+            "content": "sha256:5ade1a1753ea206938d314a1e4c37c9abb0f4da613ae0d654c2ddd1e16a79c62",
+            "locator": {
+              "kind": "symbol",
+              "name": "AuditScanError"
+            },
+            "path": "src/rh_pipeline/audit/static_scan.py"
+          },
+          "before": {
+            "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+            "content": "sha256:5ade1a1753ea206938d314a1e4c37c9abb0f4da613ae0d654c2ddd1e16a79c62",
+            "locator": {
+              "kind": "symbol",
+              "name": "AuditScanError"
+            },
+            "path": "src/rh_pipeline/audit/static_scan.py"
+          },
+          "id": "RLZ-CYAGZH"
+        },
+        {
+          "after": {
+            "blob": "965af2462316f40340cc327784042996722a7019",
+            "content": "sha256:b5f96e64a2e088aa8a3830e93988a536c54848eca4a87ed261a3a7048be73b77",
+            "locator": {
+              "kind": "symbol",
+              "name": "scan_lean_source"
+            },
+            "path": "src/rh_pipeline/audit/static_scan.py"
+          },
+          "before": {
+            "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+            "content": "sha256:b5f96e64a2e088aa8a3830e93988a536c54848eca4a87ed261a3a7048be73b77",
+            "locator": {
+              "kind": "symbol",
+              "name": "scan_lean_source"
+            },
+            "path": "src/rh_pipeline/audit/static_scan.py"
+          },
+          "id": "RLZ-TBZCWX"
+        },
+        {
+          "after": {
+            "blob": "965af2462316f40340cc327784042996722a7019",
+            "content": "sha256:76d95a961f689016aff36d9ae159d570346a6d0cef7fb478e6294face3b4b1f4",
+            "locator": {
+              "kind": "symbol",
+              "name": "scan_upstream_repo"
+            },
+            "path": "src/rh_pipeline/audit/static_scan.py"
+          },
+          "before": {
+            "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+            "content": "sha256:76d95a961f689016aff36d9ae159d570346a6d0cef7fb478e6294face3b4b1f4",
+            "locator": {
+              "kind": "symbol",
+              "name": "scan_upstream_repo"
+            },
+            "path": "src/rh_pipeline/audit/static_scan.py"
+          },
+          "id": "RLZ-Z0EY5G"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-VR7DDW",
+      "items": [],
+      "reason": "Updated INV-YAHFY5 statement and scope for root Challenge.lean and optional comparator/, updated RLZ-Z0EY5G rationale for three CHALLENGE_FILES and dynamic primary challenge resolution, added condensed entry/full and fail-closed proofs, and re-anchored existing entries. Evidence (rh-r07-inv-yahfy5): RH-R07@v1 Leaf 01 curation; worker report 01-worker-2d163d38-0d67-466a-8253-cd53b9ae869f.md and code PASS verdict 01-route-review-verdict.md",
+      "revision": 2,
+      "subject": "INV-YAHFY5"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R07",
+          "packet": "RH-R07-v1-upstream-sync-readable-edition-and-triage.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-WVH4MS",
+      "items": [],
+      "reason": "Updated DEC-V5ASDJ chosen option, alternatives, consequences and decider to reflect the RH-D18 8-pillar condensed architecture, 3 live Stage 00 files and live direct-import edge topology.",
+      "revision": 2,
+      "subject": "DEC-V5ASDJ"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-WWVPJ9",
+      "items": [
+        "sha256:c1882748d62a92ee3b83352ddfdfc5ade5bf04417d814b0f8f792762892f4509"
+      ],
+      "reason": "Internal _TRACKED_NOTE_PATHS and _COMPARATOR_REQUIRED_KEYS constants enumerating tracked condensed/legacy docs and required comparator keys under INV-MVJ01Q.",
+      "subject": "hunk:sha256:c1882748d62a92ee3b83352ddfdfc5ade5bf04417d814b0f8f792762892f4509"
+    },
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "9f12673033ed63ea6b5b02564d3502070bb73245",
+            "content": "sha256:6b9a3bd25af63e1051a570b8de3de8de0d812b861e24b0ada9519e43cf22afe6",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_child_concepts_dangling_self_and_mutual_cycle"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "before": {
+            "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+            "content": "sha256:6b9a3bd25af63e1051a570b8de3de8de0d812b861e24b0ada9519e43cf22afe6",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_child_concepts_dangling_self_and_mutual_cycle"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "id": "PRF-0HF8VF"
+        },
+        {
+          "after": {
+            "blob": "9f12673033ed63ea6b5b02564d3502070bb73245",
+            "content": "sha256:90f48de21c44de4a6eadd19e906bdec02ed585d1ce2d98b1acac07d8612d8d1a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_sourcing_rules"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "before": {
+            "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+            "content": "sha256:90f48de21c44de4a6eadd19e906bdec02ed585d1ce2d98b1acac07d8612d8d1a",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_sourcing_rules"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "id": "PRF-4ASVY8"
+        },
+        {
+          "after": {
+            "blob": "9f12673033ed63ea6b5b02564d3502070bb73245",
+            "content": "sha256:76e2212f4c23d5750361f6cccbec095d7a3bcee9f1c58ab528345eec9dda189b",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_caches_skeleton_file_parsing"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "before": {
+            "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+            "content": "sha256:76e2212f4c23d5750361f6cccbec095d7a3bcee9f1c58ab528345eec9dda189b",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_caches_skeleton_file_parsing"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "id": "PRF-917RFV"
+        },
+        {
+          "after": {
+            "blob": "9f12673033ed63ea6b5b02564d3502070bb73245",
+            "content": "sha256:3ab0bbf09929f3d56677fe611ee3f7644225b1577c93f6ea7cc73c6a58744643",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_visual_ref_states"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "before": {
+            "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+            "content": "sha256:3ab0bbf09929f3d56677fe611ee3f7644225b1577c93f6ea7cc73c6a58744643",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_visual_ref_states"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "id": "PRF-9ZVJQ5"
+        },
+        {
+          "after": {
+            "blob": "9f12673033ed63ea6b5b02564d3502070bb73245",
+            "content": "sha256:29ad87625940e9a42af8a0e1365a607bee1674f73755dfa4e3f58bec3cd80f12",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_real_skeleton_anchors"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "before": {
+            "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+            "content": "sha256:99440879d6a7268e7e8eb51bfd6696ac33dd68f4e26a85953dd8a83750bdcc28",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_real_skeleton_anchors"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "id": "PRF-E97N4P"
+        },
+        {
+          "after": {
+            "blob": "9f12673033ed63ea6b5b02564d3502070bb73245",
+            "content": "sha256:521f3479d7604ebc9c5416b37038d94109af85be2d93fecd9e807f216af9e787",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_lean_anchor_validation_and_parse_errors"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "before": {
+            "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+            "content": "sha256:521f3479d7604ebc9c5416b37038d94109af85be2d93fecd9e807f216af9e787",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_lean_anchor_validation_and_parse_errors"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "id": "PRF-S6F547"
+        },
+        {
+          "after": {
+            "blob": "9f12673033ed63ea6b5b02564d3502070bb73245",
+            "content": "sha256:660fc86199f1030363c5f5d2c72c1a3df4834b415d80baca8811e52f10eb13cb",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_synthetic_fixtures_with_mutual_cycle"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "before": {
+            "blob": "74bcd522f74794b084224cdd66f70094017d9ae7",
+            "content": "sha256:660fc86199f1030363c5f5d2c72c1a3df4834b415d80baca8811e52f10eb13cb",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_validate_corpus_synthetic_fixtures_with_mutual_cycle"
+            },
+            "path": "tests/unit/test_validate_concepts.py"
+          },
+          "id": "PRF-ZJPCP4"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-XTXVZ1",
+      "items": [
+        "sha256:b13656565fb215f69006f7a57aae83592673d26990f280a14881d277f6de46ab"
+      ],
+      "reason": "Repointed test_validate_corpus_real_skeleton_anchors (PRF-E97N4P) from deleted formal_conjectures stubs to the three live condensed Stage 00 skeleton anchors and refreshed sibling test proof blobs in test_validate_concepts.py; validate_concept_corpus meaning and code remain unchanged.",
+      "revision": 1,
+      "subject": "INV-ZN8F2W"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-9NDAGK",
+          "revision": 1
+        },
+        {
+          "id": "INV-D1FB14",
+          "revision": 1
+        },
+        {
+          "id": "INV-EWYG1N",
+          "revision": 1
+        },
+        {
+          "id": "INV-H9CTX9",
+          "revision": 1
+        },
+        {
+          "id": "INV-ZN8F2W",
+          "revision": 1
+        }
+      ],
+      "id": "ROW-Z1DWHN",
+      "items": [
+        "sha256:acedd759d1b796da337e6af09dcb34efae9abb4a7cce9e53ebae1dc03c7faea7"
+      ],
+      "reason": "Examined all five members of FAM-S1B3TM (INV-H9CTX9 and INV-ZN8F2W re-anchored/extended in pyproject.toml and unit tests without meaning change; other three members unchanged); the deterministic validator suite joint guarantee remains accurate.",
+      "revision": 1,
+      "subject": "FAM-S1B3TM"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R07",
+          "packet": "RH-R07-v1-upstream-sync-readable-edition-and-triage.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        },
+        "DEC-Y3A1S7"
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:d4d1ccc73552ed11464d8b4d0176003836a3f3df7e9141076bce6294019abe99",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_condensed_fail_closed_cases"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": "absent",
+          "id": "PRF-11J8VH"
+        },
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:d6957adf76480382b7af20114af0e636817bde8746cc96e01ab1875e49b7d687",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_missing_replay_files"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:d6957adf76480382b7af20114af0e636817bde8746cc96e01ab1875e49b7d687",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_missing_replay_files"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "id": "PRF-2X6H5Y"
+        },
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:39cbf67661bad5b3e249dc61fc92b76e435ebf25cc9da700baa60d8fd7c084fd",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_missing_required_upstream_file"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": "absent",
+          "id": "PRF-A3GBV3"
+        },
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:b04fdbf427fa17a171284a352932c600d6e2c18c6d7abbdc976f86e89a32e841",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_without_and_with_replay"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:b04fdbf427fa17a171284a352932c600d6e2c18c6d7abbdc976f86e89a32e841",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_without_and_with_replay"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "id": "PRF-A4N39N"
+        },
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:662d73d71b19f0e21583a1e94cc54972693e0a7605a7a1466a6c2d6b613a6aba",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_git_root_errors"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:662d73d71b19f0e21583a1e94cc54972693e0a7605a7a1466a6c2d6b613a6aba",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_git_root_errors"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "id": "PRF-CD4M4R"
+        },
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:d16c4cd26a7d83319214c7c5ecda0af2faaf655f47a5d41affb7c8a6aafef1c7",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_condensed_edition_and_roundtrip"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": "absent",
+          "id": "PRF-J12S6J"
+        },
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:feb6242b25f5c7f687ea05d41481c2a3e668bc48483129b7b1d885ddc7b1d106",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_malformed_json_and_missing_mathlib"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:feb6242b25f5c7f687ea05d41481c2a3e668bc48483129b7b1d885ddc7b1d106",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_malformed_json_and_missing_mathlib"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "id": "PRF-KSN3GN"
+        },
+        {
+          "after": "absent",
+          "before": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:39cbf67661bad5b3e249dc61fc92b76e435ebf25cc9da700baa60d8fd7c084fd",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_missing_required_upstream_file"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "id": "PRF-Q6GWYD"
+        },
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:96bd231827bb283459ba34c80783daf1dc5a018d2a6fbcb9dedff338315909c3",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_rejects_bool_module_count_in_replay"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:96bd231827bb283459ba34c80783daf1dc5a018d2a6fbcb9dedff338315909c3",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_rejects_bool_module_count_in_replay"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "id": "PRF-VCG0CK"
+        },
+        {
+          "after": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:bb43c4db152de72078ffc118cdde8f877c5318aebdd5e13540de87ea5184e4c2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_detached_head"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "before": {
+            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "content": "sha256:bb43c4db152de72078ffc118cdde8f877c5318aebdd5e13540de87ea5184e4c2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_detached_head"
+            },
+            "path": "tests/unit/test_audit_provenance.py"
+          },
+          "id": "PRF-WXW971"
+        },
+        {
+          "after": {
+            "blob": "781ab896f1a231f9f0f721b3df0c39de966e9b61",
+            "content": "sha256:6b09fb6b21a1ab03f39a5ea50705bde6ec10a2d93d2dd916ba95d74f46289787",
+            "locator": {
+              "kind": "symbol",
+              "name": "AuditInputError"
+            },
+            "path": "src/rh_pipeline/audit/provenance.py"
+          },
+          "before": {
+            "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+            "content": "sha256:6b09fb6b21a1ab03f39a5ea50705bde6ec10a2d93d2dd916ba95d74f46289787",
+            "locator": {
+              "kind": "symbol",
+              "name": "AuditInputError"
+            },
+            "path": "src/rh_pipeline/audit/provenance.py"
+          },
+          "id": "RLZ-08BD53"
+        },
+        {
+          "after": {
+            "blob": "781ab896f1a231f9f0f721b3df0c39de966e9b61",
+            "content": "sha256:d361a288dae4ab9a01bc9a8fd811b7b61574b592c6197fb71c2abb99ee028921",
+            "locator": {
+              "kind": "symbol",
+              "name": "collect_provenance"
+            },
+            "path": "src/rh_pipeline/audit/provenance.py"
+          },
+          "before": {
+            "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+            "content": "sha256:eb350854c972e94b54a49378f9e9e9e2af0f478a36acffc051211f51a0ed2f48",
+            "locator": {
+              "kind": "symbol",
+              "name": "collect_provenance"
+            },
+            "path": "src/rh_pipeline/audit/provenance.py"
+          },
+          "id": "RLZ-6B1W55"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "replace",
+      "id": "ROW-ZTGGB1",
+      "items": [
+        "sha256:b4d57d2338279c4e432afc1eb2b5159b28292b2169faad83ddd65300241e2a0a"
+      ],
+      "reason": "Updated INV-MVJ01Q statement and scope for optional comparator/ and flexible tracked documentation digests, replaced stale PRF-Q6GWYD facet with legacy-qualified wording, added condensed provenance and fail-closed proofs, and re-anchored existing entries. Evidence (rh-r07-inv-mvj01q): RH-R07@v1 Leaf 01 curation; worker report 01-worker-2d163d38-0d67-466a-8253-cd53b9ae869f.md and code PASS verdict 01-route-review-verdict.md",
+      "revision": 2,
+      "subject": "INV-MVJ01Q"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:1045de90001d789a29f05d369e2ea90006c3348c344b09d91bb10b245ee03e72",
+      "record": "DEC-V5ASDJ",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:5df0bde5d6ddfce2c65b02f0553f2203ef11f08630ca841f605961d191d4ffbc",
+      "record": "DEC-Y3A1S7",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:a85a573afb222f2ad266cfe62c0fd8ddf84325edbbddcaaab0abdce950b84a4e",
+      "record": "DPD-GF9S0R",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:bd89045c70031a020b9b93b7a79fc8cc7f7ed85623351292a168089995e1ed07",
+      "record": "FAM-ZD4QRG",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:12ad624f7222b96491a8b38f240754eed56a347b0a931543438261864fff1183",
+      "record": "INV-AXWQKZ",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:b7a812eb714b27456b965a7a47d85a546130defe3c17e6c7ab9a09eb8d63986d",
+      "record": "INV-MVJ01Q",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:c41e0fad2ef63fb699da3b2ce0acba868f34c203251c25b77140ead73f2dfae2",
+      "record": "INV-V207JN",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:6a25e3efbf2d2d5f8e29e78474663fb226dfdd1a6316bca6d99c61d5017204a3",
+      "record": "INV-VAZE4Y",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:8767439105d87b3cdf51432e575e21fdda09aab9a9b38564fbbacf46c0d30b88",
+      "record": "INV-VGNZKV",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:8c1469e456c97669872042344483eef370549f8fe41d3d1d02a9db6aa2f48293",
+      "record": "INV-Y5X0FK",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:5beb93f333c195d498e45e6817557d914602ef3db8372cbcf3be955ce71ff773",
+      "record": "INV-YAHFY5",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:1513d081fc3150cb2ec90b895ee0bd2813e19e6a218caf3c39bc8b448a801381",
+      "record": "INV-ZSMC71",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:e8cd1df5451ac98dce0f273c86518f1be9b64821109cf4a80dea5c39c762af78",
+      "record": "WKN-1K87DB",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T12:10:47+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "01",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}

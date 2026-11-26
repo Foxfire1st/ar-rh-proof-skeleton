@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "258d1053491ec32fa12ecd2bc329f1d58bbcfd32",
-        "content": "sha256:2c241ec52cf9d304c9f8a119fa127cfaa823daf8f634649f1f4b880358235cbc",
+        "blob": "ad47e7005173650840a461356f117dac6e001d1d",
+        "content": "sha256:d6877f9a1252884f166ab576eb9bc9022a16a5785c6a1d2b40a6e9e49ad42a36",
         "locator": {
           "kind": "file"
         }
@@ -15,20 +15,20 @@
         "handoffEntry": "RH-R05@v1 §3",
         "leaf": "05"
       },
-      "rationale": "Renders honest build-time verification status driven strictly from audit/verification-status.json props without ever fabricating local verification.",
+      "rationale": "Renders honest build-time verification status driven strictly from audit/verification-status.json props with repoLayout ('condensed' | 'legacy') link switching without ever fabricating local verification.",
       "role": "presentation"
     }
   ],
   "references": {
     "1": {
-      "note": "Declares nine required audit provenance props plus optional `upstreamRepo` and computes truncated commit/Mathlib hashes, upstream URLs and `statusMeta` tone mapping.\n\nAnchor: `statusMeta`",
+      "note": "Declares nine required audit provenance props plus optional upstreamRepo and repoLayout (default condensed), computing truncated commit/Mathlib hashes, layout-specific upstreamLinks (comparator.json/GUIDE.md/INDEX.md vs comparator/ and verification/NOTES.md) and statusMeta tone mapping.",
       "targets": [
         {
           "anchor": {
-            "blob": "258d1053491ec32fa12ecd2bc329f1d58bbcfd32",
-            "content": "sha256:7847b40b773679776a8afd92526244df1a963ecff9d0bccee9783de1dac95a45",
+            "blob": "ad47e7005173650840a461356f117dac6e001d1d",
+            "content": "sha256:580477035d7ddd682e0495cdc43fe15bdb530dd39481c4888eebb98b8783a5c7",
             "locator": {
-              "end": 58,
+              "end": 82,
               "kind": "line_range",
               "start": 4
             }
@@ -38,16 +38,16 @@
       ]
     },
     "2": {
-      "note": "Renders script-off-safe `<aside aria-label=\"Verification status\">` with a `<dl>` facts grid and `noopener noreferrer` upstream links.\n\nAnchor: `rh-verification-banner`",
+      "note": "Renders script-off-safe aside aria-label Verification status with a semantic dl facts grid and v-for-rendered noopener noreferrer upstream links.",
       "targets": [
         {
           "anchor": {
-            "blob": "258d1053491ec32fa12ecd2bc329f1d58bbcfd32",
-            "content": "sha256:5635530d75f78f4518f81edd7fa9df2cabc7d85ee238cec344561f7f432a2f09",
+            "blob": "ad47e7005173650840a461356f117dac6e001d1d",
+            "content": "sha256:60f081ce275a6adc78a1f1a5de6cf6a44d41a2eeb7681832447799ff619df9c9",
             "locator": {
-              "end": 115,
+              "end": 142,
               "kind": "line_range",
-              "start": 61
+              "start": 85
             }
           },
           "kind": "code"

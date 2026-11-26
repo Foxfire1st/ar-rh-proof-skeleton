@@ -3,7 +3,24 @@
   "proves": [
     {
       "anchor": {
-        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+        "content": "sha256:d4d1ccc73552ed11464d8b4d0176003836a3f3df7e9141076bce6294019abe99",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_collect_provenance_condensed_fail_closed_cases"
+        }
+      },
+      "facet": "Demonstrates collect_provenance fails closed with AuditInputError on missing GUIDE.md, partial verification/ directories, non-directory comparator/verification paths, unknown comparator keys and comparators omitting all optional schema keys.",
+      "id": "PRF-11J8VH",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-mvj01q",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
         "content": "sha256:d6957adf76480382b7af20114af0e636817bde8746cc96e01ab1875e49b7d687",
         "locator": {
           "kind": "symbol",
@@ -20,7 +37,7 @@
     },
     {
       "anchor": {
-        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
         "content": "sha256:d9b6f0c214452e9f519e3efce866a64d9dcbe042dbb3a0d7863b7aee07579198",
         "locator": {
           "kind": "symbol",
@@ -37,7 +54,24 @@
     },
     {
       "anchor": {
-        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+        "content": "sha256:39cbf67661bad5b3e249dc61fc92b76e435ebf25cc9da700baa60d8fd7c084fd",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_collect_provenance_missing_required_upstream_file"
+        }
+      },
+      "facet": "Demonstrates deleting any of the six required files in a legacy-layout fixture (with comparator/ and verification/ present) raises AuditInputError.",
+      "id": "PRF-A3GBV3",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-mvj01q",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
         "content": "sha256:b04fdbf427fa17a171284a352932c600d6e2c18c6d7abbdc976f86e89a32e841",
         "locator": {
           "kind": "symbol",
@@ -54,7 +88,7 @@
     },
     {
       "anchor": {
-        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
         "content": "sha256:662d73d71b19f0e21583a1e94cc54972693e0a7605a7a1466a6c2d6b613a6aba",
         "locator": {
           "kind": "symbol",
@@ -71,7 +105,24 @@
     },
     {
       "anchor": {
-        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+        "content": "sha256:d16c4cd26a7d83319214c7c5ecda0af2faaf655f47a5d41affb7c8a6aafef1c7",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_collect_provenance_condensed_edition_and_roundtrip"
+        }
+      },
+      "facet": "Demonstrates collect_provenance pins condensed-edition checkouts with empty comparator_file_digests, root comparator.json carrying definition_names/enable_nanoda, top-level doc digests in note_digests and lossless ProvenanceRecord round-tripping.",
+      "id": "PRF-J12S6J",
+      "invariant": "INV-MVJ01Q",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-mvj01q",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
         "content": "sha256:feb6242b25f5c7f687ea05d41481c2a3e668bc48483129b7b1d885ddc7b1d106",
         "locator": {
           "kind": "symbol",
@@ -88,24 +139,24 @@
     },
     {
       "anchor": {
-        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
-        "content": "sha256:39cbf67661bad5b3e249dc61fc92b76e435ebf25cc9da700baa60d8fd7c084fd",
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+        "content": "sha256:431dfade188894980d5069c1be3b1dc6fcbebd0c84d8f1e92af31b06db036ef2",
         "locator": {
           "kind": "symbol",
-          "name": "test_collect_provenance_missing_required_upstream_file"
+          "name": "test_comparator_summary_optional_fields_and_strict_enable_nanoda"
         }
       },
-      "facet": "Demonstrates deleting any of the six required upstream files raises AuditInputError.",
-      "id": "PRF-Q6GWYD",
-      "invariant": "INV-MVJ01Q",
+      "facet": "Demonstrates ComparatorSummary.from_dict defaults omitted external_kernels, definition_names and enable_nanoda while rejecting non-boolean enable_nanoda values (0, 1, 'true') with ValueError.",
+      "id": "PRF-P17J3V",
+      "invariant": "INV-VAZE4Y",
       "origin": {
-        "handoffEntry": "RH-R02@v1 §2",
-        "leaf": "02"
+        "handoffEntry": "rh-r07-inv-vaze4y",
+        "leaf": "01"
       }
     },
     {
       "anchor": {
-        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
         "content": "sha256:de5e779635a01ec504b192997b6898984177113655aa40327824086df51164a7",
         "locator": {
           "kind": "symbol",
@@ -122,7 +173,7 @@
     },
     {
       "anchor": {
-        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
         "content": "sha256:96bd231827bb283459ba34c80783daf1dc5a018d2a6fbcb9dedff338315909c3",
         "locator": {
           "kind": "symbol",
@@ -139,7 +190,7 @@
     },
     {
       "anchor": {
-        "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+        "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
         "content": "sha256:bb43c4db152de72078ffc118cdde8f877c5318aebdd5e13540de87ea5184e4c2",
         "locator": {
           "kind": "symbol",
@@ -162,7 +213,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
             "content": "sha256:b04fdbf427fa17a171284a352932c600d6e2c18c6d7abbdc976f86e89a32e841",
             "locator": {
               "kind": "symbol",
@@ -178,11 +229,27 @@
       "targets": [
         {
           "anchor": {
-            "blob": "0cddc2dcb63bd94961a444aa3a25fd45472fe1fe",
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
             "content": "sha256:de5e779635a01ec504b192997b6898984177113655aa40327824086df51164a7",
             "locator": {
               "kind": "symbol",
               "name": "test_provenance_models_strict_roundtrip_and_rejection"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Verifies condensed-edition provenance collection, optional ComparatorSummary fields (definition_names and strict bool enable_nanoda) and fail-closed AuditInputError cases for missing docs, partial/non-directory layouts and invalid comparator schemas.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "37ee39082ba3807a2e266808937883a226ed99b5",
+            "content": "sha256:d4d1ccc73552ed11464d8b4d0176003836a3f3df7e9141076bce6294019abe99",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_collect_provenance_condensed_fail_closed_cases"
             }
           },
           "kind": "test"

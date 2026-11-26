@@ -3,9 +3,9 @@
     "criteria": [
       "joint_guarantee"
     ],
-    "justification": "Deterministic, read-only, fail-closed generation of Stage 00 skeleton files and dag/dag.json requires strict models, closed-world Lean parsing, preserve_defs stub rendering, import-only DAG construction and in-memory-before-write CLI wiring to hold together."
+    "justification": "Combining immutable Lean/DAG models, closed-world parsing, provenance-preserving stub emission, stage-map validation and atomic CLI emission guarantees reproducible, zero-partial-write Stage 00 skeleton and DAG artifacts without executing Lean."
   },
-  "guarantee": "Invoking rh-extract against read-only upstream checkouts validates the 21-stage map, parses all mapped Lean 4 files under a closed-world grammar, and atomically emits byte-identical provenance-preserving skeleton files and an import-only DAG without executing Lean or leaving partial writes on error.",
+  "guarantee": "Invoking rh-extract against read-only upstream checkouts validates the 8-stage condensed map, parses all mapped Lean 4 files under a closed-world grammar, and atomically emits byte-identical provenance-preserving skeleton files and an import-only DAG without executing Lean or leaving partial writes on error.",
   "id": "FAM-ZD4QRG",
   "members": [
     "INV-BEGWB0",
@@ -22,21 +22,21 @@
     "leaf": "03",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "routes": [
     "."
   ],
   "schema": "ar-family/v1",
   "title": "Phase 1 deterministic Lean 4 extractor, stage map and Stage 00 skeleton pipeline",
   "writer": {
-    "at": "2026-11-25T19:03:13+01:00",
+    "at": "2026-11-26T12:10:47+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "03",
+    "leaf": "01",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
-    "task": "261123-RH"
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
   }
 }

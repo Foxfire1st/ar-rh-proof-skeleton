@@ -3,7 +3,7 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+        "blob": "781ab896f1a231f9f0f721b3df0c39de966e9b61",
         "content": "sha256:6b09fb6b21a1ab03f39a5ea50705bde6ec10a2d93d2dd916ba95d74f46289787",
         "locator": {
           "kind": "symbol",
@@ -21,8 +21,8 @@
     },
     {
       "anchor": {
-        "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
-        "content": "sha256:eb350854c972e94b54a49378f9e9e9e2af0f478a36acffc051211f51a0ed2f48",
+        "blob": "781ab896f1a231f9f0f721b3df0c39de966e9b61",
+        "content": "sha256:d361a288dae4ab9a01bc9a8fd811b7b61574b592c6197fb71c2abb99ee028921",
         "locator": {
           "kind": "symbol",
           "name": "collect_provenance"
@@ -34,7 +34,7 @@
         "handoffEntry": "RH-R02@v1 §2",
         "leaf": "02"
       },
-      "rationale": "Orchestrates read-only Git, toolchain, Mathlib, dual comparator, digest, and optional ReplayPin extraction from upstream checkouts.",
+      "rationale": "Orchestrates read-only Git, toolchain, Mathlib, root plus optional comparator/ config and recursive digests, tracked documentation/verification note digests, and optional ReplayPin extraction from upstream checkouts.",
       "role": "primary-authority"
     }
   ],
@@ -44,7 +44,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+            "blob": "781ab896f1a231f9f0f721b3df0c39de966e9b61",
             "content": "sha256:e7154d5c8fb5897b980bdf0bb3ac39e16c2067335207bd622d99afa95bb142d4",
             "locator": {
               "kind": "symbol",
@@ -56,12 +56,12 @@
       ]
     },
     "2": {
-      "note": "Reads lean-toolchain, mathlib rev, dual comparator configs, recursive comparator digests, note digests and optional ReplayPin.",
+      "note": "Reads lean-toolchain, mathlib rev, root comparator config (plus optional comparator/ config and recursive digests), tracked documentation/verification note digests, and optional ReplayPin.",
       "targets": [
         {
           "anchor": {
-            "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
-            "content": "sha256:eb350854c972e94b54a49378f9e9e9e2af0f478a36acffc051211f51a0ed2f48",
+            "blob": "781ab896f1a231f9f0f721b3df0c39de966e9b61",
+            "content": "sha256:d361a288dae4ab9a01bc9a8fd811b7b61574b592c6197fb71c2abb99ee028921",
             "locator": {
               "kind": "symbol",
               "name": "collect_provenance"
@@ -76,7 +76,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "ac0ea113d5a7050e554494c58abcd4eed18869d4",
+            "blob": "781ab896f1a231f9f0f721b3df0c39de966e9b61",
             "content": "sha256:6b09fb6b21a1ab03f39a5ea50705bde6ec10a2d93d2dd916ba95d74f46289787",
             "locator": {
               "kind": "symbol",

@@ -3,7 +3,7 @@
   "proves": [
     {
       "anchor": {
-        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
         "content": "sha256:6d096024bbeddde13e2778de5ae4d7fdf2554477cccaf2df20226371785391c9",
         "locator": {
           "kind": "symbol",
@@ -20,7 +20,24 @@
     },
     {
       "anchor": {
-        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+        "content": "sha256:cf790b470ed10cc460f22bc2b88b848e04b71a683b7401a0a8b25f7c90e3b5fe",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_scan_upstream_repo_condensed_entry_and_full"
+        }
+      },
+      "facet": "Demonstrates scan_upstream_repo resolves root Challenge.lean as a challenge file in condensed-edition repos across entry and full scopes while excluding scripts/.",
+      "id": "PRF-27EH0A",
+      "invariant": "INV-YAHFY5",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-yahfy5",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
         "content": "sha256:6bbd215583285e66b25cfddaa1473d48b810506357c4a92fd68308f2f07088cd",
         "locator": {
           "kind": "symbol",
@@ -37,7 +54,7 @@
     },
     {
       "anchor": {
-        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
         "content": "sha256:e32416703bbdb25f107f612a6c911635bb41cf6e71ab53f2d0c9fc36086c7d1d",
         "locator": {
           "kind": "symbol",
@@ -54,7 +71,7 @@
     },
     {
       "anchor": {
-        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
         "content": "sha256:abc2369dd0813f92d084423cdb73e27a01e5fbfb3093c032a0c8245ba9d610df",
         "locator": {
           "kind": "symbol",
@@ -71,7 +88,7 @@
     },
     {
       "anchor": {
-        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
         "content": "sha256:74389bb8fd598a82f7b9edc08a1d0b4c7fe44786e7f8cafba836059e40df4236",
         "locator": {
           "kind": "symbol",
@@ -88,7 +105,7 @@
     },
     {
       "anchor": {
-        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
         "content": "sha256:116d6ea5b1ccc0e95d3da924969ce9043e8defd9130d392c5677e2787fb58ad7",
         "locator": {
           "kind": "symbol",
@@ -105,7 +122,7 @@
     },
     {
       "anchor": {
-        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
         "content": "sha256:83f0feebe19f0359aea6ec65ca5ea6dc2546b5d029980f6ed7a96db7ac778863",
         "locator": {
           "kind": "symbol",
@@ -122,7 +139,7 @@
     },
     {
       "anchor": {
-        "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+        "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
         "content": "sha256:79f8d2f92b9029e4b4f0434e31acc3b69186ff8b2341bf38c4716b6c450529e8",
         "locator": {
           "kind": "symbol",
@@ -136,6 +153,23 @@
         "handoffEntry": "RH-R02@v1 §3",
         "leaf": "02"
       }
+    },
+    {
+      "anchor": {
+        "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+        "content": "sha256:38d63a76d063563c919f4168463ab2b7132ba416b7b6ae4824778d5035402c02",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_scan_upstream_repo_challenge_resolution_fail_closed"
+        }
+      },
+      "facet": "Demonstrates scan_upstream_repo raises AuditInputError in entry and full scopes when no challenge file exists, when both Challenge.lean and src/Challenge.lean exist, or when comparator is a non-directory file.",
+      "id": "PRF-YAZNKS",
+      "invariant": "INV-YAHFY5",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-yahfy5",
+        "leaf": "01"
+      }
     }
   ],
   "realizes": [],
@@ -145,7 +179,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
             "content": "sha256:6bbd215583285e66b25cfddaa1473d48b810506357c4a92fd68308f2f07088cd",
             "locator": {
               "kind": "symbol",
@@ -161,11 +195,27 @@
       "targets": [
         {
           "anchor": {
-            "blob": "d8bd0c2f81912bfc6c56d2877e8cd312b6541312",
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
             "content": "sha256:abc2369dd0813f92d084423cdb73e27a01e5fbfb3093c032a0c8245ba9d610df",
             "locator": {
               "kind": "symbol",
               "name": "test_scan_upstream_repo_entry_vs_full_and_challenge_routing"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Verifies condensed-edition root Challenge.lean scanning in entry and full scopes and fail-closed AuditInputError on missing/ambiguous challenge files or non-directory comparator.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e463c01666bbb0e7c99da4274eb13e3461ee94fe",
+            "content": "sha256:38d63a76d063563c919f4168463ab2b7132ba416b7b6ae4824778d5035402c02",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_scan_upstream_repo_challenge_resolution_fail_closed"
             }
           },
           "kind": "test"

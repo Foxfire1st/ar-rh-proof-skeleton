@@ -4,18 +4,18 @@
       "real_alternatives",
       "constrains_future_work"
     ],
-    "justification": "Weighed alternative challenge-file classification, timestamping and local-verification designs and constrains downstream validator and site banner schemas."
+    "justification": "Weighed condensed-plus-legacy audit compatibility, timestamping and local-verification designs and constrains downstream validator, triage CLI and site banner schemas."
   },
   "alternatives": [
     {
-      "option": "Classify both src/Challenge.lean and comparator/FormalConjecturesChallenge.lean as role='challenge' (7 challenge sorrys total), hard-code build_status='unverified-locally' in Phase 0, and omit all wall-clock timestamps from emitted audit JSON.",
-      "reason": "Matches the actual upstream comparator/ layout without misreporting comparator challenge sorrys as solution findings, keeps epistemic status honest when Lean is not executed, and guarantees deterministic byte-identical regeneration for git diff --exit-code audit/.",
+      "option": "Support both condensed (root Challenge.lean with 5 challenge sorrys, root comparator.json with enable_nanoda/definition_names, optional comparator/ and verification/, nullable verification-note digests) and legacy (src/Challenge.lean + comparator/FormalConjecturesChallenge.lean with 7 challenge sorrys) layouts while hard-coding build_status='unverified-locally' and omitting all wall-clock timestamps.",
+      "reason": "Tracks live condensed main@41c2716658c4 cleanly without breaking legacy fixture compatibility, fails closed on ambiguous challenge files or partial verification/ directories, keeps epistemic status honest when Lean is not executed, and guarantees deterministic byte-identical regeneration for git diff --exit-code audit/.",
       "status": "chosen"
     },
     {
-      "option": "Classify only src/Challenge.lean as role='challenge' (5 sorrys) and emit wall-clock generation timestamps or an invented local kernel-receipt format.",
-      "reason": "Misclassifies the two sorrys in comparator/FormalConjecturesChallenge.lean as solution failures, breaks deterministic regeneration on every run, and risks overstating verification status without an executed Lean kernel check.",
-      "reconsider_when": "Upstream removes comparator/FormalConjecturesChallenge.lean or a future approved requirement replaces byte-identical committed audit snapshots with signed timestamped build receipts.",
+      "option": "Drop legacy comparator/ and verification/ support entirely, or emit wall-clock generation timestamps or an invented local kernel-receipt format.",
+      "reason": "Breaks reproducibility against archived alpoge@c900e67c2 and legacy fixtures when comparator/ is re-integrated upstream, breaks deterministic regeneration on every run, and risks overstating verification status without an executed Lean kernel check.",
+      "reconsider_when": "A future approved requirement retires legacy-layout compatibility or replaces byte-identical committed audit snapshots with signed timestamped build receipts.",
       "status": "rejected"
     },
     {
@@ -26,16 +26,20 @@
     }
   ],
   "consequences": [
-    "Downstream validators and the site verification banner consume deterministic, timestamp-free JSON with build_status='unverified-locally' and challenge_sorry_count=7 across both challenge files.",
+    "Downstream validators and VerificationBanner.vue consume deterministic, timestamp-free JSON with build_status='unverified-locally', challenge_sorry_count=5 across root Challenge.lean and null legacy verification digests on condensed main@41c2716658c4 (switching banner links via repo-layout='condensed' vs 'legacy').",
     "Introducing verified local or CI Lean kernel receipts requires a later approved requirement revision that extends BuildStatus and the audit schema."
   ],
-  "context": "Phase 0 emits machine-generated audit JSON committed in the repository for downstream validators and the public site banner without running Lean locally; the pipeline had to classify upstream comparator challenge files accurately, represent unverified local build status honestly, and guarantee byte-identical regeneration.",
-  "decider": "Developer (ruling RH-D07 approving RH-R02@v1)",
+  "context": "Phase 0 emits machine-generated audit JSON committed in the repository for downstream validators and the public site banner without running Lean locally; after upstream condensed onto main@41c2716658c4 (moving Challenge.lean to repo root, removing comparator/ and verification/, and introducing enable_nanoda in root comparator.json), the pipeline had to support both condensed and legacy layouts while keeping epistemic status honest and regeneration byte-identical.",
+  "decider": "Developer (rulings RH-D07 approving RH-R02@v1 and RH-D16 approving RH-R07@v1)",
   "id": "DEC-Y3A1S7",
   "links": [
     {
       "relation": "constrains",
       "target": "INV-VAZE4Y"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-MVJ01Q"
     },
     {
       "relation": "constrains",
@@ -58,19 +62,19 @@
     "leaf": "02",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-decision/v1",
   "status": "active",
   "supersedes": [],
   "writer": {
-    "at": "2026-11-25T17:00:49+01:00",
+    "at": "2026-11-26T12:10:47+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "02",
+    "leaf": "01",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
-    "task": "261123-RH"
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
   }
 }

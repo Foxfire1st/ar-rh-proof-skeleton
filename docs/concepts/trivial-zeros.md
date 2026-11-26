@@ -16,7 +16,7 @@ sources:
     citation: "H. Iwaniec and E. Kowalski, AMS Colloquium Publications Vol. 53 (2004), Chapter 5."
     kind: book
 lean_anchors:
-  - 00_statement/formal_conjectures_statement.lean#GRH.trivialZeros
+  - 00_statement/statements.lean#RiemannZetaZerosOnLine
 child_concepts:
   - riemann-zeta-function
   - analytic-continuation
@@ -51,7 +51,9 @@ For an *imprimitive* character $\chi \bmod N$ induced by a primitive character $
 
 ## Level 3 — Formal Lean Contract
 
-Stage 00 anchors the exact `formal-conjectures` definition in `00_statement/formal_conjectures_statement.lean#GRH.trivialZeros` (upstream `comparator/FormalConjecturesStatement.lean:70-79`):
+Stage 00 anchors the explicit trivial-zero exclusion for $\zeta(s)$ in `00_statement/statements.lean#RiemannZetaZerosOnLine` (upstream `src/Statements.lean:7-8`), which guards against `(¬∃ n : ℕ, s = -2 * ((n : ℂ) + 1))` (and `s ≠ 1`), while `DirichletLZerosOnLine` (`src/Statements.lean:14-16`) and `PrimitiveDirichletLZerosOnLine` (`src/Statements.lean:18-20`) exclude all trivial zeros uniformly by restricting to the open critical strip `0 < s.re` and `s.re < 1`.
+
+In upstream's `formal-conjectures` bridge (`comparator/FormalConjecturesStatement.lean` and `comparator/FormalConjecturesBridge.lean`, archived on `alpoge@c900e67c2` pending re-integration on condensed `main`), `GRH.trivialZeros` classified the non-positive integer zeros across all three cases:
 
 ```lean
 noncomputable def GRH.trivialZeros {q : ℕ} (χ : DirichletCharacter ℂ q) : Set ℤ :=
@@ -60,4 +62,4 @@ noncomputable def GRH.trivialZeros {q : ℕ} (χ : DirichletCharacter ℂ q) : S
       { - 2 * n | (n : ℕ) }
 ```
 
-In `comparator/FormalConjecturesBridge.lean`, `mem_trivialZeros_of_re_nonpos` proves that for every primitive `χ`, any zero of `LFunction χ` with `s.re ≤ 0` belongs to `Int.cast '' GRH.trivialZeros χ`, bridging the strip formulation `PrimitiveDirichletLZerosOnLine` to `GRH.generalized_riemann_hypothesis`. Upstream provenance is pinned at commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b` (`build_status: unverified-locally`).
+and `mem_trivialZeros_of_re_nonpos` bridged the strip formulation `PrimitiveDirichletLZerosOnLine` to `GRH.generalized_riemann_hypothesis`. See the page's live verification banner (`audit/verification-status.json`) for the currently pinned upstream snapshot and local Lean build status (`build_status: unverified-locally`).

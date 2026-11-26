@@ -1,0 +1,192 @@
+{
+  "path": "tests/unit/test_check_upstream.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+        "content": "sha256:ff16fc8c32109c2c612ef44926c38d83014b7fa99bbadbec4641125e5b444e42",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_input_and_schema_errors_exit_2"
+        }
+      },
+      "facet": "Demonstrates ten invalid-input, Git-root, ref, provenance, stage-map and replay errors exit 2 with ERROR on stderr.",
+      "id": "PRF-54Z7XV",
+      "invariant": "INV-AXWQKZ",
+      "origin": {
+        "handoffEntry": "RH-R07@v1 R2",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+        "content": "sha256:c096e1a8328df59c8ce0c6355e74cc0f2689c96e2d9609764eb3a1591148c8d2",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_up_to_date_and_human_output_read_only"
+        }
+      },
+      "facet": "Demonstrates rh-check-upstream exits 0 with up-to-date human and canonical timestamp-free JSON output without mutating upstream HEAD, branch or working tree.",
+      "id": "PRF-67JQXY",
+      "invariant": "INV-AXWQKZ",
+      "origin": {
+        "handoffEntry": "RH-R07@v1 R2",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+        "content": "sha256:e28d320b474b8399b6fe7cb2bd5ab5687c90fcd229abf5d399c771e00814246e",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_replay_statuses_are_informational"
+        }
+      },
+      "facet": "Demonstrates --replay reports not-pinned, up-to-date, moved and history-switched replay_status values informationally without changing primary exit 0.",
+      "id": "PRF-98FW0X",
+      "invariant": "INV-AXWQKZ",
+      "origin": {
+        "handoffEntry": "RH-R07@v1 R2",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+        "content": "sha256:a3509dc1fb918373615aa4bbaa01df9ae9e729b9bcf478fe723915a909f30a00",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_history_switched_diverged_and_missing_commit"
+        }
+      },
+      "facet": "Demonstrates rewritten/diverged history and missing pinned commits exit 11 (history-switched, commit_delta=None).",
+      "id": "PRF-CC27NY",
+      "invariant": "INV-AXWQKZ",
+      "origin": {
+        "handoffEntry": "RH-R07@v1 R2",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+        "content": "sha256:6b1f23ae9bb3bc2e6e5f2b81d196a384f42ec7866e821da6883c10bfcaf17330",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_unmapped_only_and_ref_preserves_head"
+        }
+      },
+      "facet": "Demonstrates inspecting a non-HEAD --ref with only unmapped edits exits 0 (unmapped-only, commit_delta=1) without moving upstream HEAD.",
+      "id": "PRF-EBEGX4",
+      "invariant": "INV-AXWQKZ",
+      "origin": {
+        "handoffEntry": "RH-R07@v1 R2",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+        "content": "sha256:3be24773a987e7ba4be6e2ece6be4f32c7ec164bf89c819ded066b5a8dac0130",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_mapped_drift_audit_stage_and_rename"
+        }
+      },
+      "facet": "Demonstrates audit-tracked changes, mapped stage edits and git mv renames exit 10 (mapped-drift) with sorted changed_audit_paths, changed_mapped_paths and affected_stages.",
+      "id": "PRF-FSZ9W1",
+      "invariant": "INV-AXWQKZ",
+      "origin": {
+        "handoffEntry": "RH-R07@v1 R2",
+        "leaf": "01"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Verifies read-only up-to-date human/canonical-JSON output and non-HEAD --ref unmapped-only classification (exit 0) without mutating upstream HEAD, branch or working tree.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+            "content": "sha256:c096e1a8328df59c8ce0c6355e74cc0f2689c96e2d9609764eb3a1591148c8d2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_up_to_date_and_human_output_read_only"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+            "content": "sha256:6b1f23ae9bb3bc2e6e5f2b81d196a384f42ec7866e821da6883c10bfcaf17330",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_unmapped_only_and_ref_preserves_head"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Verifies mapped-drift (exit 10) across audit paths, mapped stage edits and git mv renames plus history-switched (exit 11) on diverged history or missing pinned commit.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+            "content": "sha256:3be24773a987e7ba4be6e2ece6be4f32c7ec164bf89c819ded066b5a8dac0130",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_mapped_drift_audit_stage_and_rename"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+            "content": "sha256:a3509dc1fb918373615aa4bbaa01df9ae9e729b9bcf478fe723915a909f30a00",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_history_switched_diverged_and_missing_commit"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Verifies informational replay statuses never override exit 0 while ten invalid-input/schema cases exit 2 with ERROR on stderr.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+            "content": "sha256:e28d320b474b8399b6fe7cb2bd5ab5687c90fcd229abf5d399c771e00814246e",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_replay_statuses_are_informational"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "66b6400c31cca4cf8bb8aa9767d66e4f642e011b",
+            "content": "sha256:ff16fc8c32109c2c612ef44926c38d83014b7fa99bbadbec4641125e5b444e42",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_input_and_schema_errors_exit_2"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

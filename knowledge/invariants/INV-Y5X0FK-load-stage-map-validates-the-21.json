@@ -10,10 +10,10 @@
   "applicability": "Versioned stage-map validation and import-only proof dependency DAG construction across src/rh_pipeline/graph/stage_map.py, dag/stage-map.json and dag/dag.json.",
   "conditions": [
     "load_stage_map enforces non-empty stages, consecutive 0..N-1 orders and global uniqueness of stage IDs, upstream paths, skeleton files and derived Lean module names, raising StageMapError on violation.",
-    "build_dag derives sorted deduplicated depends_on edges strictly from resolved Lean import statements among mapped nodes, excludes self-edges, ignores unmapped external imports and rejects duplicate declaration names within one skeleton file."
+    "build_dag derives sorted deduplicated depends_on edges strictly from resolved Lean import statements among mapped nodes (yielding challenge -> statements and empty depends_on on statements and main at 41c2716658c4), excludes self-edges, ignores unmapped external imports and rejects duplicate declaration names within one skeleton file."
   ],
   "exclusions": [
-    "Duplicate declaration names across separate files never create dependency edges; Stages 01-20 remain empty files arrays until later masters map them."
+    "Duplicate declaration names across separate files never create dependency edges; Stages 01-07 remain empty files arrays until later leaves map them."
   ],
   "id": "INV-Y5X0FK",
   "origin": {
@@ -27,20 +27,20 @@
     "leaf": "03",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
-  "statement": "load_stage_map validates the 21-stage versioned dag/stage-map.json (mapping all 5 conforming Stage 00 files with empty Stage 01-20 lists) and build_dag constructs dag/dag.json with depends_on edges derived strictly from resolved Lean import statements among mapped nodes without cross-matching duplicate symbol names.",
+  "statement": "load_stage_map validates the versioned 8-stage condensed dag/stage-map.json (00_statement..07_congruences, mapping the 3 live Stage 00 files with empty Stage 01-07 lists) and build_dag constructs dag/dag.json with depends_on edges derived strictly from resolved Lean import statements among mapped nodes without cross-matching duplicate symbol names.",
   "supersedes": [],
-  "title": "Versioned 21-stage map and import-only Stage 00 DAG",
+  "title": "Versioned 8-stage condensed map and import-only Stage 00 DAG",
   "writer": {
-    "at": "2026-11-25T19:03:13+01:00",
+    "at": "2026-11-26T12:10:47+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "03",
+    "leaf": "01",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "7d2b9e41-5a83-4c16-9f02-3b6e8a4c5d19",
-    "task": "261123-RH"
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
   }
 }

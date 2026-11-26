@@ -17,7 +17,6 @@ sources:
     kind: mathlib
 lean_anchors:
   - 00_statement/statements.lean#DirichletLNonvanishingRightOfHalf
-  - 00_statement/formal_conjectures_statement.lean#DirichletCharacter.instDecidablePredOddOfDecidableEq_formalConjecturesForMathlib
 child_concepts:
   - complex-plane
   - dirichlet-l-function
@@ -50,8 +49,7 @@ Two structural properties drive Stage 00:
 
 In Mathlib4 (`Mathlib.NumberTheory.DirichletCharacter.Basic`), `DirichletCharacter R N` is defined as `MulChar (ZMod N) R`—a multiplicative character from `ZMod N` to a commutative monoid with zero `R` (taken as `ℂ` in Stage 00), automatically sending non-units to `0`.
 
-Stage 00 anchors Dirichlet characters in two distinct roles:
-- `00_statement/statements.lean#DirichletLNonvanishingRightOfHalf` (upstream `src/Statements.lean:10-12`): quantifies over every modulus `N : ℕ` with `[NeZero N]` and every `χ : DirichletCharacter ℂ N`.
-- `00_statement/formal_conjectures_statement.lean#DirichletCharacter.instDecidablePredOddOfDecidableEq_formalConjecturesForMathlib` (upstream `comparator/FormalConjecturesStatement.lean:58-64`): provides the exact named `DecidablePred` instance for `χ.Odd` (`χ (-1) = -1`) required by the `if χ.Odd then ... else ...` branch inside `GRH.trivialZeros`, so Comparator matches constants by exact name between `FormalConjecturesChallenge` and `FormalConjecturesStatement`.
+Stage 00 anchors Dirichlet characters in:
+- `00_statement/statements.lean#DirichletLNonvanishingRightOfHalf` (upstream `src/Statements.lean:10-12`): quantifies over every modulus `N : ℕ` with `[NeZero N]` and every `χ : DirichletCharacter ℂ N` (likewise in `DirichletLZerosOnLine` at `src/Statements.lean:14-16` and `PrimitiveDirichletLZerosOnLine` at `src/Statements.lean:18-20`).
 
-Upstream provenance is pinned at commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b` (`build_status: unverified-locally`).
+For the parallel `formal-conjectures` statement wrapper (`comparator/FormalConjecturesStatement.lean`, archived on upstream `alpoge@c900e67c2` pending re-integration on condensed `main`), `DirichletCharacter.instDecidablePredOddOfDecidableEq_formalConjecturesForMathlib` provided the exact named `DecidablePred` instance for `χ.Odd` (`χ (-1) = -1`) required by the `if χ.Odd then ... else ...` branch inside `GRH.trivialZeros`. See the page's live verification banner (`audit/verification-status.json`) for the currently pinned upstream snapshot and local Lean build status (`build_status: unverified-locally`).

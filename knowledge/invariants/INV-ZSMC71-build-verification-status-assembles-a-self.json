@@ -8,7 +8,7 @@
   },
   "applicability": "Assembly of VerificationStatus and disk persistence of provenance.json and verification-status.json in src/rh_pipeline/audit/status.py.",
   "conditions": [
-    "provenance.note_digests must contain non-empty SHA-256 digests for verification/NOTES.md and verification/static-scan.txt.",
+    "provenance.note_digests must contain either both verification/NOTES.md and verification/static-scan.txt with non-empty SHA-256 digests (legacy layout) or neither (condensed layout, producing None/None); a partial pair or empty digest raises AuditInputError.",
     "Both JSON payloads are serialized before creating audit_dir, written and fsynced to temporary files inside audit_dir, replaced via os.replace, and unlinked on failure."
   ],
   "exclusions": [
@@ -26,20 +26,20 @@
     "leaf": "02",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
-  "statement": "build_verification_status assembles a self-contained VerificationStatus with build_status='unverified-locally', and write_audit_artifacts stages both temporary files in audit_dir before atomically replacing provenance.json and verification-status.json with cleanup on failure.",
+  "statement": "build_verification_status assembles a self-contained VerificationStatus with build_status='unverified-locally' and paired-optional verification-note digests (both non-empty or both null), and write_audit_artifacts stages both temporary files in audit_dir before atomically replacing provenance.json and verification-status.json with cleanup on failure.",
   "supersedes": [],
   "title": "Self-contained VerificationStatus and atomic audit artifact replacement",
   "writer": {
-    "at": "2026-11-25T17:00:49+01:00",
+    "at": "2026-11-26T12:10:47+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "02",
+    "leaf": "01",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
-    "task": "261123-RH"
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
   }
 }
