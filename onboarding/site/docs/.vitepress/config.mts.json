@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "81fcb546e2aa736260cf3f9043ee38504b1dd0fb",
-        "content": "sha256:5be31eef8e55478df6040f4405504a8c15e56955e68804075d1a160435df78ea",
+        "blob": "423579ab90ec4dac15353c7a3c8fe91175483fa6",
+        "content": "sha256:4ba30f90b06dc5eb0807242b46a984f4a23b9164e286cfd35b59d6afca5e99ce",
         "locator": {
           "kind": "file"
         }
@@ -15,7 +15,7 @@
         "handoffEntry": "RH-R05@v1 §3",
         "leaf": "05"
       },
-      "rationale": "Configures VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, full HTML title 'Riemann Hypothesis Proof Explainer' with compact themeConfig.siteTitle 'RH Proof Explainer', cleanUrls, locked light editorial appearance, MathJax 3 SVG math, and top nav plus Stage 00 (including Proof Journey) and Concept sidebar navigation.",
+      "rationale": "Configures VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, full HTML title 'Riemann Hypothesis Proof Explainer' with compact themeConfig.siteTitle 'RH Proof Explainer', cleanUrls, locked light editorial appearance, MathJax 3 SVG math, and top nav plus Stage 00 (including Proof Journey), Stage 01 (4 pages) and Concept (18 slugs) sidebar navigation.",
       "role": "primary-authority"
     }
   ],
@@ -25,7 +25,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "81fcb546e2aa736260cf3f9043ee38504b1dd0fb",
+            "blob": "423579ab90ec4dac15353c7a3c8fe91175483fa6",
             "content": "sha256:46596c6b9b41198c5626445b4355742d30a6ccf0d4f0a91292a638ef962fa8e2",
             "locator": {
               "kind": "symbol",
@@ -41,7 +41,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "81fcb546e2aa736260cf3f9043ee38504b1dd0fb",
+            "blob": "423579ab90ec4dac15353c7a3c8fe91175483fa6",
             "content": "sha256:777c6bdaa9811d8e42a0b70cd41da0d453fed398717b418c0d20dbb654df0670",
             "locator": {
               "end": 23,
@@ -54,14 +54,14 @@
       ]
     },
     "3": {
-      "note": "`themeConfig` sets compact navbar `siteTitle: 'RH Proof Explainer'`, defines 5 top navigation links (including `Proof Journey`), Stage 00 (5 pages including `Full Proof Journey & 20-Step Map`) and Foundational Concepts (index + 12 slugs) sidebar groups, `[2, 3]` outline and `ariaLabel`-annotated GitHub `socialLinks`.\n\nAnchor: `themeConfig`",
+      "note": "`themeConfig` sets compact navbar `siteTitle: 'RH Proof Explainer'`, defines 6 top navigation links (including `Proof Journey` and `Stage 01`), Stage 00 (5 pages including `Full Proof Journey & 20-Step Map`), Stage 01 (4 pages under `/stages/01_reduction/`) and Foundational Concepts (index + 18 slugs) sidebar groups, `[2, 3]` outline and `ariaLabel`-annotated GitHub `socialLinks`.\n\nAnchor: `themeConfig`",
       "targets": [
         {
           "anchor": {
-            "blob": "81fcb546e2aa736260cf3f9043ee38504b1dd0fb",
-            "content": "sha256:5c9bf43444f5dfbc22bea94b61f3d04980667862882e07721a17c7a643766840",
+            "blob": "423579ab90ec4dac15353c7a3c8fe91175483fa6",
+            "content": "sha256:f6d7d2c55e49fc1e2d2c318839b704ccd2af4dcda31ae01bb431ed04af26a933",
             "locator": {
-              "end": 116,
+              "end": 144,
               "kind": "line_range",
               "start": 24
             }

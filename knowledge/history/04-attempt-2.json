@@ -1,0 +1,172 @@
+{
+  "attempt": 2,
+  "closed": true,
+  "leaf": "04",
+  "rows": [
+    {
+      "because": [
+        {
+          "id": "RH-R10",
+          "packet": "RH-R10-v1-stage01-theorem-and-reduction.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-DCZTSW",
+      "items": [],
+      "reason": "Refreshed reconsider_on anchor on site/docs/.vitepress/config.mts at candidate code tree ee8cc843960e61da9050c38ca9900ef30222686f after confirming rejected alternative 1 of DEC-0XZ8V5 remains still_rejected.",
+      "revision": 4,
+      "subject": "DEC-0XZ8V5"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R10",
+          "packet": "RH-R10-v1-stage01-theorem-and-reduction.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "423579ab90ec4dac15353c7a3c8fe91175483fa6",
+            "content": "sha256:4ba30f90b06dc5eb0807242b46a984f4a23b9164e286cfd35b59d6afca5e99ce",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "before": {
+            "blob": "81fcb546e2aa736260cf3f9043ee38504b1dd0fb",
+            "content": "sha256:5be31eef8e55478df6040f4405504a8c15e56955e68804075d1a160435df78ea",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "id": "RLZ-CRCTC9"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-MGA7HB",
+      "items": [
+        "sha256:d65d3119e12622f1814332fbd1f571fd5030274a385e0b3f86b57884970dc1c8"
+      ],
+      "reason": "Re-anchored RLZ-CRCTC9 on site/docs/.vitepress/config.mts at candidate code tree ee8cc843960e61da9050c38ca9900ef30222686f and updated its rationale for Stage 01 top nav, the four-page Stage 01 sidebar group, and six new Concept Cards (18 total). All INV-VGNZKV shell guarantees (MathJax 3 SVG, VITEPRESS_BASE default, full HTML title paired with compact siteTitle 'RH Proof Explainer', cleanUrls, locked light appearance, and script-off Vue components) remain preserved unchanged, verified by Worker L04-A1 and Reviewer RV-04-A1 CODE/docs/maths PASS (full build stages=9 concepts=18 assets=9, synthetic overview-only build 1/1/1, Playwright 0 errors and 0 overflow across desktop/mobile/narrow viewports).",
+      "revision": 3,
+      "subject": "INV-VGNZKV"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-S1BTZE",
+      "items": [
+        "sha256:44d26aec6d1c5e439322c026da26440d20b98385e39584369d9fe108138676b7"
+      ],
+      "reason": "Updated onboarding/overview.md Build and Development prose and paired evidence note [7] (re-authored via citation_fix) from Stage 00-only wording to multi-stage explainer compilation (docs/stages/*/*.md, requiring docs/stages/00_statement/overview.md) to stay accurate alongside Stage 01 wiring in site/docs/.vitepress/config.mts.",
+      "sources": [
+        {
+          "blob": "423579ab90ec4dac15353c7a3c8fe91175483fa6",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "changed",
+      "effect": "strengthen",
+      "examined": [
+        {
+          "id": "INV-GXDXCT",
+          "revision": 1
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 3
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 3
+        }
+      ],
+      "id": "ROW-VZ2EDE",
+      "items": [
+        "sha256:8f71e253ac01774f24e179f4919c2ebb43f110f9b3106c9bd592d409f69291da"
+      ],
+      "reason": "Examined all four members of FAM-033QTE (INV-VGNZKV re-anchored at revision 3 with updated RLZ-CRCTC9 rationale; INV-GXDXCT rev 1, INV-HK005W rev 1, and INV-V207JN rev 3 untouched) and strengthened the family guarantee from 'validated Stage 00 docs' to 'validated stage docs' so the joint Phase 4 static-site guarantee covers Stage 01 (01_reduction) navigation and multi-stage compilation alongside Stage 00 while retaining root route '.'.",
+      "revision": 2,
+      "subject": "FAM-033QTE"
+    },
+    {
+      "disposition": "still_rejected",
+      "id": "ROW-X7681W",
+      "items": [
+        "sha256:7e88b0873c905b2efa2b737d94d42644632c3632f60cf395f673c16f5104da23"
+      ],
+      "reason": "site/docs/.vitepress/config.mts only added the Stage 01 top-nav link, the four-page Stage 01 sidebar group, and six Concept Card sidebar links while preserving VitePress defineConfig, markdown.math: true (with pinned markdown-it-mathjax3 in site/package.json), cleanUrls: true, appearance: false, VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, and dual-repo GitHub Pages ownership in ar-rh-proof-skeleton/.github/workflows/pages.yml; neither reconsider_when condition (switching away from VitePress or moving public explainer docs back into the code repository) is met, so rejected alternative 1 remains rejected.",
+      "subject": "reconsider:DEC-0XZ8V5#1"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-ZPHBRZ",
+      "items": [
+        "sha256:f4719397e6b363779447e3510ef9feaa1c0c89f340cee305e1fe99c37a26bc44"
+      ],
+      "reason": "Updated onboarding/site/docs/.vitepress/config.mts.md prose and refreshed sidecar references [1]-[3] via citation_fix for the 6 top navigation entries (adding Stage 01), 3 sidebar groups (adding 4-page Stage 01 — The Theorem & Its Reduction), and 18 Foundational Concepts sidebar slugs (adding the 6 Stage 01 Concept Cards).",
+      "sources": [
+        {
+          "blob": "423579ab90ec4dac15353c7a3c8fe91175483fa6",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/config.mts"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:8cb7e7004049f3267f53426ff2763bfe486adf3d132bfd54484951bf195bb627",
+      "record": "DEC-0XZ8V5",
+      "revision": 4,
+      "writer": {
+        "at": "2026-11-26T18:42:02+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "04",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "7fe4a81c-df0b-530e-83f5-94a0c9796013",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:30e5d50a9b1eff5f410ea97e17df8d3be9bab20cf171e6f9ef275fcffc4457d6",
+      "record": "FAM-033QTE",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-26T18:42:02+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "04",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "7fe4a81c-df0b-530e-83f5-94a0c9796013",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}

@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Orchestrates deterministic, fail-closed compilation of validated Concept Cards, Stage 00 explainer essays, SVG assets, Lean skeletons, DAG metadata and audit status into a VitePress `docs/` tree without mutating `.vitepress/`.
+Orchestrates deterministic, fail-closed compilation of validated Concept Cards, stage explainer essays, SVG assets, Lean skeletons, DAG metadata and audit status into a VitePress `docs/` tree without mutating `.vitepress/`.
 
 ## Code Commentary
 
@@ -14,7 +14,7 @@ Orchestrates deterministic, fail-closed compilation of validated Concept Cards, 
 
 ## Relationships
 
-Depends on [audit models](../models/audit.py.md), [concept models](../models/concepts.py.md), [DAG models](../models/dag.py.md), [concept validator](../validate/concepts.py.md), [jargon validator](../validate/jargon.py.md), [markdown_transforms.py](markdown_transforms.py.md) and [renderers.py](renderers.py.md). Re-exported by [the site package facade](__init__.py.md) and invoked by [the site-builder CLI](../cli/build_site.py.md). Compiles the external memory repository's dependent Stage 00 corpus (`docs/stages/00_statement/{overview,main-theorems,statement-definitions,formal-conjectures}.md`, 12 `docs/concepts/*.md` cards and 5 `docs/assets/*.svg` diagrams standing on `skeleton/00_statement/*.lean`, `dag/dag.json` and `audit/verification-status.json`) into gitignored `site/docs/` consumed by [VitePress config](../../../site/docs/.vitepress/config.mts.md). Verified by [the site compiler tests](../../../tests/unit/test_site_compiler.py.md).
+Depends on [audit models](../models/audit.py.md), [concept models](../models/concepts.py.md), [DAG models](../models/dag.py.md), [concept validator](../validate/concepts.py.md), [jargon validator](../validate/jargon.py.md), [markdown_transforms.py](markdown_transforms.py.md) and [renderers.py](renderers.py.md). Re-exported by [the site package facade](__init__.py.md) and invoked by [the site-builder CLI](../cli/build_site.py.md). Compiles the external memory repository's dependent stage explainer essays (`docs/stages/*/*.md`, requiring `docs/stages/00_statement/overview.md`), Concept Cards (`docs/concepts/*.md`) and SVG assets (`docs/assets/*.svg`)—standing on `skeleton/*/*.lean`, `dag/dag.json` and `audit/verification-status.json`—into gitignored `site/docs/` consumed by [VitePress config](../../../site/docs/.vitepress/config.mts.md). Verified by [the site compiler tests](../../../tests/unit/test_site_compiler.py.md).
 
 ## Evidence
 
