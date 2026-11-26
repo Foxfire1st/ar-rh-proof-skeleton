@@ -42,7 +42,7 @@ The uniqueness of analytic continuation rests on the **Identity Theorem**: if tw
 
 Riemann constructed this continuation via the Jacobi theta function $\theta(t) = \sum_{n \in \mathbb{Z}} e^{-\pi n^2 t}$ ($t > 0$) and its modular transformation $\theta(1/t) = t^{1/2} \theta(t)$. Splitting the Mellin integral at $t = 1$ gives
 $$\pi^{-s/2}\Gamma(s/2)\zeta(s) = \frac{1}{s(s-1)} + \int_1^{\infty} \left(t^{s/2 - 1} + t^{(1-s)/2 - 1}\right)\frac{\theta(t) - 1}{2}\,dt.$$
-Because $\theta(t) - 1$ decays exponentially as $t \to \infty$, the integral converges for every $s \in \mathbb{C}$ and defines an entire function. The rational term $\frac{1}{s(s-1)}$ supplies the only poles (simple poles at $s = 0$ and $s = 1$), and the integrand is manifestly invariant under $s \mapsto 1 - s$. The exact same mechanism (using twisted theta series) continues every primitive Dirichlet $L$-function to an entire function on $\mathbb{C}$.
+Because $\theta(t) - 1$ decays exponentially as $t \to \infty$, the integral converges for every $s \in \mathbb{C}$ and defines an entire function. The rational term $\frac{1}{s(s-1)}$ supplies the only poles (simple poles at $s = 0$ and $s = 1$), and the integrand is manifestly invariant under $s \mapsto 1 - s$. The exact same mechanism (using twisted theta series) continues every nontrivial primitive Dirichlet $L$-function to an entire function on $\mathbb{C}$ (excluding the trivial character modulo $1$, which equals $\zeta(s)$ with its simple pole at $s = 1$).
 
 ## Level 3 — Formal Lean Contract
 

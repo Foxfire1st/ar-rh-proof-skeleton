@@ -1,6 +1,6 @@
 # Stage 00 — Formal Statements & Challenge Contracts
 
-Stage 00 establishes what the Riemann Hypothesis and the Generalized Riemann Hypothesis actually assert in Lean 4, why proving nonvanishing strictly to the right of $\operatorname{Re}(s) = 1/2$ forces every nontrivial zero onto $\operatorname{Re}(s) = 1/2$, and how independent Comparator checks confirm that the proved theorems match standard mathematical definitions.
+Stage 00 establishes what the Riemann Hypothesis and the Generalized Riemann Hypothesis actually assert in Lean 4, why proving nonvanishing strictly to the right of $\operatorname{Re}(s) = 1/2$ forces every nontrivial zero onto $\operatorname{Re}(s) = 1/2$, and how independent Comparator specifications are designed to confirm that the submitted theorems match standard mathematical definitions.
 
 ## Level 1 — Abitur / First-Principles
 
@@ -19,7 +19,7 @@ Because a modern machine-checked proof can span hundreds of thousands of lemmas,
 - [Formal Statement Contracts](./statement-definitions.md) — why each of the four predicates in `src/Statements.lean` carries its exact exclusions and strip bounds.
 - [Independent Statement Equivalence](./formal-conjectures.md) — how the `comparator/` files bridge the submission's strip formulation to the external `formal-conjectures` statements of RH and GRH.
 
-**What Stage 00 leaves out:** Stage 00 treats the core proof engine `UpperTheory.FinalTheorems.everyCharacter` (which proves nonvanishing of $L(\chi, s)$ on $\operatorname{Re}(s) > 1/2$) as a typed black box. Stages 01–20—covering the Stepanov determinant bootstrap, CM curve derivations, sixfold-cover $\mathrm{GL}_5$ theta automorphy, Guinand–Weil variance positivity, Gan–Gross–Prasad periods, iterated unitary theta lifts, Iwasawa towers, Bost's slope inequality, the relative trace formula, weakened Vandiver, and Behrend parameter selection—are explicitly deferred to later stage guides.
+**What Stage 00 leaves out:** Stage 00 treats the core proof engine `UpperTheory.FinalTheorems.everyCharacter` (whose stated type asserts nonvanishing of $L(\chi, s)$ on $\operatorname{Re}(s) > 1/2$) as a typed black box. Stages 01–20—covering the Stepanov determinant bootstrap, CM curve derivations, sixfold-cover $\mathrm{GL}_5$ theta automorphy, Guinand–Weil variance positivity, Gan–Gross–Prasad periods, iterated unitary theta lifts, Iwasawa towers, Bost's slope inequality, the relative trace formula, weakened Vandiver, and Behrend parameter selection—are explicitly deferred to later stage guides.
 
 ![Complex s-plane showing convergence half-plane, critical strip, critical line, pole at s=1, trivial zeros, and first nontrivial zeros](assets/complex-plane-critical-strip.svg)
 
@@ -27,7 +27,7 @@ Because a modern machine-checked proof can span hundreds of thousands of lemmas,
 
 ### Where this analogy breaks
 
-Describing nontrivial zeros as "sound waves" building the prime-counting error accurately conveys that each zero $\rho = \sigma + it$ contributes an oscillatory term $x^{\sigma} e^{it \ln x} / \rho$ whose amplitude grows with $\sigma$ and whose frequency grows with $t$. The analogy breaks on independence and synthesis: unlike audio harmonics that can be tuned independently on a synthesizer, the zeros of $\zeta(s)$ and $L(\chi, s)$ are rigidly locked together by the arithmetic Euler product and global analyticity, and the formal proof does not inspect zeros individually—it proves global nonvanishing in the entire half-plane $\operatorname{Re}(s) > 1/2$.
+Describing nontrivial zeros as "sound waves" building the prime-counting error accurately conveys that each zero $\rho = \sigma + it$ contributes an oscillatory term $x^{\sigma} e^{it \ln x} / \rho$ whose amplitude grows with $\sigma$ and whose frequency grows with $t$. The analogy breaks on independence and synthesis: unlike audio harmonics that can be tuned independently on a synthesizer, the zeros of $\zeta(s)$ and $L(\chi, s)$ are rigidly locked together by the arithmetic Euler product and global analyticity, and the upstream submission does not inspect zeros individually—its strategy aims for global nonvanishing in the entire half-plane $\operatorname{Re}(s) > 1/2$.
 
 ## Level 2 — Undergrad Bridge
 
@@ -41,7 +41,7 @@ Three classical ingredients carry every arrow in Stage 00:
 2. **Functional-equation reflection across $\operatorname{Re}(s) = 1/2$:** For primitive $\chi^*$, the completed function $\Lambda(\chi^*, s)$ satisfies $\Lambda(\chi^*, s) = \varepsilon(\chi^*)\Lambda((\chi^*)^{-1}, 1 - s)$ with $\varepsilon(\chi^*) \neq 0$, and the gamma factor has no zeros in $\operatorname{Re}(s) > 0$. Any zero $s$ of $L(\chi^*, s)$ with $0 < \operatorname{Re}(s) < 1/2$ therefore reflects to a zero $1 - s$ of $L((\chi^*)^{-1}, \cdot)$ with $1/2 < \operatorname{Re}(1 - s) < 1$, contradicting right-half-plane nonvanishing.
 3. **Whole-plane equivalence for primitive characters:** Classical nonvanishing on $\operatorname{Re}(s) \ge 1$ (`LFunction_ne_zero_of_one_le_re`, plus $\zeta(1) \neq 0$ in Mathlib's pole convention) rules out zeros to the right of the strip, while reflection from $\operatorname{Re}(s) \le 0$ to $\operatorname{Re}(1 - s) \ge 1$ shows every zero in $\operatorname{Re}(s) \le 0$ comes from a pole of the gamma factor—matching `GRH.trivialZeros χ` exactly.
 
-Everything below `DirichletLNonvanishingRightOfHalf` belongs to Stages 01–20; everything inside Stage 00 is transparent, self-contained contract verification.
+Everything below `DirichletLNonvanishingRightOfHalf` belongs to Stages 01–20; everything inside Stage 00 is a transparent, self-contained statement and reduction contract (whose local Lean/Comparator build verification remains `unverified-locally`).
 
 ## Level 3 — Formal Lean Contract
 
