@@ -10,7 +10,7 @@ Verifies the `rh-validate` CLI entry point, optional `--memory` skip/error behav
 
 ## Code Commentary
 
-Tests `rh-validate --repo <repo>` without `--memory` (validating live repo schemas with explicit skip INFO note and exit 0), missing `--repo` and missing `--memory` directories (`cli-missing-repo` / `cli-missing-memory`, exit 1), `--memory` with absent or empty `docs/concepts/` (explicit INFO skip note, exit 0), end-to-end populated memory passing while ignoring `<memory>/onboarding/`, canonically sorted combined schema and jargon findings (exit 1), non-UTF-8 concept and stage files emitting `concept-read`/`explainer-read` without crashing, and direct invocation of the installed `.venv/bin/rh-validate` console script. Limits: subprocess console-script test skips if `.venv/bin/rh-validate` is not installed next to `sys.executable`.
+Tests `rh-validate --repo <repo>` without `--memory` (validating live repo schemas with explicit skip INFO note and exit 0), missing `--repo` and missing `--memory` directories (`cli-missing-repo` / `cli-missing-memory`, exit 1), `--memory` with absent or empty `docs/concepts/` (explicit INFO skip note, exit 0), end-to-end populated memory passing while ignoring `<memory>/onboarding/`, canonically sorted combined schema and jargon findings (exit 1), non-UTF-8 concept and stage files emitting `concept-read`/`explainer-read` without crashing, and direct invocation of the installed `.venv/bin/rh-validate` console script. Limits: subprocess console-script test requires `REPO_ROOT/.venv/bin/rh-validate` to be installed and runs it directly without skipping.
 
 ## Relationships
 

@@ -2,7 +2,7 @@
 
 This page explains the `New.TwistedLattice` abstraction (`src/New/Reduction/Lattices/TwistedLattice.lean`), the height calculus (`src/New/Reduction/Lattices/Heights.lean`), and the headline product-formula inequality `New.TwistedLattice.covolume_add_index_nonneg` ("a twist for each prime") that underpins Theorem C in the reduction. Return to the [Stage 01 Overview](./overview.md) or review how Theorem C balances against Theorems A and B in [The Main Inequality & Theorems A and B](./main-inequality.md).
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Take any nonzero fraction $q = a/b$ written in lowest terms. If you measure its ordinary real size $|q|$ alongside its divisibility by every {{concept:prime-number|indivisible whole number greater than $1$}}, those measurements obey a strict conservation law: the ordinary size and all prime-scale sizes multiply to $1$, so their logarithms sum to $0$. In particular, any nonzero integer has ordinary absolute value at least $1$, and any basis of an ordinary integer grid encloses a squared volume of at least $1$—you cannot compress independent integer vectors arbitrarily close to zero without forcing a denominator to appear at some prime.
 

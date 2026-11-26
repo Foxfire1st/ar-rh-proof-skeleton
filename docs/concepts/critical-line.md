@@ -27,7 +27,7 @@ child_concepts:
 
 # Critical Line
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Inside {{concept:complex-plane|the two-dimensional grid of real and imaginary coordinates}}, {{concept:critical-strip|the vertical band $0 < \operatorname{Re}(s) < 1$}} is symmetric left-to-right around its center. The vertical line running down that exact center—all points $s = \frac{1}{2} + it$ with real coordinate $\frac{1}{2}$ and arbitrary vertical coordinate $t$—is the **critical line**.
 

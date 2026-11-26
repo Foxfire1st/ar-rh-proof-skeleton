@@ -24,7 +24,7 @@ child_concepts:
 
 # Critical Strip
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Picture {{concept:complex-plane|the two-dimensional grid of real and imaginary coordinates}} divided by two vertical fences: one at horizontal coordinate $\operatorname{Re}(s) = 0$ and one at $\operatorname{Re}(s) = 1$. Everything strictly to the right of $1$ is free of zeros because the product over primes never vanishes there. Everything on or to the left of $0$ is completely understood by mirror symmetry from the right half, leaving only {{concept:trivial-zeros|predictable non-positive integer zeros}} (plus, for non-primitive twists, extra zeros sitting right on the left fence $\operatorname{Re}(s) = 0$).
 

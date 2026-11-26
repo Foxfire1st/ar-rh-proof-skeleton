@@ -32,7 +32,7 @@ child_concepts:
 
 # Quadratic twist
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Fix an odd {{concept:prime-number|integer greater than $1$ divisible only by $1$ and itself}} $d$. The **Legendre symbol** $(n/d)$ answers a basic modular-arithmetic question about any integer $n$: is $n$ a perfect square modulo $d$?
 $$\left(\frac{n}{d}\right) = \begin{cases} 0 & \text{if } d \text{ divides } n, \\ +1 & \text{if } d \nmid n \text{ and } n \equiv a^2 \pmod d \text{ for some integer } a, \\ -1 & \text{otherwise.} \end{cases}$$

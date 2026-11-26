@@ -2,7 +2,7 @@
 
 This landmark page examines the four `Prop` definitions in `src/Statements.lean` that serve as the shared contract between the proof library and the entry theorems. Return to the [Stage 00 Overview](./overview.md) or read [The Five Entry Theorems](./main-theorems.md) to see how `Main.lean` proves them.
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Writing a mathematical conjecture in a computer language forces every silent assumption out into the open. When mathematicians say informally that "all zeros of $\zeta(s)$ have real part $1/2$," human readers automatically skip the pole at $s = 1$ and the negative even integers $-2, -4, -6, \dots$. A computer checker takes every word literally: if you forget to exclude even one point where a function behaves specially, the statement becomes false.
 

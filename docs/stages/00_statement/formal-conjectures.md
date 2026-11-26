@@ -4,7 +4,7 @@
 
 This landmark page explains why Stage 00 tracks a second, independent Comparator setup drawn from Google DeepMind's `formal-conjectures` repository, and how it rules out the classic formalization risk of proving a subtly weakened statement. Return to the [Stage 00 Overview](./overview.md) or review [Formal Statement Contracts](./statement-definitions.md) for the submission's own predicates.
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 In {{concept:formal-verification|machine-checked mathematics}}, a proof kernel guarantees that every step follows validly from the definitions, yet the kernel alone cannot judge whether the author wrote down the *right* theorem. Suppose someone defines a custom predicate, accidentally adds an extra restriction, and proves it with zero errors. The kernel reports success, even though the famous conjecture was never proved.
 

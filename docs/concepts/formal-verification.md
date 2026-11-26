@@ -25,7 +25,7 @@ child_concepts:
 
 # Formal Verification
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 In traditional mathematics, a referee reads a paper and checks whether each step follows from earlier theorems without hidden gaps. For a proof spanning thousands of pages or hundreds of thousands of machine-generated lemmas, human line-by-line checking cannot catch every subtle omission. **Formal verification** translates both the statement and every deduction into a strict symbolic language checked by a **proof assistant** (here, Lean 4). A small trusted core program—the kernel—verifies every single inference rule back to a tiny list of foundational axioms.
 

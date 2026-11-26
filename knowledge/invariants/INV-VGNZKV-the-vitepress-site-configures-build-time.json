@@ -11,7 +11,7 @@
   "conditions": [
     "site/docs/.vitepress/config.mts enables markdown.math: true (paired with markdown-it-mathjax3 in site/package.json and site/package-lock.json), cleanUrls: true, appearance: false, VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, full HTML title 'Riemann Hypothesis Proof Explainer' and themeConfig.siteTitle 'RH Proof Explainer'.",
     "site/docs/.vitepress/theme/tokens.css constrains .VPNavBarTitle .title, .VPNavBarTitle.has-sidebar .title and their inner > span with single-line nowrap/ellipsis and min-width: 0 framing so the navbar title stays inside the 272px sidebar header with zero horizontal overflow across desktop and narrow viewports.",
-    "VerificationBanner (defaulting repoLayout to 'condensed' for live comparator.json/GUIDE.md/INDEX.md links and preserving 'legacy' comparator/ and verification/NOTES.md links), ConceptReveal, ConceptHover and ZoomTabs preserve full script-off and print readability, keyboard operation without focus traps and high-contrast non-color-only visual cues."
+    "VerificationBanner (defaulting repoLayout to 'condensed' for live comparator.json/GUIDE.md/INDEX.md links and preserving 'legacy' comparator/ and verification/NOTES.md links), ConceptReveal, ConceptHover and ZoomTabs (defaulting Level 1 to id 'first-principles' / label 'Level 1 · First-Principles' while mapping legacy ?level=abitur and #level-abitur aliases to 'first-principles') preserve full script-off and print readability, keyboard operation without focus traps and high-contrast non-color-only visual cues."
   ],
   "exclusions": [
     "Full 8-pillar interactive Cytoscape/D3 DAG explorer and dark-mode theme toggling are explicitly out of scope for Stage 00."
@@ -28,20 +28,20 @@
     "leaf": "05",
     "task": "261123-RH"
   },
-  "revision": 3,
+  "revision": 4,
   "schema": "ar-invariant/v1",
-  "statement": "The VitePress site configures build-time MathJax 3 SVG math (markdown.math: true + markdown-it-mathjax3 + committed package-lock.json), configurable VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, compact navbar siteTitle 'RH Proof Explainer' framed inside the 272px sidebar header while retaining full HTML title 'Riemann Hypothesis Proof Explainer', an editorial light palette, and accessible script-off-readable VerificationBanner (supporting condensed and legacy repoLayout links), ConceptReveal, ConceptHover, and ZoomTabs components.",
+  "statement": "The VitePress site configures build-time MathJax 3 SVG math (markdown.math: true + markdown-it-mathjax3 + committed package-lock.json), configurable VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, compact navbar siteTitle 'RH Proof Explainer' framed inside the 272px sidebar header while retaining full HTML title 'Riemann Hypothesis Proof Explainer', an editorial light palette, and accessible script-off-readable VerificationBanner (supporting condensed and legacy repoLayout links), ConceptReveal, ConceptHover, and ZoomTabs (defaulting Level 1 to 'first-principles' with legacy 'abitur' URL aliases) components.",
   "supersedes": [],
   "title": "Editorial light VitePress shell, MathJax 3 SVG and script-off Vue components",
   "writer": {
-    "at": "2026-11-26T17:05:19+01:00",
+    "at": "2026-11-26T19:43:17+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "03",
+    "leaf": "05",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "c7e454d0-c34c-5716-a8f0-e787ae8c01c7",
+    "seat": "50c624db-5488-53d3-a74e-eba4248597c1",
     "task": "261126-EXP"
   }
 }

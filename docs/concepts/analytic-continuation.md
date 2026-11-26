@@ -26,7 +26,7 @@ child_concepts:
 
 # Analytic Continuation
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Suppose a formula works only on part of {{concept:complex-plane|the two-dimensional grid of real and imaginary coordinates}}. For example, the geometric {{concept:infinite-series|unending sum}} $1 + z + z^2 + z^3 + \dots$ converges only inside the unit circle $|z| < 1$, where it equals $\frac{1}{1 - z}$. Yet the right-hand formula $\frac{1}{1 - z}$ makes sense at every point except $z = 1$, and agrees with the sum everywhere inside the circle.
 

@@ -2,7 +2,7 @@
 
 This page explains how `New.star_inequality` (`src/New/Reduction/MainInequality.lean`) turns three structural inputs—shortness and small index (Theorem A), near-full-rank spanning (Theorem B), and a lower bound on integral lifts (Theorem C, supplied by Stages 05–07)—into an upper bound on the weighted prime-sum remainder `D.totalRemainder`, and how `ShortAndEnough.lean` and `PrimeSums.lean` assemble the upper-bound half of that comparison. Return to the [Stage 01 Overview](./overview.md), see [Landau's Lemma & the One-Sided Criterion](./one-sided-criterion.md) for how this bound rules out off-line zeros, and continue to [Twisted Lattices & A Twist for Each Prime](./twisted-lattices.md) for the lattice-and-height engine behind Theorem C.
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Imagine stacking $n$ rigid shipping crates inside a warehouse whose total dimension is $d_T$. Suppose you obtain two opposing estimates for the total volume of the stacked crates:
 - **A ceiling (upper bound):** each crate is individually small, so by multiplying their individual sizes you get an upper bound on the total volume they enclose. Moreover, whenever a weighted sum over {{concept:prime-number|indivisible whole numbers greater than $1$}} drifts too far upward, the crates shrink even faster—lowering the ceiling by an extra penalty proportional to that drift.

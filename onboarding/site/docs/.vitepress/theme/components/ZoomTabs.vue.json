@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
-        "content": "sha256:5957798a2b3303ea298360fccd331e8154e20d8d8aacf72182e890f862235987",
+        "blob": "e74a07979d856de700ad603591ff60fc07cd7e3a",
+        "content": "sha256:8eddbc9db33391d83148570becd617c1457fd63dfc62d824c7bda6fbbae7e9da",
         "locator": {
           "kind": "file"
         }
@@ -15,18 +15,18 @@
         "handoffEntry": "RH-R05@v1 §3",
         "leaf": "05"
       },
-      "rationale": "Renders all three zoom levels stacked in static/script-off/print HTML and upgrades after hydration to keyboard-navigable roving-tabindex tabs with shareable ?level= URL state.",
+      "rationale": "Renders all three zoom levels (defaulting Level 1 to id 'first-principles' and label 'Level 1 · First-Principles' while mapping legacy ?level=abitur and #level-abitur aliases to 'first-principles') stacked in static/script-off/print HTML and upgrades after hydration to keyboard-navigable roving-tabindex tabs with shareable ?level= URL state.",
       "role": "presentation"
     }
   ],
   "references": {
     "1": {
-      "note": "Defines the three zoom tabs (`abitur`/`undergrad`/`lean` mapped to `level1`/`level2`/`level3` slots), `pageId` prop and pre-hydration `hydrated = false` state.\n\nAnchor: `TABS`",
+      "note": "Defines the three zoom tabs (`first-principles`/`undergrad`/`lean` mapped to `level1`/`level2`/`level3` slots with default `activeLevel = 'first-principles'`), `pageId` prop and pre-hydration `hydrated = false` state.\n\nAnchor: `TABS`",
       "targets": [
         {
           "anchor": {
-            "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
-            "content": "sha256:2bbbbe42236f8f44db00cec7b57dc0c45fa5d2b3faf13e231015bc3d4b7be2c1",
+            "blob": "e74a07979d856de700ad603591ff60fc07cd7e3a",
+            "content": "sha256:f9c2abdff201911ef98503d416455daae0be369c8a0884ffe17d15649ba97090",
             "locator": {
               "end": 40,
               "kind": "line_range",
@@ -38,14 +38,14 @@
       ]
     },
     "2": {
-      "note": "Parses `?level=` and `#level-*` deep links (`parseLevelFromUrl`), syncs `?level=` via `history.replaceState` (`syncUrl`) and handles `ArrowLeft`/`ArrowRight`/`Home`/`End` keyboard navigation (`onTabKeydown`).\n\nAnchor: `onTabKeydown`",
+      "note": "Parses `?level=` and `#level-*` deep links including legacy `abitur` aliases (`parseLevelFromUrl`), syncs `?level=` via `history.replaceState` (`syncUrl`) and handles `ArrowLeft`/`ArrowRight`/`Home`/`End` keyboard navigation (`onTabKeydown`).\n\nAnchor: `parseLevelFromUrl`; `onTabKeydown`",
       "targets": [
         {
           "anchor": {
-            "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
-            "content": "sha256:6632856e8a4890627da89b815b52c6b344e1585957fc0db99b90e94a2ddaf1e1",
+            "blob": "e74a07979d856de700ad603591ff60fc07cd7e3a",
+            "content": "sha256:e9da0ebbf4227f4663ae83481f72419a34ee66fb3171f16bb941d510e0fa6bcc",
             "locator": {
-              "end": 118,
+              "end": 121,
               "kind": "line_range",
               "start": 42
             }
@@ -59,12 +59,12 @@
       "targets": [
         {
           "anchor": {
-            "blob": "fba5e5ca3482f8522f7e5005a712923d64d6f80d",
+            "blob": "e74a07979d856de700ad603591ff60fc07cd7e3a",
             "content": "sha256:73f43fe0dbf820c4c03a35736f8c9929bdaa73824865a3ad0807235cc47a5dce",
             "locator": {
-              "end": 188,
+              "end": 191,
               "kind": "line_range",
-              "start": 121
+              "start": 124
             }
           },
           "kind": "code"

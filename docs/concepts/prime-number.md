@@ -23,7 +23,7 @@ child_concepts:
 
 # Prime Number
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Take any whole number greater than $1$, such as $12$ or $17$. You can split $12$ into smaller factors ($12 = 2 \times 2 \times 3$), whereas $17$ admits no split other than $1 \times 17$. A whole number greater than $1$ that cannot be broken into a product of two smaller positive whole numbers is a **prime number**. The sequence begins $2, 3, 5, 7, 11, 13, 17, 19, \dots$ and never ends: Euclid proved that any finite list of primes leaves out at least one prime dividing their product plus $1$.
 

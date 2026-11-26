@@ -30,7 +30,7 @@ child_concepts:
 
 # Arithmetic Height
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Take any nonzero fraction written in lowest terms, say $q = \frac{12}{25} = 2^2 \cdot 3^1 \cdot 5^{-2}$. Besides measuring its ordinary size $|q| = \frac{12}{25}$, you can inspect $q$ through the lens of each {{concept:prime-number|indivisible whole number $p \in \{2, 3, 5, 7, \dots\}$}} by counting how many powers of $p$ divide it. That exponent—positive for factors in the numerator, negative for factors in the denominator, and $0$ for primes not dividing either—is the **$p$-adic valuation** $v_p(q)$. Turning the exponent into a multiplicative size $|q|_p = p^{-v_p(q)}$ makes numbers highly divisible by $p$ count as "$p$-adically small": here $|q|_2 = \frac{1}{4}$, $|q|_3 = \frac{1}{3}$, $|q|_5 = 25$, and $|q|_p = 1$ for every other prime.
 

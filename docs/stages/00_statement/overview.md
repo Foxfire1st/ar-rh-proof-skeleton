@@ -2,7 +2,7 @@
 
 Stage 00 establishes what the Riemann Hypothesis and the Generalized Riemann Hypothesis actually assert in Lean 4, why proving nonvanishing strictly to the right of $\operatorname{Re}(s) = 1/2$ forces every nontrivial zero onto $\operatorname{Re}(s) = 1/2$, and how independent Comparator specifications are designed to confirm that the submitted theorems match standard mathematical definitions.
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Counting {{concept:prime-number|whole numbers greater than $1$ that have no smaller positive divisors}} up to a bound $x$ looks simple at first: roughly $x / \ln x$ numbers below $x$ are prime. Yet the exact count $\pi(x)$ wavers above and below its smooth approximation $\operatorname{Li}(x) = \int_2^x \frac{dt}{\ln t}$. In 1859, Bernhard Riemann showed that those irregular prime wavers behave like sound waves whose frequencies and amplitudes are read off from a single function defined across {{concept:complex-plane|the two-dimensional grid of points $s = \sigma + it$ combining a real horizontal coordinate and an imaginary vertical coordinate}}.
 

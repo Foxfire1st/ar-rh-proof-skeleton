@@ -26,7 +26,7 @@ child_concepts:
 
 # Trivial Zero
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 When {{concept:riemann-zeta-function|the global function built from $\sum n^{-s}$}} is extended to the whole plane by {{concept:analytic-continuation|the unique complex-differentiable extension beyond $\operatorname{Re}(s) > 1$}}, it satisfies a mirror symmetry linking its value at $s$ to its value at $1 - s$. That mirror equation includes a built-in scaling factor (the gamma factor) that blows up to infinity at every negative even integer $s = -2, -4, -6, \dots$. Because the completed product stays finite and nonzero at those points, the zeta function itself is forced to equal $0$ there to cancel the blow-up.
 

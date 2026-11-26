@@ -27,7 +27,7 @@ child_concepts:
 
 # Twisted Lattice
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 In ordinary geometry, take a grid of whole-number points inside Euclidean space. If you pick $n$ linearly independent grid vectors, the box they span has volume at least $1$, because the determinant of an invertible whole-number matrix is a nonzero integer and therefore has size at least $1$. Even if your vectors carry denominators, a simple tension governs them: shrinking their geometric box forces larger prime denominators to appear somewhere, while limiting those denominators puts a firm floor under the box volume.
 

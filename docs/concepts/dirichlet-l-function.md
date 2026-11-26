@@ -31,7 +31,7 @@ child_concepts:
 
 # Dirichlet L-function
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Take {{concept:riemann-zeta-function|the sum $\sum_{n=1}^{\infty} n^{-s}$ over all positive integers}} and multiply each term by {{concept:dirichlet-character|a periodic multiplicative weight $\chi(n)$ modulo $N$}}:
 $$L(\chi, s) = \sum_{n=1}^{\infty} \frac{\chi(n)}{n^s} = \frac{\chi(1)}{1^s} + \frac{\chi(2)}{2^s} + \frac{\chi(3)}{3^s} + \dots$$

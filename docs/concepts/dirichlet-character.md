@@ -25,7 +25,7 @@ child_concepts:
 
 # Dirichlet Character
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Suppose you want to count primes that leave a specific remainder when divided by $4$—for instance, primes of the form $4k + 1$ ($5, 13, 17, 29, \dots$) versus $4k + 3$ ($3, 7, 11, 19, \dots$). To separate those two residue classes without breaking multiplication, assign each integer a periodic weight repeating every $4$ steps:
 $$\chi(n) = \begin{cases} 0 & \text{if } n \text{ is even,} \\ +1 & \text{if } n \equiv 1 \pmod 4, \\ -1 & \text{if } n \equiv 3 \pmod 4. \end{cases}$$

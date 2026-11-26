@@ -29,7 +29,7 @@ child_concepts:
 
 # von Mangoldt function
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Counting {{concept:prime-number|integers greater than $1$ divisible only by $1$ and themselves}} with a flat weight of $1$ makes multiplication awkward, because the count of primes does not match the structure of factorizations. The **von Mangoldt function** $\Lambda(n)$ fixes that by assigning a logarithmic weight to every prime power:
 $$\Lambda(n) = \begin{cases} \log p & \text{if } n = p^k \text{ for some prime } p \text{ and integer } k \ge 1, \\ 0 & \text{otherwise.} \end{cases}$$

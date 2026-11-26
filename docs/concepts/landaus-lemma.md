@@ -29,7 +29,7 @@ child_concepts:
 
 # Landau's lemma
 
-## Level 1 — Abitur / First-Principles
+## Level 1 — First-Principles
 
 Suppose a signal $f(v) \ge 0$ stays nonnegative for all $v > 0$, and we pack it into the exponential integral
 $$F(s) = \int_0^{\infty} f(v) e^{-sv}\,dv$$
