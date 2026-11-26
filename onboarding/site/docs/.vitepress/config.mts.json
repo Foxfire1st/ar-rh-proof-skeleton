@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "e53c9eaa41efb0e856c5349af18fea1f4618ed3a",
-        "content": "sha256:a4cda18c258ea3e721ab61f5786290f965fdd936c4d794ae90ce854db22a2bae",
+        "blob": "13e9046edde75f511eed3eb4add3bb98eb740f15",
+        "content": "sha256:307dab0ee9c00ec2524524ac7b48a8ad34c47d8e29092b7dd5f7dd285ed9e459",
         "locator": {
           "kind": "file"
         }
@@ -15,7 +15,7 @@
         "handoffEntry": "RH-R05@v1 §3",
         "leaf": "05"
       },
-      "rationale": "Configures VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, full HTML title 'Riemann Hypothesis Proof Explainer' with compact themeConfig.siteTitle 'RH Proof Explainer', cleanUrls, locked light editorial appearance, MathJax 3 SVG math, and 5-item top nav (with native Stages dropdown covering Stage 00, Stage 01, Stage 02 and Stage 03) plus Stage 00 (including Proof Journey), Stage 01 (4 pages), Stage 02 (4 pages), Stage 03 (4 pages) and Concept (30 slugs) sidebar navigation.",
+      "rationale": "Configures VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, full HTML title 'Riemann Hypothesis Proof Explainer' with compact themeConfig.siteTitle 'RH Proof Explainer', cleanUrls, locked light editorial appearance, MathJax 3 SVG math, and 5-item top nav (with native Stages dropdown covering Stage 00, Stage 01, Stage 02, Stage 03 and Stage 04) plus Stage 00 (including Proof Journey), Stage 01 (4 pages), Stage 02 (4 pages), Stage 03 (4 pages), Stage 04 (4 pages) and Concept (36 slugs) sidebar navigation.",
       "role": "primary-authority"
     }
   ],
@@ -25,7 +25,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "e53c9eaa41efb0e856c5349af18fea1f4618ed3a",
+            "blob": "13e9046edde75f511eed3eb4add3bb98eb740f15",
             "content": "sha256:46596c6b9b41198c5626445b4355742d30a6ccf0d4f0a91292a638ef962fa8e2",
             "locator": {
               "kind": "symbol",
@@ -41,7 +41,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "e53c9eaa41efb0e856c5349af18fea1f4618ed3a",
+            "blob": "13e9046edde75f511eed3eb4add3bb98eb740f15",
             "content": "sha256:777c6bdaa9811d8e42a0b70cd41da0d453fed398717b418c0d20dbb654df0670",
             "locator": {
               "end": 23,
@@ -54,14 +54,14 @@
       ]
     },
     "3": {
-      "note": "`themeConfig` sets compact navbar `siteTitle: 'RH Proof Explainer'`, defines 5 top navigation entries (with a native `Stages` dropdown linking Stage 00, Stage 01, Stage 02 and Stage 03), Stage 00 (5 pages including `Full Proof Journey & 20-Step Map`), Stage 01 (4 pages under `/stages/01_reduction/`), Stage 02 (4 pages under `/stages/02_derivatives/`), Stage 03 (4 pages under `/stages/03_upper_bound/`) and Foundational Concepts (index + 30 slugs) sidebar groups, `[2, 3]` outline and `ariaLabel`-annotated GitHub `socialLinks`.\n\nAnchor: `themeConfig`",
+      "note": "`themeConfig` sets compact navbar `siteTitle: 'RH Proof Explainer'`, defines 5 top navigation entries (with a native `Stages` dropdown linking Stage 00, Stage 01, Stage 02, Stage 03 and Stage 04), Stage 00 (5 pages including `Full Proof Journey & 20-Step Map`), Stage 01 (4 pages under `/stages/01_reduction/`), Stage 02 (4 pages under `/stages/02_derivatives/`), Stage 03 (4 pages under `/stages/03_upper_bound/`), Stage 04 (4 pages under `/stages/04_spanning/`) and Foundational Concepts (index + 36 slugs) sidebar groups, `[2, 3]` outline and `ariaLabel`-annotated GitHub `socialLinks`.\n\nAnchor: `themeConfig`",
       "targets": [
         {
           "anchor": {
-            "blob": "e53c9eaa41efb0e856c5349af18fea1f4618ed3a",
-            "content": "sha256:407a6b7a949ec7d9db748a1c14f11b70b720893bcd770a2b7de915dc672cf29d",
+            "blob": "13e9046edde75f511eed3eb4add3bb98eb740f15",
+            "content": "sha256:dde2959f68c9521b69c1b5184439e987de2243047d8a67bfb5b9753c0fafd40d",
             "locator": {
-              "end": 223,
+              "end": 260,
               "kind": "line_range",
               "start": 24
             }
