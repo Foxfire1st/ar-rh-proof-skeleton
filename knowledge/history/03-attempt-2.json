@@ -1,0 +1,240 @@
+{
+  "attempt": 2,
+  "closed": true,
+  "leaf": "03",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-26T17:21:16+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "03",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "c7e454d0-c34c-5716-a8f0-e787ae8c01c7",
+      "task": "261126-EXP"
+    },
+    "reviewer": {
+      "at": "2026-11-26T17:21:16+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "03",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "337e2474-d6ef-52da-95ad-44307d7c8fdb",
+      "task": "261126-EXP",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "35af3483077fa40c830637f65780e9bad3033339",
+    "verdictRef": "notes/reports/reviewer/337e2474-d6ef-52da-95ad-44307d7c8fdb/03-memory-review-verdict.md"
+  },
+  "rows": [
+    {
+      "because": [
+        {
+          "id": "RH-R09",
+          "packet": "RH-R09-v1-front-door-readme-and-navbar-title.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "81fcb546e2aa736260cf3f9043ee38504b1dd0fb",
+            "content": "sha256:5be31eef8e55478df6040f4405504a8c15e56955e68804075d1a160435df78ea",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "before": {
+            "blob": "3bebdfa04ce78288dca2d118c32db64bb572516e",
+            "content": "sha256:aa00008e0ff6132295bf954bf2f03187f95e8fe80835ff30de3c25ff311c1f84",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "id": "RLZ-CRCTC9"
+        },
+        {
+          "after": {
+            "blob": "b1845d6320cd45052042a868af11e84eba1337c4",
+            "content": "sha256:3c9585a9599e434799297ff52549afb4c99a9cc0786081302ac8311d7bfcca1b",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/theme/tokens.css"
+          },
+          "before": {
+            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+            "content": "sha256:beeeedef02a2f4c9a7a3e7c38b3484fb2f43d4550ca3c02568861a67357424e5",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/theme/tokens.css"
+          },
+          "id": "RLZ-VC19TM"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "strengthen",
+      "id": "ROW-07K3Y7",
+      "items": [
+        "sha256:126833bfba06c3917c420c4830001913e54d9e7afab9612a557c7c64fa859db4"
+      ],
+      "reason": "Strengthened INV-VGNZKV under RH-R09@v1 (RH-D19) to require compact themeConfig.siteTitle 'RH Proof Explainer' (preserving full HTML title 'Riemann Hypothesis Proof Explainer') in site/docs/.vitepress/config.mts and defensive .VPNavBarTitle single-line ellipsis framing in site/docs/.vitepress/theme/tokens.css so the navbar brand stays inside the 272px sidebar header with zero horizontal overflow, while re-anchoring RLZ-CRCTC9 and RLZ-VC19TM at code tree 1435cc96c381a1c10187b41f3f9a22d6a185ca38. Verified by Worker round-1-evidence.tar.gz and Reviewer RV-03-A1 CODE/docs PASS (20 Playwright viewport cells ok=true, 32px/104.33px sidebar margins, 0 overflow, script-off 66 MathJax SVGs).",
+      "revision": 3,
+      "subject": "INV-VGNZKV"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-GXDXCT",
+          "revision": 1
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 3
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 3
+        }
+      ],
+      "id": "ROW-08VZ3Q",
+      "items": [
+        "sha256:369ab9014fdef41126e21ab32334bfc12a9c7efeb624e789ffe923f6efb33116"
+      ],
+      "reason": "Examined all four members of FAM-033QTE (INV-VGNZKV strengthened to revision 3 for compact navbar siteTitle and defensive .VPNavBarTitle sidebar framing; INV-GXDXCT, INV-HK005W, and INV-V207JN untouched); the Phase 4 static-site compilation, VitePress theme and dual-repo CI joint guarantee and root route '.' remain accurate.",
+      "revision": 1,
+      "subject": "FAM-033QTE"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-8SP030",
+      "items": [
+        "sha256:f4719397e6b363779447e3510ef9feaa1c0c89f340cee305e1fe99c37a26bc44"
+      ],
+      "reason": "Updated config.mts card prose and sidecar references [1]-[3] for full HTML title paired with compact themeConfig.siteTitle 'RH Proof Explainer' inside the 272px sidebar header, and added '.mts' to system/settings.json onboarding.pathRules.include.fileTypes so the card resolves cleanly.",
+      "sources": [
+        {
+          "blob": "81fcb546e2aa736260cf3f9043ee38504b1dd0fb",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/config.mts"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R09",
+          "packet": "RH-R09-v1-front-door-readme-and-navbar-title.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-CF62V2",
+      "items": [],
+      "reason": "Refreshed reconsider_on anchor on site/docs/.vitepress/config.mts at candidate code tree 1435cc96c381a1c10187b41f3f9a22d6a185ca38 after confirming rejected alternative 1 of DEC-0XZ8V5 remains still_rejected.",
+      "revision": 3,
+      "subject": "DEC-0XZ8V5"
+    },
+    {
+      "disposition": "still_rejected",
+      "id": "ROW-EVRK8H",
+      "items": [
+        "sha256:c03a6d891e12aa1a991cc6f481d2d2aeb290f6e91edac029995a746a3bada7de"
+      ],
+      "reason": "site/docs/.vitepress/config.mts only added themeConfig.siteTitle: 'RH Proof Explainer' while preserving VitePress defineConfig, markdown.math: true (with pinned markdown-it-mathjax3 in site/package.json), cleanUrls: true, appearance: false, VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, and dual-repo GitHub Pages ownership in ar-rh-proof-skeleton/.github/workflows/pages.yml; the KaTeX/code-repo Pages alternative remains rejected.",
+      "subject": "reconsider:DEC-0XZ8V5#1"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-MXSSYW",
+      "items": [
+        "sha256:f7f5439792ab149adc85ae5c9c4ce0923fc01e52e062d7f94052a6b5be03f530"
+      ],
+      "reason": "Reviewed onboarding/overview.md and onboarding/overview.json against the candidate changes in site/docs/.vitepress/config.mts and site/docs/.vitepress/theme/tokens.css; all package-ownership, VitePress theme shell, CI, and dual-repo Pages descriptions and all 8 references remain accurate with no overview edit required.",
+      "sources": [
+        {
+          "blob": "81fcb546e2aa736260cf3f9043ee38504b1dd0fb",
+          "path": "site/docs/.vitepress/config.mts"
+        },
+        {
+          "blob": "b1845d6320cd45052042a868af11e84eba1337c4",
+          "path": "site/docs/.vitepress/theme/tokens.css"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-X29PFS",
+      "items": [
+        "sha256:fb41046fa1eec78294553f63d9f4302e1fc7537b5fe9933ddccfbe96bd9198c8"
+      ],
+      "reason": "Updated tokens.css card prose and sidecar references [1]-[4] for defensive .VPNavBarTitle .title, .VPNavBarTitle.has-sidebar .title, and inner > span single-line ellipsis framing inside VitePress's 272px sidebar header.",
+      "sources": [
+        {
+          "blob": "b1845d6320cd45052042a868af11e84eba1337c4",
+          "path": "site/docs/.vitepress/theme/tokens.css"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/theme/tokens.css"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:1462f48c0ff3dada827b4eed4388b9947bfdfddc9d412bfa62b4f27402c5bc51",
+      "record": "DEC-0XZ8V5",
+      "revision": 3,
+      "writer": {
+        "at": "2026-11-26T17:05:19+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "03",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "c7e454d0-c34c-5716-a8f0-e787ae8c01c7",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:ab10998198c2ed3419b8a887fb9f9667c709496fb5407870830b6298f57ca536",
+      "record": "INV-VGNZKV",
+      "revision": 3,
+      "writer": {
+        "at": "2026-11-26T17:05:19+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "03",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "c7e454d0-c34c-5716-a8f0-e787ae8c01c7",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}

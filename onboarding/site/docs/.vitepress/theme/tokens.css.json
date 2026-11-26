@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
-        "content": "sha256:beeeedef02a2f4c9a7a3e7c38b3484fb2f43d4550ca3c02568861a67357424e5",
+        "blob": "b1845d6320cd45052042a868af11e84eba1337c4",
+        "content": "sha256:3c9585a9599e434799297ff52549afb4c99a9cc0786081302ac8311d7bfcca1b",
         "locator": {
           "kind": "file"
         }
@@ -15,7 +15,7 @@
         "handoffEntry": "RH-R05@v1 §3",
         "leaf": "05"
       },
-      "rationale": "Defines the archival-paper high-contrast editorial light palette, 70ch reading measure, narrow-viewport layout rules, reduced-motion overrides, and print stacked-zoom rules.",
+      "rationale": "Defines the archival-paper high-contrast editorial light palette, defensive .VPNavBarTitle single-line ellipsis framing inside the 272px sidebar header, 70ch reading measure, narrow-viewport layout rules, reduced-motion overrides, and print stacked-zoom rules.",
       "role": "presentation"
     }
   ],
@@ -25,7 +25,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+            "blob": "b1845d6320cd45052042a868af11e84eba1337c4",
             "content": "sha256:1efc143569815763eeb4a0344bbe7450653f37615f2e31640c4d5acf7f00553c",
             "locator": {
               "end": 68,
@@ -38,14 +38,14 @@
       ]
     },
     "2": {
-      "note": "Enforces `overflow-x: clip`, `:focus-visible` outlines, `70ch` prose measure, Lean identifier wrapping and scrollable MathJax/code/tables.\n\nAnchor: `.vp-doc`",
+      "note": "Enforces `overflow-x: clip`, `:focus-visible` outlines, `.VPNavBarTitle` single-line ellipsis framing inside the 272px sidebar header, `70ch` prose measure, Lean identifier wrapping and scrollable MathJax/code/tables.\n\nAnchor: `.VPNavBarTitle`; `.vp-doc`",
       "targets": [
         {
           "anchor": {
-            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
-            "content": "sha256:c65b600eb4144e982f528dabec4239af8afce9e08c50a81ddbb5750a75e4933c",
+            "blob": "b1845d6320cd45052042a868af11e84eba1337c4",
+            "content": "sha256:2ab7ed8bc38a7d4c222eb05ca8887dff4215030a62bff35d6fb7c9bbb9f3735d",
             "locator": {
-              "end": 159,
+              "end": 180,
               "kind": "line_range",
               "start": 70
             }
@@ -59,24 +59,24 @@
       "targets": [
         {
           "anchor": {
-            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+            "blob": "b1845d6320cd45052042a868af11e84eba1337c4",
             "content": "sha256:a6347a2146dbfa103bcfd0867e19ae514edd252b8d05208bb6369b58cc95379d",
             "locator": {
-              "end": 286,
+              "end": 307,
               "kind": "line_range",
-              "start": 161
+              "start": 182
             }
           },
           "kind": "code"
         },
         {
           "anchor": {
-            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+            "blob": "b1845d6320cd45052042a868af11e84eba1337c4",
             "content": "sha256:a6f9900397547e99977bfbdd676226d1ccbbdadad0c87468036f72b47f75359f",
             "locator": {
-              "end": 700,
+              "end": 721,
               "kind": "line_range",
-              "start": 288
+              "start": 309
             }
           },
           "kind": "code"
@@ -88,12 +88,12 @@
       "targets": [
         {
           "anchor": {
-            "blob": "d50041568d7c4015574e7a93d06f4f9fe48f3813",
+            "blob": "b1845d6320cd45052042a868af11e84eba1337c4",
             "content": "sha256:18e498e104212af01d2ab1e763fd0a0836c8dd1bda730a2cc792da876fd34fd3",
             "locator": {
-              "end": 781,
+              "end": 802,
               "kind": "line_range",
-              "start": 701
+              "start": 722
             }
           },
           "kind": "code"

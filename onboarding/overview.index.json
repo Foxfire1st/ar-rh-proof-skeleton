@@ -116,7 +116,7 @@
     "tests/unit/test_validate_schemas.py"
   ],
   "coverageCounts": {
-    "sourceFilesInScope": 95,
+    "sourceFilesInScope": 96,
     "fileSidecars": 104,
     "childRoutes": 0
   },
