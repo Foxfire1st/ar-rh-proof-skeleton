@@ -35,7 +35,7 @@ Comparing prime numbers to chemical atoms captures unique factorization, since e
 
 ## Level 2 — Undergrad Bridge
 
-Formally, $p \in \mathbb{N}$ is prime if $p \ge 2$ and whenever $p \mid ab$ for integers $a, b$, either $p \mid a$ or $p \mid b$. Unique factorization is equivalent to the Euler product identity for $\operatorname{Re}(s) > 1$:
+Formally, $p \in \mathbb{N}$ is prime if $p \ge 2$ and whenever $p \mid ab$ for integers $a, b$, either $p \mid a$ or $p \mid b$. Unique factorization implies the Euler product identity for $\operatorname{Re}(s) > 1$:
 $$\sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p\text{ prime}} \left(1 - p^{-s}\right)^{-1}.$$
 Expanding each geometric series $(1 - p^{-s})^{-1} = 1 + p^{-s} + p^{-2s} + \dots$ and multiplying across all primes generates each term $n^{-s}$ once, because each positive integer $n$ has one prime-power factorization.
 

@@ -41,7 +41,7 @@ In 1859, Bernhard Riemann extended this formula to the entire plane (except a si
 
 ### Limits of the intuition
 
-Thinking of $\zeta(s)$ as the sum $\sum_{n=1}^{\infty} n^{-s}$ works only to the right of $\operatorname{Re}(s) = 1$. Inside the band $0 < \operatorname{Re}(s) < 1$ and to the left of $0$, the partial sums of $n^{-s}$ oscillate wildly or blow up. Computing $\zeta(s)$ there requires an alternative representation—such as the alternating Dirichlet eta formula $(1 - 2^{1-s})^{-1}\sum_{n=1}^{\infty} (-1)^{n-1} n^{-s}$ for $\operatorname{Re}(s) > 0$, or Riemann's Mellin-integral representation valid on all of $\mathbb{C} \setminus \{1\}$.
+Thinking of $\zeta(s)$ as the sum $\sum_{n=1}^{\infty} n^{-s}$ works only to the right of $\operatorname{Re}(s) = 1$. Inside the band $0 < \operatorname{Re}(s) < 1$ and to the left of $0$, the partial sums of $n^{-s}$ oscillate wildly or blow up. Computing $\zeta(s)$ there requires an alternative representation—such as the alternating Dirichlet eta formula $(1 - 2^{1-s})^{-1}\sum_{n=1}^{\infty} (-1)^{n-1} n^{-s}$ for $\operatorname{Re}(s) > 0$ except where $2^{1-s} = 1$ (the isolated points $s = 1 + \frac{2\pi i k}{\ln 2}$ on $\operatorname{Re}(s) = 1$), or Riemann's Mellin-integral representation valid on all of $\mathbb{C} \setminus \{1\}$.
 
 ## Level 2 — Undergrad Bridge
 
@@ -57,7 +57,7 @@ Because $\zeta(s)$ is also the Dirichlet $L$-function of the trivial character m
 
 ## Level 3 — Formal Lean Contract
 
-In Mathlib4 (`Mathlib.NumberTheory.LSeries.RiemannZeta`), `riemannZeta : ℂ → ℂ` is defined via the Mellin transform of the Jacobi theta function and equals `completedRiemannZeta s / Gammaℝ s` away from `s = 0` (with `riemannZeta 0 = -1 / 2` and a junk value at the pole `s = 1` that is nonzero, so `s ≠ 1` is explicitly excluded in the hypothesis).
+In Mathlib4 (`Mathlib.NumberTheory.LSeries.RiemannZeta`), `riemannZeta : ℂ → ℂ` is defined via the Mellin transform of the Jacobi theta function and equals `completedRiemannZeta s / Gammaℝ s` away from `s = 0` (with `riemannZeta 0 = -1 / 2`; `s ≠ 1` is explicitly excluded in the hypothesis so the statement stays independent of Mathlib's total-function junk value at the simple pole $s = 1$, even though Mathlib defines `riemannZeta 1` to be nonzero via `riemannZeta_one_ne_zero`, making the guard redundant but harmless).
 
 Stage 00 anchors this function in:
 - `00_statement/statements.lean#RiemannZetaZerosOnLine` (upstream `src/Statements.lean:7-8`):

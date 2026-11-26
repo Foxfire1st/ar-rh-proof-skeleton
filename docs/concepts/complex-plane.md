@@ -45,7 +45,7 @@ $$f'(s_0) = \lim_{h \to 0} \frac{f(s_0 + h) - f(s_0)}{h}$$
 exists as $h \to 0$ along every direction in $\mathbb{C}$. This single requirement forces $f$ to be infinitely differentiable and locally equal to its Taylor power series (Cauchy's integral formula). In analytic number theory, the complex plane partitions into three vertical zones relative to a Dirichlet $L$-function:
 - $\operatorname{Re}(s) > 1$: the half-plane of absolute convergence and Euler product representation, free of zeros;
 - $0 < \operatorname{Re}(s) < 1$: the open strip where all nontrivial zeros lie, symmetric under $s \mapsto 1 - s$;
-- $\operatorname{Re}(s) \le 0$: the left half-plane determined from $\operatorname{Re}(s) \ge 1$ by the functional equation, containing only predictable zeros at non-positive integers.
+- $\operatorname{Re}(s) \le 0$: the left half-plane determined from $\operatorname{Re}(s) \ge 1$ by the functional equation, containing only predictable zeros at non-positive integers for $\zeta(s)$ and **primitive** $\chi$ (whereas an **imprimitive** character $\chi$ also introduces extra Euler-factor zeros on $\operatorname{Re}(s) = 0$).
 
 ## Level 3 — Formal Lean Contract
 
