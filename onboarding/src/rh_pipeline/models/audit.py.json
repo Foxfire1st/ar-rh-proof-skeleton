@@ -3,7 +3,7 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+        "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
         "content": "sha256:64e47778c51e3b9637c5feea5d04021aa528e0d0c45daad75db1605f908fc918",
         "locator": {
           "kind": "symbol",
@@ -21,8 +21,8 @@
     },
     {
       "anchor": {
-        "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
-        "content": "sha256:c0f3e6721992e2ed58072f34e1624e19bc544a7b23916cdfdf8d859846482013",
+        "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+        "content": "sha256:7a69074d351fd7c157ff6ed849145c83f12a41ec13a2a3b457b79fbfbbe35859",
         "locator": {
           "kind": "symbol",
           "name": "VerificationStatus"
@@ -34,12 +34,12 @@
         "handoffEntry": "RH-R02@v1 §1",
         "leaf": "02"
       },
-      "rationale": "Defines the self-contained verification banner record enforcing build_status='unverified-locally' and strict schema round-trip validation.",
+      "rationale": "Defines the self-contained verification banner record enforcing build_status='unverified-locally', nullable verification-note SHA-256 digests and strict schema round-trip validation.",
       "role": "primary-authority"
     },
     {
       "anchor": {
-        "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+        "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
         "content": "sha256:3fdc53a5eaa6f8086d2fb1397398cbbba9c3fda4eafb2a713d61f7df8c3227f5",
         "locator": {
           "kind": "symbol",
@@ -54,6 +54,24 @@
       },
       "rationale": "Produces deterministic indent=2 sorted-key JSON with a trailing newline for all audit JSON outputs.",
       "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+        "content": "sha256:43effb1060744f01e6673b6dc82c7682aa30ec13ea0eed21f7ad6b6dd3ec19cc",
+        "locator": {
+          "kind": "symbol",
+          "name": "ComparatorSummary"
+        }
+      },
+      "id": "RLZ-Q06HER",
+      "invariant": "INV-VAZE4Y",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-vaze4y",
+        "leaf": "01"
+      },
+      "rationale": "Defines the five required and three optional ComparatorSummary fields (external_kernels, definition_names, strict bool|None enable_nanoda), freezes external_kernels in sorted MappingProxyType, emits all eight sorted keys in to_dict(), and enforces required/optional key checks in from_dict().",
+      "role": "primary-authority"
     }
   ],
   "references": {
@@ -62,7 +80,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+            "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
             "content": "sha256:3fdc53a5eaa6f8086d2fb1397398cbbba9c3fda4eafb2a713d61f7df8c3227f5",
             "locator": {
               "kind": "symbol",
@@ -74,12 +92,12 @@
       ]
     },
     "2": {
-      "note": "Enforces exact key sets, non-empty strings, non-boolean integers and strict literal values during deserialization.",
+      "note": "Validates JSON object keys against required_keys and optional_keys, rejecting missing required or unknown extra keys with ValueError.",
       "targets": [
         {
           "anchor": {
-            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
-            "content": "sha256:3b214d8b16d786d11834badc9485e5a267565f94dc73de55862eed78c6ea6b88",
+            "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+            "content": "sha256:3c0356359d3f79ceb6e453250b95069c98ef8d20882c4666bd43ccbc0b402578",
             "locator": {
               "kind": "symbol",
               "name": "_as_object"
@@ -94,7 +112,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
+            "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
             "content": "sha256:64e47778c51e3b9637c5feea5d04021aa528e0d0c45daad75db1605f908fc918",
             "locator": {
               "kind": "symbol",
@@ -106,12 +124,12 @@
       ]
     },
     "4": {
-      "note": "Restricts VerificationStatus build_status to unverified-locally and enforces exact-key round-trip serialization.",
+      "note": "Restricts VerificationStatus build_status to unverified-locally, permits nullable verification-note digests, and enforces exact-key round-trip serialization.",
       "targets": [
         {
           "anchor": {
-            "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
-            "content": "sha256:c0f3e6721992e2ed58072f34e1624e19bc544a7b23916cdfdf8d859846482013",
+            "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+            "content": "sha256:7a69074d351fd7c157ff6ed849145c83f12a41ec13a2a3b457b79fbfbbe35859",
             "locator": {
               "kind": "symbol",
               "name": "VerificationStatus"

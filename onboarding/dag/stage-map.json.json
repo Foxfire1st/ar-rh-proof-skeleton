@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "5ff863b7880c404cd0f26a5dab2277dee1c3920b",
-        "content": "sha256:9451b2cd80906348904f90b38e0d0ecd529f761490e7be3cbb2c6b1283a4c924",
+        "blob": "fb9691744549cd274702a86dfa75d7b5ef815b50",
+        "content": "sha256:432bf99075f26929f0cb1743d84a91db432082efc5d55f57d3c2625d87e5f4e0",
         "locator": {
           "kind": "file"
         }
@@ -15,20 +15,20 @@
         "handoffEntry": "RH-R03@v1 §4",
         "leaf": "03"
       },
-      "rationale": "Authoritative versioned 21-stage mapping defining Stage 00 files and empty Stages 01-20.",
+      "rationale": "Authoritative versioned 8-stage condensed mapping (00_statement..07_congruences) defining the 3 live Stage 00 files and empty Stages 01-07.",
       "role": "propagation-persistence"
     }
   ],
   "references": {
     "1": {
-      "note": "Declares schema_version rh-stage-map/v1 and maps all five Stage 00 upstream files with preserve_defs true on statements, challenge and formal_conjectures_statement and false on main and formal_conjectures_challenge.\n\nAnchor: `00_statement`",
+      "note": "Declares schema_version rh-stage-map/v1 and maps the three Stage 00 upstream files with preserve_defs true on src/Statements.lean and root Challenge.lean and false on src/Main.lean.",
       "targets": [
         {
           "anchor": {
-            "blob": "5ff863b7880c404cd0f26a5dab2277dee1c3920b",
-            "content": "sha256:856117d557a1548cb13374d8be4db9a8162d6a85a2f27dabbf88a516080cd4fb",
+            "blob": "fb9691744549cd274702a86dfa75d7b5ef815b50",
+            "content": "sha256:377c4693da1b5090822b521982ccb27d8f19ba246c5fde5f05df94d89e77ef3a",
             "locator": {
-              "end": 36,
+              "end": 26,
               "kind": "line_range",
               "start": 1
             }
@@ -38,16 +38,16 @@
       ]
     },
     "2": {
-      "note": "Defines placeholder proof stages 01_stepanov_determinant through 20_grh (orders 1..20) with empty files arrays.\n\nAnchor: `01_stepanov_determinant`; `20_grh`",
+      "note": "Defines placeholder condensed proof stages 01_reduction through 07_congruences (orders 1..7) with empty files arrays.",
       "targets": [
         {
           "anchor": {
-            "blob": "5ff863b7880c404cd0f26a5dab2277dee1c3920b",
-            "content": "sha256:78e1ff48413fa42704ff0fbdc9a86df7a4e68ba2922965c2c853e9de47e6dd3f",
+            "blob": "fb9691744549cd274702a86dfa75d7b5ef815b50",
+            "content": "sha256:29adb00eca9f8d407e8a99f658be93c2a6fbef909d756a00aa9e74120b6b7f3e",
             "locator": {
-              "end": 176,
+              "end": 75,
               "kind": "line_range",
-              "start": 37
+              "start": 27
             }
           },
           "kind": "code"

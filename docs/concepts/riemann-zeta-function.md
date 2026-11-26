@@ -65,6 +65,6 @@ Stage 00 anchors this function in:
   def RiemannZetaZerosOnLine : Prop :=
     ∀ s : ℂ, riemannZeta s = 0 → (¬∃ n : ℕ, s = -2 * ((n : ℂ) + 1)) → s ≠ 1 → s.re = 1 / 2
   ```
-- `00_statement/main.lean#riemannZeta_eq_zero_re` (upstream `src/Main.lean:49`), which witnesses `RiemannZetaZerosOnLine` directly from `riemannHypothesis`.
+- `00_statement/main.lean#riemannZeta_eq_zero_re` (upstream `src/Main.lean:11-12`), which witnesses `RiemannZetaZerosOnLine` directly from `riemannHypothesis`.
 
-Upstream provenance is pinned at commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b` (`build_status: unverified-locally`; entry static scan reports `0` forbidden tokens in solution files and `7` expected `sorry`s in challenge files).
+See the page's live verification banner (`audit/verification-status.json`) for the currently pinned upstream snapshot and local Lean build status (`build_status: unverified-locally`; entry static scan reports `0` forbidden tokens in solution files and `5` expected `sorry`s in root `Challenge.lean`).

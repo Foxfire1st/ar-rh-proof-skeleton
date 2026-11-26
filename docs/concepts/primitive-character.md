@@ -44,7 +44,7 @@ Let $\chi$ be a Dirichlet character modulo $N$. A positive divisor $d \mid N$ *i
 For any $\chi \bmod N$ with primitive character $\chi^* \bmod q$, the two $L$-functions are linked for all $s \in \mathbb{C}$ (away from $s = 1$ if $\chi = 1$) by
 $$L(\chi, s) = L(\chi^*, s) \prod_{p \mid N} \left(1 - \chi^*(p) p^{-s}\right).$$
 This identity explains two central steps in Stage 00:
-1. **Inside $0 < \operatorname{Re}(s) < 1$:** For every prime $p \mid N$, $|\chi^*(p) p^{-s}| \le p^{-\operatorname{Re}(s)} < 1$, so $1 - \chi^*(p) p^{-s} \neq 0$. Thus $L(\chi, s)$ and $L(\chi^*, s)$ have the exact same zeros inside the open critical strip. Upstream `Claim.prim_zero` uses this exact step to reduce `DirichletLZerosOnLine` to primitive characters before applying the functional equation.
+1. **Inside $0 < \operatorname{Re}(s) < 1$:** For every prime $p \mid N$, $|\chi^*(p) p^{-s}| \le p^{-\operatorname{Re}(s)} < 1$, so $1 - \chi^*(p) p^{-s} \neq 0$. Thus $L(\chi, s)$ and $L(\chi^*, s)$ have the exact same zeros inside the open critical strip. In the condensed upstream proof, `New.zeros_on_line` (`src/New/Main.lean:29-36`) deduces `DirichletLZerosOnLine` for all characters directly from `DirichletLNonvanishingRightOfHalf` via the functional-equation symmetry `New.gammaFactor_eq_zero_or_LFunction_one_sub_eq_zero`, and the primitive case follows immediately by specialization.
 2. **Across all of $\mathbb{C}$:** Because imprimitive characters pick up zeros on $\operatorname{Re}(s) = 0$, `formal-conjectures` restricts `GRH.generalized_riemann_hypothesis` to `hχ : χ.IsPrimitive` so that `s ∉ Int.cast '' GRH.trivialZeros χ` captures all nontrivial zeros cleanly.
 
 ## Level 3 — Formal Lean Contract
@@ -56,6 +56,6 @@ In Mathlib4 (`Mathlib.NumberTheory.DirichletCharacter.Basic`), `χ.IsPrimitive` 
     ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →
       ∀ s : ℂ, 0 < s.re → s.re < 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
   ```
-- `00_statement/main.lean#LFunction_eq_zero_re_of_isPrimitive` (upstream `src/Main.lean:54-56`), proved in three lines by specializing `LFunction_eq_zero_re` and dropping the unused `χ.IsPrimitive` hypothesis.
+- `00_statement/main.lean#LFunction_eq_zero_re_of_isPrimitive` (upstream `src/Main.lean:23-26`), proved by the one-line lambda `fun N _ χ _ ↦ LFunction_eq_zero_re N χ`, which specializes `LFunction_eq_zero_re` and drops the unused `χ.IsPrimitive` hypothesis.
 
-In `comparator/FormalConjecturesBridge.lean`, `primitiveDirichletLZerosOnLine_iff` proves that `PrimitiveDirichletLZerosOnLine` is logically equivalent to `formal-conjectures`' whole-plane `GRH.generalized_riemann_hypothesis`. Upstream provenance is pinned at commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b` (`build_status: unverified-locally`).
+In `formal-conjectures` (archived on upstream `alpoge@c900e67c2` in `comparator/FormalConjecturesBridge.lean` pending re-integration on condensed `main`), `primitiveDirichletLZerosOnLine_iff` proved that `PrimitiveDirichletLZerosOnLine` is logically equivalent to `formal-conjectures`' whole-plane `GRH.generalized_riemann_hypothesis`. See the page's live verification banner (`audit/verification-status.json`) for the currently pinned upstream snapshot and local Lean build status (`build_status: unverified-locally`).

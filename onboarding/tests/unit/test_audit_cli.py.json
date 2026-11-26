@@ -3,7 +3,7 @@
   "proves": [
     {
       "anchor": {
-        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
         "content": "sha256:939a1611305d4517ba2e0cef2d352b8bdd6af7490a56c2f17e5d2b427828bcf6",
         "locator": {
           "kind": "symbol",
@@ -20,7 +20,7 @@
     },
     {
       "anchor": {
-        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
         "content": "sha256:bfe4a1f058c66d0b9d4522a1e1decdfe9c4f8d1d6374e603781be00e4d7c58ed",
         "locator": {
           "kind": "symbol",
@@ -37,7 +37,41 @@
     },
     {
       "anchor": {
-        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+        "content": "sha256:e383ac4aab3d4a271f7edf6de367977e8047e45ded747c6af24796984c46e5dc",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_condensed_edition_entry_full_replay_and_failure"
+        }
+      },
+      "facet": "Demonstrates rh-audit exits 0 on condensed-edition repos in entry and full + --replay modes with null verification-note digests and exits 1 while writing honest JSON when root Challenge.lean contains a non-sorry forbidden token.",
+      "id": "PRF-C8KG4E",
+      "invariant": "INV-7MVB06",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-7mvb06",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+        "content": "sha256:bda5cad98d9f459f12ce2ed40ffe8d43d32fc6ca6b97534cbb448e8592b7d7b2",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_build_verification_status_nullable_and_paired_validation"
+        }
+      },
+      "facet": "Demonstrates build_verification_status and VerificationStatus.from_dict accept paired None verification-note digests for condensed editions while rejecting empty/non-string or unpaired digests.",
+      "id": "PRF-HC0KX8",
+      "invariant": "INV-ZSMC71",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-zsmc71",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
         "content": "sha256:606f332d69b934c9ea8b07d072bbfcfbc611992b74241e877b253f141253e629",
         "locator": {
           "kind": "symbol",
@@ -54,7 +88,7 @@
     },
     {
       "anchor": {
-        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
         "content": "sha256:bf9cb9b119a1525f92791f74c7a1796fd156ec2bdcfa24a0b98e691264ad038f",
         "locator": {
           "kind": "symbol",
@@ -71,7 +105,7 @@
     },
     {
       "anchor": {
-        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
         "content": "sha256:f525f3f29f4e924c0e5453bf08e641d9d79a4c9be930183c042710364b2f1df8",
         "locator": {
           "kind": "symbol",
@@ -88,7 +122,7 @@
     },
     {
       "anchor": {
-        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
         "content": "sha256:a819e93a0d9d17f70baee93ddb7684c502ccdbab131e1620dce1d6851bf300a8",
         "locator": {
           "kind": "symbol",
@@ -105,19 +139,19 @@
     },
     {
       "anchor": {
-        "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+        "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
         "content": "sha256:f525f3f29f4e924c0e5453bf08e641d9d79a4c9be930183c042710364b2f1df8",
         "locator": {
           "kind": "symbol",
           "name": "test_build_verification_status_and_strict_round_trip"
         }
       },
-      "facet": "Demonstrates build_verification_status deduplicates theorems and axioms, hard-codes build_status='unverified-locally' and raises AuditInputError on missing note digests.",
-      "id": "PRF-X92CAG",
+      "facet": "Demonstrates build_verification_status deduplicates theorems and axioms, hard-codes build_status='unverified-locally' and raises AuditInputError on partial/unpaired verification note digests.",
+      "id": "PRF-YJ1VY2",
       "invariant": "INV-ZSMC71",
       "origin": {
-        "handoffEntry": "RH-R02@v1 §4",
-        "leaf": "02"
+        "handoffEntry": "rh-r07-inv-zsmc71",
+        "leaf": "01"
       }
     }
   ],
@@ -128,7 +162,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
             "content": "sha256:bfe4a1f058c66d0b9d4522a1e1decdfe9c4f8d1d6374e603781be00e4d7c58ed",
             "locator": {
               "kind": "symbol",
@@ -144,11 +178,38 @@
       "targets": [
         {
           "anchor": {
-            "blob": "48ccb9b746aa0e399da040dfeff9208ea49084ae",
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
             "content": "sha256:939a1611305d4517ba2e0cef2d352b8bdd6af7490a56c2f17e5d2b427828bcf6",
             "locator": {
               "kind": "symbol",
               "name": "test_cli_input_and_scan_errors_exit_2_without_writing"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Verifies nullable/paired verification-note digest validation and condensed-edition rh-audit CLI behavior across entry, full + --replay and root Challenge.lean forbidden-token exit 1.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:bda5cad98d9f459f12ce2ed40ffe8d43d32fc6ca6b97534cbb448e8592b7d7b2",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_build_verification_status_nullable_and_paired_validation"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "fed0306905102bbf5777b44ae0254bd948878ac8",
+            "content": "sha256:e383ac4aab3d4a271f7edf6de367977e8047e45ded747c6af24796984c46e5dc",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_condensed_edition_entry_full_replay_and_failure"
             }
           },
           "kind": "test"

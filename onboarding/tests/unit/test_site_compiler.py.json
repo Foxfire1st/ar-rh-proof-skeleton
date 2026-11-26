@@ -3,8 +3,8 @@
   "proves": [
     {
       "anchor": {
-        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
-        "content": "sha256:00bf0437de56303af8888d5e62ae069a75790dcf8421a2128b58b50024b63193",
+        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "content": "sha256:54e741cc67ceb24a017e256855667f4bad3ce6e8557efe22cfeee17f61b02943",
         "locator": {
           "kind": "symbol",
           "name": "test_compile_site_end_to_end_determinism_and_pruning"
@@ -20,7 +20,7 @@
     },
     {
       "anchor": {
-        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
         "content": "sha256:39c1194ccb133a1d16b9fda4934d298fbe0087c87a18ebdf9c9cdc5ac7bb60ba",
         "locator": {
           "kind": "symbol",
@@ -37,7 +37,7 @@
     },
     {
       "anchor": {
-        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
         "content": "sha256:698076d3e1673e2476908f6d60c79d0071c0544d8a17b94b3280bc30cc4bb1ea",
         "locator": {
           "kind": "symbol",
@@ -54,7 +54,24 @@
     },
     {
       "anchor": {
-        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+        "content": "sha256:bd5c7554c857909423057a539421b7ae6001fad33e0813060011621183551477",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_verification_banner_repo_layout"
+        }
+      },
+      "facet": "Demonstrates render_verification_banner and compile_site emit repo-layout='legacy' when verification-note digests are populated and repo-layout='condensed' when they are None.",
+      "id": "PRF-7YMV6H",
+      "invariant": "INV-V207JN",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-v207jn",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
         "content": "sha256:365511864f6b258809176c0e0ea440539df3626867fe5a7eaee579d3368c9aca",
         "locator": {
           "kind": "symbol",
@@ -71,7 +88,7 @@
     },
     {
       "anchor": {
-        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
         "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
         "locator": {
           "kind": "symbol",
@@ -88,7 +105,7 @@
     },
     {
       "anchor": {
-        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
         "content": "sha256:9b726b94bbf02d58878b191de8bf3b6c9420e68de90e62d901b946a2d5e6e5e0",
         "locator": {
           "kind": "symbol",
@@ -105,7 +122,7 @@
     },
     {
       "anchor": {
-        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
         "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
         "locator": {
           "kind": "symbol",
@@ -122,7 +139,7 @@
     },
     {
       "anchor": {
-        "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+        "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
         "content": "sha256:de48a0798b056dc3f684063955edb874be7446b8ba782ef524ab73bf71a1eff3",
         "locator": {
           "kind": "symbol",
@@ -145,7 +162,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
             "content": "sha256:365511864f6b258809176c0e0ea440539df3626867fe5a7eaee579d3368c9aca",
             "locator": {
               "kind": "symbol",
@@ -157,12 +174,12 @@
       ]
     },
     "2": {
-      "note": "End-to-end compiler tests verify byte-identical determinism, managed-directory stale pruning with `.vitepress/` preservation, dual asset emission, Lean anchors, backlinks, backtick-preserving stage titles and concept H1 deduplication.",
+      "note": "End-to-end compiler tests verify byte-identical determinism, repo-layout=\"legacy\" banner rendering, managed-directory stale pruning with .vitepress/ preservation, dual asset emission, Lean anchors, backlinks, backtick-preserving stage titles and concept H1 deduplication.",
       "targets": [
         {
           "anchor": {
-            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
-            "content": "sha256:00bf0437de56303af8888d5e62ae069a75790dcf8421a2128b58b50024b63193",
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:54e741cc67ceb24a017e256855667f4bad3ce6e8557efe22cfeee17f61b02943",
             "locator": {
               "kind": "symbol",
               "name": "test_compile_site_end_to_end_determinism_and_pruning"
@@ -172,12 +189,11 @@
         },
         {
           "anchor": {
-            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
             "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
             "locator": {
-              "end": 482,
-              "kind": "line_range",
-              "start": 456
+              "kind": "symbol",
+              "name": "test_preserves_backticks_in_stage_titles_and_deduplicates_concept_h1"
             }
           },
           "kind": "test"
@@ -189,11 +205,27 @@
       "targets": [
         {
           "anchor": {
-            "blob": "23010ed0db0d4097297ef3ab1b4f234b2790eb79",
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
             "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
             "locator": {
               "kind": "symbol",
               "name": "test_compile_site_fail_closed_zero_writes"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "4": {
+      "note": "Verifies render_verification_banner and compile_site emit repo-layout=\"legacy\" when verification digests exist and repo-layout=\"condensed\" when they are None.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "5a72e4fce2c1fc7c5d3153890a2f86be542de7a1",
+            "content": "sha256:bd5c7554c857909423057a539421b7ae6001fad33e0813060011621183551477",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_verification_banner_repo_layout"
             }
           },
           "kind": "test"

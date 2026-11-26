@@ -3,7 +3,7 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+        "blob": "965af2462316f40340cc327784042996722a7019",
         "content": "sha256:5ade1a1753ea206938d314a1e4c37c9abb0f4da613ae0d654c2ddd1e16a79c62",
         "locator": {
           "kind": "symbol",
@@ -21,7 +21,7 @@
     },
     {
       "anchor": {
-        "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+        "blob": "965af2462316f40340cc327784042996722a7019",
         "content": "sha256:b5f96e64a2e088aa8a3830e93988a536c54848eca4a87ed261a3a7048be73b77",
         "locator": {
           "kind": "symbol",
@@ -39,7 +39,7 @@
     },
     {
       "anchor": {
-        "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+        "blob": "965af2462316f40340cc327784042996722a7019",
         "content": "sha256:76d95a961f689016aff36d9ae159d570346a6d0cef7fb478e6294face3b4b1f4",
         "locator": {
           "kind": "symbol",
@@ -52,21 +52,21 @@
         "handoffEntry": "RH-R02@v1 §3",
         "leaf": "02"
       },
-      "rationale": "Resolves entry vs full scan scope (excluding scripts/), classifies both challenge files, and partitions challenge sorrys from solution findings.",
+      "rationale": "Resolves entry vs full scan scope (excluding scripts/) with single primary challenge resolution (Challenge.lean xor src/Challenge.lean) and optional comparator/, classifies all three CHALLENGE_FILES, and partitions challenge sorrys from solution findings.",
       "role": "primary-authority"
     }
   ],
   "references": {
     "1": {
-      "note": "Defines the seven entry scan files, two challenge files, nine forbidden tokens and two attribute tokens.",
+      "note": "Defines three CHALLENGE_FILES (Challenge.lean, src/Challenge.lean, comparator/FormalConjecturesChallenge.lean), primary challenge candidates, required entry files, nine forbidden tokens and two attribute tokens.",
       "targets": [
         {
           "anchor": {
-            "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
-            "content": "sha256:cb4c3ffdd8f5be377662ed29efeb14ea216019d5f20a8c50fad819c10ba517d5",
+            "blob": "965af2462316f40340cc327784042996722a7019",
+            "content": "sha256:dfe9c34d18f724fe66331b7742b2f7d1a06775b8c095e63e676c6af4c737b572",
             "locator": {
               "kind": "symbol",
-              "name": "ENTRY_SCAN_FILES"
+              "name": "CHALLENGE_FILES"
             }
           },
           "kind": "code"
@@ -78,7 +78,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+            "blob": "965af2462316f40340cc327784042996722a7019",
             "content": "sha256:dcd15eb4109a9cafdaddb632f7686ed71306cc53feb57dc55d974bd88c6b77f2",
             "locator": {
               "kind": "symbol",
@@ -94,7 +94,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+            "blob": "965af2462316f40340cc327784042996722a7019",
             "content": "sha256:b5f96e64a2e088aa8a3830e93988a536c54848eca4a87ed261a3a7048be73b77",
             "locator": {
               "kind": "symbol",
@@ -106,11 +106,11 @@
       ]
     },
     "4": {
-      "note": "Resolves entry or full scope excluding scripts and routes only challenge sorry hits to challenge_findings while routing all other findings to solution_findings.",
+      "note": "Resolves entry or full scope with single primary challenge resolution and optional comparator/ (excluding scripts/) and routes only challenge sorry hits to challenge_findings while routing all other findings to solution_findings.",
       "targets": [
         {
           "anchor": {
-            "blob": "b89e2592f35ad07871f74b15d70541097a846aed",
+            "blob": "965af2462316f40340cc327784042996722a7019",
             "content": "sha256:76d95a961f689016aff36d9ae159d570346a6d0cef7fb478e6294face3b4b1f4",
             "locator": {
               "kind": "symbol",

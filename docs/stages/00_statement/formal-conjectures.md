@@ -1,6 +1,8 @@
 # Independent Statement Equivalence (`FormalConjecturesStatement` & `FormalConjecturesChallenge`)
 
-This landmark page explains why Stage 00 includes a second, independent Comparator setup drawn from Google DeepMind's `formal-conjectures` repository, and how it rules out the classic formalization risk of proving a subtly weakened statement. Return to the [Stage 00 Overview](./overview.md) or review [Formal Statement Contracts](./statement-definitions.md) for the submission's own predicates.
+> **Status on condensed `main@41c2716658c4`:** Following upstream's November 25, 2026 condensation of `leanprover-community/riemann-hypothesis`, the `comparator/` Formal Conjectures harness is **temporarily pending re-integration** on `main` (while root `comparator.json` with `enable_nanoda: true` remains live for `Challenge.lean` vs. `src/Main.lean`). The complete `comparator/` files remain archived on upstream's `alpoge` branch at commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b`.
+
+This landmark page explains why Stage 00 tracks a second, independent Comparator setup drawn from Google DeepMind's `formal-conjectures` repository, and how it rules out the classic formalization risk of proving a subtly weakened statement. Return to the [Stage 00 Overview](./overview.md) or review [Formal Statement Contracts](./statement-definitions.md) for the submission's own predicates.
 
 ## Level 1 — Abitur / First-Principles
 
@@ -58,12 +60,13 @@ The `formal-conjectures` setup (`comparator/formal-conjectures.json`) separates 
 
 ## Level 3 — Formal Lean Contract
 
-In `comparator/formal-conjectures.json`, `FormalConjecturesChallenge` is the frozen challenge module (`2` `sorry` placeholders at `comparator/FormalConjecturesChallenge.lean:84, 108`) and `FormalConjecturesSolution` is the solution module, checked against the three permitted axioms (`propext`, `Quot.sound`, `Classical.choice`) and external kernels (`leanchecker-paranoid` and `nanoda`).
+**Current status on condensed `main@41c2716658c4`:** Upstream's `comparator/` Formal Conjectures harness is **temporarily pending re-integration** on condensed `main` (`41c2716658c42ba08eb0648994a2efe83082a95c`), so no `00_statement/formal_conjectures_*` skeleton modules are currently extracted for this commit. On live `main`, root `comparator.json` checks `Challenge` against `Main` with permitted axioms (`propext`, `Quot.sound`, `Classical.choice`) and `enable_nanoda: true`.
 
-The two Stage 00 skeleton modules below capture the exact declarations from upstream `comparator/FormalConjecturesStatement.lean` (with `preserve_defs: true`) and `comparator/FormalConjecturesChallenge.lean` at pinned commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b`.
+**Archived `alpoge` reference (`c900e67c2fcd1fdb041685820bbd2b867fbc5a4b`):** In the archived `alpoge` snapshot, `comparator/formal-conjectures.json` designated `FormalConjecturesChallenge` as the frozen challenge module (`2` `sorry` placeholders at `comparator/FormalConjecturesChallenge.lean:84, 108`) and `FormalConjecturesSolution` as the solution module, checked against the three permitted axioms (`propext`, `Quot.sound`, `Classical.choice`) and external kernels (`leanchecker-paranoid` and `nanoda`). Direct archival links on upstream commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b`:
+- [`comparator/FormalConjecturesStatement.lean`](https://github.com/leanprover-community/riemann-hypothesis/blob/c900e67c2fcd1fdb041685820bbd2b867fbc5a4b/comparator/FormalConjecturesStatement.lean)
+- [`comparator/FormalConjecturesChallenge.lean`](https://github.com/leanprover-community/riemann-hypothesis/blob/c900e67c2fcd1fdb041685820bbd2b867fbc5a4b/comparator/FormalConjecturesChallenge.lean)
+- [`comparator/FormalConjecturesBridge.lean`](https://github.com/leanprover-community/riemann-hypothesis/blob/c900e67c2fcd1fdb041685820bbd2b867fbc5a4b/comparator/FormalConjecturesBridge.lean)
+- [`comparator/FormalConjecturesSolution.lean`](https://github.com/leanprover-community/riemann-hypothesis/blob/c900e67c2fcd1fdb041685820bbd2b867fbc5a4b/comparator/FormalConjecturesSolution.lean)
+- [`comparator/formal-conjectures.json`](https://github.com/leanprover-community/riemann-hypothesis/blob/c900e67c2fcd1fdb041685820bbd2b867fbc5a4b/comparator/formal-conjectures.json)
 
-**Verification status (`audit/verification-status.json`):** Local Lean build verification is **`unverified-locally`**. Local checks verify commit provenance, SHA-256 digests of all six files under `comparator/`, and entry static scanning (`0` forbidden tokens across `FormalConjecturesStatement.lean`, `FormalConjecturesBridge.lean`, and `FormalConjecturesSolution.lean`; `2` expected `sorry` tokens in `FormalConjecturesChallenge.lean`).
-
-<!-- rh:lean-node:00_statement/formal_conjectures_statement -->
-
-<!-- rh:lean-node:00_statement/formal_conjectures_challenge -->
+**Verification status (`audit/verification-status.json`):** Local Lean build verification is **`unverified-locally`**. Because `comparator/` is currently absent on pinned `main@41c2716658c42ba08eb0648994a2efe83082a95c`, live Comparator metadata checking covers root `comparator.json` only until upstream re-integrates Formal Conjectures.

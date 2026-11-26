@@ -1,0 +1,47 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Realized across src/rh_pipeline/audit/triage.py, src/rh_pipeline/cli/check_upstream.py and pyproject.toml, guarded by six unit tests in tests/unit/test_check_upstream.py, and prevents mutating pinned upstream checkouts or missing mapped/audit drift between leaves."
+  },
+  "applicability": "Read-only upstream freshness triage in src/rh_pipeline/audit/triage.py, CLI wiring in src/rh_pipeline/cli/check_upstream.py and console-script registration in pyproject.toml.",
+  "conditions": [
+    "Never executes git fetch, git pull, git checkout or writes to upstream/replay checkouts or audit/; rejects blank or hyphen-prefixed refs to prevent Git option injection.",
+    "Classifies primary upstream ancestry into up-to-date (exit 0), unmapped-only (exit 0), mapped-drift (exit 10, using --no-renames so renamed tracked/mapped files stay visible), history-switched (exit 11) and invalid input/schema errors (exit 2), emitting timestamp-free sorted-key JSON with --json.",
+    "Evaluates optional --replay checkouts informationally (not-checked, not-pinned, up-to-date, moved, history-switched) without altering the primary upstream exit code."
+  ],
+  "exclusions": [
+    "Passing --replay-ref without --replay is ignored; non-UTF-8 upstream path bytes propagate UnicodeDecodeError outside TriageInputError; argparse usage errors follow standard exit code 2 behavior."
+  ],
+  "id": "INV-AXWQKZ",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "rh-check-upstream --upstream /home/firefox/projects/riemann-hypothesis --replay /home/firefox/projects/alpoge-rh-replay (exit 0, up-to-date, replay_status=up-to-date) and 6 unit tests in tests/unit/test_check_upstream.py; report 01-worker-2d163d38-0d67-466a-8253-cd53b9ae869f.md"
+      ],
+      "path": "rh-r07-a1-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R07@v1 R2",
+    "leaf": "01",
+    "task": "261126-EXP"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "The read-only pre-leaf upstream freshness triage module and rh-check-upstream CLI classify upstream commits into up-to-date (exit 0), unmapped-only (exit 0), mapped-drift (exit 10), history-switched (exit 11), and input/schema errors (exit 2), emit deterministic sorted-key JSON with --json, and report informational replay_status without mutating any checkout.",
+  "supersedes": [],
+  "title": "Read-only pre-leaf upstream freshness triage CLI (rh-check-upstream)",
+  "writer": {
+    "at": "2026-11-26T12:10:47+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "01",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
+  }
+}

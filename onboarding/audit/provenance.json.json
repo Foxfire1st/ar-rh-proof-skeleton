@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "075b06c7f88fa8939baf29ea7befad2cf64a3a16",
-        "content": "sha256:cd2c4304a80bf771508713480343fb0ebe5affc97d159361552ae7f10fa7758c",
+        "blob": "6aabc844c13208197cc78c916a343728f7129793",
+        "content": "sha256:6f4639421015f23fbe0accd4d434518de91a4c4d1107c2588c5b99b8b759e4b7",
         "locator": {
           "kind": "file"
         }
@@ -21,14 +21,14 @@
   ],
   "references": {
     "1": {
-      "note": "Pins both comparator configurations and recursive SHA-256 digests of all six files under comparator/.\n\nAnchor: `comparator_file_digests`",
+      "note": "Pins empty comparator_file_digests and the single root comparator.json configuration (Challenge/Main, 5 theorems, 3 permitted axioms, enable_nanoda true).",
       "targets": [
         {
           "anchor": {
-            "blob": "075b06c7f88fa8939baf29ea7befad2cf64a3a16",
-            "content": "sha256:c5e24a23f45fa552aaa7d219369e5a423957b6f8a88841dcfccab539a290c015",
+            "blob": "6aabc844c13208197cc78c916a343728f7129793",
+            "content": "sha256:8c92b1a43af92ef83e5f65a45cda4a0d6778c11484e08028d04fc34197650cff",
             "locator": {
-              "end": 62,
+              "end": 24,
               "kind": "line_range",
               "start": 1
             }
@@ -38,16 +38,16 @@
       ]
     },
     "2": {
-      "note": "Pins verification note digests, alpoge-rh-replay metadata, schema_version 1.0.0 and riemann-hypothesis commit and toolchain.\n\nAnchor: `replay_pin`",
+      "note": "Pins the five upstream Markdown note digests, alpoge-rh-replay metadata (c367a847a52c), schema_version 1.0.0, and riemann-hypothesis commit (41c2716658c4) and toolchain.",
       "targets": [
         {
           "anchor": {
-            "blob": "075b06c7f88fa8939baf29ea7befad2cf64a3a16",
-            "content": "sha256:c771e692f79b541eb2faa90454f94adb7659d951d3a76672d04982d156b4be30",
+            "blob": "6aabc844c13208197cc78c916a343728f7129793",
+            "content": "sha256:852ffa2295c617facda17922209dedfae218dde46be3f37334e5f9ea8527f614",
             "locator": {
-              "end": 83,
+              "end": 48,
               "kind": "line_range",
-              "start": 63
+              "start": 25
             }
           },
           "kind": "code"

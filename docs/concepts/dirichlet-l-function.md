@@ -64,6 +64,6 @@ Stage 00 anchors Dirichlet $L$-functions in:
     ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
       0 < s.re → s.re < 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
   ```
-- `00_statement/main.lean#LFunction_eq_zero_re` (upstream `src/Main.lean:51-52`), proved via `Claim.strip LFunction_ne_zero_of_half_lt_re`.
+- `00_statement/main.lean#LFunction_eq_zero_re` (upstream `src/Main.lean:19-21`), proved via `New.zeros_on_line New.grh`.
 
-Upstream provenance is pinned at commit `c900e67c2fcd1fdb041685820bbd2b867fbc5a4b` (`build_status: unverified-locally`).
+See the page's live verification banner (`audit/verification-status.json`) for the currently pinned upstream snapshot and local Lean build status (`build_status: unverified-locally`).

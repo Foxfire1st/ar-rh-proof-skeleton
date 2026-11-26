@@ -3,12 +3,12 @@
   "realizes": [],
   "references": {
     "1": {
-      "note": "Auto-generated header pins upstream src/Main.lean at c900e67c2fcd1fdb041685820bbd2b867fbc5a4b with Preserve defs false.",
+      "note": "Auto-generated header pins upstream src/Main.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs false.",
       "targets": [
         {
           "anchor": {
-            "blob": "7a3b257ac601fcf907f4871245f368d71a50f9d0",
-            "content": "sha256:260c786680af5412edc95595e090f7ef6f0190b81cbffa9329e61cc35b688c80",
+            "blob": "56b9c9bdbe40ece9e068eb565e09fa4605d62f4b",
+            "content": "sha256:2f885abe24492f39d6a55a6c490d458915ce67f6d9192a515858a68c003daa27",
             "locator": {
               "end": 3,
               "kind": "line_range",
@@ -20,14 +20,14 @@
       ]
     },
     "2": {
-      "note": "Stubs LFunction_ne_zero_of_half_lt_re, riemannHypothesis and riemannZeta_eq_zero_re with EXTRACTED_STUB provenance markers.",
+      "note": "Stubs riemannHypothesis, riemannZeta_eq_zero_re and LFunction_ne_zero_of_half_lt_re with preserved docstrings and EXTRACTED_STUB provenance markers (body_lines=1).",
       "targets": [
         {
           "anchor": {
-            "blob": "7a3b257ac601fcf907f4871245f368d71a50f9d0",
-            "content": "sha256:c42c08cb084ceb556858d55fdf90532089d6e8e8ab5cf50dd221021920060122",
+            "blob": "56b9c9bdbe40ece9e068eb565e09fa4605d62f4b",
+            "content": "sha256:877f1bb782ed15316f12b263bbcf50b8090f672a1620a386f90e9be88bd672c4",
             "locator": {
-              "end": 12,
+              "end": 17,
               "kind": "line_range",
               "start": 5
             }
@@ -37,16 +37,16 @@
       ]
     },
     "3": {
-      "note": "Stubs LFunction_eq_zero_re and LFunction_eq_zero_re_of_isPrimitive with body line counts and SHA-256 digests.",
+      "note": "Stubs LFunction_eq_zero_re and LFunction_eq_zero_re_of_isPrimitive with preserved docstrings, body_lines=1 and SHA-256 digests.",
       "targets": [
         {
           "anchor": {
-            "blob": "7a3b257ac601fcf907f4871245f368d71a50f9d0",
-            "content": "sha256:904d99aceb86dd4b03b9f08bcd6a78ede975013216b7263a3e4f99c8d436c3b3",
+            "blob": "56b9c9bdbe40ece9e068eb565e09fa4605d62f4b",
+            "content": "sha256:ebb17190710986d90df85de34879daa0c6248f634723888e8c4f29a450a257c9",
             "locator": {
-              "end": 18,
+              "end": 27,
               "kind": "line_range",
-              "start": 14
+              "start": 19
             }
           },
           "kind": "code"

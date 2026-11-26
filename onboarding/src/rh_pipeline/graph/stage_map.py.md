@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Loads and validates the versioned 21-stage map, constructs the strict import-only proof dependency `DagGraph`, and orchestrates read-only upstream extraction with full in-memory validation before atomic file replacement.
+Loads and validates the versioned stage map (`rh-stage-map/v1`, currently 8 condensed stages), constructs the strict import-only proof dependency `DagGraph`, and orchestrates read-only upstream extraction with full in-memory validation before atomic file replacement.
 
 ## Code Commentary
 
@@ -14,7 +14,7 @@ Loads and validates the versioned 21-stage map, constructs the strict import-onl
 
 ## Relationships
 
-Uses [DAG models](../models/dag.py.md), [Lean models](../models/lean.py.md), [the Lean 4 parser](../lean/parser.py.md) and [the stub emitter](../lean/stub_emitter.py.md). Reads [the 21-stage map](../../../dag/stage-map.json.md), emits [the Stage 00 DAG](../../../dag/dag.json.md) and `skeleton/00_statement/*.lean`, is wired by [the `rh-extract` CLI](../cli/extract.py.md) and is verified by [stage-map unit tests](../../../tests/unit/test_stage_map.py.md) and [CLI unit tests](../../../tests/unit/test_extract_cli.py.md).
+Uses [DAG models](../models/dag.py.md), [Lean models](../models/lean.py.md), [the Lean 4 parser](../lean/parser.py.md) and [the stub emitter](../lean/stub_emitter.py.md). Reads [the 8-stage map](../../../dag/stage-map.json.md), emits [the Stage 00 DAG](../../../dag/dag.json.md) and `skeleton/00_statement/*.lean`, is wired by [the `rh-extract` CLI](../cli/extract.py.md) and [upstream triage](../audit/triage.py.md), and is verified by [stage-map unit tests](../../../tests/unit/test_stage_map.py.md) and [CLI unit tests](../../../tests/unit/test_extract_cli.py.md).
 
 ## Evidence
 

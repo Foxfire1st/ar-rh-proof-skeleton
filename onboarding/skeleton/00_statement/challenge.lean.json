@@ -3,12 +3,12 @@
   "realizes": [],
   "references": {
     "1": {
-      "note": "Auto-generated header pins upstream src/Challenge.lean at c900e67c2fcd1fdb041685820bbd2b867fbc5a4b with Preserve defs true.",
+      "note": "Auto-generated header pins root upstream Challenge.lean at 41c2716658c42ba08eb0648994a2efe83082a95c with Preserve defs true.",
       "targets": [
         {
           "anchor": {
-            "blob": "936be9ee90ff548f351c476d3487e9d9c9c94ece",
-            "content": "sha256:18ab22fed366d44e2218d4bd6adae8abad4cee6a07c1ac36442401055f3491ff",
+            "blob": "e67ddbbdcaa961622d23bc744129e5db49c5351b",
+            "content": "sha256:d0721aae2de61d07017c90f2208050cfe8f186fedafabe5ef817b8596ca17cdb",
             "locator": {
               "end": 3,
               "kind": "line_range",
@@ -19,34 +19,17 @@
         }
       ]
     },
-    "2": {
-      "note": "Preserves all four statement Prop definitions verbatim with EXTRACTED_DEF provenance tags.",
+    "3": {
+      "note": "Stubs all five challenge theorems with EXTRACTED_STUB sorry lines and upstream line ranges Challenge.lean:7-20.",
       "targets": [
         {
           "anchor": {
-            "blob": "936be9ee90ff548f351c476d3487e9d9c9c94ece",
-            "content": "sha256:091f2f11e7c195178c3dfa77e925d9d87168a96f523f2081e013e6d4b11da888",
+            "blob": "e67ddbbdcaa961622d23bc744129e5db49c5351b",
+            "content": "sha256:760939f972de54fe40408c095d35818503e112844511274f65dad6f3e014e6e7",
             "locator": {
-              "end": 22,
+              "end": 18,
               "kind": "line_range",
               "start": 5
-            }
-          },
-          "kind": "code"
-        }
-      ]
-    },
-    "3": {
-      "note": "Stubs all five challenge theorems with EXTRACTED_STUB sorry lines and upstream line ranges.",
-      "targets": [
-        {
-          "anchor": {
-            "blob": "936be9ee90ff548f351c476d3487e9d9c9c94ece",
-            "content": "sha256:1547b5f3ae3f4b3d8f6aab52238a096bf8c0b728dd91aebb805dd1bea41337c9",
-            "locator": {
-              "end": 38,
-              "kind": "line_range",
-              "start": 24
             }
           },
           "kind": "code"

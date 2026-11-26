@@ -1,0 +1,41 @@
+{
+  "path": "dag/README.md",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Designates stage-map.json as the authoritative versioned mapping to the 8 condensed proof stages (00_statement/ through 07_congruences/).",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "6b136a88972a0db4b1bf4fbf4315ab60b3bda99e",
+            "content": "sha256:df3f9f6f9db41f702c1db180936888fcf97eab748a12077090d9385ba955a67b",
+            "locator": {
+              "end": 3,
+              "kind": "line_range",
+              "start": 3
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "Designates dag.json as the generated condensed landmark dependency graph consumed by curation and the static site DAG explorer.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "6b136a88972a0db4b1bf4fbf4315ab60b3bda99e",
+            "content": "sha256:68e1f48255fef4ddf3b704ff0ceb31d890a2b2b3e3695f31a9ec05c742583cc8",
+            "locator": {
+              "end": 4,
+              "kind": "line_range",
+              "start": 4
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

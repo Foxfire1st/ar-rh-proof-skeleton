@@ -1,12 +1,16 @@
 {
   "anchor": {
-    "blob": "1ec6f4d231a74e8505fba1a9cd9fd19fc30eb185",
-    "content": "sha256:3e8c6e56bf6b22db3029dab4cc8a406a928fdde27fc079aef7e002beeaa14d82",
+    "blob": "4766256e3cd884fc3c4649a578d4eba39550fca2",
+    "content": "sha256:650587319dcb53f9efb2d3ddac7c43fbe471dfc7aa21fbfbbb84b5b7e54197a6",
     "locator": {
       "kind": "symbol",
       "name": "test_quality_runs_worktree_tools_in_ci_order"
     },
     "path": "tests/unit/test_quality_scripts.py"
+  },
+  "closed": {
+    "reason": "test_quality_runs_worktree_tools_in_ci_order now clears inherited RH_MEMORY_ROOT via monkeypatch.delenv and test_quality_ci_order_ignores_inherited_memory_root guards the fix.",
+    "task": "01"
   },
   "id": "WKN-1K87DB",
   "kind": "debt",
@@ -18,23 +22,23 @@
     "leaf": "05",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-weakness/v1",
   "seen": {
     "role": "worker",
     "task": "261123-RH"
   },
-  "state": "open",
+  "state": "closed",
   "statement": "test_quality_runs_worktree_tools_in_ci_order does not clear an inherited RH_MEMORY_ROOT environment variable, causing scripts/check-quality.sh to append --memory to rh-validate and fail the default CI-order assertion whenever RH_MEMORY_ROOT is exported.",
   "writer": {
-    "at": "2026-11-25T22:31:11+01:00",
+    "at": "2026-11-26T12:10:47+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "05",
+    "leaf": "01",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
-    "task": "261123-RH"
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
   }
 }

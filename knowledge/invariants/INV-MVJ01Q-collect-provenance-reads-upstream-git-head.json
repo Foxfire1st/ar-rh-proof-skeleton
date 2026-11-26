@@ -9,7 +9,8 @@
   "applicability": "Read-only provenance collection over local riemann-hypothesis and optional alpoge-rh-replay Git checkouts in src/rh_pipeline/audit/provenance.py.",
   "conditions": [
     "Both upstream_root and optional replay_root must be Git repository roots verified via git rev-parse without mutating either checkout.",
-    "All six required upstream files (lean-toolchain, lake-manifest.json with a mathlib entry, comparator.json, comparator/formal-conjectures.json, verification/NOTES.md, verification/static-scan.txt) and both replay files when replay_root is supplied must exist and parse validly."
+    "Root comparator.json must exist, carry no unknown keys outside the allowed set and include at least one of external_kernels, definition_names or enable_nanoda; when comparator/ exists it must be a directory containing comparator/formal-conjectures.json, and when absent comparator_file_digests is empty.",
+    "Tracked note digests hash all existing files in {CONTENTS.md, GUIDE.md, INDEX.md, README.md, REFERENCES.md, verification/NOTES.md, verification/static-scan.txt}, requiring at least verification/NOTES.md or GUIDE.md and both verification/ files whenever verification/ exists; both replay files must exist and parse validly when replay_root is supplied."
   ],
   "exclusions": [
     "Does not execute Lake or Lean, does not reject uncommitted upstream dirtiness, and excludes root comparator.json from comparator_file_digests."
@@ -26,20 +27,20 @@
     "leaf": "02",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
-  "statement": "collect_provenance reads upstream Git HEAD/branch (including detached HEAD), lean-toolchain, Mathlib rev, both Comparator configs, sorted comparator/ and verification note SHA-256 digests, and optional ReplayPin read-only while failing closed with AuditInputError on missing or invalid inputs.",
+  "statement": "collect_provenance reads upstream Git HEAD/branch (including detached HEAD), lean-toolchain, Mathlib rev, root comparator.json plus optional comparator/ config and recursive digests, tracked documentation/verification note digests (requiring verification/NOTES.md or GUIDE.md and paired verification/ files when present), and optional ReplayPin read-only while failing closed with AuditInputError on missing or invalid inputs.",
   "supersedes": [],
   "title": "Read-only upstream and replay provenance collection with fail-closed validation",
   "writer": {
-    "at": "2026-11-25T17:00:49+01:00",
+    "at": "2026-11-26T12:10:47+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "02",
+    "leaf": "01",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
-    "task": "261123-RH"
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
   }
 }

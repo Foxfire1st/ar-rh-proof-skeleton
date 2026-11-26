@@ -3,7 +3,41 @@
   "proves": [
     {
       "anchor": {
-        "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+        "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+        "content": "sha256:255a1cd65b9324bcd118d6d9a2324fedb7d9da8c62eeb7813e1599c2519f7a65",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_committed_dag_and_stage00_skeleton_round_trip"
+        }
+      },
+      "facet": "Demonstrates committed dag/dag.json round-trips byte-identically with 8 stages and 3 Stage 00 nodes, matches audit/verification-status.json upstream_commit, records challenge->statements with empty statements and main edges, and aligns every declaration span with all three re-parsed Stage 00 skeletons.",
+      "id": "PRF-1Q7FJ2",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-y5x0fk",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+        "content": "sha256:0904903b1069f3a31e0132d0f689a80f4214d1259a3195f43e5ff3212b086456",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_load_real_stage_map"
+        }
+      },
+      "facet": "Demonstrates committed dag/stage-map.json loads cleanly into 8 consecutively ordered stages (00_statement..07_congruences, orders 0..7) with three Stage 00 mappings and empty Stages 01-07.",
+      "id": "PRF-A48A5B",
+      "invariant": "INV-Y5X0FK",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-y5x0fk",
+        "leaf": "01"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
         "content": "sha256:00eb0c4a746248bda9169fdadf0611d0fd1a888067f774833adeb00d48fbf104",
         "locator": {
           "kind": "symbol",
@@ -20,41 +54,7 @@
     },
     {
       "anchor": {
-        "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
-        "content": "sha256:093d84738b061bc2a0d5c5d3ef556ddcb169b7b8bf5b142cf666a2dab28b20dd",
-        "locator": {
-          "kind": "symbol",
-          "name": "test_load_real_stage_map"
-        }
-      },
-      "facet": "Demonstrates committed dag/stage-map.json loads cleanly into 21 consecutively ordered stages (0..20) with five Stage 00 mappings and empty Stages 01-20.",
-      "id": "PRF-TY7QW9",
-      "invariant": "INV-Y5X0FK",
-      "origin": {
-        "handoffEntry": "RH-R03@v1 §4",
-        "leaf": "03"
-      }
-    },
-    {
-      "anchor": {
-        "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
-        "content": "sha256:92da830c028e0119667ee9eeecf5d88946e88eee338963b8dfa8ce65b48e27f2",
-        "locator": {
-          "kind": "symbol",
-          "name": "test_committed_dag_and_stage00_skeleton_round_trip"
-        }
-      },
-      "facet": "Demonstrates committed dag/dag.json round-trips byte-identically, matches audit/verification-status.json upstream_commit, records main->statements with empty challenge edges and aligns every declaration span with re-parsed Stage 00 skeletons.",
-      "id": "PRF-V6DD0Y",
-      "invariant": "INV-Y5X0FK",
-      "origin": {
-        "handoffEntry": "RH-R03@v1 §4",
-        "leaf": "03"
-      }
-    },
-    {
-      "anchor": {
-        "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+        "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
         "content": "sha256:0ce9d3808a534fe7ccd0dd81f8501581240e53a04e62c2e154ca3d41aa711d45",
         "locator": {
           "kind": "symbol",
@@ -73,12 +73,12 @@
   "realizes": [],
   "references": {
     "1": {
-      "note": "Verifies Lean module-name resolution, real 21-stage map loading and StageMapError validation on duplicates, non-consecutive orders and malformed inputs.",
+      "note": "Verifies Lean module-name resolution, real 8-stage map loading (00_statement..07_congruences, 3 Stage 00 files, empty Stages 01-07) and StageMapError validation on duplicates, non-consecutive orders and malformed inputs.",
       "targets": [
         {
           "anchor": {
-            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
-            "content": "sha256:093d84738b061bc2a0d5c5d3ef556ddcb169b7b8bf5b142cf666a2dab28b20dd",
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "content": "sha256:0904903b1069f3a31e0132d0f689a80f4214d1259a3195f43e5ff3212b086456",
             "locator": {
               "kind": "symbol",
               "name": "test_load_real_stage_map"
@@ -88,7 +88,7 @@
         },
         {
           "anchor": {
-            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
             "content": "sha256:26186912666a32b5b0bc4d756d237f65a8ffc69ab0220a72677c7409b5857593",
             "locator": {
               "kind": "symbol",
@@ -104,7 +104,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
             "content": "sha256:00eb0c4a746248bda9169fdadf0611d0fd1a888067f774833adeb00d48fbf104",
             "locator": {
               "kind": "symbol",
@@ -115,7 +115,7 @@
         },
         {
           "anchor": {
-            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
             "content": "sha256:0ce9d3808a534fe7ccd0dd81f8501581240e53a04e62c2e154ca3d41aa711d45",
             "locator": {
               "kind": "symbol",
@@ -127,12 +127,12 @@
       ]
     },
     "3": {
-      "note": "Guards committed dag/dag.json round-trip fidelity, upstream_commit parity with verification-status.json and declaration line-range parity with all five Stage 00 skeletons.",
+      "note": "Guards committed dag/dag.json round-trip fidelity (8 stages, 3 Stage 00 nodes with challenge -> statements and empty statements/main edges), upstream_commit parity with verification-status.json and declaration line-range parity across all three Stage 00 skeletons.",
       "targets": [
         {
           "anchor": {
-            "blob": "19907501082ec7ee9c5a6400af06bcd66b817f7f",
-            "content": "sha256:92da830c028e0119667ee9eeecf5d88946e88eee338963b8dfa8ce65b48e27f2",
+            "blob": "2b1461afd6bebdde2dac0c6bdaf048c8812eb56d",
+            "content": "sha256:255a1cd65b9324bcd118d6d9a2324fedb7d9da8c62eeb7813e1599c2519f7a65",
             "locator": {
               "kind": "symbol",
               "name": "test_committed_dag_and_stage00_skeleton_round_trip"

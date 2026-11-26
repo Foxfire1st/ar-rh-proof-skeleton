@@ -2,14 +2,14 @@
   "path": ".",
   "references": {
     "1": {
-      "note": "The layout assigns package responsibilities and documents the worktree commands.",
+      "note": "The layout assigns package responsibilities, summarizes the six CLI commands and documents the worktree quality commands.\n\nAnchor: `## Repository Layout & Code Ownership`",
       "targets": [
         {
           "anchor": {
-            "blob": "c30bd35b0ecb148bbee69f98c4e99dab8d781c74",
-            "content": "sha256:e5c1f034d491d259d4dd9cae07933e3e7d0053e8b24943f9fd93a4dcda7c0446",
+            "blob": "56ed6ec08b47e158e0e58c8407a8bc2e627738b0",
+            "content": "sha256:c075c77d129cb0ee0a649e32a1019037af372417e8935c9fbc997da4849975de",
             "locator": {
-              "end": 51,
+              "end": 64,
               "kind": "line_range",
               "start": 13
             },
@@ -38,14 +38,14 @@
       ]
     },
     "3": {
-      "note": "Package metadata registers rh-audit, rh-build-site, rh-extract, rh-file-size-gate and rh-validate console scripts.\n\nAnchor: `[project.scripts]`",
+      "note": "Package metadata registers rh-audit, rh-build-site, rh-check-upstream, rh-extract, rh-file-size-gate and rh-validate console scripts.\n\nAnchor: `[project.scripts]`",
       "targets": [
         {
           "anchor": {
-            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
-            "content": "sha256:aac44b3608721dbe8ce839128962ab198b77ea0165d09af707709f76ba7105a7",
+            "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+            "content": "sha256:f08798fba1800be9aa8fabf71784436f41cfd9715f4b2d23b8e46055b1c0c41a",
             "locator": {
-              "end": 29,
+              "end": 30,
               "kind": "line_range",
               "start": 24
             },
@@ -118,6 +118,23 @@
               "name": "main"
             },
             "path": "src/rh_pipeline/cli/build_site.py"
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "8": {
+      "note": "The rh-check-upstream CLI runs read-only upstream freshness triage against pinned provenance and the stage map, returning deterministic classification exit codes.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "8aa774f0001c7a4ae74703cde3284471c55d4948",
+            "content": "sha256:88045757caf3e913f130ba99d6d22f26158a5cbd08909ce741982b7ac8ec4825",
+            "locator": {
+              "kind": "symbol",
+              "name": "main"
+            },
+            "path": "src/rh_pipeline/cli/check_upstream.py"
           },
           "kind": "code"
         }

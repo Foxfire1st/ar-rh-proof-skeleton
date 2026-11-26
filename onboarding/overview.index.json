@@ -15,6 +15,7 @@
     "README.md",
     "audit/provenance.json",
     "audit/verification-status.json",
+    "dag/README.md",
     "dag/dag.json",
     "dag/stage-map.json",
     "pyproject.toml",
@@ -30,15 +31,16 @@
     "site/package-lock.json",
     "site/package.json",
     "skeleton/00_statement/challenge.lean",
-    "skeleton/00_statement/formal_conjectures_challenge.lean",
-    "skeleton/00_statement/formal_conjectures_statement.lean",
     "skeleton/00_statement/main.lean",
     "skeleton/00_statement/statements.lean",
+    "skeleton/README.md",
     "src/rh_pipeline/audit/provenance.py",
     "src/rh_pipeline/audit/static_scan.py",
     "src/rh_pipeline/audit/status.py",
+    "src/rh_pipeline/audit/triage.py",
     "src/rh_pipeline/cli/audit.py",
     "src/rh_pipeline/cli/build_site.py",
+    "src/rh_pipeline/cli/check_upstream.py",
     "src/rh_pipeline/cli/extract.py",
     "src/rh_pipeline/cli/validate.py",
     "src/rh_pipeline/graph/stage_map.py",
@@ -60,6 +62,7 @@
     "tests/unit/test_audit_cli.py",
     "tests/unit/test_audit_provenance.py",
     "tests/unit/test_audit_static_scan.py",
+    "tests/unit/test_check_upstream.py",
     "tests/unit/test_extract_cli.py",
     "tests/unit/test_file_size_gate.py",
     "tests/unit/test_lean_parser.py",
@@ -74,7 +77,7 @@
   ],
   "coverageCounts": {
     "sourceFilesInScope": 55,
-    "fileSidecars": 61,
+    "fileSidecars": 64,
     "childRoutes": 0
   },
   "routingTerms": [
@@ -84,6 +87,7 @@
     "build_site",
     "challenge",
     "check",
+    "check_upstream",
     "cli",
     "compiler",
     "components",
@@ -91,7 +95,6 @@
     "conceptreveal",
     "concepts",
     "config",
-    "conjectures",
     "css",
     "dag",
     "docs",
@@ -99,9 +102,6 @@
     "extract",
     "file",
     "file_size",
-    "formal",
-    "formal_conjectures_challenge",
-    "formal_conjectures_statement",
     "gate",
     "github",
     "gitignore",
@@ -148,6 +148,7 @@
     "test_audit_cli",
     "test_audit_provenance",
     "test_audit_static_scan",
+    "test_check_upstream",
     "test_extract_cli",
     "test_file_size_gate",
     "test_lean_parser",
@@ -157,7 +158,9 @@
     "test_stub_emitter",
     "test_validate_cli",
     "test_validate_concepts",
-    "test_validate_jargon"
+    "test_validate_jargon",
+    "test_validate_schemas",
+    "tests"
   ],
   "hotPath": {
     "summary": "",
@@ -170,6 +173,7 @@
       "audit/provenance.json",
       "audit/verification-status.json",
       "dag",
+      "dag/README.md",
       "dag/dag.json",
       "dag/stage-map.json",
       "pyproject.toml",
@@ -184,8 +188,7 @@
       "site/docs/.vitepress/theme/components/VerificationBanner.vue",
       "site/docs/.vitepress/theme/components/ZoomTabs.vue",
       "site/docs/.vitepress/theme",
-      "site/docs/.vitepress/theme/index.ts",
-      "site/docs/.vitepress/theme/tokens.css"
+      "site/docs/.vitepress/theme/index.ts"
     ],
     "anchorHints": [
       "quality.yml",
@@ -227,15 +230,15 @@
       "package",
       "challenge.lean",
       "challenge",
-      "formal_conjectures_challenge.lean",
-      "formal_conjectures_challenge",
-      "formal_conjectures_statement.lean",
-      "formal_conjectures_statement",
       "main.lean",
       "main",
       "statements.lean",
       "statements",
-      "provenance.py"
+      "provenance.py",
+      "static_scan.py",
+      "static_scan",
+      "status.py",
+      "status"
     ]
   },
   "fallback": {

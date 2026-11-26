@@ -1,10 +1,10 @@
 {
   "confirmed": {
-    "codeTree": "8e8874db21db78a4cad3033061a8fe028f52af37",
-    "commit": "f22dfaf4d46743a1db6ae40c6436a955436c3a21",
+    "codeTree": "9888d6c85343db10318c0cf96775ff399e85c90f",
+    "commit": "208bd7ff2f681267d3175527c78a3fe47560f68b",
     "role": "curator",
-    "statement": "audit/README.md correctly names provenance.json and verification-status.json, but its description of verification-status.json overstates replay status, axiom-audit execution, comparator results and live site-banner rendering relative to the Phase 0 schema and should be aligned in a follow-up code task.",
-    "task": "261123-RH",
+    "statement": "audit/README.md accurately names provenance.json and verification-status.json (now rendered into the global VerificationBanner), while its summary of verification-status.json still mentions replay status (which lives in provenance.json) and axiom-audit execution (Phase 0 performs lexical static scanning only, not Lean axiom auditing).",
+    "task": "01",
     "uncommitted": true
   },
   "document": "audit/README.md",
@@ -17,23 +17,23 @@
     "leaf": "02",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-dependent/v1",
   "stands_on": [
     {
-      "blob": "075b06c7f88fa8939baf29ea7befad2cf64a3a16",
+      "blob": "6aabc844c13208197cc78c916a343728f7129793",
       "kind": "file",
       "path": "audit/provenance.json"
     },
     {
-      "blob": "4122eaf392b1a3a24ee33e8ecce9d84230cdd550",
+      "blob": "5e3ad8463e5d5342c9aeeaff87de1eb4c9d267bc",
       "kind": "file",
       "path": "audit/verification-status.json"
     },
     {
       "anchor": {
-        "blob": "f4852b0a657fc3cc2e34b050a825bfdb0988b804",
-        "content": "sha256:c0f3e6721992e2ed58072f34e1624e19bc544a7b23916cdfdf8d859846482013",
+        "blob": "6cb03f21d127a790630dc692ed90db8562d3c723",
+        "content": "sha256:7a69074d351fd7c157ff6ed849145c83f12a41ec13a2a3b457b79fbfbbe35859",
         "locator": {
           "kind": "symbol",
           "name": "VerificationStatus"
@@ -46,18 +46,18 @@
     {
       "id": "INV-ZSMC71",
       "kind": "record",
-      "revision": 1
+      "revision": 2
     }
   ],
   "writer": {
-    "at": "2026-11-25T17:00:49+01:00",
+    "at": "2026-11-26T12:10:47+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "02",
+    "leaf": "01",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
-    "task": "261123-RH"
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
   }
 }

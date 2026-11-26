@@ -10,7 +10,7 @@
   },
   "applicability": "End-to-end static-site compilation across src/rh_pipeline/site/{compiler,renderers}.py, src/rh_pipeline/cli/build_site.py and [project.scripts] in pyproject.toml.",
   "conditions": [
-    "compile_site validates audit/verification-status.json, dag/dag.json (including upstream_commit parity), Concept Card and explainer gates, Stage 00 overview, asset containment and visual_ref existence in memory before touching out_docs_dir.",
+    "compile_site validates audit/verification-status.json, dag/dag.json (including upstream_commit parity), Concept Card and explainer gates, Stage 00 overview, asset containment and visual_ref existence in memory before touching out_docs_dir; render_verification_banner emits repo-layout='legacy' when community_verification_notes_sha256 is present and repo-layout='condensed' when None.",
     "Atomic temporary-file staging and managed-directory stale pruning run strictly inside stages/, concepts/, assets/ and public/assets/, never touching .vitepress/, and rh-build-site exits 1 with zero writes on SiteBuildError or SiteDirectiveError."
   ],
   "exclusions": [
@@ -28,20 +28,20 @@
     "leaf": "05",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
-  "statement": "compile_site validates audit/verification-status.json, dag/dag.json, Concept Cards, explainer jargon, stage docs, and SVG assets completely in memory before atomically writing compiled VitePress pages, preserving .vitepress/ untouched and pruning stale generated files.",
+  "statement": "compile_site validates audit/verification-status.json, dag/dag.json, Concept Cards, explainer jargon, stage docs, and SVG assets completely in memory before atomically writing compiled VitePress pages (emitting layout-aware VerificationBanner repo-layout props), preserving .vitepress/ untouched and pruning stale generated files.",
   "supersedes": [],
   "title": "Fail-closed atomic rh-build-site compilation, rendering and stale pruning",
   "writer": {
-    "at": "2026-11-25T22:31:11+01:00",
+    "at": "2026-11-26T12:10:47+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "05",
+    "leaf": "01",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
-    "task": "261123-RH"
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
   }
 }

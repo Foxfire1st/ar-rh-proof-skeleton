@@ -14,7 +14,7 @@ Provides the thin `rh-extract` command-line entry point that wires CLI arguments
 
 ## Relationships
 
-Registered as `rh-extract = "rh_pipeline.cli.extract:main"` in [package metadata](../../../pyproject.toml.md). Calls [the stage-map extractor](../graph/stage_map.py.md), catches `UnsupportedLeanFormError` from [the Lean 4 parser](../lean/parser.py.md), reads [the 21-stage map](../../../dag/stage-map.json.md), regenerates [the Stage 00 DAG](../../../dag/dag.json.md) and `skeleton/00_statement/*.lean`, and is verified by [extract CLI unit tests](../../../tests/unit/test_extract_cli.py.md).
+Registered as `rh-extract = "rh_pipeline.cli.extract:main"` in [package metadata](../../../pyproject.toml.md). Calls [the stage-map extractor](../graph/stage_map.py.md), catches `UnsupportedLeanFormError` from [the Lean 4 parser](../lean/parser.py.md), reads [the 8-stage map](../../../dag/stage-map.json.md), regenerates [the Stage 00 DAG](../../../dag/dag.json.md) and `skeleton/00_statement/*.lean`, and is verified by [extract CLI unit tests](../../../tests/unit/test_extract_cli.py.md).
 
 ## Evidence
 

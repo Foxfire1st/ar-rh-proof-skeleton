@@ -9,10 +9,10 @@
   "applicability": "Lexical static scanning of Lean 4 source files for forbidden tokens and external-code attributes in src/rh_pipeline/audit/static_scan.py.",
   "conditions": [
     "Line comments, nested block comments, double-quoted strings, raw strings, char literals and Unicode primed identifiers are lexed before matching the nine forbidden tokens or depth-1 extern/implemented_by attributes.",
-    "Entry scope scans the seven required entry/comparator files; full scope scans all .lean files under comparator/ and src/ excluding scripts/; only sorry in src/Challenge.lean or comparator/FormalConjecturesChallenge.lean routes to challenge_findings."
+    "Exactly one primary challenge file (Challenge.lean at repo root or legacy src/Challenge.lean) must exist; entry scope scans src/Statements.lean, src/Main.lean, the resolved primary challenge file and any comparator/FormalConjectures*.lean files when comparator/ exists; full scope scans src/**/*.lean, the resolved primary challenge file and optional comparator/**/*.lean excluding scripts/; only sorry in CHALLENGE_FILES (Challenge.lean, src/Challenge.lean, comparator/FormalConjecturesChallenge.lean) routes to challenge_findings."
   ],
   "exclusions": [
-    "Interpolated string expressions (s!\"...{expr}...\") are skipped as opaque string literals, unclosed string literals do not raise AuditScanError, and root-level .lean files outside src/ and comparator/ are outside full scope."
+    "Interpolated string expressions (s!\"...{expr}...\") are skipped as opaque string literals, unclosed string literals do not raise AuditScanError, and root-level .lean files other than Challenge.lean outside src/ and comparator/ are outside full scope."
   ],
   "id": "INV-YAHFY5",
   "origin": {
@@ -26,20 +26,20 @@
     "leaf": "02",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
-  "statement": "The Lean 4 lexical static scanner skips line comments, nested block comments, strings, raw strings, and char literals without desyncing on identifier primes, detects word-bounded forbidden tokens and extern/implemented_by attribute forms, raises AuditScanError on unclosed block comments, supports entry and full scopes (excluding scripts/), and routes challenge sorrys separately from non-sorry forbidden tokens.",
+  "statement": "The Lean 4 lexical static scanner skips line comments, nested block comments, strings, raw strings, and char literals without desyncing on identifier primes, detects word-bounded forbidden tokens and extern/implemented_by attribute forms, raises AuditScanError on unclosed block comments, supports entry and full scopes across condensed (root Challenge.lean, optional comparator/) and legacy layouts (excluding scripts/), and routes challenge sorrys separately from non-sorry forbidden tokens.",
   "supersedes": [],
   "title": "Comment- and literal-aware Lean 4 static scan and challenge/solution split",
   "writer": {
-    "at": "2026-11-25T17:00:49+01:00",
+    "at": "2026-11-26T12:10:47+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "02",
+    "leaf": "01",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "abf1b4a5-3a43-4dcd-946f-4b09118cf38d",
-    "task": "261123-RH"
+    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "task": "261126-EXP"
   }
 }

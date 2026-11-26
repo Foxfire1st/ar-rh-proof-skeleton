@@ -3,7 +3,25 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
+        "blob": "77b3fb2e959e54e13c8b06291115e680d151ac71",
+        "content": "sha256:665659b0b04d8654aec125c8a9b1a0770bd68b51bd4941d142efdc1c7b513a5b",
+        "locator": {
+          "kind": "symbol",
+          "name": "_resolve_verification_digests"
+        }
+      },
+      "id": "RLZ-4Y7NW0",
+      "invariant": "INV-ZSMC71",
+      "origin": {
+        "handoffEntry": "rh-r07-inv-zsmc71",
+        "leaf": "01"
+      },
+      "rationale": "Enforces paired-optional verification-note digest extraction, returning (None, None) when both legacy verification keys are absent and raising AuditInputError if only one key is present or either digest is empty.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "77b3fb2e959e54e13c8b06291115e680d151ac71",
         "content": "sha256:4d315f7f62a99ff64017cabc518ccddb829fa0ffa1175e460dbaca26a4cd8b3c",
         "locator": {
           "kind": "symbol",
@@ -21,8 +39,8 @@
     },
     {
       "anchor": {
-        "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
-        "content": "sha256:b1296de2a02b91e503ad81298986f17d1190a0c54e39a65df99ae58622285367",
+        "blob": "77b3fb2e959e54e13c8b06291115e680d151ac71",
+        "content": "sha256:1baaa402b3cba82bbcb9c00425ff46e459ee5b19c3be17cbdbb4ebc04b4c2d3a",
         "locator": {
           "kind": "symbol",
           "name": "build_verification_status"
@@ -34,18 +52,18 @@
         "handoffEntry": "RH-R02@v1 §4",
         "leaf": "02"
       },
-      "rationale": "Combines provenance and static-scan results into a self-contained VerificationStatus hard-coding build_status='unverified-locally'.",
+      "rationale": "Combines provenance and static-scan results into a self-contained VerificationStatus with paired-optional verification digests and hard-coded build_status='unverified-locally'.",
       "role": "primary-authority"
     }
   ],
   "references": {
     "1": {
-      "note": "Assembles a self-contained VerificationStatus with deduplicated theorems and axioms, required note digests and hard-coded build_status unverified-locally.",
+      "note": "Assembles a self-contained VerificationStatus with deduplicated theorems and axioms, paired-optional verification note digests (both present and non-empty, or both null), and hard-coded build_status unverified-locally.",
       "targets": [
         {
           "anchor": {
-            "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
-            "content": "sha256:b1296de2a02b91e503ad81298986f17d1190a0c54e39a65df99ae58622285367",
+            "blob": "77b3fb2e959e54e13c8b06291115e680d151ac71",
+            "content": "sha256:1baaa402b3cba82bbcb9c00425ff46e459ee5b19c3be17cbdbb4ebc04b4c2d3a",
             "locator": {
               "kind": "symbol",
               "name": "build_verification_status"
@@ -60,7 +78,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "660af542a36d58c1f8fa9ef97e51694cd7e840a2",
+            "blob": "77b3fb2e959e54e13c8b06291115e680d151ac71",
             "content": "sha256:4d315f7f62a99ff64017cabc518ccddb829fa0ffa1175e460dbaca26a4cd8b3c",
             "locator": {
               "kind": "symbol",

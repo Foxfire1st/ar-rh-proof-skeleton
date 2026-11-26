@@ -10,7 +10,7 @@ Verifies `VerificationStatus` assembly, atomic artifact writing with temp-file c
 
 ## Code Commentary
 
-Builds temporary synthetic upstream and replay Git repositories in `tmp_path`. Verifies `build_verification_status` deduplication, `build_status="unverified-locally"` enforcement and missing-digest `AuditInputError`; `write_audit_artifacts` determinism and atomic replacement including temp-file cleanup and preservation of prior files when `os.fsync` raises `OSError`; and `audit.main` returning exit `0` on clean repos (`entry` and `full` + `--replay`), exit `1` while still writing honest JSON on solution forbidden tokens, solution `@[extern]` or non-`sorry` challenge tokens, and exit `2` with `ERROR:` on stderr and no output directory created on input or scan failures.
+Builds temporary synthetic upstream and replay Git repositories in `tmp_path` (for both legacy and condensed editions). Verifies `build_verification_status` deduplication, `build_status="unverified-locally"` enforcement, paired-optional nullable verification-note digest validation (rejecting empty/non-string or unpaired digests); `write_audit_artifacts` determinism and atomic replacement including temp-file cleanup and preservation of prior files when `os.fsync` raises `OSError`; and `audit.main` returning exit `0` on clean legacy and condensed repos (`entry` and `full` + `--replay`), exit `1` while still writing honest JSON on solution forbidden tokens, solution `@[extern]` or non-`sorry` challenge tokens (including root `Challenge.lean`), and exit `2` with `ERROR:` on stderr and no output directory created on input or scan failures.
 
 ## Relationships
 
@@ -20,3 +20,5 @@ Verifies [status assembly and atomic writing](../../src/rh_pipeline/audit/status
 
 - Verifies VerificationStatus assembly, strict round-trip, atomic writing and temp-file cleanup on fsync failure. [1]
 - Verifies rh-audit CLI exit codes 0, 1 (writing honest JSON) and 2 (writing nothing) across clean, forbidden-token and error scenarios. [2]
+
+- Verifies nullable/paired verification-note digest validation and condensed-edition rh-audit CLI behavior across entry, full + --replay and root Challenge.lean forbidden-token exit 1. [3]

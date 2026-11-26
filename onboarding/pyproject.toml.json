@@ -3,10 +3,10 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
-        "content": "sha256:aac44b3608721dbe8ce839128962ab198b77ea0165d09af707709f76ba7105a7",
+        "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+        "content": "sha256:f08798fba1800be9aa8fabf71784436f41cfd9715f4b2d23b8e46055b1c0c41a",
         "locator": {
-          "end": 29,
+          "end": 30,
           "kind": "line_range",
           "start": 24
         }
@@ -17,12 +17,12 @@
         "handoffEntry": "RH-R03@v1 §5",
         "leaf": "03"
       },
-      "rationale": "Registers the rh-extract console script entry point alongside existing rh-audit and rh-file-size-gate scripts.",
+      "rationale": "Registers the rh-extract console script entry point alongside rh-audit, rh-build-site, rh-check-upstream, rh-file-size-gate, and rh-validate.",
       "role": "support"
     },
     {
       "anchor": {
-        "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
+        "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
         "content": "sha256:12392afb314b25867740b6c9d0de665e7b89ad3d2d1f3bd35cd82d71266c38c2",
         "locator": {
           "end": 25,
@@ -41,8 +41,27 @@
     },
     {
       "anchor": {
-        "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
-        "content": "sha256:1bd0885231341923bb31813d35586cdfe85879a179e35d4551adadf784a06b79",
+        "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+        "content": "sha256:9b58ec3ba34a88e23b2fee0b41b7633cf878c97446a4538c77f6ccff0d74b0d8",
+        "locator": {
+          "end": 31,
+          "kind": "line_range",
+          "start": 24
+        }
+      },
+      "id": "RLZ-HY0JSE",
+      "invariant": "INV-AXWQKZ",
+      "origin": {
+        "handoffEntry": "RH-R07@v1 R2",
+        "leaf": "01"
+      },
+      "rationale": "Registers the rh-check-upstream console script entry point pointing to rh_pipeline.cli.check_upstream:main.",
+      "role": "support"
+    },
+    {
+      "anchor": {
+        "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+        "content": "sha256:f08798fba1800be9aa8fabf71784436f41cfd9715f4b2d23b8e46055b1c0c41a",
         "locator": {
           "end": 30,
           "kind": "line_range",
@@ -55,15 +74,15 @@
         "handoffEntry": "RH-R05@v1 §2.2",
         "leaf": "05"
       },
-      "rationale": "Registers the rh-build-site console script alongside rh-audit, rh-extract, rh-file-size-gate, and rh-validate.",
+      "rationale": "Registers the rh-build-site console script alongside rh-audit, rh-check-upstream, rh-extract, rh-file-size-gate, and rh-validate.",
       "role": "support"
     },
     {
       "anchor": {
-        "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
-        "content": "sha256:5a9ed6532d4bed26466223970e64e05be7d4dd81da7223f1c2b23c95ce9d0c86",
+        "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+        "content": "sha256:9ea450aaca0324e6b88af2c90f4a3beaa722395418d6fbb94836a83d11607f2f",
         "locator": {
-          "end": 29,
+          "end": 30,
           "kind": "line_range",
           "start": 11
         }
@@ -80,14 +99,14 @@
   ],
   "references": {
     "1": {
-      "note": "Registers rh-audit, rh-build-site, rh-extract, rh-file-size-gate and rh-validate console scripts.\n\nAnchor: `[project.scripts]`",
+      "note": "Registers rh-audit, rh-build-site, rh-check-upstream, rh-extract, rh-file-size-gate and rh-validate console scripts.\n\nAnchor: `[project.scripts]`",
       "targets": [
         {
           "anchor": {
-            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
-            "content": "sha256:aac44b3608721dbe8ce839128962ab198b77ea0165d09af707709f76ba7105a7",
+            "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+            "content": "sha256:f08798fba1800be9aa8fabf71784436f41cfd9715f4b2d23b8e46055b1c0c41a",
             "locator": {
-              "end": 29,
+              "end": 30,
               "kind": "line_range",
               "start": 24
             }
@@ -101,10 +120,10 @@
       "targets": [
         {
           "anchor": {
-            "blob": "7b0c8656e2b382af13fd38cc3e8cae43dbcd0746",
-            "content": "sha256:21a3c6085677c38869c33da9a5ac5f413ec4e831fd41f709d5a387ec397eccad",
+            "blob": "cca3d767460ca3358218ce081f856b1761e623c8",
+            "content": "sha256:e070e463e61d1e4bb23e3722fc53ce172b0b0532da02b5374052342be616a6ac",
             "locator": {
-              "end": 49,
+              "end": 50,
               "kind": "line_range",
               "start": 5
             }
