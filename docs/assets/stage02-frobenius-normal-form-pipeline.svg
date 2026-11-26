@@ -1,0 +1,295 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 672"
+     width="860"
+     height="672"
+     role="img"
+     aria-labelledby="stage02-fnf-title stage02-fnf-desc">
+  <title id="stage02-fnf-title">Frobenius-to-Normal-Form Pipeline in Stage 02 (ThetaProducts.lean)</title>
+  <desc id="stage02-fnf-desc">Editorial mathematical diagram of the Stage 02 Frobenius-to-Normal-Form pipeline across FrobeniusCongruence.lean, Exponent.lean, and ThetaProducts.lean in three horizontal bands. Band 1 classifies the three prime-splitting regimes in K = Q(sqrt(-d)) with d = 7 mod 8: Split (chi_K(p) = +1, height 1, pi_p = p, q_p = p, rho_p = 1/(p-1), extra slope gamma_p = 0, I_p^circ = empty, no extra divisibility); Inert supersingular height 2 (chi_K(p) = -1, pi_p = p, q_p = p^2, rho_p = 1/(p^2-1), extra slope gamma_p = p/(p^2-1) = 1/p + 1/p^3 + ..., odd exponents I_p^circ = {1, 3, 5, ...}); and Ramified at p = d (chi_K(d) = 0, pi_d = sqrt(-d) with v(pi_d) = 1/2, q_d = d, rho_d = 1/(2(d-1)), extra slope gamma_d = 1/(2(d-1)), all e &gt;= 0 in I_d^circ), unified by the prime-weight identity 2 gamma_p log p = sum_{e &gt;= 1} Lambda(p^e)(1 - chi_K(p^e)) p^(-e). Band 2 presents the Dual Congruence Bridge for non-split primes (chi_K(p) != 1): on the left, the One-Curve Supersingular Frobenius Congruence (FrobeniusCongruence.lean and Exponent.lean) establishes theta(pi_p z)/theta(z)^(q_p) = 1 mod pi_p in O[[y]], yielding theta(varpi z) = W(z) exp(c_varpi Xi_1(z)) with v(varpi) = rho_p, c_varpi = varpi^(p+1)/p, and exact balancing valuation v(c_varpi pi_p) = 1/(p-1); on the right, the Cyclotomic Partner-Place Congruence and Resolution of the Identity (ThetaProducts.lean) pairs tau' = (-p^e) tau in Phi_s = (Z/q_1 Z)^x with tau(alpha)^(p^e) = conj(tau'(alpha)) mod pi_p, so z = sum m_j (u_j^dagger z) u_j collapses sum_j m_j (u_j^dagger z)^(p^e)(u_j^dagger z) = Gamma_e mod pi_p, erasing frame vectors u_j. Band 3 merges both mechanisms into the canonical HasNormalForm theorem New.Parameters.exists_hasNormalForm: F(varpi z) = W_tot(z) exp(c_varpi sum_{e in I_p^circ} sum_{j &gt;= 0} lambda_{e,j} Gamma_e^(p^j)) with Gamma_e = sum_{tau,c} z_(tau,c)^(p^e) z_(-p^e tau, c), distinguishing integral clutter W_tot in O[[z]] from the sole denominator source Gamma_e (with inert unit leading coefficient lambda_{e,0} in O^x for odd e) and feeding directly into Count.lean.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+      .cal  { font-family: Georgia, 'Times New Roman', 'DejaVu Serif', serif; font-style: italic; font-weight: 700; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-slate-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+
+    <!-- Crisp card clip paths for rounded header fills and accent stripes -->
+    <clipPath id="clip-split"><rect x="14" y="63" width="268" height="142" rx="6"/></clipPath>
+    <clipPath id="clip-inert"><rect x="296" y="63" width="268" height="142" rx="6"/></clipPath>
+    <clipPath id="clip-ramified"><rect x="578" y="63" width="268" height="142" rx="6"/></clipPath>
+    <clipPath id="clip-identity"><rect x="14" y="212" width="832" height="29" rx="5"/></clipPath>
+    <clipPath id="clip-bridge-left"><rect x="14" y="268" width="402" height="206" rx="6"/></clipPath>
+    <clipPath id="clip-bridge-right"><rect x="444" y="268" width="402" height="206" rx="6"/></clipPath>
+    <clipPath id="clip-output"><rect x="14" y="504" width="832" height="154" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="671" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="27" class="sans" font-size="16" font-weight="700" fill="#161b22">Frobenius-to-Normal-Form Pipeline in <tspan class="mono" font-size="15" fill="#1e40af">ThetaProducts.lean</tspan></text>
+    <text x="842" y="26" class="mono" font-size="11.5" fill="#3f4a56" text-anchor="end">src/New/Derivatives/FormalGroup/</text>
+    <line x1="14" y1="39" x2="846" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: THREE PRIME-SPLITTING REGIMES IN K = Q(sqrt(-d))              -->
+  <!-- ===================================================================== -->
+  <g id="band-1-regimes">
+    <!-- Section Eyebrow -->
+    <text x="16" y="55" class="sans" font-size="11" font-weight="700" fill="#3f4a56">1 · PRIME-SPLITTING REGIMES IN K = ℚ(√−d)   (d ≡ 7 mod 8)</text>
+    <text x="844" y="55" class="sans" font-size="11" fill="#3f4a56" text-anchor="end">Non-split primes (χ<tspan font-size="8.5" dy="2">K</tspan><tspan dy="-2">(p) ≠ 1) drive extra p-adic divisibility</tspan></text>
+
+    <!-- CARD 1A: SPLIT (INACTIVE / DASHED BORDER) -->
+    <g id="card-split">
+      <rect x="14" y="63" width="268" height="142" rx="6" fill="#ffffff"/>
+      <rect x="14" y="63" width="268" height="28" fill="#f3f1eb" clip-path="url(#clip-split)"/>
+      <line x1="14" y1="91" x2="282" y2="91" stroke="#d8d3c8" stroke-width="1"/>
+      <rect x="14" y="63" width="268" height="142" rx="6" fill="none" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5,3"/>
+
+      <!-- Non-color badge + title -->
+      <text x="26" y="81" class="sans" font-size="11.5" font-weight="700" fill="#3f4a56">○ SPLIT (HT 1)</text>
+      <rect x="184" y="68" width="88" height="18" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+      <text x="228" y="80.5" class="sans" font-size="10.5" font-weight="700" fill="#3f4a56" text-anchor="middle">χ<tspan font-size="8" dy="2">K</tspan><tspan dy="-2">(p) = +1</tspan></text>
+
+      <!-- Parameters -->
+      <text x="26" y="108" class="sans" font-size="11.2" fill="#161b22">Height 1  ·  π<tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5"> = p  ·  q</tspan><tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5"> = p</tspan></text>
+      <text x="26" y="125" class="sans" font-size="11.2" fill="#3f4a56">Rescaling:  ρ<tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5"> = 1 / (p − 1)</tspan></text>
+
+      <!-- Slope Box -->
+      <rect x="24" y="133" width="248" height="28" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="148" y="151" class="sans" font-size="11.5" font-weight="700" fill="#3f4a56" text-anchor="middle">Extra slope:  γ<tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5"> = 0</tspan></text>
+
+      <!-- Partner Exponents -->
+      <text x="26" y="178" class="sans" font-size="11.2" fill="#161b22"><tspan font-weight="700" fill="#3f4a56">I</tspan><tspan font-size="8.5" font-weight="700" fill="#3f4a56" dy="2.5">p</tspan><tspan font-size="8.5" font-weight="700" fill="#3f4a56" dy="-6.5">∘</tspan><tspan dy="4" font-weight="700" fill="#3f4a56"> = ∅</tspan>  <tspan fill="#3f4a56">(no extra divisibility)</tspan></text>
+      <text x="26" y="194" class="sans" font-size="10.5" fill="#3f4a56">Factorial gain fully canceled by ρ<tspan font-size="8" dy="2">p</tspan><tspan dy="-2"/></text>
+    </g>
+
+    <!-- CARD 1B: INERT (SUPERSINGULAR, ACTIVE COBALT) -->
+    <g id="card-inert">
+      <rect x="296" y="63" width="268" height="142" rx="6" fill="#ffffff"/>
+      <rect x="296" y="63" width="268" height="28" fill="#edf4ff" clip-path="url(#clip-inert)"/>
+      <line x1="296" y1="91" x2="564" y2="91" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="296" y="63" width="268" height="142" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+      <!-- Non-color badge + title -->
+      <text x="308" y="81" class="sans" font-size="11.5" font-weight="700" fill="#1e40af">◆ INERT (HT 2)</text>
+      <rect x="466" y="68" width="88" height="18" rx="9" fill="#ffffff" stroke="#1e40af" stroke-width="1.1"/>
+      <text x="510" y="80.5" class="sans" font-size="10.5" font-weight="700" fill="#1e40af" text-anchor="middle">χ<tspan font-size="8" dy="2">K</tspan><tspan dy="-2">(p) = −1</tspan></text>
+
+      <!-- Parameters -->
+      <text x="308" y="108" class="sans" font-size="11.2" fill="#161b22">Supersingular · π<tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5"> = p,  q</tspan><tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5"> = p²</tspan></text>
+      <text x="308" y="125" class="sans" font-size="11.2" fill="#3f4a56">Rescaling:  ρ<tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5"> = 1 / (p² − 1)</tspan></text>
+
+      <!-- Slope Box -->
+      <rect x="306" y="133" width="248" height="28" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="430" y="151" class="sans" font-size="11" font-weight="700" fill="#1e40af" text-anchor="middle">γ<tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5"> = p/(p²−1) = 1/p + 1/p³ + ⋯</tspan></text>
+
+      <!-- Partner Exponents -->
+      <text x="308" y="178" class="sans" font-size="11.2" fill="#161b22"><tspan font-weight="700" fill="#1e40af">I</tspan><tspan font-size="8.5" font-weight="700" fill="#1e40af" dy="2.5">p</tspan><tspan font-size="8.5" font-weight="700" fill="#1e40af" dy="-6.5">∘</tspan><tspan dy="4" font-weight="700" fill="#1e40af"> = {1, 3, 5, …}</tspan>  <tspan fill="#3f4a56">(odd e)</tspan></text>
+      <text x="308" y="194" class="sans" font-size="10.5" font-weight="600" fill="#1e40af">Active supersingular regime ↓</text>
+    </g>
+
+    <!-- CARD 1C: RAMIFIED (p = d, ACTIVE RUST) -->
+    <g id="card-ramified">
+      <rect x="578" y="63" width="268" height="142" rx="6" fill="#ffffff"/>
+      <rect x="578" y="63" width="268" height="28" fill="#fff5f0" clip-path="url(#clip-ramified)"/>
+      <line x1="578" y1="91" x2="846" y2="91" stroke="#fed7aa" stroke-width="1"/>
+      <rect x="578" y="63" width="268" height="142" rx="6" fill="none" stroke="#9a3412" stroke-width="1.6"/>
+
+      <!-- Non-color badge + title -->
+      <text x="590" y="81" class="sans" font-size="11.5" font-weight="700" fill="#9a3412">▲ RAMIFIED (p = d)</text>
+      <rect x="752" y="68" width="84" height="18" rx="9" fill="#ffffff" stroke="#9a3412" stroke-width="1.1"/>
+      <text x="794" y="80.5" class="sans" font-size="10.5" font-weight="700" fill="#9a3412" text-anchor="middle">χ<tspan font-size="8" dy="2">K</tspan><tspan dy="-2">(d) = 0</tspan></text>
+
+      <!-- Parameters -->
+      <text x="590" y="108" class="sans" font-size="11.2" fill="#161b22">π<tspan font-size="8.5" dy="2.5">d</tspan><tspan dy="-2.5"> = √−d (v = ½),  q</tspan><tspan font-size="8.5" dy="2.5">d</tspan><tspan dy="-2.5"> = d</tspan></text>
+      <text x="590" y="125" class="sans" font-size="11.2" fill="#3f4a56">Rescaling:  ρ<tspan font-size="8.5" dy="2.5">d</tspan><tspan dy="-2.5"> = 1 / (2(d − 1))</tspan></text>
+
+      <!-- Slope Box -->
+      <rect x="588" y="133" width="248" height="28" rx="4" fill="#fff5f0" stroke="#fed7aa" stroke-width="1"/>
+      <text x="712" y="151" class="sans" font-size="10.8" font-weight="700" fill="#9a3412" text-anchor="middle">γ<tspan font-size="8" dy="2.5">d</tspan><tspan dy="-2.5"> = 1/(2(d−1)) = ½(1/d + 1/d² + ⋯)</tspan></text>
+
+      <!-- Partner Exponents -->
+      <text x="590" y="178" class="sans" font-size="11.2" fill="#161b22"><tspan font-weight="700" fill="#9a3412">I</tspan><tspan font-size="8.5" font-weight="700" fill="#9a3412" dy="2.5">d</tspan><tspan font-size="8.5" font-weight="700" fill="#9a3412" dy="-6.5">∘</tspan><tspan dy="4" font-weight="700" fill="#9a3412"> = ℕ</tspan>  <tspan fill="#3f4a56">(all e ≥ 0, incl. e = 0)</tspan></text>
+      <text x="590" y="194" class="sans" font-size="10.5" font-weight="600" fill="#9a3412">Active ramified regime ↓</text>
+    </g>
+
+    <!-- UNIFYING PRIME-WEIGHT IDENTITY BAR -->
+    <g id="prime-weight-identity">
+      <rect x="14" y="212" width="832" height="29" rx="5" fill="#fef6e4"/>
+      <rect x="14" y="212" width="6" height="29" fill="#92400e" clip-path="url(#clip-identity)"/>
+      <rect x="14" y="212" width="832" height="29" rx="5" fill="none" stroke="#92400e" stroke-width="1.2"/>
+
+      <text x="30" y="230.5" class="sans" font-size="10.8" font-weight="700" fill="#92400e">UNIFYING PRIME-WEIGHT IDENTITY</text>
+      <line x1="244" y1="218" x2="244" y2="235" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="536" y="231" class="sans" font-size="12.2" font-weight="700" fill="#161b22" text-anchor="middle"><tspan fill="#92400e">2 γ</tspan><tspan font-size="8.5" fill="#92400e" dy="2.5">p</tspan><tspan dy="-2.5" fill="#92400e"> log p</tspan>  =  ∑<tspan font-size="8.5" dy="3">e≥1</tspan><tspan dy="-3"> Λ(p</tspan><tspan font-size="8.5" dy="-4">e</tspan><tspan dy="4">) (1 − χ</tspan><tspan font-size="8.5" dy="2.5">K</tspan><tspan dy="-2.5">(p</tspan><tspan font-size="8.5" dy="-4">e</tspan><tspan dy="4">)) p</tspan><tspan font-size="8.5" dy="-4">−e</tspan><tspan dy="4" font-weight="400" fill="#3f4a56">   (all primes p)</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION 1 -> 2                                                     -->
+  <!-- ===================================================================== -->
+  <g id="transition-1-2">
+    <line x1="215" y1="241" x2="215" y2="265" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt-end)"/>
+    <line x1="645" y1="241" x2="645" y2="265" stroke="#065f46" stroke-width="1.6" marker-end="url(#arrow-emerald-end)"/>
+    <rect x="250" y="245" width="360" height="19" rx="9.5" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="430" y="258" class="sans" font-size="11" font-weight="700" fill="#3f4a56" text-anchor="middle">Non-split (χ<tspan font-size="8" dy="2">K</tspan><tspan dy="-2">(p) ≠ 1): Dual Congruence Bridge</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2: DUAL CONGRUENCE BRIDGE                                        -->
+  <!-- ===================================================================== -->
+  <g id="band-2-bridge">
+
+    <!-- LEFT MECHANISM BOX: ONE-CURVE SUPERSINGULAR FROBENIUS CONGRUENCE -->
+    <g id="card-bridge-left">
+      <rect x="14" y="268" width="402" height="206" rx="6" fill="#ffffff"/>
+      <rect x="14" y="268" width="402" height="28" fill="#edf4ff" clip-path="url(#clip-bridge-left)"/>
+      <line x1="14" y1="296" x2="416" y2="296" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="14" y="268" width="402" height="206" rx="6" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+      <text x="26" y="286" class="sans" font-size="11" font-weight="700" fill="#1e40af">2A · ONE-CURVE FROBENIUS CONGRUENCE</text>
+      <text x="26" y="311" class="mono" font-size="10.8" fill="#3f4a56">FrobeniusCongruence.lean  ·  Exponent.lean</text>
+
+      <!-- Step 1: Formal-Group Frobenius Congruence -->
+      <rect x="26" y="319" width="378" height="42" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="215" y="336" class="sans" font-size="12.2" font-weight="700" fill="#1e40af" text-anchor="middle">θ(π<tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5">z) / θ(z)</tspan><tspan font-size="8.5" dy="-4.5">q</tspan><tspan font-size="7" dy="2">p</tspan><tspan dy="2.5">  ≡  1  (mod π</tspan><tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5">)   in </tspan><tspan class="cal">O</tspan>[[y]]</text>
+      <text x="215" y="353" class="sans" font-size="10.8" fill="#3f4a56" text-anchor="middle">⇒  q<tspan font-size="8" dy="2">p</tspan><tspan dy="-2"> g(z) − g(π</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2">z) ∈ π</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2"> </tspan><tspan class="cal">O</tspan>[[y]]   (g = −log θ)</text>
+
+      <!-- Step 2: Rescaled Exponential Factorization -->
+      <text x="26" y="375" class="sans" font-size="10.8" font-weight="600" fill="#3f4a56">Projection g<tspan font-size="8.5" dy="-3">♭</tspan><tspan dy="3"> &amp; rescaling by ϖ (v(ϖ) = ρ</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2">):</tspan></text>
+      <rect x="26" y="382" width="378" height="44" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="215" y="399" class="sans" font-size="11.8" font-weight="700" fill="#161b22" text-anchor="middle">θ(ϖ z) = W(z) · exp(c<tspan font-size="8.5" dy="2.5">ϖ</tspan><tspan dy="-2.5"> Ξ₁(z))</tspan><tspan font-size="10.5" font-weight="400" fill="#3f4a56">  (W, Ξ₁ ∈ </tspan><tspan class="cal" font-size="10.8" fill="#3f4a56">O</tspan><tspan font-size="10.5" font-weight="400" fill="#3f4a56">[[z]])</tspan></text>
+      <text x="215" y="418" class="sans" font-size="11" fill="#3f4a56" text-anchor="middle">Ξ₁(z)  ≡  ∑<tspan font-size="8" dy="2.5">e∈I</tspan><tspan font-size="7" dy="1.5">p</tspan><tspan font-size="7" dy="-4.5">∘</tspan><tspan dy="0.5"> ∑</tspan><tspan font-size="8" dy="2.5">j≥0</tspan><tspan dy="-2.5"> λ</tspan><tspan font-size="8" dy="2.5">e,j</tspan><tspan dy="-2.5"> (z</tspan><tspan font-size="8" dy="-4">p</tspan><tspan font-size="6.5" dy="-1.5">e</tspan><tspan dy="5.5"> z)</tspan><tspan font-size="8" dy="-4">p</tspan><tspan font-size="6.5" dy="-1.5">j</tspan><tspan dy="5.5">  (mod π</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2">)</tspan></text>
+
+      <!-- Step 3: Exact Balancing Identity -->
+      <rect x="26" y="433" width="378" height="29" rx="4" fill="#f3f1eb" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="215" y="451" class="sans" font-size="11" font-weight="700" fill="#1e40af" text-anchor="middle">v(ϖ) = ρ<tspan font-size="8" dy="2">p</tspan><tspan dy="-2">   ·   c</tspan><tspan font-size="8" dy="2">ϖ</tspan><tspan dy="-2"> = ϖ</tspan><tspan font-size="8" dy="-4">p+1</tspan><tspan dy="4">/p   ·   v(c</tspan><tspan font-size="8" dy="2">ϖ</tspan><tspan dy="-2"> π</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2">) = 1/(p − 1)</tspan></text>
+    </g>
+
+    <!-- CENTER HORIZONTAL BRIDGE CONNECTOR -->
+    <g id="connector-bridge">
+      <line x1="416" y1="371" x2="444" y2="371" stroke="#3f4a56" stroke-width="1.6"/>
+      <circle cx="430" cy="371" r="12" fill="#faf9f5" stroke="#3f4a56" stroke-width="1.5"/>
+      <text x="430" y="375.5" class="sans" font-size="14" font-weight="700" fill="#161b22" text-anchor="middle">⊗</text>
+    </g>
+
+    <!-- RIGHT MECHANISM BOX: CYCLOTOMIC PARTNER CONGRUENCE + RESOLUTION COLLAPSE -->
+    <g id="card-bridge-right">
+      <rect x="444" y="268" width="402" height="206" rx="6" fill="#ffffff"/>
+      <rect x="444" y="268" width="402" height="28" fill="#ecfdf5" clip-path="url(#clip-bridge-right)"/>
+      <line x1="444" y1="296" x2="846" y2="296" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="444" y="268" width="402" height="206" rx="6" fill="none" stroke="#065f46" stroke-width="1.5"/>
+
+      <text x="456" y="286" class="sans" font-size="11.5" font-weight="700" fill="#065f46">2B · PARTNER CONGRUENCE &amp; RESOLUTION COLLAPSE</text>
+      <text x="456" y="311" class="mono" font-size="10.8" fill="#3f4a56">ThetaProducts.lean<tspan class="sans" font-size="10.8" fill="#3f4a56">   ·   E = K(ζ</tspan><tspan class="sans" font-size="8" dy="2">q₁</tspan><tspan class="sans" font-size="10.8" dy="-2">),  Φ</tspan><tspan class="sans" font-size="8" dy="2">s</tspan><tspan class="sans" font-size="10.8" dy="-2"> ≅ (ℤ/q₁ℤ)× </tspan></text>
+
+      <!-- Step 1: Partner-Place Congruence -->
+      <rect x="456" y="319" width="378" height="42" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="645" y="336" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">Partner place:   τ′ = (−p<tspan font-size="8.5" dy="-4">e</tspan><tspan dy="4">) · τ   ∈ Φ</tspan><tspan font-size="8.5" dy="2.5">s</tspan><tspan dy="-2.5"> ≅ (ℤ/q₁ℤ)×</tspan></text>
+      <text x="645" y="354" class="sans" font-size="11.5" font-weight="700" fill="#161b22" text-anchor="middle">τ(α)<tspan font-size="8.5" dy="-4">p</tspan><tspan font-size="7" dy="-1.5">e</tspan><tspan dy="5.5">  ≡  </tspan><tspan text-decoration="overline">τ′(α)</tspan>  (mod π<tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5">)</tspan><tspan font-size="10.8" font-weight="400" fill="#3f4a56">   for α ∈ </tspan><tspan class="cal" font-size="11" fill="#3f4a56">O</tspan><tspan font-size="8" font-weight="400" fill="#3f4a56" dy="2">E</tspan><tspan dy="-2"/></text>
+
+      <!-- Step 2: Resolution of the Identity Collapse -->
+      <text x="456" y="375" class="sans" font-size="10.8" font-weight="600" fill="#3f4a56">Resolution of identity:  z = ∑<tspan font-size="8" dy="2">j</tspan><tspan dy="-2"> m</tspan><tspan font-size="8" dy="2">j</tspan><tspan dy="-2"> (u</tspan><tspan font-size="8" dy="2">j</tspan><tspan font-size="8.5" dy="-5.5">†</tspan><tspan dy="3.5"> z) u</tspan><tspan font-size="8" dy="2">j</tspan><tspan dy="-2">  (m</tspan><tspan font-size="8" dy="2">j</tspan><tspan dy="-2"> ∈ ℕ)</tspan></text>
+      <rect x="456" y="382" width="378" height="44" rx="4" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="645" y="399" class="sans" font-size="10.8" fill="#3f4a56" text-anchor="middle">(u<tspan font-size="8" dy="2">j</tspan><tspan font-size="8.5" dy="-5.5">†</tspan><tspan dy="3.5"> z)</tspan><tspan font-size="8" dy="-4">p</tspan><tspan font-size="6.5" dy="-1.5">e</tspan><tspan dy="5.5">  ≡  ∑ </tspan><tspan font-size="8" dy="2">τ,c</tspan><tspan dy="-2"> τ′(u</tspan><tspan font-size="8" dy="2">j,c</tspan><tspan dy="-2">) z</tspan><tspan font-size="8" dy="2">(τ,c)</tspan><tspan font-size="8" dy="-6">p</tspan><tspan font-size="6.5" dy="-1.5">e</tspan><tspan dy="5.5">   (mod π</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2">)</tspan></text>
+      <text x="645" y="418" class="sans" font-size="12" font-weight="700" fill="#065f46" text-anchor="middle">∑<tspan font-size="8.5" dy="2.5">j</tspan><tspan dy="-2.5"> m</tspan><tspan font-size="8.5" dy="2.5">j</tspan><tspan dy="-2.5"> (u</tspan><tspan font-size="8.5" dy="2.5">j</tspan><tspan font-size="8.5" dy="-6">†</tspan><tspan dy="3.5"> z)</tspan><tspan font-size="8.5" dy="-4">p</tspan><tspan font-size="6.5" dy="-1.5">e</tspan><tspan dy="5.5"> (u</tspan><tspan font-size="8.5" dy="2.5">j</tspan><tspan font-size="8.5" dy="-6">†</tspan><tspan dy="3.5"> z)  ≡  Γ</tspan><tspan font-size="8.5" dy="2.5">e</tspan><tspan dy="-2.5">  (mod π</tspan><tspan font-size="8.5" dy="2.5">p</tspan><tspan dy="-2.5">)</tspan></text>
+
+      <!-- Step 3: Frame-Independence Takeaway -->
+      <rect x="456" y="433" width="378" height="29" rx="4" fill="#f3f1eb" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="645" y="451" class="sans" font-size="11" font-weight="700" fill="#065f46" text-anchor="middle">Frame u<tspan font-size="8" dy="2">j</tspan><tspan dy="-2"> cancels — only universal couplings Γ</tspan><tspan font-size="8" dy="2">e</tspan><tspan dy="-2"> survive</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION 2 -> 3                                                     -->
+  <!-- ===================================================================== -->
+  <g id="transition-2-3">
+    <path d="M 215 474 L 215 488 L 430 488 L 430 501" fill="none" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt-end)"/>
+    <path d="M 645 474 L 645 488 L 430 488" fill="none" stroke="#065f46" stroke-width="1.6"/>
+    <rect x="236" y="478" width="388" height="20" rx="10" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="430" y="492" class="sans" font-size="11" font-weight="700" fill="#161b22" text-anchor="middle">Multiply ∏<tspan font-size="8" dy="2">j</tspan><tspan dy="-2"> θ(u</tspan><tspan font-size="8" dy="2">j</tspan><tspan font-size="8.5" dy="-5.5">†</tspan><tspan dy="3.5"> z)</tspan><tspan font-size="8" dy="-4">m</tspan><tspan font-size="6.5" dy="1.5">j</tspan><tspan dy="2.5">·H at ϖz &amp; lift mod π</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2"/></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: CANONICAL HasNormalForm OUTPUT                                -->
+  <!-- ===================================================================== -->
+  <g id="band-3-output">
+    <rect x="14" y="504" width="832" height="154" rx="6" fill="#ffffff"/>
+    <rect x="14" y="504" width="832" height="27" fill="#edf4ff" clip-path="url(#clip-output)"/>
+    <rect x="14" y="504" width="6" height="154" fill="#1e40af" clip-path="url(#clip-output)"/>
+    <line x1="20" y1="531" x2="846" y2="531" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="504" width="832" height="154" rx="6" fill="none" stroke="#1e40af" stroke-width="1.75"/>
+
+    <!-- Output Banner Header -->
+    <text x="30" y="522" class="sans" font-size="11.5" font-weight="700" fill="#1e40af">3 · CANONICAL <tspan class="mono" font-size="11.5">HasNormalForm</tspan> OUTPUT  ·  <tspan class="mono" font-size="11.5" fill="#161b22">New.Parameters.exists_hasNormalForm</tspan></text>
+    <text x="834" y="522" class="sans" font-size="10.8" fill="#3f4a56" text-anchor="end">F(z) = ∏<tspan font-size="8" dy="2">j</tspan><tspan dy="-2"> θ(u</tspan><tspan font-size="8" dy="2">j</tspan><tspan font-size="8.5" dy="-5.5">†</tspan><tspan dy="3.5"> z)</tspan><tspan font-size="8" dy="-4">m</tspan><tspan font-size="6.5" dy="1.5">j</tspan><tspan dy="2.5"> · H(z)</tspan></text>
+
+    <!-- Main Normal Form Equation Box -->
+    <rect x="28" y="538" width="806" height="38" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+    <!-- Left equation: F(varpi z) = W_tot(z) * exp(...) -->
+    <text x="44" y="562" class="sans" font-size="13.2" font-weight="700" fill="#161b22">F(ϖ z)  =  <tspan fill="#065f46">W</tspan><tspan font-size="9" fill="#065f46" dy="2.5">tot</tspan><tspan dy="-2.5" fill="#065f46">(z)</tspan>  ·  <tspan fill="#9a3412">exp( c</tspan><tspan font-size="9" fill="#9a3412" dy="2.5">ϖ</tspan><tspan dy="-2.5" fill="#9a3412"> ∑</tspan><tspan font-size="8.5" fill="#9a3412" dy="3">e∈I</tspan><tspan font-size="7" fill="#9a3412" dy="1.5">p</tspan><tspan font-size="7" fill="#9a3412" dy="-5">∘</tspan><tspan dy="0.5" fill="#9a3412"> ∑</tspan><tspan font-size="8.5" fill="#9a3412" dy="3">j≥0</tspan><tspan dy="-3" fill="#9a3412"> λ</tspan><tspan font-size="8.5" fill="#9a3412" dy="2.5">e,j</tspan><tspan dy="-2.5" fill="#9a3412"> Γ</tspan><tspan font-size="8.5" fill="#9a3412" dy="2.5">e</tspan><tspan font-size="8.5" fill="#9a3412" dy="-7">p</tspan><tspan font-size="7" fill="#9a3412" dy="-2">j</tspan><tspan dy="6.5" fill="#9a3412"> )</tspan></text>
+
+    <!-- Formula separator -->
+    <line x1="504" y1="544" x2="504" y2="570" stroke="#d8d3c8" stroke-width="1.1"/>
+
+    <!-- Right equation: Gamma_e definition -->
+    <text x="669" y="562" class="sans" font-size="13" font-weight="700" fill="#9a3412" text-anchor="middle">Γ<tspan font-size="9" dy="2.5">e</tspan><tspan dy="-2.5">  =  ∑ </tspan><tspan font-size="8.5" dy="3">τ,c</tspan><tspan dy="-3"> z</tspan><tspan font-size="8.5" dy="3">(τ,c)</tspan><tspan font-size="8.5" dy="-7.5">p</tspan><tspan font-size="7" dy="-2">e</tspan><tspan dy="6.5"> z</tspan><tspan font-size="8.5" dy="3">(−p</tspan><tspan font-size="7" dy="-3">e</tspan><tspan font-size="8.5" dy="3"> τ, c)</tspan><tspan dy="-3"/></text>
+
+    <!-- Visual pointer ticks from equation components to callouts -->
+    <line x1="136" y1="576" x2="136" y2="588" stroke="#065f46" stroke-width="1.5"/>
+    <circle cx="136" cy="576" r="2.5" fill="#065f46"/>
+
+    <line x1="396" y1="576" x2="396" y2="588" stroke="#9a3412" stroke-width="1.5"/>
+    <circle cx="396" cy="576" r="2.5" fill="#9a3412"/>
+
+    <!-- SUB-CALLOUT 1 (LEFT): INTEGRAL CLUTTER W_tot -->
+    <g id="callout-integral">
+      <rect x="28" y="588" width="224" height="59" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.1"/>
+      <text x="38" y="604" class="sans" font-size="10.8" font-weight="700" fill="#065f46">INTEGRAL CLUTTER</text>
+      <text x="38" y="621" class="sans" font-size="11" fill="#161b22"><tspan font-weight="700" fill="#065f46">W</tspan><tspan font-size="8" font-weight="700" fill="#065f46" dy="2">tot</tspan><tspan dy="-2" font-weight="700" fill="#065f46"> ∈ </tspan><tspan class="cal" fill="#065f46">O</tspan><tspan font-weight="700" fill="#065f46">[[z]]</tspan>  absorbs H</text>
+      <text x="38" y="637" class="sans" font-size="10.5" fill="#3f4a56">Integral; zero denominators</text>
+    </g>
+
+    <!-- SUB-CALLOUT 2 (CENTER): SOLE DENOMINATOR SOURCE Gamma_e -->
+    <g id="callout-denominator">
+      <rect x="264" y="588" width="310" height="59" rx="4" fill="#fff5f0" stroke="#fed7aa" stroke-width="1.1"/>
+      <text x="274" y="604" class="sans" font-size="10.8" font-weight="700" fill="#9a3412">SOLE DENOMINATOR SOURCE  (Γ<tspan font-size="8" dy="2">e</tspan><tspan dy="-2">)</tspan></text>
+      <text x="274" y="621" class="sans" font-size="11" fill="#161b22">Only obstruction to integrality of F(ϖ z)</text>
+      <text x="274" y="637" class="sans" font-size="10.5" fill="#3f4a56"><tspan font-weight="700" fill="#9a3412">Inert p: λ</tspan><tspan font-size="8" font-weight="700" fill="#9a3412" dy="2">e,0</tspan><tspan dy="-2" font-weight="700" fill="#9a3412"> ∈ </tspan><tspan class="cal" fill="#9a3412">O</tspan><tspan font-size="8.5" font-weight="700" fill="#9a3412" dy="-3.5">×</tspan><tspan dy="3.5" font-weight="700" fill="#9a3412"> (odd e)</tspan> (sharpness)</text>
+    </g>
+
+    <!-- ARROW TO Count.lean -->
+    <line x1="574" y1="617" x2="595" y2="617" stroke="#92400e" stroke-width="1.8" marker-end="url(#arrow-amber-end)"/>
+
+    <!-- SUB-CALLOUT 3 (RIGHT): FEEDS Count.lean -->
+    <g id="callout-count">
+      <rect x="598" y="588" width="236" height="59" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.25"/>
+      <text x="608" y="604" class="sans" font-size="10.8" font-weight="700" fill="#92400e">FEEDS <tspan class="mono" font-size="10.8">Count.lean</tspan></text>
+      <text x="608" y="621" class="sans" font-size="10.8" fill="#161b22">Kill Γ<tspan font-size="8" dy="2">e</tspan><tspan dy="-2"> mod π</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2"> via null frames</tspan></text>
+      <text x="608" y="637" class="sans" font-size="10.5" fill="#3f4a56">⇒ F(ϖ z(s)) integral → jet bound</text>
+    </g>
+  </g>
+</svg>

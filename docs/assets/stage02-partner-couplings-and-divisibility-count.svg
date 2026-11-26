@@ -1,0 +1,362 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 700"
+     width="860"
+     height="700"
+     role="img"
+     aria-labelledby="stage02-couplings-title stage02-couplings-desc">
+  <title id="stage02-couplings-title">Partner Couplings, Divisibility Count, and 12-Copy Sharpness Ceiling in Stage 02</title>
+  <desc id="stage02-couplings-desc">Publication-grade editorial mathematical diagram pairing the Stage 02 divisibility lower bound (Count.lean, NullFrames.lean) with the 12-copy sharpness ceiling (LeastValuation.lean, Cases.lean, BoundAttained.lean) in three horizontal bands. Band 1 depicts concrete paired Young diagrams kappa_tau and kappa_{tau'} linked by the asymmetric Frobenius coupling arrow Gamma_e: z_tau^{p^e} * z_{tau'} for partner place tau' = -p^e * tau in Phi_s (e in I_p^0, e &lt;= floor(log_p B)). On kappa_tau, height-1 columns (a_tau boxes) are highlighted in cobalt, low columns of height 1 &lt; h &lt; N (a'_tau columns containing l_tau boxes) are highlighted in emerald, and height-N columns are hatched and excluded from B = sum_tau (a_tau + l_tau). On partner kappa_{tau'}, the corresponding a_{tau'}, a'_{tau'}, and l_{tau'} boxes are paired against kappa_tau, while a dashed amber callout explains marked places (marked : Finset Phi_s) whose height-1 columns are exempted from null-frame elimination via row charges p^{w(tau,h,b)}, producing the same deduction effect as eraseHeightOne kappa marked. Band 2 presents a proportional balance and subtraction bar comparing the Legendre-minus-varpi^B baseline gamma_p B = (1/(p-1) - rho_p) sum_tau (a_tau + l_tau) against the subtracted null-frame deduction v(pi_p) sum deductionTerm from matrices g_{tau,h} forcing Gamma_e(z(s)) = 0 (mod pi_p) for e &lt;= floor(log_p B), plus the O(f N^3 log_p B) factorial error, isolating the Schur-jet lower bound v_p(schurJet) &gt;= v_p(P_y(d)F(0)) &gt;= predictedDivisibility_p(kappa) - f N^3 (1 + log_p max(B, 1)) with explicit formula v(pi_p) sum_{e in I_p} sum_tau ((a_tau/p^e - a_{tau'} - a'_{tau'})_+ + (l_tau/p^e - l_{tau'})_+ - a'_tau/p^e) and the ramified p = d (e = 0) half-term -1/2 sum_tau (min(a_tau, a_{tau'_0} + a'_{tau'_0}) + a'_tau + min(l_tau, l_{tau'_0})). Band 3 closes the valuation sandwich with the 6 + 6 = 12 copy sharpness ceiling in twelveSpace (Fin 12 x Unit): Lagrange four-squares delta = (1, a_0, a_1, a_2, a_3, 0) with sum delta_c^2 = 0 turns prod_{c=0}^5 Theta(delta_c z) into a power-series unit, freeing Copies 0-5 (val_6) to harvest near-pair couplings nu' + nu'' and Copies 6-11 (val_6) to attain the Katz limit on remainder eta = l - (nu' + nu''). The headline theorem exists_rpow_neg_localPrimeSumTotal_le_norm_coeff exhibits a single global nonzero scalar t with |sigma t| &lt;= exp(f m b / k) for all sigma in Aut(C) attaining v_p &lt;= S_p + v_p(t) (S_p = D.localPrimeSumTotal p) simultaneously at every prime p, feeding Stage 06 TwistedValueHeights.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-slate-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+
+    <!-- Archival hatch patterns for non-color redundancy -->
+    <pattern id="hatch-slate" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#64748b" stroke-width="1.1" stroke-opacity="0.38"/>
+    </pattern>
+    <pattern id="hatch-cobalt" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#1e40af" stroke-width="1" stroke-opacity="0.22"/>
+    </pattern>
+    <pattern id="hatch-rust" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#9a3412" stroke-width="1" stroke-opacity="0.22"/>
+    </pattern>
+
+    <!-- Crisp card clip paths for rounded header fills and left accent stripes -->
+    <clipPath id="clip-band1"><rect x="14" y="49" width="832" height="210" rx="6"/></clipPath>
+    <clipPath id="clip-band2"><rect x="14" y="281" width="832" height="196" rx="6"/></clipPath>
+    <clipPath id="clip-band3"><rect x="14" y="499" width="832" height="189" rx="6"/></clipPath>
+    <clipPath id="clip-card3c"><rect x="588" y="535" width="248" height="115" rx="5"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="699" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="27" class="sans" font-size="15.5" font-weight="700" fill="#161b22">Partner Couplings, Divisibility Count &amp; 12-Copy Sharpness</text>
+    <text x="842" y="26" class="mono" font-size="11.5" fill="#3f4a56" text-anchor="end">Count.lean · BoundAttained.lean</text>
+    <line x1="14" y1="39" x2="846" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: PAIRED YOUNG DIAGRAMS κ_τ AND κ_τ' (τ' = -p^e τ)             -->
+  <!-- ===================================================================== -->
+  <g id="band-1-young-diagrams">
+    <rect x="14" y="49" width="832" height="210" rx="6" fill="#ffffff"/>
+    <rect x="14" y="49" width="832" height="28" fill="#f3f1eb" clip-path="url(#clip-band1)"/>
+    <line x1="14" y1="77" x2="846" y2="77" stroke="#d8d3c8" stroke-width="1"/>
+    <rect x="14" y="49" width="832" height="210" rx="6" fill="none" stroke="#d8d3c8" stroke-width="1.3"/>
+
+    <text x="24" y="67" class="sans" font-size="11.5" font-weight="700" fill="#161b22">1 · PAIRED YOUNG DIAGRAMS κ<tspan font-size="9" dy="2.5">τ</tspan><tspan dy="-2.5"> &amp; κ</tspan><tspan font-size="9" dy="2.5">τ'</tspan><tspan dy="-2.5" font-weight="600" fill="#3f4a56">  (τ' = −p</tspan><tspan font-size="8.5" dy="-3.5" font-weight="600" fill="#3f4a56">e</tspan><tspan dy="3.5" font-weight="600" fill="#3f4a56">τ ∈ Φ</tspan><tspan font-size="8.5" dy="2.5" font-weight="600" fill="#3f4a56">s</tspan><tspan dy="-2.5" font-weight="600" fill="#3f4a56">)</tspan></text>
+    <text x="836" y="67" class="sans" font-size="11" fill="#3f4a56" text-anchor="end">Active boxes: <tspan font-weight="700" fill="#161b22">B = ∑</tspan><tspan font-size="8.5" dy="2.5" font-weight="700" fill="#161b22">τ</tspan><tspan dy="-2.5" font-weight="700" fill="#161b22"> (a</tspan><tspan font-size="8.5" dy="2.5" font-weight="700" fill="#161b22">τ</tspan><tspan dy="-2.5" font-weight="700" fill="#161b22"> + l</tspan><tspan font-size="8.5" dy="2.5" font-weight="700" fill="#161b22">τ</tspan><tspan dy="-2.5" font-weight="700" fill="#161b22">)</tspan>  ·  height-N columns excluded</text>
+
+    <!-- LEFT SUB-PANEL: κ_τ -->
+    <g id="young-diagram-tau">
+      <rect x="24" y="85" width="248" height="166" rx="5" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="34" y="101" class="sans" font-size="11.5" font-weight="700" fill="#161b22">Place τ  <tspan font-weight="600" fill="#3f4a56">(κ</tspan><tspan font-size="8.5" dy="2" font-weight="600" fill="#3f4a56">τ</tspan><tspan dy="-2" font-weight="600" fill="#3f4a56">,  rank N = 4)</tspan></text>
+
+      <!-- Excluded height-N column (h = 4, hatched slate) -->
+      <g id="tau-col-N">
+        <rect x="36" y="109" width="15" height="15" rx="1.5" fill="#f3f1eb" stroke="#64748b" stroke-width="1" stroke-dasharray="2.5,1.5"/>
+        <rect x="36" y="109" width="15" height="15" rx="1.5" fill="url(#hatch-slate)"/>
+        <rect x="36" y="126" width="15" height="15" rx="1.5" fill="#f3f1eb" stroke="#64748b" stroke-width="1" stroke-dasharray="2.5,1.5"/>
+        <rect x="36" y="126" width="15" height="15" rx="1.5" fill="url(#hatch-slate)"/>
+        <rect x="36" y="143" width="15" height="15" rx="1.5" fill="#f3f1eb" stroke="#64748b" stroke-width="1" stroke-dasharray="2.5,1.5"/>
+        <rect x="36" y="143" width="15" height="15" rx="1.5" fill="url(#hatch-slate)"/>
+        <rect x="36" y="160" width="15" height="15" rx="1.5" fill="#f3f1eb" stroke="#64748b" stroke-width="1" stroke-dasharray="2.5,1.5"/>
+        <rect x="36" y="160" width="15" height="15" rx="1.5" fill="url(#hatch-slate)"/>
+        <text x="43.5" y="188" class="sans" font-size="10" font-weight="600" fill="#3f4a56" text-anchor="middle">h=N</text>
+      </g>
+
+      <!-- Low columns 1 < h < N (emerald: a'_τ = 2 cols, l_τ = 5 boxes) -->
+      <g id="tau-cols-low">
+        <rect x="59" y="109" width="15" height="15" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+        <rect x="59" y="126" width="15" height="15" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+        <rect x="59" y="143" width="15" height="15" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+        <rect x="76" y="109" width="15" height="15" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+        <rect x="76" y="126" width="15" height="15" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+        <!-- Bracket below low columns -->
+        <path d="M 59 162 L 59 166 L 91 166 L 91 162" fill="none" stroke="#065f46" stroke-width="1.1"/>
+        <line x1="91" y1="166" x2="96" y2="166" stroke="#065f46" stroke-width="1.1"/>
+        <text x="100" y="170" class="sans" font-size="10.5" font-weight="700" fill="#065f46">a'<tspan font-size="8" dy="2">τ</tspan><tspan dy="-2"> cols,  l</tspan><tspan font-size="8" dy="2">τ</tspan><tspan dy="-2"> boxes</tspan></text>
+      </g>
+
+      <!-- Height-1 columns h = 1 (cobalt: a_τ = 6 boxes) -->
+      <g id="tau-cols-h1">
+        <rect x="99" y="109" width="15" height="15" rx="1.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+        <rect x="116" y="109" width="15" height="15" rx="1.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+        <rect x="133" y="109" width="15" height="15" rx="1.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+        <rect x="150" y="109" width="15" height="15" rx="1.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+        <rect x="167" y="109" width="15" height="15" rx="1.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+        <rect x="184" y="109" width="15" height="15" rx="1.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+        <!-- Bracket below height-1 columns -->
+        <path d="M 99 128 L 99 132 L 199 132 L 199 128" fill="none" stroke="#1e40af" stroke-width="1.1"/>
+        <text x="149" y="145" class="sans" font-size="11" font-weight="700" fill="#1e40af" text-anchor="middle">a<tspan font-size="8.5" dy="2">τ</tspan><tspan dy="-2">  (height-1)</tspan></text>
+      </g>
+
+      <!-- Compact Legend Strip inside κ_τ -->
+      <rect x="32" y="196" width="232" height="48" rx="4" fill="#ffffff" stroke="#d8d3c8" stroke-width="0.9"/>
+      <rect x="39" y="203" width="8.5" height="8.5" rx="1.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.1"/>
+      <text x="53" y="210.5" class="sans" font-size="10" fill="#161b22"><tspan font-weight="700" fill="#1e40af">a</tspan><tspan font-size="7.5" dy="1.8" font-weight="700" fill="#1e40af">τ</tspan><tspan dy="-1.8"> height-1 boxes (h = 1)</tspan></text>
+
+      <rect x="39" y="217" width="8.5" height="8.5" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+      <text x="53" y="224.5" class="sans" font-size="10" fill="#161b22"><tspan font-weight="700" fill="#065f46">a'</tspan><tspan font-size="7.5" dy="1.8" font-weight="700" fill="#065f46">τ</tspan><tspan dy="-1.8"> low cols, </tspan><tspan font-weight="700" fill="#065f46">l</tspan><tspan font-size="7.5" dy="1.8" font-weight="700" fill="#065f46">τ</tspan><tspan dy="-1.8"> boxes (1&lt;h&lt;N)</tspan></text>
+
+      <rect x="39" y="231" width="8.5" height="8.5" rx="1.5" fill="#f3f1eb" stroke="#64748b" stroke-width="1" stroke-dasharray="2,1"/>
+      <rect x="39" y="231" width="8.5" height="8.5" rx="1.5" fill="url(#hatch-slate)"/>
+      <text x="53" y="238.5" class="sans" font-size="10" fill="#3f4a56">h = N full columns (excluded)</text>
+    </g>
+
+    <!-- CENTER SUB-PANEL: ASYMMETRIC FROBENIUS COUPLING BRIDGE -->
+    <g id="frobenius-coupling-bridge">
+      <rect x="282" y="85" width="148" height="36" rx="5" fill="#fff5f0" stroke="#9a3412" stroke-width="1.3"/>
+      <text x="356" y="100" class="sans" font-size="11" font-weight="700" fill="#9a3412" text-anchor="middle">Frobenius Coupling Γ<tspan font-size="8.5" dy="2">e</tspan></text>
+      <text x="356" y="115" class="mono" font-size="11" font-weight="700" fill="#161b22" text-anchor="middle">z<tspan font-size="8.5" dy="2">τ</tspan><tspan font-size="8.5" dy="-5.5">p</tspan><tspan font-size="7" dy="-2">e</tspan><tspan dy="5.5"> · z</tspan><tspan font-size="8.5" dy="2">τ'</tspan></text>
+
+      <!-- Asymmetric Coupling Arrow -->
+      <line x1="276" y1="133" x2="432" y2="133" stroke="#9a3412" stroke-width="2" marker-end="url(#arrow-rust-end)"/>
+      <text x="356" y="148" class="sans" font-size="11" font-weight="700" fill="#9a3412" text-anchor="middle">τ' = −p<tspan font-size="8.5" dy="-3.5">e</tspan><tspan dy="3.5"> τ</tspan></text>
+
+      <!-- Active Exponent Specs -->
+      <rect x="282" y="157" width="148" height="94" rx="5" fill="#faf9f5" stroke="#fed7aa" stroke-width="1.1"/>
+      <text x="356" y="173" class="sans" font-size="10.5" font-weight="700" fill="#9a3412" text-anchor="middle">Asymmetric p<tspan font-size="8" dy="-3">e</tspan><tspan dy="3"> : 1</tspan></text>
+      <line x1="292" y1="180" x2="420" y2="180" stroke="#fed7aa" stroke-width="0.9"/>
+      <text x="356" y="195" class="sans" font-size="10.5" fill="#3f4a56" text-anchor="middle">e ∈ I<tspan font-size="8" dy="2">p</tspan><tspan font-size="8" dy="-4.5">°</tspan><tspan dy="2.5">,  e ≤ ⌊log</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2"> B⌋</tspan></text>
+      <text x="356" y="211" class="sans" font-size="10.5" fill="#3f4a56" text-anchor="middle">Inert: e odd  (q<tspan font-size="8" dy="2">p</tspan><tspan dy="-2"> = p²)</tspan></text>
+      <text x="356" y="227" class="sans" font-size="10.5" fill="#3f4a56" text-anchor="middle">p = d: e ≥ 0  (q<tspan font-size="8" dy="2">d</tspan><tspan dy="-2"> = d)</tspan></text>
+      <text x="356" y="243" class="mono" font-size="10.5" font-weight="700" fill="#161b22" text-anchor="middle">deg Γ<tspan font-size="8" dy="2">e</tspan><tspan dy="-2"> = p</tspan><tspan font-size="8" dy="-3">e</tspan><tspan dy="3"> + 1</tspan></text>
+    </g>
+
+    <!-- RIGHT SUB-PANEL: PARTNER κ_τ' -->
+    <g id="young-diagram-partner">
+      <rect x="438" y="85" width="224" height="166" rx="5" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="448" y="101" class="sans" font-size="11.5" font-weight="700" fill="#161b22">Partner κ<tspan font-size="8.5" dy="2">τ'</tspan><tspan dy="-2" font-weight="600" fill="#3f4a56">  (τ' = −p</tspan><tspan font-size="8.5" dy="-3.5" font-weight="600" fill="#3f4a56">e</tspan><tspan dy="3.5" font-weight="600" fill="#3f4a56">τ)</tspan></text>
+
+      <!-- Excluded height-N column -->
+      <g id="partner-col-N">
+        <rect x="450" y="109" width="15" height="15" rx="1.5" fill="#f3f1eb" stroke="#64748b" stroke-width="1" stroke-dasharray="2.5,1.5"/>
+        <rect x="450" y="109" width="15" height="15" rx="1.5" fill="url(#hatch-slate)"/>
+        <rect x="450" y="126" width="15" height="15" rx="1.5" fill="#f3f1eb" stroke="#64748b" stroke-width="1" stroke-dasharray="2.5,1.5"/>
+        <rect x="450" y="126" width="15" height="15" rx="1.5" fill="url(#hatch-slate)"/>
+        <rect x="450" y="143" width="15" height="15" rx="1.5" fill="#f3f1eb" stroke="#64748b" stroke-width="1" stroke-dasharray="2.5,1.5"/>
+        <rect x="450" y="143" width="15" height="15" rx="1.5" fill="url(#hatch-slate)"/>
+        <rect x="450" y="160" width="15" height="15" rx="1.5" fill="#f3f1eb" stroke="#64748b" stroke-width="1" stroke-dasharray="2.5,1.5"/>
+        <rect x="450" y="160" width="15" height="15" rx="1.5" fill="url(#hatch-slate)"/>
+        <text x="457.5" y="188" class="sans" font-size="10" font-weight="600" fill="#3f4a56" text-anchor="middle">h=N</text>
+      </g>
+
+      <!-- Low columns 1 < h < N (emerald: a'_τ' = 2 cols, l_τ' = 5 boxes) -->
+      <g id="partner-cols-low">
+        <rect x="473" y="109" width="15" height="15" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+        <rect x="473" y="126" width="15" height="15" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+        <rect x="473" y="143" width="15" height="15" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+        <rect x="490" y="109" width="15" height="15" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+        <rect x="490" y="126" width="15" height="15" rx="1.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+        <path d="M 473 162 L 473 166 L 505 166 L 505 162" fill="none" stroke="#065f46" stroke-width="1.1"/>
+        <line x1="505" y1="166" x2="510" y2="166" stroke="#065f46" stroke-width="1.1"/>
+        <text x="514" y="170" class="sans" font-size="10.5" font-weight="700" fill="#065f46">a'<tspan font-size="8" dy="2">τ'</tspan><tspan dy="-2"> cols,  l</tspan><tspan font-size="8" dy="2">τ'</tspan><tspan dy="-2"> boxes</tspan></text>
+      </g>
+
+      <!-- Height-1 columns (cobalt: a_τ' = 3 boxes, with dashed amber halo for marked exemption) -->
+      <g id="partner-cols-h1">
+        <rect x="509" y="105" width="57" height="23" rx="3" fill="#fef6e4" fill-opacity="0.55" stroke="#92400e" stroke-width="1.2" stroke-dasharray="3,2"/>
+        <rect x="513" y="109" width="15" height="15" rx="1.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+        <rect x="530" y="109" width="15" height="15" rx="1.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+        <rect x="547" y="109" width="15" height="15" rx="1.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+        <path d="M 513 131 L 513 135 L 562 135 L 562 131" fill="none" stroke="#1e40af" stroke-width="1.1"/>
+        <text x="537.5" y="148" class="sans" font-size="11" font-weight="700" fill="#1e40af" text-anchor="middle">a<tspan font-size="8.5" dy="2">τ'</tspan><tspan dy="-2"> (h = 1)</tspan></text>
+      </g>
+
+      <!-- Partner cap summary -->
+      <rect x="446" y="196" width="208" height="48" rx="4" fill="#ffffff" stroke="#d8d3c8" stroke-width="0.9"/>
+      <text x="454" y="211" class="sans" font-size="10.5" font-weight="700" fill="#161b22">Partner pairing capacities:</text>
+      <text x="454" y="225" class="sans" font-size="10" fill="#1e40af">h = 1 excess over <tspan font-weight="700">a</tspan><tspan font-size="7.5" dy="1.8" font-weight="700">τ'</tspan><tspan dy="-1.8" font-weight="700"> + a'</tspan><tspan font-size="7.5" dy="1.8" font-weight="700">τ'</tspan></text>
+      <text x="454" y="239" class="sans" font-size="10" fill="#065f46">low excess over <tspan font-weight="700">l</tspan><tspan font-size="7.5" dy="1.8" font-weight="700">τ'</tspan></text>
+    </g>
+
+    <!-- DASHED CONNECTOR TO MARKED PLACES -->
+    <g id="marked-connector">
+      <line x1="566" y1="116" x2="669" y2="116" stroke="#92400e" stroke-width="1.4" stroke-dasharray="3.5,2.5" marker-end="url(#arrow-amber-end)"/>
+      <rect x="577" y="106" width="76" height="15" rx="7.5" fill="#fef6e4" stroke="#fed7aa" stroke-width="0.9"/>
+      <text x="615" y="117" class="sans" font-size="9.5" font-weight="700" fill="#92400e" text-anchor="middle">if marked</text>
+    </g>
+
+    <!-- FAR-RIGHT SUB-PANEL: MARKED PLACES & ROW CHARGES -->
+    <g id="marked-places-callout">
+      <rect x="670" y="85" width="166" height="166" rx="5" fill="#fef6e4" stroke="#92400e" stroke-width="1.3" stroke-dasharray="5,3"/>
+      <text x="680" y="102" class="sans" font-size="11" font-weight="700" fill="#92400e">MARKED PLACES</text>
+      <text x="680" y="118" class="mono" font-size="10.5" font-weight="700" fill="#161b22">marked : Finset Φ<tspan font-size="8" dy="2">s</tspan></text>
+      <text x="680" y="135" class="sans" font-size="10.5" fill="#3f4a56">Exempts h = 1 columns</text>
+      <text x="680" y="149" class="sans" font-size="10.5" fill="#3f4a56">from null-frame cost;</text>
+
+      <rect x="678" y="158" width="150" height="44" rx="4" fill="#ffffff" stroke="#fed7aa" stroke-width="1"/>
+      <text x="753" y="175" class="sans" font-size="10.5" font-weight="700" fill="#92400e" text-anchor="middle">Row charges  p<tspan font-size="8" dy="-3.5">w(τ,h,b)</tspan></text>
+      <text x="753" y="192" class="sans" font-size="10.5" fill="#3f4a56" text-anchor="middle">w &gt; 0 forces π<tspan font-size="8" dy="2">p</tspan><tspan dy="-2"> | Γ</tspan><tspan font-size="8" dy="2">e</tspan></text>
+
+      <text x="680" y="219" class="sans" font-size="10.5" font-weight="600" fill="#92400e">Deduction matches:</text>
+      <text x="680" y="235" class="mono" font-size="9.5" font-weight="700" fill="#161b22">eraseHeightOne κ marked</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION 1 -> 2                                                     -->
+  <!-- ===================================================================== -->
+  <g id="transition-1-2">
+    <line x1="184" y1="259" x2="184" y2="278" stroke="#9a3412" stroke-width="1.6" marker-end="url(#arrow-rust-end)"/>
+    <rect x="200" y="260" width="536" height="20" rx="10" fill="#fff5f0" stroke="#fed7aa" stroke-width="1"/>
+    <text x="468" y="274" class="sans" font-size="11" font-weight="700" fill="#9a3412" text-anchor="middle"><tspan class="mono" font-size="10.5">NullFrames.lean</tspan>: steer g<tspan font-size="8" dy="2">τ,h</tspan><tspan dy="-2"> to kill Γ</tspan><tspan font-size="8" dy="2">e</tspan><tspan dy="-2">(z(s)) ≡ 0 (mod π</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2">) for e ≤ ⌊log</tspan><tspan font-size="8" dy="2">p</tspan><tspan dy="-2"> B⌋</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2: DIRECTION-SUBSTITUTION DEDUCTION VS. LEGENDRE BASELINE        -->
+  <!-- ===================================================================== -->
+  <g id="band-2-deduction-balance">
+    <rect x="14" y="281" width="832" height="196" rx="6" fill="#ffffff"/>
+    <rect x="14" y="281" width="832" height="28" fill="#f3f1eb" clip-path="url(#clip-band2)"/>
+    <line x1="14" y1="309" x2="846" y2="309" stroke="#d8d3c8" stroke-width="1"/>
+    <rect x="14" y="281" width="832" height="196" rx="6" fill="none" stroke="#d8d3c8" stroke-width="1.3"/>
+
+    <text x="24" y="299" class="sans" font-size="11.5" font-weight="700" fill="#161b22">2 · LEGENDRE BASELINE − NULL-FRAME DEDUCTION = DIVISIBILITY LOWER BOUND</text>
+    <text x="836" y="299" class="mono" font-size="11" fill="#1e40af" text-anchor="end">Count.lean · NullFrames.lean</text>
+
+    <!-- Row Labels -->
+    <text x="24" y="330" class="sans" font-size="11.5" font-weight="700" fill="#1e40af">Baseline</text>
+    <text x="24" y="343" class="sans" font-size="10.5" fill="#3f4a56">(Legendre − ϖ<tspan font-size="8" dy="-3">B</tspan><tspan dy="3">)</tspan></text>
+
+    <text x="24" y="364" class="sans" font-size="11.5" font-weight="700" fill="#065f46">Net Bound</text>
+    <text x="24" y="377" class="sans" font-size="10.5" fill="#3f4a56">(after g<tspan font-size="8" dy="2">τ,h</tspan><tspan dy="-2">)</tspan></text>
+
+    <!-- Alignment guide between surviving divisibility and deduction -->
+    <line x1="576" y1="315" x2="576" y2="384" stroke="#9a3412" stroke-width="1.4" stroke-dasharray="3.5,2.5"/>
+    <line x1="834" y1="315" x2="834" y2="384" stroke="#3f4a56" stroke-width="1.2" stroke-dasharray="3,2"/>
+
+    <!-- BAR 1: FULL BASELINE γ_p B [128..834] -->
+    <rect x="128" y="318" width="448" height="28" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1.3"/>
+    <rect x="576" y="318" width="258" height="28" rx="2" fill="#edf4ff" stroke="#1e40af" stroke-width="1.3"/>
+    <rect x="576" y="318" width="258" height="28" rx="2" fill="url(#hatch-cobalt)"/>
+    <rect x="278" y="322" width="406" height="20" rx="3" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+    <text x="481" y="336" class="sans" font-size="11.5" font-weight="700" fill="#1e40af" text-anchor="middle">γ<tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2"> B  =  (1/(p−1) − ρ</tspan><tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2">) B  =  γ</tspan><tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2"> ∑</tspan><tspan font-size="8.5" dy="2">τ</tspan><tspan dy="-2"> (a</tspan><tspan font-size="8.5" dy="2">τ</tspan><tspan dy="-2"> + l</tspan><tspan font-size="8.5" dy="2">τ</tspan><tspan dy="-2">)</tspan></text>
+
+    <!-- BAR 2: LOWER BOUND [128..474] + ERROR [474..576] + SUBTRACTED DEDUCTION [576..834] -->
+    <rect x="128" y="352" width="346" height="28" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1.4"/>
+    <text x="301" y="370" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle"><tspan class="mono" font-size="11">predictedDivisibility</tspan><tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2">(κ) − err</tspan></text>
+
+    <rect x="474" y="352" width="102" height="28" rx="2" fill="#f3f1eb" stroke="#3f4a56" stroke-width="1.2" stroke-dasharray="3.5,2.5"/>
+    <text x="525" y="370" class="sans" font-size="10.5" font-weight="700" fill="#3f4a56" text-anchor="middle">−O(fN³ log B)</text>
+
+    <rect x="576" y="352" width="258" height="28" rx="2" fill="#fff5f0" stroke="#9a3412" stroke-width="1.3" stroke-dasharray="4,2.5"/>
+    <rect x="576" y="352" width="258" height="28" rx="2" fill="url(#hatch-rust)"/>
+    <rect x="588" y="356" width="234" height="20" rx="3" fill="#fff5f0" stroke="#fed7aa" stroke-width="0.9"/>
+    <text x="705" y="370" class="sans" font-size="11" font-weight="700" fill="#9a3412" text-anchor="middle">− v(π<tspan font-size="8" dy="2">p</tspan><tspan dy="-2">) ∑ </tspan><tspan class="mono" font-size="10.5">deductionTerm</tspan><tspan font-size="10" font-weight="600"> (g</tspan><tspan font-size="7.5" dy="2" font-weight="600">τ,h</tspan><tspan dy="-2" font-size="10" font-weight="600">)</tspan></text>
+
+    <!-- HEADLINE SCHUR-JET LOWER BOUND BANNER -->
+    <rect x="24" y="388" width="812" height="26" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.3"/>
+    <text x="430" y="405" class="sans" font-size="11.5" font-weight="700" fill="#161b22" text-anchor="middle"><tspan fill="#1e40af">v</tspan><tspan font-size="8.5" dy="2" fill="#1e40af">p</tspan><tspan dy="-2" fill="#1e40af">(schurJet)</tspan>  ≥  <tspan fill="#1e40af">v</tspan><tspan font-size="8.5" dy="2" fill="#1e40af">p</tspan><tspan dy="-2" fill="#1e40af">(P</tspan><tspan font-size="8.5" dy="2" fill="#1e40af">y</tspan><tspan dy="-2" fill="#1e40af">(∂)F(0))</tspan>  ≥  <tspan class="mono" font-size="11" fill="#065f46">predictedDivisibility</tspan><tspan font-size="8.5" dy="2" fill="#065f46">p</tspan><tspan dy="-2" fill="#065f46">(κ)</tspan> − f N³ (1 + log<tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2"> max(B, 1))</tspan></text>
+
+    <!-- EXPLICIT FORMULA STRIP -->
+    <rect x="24" y="420" width="812" height="49" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="36" y="438" class="sans" font-size="11" font-weight="700" fill="#161b22"><tspan class="mono" font-size="10.5" fill="#065f46">predictedDivisibility</tspan><tspan font-size="8.5" dy="2" fill="#065f46">p</tspan><tspan dy="-2" fill="#065f46">(κ, N)</tspan>  =  v(π<tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2">) ∑</tspan><tspan font-size="8" dy="2.5">e∈I</tspan><tspan font-size="6.5" dy="1.5">p</tspan><tspan dy="-4"> ∑</tspan><tspan font-size="8" dy="2.5">τ</tspan><tspan dy="-2.5"> [ (a</tspan><tspan font-size="8" dy="2">τ</tspan><tspan dy="-2">/p</tspan><tspan font-size="8" dy="-3">e</tspan><tspan dy="3"> − a</tspan><tspan font-size="8" dy="2">τ'</tspan><tspan dy="-2"> − a'</tspan><tspan font-size="8" dy="2">τ'</tspan><tspan dy="-2">)</tspan><tspan font-size="8.5" dy="2">+</tspan><tspan dy="-2"> + (l</tspan><tspan font-size="8" dy="2">τ</tspan><tspan dy="-2">/p</tspan><tspan font-size="8" dy="-3">e</tspan><tspan dy="3"> − l</tspan><tspan font-size="8" dy="2">τ'</tspan><tspan dy="-2">)</tspan><tspan font-size="8.5" dy="2">+</tspan><tspan dy="-2"> − a'</tspan><tspan font-size="8" dy="2">τ</tspan><tspan dy="-2">/p</tspan><tspan font-size="8" dy="-3">e</tspan><tspan dy="3"> ]</tspan></text>
+    <text x="36" y="458" class="sans" font-size="10.5" fill="#9a3412"><tspan font-weight="700">Ramified p = d (e = 0 half-term):</tspan>  − ½ ∑<tspan font-size="8" dy="2">τ</tspan><tspan dy="-2"> [ min(a</tspan><tspan font-size="8" dy="2">τ</tspan><tspan dy="-2">, a</tspan><tspan font-size="8" dy="2">τ'₀</tspan><tspan dy="-2"> + a'</tspan><tspan font-size="8" dy="2">τ'₀</tspan><tspan dy="-2">) + a'</tspan><tspan font-size="8" dy="2">τ</tspan><tspan dy="-2"> + min(l</tspan><tspan font-size="8" dy="2">τ</tspan><tspan dy="-2">, l</tspan><tspan font-size="8" dy="2">τ'₀</tspan><tspan dy="-2">) ]</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION 2 -> 3                                                     -->
+  <!-- ===================================================================== -->
+  <g id="transition-2-3">
+    <line x1="184" y1="477" x2="184" y2="496" stroke="#065f46" stroke-width="1.6" marker-end="url(#arrow-emerald-end)"/>
+    <rect x="200" y="478" width="536" height="20" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+    <text x="468" y="492" class="sans" font-size="11" font-weight="700" fill="#065f46" text-anchor="middle">Valuation sandwich:  Lower Bound (Count) ≤ v<tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2"> ≤ S</tspan><tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2"> + v</tspan><tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2">(t) (Sharpness)</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: MATCHING 12-COPY SHARPNESS CEILING                            -->
+  <!-- ===================================================================== -->
+  <g id="band-3-sharpness">
+    <rect x="14" y="499" width="832" height="189" rx="6" fill="#ffffff"/>
+    <rect x="14" y="499" width="832" height="28" fill="#ecfdf5" clip-path="url(#clip-band3)"/>
+    <line x1="14" y1="527" x2="846" y2="527" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="14" y="499" width="832" height="189" rx="6" fill="none" stroke="#065f46" stroke-width="1.5"/>
+
+    <text x="24" y="517" class="sans" font-size="11.5" font-weight="700" fill="#065f46">3 · MATCHING 12-COPY SHARPNESS CEILING  (UPPER BOUND ON v<tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2">)</tspan></text>
+    <text x="836" y="517" class="mono" font-size="11" fill="#3f4a56" text-anchor="end">LeastValuation · Cases · BoundAttained</text>
+
+    <!-- CARD 3A: LAGRANGE 4-SQUARES UNIT IDENTITY -->
+    <g id="card-lagrange-unit">
+      <rect x="24" y="535" width="244" height="115" rx="5" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.2"/>
+      <text x="34" y="551" class="sans" font-size="11" font-weight="700" fill="#065f46">Lagrange 4-Squares Unit Identity</text>
+
+      <rect x="34" y="558" width="224" height="38" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="146" y="573" class="sans" font-size="10.5" font-weight="700" fill="#065f46" text-anchor="middle">δ = (1, a₀, a₁, a₂, a₃, 0) ∈ ℤ<tspan font-size="8" dy="2">p</tspan><tspan font-size="8" dy="-5">6</tspan></text>
+      <text x="146" y="589" class="sans" font-size="10.5" font-weight="700" fill="#161b22" text-anchor="middle">∑<tspan font-size="8" dy="2">c=0</tspan><tspan font-size="8" dy="-5">5</tspan><tspan dy="3"> δ</tspan><tspan font-size="8" dy="2">c</tspan><tspan dy="-2">² = 0  (∑a</tspan><tspan font-size="8" dy="2">i</tspan><tspan dy="-2">² = −1)</tspan></text>
+
+      <text x="34" y="612" class="sans" font-size="10.5" font-weight="700" fill="#161b22">∏<tspan font-size="8" dy="2">c=0</tspan><tspan font-size="8" dy="-5">5</tspan><tspan dy="3"> Θ(δ</tspan><tspan font-size="8" dy="2">c</tspan><tspan dy="-2"> z) ∈ 𝒪[[y]]</tspan><tspan font-size="8" dy="-3">×</tspan><tspan dy="3">  </tspan><tspan fill="#065f46">(unit)</tspan></text>
+      <text x="34" y="627" class="sans" font-size="10.5" fill="#3f4a56">Cancels quadratic anomaly in Θ,</text>
+      <text x="34" y="641" class="sans" font-size="10.5" fill="#3f4a56">freeing 6 copies per phase.</text>
+    </g>
+
+    <!-- Arrow 3A -> 3B -->
+    <line x1="268" y1="592" x2="283" y2="592" stroke="#065f46" stroke-width="1.6" marker-end="url(#arrow-emerald-end)"/>
+
+    <!-- CARD 3B: 6 + 6 = 12 COPIES IN twelveSpace -->
+    <g id="card-twelve-copies">
+      <rect x="286" y="535" width="284" height="115" rx="5" fill="#ffffff" stroke="#1e40af" stroke-width="1.2"/>
+      <text x="296" y="551" class="sans" font-size="10.5" font-weight="700" fill="#1e40af">6+6 = 12 Copies: <tspan class="mono" font-size="10">twelveSpace</tspan> (<tspan class="mono" font-size="10">Fin 12×Unit</tspan>)</text>
+
+      <!-- Copies 0-5 -->
+      <rect x="296" y="558" width="264" height="39" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="304" y="573" class="sans" font-size="10.5" font-weight="700" fill="#1e40af">Copies 0–5 (<tspan class="mono" font-size="10">val₆</tspan>): near-pair couplings</text>
+      <text x="304" y="589" class="sans" font-size="10.5" fill="#161b22">Harvests <tspan font-weight="700">ν' + ν''</tspan>  along τ ↔ −p<tspan font-size="8" dy="-3.5">e</tspan><tspan font-size="6.5" dy="1.5">τ</tspan><tspan dy="2">τ</tspan></text>
+
+      <!-- Copies 6-11 -->
+      <rect x="296" y="602" width="264" height="39" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="304" y="617" class="sans" font-size="10.5" font-weight="700" fill="#065f46">Copies 6–11 (<tspan class="mono" font-size="10">val₆</tspan>): Katz limit on η</text>
+      <text x="304" y="633" class="sans" font-size="10.5" fill="#161b22">Remainder <tspan font-weight="700">η = l − (ν' + ν'')</tspan></text>
+    </g>
+
+    <!-- Arrow 3B -> 3C -->
+    <line x1="570" y1="592" x2="585" y2="592" stroke="#92400e" stroke-width="1.6" marker-end="url(#arrow-amber-end)"/>
+
+    <!-- CARD 3C: GLOBAL SCALAR t & SIMULTANEOUS CEILING -->
+    <g id="card-global-ceiling">
+      <rect x="588" y="535" width="248" height="115" rx="5" fill="#ffffff"/>
+      <rect x="588" y="535" width="5" height="115" fill="#92400e" clip-path="url(#clip-card3c)"/>
+      <rect x="588" y="535" width="248" height="115" rx="5" fill="none" stroke="#92400e" stroke-width="1.4"/>
+
+      <text x="601" y="551" class="sans" font-size="11" font-weight="700" fill="#92400e">GLOBAL CEILING · ALL PRIMES</text>
+
+      <rect x="601" y="558" width="225" height="39" rx="4" fill="#fef6e4" stroke="#fed7aa" stroke-width="1"/>
+      <text x="713.5" y="573" class="sans" font-size="11.5" font-weight="700" fill="#161b22" text-anchor="middle">v<tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2"> ≤ S</tspan><tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2"> + v</tspan><tspan font-size="8.5" dy="2">p</tspan><tspan dy="-2">(t)   ∀ prime p</tspan></text>
+      <text x="713.5" y="590" class="mono" font-size="10" font-weight="700" fill="#92400e" text-anchor="middle">S<tspan font-size="7.5" dy="2">p</tspan><tspan dy="-2"> = D.localPrimeSumTotal p</tspan></text>
+
+      <text x="601" y="612" class="sans" font-size="10.5" font-weight="700" fill="#161b22">Single global t ≠ 0 (∀ σ ∈ Aut ℂ):</text>
+      <text x="601" y="627" class="sans" font-size="10.5" fill="#3f4a56">|σ t| ≤ exp(f m b / k)</text>
+      <text x="601" y="641" class="sans" font-size="10.5" font-weight="600" fill="#065f46">Simultaneous ∀ p (<tspan class="mono" font-size="9.5">indicatorDatum</tspan>)</text>
+    </g>
+
+    <!-- FULL-WIDTH HEADLINE THEOREM & STAGE 06 FEED BAR -->
+    <rect x="24" y="657" width="812" height="23" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.1"/>
+    <text x="430" y="672" class="sans" font-size="10.5" text-anchor="middle"><tspan class="mono" font-weight="700" fill="#1e40af">exists_rpow_neg_localPrimeSumTotal_le_norm_coeff</tspan><tspan fill="#92400e" font-weight="700">   ⟶   </tspan><tspan fill="#161b22" font-weight="600">feeds Stage 06 </tspan><tspan class="mono" font-weight="700" fill="#92400e">TwistedValueHeights</tspan></text>
+  </g>
+</svg>

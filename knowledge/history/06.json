@@ -1,0 +1,154 @@
+{
+  "closed": true,
+  "leaf": "06",
+  "rows": [
+    {
+      "disposition": "updated",
+      "id": "ROW-HMK9A0",
+      "items": [
+        "sha256:f4719397e6b363779447e3510ef9feaa1c0c89f340cee305e1fe99c37a26bc44"
+      ],
+      "reason": "Updated onboarding/site/docs/.vitepress/config.mts.md Purpose, Code Commentary and Evidence [3] and refreshed sidecar references [1]-[3] via citation_fix for the 5 top navigation entries (replacing flat Stage 00/01 links with a native Stages dropdown covering Stage 00, Stage 01 and Stage 02), four sidebar groups (adding 4-page Stage 02 — Derivatives of Theta Functions), and 24 Foundational Concepts sidebar slugs (adding the 6 Stage 02 Concept Cards).",
+      "sources": [
+        {
+          "blob": "e87f38d8f5485f2b43ef6e07195084df4b06105b",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/config.mts"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R12",
+          "packet": "RH-R12-v1-stage02-derivatives-of-theta-functions.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-K23PTJ",
+      "items": [],
+      "reason": "Refreshed reconsider_on anchor on site/docs/.vitepress/config.mts at candidate code tree 4cbee16d5d5a9a8980bc392447825371fd793ced after confirming rejected alternative 1 of DEC-0XZ8V5 remains still_rejected.",
+      "revision": 5,
+      "subject": "DEC-0XZ8V5"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-MC1EDQ",
+      "items": [
+        "sha256:44d26aec6d1c5e439322c026da26440d20b98385e39584369d9fe108138676b7"
+      ],
+      "reason": "Reviewed onboarding/overview.md and onboarding/overview.json against the Stage 02 navigation additions in site/docs/.vitepress/config.mts; overview prose already covers multi-stage explainer compilation (docs/stages/*/*.md) and the site/ VitePress shell accurately, and all 8 sidecar references remain current.",
+      "sources": [
+        {
+          "blob": "e87f38d8f5485f2b43ef6e07195084df4b06105b",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "still_rejected",
+      "id": "ROW-RRQG3Q",
+      "items": [
+        "sha256:a194c967c69d44172cecb371fb69cb00b537c3b38c00dae7892a31a8ed0ba1a2"
+      ],
+      "reason": "site/docs/.vitepress/config.mts only replaced flat Stage 00/01 top-bar links with a native VitePress Stages dropdown (Stage 00, Stage 01, Stage 02), added the four-page Stage 02 sidebar group, and appended six Concept Card sidebar links while preserving VitePress defineConfig, markdown.math: true (with pinned markdown-it-mathjax3 in site/package.json), cleanUrls: true, appearance: false, VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, and dual-repo GitHub Pages ownership in ar-rh-proof-skeleton/.github/workflows/pages.yml; neither reconsider_when condition (switching away from VitePress or moving public explainer docs back into the code repository) is met, so rejected alternative 1 remains rejected.",
+      "subject": "reconsider:DEC-0XZ8V5#1"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-GXDXCT",
+          "revision": 1
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 3
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 4
+        }
+      ],
+      "id": "ROW-S3DCMC",
+      "items": [
+        "sha256:fc21568169a55d1f2de235c2e8208a0f38893e05e74312772dc115bc92243ac2"
+      ],
+      "reason": "Examined all four members of FAM-033QTE (INV-VGNZKV re-anchored at revision 4 with updated RLZ-CRCTC9 rationale; INV-GXDXCT rev 1, INV-HK005W rev 1, and INV-V207JN rev 3 untouched). The joint Phase 4 static-site compilation, editorial light VitePress shell and dual-repo CI/Pages guarantee (already covering validated multi-stage docs) and root route '.' remain accurate.",
+      "revision": 2,
+      "subject": "FAM-033QTE"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R12",
+          "packet": "RH-R12-v1-stage02-derivatives-of-theta-functions.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "e87f38d8f5485f2b43ef6e07195084df4b06105b",
+            "content": "sha256:346982cac34b92bbe200a78f80068cc62b6436d929ed68752f7f1c41ad7d553f",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "before": {
+            "blob": "423579ab90ec4dac15353c7a3c8fe91175483fa6",
+            "content": "sha256:4ba30f90b06dc5eb0807242b46a984f4a23b9164e286cfd35b59d6afca5e99ce",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "id": "RLZ-CRCTC9"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-TMMG06",
+      "items": [
+        "sha256:017060bcf13cb27a429ab51155960422cfc568aaeb60af5cde2f748862401731"
+      ],
+      "reason": "Re-anchored RLZ-CRCTC9 on site/docs/.vitepress/config.mts at candidate code tree 4cbee16d5d5a9a8980bc392447825371fd793ced and updated its rationale for the native Stages dropdown (Stage 00, Stage 01, Stage 02) in the 5-item top bar, the four-page Stage 02 sidebar group, and six new Concept Cards (24 slugs total). All INV-VGNZKV shell guarantees (MathJax 3 SVG, VITEPRESS_BASE default, full HTML title paired with compact siteTitle 'RH Proof Explainer', cleanUrls, locked light appearance, and script-off Vue components) remain preserved unchanged, verified by Worker attempt 06-A1 and Reviewer 06-R1 CODE/docs/maths PASS (full build stages=13 concepts=24 assets=12, synthetic overview-only build 1/1/1, Playwright 0 errors and 0 overflow across desktop/mobile/narrow viewports).",
+      "revision": 4,
+      "subject": "INV-VGNZKV"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:2ebb470fd4d3e28726a06792da90ec59def9283bba55df61f4741d76a141928e",
+      "record": "DEC-0XZ8V5",
+      "revision": 5,
+      "writer": {
+        "at": "2026-11-26T21:18:55+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "06",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "3600f804-edba-534d-91d7-56a5df8f48d5",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}
