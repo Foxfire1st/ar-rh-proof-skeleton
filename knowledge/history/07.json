@@ -1,0 +1,184 @@
+{
+  "closed": true,
+  "leaf": "07",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-26T22:56:06+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "07",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "cd998271-6053-58d9-8a04-6a971921c14d",
+      "task": "261126-EXP"
+    },
+    "reviewer": {
+      "at": "2026-11-26T22:56:06+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "07",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "a2226b3e-9fd9-5559-a543-cf187dae362c",
+      "task": "261126-EXP",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "85b6c699f6b9676dd24f43236ea104f05d210bbd",
+    "verdictRef": "notes/reports/reviewer/a2226b3e-9fd9-5559-a543-cf187dae362c/07-memory-review-verdict.md"
+  },
+  "rows": [
+    {
+      "because": [
+        {
+          "id": "RH-R13",
+          "packet": "RH-R13-v1-stage03-upper-bound-composite-lift.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "e53c9eaa41efb0e856c5349af18fea1f4618ed3a",
+            "content": "sha256:a4cda18c258ea3e721ab61f5786290f965fdd936c4d794ae90ce854db22a2bae",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "before": {
+            "blob": "e87f38d8f5485f2b43ef6e07195084df4b06105b",
+            "content": "sha256:346982cac34b92bbe200a78f80068cc62b6436d929ed68752f7f1c41ad7d553f",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "id": "RLZ-CRCTC9"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-0JYN14",
+      "items": [
+        "sha256:63fa876a3d875c8dee686c7eef42c74ceef1d31c0a8c965847405d2aeb935a89"
+      ],
+      "reason": "Re-anchored RLZ-CRCTC9 on site/docs/.vitepress/config.mts at candidate code tree 494fad82550b24d9935f6f9350811c0357938569 and updated its rationale for adding Stage 03 inside the native Stages dropdown (preserving the 5-item top bar), adding the four-page Stage 03 — Upper Bound (Theorem A) sidebar group, and appending six new Concept Cards (30 slugs total). All INV-VGNZKV shell guarantees (MathJax 3 SVG, VITEPRESS_BASE default, full HTML title paired with compact siteTitle 'RH Proof Explainer', cleanUrls, locked light appearance, and script-off Vue components) remain preserved unchanged, verified by Worker attempt-01 and Reviewer RV-07-A1 CODE/docs/maths PASS (full build stages=17 concepts=30 assets=15, synthetic overview-only build 1/1/1, Playwright 0 errors and 0 overflow across 1280x800, 560x800 and 375x812 viewports).",
+      "revision": 4,
+      "subject": "INV-VGNZKV"
+    },
+    {
+      "disposition": "still_rejected",
+      "id": "ROW-95ZW0S",
+      "items": [
+        "sha256:500ef48e2c22c7e8a7d444cfda1b21d03629d0951ac0335998c013b59a380717"
+      ],
+      "reason": "site/docs/.vitepress/config.mts only added Stage 03 inside the existing native VitePress Stages dropdown, added the four-page Stage 03 — Upper Bound (Theorem A) sidebar group, and appended six Stage 03 Concept Card sidebar links while preserving VitePress defineConfig, markdown.math: true (with pinned markdown-it-mathjax3 in site/package.json), cleanUrls: true, appearance: false, VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, and dual-repo GitHub Pages ownership in ar-rh-proof-skeleton/.github/workflows/pages.yml; neither reconsider_when condition (switching away from VitePress or moving public explainer docs back into the code repository) is met, so rejected alternative 1 remains rejected.",
+      "subject": "reconsider:DEC-0XZ8V5#1"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-DCMQYR",
+      "items": [
+        "sha256:44d26aec6d1c5e439322c026da26440d20b98385e39584369d9fe108138676b7"
+      ],
+      "reason": "Reviewed onboarding/overview.md and onboarding/overview.json against the Stage 03 navigation additions in site/docs/.vitepress/config.mts; overview prose already covers multi-stage explainer compilation (docs/stages/*/*.md) and the site/ VitePress shell accurately, and all 8 sidecar references remain current.",
+      "sources": [
+        {
+          "blob": "e53c9eaa41efb0e856c5349af18fea1f4618ed3a",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R13",
+          "packet": "RH-R13-v1-stage03-upper-bound-composite-lift.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-DVGB8Q",
+      "items": [],
+      "reason": "Refreshed reconsider_on anchor on site/docs/.vitepress/config.mts at candidate code tree 494fad82550b24d9935f6f9350811c0357938569 after confirming rejected alternative 1 of DEC-0XZ8V5 remains still_rejected.",
+      "revision": 6,
+      "subject": "DEC-0XZ8V5"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-JPYSFC",
+      "items": [
+        "sha256:f4719397e6b363779447e3510ef9feaa1c0c89f340cee305e1fe99c37a26bc44"
+      ],
+      "reason": "Updated onboarding/site/docs/.vitepress/config.mts.md Purpose, Code Commentary and Evidence [3] and refreshed sidecar references [1]-[3] via citation_fix for Stage 03 added to the native Stages dropdown (preserving 5 top navigation entries), five sidebar groups (adding 4-page Stage 03 — Upper Bound (Theorem A)), and 30 Foundational Concepts sidebar slugs (adding the 6 Stage 03 Concept Cards).",
+      "sources": [
+        {
+          "blob": "e53c9eaa41efb0e856c5349af18fea1f4618ed3a",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/config.mts"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-GXDXCT",
+          "revision": 1
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 3
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 4
+        }
+      ],
+      "id": "ROW-ZB1638",
+      "items": [
+        "sha256:fc21568169a55d1f2de235c2e8208a0f38893e05e74312772dc115bc92243ac2"
+      ],
+      "reason": "Examined all four members of FAM-033QTE (INV-VGNZKV re-anchored at revision 4 with updated RLZ-CRCTC9 rationale; INV-GXDXCT rev 1, INV-HK005W rev 1, and INV-V207JN rev 3 untouched). The joint Phase 4 static-site compilation, editorial light VitePress shell and dual-repo CI/Pages guarantee (already covering validated multi-stage docs) and root route '.' remain accurate.",
+      "revision": 2,
+      "subject": "FAM-033QTE"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:b52ad7b78d14a3f1dfdce106c4e70da4affd90feb12fd62b0eda2caec913177a",
+      "record": "DEC-0XZ8V5",
+      "revision": 6,
+      "writer": {
+        "at": "2026-11-26T22:46:46+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "07",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "cd998271-6053-58d9-8a04-6a971921c14d",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}
