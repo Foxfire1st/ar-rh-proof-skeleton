@@ -1,0 +1,322 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 744"
+     width="860"
+     height="744"
+     role="img"
+     aria-labelledby="stage03-seesaw-title stage03-seesaw-desc">
+  <title id="stage03-seesaw-title">Iterated Seesaw Double-Chain Rectangle in Stage 03 (SeesawIdentity.lean)</title>
+  <desc id="stage03-seesaw-desc">Editorial mathematical diagram of the two-track seesaw rectangle proved in New.Data.seesaw_identity (src/New/UpperBound/Seesaw/SeesawIdentity.lean). Both paths begin at the definite base unitary space X_0 (rank k = r + 1 - m) carrying a ramified source form phi in ramifiedSourceForms and meet at the common definite destination Y_m (rank n_m - 1 = r + mt, Y_m subset of X_m). The upper definite track (cobalt, solid borders) lifts phi across m = 2*varrho + 2 definite spaces X_0 to X_1 (rank k + t + 1) through varrho + 1 glued double lifts to X_m (rank n_m = r + mt + 1) with a glued chain datum Psi satisfying IsChainDatum theta Psi (admissible support, integral away from theta.normQ, l1-bounded when theta.Q = empty, jointly levelX j-invariant), then restricts via D.restrictToY (restrictToFormY) down to Y_m to produce compositeLift theta Psi phi. The lower indefinite-to-definite track (emerald, dashed borders on indefinite spaces) descends from X_0 to Y_0 (rank r, indefinite signature with varrho hyperbolic planes plus &lt;-N&gt;) via the Poincare map P = poincareAt g t (Riesz representative of the Bessel period on R_0), then lifts via adelic theta lifts liftY theta j through Y_1 (rank r + t) and signature shifts to definite Y_m, producing lowerChain theta (P phi). Inside the rectangle sits the amber Seesaw Unfolding Engine pairing the lower track against an arbitrary test form z in ConjFormY in three steps: (1) Transposed descent via transposedLiftY theta j (exact adjoint integral_mul_liftY) walks z down from Y_m to Y_0; (2) Iterated Bessel unfolding of unfoldedPeriod Xi_{k+1} via integral_unfoldStageOn_mul_transposedLiftY and induction (exists_integral_mul_lowerChainUpTo_eq_cutSum) reduces each outer integral to a finite coset sum cutSum over Omega_0 x ... x Omega_k with denominators confined to theta.normQ; (3) Tensor assembly forms seesawDatum theta (isInvariant_seesawDatum, exists_isAdmissibleCombination_seesawDatum), supplying the upper chain datum Psi. The closing banner states New.Data.seesaw_identity: lowerChain theta (P phi) = c * compositeLift theta Psi phi for one single twist-independent nonzero scalar c in C^x across all twists theta and ramified source forms phi, alongside a rust honesty callout noting the non-vanishing boundary: c != 0 is proved here via normUnit, whereas non-vanishing and spanning of the Poincare image belong to Theorem B (Stage 04).</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+      .cal  { font-family: Georgia, 'Times New Roman', 'DejaVu Serif', serif; font-style: italic; font-weight: 700; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-slate-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+
+    <!-- Crisp card clip paths for rounded header fills and accent stripes -->
+    <clipPath id="clip-upper-band"><rect x="14" y="48" width="832" height="136" rx="6"/></clipPath>
+    <clipPath id="clip-poincare"><rect x="14" y="244" width="140" height="132" rx="6"/></clipPath>
+    <clipPath id="clip-engine"><rect x="166" y="208" width="528" height="204" rx="6"/></clipPath>
+    <clipPath id="clip-restrict"><rect x="706" y="244" width="140" height="132" rx="6"/></clipPath>
+    <clipPath id="clip-lower-band"><rect x="14" y="436" width="832" height="124" rx="6"/></clipPath>
+    <clipPath id="clip-result"><rect x="14" y="586" width="832" height="144" rx="6"/></clipPath>
+    <clipPath id="clip-honesty"><rect x="394" y="669" width="440" height="53" rx="4"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="743" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="27" class="sans" font-size="16" font-weight="700" fill="#161b22">Iterated Seesaw Double-Chain Rectangle in <tspan class="mono" font-size="14.5" fill="#1e40af">SeesawIdentity.lean</tspan></text>
+    <text x="842" y="26" class="mono" font-size="11.2" fill="#3f4a56" text-anchor="end">src/New/UpperBound/Seesaw/</text>
+    <line x1="14" y1="39" x2="846" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: UPPER TRACK (DEFINITE CHAIN — COBALT)                         -->
+  <!-- ===================================================================== -->
+  <g id="band-upper-track">
+    <rect x="14" y="48" width="832" height="136" rx="6" fill="#ffffff"/>
+    <rect x="14" y="48" width="832" height="25" fill="#edf4ff" clip-path="url(#clip-upper-band)"/>
+    <line x1="14" y1="73" x2="846" y2="73" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="48" width="832" height="136" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+    <!-- Track Eyebrow -->
+    <text x="26" y="64.5" class="sans" font-size="11" font-weight="700" fill="#1e40af">◆ UPPER TRACK · DEFINITE CHAIN<tspan font-weight="400" font-size="10.2" fill="#3f4a56">   (m = 2ϱ + 2 lifts glued into ϱ + 1 double lifts)</tspan></text>
+    <text x="834" y="64.5" class="sans" font-size="10.4" fill="#3f4a56" text-anchor="end">Yields: <tspan class="mono" font-size="10.4" font-weight="700" fill="#1e40af">compositeLift ϑ Ψ φ</tspan></text>
+
+    <!-- NODE X_0 -->
+    <g id="node-x0">
+      <rect x="24" y="81" width="208" height="60" rx="5" fill="#faf9f5" stroke="#1e40af" stroke-width="1.4"/>
+      <text x="36" y="98" class="sans" font-size="12.5" font-weight="700" fill="#1e40af">X<tspan font-size="8.5" dy="2.5">0</tspan><tspan dy="-2.5" font-size="10.2" font-weight="600" fill="#3f4a56">   rank k = r + 1 − m</tspan></text>
+      <text x="36" y="114.5" class="sans" font-size="10.2" fill="#161b22">◆ Definite base space</text>
+      <text x="36" y="131" class="sans" font-size="10.2" fill="#3f4a56">φ ∈ <tspan class="mono" font-size="9.6" font-weight="700" fill="#1e40af">ramifiedSourceForms</tspan></text>
+    </g>
+
+    <!-- ARROW X_0 -> X_1 -->
+    <line x1="232" y1="111" x2="261" y2="111" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="246" y="103" class="sans" font-size="9.2" font-weight="600" fill="#1e40af" text-anchor="middle">lift</text>
+
+    <!-- NODE X_1 -->
+    <g id="node-x1">
+      <rect x="264" y="81" width="162" height="60" rx="5" fill="#faf9f5" stroke="#1e40af" stroke-width="1.4"/>
+      <text x="276" y="98" class="sans" font-size="12.5" font-weight="700" fill="#1e40af">X<tspan font-size="8.5" dy="2.5">1</tspan><tspan dy="-2.5" font-size="10.2" font-weight="600" fill="#3f4a56">   rank k + t + 1</tspan></text>
+      <text x="276" y="114.5" class="sans" font-size="10.2" fill="#161b22">◆ Definite  (t = 5r)</text>
+      <text x="276" y="131" class="sans" font-size="10" fill="#3f4a56">level <tspan class="mono" font-size="9.6" fill="#161b22">levelX 1</tspan></text>
+    </g>
+
+    <!-- ARROW X_1 -> ... -->
+    <line x1="426" y1="111" x2="451" y2="111" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+
+    <!-- ELLIPSIS PILL (UPPER) -->
+    <g id="node-x-dots">
+      <rect x="454" y="90" width="114" height="42" rx="5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <text x="511" y="108" class="sans" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle">⋯</text>
+      <text x="511" y="123" class="sans" font-size="9" font-weight="600" fill="#1e40af" text-anchor="middle">ϱ + 1 double lifts</text>
+    </g>
+
+    <!-- ARROW ... -> X_m -->
+    <line x1="568" y1="111" x2="593" y2="111" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+
+    <!-- NODE X_m -->
+    <g id="node-xm">
+      <rect x="596" y="81" width="240" height="60" rx="5" fill="#faf9f5" stroke="#1e40af" stroke-width="1.5"/>
+      <text x="608" y="98" class="sans" font-size="12.5" font-weight="700" fill="#1e40af">X<tspan font-size="8.5" dy="2.5">m</tspan><tspan dy="-2.5" font-size="10.2" font-weight="600" fill="#3f4a56">   n</tspan><tspan font-size="8" dy="2">m</tspan><tspan dy="-2" font-size="10.2" font-weight="600" fill="#3f4a56"> = r + mt + 1</tspan></text>
+      <text x="608" y="114.5" class="sans" font-size="10.2" fill="#161b22">◆ Definite top space  (Y<tspan font-size="8" dy="2">m</tspan><tspan dy="-2"> ⊂ X</tspan><tspan font-size="8" dy="2">m</tspan><tspan dy="-2">)</tspan></text>
+      <text x="608" y="131" class="sans" font-size="10" fill="#3f4a56">Definite form before <tspan class="mono" font-size="9.6" fill="#1e40af">restrictToY</tspan></text>
+    </g>
+
+    <!-- GLUED CHAIN DATUM Ψ STRIP -->
+    <g id="strip-chain-datum">
+      <rect x="24" y="149" width="812" height="27" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="36" y="166.5" class="sans" font-size="10.2" fill="#3f4a56"><tspan class="mono" font-size="10.2" font-weight="700" fill="#1e40af">IsChainDatum ϑ Ψ</tspan> :  admissible support  ·  integral away from <tspan class="mono" font-size="10" fill="#161b22">ϑ.normQ</tspan>  ·  ℓ<tspan font-size="8" dy="-3">1</tspan><tspan dy="3">-bounded if </tspan><tspan class="mono" font-size="10" fill="#161b22">ϑ.Q = ∅</tspan>  ·  jointly <tspan class="mono" font-size="10" fill="#161b22">levelX j</tspan>-invariant</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2: VERTICAL EDGES + CENTER SEESAW UNFOLDING ENGINE               -->
+  <!-- ===================================================================== -->
+  <g id="band-middle-seesaw">
+
+    <!-- LEFT VERTICAL EDGE: POINCARE MAP (X_0 -> Y_0) -->
+    <g id="edge-poincare">
+      <line x1="84" y1="184" x2="84" y2="244" stroke="#065f46" stroke-width="2"/>
+      <line x1="84" y1="376" x2="84" y2="433" stroke="#065f46" stroke-width="2" marker-end="url(#arrow-emerald-end)"/>
+
+      <rect x="14" y="244" width="140" height="132" rx="6" fill="#ffffff"/>
+      <rect x="14" y="244" width="140" height="24" fill="#ecfdf5" clip-path="url(#clip-poincare)"/>
+      <line x1="14" y1="268" x2="154" y2="268" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="14" y="244" width="140" height="132" rx="6" fill="none" stroke="#065f46" stroke-width="1.5"/>
+
+      <text x="84" y="260" class="sans" font-size="10.2" font-weight="700" fill="#065f46" text-anchor="middle">● POINCARÉ MAP</text>
+      <text x="84" y="286" class="sans" font-size="10.5" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="cal" font-size="11.5" fill="#065f46">P</tspan> = <tspan class="mono" font-size="9.5">poincareAt g t</tspan></text>
+      <text x="84" y="303" class="sans" font-size="10" fill="#161b22" text-anchor="middle">Riesz Bessel period</text>
+      <text x="84" y="319" class="sans" font-size="9.8" fill="#3f4a56" text-anchor="middle">on R<tspan font-size="7.8" dy="2">0</tspan><tspan dy="-2"> (</tspan><tspan class="mono" font-size="9">gradingY 0</tspan><tspan>)</tspan></text>
+      <line x1="24" y1="329" x2="144" y2="329" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="84" y="346" class="sans" font-size="9.8" font-weight="600" fill="#065f46" text-anchor="middle">⟨y, <tspan class="cal">P</tspan> φ⟩ = ∫ W<tspan font-size="7.8" dy="2">φ</tspan><tspan dy="-2"> · ȳ</tspan></text>
+      <text x="84" y="363" class="sans" font-size="9.6" fill="#3f4a56" text-anchor="middle">X<tspan font-size="7.5" dy="2">0</tspan><tspan dy="-2"> → Y</tspan><tspan font-size="7.5" dy="2">0</tspan><tspan dy="-2"> (indefinite)</tspan></text>
+    </g>
+
+    <!-- CENTER CONNECTORS: ENGINE <-> UPPER & LOWER TRACKS -->
+    <!-- Engine -> Upper Track (supplies glued datum Ψ) -->
+    <line x1="430" y1="208" x2="430" y2="187" stroke="#92400e" stroke-width="1.8" stroke-dasharray="4,2.5" marker-end="url(#arrow-amber-end)"/>
+    <text x="442" y="200" class="sans" font-size="9.6" font-weight="700" fill="#92400e">supplies glued datum Ψ (<tspan class="mono" font-size="9.2">IsChainDatum ϑ Ψ</tspan>)</text>
+
+    <!-- Lower Track -> Engine (test pairing z in ConjFormY) -->
+    <line x1="430" y1="436" x2="430" y2="415" stroke="#92400e" stroke-width="1.8" stroke-dasharray="4,2.5" marker-end="url(#arrow-amber-end)"/>
+    <text x="442" y="428" class="sans" font-size="9.6" font-weight="700" fill="#92400e">pair z ∈ <tspan class="mono" font-size="9.2">ConjFormY</tspan> with <tspan class="mono" font-size="9.2">lowerChain ϑ (</tspan><tspan class="cal" font-size="10">P</tspan><tspan class="mono" font-size="9.2"> φ)</tspan></text>
+
+    <!-- CENTER SEESAW UNFOLDING ENGINE (AMBER) -->
+    <g id="card-seesaw-engine">
+      <rect x="166" y="208" width="528" height="204" rx="6" fill="#ffffff"/>
+      <rect x="166" y="208" width="528" height="26" fill="#fef6e4" clip-path="url(#clip-engine)"/>
+      <line x1="166" y1="234" x2="694" y2="234" stroke="#e7c98f" stroke-width="1"/>
+      <rect x="166" y="208" width="528" height="204" rx="6" fill="none" stroke="#92400e" stroke-width="1.6"/>
+
+      <!-- Engine Header -->
+      <text x="178" y="225" class="sans" font-size="10.8" font-weight="700" fill="#92400e">▲ SEESAW UNFOLDING ENGINE</text>
+      <text x="682" y="225" class="sans" font-size="10.2" fill="#3f4a56" text-anchor="end">Test pairing against z ∈ <tspan class="mono" font-size="10" fill="#161b22">ConjFormY</tspan></text>
+
+      <!-- STEP 1: TRANSPOSED DESCENT -->
+      <rect x="176" y="242" width="508" height="44" rx="4" fill="#faf9f5" stroke="#e5d5b5" stroke-width="1"/>
+      <rect x="184" y="249" width="96" height="30" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.1"/>
+      <text x="232" y="261.5" class="sans" font-size="9.4" font-weight="700" fill="#92400e" text-anchor="middle">① DESCENT</text>
+      <text x="232" y="274" class="sans" font-size="9.4" fill="#3f4a56" text-anchor="middle">Y<tspan font-size="7.2" dy="2">k+1</tspan><tspan dy="-2"> → Y</tspan><tspan font-size="7.2" dy="2">k</tspan><tspan dy="-2"/></text>
+
+      <text x="290" y="259.5" class="sans" font-size="10.2" fill="#3f4a56"><tspan class="mono" font-size="10.2" font-weight="700" fill="#161b22">transposedLiftY ϑ j</tspan>  (<tspan class="mono" font-size="9.6" fill="#92400e">integral_mul_liftY</tspan> — exact adjoint)</text>
+      <text x="290" y="276.5" class="sans" font-size="10.1" fill="#3f4a56">Walks test form z ∈ <tspan class="mono" font-size="9.6" fill="#161b22">ConjFormY</tspan> down from Y<tspan font-size="7.8" dy="2">m</tspan><tspan dy="-2"> to Y</tspan><tspan font-size="7.8" dy="2">0</tspan><tspan dy="-2"> to meet </tspan><tspan class="cal" font-size="10.5" fill="#065f46">P</tspan> φ</text>
+
+      <!-- Step 1 -> 2 connector -->
+      <line x1="232" y1="286" x2="232" y2="293" stroke="#92400e" stroke-width="1.4" marker-end="url(#arrow-amber-end)"/>
+
+      <!-- STEP 2: ITERATED BESSEL UNFOLDING -->
+      <rect x="176" y="294" width="508" height="58" rx="4" fill="#faf9f5" stroke="#e5d5b5" stroke-width="1"/>
+      <rect x="184" y="308" width="96" height="30" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.1"/>
+      <text x="232" y="320.5" class="sans" font-size="9.4" font-weight="700" fill="#92400e" text-anchor="middle">② UNFOLD</text>
+      <text x="232" y="333" class="sans" font-size="9.2" fill="#3f4a56" text-anchor="middle">Ξ<tspan font-size="7.2" dy="2">k+1</tspan><tspan dy="-2"> → cutSum</tspan></text>
+
+      <text x="290" y="310" class="sans" font-size="10" fill="#161b22"><tspan class="mono" font-size="9.8" font-weight="700">unfoldedPeriod</tspan> Ξ<tspan font-size="7.8" dy="2">k+1</tspan><tspan dy="-2"> · </tspan><tspan class="mono" font-size="9.1" fill="#92400e">integral_unfoldStageOn_mul_transposedLiftY</tspan></text>
+      <text x="290" y="326.5" class="sans" font-size="10" fill="#3f4a56">Finite coset sum <tspan class="mono" font-size="9.8" font-weight="700" fill="#161b22">cutSum</tspan> over Ω<tspan font-size="7.8" dy="2">0</tspan><tspan dy="-2"> × ⋯ × Ω</tspan><tspan font-size="7.8" dy="2">k</tspan><tspan dy="-2"> · denoms ∣ </tspan><tspan class="mono" font-size="9.8" font-weight="700" fill="#9a3412">ϑ.normQ</tspan></text>
+      <text x="290" y="342.5" class="sans" font-size="9.6" fill="#3f4a56">Induction: <tspan class="mono" font-size="9.2" fill="#161b22">exists_integral_mul_lowerChainUpTo_eq_cutSum</tspan></text>
+
+      <!-- Step 2 -> 3 connector -->
+      <line x1="232" y1="352" x2="232" y2="359" stroke="#92400e" stroke-width="1.4" marker-end="url(#arrow-amber-end)"/>
+
+      <!-- STEP 3: TENSOR ASSEMBLY -->
+      <rect x="176" y="360" width="508" height="44" rx="4" fill="#faf9f5" stroke="#e5d5b5" stroke-width="1"/>
+      <rect x="184" y="367" width="96" height="30" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.1"/>
+      <text x="232" y="379.5" class="sans" font-size="9.4" font-weight="700" fill="#92400e" text-anchor="middle">③ ASSEMBLE</text>
+      <text x="232" y="392" class="sans" font-size="9.2" fill="#3f4a56" text-anchor="middle">tensor → Ψ</text>
+
+      <text x="290" y="377.5" class="sans" font-size="10.2" fill="#3f4a56"><tspan class="mono" font-size="10.2" font-weight="700" fill="#161b22">seesawDatum ϑ</tspan>  (<tspan class="mono" font-size="9.5" fill="#92400e">isInvariant_seesawDatum</tspan>)</text>
+      <text x="290" y="394.5" class="sans" font-size="10" fill="#3f4a56"><tspan class="mono" font-size="9.2" fill="#161b22">exists_isAdmissibleCombination_seesawDatum</tspan><tspan font-weight="700" fill="#1e40af"> → datum Ψ</tspan></text>
+    </g>
+
+    <!-- RIGHT VERTICAL EDGE: RESTRICTION (X_m -> Y_m) -->
+    <g id="edge-restriction">
+      <line x1="776" y1="184" x2="776" y2="244" stroke="#1e40af" stroke-width="2"/>
+      <line x1="776" y1="376" x2="776" y2="433" stroke="#1e40af" stroke-width="2" marker-end="url(#arrow-cobalt-end)"/>
+
+      <rect x="706" y="244" width="140" height="132" rx="6" fill="#ffffff"/>
+      <rect x="706" y="244" width="140" height="24" fill="#edf4ff" clip-path="url(#clip-restrict)"/>
+      <line x1="706" y1="268" x2="846" y2="268" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="706" y="244" width="140" height="132" rx="6" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+      <text x="776" y="260" class="sans" font-size="10.2" font-weight="700" fill="#1e40af" text-anchor="middle">◆ RESTRICTION</text>
+      <text x="776" y="286" class="mono" font-size="10.4" font-weight="700" fill="#1e40af" text-anchor="middle">D.restrictToY</text>
+      <text x="776" y="303" class="sans" font-size="10" fill="#161b22" text-anchor="middle">X<tspan font-size="7.8" dy="2">m</tspan><tspan dy="-2"> → Y</tspan><tspan font-size="7.8" dy="2">m</tspan><tspan dy="-2"> (codim 1)</tspan></text>
+      <text x="776" y="319" class="sans" font-size="9.8" fill="#3f4a56" text-anchor="middle">Y<tspan font-size="7.8" dy="2">m</tspan><tspan dy="-2"> ⊂ X</tspan><tspan font-size="7.8" dy="2">m</tspan><tspan dy="-2"> definite</tspan></text>
+      <line x1="716" y1="329" x2="836" y2="329" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="776" y="346" class="mono" font-size="9.5" font-weight="600" fill="#1e40af" text-anchor="middle">restrictToFormY</text>
+      <text x="776" y="363" class="sans" font-size="9.6" fill="#3f4a56" text-anchor="middle">Top pairing → C⟨x, ·⟩</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: LOWER TRACK (INDEFINITE-TO-DEFINITE CHAIN — EMERALD)          -->
+  <!-- ===================================================================== -->
+  <g id="band-lower-track">
+    <rect x="14" y="436" width="832" height="124" rx="6" fill="#ffffff"/>
+    <rect x="14" y="436" width="832" height="25" fill="#ecfdf5" clip-path="url(#clip-lower-band)"/>
+    <line x1="14" y1="461" x2="846" y2="461" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="14" y="436" width="832" height="124" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+    <!-- Track Eyebrow -->
+    <text x="26" y="452.5" class="sans" font-size="11" font-weight="700" fill="#065f46">● LOWER TRACK · INDEFINITE-TO-DEFINITE CHAIN<tspan font-weight="400" font-size="10.2" fill="#3f4a56">   (adelic lifts </tspan><tspan class="mono" font-size="10" fill="#161b22">liftY ϑ j</tspan><tspan font-weight="400" font-size="10.2" fill="#3f4a56">)</tspan></text>
+    <text x="834" y="452.5" class="sans" font-size="10.4" fill="#3f4a56" text-anchor="end">Yields: <tspan class="mono" font-size="10.4" font-weight="700" fill="#065f46">lowerChain ϑ (</tspan><tspan class="cal" font-size="11" fill="#065f46">P</tspan><tspan class="mono" font-size="10.4" font-weight="700" fill="#065f46"> φ)</tspan></text>
+
+    <!-- NODE Y_0 (INDEFINITE — DASHED BORDER + OPEN CIRCLE) -->
+    <g id="node-y0">
+      <rect x="24" y="469" width="208" height="80" rx="5" fill="#faf9f5" stroke="#065f46" stroke-width="1.4" stroke-dasharray="5,3"/>
+      <text x="36" y="486" class="sans" font-size="12.5" font-weight="700" fill="#065f46">Y<tspan font-size="8.5" dy="2.5">0</tspan><tspan dy="-2.5" font-size="10.2" font-weight="600" fill="#3f4a56">   rank r</tspan></text>
+      <text x="36" y="502.5" class="sans" font-size="10" font-weight="700" fill="#065f46">○ Indefinite signature</text>
+      <text x="36" y="519" class="sans" font-size="10.1" fill="#161b22">ϱ hyp. planes + ⟨−N⟩</text>
+      <text x="36" y="536" class="sans" font-size="9.8" fill="#3f4a56">Input: <tspan class="cal" font-size="10.4" fill="#065f46">P</tspan> φ  (Poincaré image)</text>
+    </g>
+
+    <!-- ARROW Y_0 -> Y_1 -->
+    <line x1="232" y1="509" x2="261" y2="509" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+    <text x="246" y="501" class="mono" font-size="8.8" font-weight="600" fill="#065f46" text-anchor="middle">liftY</text>
+
+    <!-- NODE Y_1 (INDEFINITE — DASHED BORDER + OPEN CIRCLE) -->
+    <g id="node-y1">
+      <rect x="264" y="469" width="162" height="80" rx="5" fill="#faf9f5" stroke="#065f46" stroke-width="1.4" stroke-dasharray="5,3"/>
+      <text x="276" y="486" class="sans" font-size="12.5" font-weight="700" fill="#065f46">Y<tspan font-size="8.5" dy="2.5">1</tspan><tspan dy="-2.5" font-size="10.2" font-weight="600" fill="#3f4a56">   rank r + t</tspan></text>
+      <text x="276" y="502.5" class="sans" font-size="10" font-weight="700" fill="#065f46">○ Indefinite (shifted)</text>
+      <text x="276" y="519" class="sans" font-size="10" fill="#161b22">level <tspan class="mono" font-size="9.4">levelY ϑ 1</tspan></text>
+      <text x="276" y="536" class="sans" font-size="9.6" fill="#3f4a56">via <tspan class="mono" font-size="9.2">lowerChainUpTo</tspan></text>
+    </g>
+
+    <!-- ARROW Y_1 -> ... -->
+    <line x1="426" y1="509" x2="451" y2="509" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+
+    <!-- ELLIPSIS PILL (LOWER) -->
+    <g id="node-y-dots">
+      <rect x="454" y="488" width="114" height="42" rx="5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <text x="511" y="506" class="sans" font-size="15" font-weight="700" fill="#065f46" text-anchor="middle">⋯</text>
+      <text x="511" y="521" class="sans" font-size="8.8" font-weight="600" fill="#065f46" text-anchor="middle">m lifts (→ definite)</text>
+    </g>
+
+    <!-- ARROW ... -> Y_m -->
+    <line x1="568" y1="509" x2="593" y2="509" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+
+    <!-- NODE Y_m (DEFINITE DESTINATION — SOLID BORDER, MEETING POINT) -->
+    <g id="node-ym">
+      <rect x="596" y="469" width="240" height="80" rx="5" fill="#ffffff" stroke="#065f46" stroke-width="1.8"/>
+      <text x="608" y="486" class="sans" font-size="12.5" font-weight="700" fill="#161b22">Y<tspan font-size="8.5" dy="2.5">m</tspan><tspan dy="-2.5" font-size="10.1" font-weight="600" fill="#3f4a56">   n</tspan><tspan font-size="7.8" dy="2">m</tspan><tspan dy="-2" font-size="10.1" font-weight="600" fill="#3f4a56"> − 1 = r + mt</tspan></text>
+      <text x="608" y="502.5" class="sans" font-size="10" font-weight="700" fill="#1e40af">◆ Definite destination  (Y<tspan font-size="7.8" dy="2">m</tspan><tspan dy="-2"> ⊂ X</tspan><tspan font-size="7.8" dy="2">m</tspan><tspan dy="-2">)</tspan></text>
+      <text x="608" y="519.5" class="sans" font-size="9.8" fill="#3f4a56">● <tspan class="mono" font-size="9.5" font-weight="700" fill="#065f46">lowerChain ϑ (</tspan><tspan class="cal" font-size="10.2" fill="#065f46">P</tspan><tspan class="mono" font-size="9.5" font-weight="700" fill="#065f46"> φ)</tspan></text>
+      <text x="608" y="536.5" class="sans" font-size="9.8" fill="#3f4a56">◆ <tspan class="mono" font-size="9.5" font-weight="700" fill="#1e40af">compositeLift ϑ Ψ φ</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION: RECTANGLE -> CLOSING RESULT BANNER                        -->
+  <!-- ===================================================================== -->
+  <g id="transition-to-result">
+    <path d="M 716 560 L 716 573 L 430 573 L 430 583" fill="none" stroke="#3f4a56" stroke-width="1.6" marker-end="url(#arrow-slate-end)"/>
+    <rect x="246" y="564" width="368" height="18" rx="9" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="430" y="576.5" class="sans" font-size="10.2" font-weight="700" fill="#3f4a56" text-anchor="middle">Riesz uniqueness (<tspan class="mono" font-size="9.6">ext_inner_left</tspan>) + <tspan class="mono" font-size="9.6">normUnit</tspan> rescaling</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 4: CLOSING RESULT BANNER + NON-VANISHING HONESTY CALLOUT         -->
+  <!-- ===================================================================== -->
+  <g id="band-closing-result">
+    <rect x="14" y="586" width="832" height="144" rx="6" fill="#ffffff"/>
+    <rect x="14" y="586" width="832" height="27" fill="#edf4ff" clip-path="url(#clip-result)"/>
+    <rect x="14" y="586" width="6" height="144" fill="#1e40af" clip-path="url(#clip-result)"/>
+    <line x1="20" y1="613" x2="846" y2="613" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="586" width="832" height="144" rx="6" fill="none" stroke="#1e40af" stroke-width="1.75"/>
+
+    <!-- Result Banner Header -->
+    <text x="30" y="604" class="sans" font-size="11.2" font-weight="700" fill="#1e40af">HEADLINE THEOREM  ·  <tspan class="mono" font-size="11.5" fill="#161b22">New.Data.seesaw_identity</tspan></text>
+    <text x="834" y="604" class="sans" font-size="10.2" fill="#3f4a56" text-anchor="end">∀ ϑ : Twist,  ∃ Ψ (<tspan class="mono" font-size="9.8">IsChainDatum ϑ Ψ</tspan>),  ∀ φ ∈ <tspan class="mono" font-size="9.8">ramifiedSourceForms</tspan></text>
+
+    <!-- Main Identity Equation Box -->
+    <rect x="28" y="621" width="806" height="40" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+    <text x="44" y="645.5" class="sans" font-size="13.5" font-weight="700" fill="#161b22"><tspan class="mono" font-size="13" fill="#065f46">lowerChain ϑ (</tspan><tspan class="cal" font-size="14" fill="#065f46">P</tspan><tspan class="mono" font-size="13" fill="#065f46"> φ)</tspan>  =  <tspan fill="#92400e">c</tspan> • <tspan class="mono" font-size="13" fill="#1e40af">compositeLift ϑ Ψ φ</tspan></text>
+
+    <line x1="436" y1="627" x2="436" y2="655" stroke="#d8d3c8" stroke-width="1.1"/>
+
+    <text x="450" y="638" class="sans" font-size="10.8" font-weight="700" fill="#92400e">ONE twist-independent scalar  c ∈ ℂ<tspan font-size="8.2" dy="-3.5">×</tspan><tspan dy="3.5">  (c ≠ 0)</tspan></text>
+    <text x="450" y="654" class="sans" font-size="9.8" fill="#3f4a56">Same c for all twists ϑ &amp; ramified φ  (only Ψ varies with ϑ)</text>
+
+    <!-- LEFT SUB-CALLOUT: TWIST & DATUM STRUCTURE -->
+    <g id="callout-twist-structure">
+      <rect x="28" y="669" width="354" height="53" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1.1"/>
+      <text x="40" y="685" class="sans" font-size="10.2" font-weight="700" fill="#161b22">◆ TWIST &amp; DATUM STRUCTURE</text>
+      <text x="40" y="701" class="sans" font-size="10" fill="#3f4a56">c ∈ ℂ<tspan font-size="7.5" dy="-3">×</tspan><tspan dy="3"> is global; Ψ depends on ϑ (denoms ∣ </tspan><tspan class="mono" font-size="9.5" fill="#161b22">ϑ.normQ</tspan><tspan>)</tspan></text>
+      <text x="40" y="715.5" class="sans" font-size="10" fill="#3f4a56">ℓ<tspan font-size="7.5" dy="-3">1</tspan><tspan dy="3">-bound on Ψ holds at trivial twist (</tspan><tspan class="mono" font-size="9.5" fill="#161b22">ϑ.Q = ∅</tspan><tspan>)</tspan></text>
+    </g>
+
+    <!-- RIGHT SUB-CALLOUT: HONESTY BOUNDARY (RUST/AMBER) -->
+    <g id="callout-nonvanishing-boundary">
+      <rect x="394" y="669" width="440" height="53" rx="4" fill="#fff5f0"/>
+      <rect x="394" y="669" width="5" height="53" fill="#9a3412" clip-path="url(#clip-honesty)"/>
+      <rect x="394" y="669" width="440" height="53" rx="4" fill="none" stroke="#9a3412" stroke-width="1.4"/>
+
+      <text x="409" y="685" class="sans" font-size="10.3" font-weight="700" fill="#9a3412">▲ NON-VANISHING BOUNDARY</text>
+      <text x="409" y="701" class="sans" font-size="10.1" fill="#161b22"><tspan font-weight="700" fill="#9a3412">c ≠ 0</tspan> is proved here (<tspan class="mono" font-size="9.5">normUnit</tspan>); neither side is proved nonzero.</text>
+      <text x="409" y="715.5" class="sans" font-size="10" fill="#3f4a56">Non-vanishing &amp; spanning of the image belong to <tspan font-weight="700" fill="#161b22">Theorem B (Stage 04)</tspan>.</text>
+    </g>
+  </g>
+</svg>

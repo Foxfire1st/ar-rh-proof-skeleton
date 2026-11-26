@@ -1,0 +1,374 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 880 710"
+     width="880"
+     height="710"
+     role="img"
+     aria-labelledby="stage03-triage-hecke-title stage03-triage-hecke-desc">
+  <title id="stage03-triage-hecke-title">4-Case Prime Divisibility Triage and Elementary Divisors of Edge Hecke Operators</title>
+  <desc id="stage03-triage-hecke-desc">Publication-grade two-panel editorial mathematical diagram uniting Stage 03 LocalDivisibility.lean (Left Panel) and ElementaryDivisorTheorem.lean (Right Panel), anchored by a bottom valuation-domain strip. The Left Panel depicts the 4-case prime triage in New.Data.exists_colengthDvd_gaugeLe_compositeLift, which produces an O-submodule S of integral source forms M with determinant-divisibility colength ColengthDvd M S (p^l), l &lt;= allowedLoss(p) * dim, and composite-lift valuation at least gain(p) - allowedLoss(p): Case 1 (circle, emerald, split or p &gt;= x_1, p != N) has gain = 0, allowedLoss = 0, S = M, l = 0 via gaugeLe_restrictedChain_one; Case 2 (open diamond, cobalt, non-exceptional small non-split p &lt; x_1) satisfies m * collisionSum &lt;= loss(p), S = M, l = 0, valuation &gt;= gain - 2 * loss via gaugeLe_restrictedChain_collisionSum; Case 3 (filled diamond, highlighted rust, exceptional inert p &lt; x_1 with chi_K(p) = -1, p != +-1 mod m, odd order o_0 &lt;= r_frak) selects a full mark Lambda, sets Y = prod_{l in Lambda} scaledHeckeOperator(l) and S = Y^m M + p^{j_p} M with colength l &lt;= loss(p) * dim via gaugeLe_restrictedChain_of_isFullMark and isOntoUpToColength_prod_scaledHeckeOperator_pow, receiving its colength bound directly via a cross-panel bridge arrow from Step 3 on the Right Panel; Case 4 (triangle, dashed amber, level prime p = N) has gain = 0, allowedLoss = 2mfb, S = upIntegralForms (Up^{m/2} phi integral for L_0), colength l &lt;= mfb * dim, using ramification via gaugeLe_compositeLift_at_N. The Right Panel displays the factorization of edgeHeckeOperator (edgeHeckeOperator_regroup) as M (integral functions on lattices) subset M_all (originFunctions) subset M_edge (edge functions) mapped by Add = pairingMap to N_cal (dual to allEdgesForms) subset M^circ, with small colength det d | w^l (exists_basis_det_dvd) marked at both outer inclusions. Below the factorization pipe, a 3-step engine powers the middle Add step: Step 1 (exists_isEdgeCondition) combines Frobenius cycle T of N alternating letters with RootLemma::stepanov_count, AveragingMap Av, and DefectCount Pieri cone volume to prove index * dim S &lt;= (1 + theta) |Exponents|; Step 2 builds the near inverse Inv (pow_dvd_mul_sub_smul_one: Add * Inv == p^{2 N c_0} mod w^c), applies Smith normal form modulo a direct summand (exists_elementary_divisors_mod_summand), and invokes Nakayama's lemma (smul_top_le_of_le_sup_smul_top) so p^{2 N c_0} N_cal is covered by Add(M_all) plus at most theta |V| |Exp| extra generators; Step 3 outputs FrobeniusCycle.elementary_divisors: IsOntoUpToColength p L m Y ((3 c_div + theta m) |X| |I|), which feeds directly across the center bridge into Case 3 on the Left Panel. The bottom strip records that O = embValRing subset C is a characteristic-zero, non-noetherian, non-discrete valuation domain containing w = sqrtPrime (w^2 = p), so determinant-divisibility ColengthDvd replaces finite-module length throughout both files.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+      .serif-italic { font-family: Georgia, 'Times New Roman', 'DejaVu Serif', serif; font-style: italic; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-slate-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+
+    <!-- Subtle archival hatch pattern for non-color emphasis -->
+    <pattern id="hatch-rust" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#9a3412" stroke-width="0.9" stroke-opacity="0.12"/>
+    </pattern>
+
+    <!-- Crisp clip paths for rounded panel headers and left accent bars -->
+    <clipPath id="clip-left-panel"><rect x="14" y="48" width="398" height="588" rx="6"/></clipPath>
+    <clipPath id="clip-right-panel"><rect x="444" y="48" width="422" height="588" rx="6"/></clipPath>
+    <clipPath id="clip-case1"><rect x="24" y="136" width="378" height="90" rx="5"/></clipPath>
+    <clipPath id="clip-case2"><rect x="24" y="236" width="378" height="96" rx="5"/></clipPath>
+    <clipPath id="clip-case3"><rect x="24" y="342" width="378" height="160" rx="5"/></clipPath>
+    <clipPath id="clip-case4"><rect x="24" y="512" width="378" height="114" rx="5"/></clipPath>
+    <clipPath id="clip-step1"><rect x="454" y="248" width="402" height="118" rx="5"/></clipPath>
+    <clipPath id="clip-step2"><rect x="454" y="380" width="402" height="124" rx="5"/></clipPath>
+    <clipPath id="clip-step3"><rect x="454" y="518" width="402" height="108" rx="5"/></clipPath>
+    <clipPath id="clip-bottom-strip"><rect x="14" y="646" width="852" height="52" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="879" height="709" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="26" class="sans" font-size="14.5" font-weight="700" fill="#161b22">Prime Triage &amp; Edge-Hecke Elementary Divisors</text>
+    <text x="862" y="25" class="mono" font-size="10" fill="#3f4a56" text-anchor="end">LocalDivisibility.lean · ElementaryDivisorTheorem.lean</text>
+    <line x1="14" y1="38" x2="866" y2="38" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- LEFT PANEL: 4-CASE PRIME TRIAGE (LocalDivisibility.lean)              -->
+  <!-- ===================================================================== -->
+  <g id="left-panel-triage">
+    <rect x="14" y="48" width="398" height="588" rx="6" fill="#ffffff"/>
+    <rect x="14" y="48" width="398" height="28" fill="#f3f1eb" clip-path="url(#clip-left-panel)"/>
+    <line x1="14" y1="76" x2="412" y2="76" stroke="#d8d3c8" stroke-width="1"/>
+    <rect x="14" y="48" width="398" height="588" rx="6" fill="none" stroke="#d8d3c8" stroke-width="1.3"/>
+
+    <text x="24" y="66" class="sans" font-size="11" font-weight="700" fill="#161b22">LEFT · 4-CASE PRIME TRIAGE</text>
+    <text x="402" y="66" class="mono" font-size="10" fill="#1e40af" text-anchor="end">LocalDivisibility.lean</text>
+
+    <!-- Uniform Headline Theorem Banner -->
+    <g id="left-theorem-banner">
+      <rect x="24" y="84" width="378" height="42" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1.1"/>
+      <text x="213" y="100" class="mono" font-size="9.6" font-weight="700" fill="#1e40af" text-anchor="middle">New.Data.exists_colengthDvd_gaugeLe_compositeLift</text>
+      <text x="213" y="117" class="sans" font-size="9.5" fill="#161b22" text-anchor="middle">∃ S ⊆ M:  <tspan font-weight="700">det | p</tspan><tspan font-size="7.2" dy="-3" font-weight="700">l</tspan><tspan dy="3"> (l ≤ allowedLoss·dim),  v</tspan><tspan font-size="7.2" dy="2">p</tspan><tspan dy="-2"> ≥ gain − allowedLoss</tspan></text>
+    </g>
+
+    <!-- CASE 1: ○ Split or p >= x_1, p != N -->
+    <g id="case-1-card">
+      <rect x="24" y="136" width="378" height="90" rx="5" fill="#ffffff"/>
+      <rect x="24" y="136" width="4" height="90" fill="#065f46" clip-path="url(#clip-case1)"/>
+      <rect x="24" y="136" width="378" height="90" rx="5" fill="none" stroke="#a7f3d0" stroke-width="1.2"/>
+
+      <rect x="36" y="144" width="62" height="17" rx="8.5" fill="#ecfdf5" stroke="#065f46" stroke-width="0.9"/>
+      <text x="67" y="156" class="sans" font-size="9.2" font-weight="700" fill="#065f46" text-anchor="middle">○ CASE 1</text>
+      <text x="105" y="156" class="sans" font-size="10.8" font-weight="700" fill="#161b22">Split or p ≥ x<tspan font-size="8" dy="2">1</tspan><tspan dy="-2">,  p ≠ N</tspan></text>
+      <rect x="308" y="144" width="84" height="17" rx="3" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.9"/>
+      <text x="350" y="156" class="sans" font-size="9" font-weight="700" fill="#065f46" text-anchor="middle">S = M · l = 0</text>
+
+      <text x="38" y="178" class="sans" font-size="9.8" fill="#161b22"><tspan font-weight="700">gain = 0</tspan>,  <tspan font-weight="700">allowedLoss = 0</tspan>  ·  S = M (integral module),  l = 0</text>
+      <text x="38" y="195" class="sans" font-size="9.6" fill="#3f4a56">Every lift preserves integrality (p ≠ d, standard ratio 1).</text>
+      <rect x="38" y="203" width="176" height="16" rx="3" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="0.8"/>
+      <text x="45" y="214.5" class="mono" font-size="9.2" font-weight="600" fill="#065f46">gaugeLe_restrictedChain_one</text>
+    </g>
+
+    <!-- CASE 2: ◇ Non-exceptional small non-split p < x_1 -->
+    <g id="case-2-card">
+      <rect x="24" y="236" width="378" height="96" rx="5" fill="#ffffff"/>
+      <rect x="24" y="236" width="4" height="96" fill="#1e40af" clip-path="url(#clip-case2)"/>
+      <rect x="24" y="236" width="378" height="96" rx="5" fill="none" stroke="#bfdbfe" stroke-width="1.2"/>
+
+      <rect x="36" y="244" width="62" height="17" rx="8.5" fill="#edf4ff" stroke="#1e40af" stroke-width="0.9"/>
+      <text x="67" y="256" class="sans" font-size="9.2" font-weight="700" fill="#1e40af" text-anchor="middle">◇ CASE 2</text>
+      <text x="105" y="256" class="sans" font-size="10" font-weight="700" fill="#161b22">Non-exceptional non-split p &lt; x<tspan font-size="7.5" dy="2">1</tspan></text>
+      <rect x="308" y="244" width="84" height="17" rx="3" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+      <text x="350" y="256" class="sans" font-size="9" font-weight="700" fill="#1e40af" text-anchor="middle">S = M · l = 0</text>
+
+      <text x="38" y="278" class="sans" font-size="9.8" fill="#161b22"><tspan font-weight="700">m · collisionSum ≤ loss(p)</tspan>  ·  allowedLoss = 2·loss(p)</text>
+      <text x="38" y="296" class="sans" font-size="9.8" fill="#3f4a56">Full module <tspan font-weight="700" fill="#161b22">S = M,  l = 0</tspan>  ·  valuation ≥ <tspan font-weight="700" fill="#1e40af">gain − 2·loss</tspan></text>
+      <rect x="38" y="307" width="228" height="16" rx="3" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="0.8"/>
+      <text x="45" y="318.5" class="mono" font-size="9.2" font-weight="600" fill="#1e40af">gaugeLe_restrictedChain_collisionSum</text>
+    </g>
+
+    <!-- CASE 3: ◆ Exceptional inert p < x_1 (HIGHLIGHTED TARGET) -->
+    <g id="case-3-card">
+      <rect x="24" y="342" width="378" height="160" rx="5" fill="#fff5f0"/>
+      <rect x="24" y="342" width="378" height="160" rx="5" fill="url(#hatch-rust)" clip-path="url(#clip-case3)"/>
+      <rect x="24" y="342" width="5" height="160" fill="#9a3412" clip-path="url(#clip-case3)"/>
+      <rect x="24" y="342" width="378" height="160" rx="5" fill="none" stroke="#9a3412" stroke-width="1.8"/>
+
+      <rect x="36" y="350" width="62" height="18" rx="9" fill="#9a3412"/>
+      <text x="67" y="362.5" class="sans" font-size="9.2" font-weight="700" fill="#ffffff" text-anchor="middle">◆ CASE 3</text>
+      <text x="105" y="363" class="sans" font-size="11" font-weight="700" fill="#9a3412">Exceptional inert p &lt; x<tspan font-size="8" dy="2">1</tspan></text>
+      <rect x="292" y="350" width="100" height="18" rx="3" fill="#ffffff" stroke="#9a3412" stroke-width="1"/>
+      <text x="342" y="362.5" class="sans" font-size="9.2" font-weight="700" fill="#9a3412" text-anchor="middle">l ≤ loss(p)·dim</text>
+
+      <text x="38" y="384" class="sans" font-size="9.8" fill="#161b22">χ<tspan font-size="7.5" dy="2">K</tspan><tspan dy="-2">(p) = −1,  p ≢ ±1 (mod m),  odd order </tspan><tspan font-weight="700">o</tspan><tspan font-size="7.5" dy="2" font-weight="700">0</tspan><tspan dy="-2" font-weight="700"> ≤ </tspan><tspan class="serif-italic" font-weight="700">r</tspan></text>
+      <text x="38" y="402" class="sans" font-size="9.8" fill="#161b22">Full mark <tspan font-weight="700">Λ</tspan>:  <tspan font-weight="700" fill="#9a3412">Y = ∏</tspan><tspan font-size="7.5" dy="2.5" font-weight="700" fill="#9a3412">l∈Λ</tspan><tspan dy="-2.5"> </tspan><tspan class="mono" font-size="9" font-weight="700" fill="#161b22">scaledHeckeOperator(l)</tspan></text>
+
+      <!-- Highlighted Submodule & Colength Box -->
+      <rect x="38" y="411" width="354" height="40" rx="4" fill="#ffffff" stroke="#9a3412" stroke-width="1.1"/>
+      <text x="215" y="427" class="sans" font-size="10.2" font-weight="700" fill="#161b22" text-anchor="middle"><tspan fill="#9a3412">S = Y</tspan><tspan font-size="7.5" dy="-3.5" fill="#9a3412">m</tspan><tspan dy="3.5" fill="#9a3412"> M + p</tspan><tspan font-size="7.5" dy="-3.5" fill="#9a3412">j</tspan><tspan font-size="6.2" dy="1.5" fill="#9a3412">p</tspan><tspan dy="2" fill="#9a3412"> M</tspan>   ·   v<tspan font-size="7.5" dy="2">p</tspan><tspan dy="-2"> ≥ gain − 2·loss</tspan></text>
+      <text x="215" y="444" class="sans" font-size="9.4" fill="#3f4a56" text-anchor="middle">Colength <tspan font-weight="700" fill="#9a3412">l ≤ loss(p)·dim</tspan> ≤ 2·loss(p)·dim  <tspan font-weight="700" fill="#9a3412">(← Right Panel)</tspan></text>
+
+      <!-- Key Lemmas -->
+      <rect x="38" y="458" width="234" height="16" rx="3" fill="#ffffff" stroke="#fed7aa" stroke-width="0.9"/>
+      <text x="45" y="469.5" class="mono" font-size="9" font-weight="600" fill="#9a3412">gaugeLe_restrictedChain_of_isFullMark</text>
+      <rect x="38" y="478" width="292" height="16" rx="3" fill="#ffffff" stroke="#fed7aa" stroke-width="0.9"/>
+      <text x="45" y="489.5" class="mono" font-size="9" font-weight="600" fill="#9a3412">isOntoUpToColength_prod_scaledHeckeOperator_pow</text>
+    </g>
+
+    <!-- CASE 4: ▲ Level prime p = N (DASHED BORDER) -->
+    <g id="case-4-card">
+      <rect x="24" y="512" width="378" height="114" rx="5" fill="#ffffff"/>
+      <rect x="24" y="512" width="4" height="114" fill="#92400e" clip-path="url(#clip-case4)"/>
+      <rect x="24" y="512" width="378" height="114" rx="5" fill="none" stroke="#92400e" stroke-width="1.3" stroke-dasharray="5,3"/>
+
+      <rect x="36" y="520" width="62" height="17" rx="8.5" fill="#fef6e4" stroke="#92400e" stroke-width="0.9"/>
+      <text x="67" y="532" class="sans" font-size="9.2" font-weight="700" fill="#92400e" text-anchor="middle">▲ CASE 4</text>
+      <text x="105" y="532" class="sans" font-size="10.8" font-weight="700" fill="#92400e">Level prime p = N  <tspan font-size="9.5" font-weight="600" fill="#3f4a56">(x</tspan><tspan font-size="7.2" dy="2" font-weight="600" fill="#3f4a56">1</tspan><tspan dy="-2" font-size="9.5" font-weight="600" fill="#3f4a56"> ≤ N)</tspan></text>
+      <rect x="304" y="520" width="88" height="17" rx="3" fill="#fef6e4" stroke="#fed7aa" stroke-width="0.9"/>
+      <text x="348" y="532" class="sans" font-size="9.2" font-weight="700" fill="#92400e" text-anchor="middle">l ≤ mfb·dim</text>
+
+      <text x="38" y="554" class="sans" font-size="9.8" fill="#161b22"><tspan font-weight="700">gain = 0</tspan>,  <tspan font-weight="700">allowedLoss = 2mfb</tspan>  ·  colength <tspan font-weight="700" fill="#92400e">l ≤ mfb·dim</tspan></text>
+      <text x="38" y="572" class="sans" font-size="9.8" fill="#161b22"><tspan font-weight="700">S = </tspan><tspan class="mono" font-size="9.2" font-weight="700" fill="#92400e">upIntegralForms</tspan>  (Up<tspan font-size="7.5" dy="-3">m/2</tspan><tspan dy="3"> φ integral for L</tspan><tspan font-size="7.5" dy="2">0</tspan><tspan dy="-2">)</tspan></text>
+      <text x="38" y="589" class="sans" font-size="9.6" fill="#3f4a56">Uses ramification (φ ∈ ramifiedSourceForms) at Σ<tspan font-size="7.5" dy="2">N</tspan><tspan dy="-2">.</tspan></text>
+      <rect x="38" y="599" width="170" height="16" rx="3" fill="#fef6e4" stroke="#fed7aa" stroke-width="0.8"/>
+      <text x="45" y="610.5" class="mono" font-size="9.2" font-weight="600" fill="#92400e">gaugeLe_compositeLift_at_N</text>
+      <text x="216" y="610.5" class="sans" font-size="9.2" fill="#3f4a56">+ ColengthAtLevel</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- RIGHT PANEL: ELEMENTARY DIVISOR FACTORIZATION                         -->
+  <!-- ===================================================================== -->
+  <g id="right-panel-elementary-divisors">
+    <rect x="444" y="48" width="422" height="588" rx="6" fill="#ffffff"/>
+    <rect x="444" y="48" width="422" height="28" fill="#f3f1eb" clip-path="url(#clip-right-panel)"/>
+    <line x1="444" y1="76" x2="866" y2="76" stroke="#d8d3c8" stroke-width="1"/>
+    <rect x="444" y="48" width="422" height="588" rx="6" fill="none" stroke="#d8d3c8" stroke-width="1.3"/>
+
+    <text x="454" y="66" class="sans" font-size="11" font-weight="700" fill="#161b22">RIGHT · ELEMENTARY DIVISORS</text>
+    <text x="856" y="66" class="mono" font-size="10" fill="#1e40af" text-anchor="end">ElementaryDivisorTheorem.lean</text>
+
+    <!-- SECTION A: FACTORIZATION PIPE OF edgeHeckeOperator -->
+    <g id="factorization-pipe">
+      <rect x="454" y="84" width="402" height="150" rx="5" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1.1"/>
+      <text x="464" y="101" class="sans" font-size="10.2" font-weight="700" fill="#161b22">Factorization of <tspan class="mono" font-size="9.8" fill="#1e40af">edgeHeckeOperator</tspan></text>
+      <text x="846" y="101" class="mono" font-size="9.2" fill="#3f4a56" text-anchor="end">edgeHeckeOperator_regroup</text>
+
+      <!-- Node 1: M -->
+      <rect x="462" y="114" width="52" height="44" rx="4" fill="#ffffff" stroke="#1e40af" stroke-width="1.3"/>
+      <text x="488" y="132" class="sans" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">M</text>
+      <text x="488" y="148" class="sans" font-size="8.4" fill="#3f4a56" text-anchor="middle">lattices</text>
+
+      <!-- ⊆ -->
+      <text x="521" y="140" class="sans" font-size="12" font-weight="700" fill="#065f46" text-anchor="middle">⊆</text>
+
+      <!-- Node 2: M_all -->
+      <rect x="528" y="114" width="64" height="44" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+      <text x="560" y="132" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">M<tspan font-size="8" dy="2">all</tspan></text>
+      <text x="560" y="148" class="mono" font-size="7.8" fill="#3f4a56" text-anchor="middle">originFns</text>
+
+      <!-- ⊆ -->
+      <text x="600" y="140" class="sans" font-size="12" font-weight="700" fill="#3f4a56" text-anchor="middle">⊆</text>
+
+      <!-- Node 3: M_edge -->
+      <rect x="608" y="114" width="58" height="44" rx="4" fill="#ffffff" stroke="#3f4a56" stroke-width="1.2"/>
+      <text x="637" y="132" class="sans" font-size="11.5" font-weight="700" fill="#161b22" text-anchor="middle">M<tspan font-size="8" dy="2">edge</tspan></text>
+      <text x="637" y="148" class="sans" font-size="8.4" fill="#3f4a56" text-anchor="middle">edge fns</text>
+
+      <!-- Middle Arrow: Add = pairingMap -->
+      <text x="698" y="124" class="sans" font-size="10.2" font-weight="700" fill="#9a3412" text-anchor="middle">Add</text>
+      <line x1="668" y1="135" x2="725" y2="135" stroke="#9a3412" stroke-width="2" marker-end="url(#arrow-rust-end)"/>
+      <text x="698" y="150" class="mono" font-size="8.2" font-weight="600" fill="#9a3412" text-anchor="middle">pairingMap</text>
+
+      <!-- Node 4: N_cal (dual to allEdgesForms) -->
+      <rect x="730" y="114" width="54" height="44" rx="4" fill="#fff5f0" stroke="#9a3412" stroke-width="1.3"/>
+      <text x="757" y="132" class="serif-italic" font-size="13" font-weight="700" fill="#9a3412" text-anchor="middle">N</text>
+      <text x="757" y="148" class="sans" font-size="8.4" fill="#3f4a56" text-anchor="middle">dual edge</text>
+
+      <!-- ⊆ -->
+      <text x="791" y="140" class="sans" font-size="12" font-weight="700" fill="#065f46" text-anchor="middle">⊆</text>
+
+      <!-- Node 5: M° -->
+      <rect x="798" y="114" width="50" height="44" rx="4" fill="#ffffff" stroke="#1e40af" stroke-width="1.3"/>
+      <text x="823" y="132" class="sans" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">M°</text>
+      <text x="823" y="148" class="sans" font-size="8.4" fill="#3f4a56" text-anchor="middle">dual lat.</text>
+
+      <!-- Left End Small Colength Bracket: M ⊆ M_all -->
+      <path d="M 488 161 L 488 168 L 560 168 L 560 161" fill="none" stroke="#065f46" stroke-width="1.1"/>
+      <line x1="524" y1="168" x2="524" y2="176" stroke="#065f46" stroke-width="1.1"/>
+      <rect x="462" y="176" width="126" height="49" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="525" y="191" class="sans" font-size="10" font-weight="700" fill="#065f46" text-anchor="middle">det d | w<tspan font-size="7.5" dy="-3">l</tspan><tspan dy="3" font-size="8.5" font-weight="600"> (small)</tspan></text>
+      <text x="525" y="205" class="mono" font-size="8.3" fill="#161b22" text-anchor="middle">originFunctions</text>
+      <text x="525" y="218" class="mono" font-size="8.2" fill="#3f4a56" text-anchor="middle">exists_basis_det_dvd</text>
+
+      <!-- Center Connector from Add to 3-Step Engine -->
+      <path d="M 698 154 L 698 168 L 655 168 L 655 176" fill="none" stroke="#9a3412" stroke-width="1.3" stroke-dasharray="3,2"/>
+      <rect x="596" y="176" width="118" height="49" rx="4" fill="#fff5f0" stroke="#9a3412" stroke-width="1" stroke-dasharray="3.5,2.5"/>
+      <text x="655" y="194" class="sans" font-size="9.5" font-weight="700" fill="#9a3412" text-anchor="middle">Middle Add step</text>
+      <text x="655" y="208" class="sans" font-size="9.2" fill="#3f4a56" text-anchor="middle">powered by</text>
+      <text x="655" y="220" class="sans" font-size="9.5" font-weight="700" fill="#9a3412" text-anchor="middle">3-step engine ↓</text>
+
+      <!-- Right End Small Colength Bracket: N ⊆ M° -->
+      <path d="M 757 161 L 757 168 L 823 168 L 823 161" fill="none" stroke="#065f46" stroke-width="1.1"/>
+      <line x1="790" y1="168" x2="790" y2="176" stroke="#065f46" stroke-width="1.1"/>
+      <rect x="722" y="176" width="126" height="49" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="785" y="191" class="sans" font-size="10" font-weight="700" fill="#065f46" text-anchor="middle">det d' | w<tspan font-size="7.5" dy="-3">l</tspan><tspan dy="3" font-size="8.5" font-weight="600"> (small)</tspan></text>
+      <text x="785" y="205" class="mono" font-size="8.3" fill="#161b22" text-anchor="middle">dual allEdgesForms</text>
+      <text x="785" y="218" class="mono" font-size="8.2" fill="#3f4a56" text-anchor="middle">exists_basis_det_dvd</text>
+    </g>
+
+    <!-- Arrow Section A -> Step 1 -->
+    <line x1="655" y1="225" x2="655" y2="245" stroke="#9a3412" stroke-width="1.6" marker-end="url(#arrow-rust-end)"/>
+
+    <!-- STEP 1: exists_isEdgeCondition -->
+    <g id="step-1-edge-condition">
+      <rect x="454" y="248" width="402" height="118" rx="5" fill="#ffffff"/>
+      <rect x="454" y="248" width="4" height="118" fill="#1e40af" clip-path="url(#clip-step1)"/>
+      <rect x="454" y="248" width="402" height="118" rx="5" fill="none" stroke="#bfdbfe" stroke-width="1.2"/>
+
+      <rect x="466" y="256" width="54" height="17" rx="8.5" fill="#edf4ff" stroke="#1e40af" stroke-width="0.9"/>
+      <text x="493" y="268" class="sans" font-size="9.2" font-weight="700" fill="#1e40af" text-anchor="middle">STEP 1</text>
+      <text x="528" y="268" class="mono" font-size="10.2" font-weight="700" fill="#1e40af">exists_isEdgeCondition</text>
+      <rect x="734" y="256" width="112" height="17" rx="3" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="0.8"/>
+      <text x="790" y="268" class="sans" font-size="9.2" font-weight="600" fill="#3f4a56" text-anchor="middle">Frobenius cycle T</text>
+
+      <text x="468" y="287" class="sans" font-size="9.6" fill="#3f4a56"><tspan font-weight="700" fill="#161b22">T</tspan>: <tspan font-weight="700" fill="#161b22">N</tspan> alternating letters,  ι<tspan font-size="7.2" dy="2">s+1</tspan><tspan dy="-2">(x) ≡ ι</tspan><tspan font-size="7.2" dy="2">s</tspan><tspan dy="-2">(x)</tspan><tspan font-size="7.2" dy="-3">P</tspan><tspan dy="3"> (mod p)</tspan></text>
+
+      <!-- Three Ingredient Chips -->
+      <rect x="466" y="295" width="120" height="36" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="0.9"/>
+      <text x="526" y="310" class="sans" font-size="9.3" font-weight="700" fill="#161b22" text-anchor="middle">RootLemma</text>
+      <text x="526" y="324" class="mono" font-size="8.6" font-weight="600" fill="#1e40af" text-anchor="middle">stepanov_count</text>
+
+      <text x="591" y="317" class="sans" font-size="11" font-weight="700" fill="#3f4a56" text-anchor="middle">+</text>
+
+      <rect x="596" y="295" width="120" height="36" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="0.9"/>
+      <text x="656" y="310" class="sans" font-size="9.3" font-weight="700" fill="#161b22" text-anchor="middle">AveragingMap</text>
+      <text x="656" y="324" class="mono" font-size="8.6" font-weight="600" fill="#065f46" text-anchor="middle">Av (mod w<tspan font-size="6.8" dy="-2.5">c</tspan><tspan dy="2.5">)</tspan></text>
+
+      <text x="721" y="317" class="sans" font-size="11" font-weight="700" fill="#3f4a56" text-anchor="middle">+</text>
+
+      <rect x="726" y="295" width="120" height="36" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="0.9"/>
+      <text x="786" y="310" class="sans" font-size="9.3" font-weight="700" fill="#161b22" text-anchor="middle">DefectCount</text>
+      <text x="786" y="324" class="sans" font-size="9" font-weight="600" fill="#92400e" text-anchor="middle">Pieri cone volume</text>
+
+      <!-- Step 1 Result Pill -->
+      <rect x="466" y="338" width="380" height="21" rx="3.5" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+      <text x="656" y="352" class="sans" font-size="10.2" font-weight="700" fill="#1e40af" text-anchor="middle">⇒   index · dim S  ≤  (1 + θ) |Exponents|</text>
+    </g>
+
+    <!-- Arrow Step 1 -> Step 2 -->
+    <line x1="655" y1="366" x2="655" y2="378" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt-end)"/>
+
+    <!-- STEP 2: Near inverse Inv + SNF mod summand + Nakayama -->
+    <g id="step-2-inv-snf-nakayama">
+      <rect x="454" y="380" width="402" height="124" rx="5" fill="#ffffff"/>
+      <rect x="454" y="380" width="4" height="124" fill="#92400e" clip-path="url(#clip-step2)"/>
+      <rect x="454" y="380" width="402" height="124" rx="5" fill="none" stroke="#fed7aa" stroke-width="1.2"/>
+
+      <rect x="466" y="388" width="54" height="17" rx="8.5" fill="#fef6e4" stroke="#92400e" stroke-width="0.9"/>
+      <text x="493" y="400" class="sans" font-size="9.2" font-weight="700" fill="#92400e" text-anchor="middle">STEP 2</text>
+      <text x="528" y="400" class="sans" font-size="10.8" font-weight="700" fill="#92400e">Near Inverse Inv  +  SNF  +  Nakayama</text>
+
+      <text x="468" y="420" class="sans" font-size="9.8" fill="#161b22"><tspan font-weight="700" fill="#92400e">• Near inverse Inv:</tspan>  <tspan font-weight="700">Add · Inv ≡ p</tspan><tspan font-size="7.5" dy="-3" font-weight="700">2Nc₀</tspan><tspan dy="3" font-weight="700"> (mod w</tspan><tspan font-size="7.5" dy="-3" font-weight="700">c</tspan><tspan dy="3" font-weight="700">)</tspan></text>
+      <text x="478" y="434" class="mono" font-size="8.8" fill="#3f4a56">pow_dvd_mul_sub_smul_one</text>
+
+      <text x="468" y="451" class="sans" font-size="9.6" fill="#161b22"><tspan font-weight="700" fill="#92400e">• SNF mod summand:</tspan>  <tspan class="mono" font-size="8.6" fill="#161b22">exists_elementary_divisors_mod_summand</tspan></text>
+
+      <text x="468" y="467" class="sans" font-size="9.6" fill="#161b22"><tspan font-weight="700" fill="#92400e">• Nakayama (w ∈ m</tspan><tspan font-size="7.2" dy="2" font-weight="700" fill="#92400e">O</tspan><tspan dy="-2" font-weight="700" fill="#92400e">):</tspan>  <tspan class="mono" font-size="8.6" fill="#161b22">smul_top_le_of_le_sup_smul_top</tspan></text>
+
+      <!-- Step 2 Result Pill -->
+      <rect x="466" y="476" width="380" height="21" rx="3.5" fill="#fef6e4" stroke="#fed7aa" stroke-width="0.9"/>
+      <text x="656" y="490" class="sans" font-size="9.4" font-weight="700" fill="#92400e" text-anchor="middle">⇒  p<tspan font-size="7.2" dy="-3">2Nc₀</tspan><tspan dy="3"> </tspan><tspan class="serif-italic" font-size="10.5">N</tspan> covered by Add(M<tspan font-size="7.2" dy="2">all</tspan><tspan dy="-2">) + ≤ θ|V||Exp| extra gens</tspan></text>
+    </g>
+
+    <!-- Arrow Step 2 -> Step 3 -->
+    <line x1="655" y1="504" x2="655" y2="516" stroke="#9a3412" stroke-width="1.6" marker-end="url(#arrow-rust-end)"/>
+
+    <!-- STEP 3: OUTPUT THEOREM FrobeniusCycle.elementary_divisors -->
+    <g id="step-3-output-theorem">
+      <rect x="454" y="518" width="402" height="108" rx="5" fill="#fff5f0"/>
+      <rect x="454" y="518" width="402" height="108" rx="5" fill="url(#hatch-rust)" clip-path="url(#clip-step3)"/>
+      <rect x="454" y="518" width="5" height="108" fill="#9a3412" clip-path="url(#clip-step3)"/>
+      <rect x="454" y="518" width="402" height="108" rx="5" fill="none" stroke="#9a3412" stroke-width="1.8"/>
+
+      <rect x="466" y="526" width="54" height="18" rx="9" fill="#9a3412"/>
+      <text x="493" y="538.5" class="sans" font-size="9.2" font-weight="700" fill="#ffffff" text-anchor="middle">STEP 3</text>
+      <text x="528" y="538.5" class="mono" font-size="10.2" font-weight="700" fill="#9a3412">FrobeniusCycle.elementary_divisors</text>
+      <rect x="782" y="526" width="64" height="18" rx="3" fill="#ffffff" stroke="#9a3412" stroke-width="1"/>
+      <text x="814" y="538.5" class="sans" font-size="9" font-weight="700" fill="#9a3412" text-anchor="middle">OUTPUT</text>
+
+      <!-- Highlighted Output Formula Box -->
+      <rect x="466" y="549" width="380" height="44" rx="4" fill="#ffffff" stroke="#9a3412" stroke-width="1.1"/>
+      <text x="656" y="566" class="mono" font-size="9.5" font-weight="700" fill="#161b22" text-anchor="middle">IsOntoUpToColength p L m Y ((3 c<tspan font-size="7.2" dy="2">div</tspan><tspan dy="-2"> + θ m)|X||I|)</tspan></text>
+      <text x="656" y="584" class="sans" font-size="9.5" fill="#3f4a56" text-anchor="middle"><tspan class="mono" font-size="9" font-weight="600" fill="#9a3412">ColengthDvd</tspan> L (Y L + p<tspan font-size="7.2" dy="-3">m</tspan><tspan dy="3"> L) (p</tspan><tspan font-size="7.2" dy="-3">l</tspan><tspan dy="3">),  l ≤ (3 c</tspan><tspan font-size="7.2" dy="2">div</tspan><tspan dy="-2"> + θ m)|X||I|</tspan></text>
+
+      <text x="468" y="613" class="sans" font-size="9.4" font-weight="700" fill="#9a3412">← Feeds Case 3 <tspan font-weight="600" fill="#3f4a56">(via MarkOperator, θ = 1/(m²f), prod over Λ)</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- CROSS-PANEL BRIDGE CONNECTOR: STEP 3 (RIGHT) -> CASE 3 (LEFT)         -->
+  <!-- ===================================================================== -->
+  <g id="cross-panel-bridge">
+    <!-- Halo underlay for crisp border crossings -->
+    <path d="M 454 571 L 434 571 Q 428 571 428 565 L 428 428 Q 428 422 422 422 L 406 422"
+          fill="none" stroke="#faf9f5" stroke-width="6" stroke-linecap="round"/>
+    <!-- Foreground rust connector arrow -->
+    <path d="M 454 571 L 434 571 Q 428 571 428 565 L 428 428 Q 428 422 422 422 L 405 422"
+          fill="none" stroke="#9a3412" stroke-width="2.4" marker-end="url(#arrow-rust-end)"/>
+    <!-- Anchor dot at Step 3 origin -->
+    <circle cx="454" cy="571" r="3.5" fill="#9a3412"/>
+    <!-- Vertical pill label inside the 32px gutter -->
+    <g transform="rotate(-90 428 497)">
+      <rect x="378" y="488" width="100" height="18" rx="9" fill="#fff5f0" stroke="#9a3412" stroke-width="1.2"/>
+      <text x="428" y="500.5" class="sans" font-size="9.3" font-weight="700" fill="#9a3412" text-anchor="middle">feeds Case 3</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM STRIP: VALUATION-DOMAIN RING NOTE                              -->
+  <!-- ===================================================================== -->
+  <g id="bottom-valuation-strip">
+    <rect x="14" y="646" width="852" height="52" rx="6" fill="#f3f1eb"/>
+    <rect x="14" y="646" width="5" height="52" fill="#3f4a56" clip-path="url(#clip-bottom-strip)"/>
+    <rect x="14" y="646" width="852" height="52" rx="6" fill="none" stroke="#3f4a56" stroke-width="1.2"/>
+
+    <!-- Left Badge -->
+    <rect x="27" y="655" width="134" height="34" rx="4" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="94" y="669" class="sans" font-size="9.2" font-weight="700" fill="#161b22" text-anchor="middle">VALUATION DOMAIN</text>
+    <text x="94" y="683" class="mono" font-size="8.8" font-weight="700" fill="#1e40af" text-anchor="middle">O = embValRing ⊂ ℂ</text>
+
+    <!-- Note Text -->
+    <text x="174" y="667" class="sans" font-size="10.2" fill="#161b22"><tspan font-weight="700">O</tspan> (<tspan class="mono" font-size="9.5" font-weight="600" fill="#1e40af">embValRing</tspan> ⊂ ℂ) is a <tspan font-weight="700">char-0 non-noetherian, non-discrete valuation domain</tspan> containing <tspan font-weight="700">w = </tspan><tspan class="mono" font-size="9.5" font-weight="600" fill="#065f46">sqrtPrime</tspan> (<tspan font-weight="700">w² = p</tspan>).</text>
+    <text x="174" y="685" class="sans" font-size="9.8" fill="#3f4a56">Quotients M / S need not have finite length, so determinant-divisibility <tspan class="mono" font-size="9.2" font-weight="700" fill="#161b22">ColengthDvd</tspan> replaces finite-module length.</text>
+  </g>
+</svg>
