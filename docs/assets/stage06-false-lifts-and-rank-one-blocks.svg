@@ -1,0 +1,378 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 888 716"
+     width="888"
+     height="716"
+     role="img"
+     aria-labelledby="stage06-false-lifts-title stage06-false-lifts-desc">
+  <title id="stage06-false-lifts-title">Hyperbolic-Plane Descent Tower and Rank-One Four-Block Height Ledger in Stage 06</title>
+  <desc id="stage06-false-lifts-desc">Two-panel editorial mathematical diagram of the Stage 06 analytic engines in PeriodsOfFalseLifts.lean and TwistedValueHeights.lean. The left panel depicts the Hyperbolic-Plane Descent Tower (PeriodsOfFalseLifts.lean): a false lift Xi in falseLiftsAt is simultaneously annihilated by (1) hyperplane sums at chosen places (HyperplaneSumsAnnihilate), (2) theta descent to W (normalizedDescent Xi = 0), and (3) the split-place Hecke polynomial H_w(X_*) at liftHeckeRoot w of modulus q^(1 - n + r/2). Gated by the strict inequality 2r + 2N + 3 &lt; n and nontrivial O.tamePart at every twist place, upward induction climbs from W (BottomOfTower) through W + H and intermediate HyperbolicPlaneStep rungs to W + H^N (descentsVanish_hyperbolicSum), where small-root Hecke vanishing kills bounded descents at every rung. Taking Fourier coefficients on any split I_n = I_N + I_l kills complementary block periods (stdClassSum_gramForm_eq_zero), feeding both DividedSplitting.stdClassSum_inner_productForm_eq_zero into GluingMaps.lean and rank-one stdClassSum_period_eq_zero (with 2*1 + 2*20 + 3 = 45 &lt; 2z) across the center channel into TwistedValueHeights.lean. The right panel depicts the Four-Block Seesaw and 4-Factor Height Ledger (TwistedValueHeights.lean): RankOneIndex p.z (2z coordinates) partitions into Fin 12 (modKernel plus Stage 02 BoundAttained capping upward p-adic penalty at + sum primeSum), Fin 4 (ramified flat q_2 twisted by vartheta with integralAlgebraicPart and ratio rho = q_2.ratio vartheta), Fin 4 (untwisted flat q_3 via tameChars pigeonhole), and Fin (2z - 20) (untwisted flat q via trivialLiftClassSum giving IsTestForm orthogonal to false lifts). Projecting conjugate-paired test forms Xi, Xi' onto C*phi_vartheta produces the 4-factor height ledger for (p.ratio (theta iota ^ j))^(-1) in heightLe_inv_ratio: Factor 1 ||phi_1||^2 (AlgebraicPartSize) contributes denominatorBudget - sum jetSize (where the minus sign enters); Factor 2 &lt;pr Xi, pr Xi'&gt; (IsRegularFamily) contributes + denominatorBudget; Factor 3 rho^(-2) (HasSmallRatios) contributes + 2 x_1 &lt;= + 2 denominatorBudget; Factor 4 rho^2 / (&lt;Xi, phi&gt;&lt;phi, Xi'&gt;) (BoundAttained conjugate-paired) contributes + 2 denominatorBudget + sum primeSum (an upward p-adic bound strictly smaller than the archimedean credit). Summing yields 6 denominatorBudget - D.directionAmount. At the bottom, exact pair counts in heightLe_inv_heckeValueProd_div combine #A = k/2 main pairs (squared to k) and #B = 5m ramified pairs (squared to 10m) to give Height(Gamma_j(1)/Gamma_j(theta(iota)^j)) &lt;= 10 m x_1 + k (6 denominatorBudget - D.directionAmount).</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.2" markerHeight="6.2" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.2" markerHeight="6.2" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.2" markerHeight="6.2" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.2" markerHeight="6.2" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+
+    <!-- Clip paths for crisp card headers and left accent bars -->
+    <clipPath id="clip-left-panel"><rect x="14" y="48" width="398" height="632" rx="6"/></clipPath>
+    <clipPath id="clip-right-panel"><rect x="438" y="48" width="436" height="632" rx="6"/></clipPath>
+    <clipPath id="clip-l1"><rect x="24" y="82" width="378" height="142" rx="5"/></clipPath>
+    <clipPath id="clip-l2"><rect x="24" y="244" width="378" height="210" rx="5"/></clipPath>
+    <clipPath id="clip-l2-gate"><rect x="32" y="272" width="362" height="42" rx="4"/></clipPath>
+    <clipPath id="clip-l3"><rect x="24" y="474" width="378" height="198" rx="5"/></clipPath>
+    <clipPath id="clip-l3-master"><rect x="32" y="502" width="362" height="44" rx="4"/></clipPath>
+    <clipPath id="clip-l3-c1"><rect x="46" y="560" width="348" height="46" rx="4"/></clipPath>
+    <clipPath id="clip-l3-c2"><rect x="46" y="614" width="348" height="50" rx="4"/></clipPath>
+    <clipPath id="clip-r1"><rect x="448" y="82" width="416" height="170" rx="5"/></clipPath>
+    <clipPath id="clip-r2"><rect x="448" y="270" width="416" height="278" rx="5"/></clipPath>
+    <clipPath id="clip-r2-f1"><rect x="456" y="298" width="400" height="48" rx="4"/></clipPath>
+    <clipPath id="clip-r2-f2"><rect x="456" y="352" width="400" height="32" rx="4"/></clipPath>
+    <clipPath id="clip-r2-f3"><rect x="456" y="390" width="400" height="32" rx="4"/></clipPath>
+    <clipPath id="clip-r2-f4"><rect x="456" y="428" width="400" height="50" rx="4"/></clipPath>
+    <clipPath id="clip-r2-sum"><rect x="456" y="490" width="400" height="50" rx="4"/></clipPath>
+    <clipPath id="clip-r3"><rect x="448" y="566" width="416" height="106" rx="5"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="887" height="715" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="26.5" class="sans" font-size="15.2" font-weight="700" fill="#161b22">False-Lift Descent Tower &amp; Rank-One Height Ledger</text>
+    <text x="870" y="25.5" class="mono" font-size="10.2" fill="#3f4a56" text-anchor="end">PeriodsOfFalseLifts.lean  +  TwistedValueHeights.lean</text>
+    <line x1="14" y1="38" x2="874" y2="38" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- LEFT PANEL: HYPERBOLIC-PLANE DESCENT TOWER (PeriodsOfFalseLifts.lean) -->
+  <!-- ===================================================================== -->
+  <g id="left-panel">
+    <rect x="14" y="48" width="398" height="632" rx="6" fill="#ffffff"/>
+    <rect x="14" y="48" width="398" height="26" fill="#edf4ff" clip-path="url(#clip-left-panel)"/>
+    <line x1="14" y1="74" x2="412" y2="74" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="48" width="398" height="632" rx="6" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+    <text x="24" y="64.5" class="sans" font-size="9.6" font-weight="700" fill="#1e40af">● HYPERBOLIC-PLANE DESCENT TOWER</text>
+    <text x="402" y="64.5" class="mono" font-size="8.6" font-weight="700" fill="#3f4a56" text-anchor="end">PeriodsOfFalseLifts.lean</text>
+
+    <!-- L1: THREE DEFINING ANNIHILATORS -->
+    <g id="card-l1-annihilators">
+      <rect x="24" y="82" width="378" height="142" rx="5" fill="#faf9f5"/>
+      <rect x="24" y="82" width="378" height="21" fill="#f3f1eb" clip-path="url(#clip-l1)"/>
+      <line x1="24" y1="103" x2="402" y2="103" stroke="#d8d3c8" stroke-width="1"/>
+      <rect x="24" y="82" width="378" height="142" rx="5" fill="none" stroke="#d8d3c8" stroke-width="1.2"/>
+
+      <text x="33" y="95.8" class="sans" font-size="8.6" font-weight="700" fill="#161b22">3 DEFINING ANNIHILATORS OF A FALSE LIFT</text>
+      <text x="393" y="95.8" class="mono" font-size="8.4" font-weight="700" fill="#1e40af" text-anchor="end">Ξ ∈ falseLiftsAt</text>
+
+      <!-- Annihilator 1 -->
+      <rect x="32" y="109" width="362" height="33" rx="4" fill="#ffffff" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="37" y="115" width="20" height="20" rx="10" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="47" y="128.5" class="sans" font-size="9.2" font-weight="700" fill="#1e40af" text-anchor="middle">1</text>
+      <text x="64" y="122.5" class="sans" font-size="8.8" font-weight="700" fill="#161b22">Hyperplane sums at chosen places  <tspan class="mono" font-size="8.1" fill="#1e40af">HyperplaneSumsAnnihilate</tspan></text>
+      <text x="64" y="135.8" class="sans" font-size="8.1" fill="#3f4a56">∑ χ<tspan font-size="6.4" dy="1.8">v</tspan><tspan dy="-1.8">(det s)</tspan><tspan font-size="6.4" dy="-2.2">−1</tspan><tspan dy="2.2"> s  (s = 1 + uλ</tspan><tspan font-size="6.4" dy="1.8">v</tspan><tspan dy="-1.8">); kills </tspan><tspan class="mono" font-size="7.7" fill="#161b22">labelIdem (X − 1)</tspan> in rank 1</text>
+
+      <!-- Annihilator 2 -->
+      <rect x="32" y="146" width="362" height="33" rx="4" fill="#ffffff" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="37" y="152" width="20" height="20" rx="10" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="47" y="165.5" class="sans" font-size="9.2" font-weight="700" fill="#065f46" text-anchor="middle">2</text>
+      <text x="64" y="159.5" class="sans" font-size="8.8" font-weight="700" fill="#161b22">Theta descent to W  <tspan class="mono" font-size="8.1" fill="#065f46">O.normalizedDescent Ξ = 0</tspan></text>
+      <text x="64" y="172.8" class="sans" font-size="8.1" fill="#3f4a56">Vanishing theta-kernel pairing back down to U(W) (seeds base rung)</text>
+
+      <!-- Annihilator 3 -->
+      <rect x="32" y="183" width="362" height="34" rx="4" fill="#ffffff" stroke="#e7c98f" stroke-width="1"/>
+      <rect x="37" y="190" width="20" height="20" rx="10" fill="#fef6e4" stroke="#92400e" stroke-width="1"/>
+      <text x="47" y="203.5" class="sans" font-size="9.2" font-weight="700" fill="#92400e" text-anchor="middle">3</text>
+      <text x="64" y="196.8" class="sans" font-size="8.8" font-weight="700" fill="#161b22">Split-place Hecke poly  H<tspan font-size="6.6" dy="1.8">w</tspan><tspan dy="-1.8">(X</tspan><tspan font-size="6.6" dy="1.8">*</tspan><tspan dy="-1.8">)  at  </tspan><tspan class="mono" font-size="8.1" fill="#92400e">liftHeckeRoot w</tspan></text>
+      <text x="64" y="210.2" class="sans" font-size="8.1" fill="#3f4a56">Small-root modulus  <tspan font-weight="700" fill="#92400e">q<tspan font-size="6.4" dy="-2.3">1 − n + r/2</tspan><tspan dy="2.3"/></tspan>  at split w ∉ O.places.conjClosure</text>
+    </g>
+
+    <!-- Connector L1 -> L2 -->
+    <line x1="213" y1="224" x2="213" y2="241" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt)"/>
+    <rect x="92" y="226" width="242" height="15" rx="7.5" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+    <text x="213" y="236.2" class="sans" font-size="7.9" font-weight="700" fill="#1e40af" text-anchor="middle">①+② seed W  ·  ③ drives each induction rung</text>
+
+    <!-- L2: UPWARD INDUCTION TOWER -->
+    <g id="card-l2-tower">
+      <rect x="24" y="244" width="378" height="210" rx="5" fill="#ffffff"/>
+      <rect x="24" y="244" width="378" height="22" fill="#edf4ff" clip-path="url(#clip-l2)"/>
+      <line x1="24" y1="266" x2="402" y2="266" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="24" y="244" width="378" height="210" rx="5" fill="none" stroke="#1e40af" stroke-width="1.3"/>
+
+      <text x="33" y="258.2" class="sans" font-size="8.8" font-weight="700" fill="#1e40af">▲ UPWARD INDUCTION TOWER</text>
+      <text x="393" y="258.2" class="mono" font-size="8.2" font-weight="700" fill="#161b22" text-anchor="end">descentsVanish_hyperbolicSum</text>
+
+      <!-- Strict Gate Box -->
+      <rect x="32" y="272" width="362" height="42" rx="4" fill="#fef6e4"/>
+      <rect x="32" y="272" width="4" height="42" fill="#92400e" clip-path="url(#clip-l2-gate)"/>
+      <rect x="32" y="272" width="362" height="42" rx="4" fill="none" stroke="#92400e" stroke-width="1.1"/>
+      <text x="43" y="287" class="sans" font-size="8.8" font-weight="700" fill="#92400e">▲ STRICT RANK &amp; TAME GATE:  <tspan class="mono" font-size="9.2" fill="#161b22">2r + 2N + 3 &lt; n</tspan></text>
+      <text x="43" y="303.5" class="sans" font-size="8.1" fill="#161b22"><tspan class="mono" font-size="7.8" font-weight="700" fill="#92400e">O.tamePart ≠ 1</tspan> at every twist place ⇒ small-root H<tspan font-size="6.4" dy="1.8">w</tspan><tspan dy="-1.8"> kills bounded descents</tspan></text>
+
+      <!-- Subtle grid baseline under staircase -->
+      <rect x="32" y="320" width="362" height="126" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="0.9"/>
+
+      <!-- Upper-left step annotation -->
+      <text x="42" y="336" class="sans" font-size="8.1" font-weight="700" fill="#3f4a56">Climb N steps via</text>
+      <text x="42" y="348.5" class="mono" font-size="8" font-weight="700" fill="#1e40af">HyperbolicPlaneStep</text>
+
+      <!-- Rung 0 (Base): W -->
+      <rect x="40" y="396" width="84" height="42" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.3"/>
+      <text x="82" y="415.5" class="sans" font-size="11.5" font-weight="700" fill="#065f46" text-anchor="middle">W</text>
+      <text x="82" y="429.5" class="mono" font-size="7.6" font-weight="700" fill="#3f4a56" text-anchor="middle">BottomOfTower</text>
+
+      <!-- Arrow 0 -> 1 -->
+      <line x1="124" y1="406" x2="138" y2="394" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt)"/>
+
+      <!-- Rung 1: W + H -->
+      <rect x="140" y="372" width="76" height="40" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+      <text x="178" y="390.5" class="sans" font-size="10.8" font-weight="700" fill="#1e40af" text-anchor="middle">W ⊕ ℍ</text>
+      <text x="178" y="403.5" class="sans" font-size="7.7" fill="#3f4a56" text-anchor="middle">rung 1 = 0</text>
+
+      <!-- Arrow 1 -> 2 -->
+      <line x1="216" y1="382" x2="230" y2="370" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt)"/>
+
+      <!-- Rung 2: ellipsis -->
+      <rect x="232" y="350" width="44" height="36" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1.1"/>
+      <text x="254" y="369.5" class="sans" font-size="13" font-weight="700" fill="#3f4a56" text-anchor="middle">⋯</text>
+      <text x="254" y="381" class="sans" font-size="7.2" fill="#3f4a56" text-anchor="middle">N steps</text>
+
+      <!-- Arrow 2 -> 3 -->
+      <line x1="276" y1="359" x2="290" y2="348" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt)"/>
+
+      <!-- Rung 3 (Apex): W + H^N -->
+      <rect x="292" y="326" width="94" height="44" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.7"/>
+      <text x="339" y="346.5" class="sans" font-size="11.4" font-weight="700" fill="#1e40af" text-anchor="middle">W ⊕ ℍ<tspan font-size="8" dy="-3.2">N</tspan><tspan dy="3.2"/></text>
+      <text x="339" y="361" class="mono" font-size="7.8" font-weight="700" fill="#161b22" text-anchor="middle">DescentsVanish</text>
+
+      <!-- Lower-right summary note inside staircase box -->
+      <rect x="228" y="399" width="158" height="39" rx="3.5" fill="#ffffff" stroke="#bfdbfe" stroke-width="0.9"/>
+      <text x="307" y="414.5" class="sans" font-size="8.1" font-weight="700" fill="#1e40af" text-anchor="middle">Every rung: H<tspan font-size="6.4" dy="1.8">w</tspan><tspan dy="-1.8"> kills bounded</tspan></text>
+      <text x="307" y="428.5" class="sans" font-size="8" fill="#3f4a56" text-anchor="middle">⇒ all descents to W ⊕ ℍ<tspan font-size="6.2" dy="-2.2">N</tspan><tspan dy="2.2"> vanish</tspan></text>
+    </g>
+
+    <!-- Connector L2 -> L3 -->
+    <line x1="213" y1="454" x2="213" y2="471" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt)"/>
+    <rect x="96" y="456" width="234" height="15" rx="7.5" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+    <text x="213" y="466.2" class="sans" font-size="7.9" font-weight="700" fill="#1e40af" text-anchor="middle">Fourier coeff. on any split I<tspan font-size="6.2" dy="1.6">n</tspan><tspan dy="-1.6"> = I</tspan><tspan font-size="6.2" dy="1.6">N</tspan><tspan dy="-1.6"> ⊕ I</tspan><tspan font-size="6.2" dy="1.6">l</tspan></text>
+
+    <!-- L3: FOURIER-COEFFICIENT PAYOFF & TWO CONSUMERS -->
+    <g id="card-l3-payoff">
+      <rect x="24" y="474" width="378" height="198" rx="5" fill="#faf9f5"/>
+      <rect x="24" y="474" width="378" height="22" fill="#f3f1eb" clip-path="url(#clip-l3)"/>
+      <line x1="24" y1="496" x2="402" y2="496" stroke="#d8d3c8" stroke-width="1"/>
+      <rect x="24" y="474" width="378" height="198" rx="5" fill="none" stroke="#d8d3c8" stroke-width="1.2"/>
+
+      <text x="33" y="488.2" class="sans" font-size="8.6" font-weight="700" fill="#161b22">◆ FOURIER-COEFFICIENT PAYOFF</text>
+      <text x="393" y="488.2" class="sans" font-size="8.2" font-weight="600" fill="#3f4a56" text-anchor="end">Split I<tspan font-size="6.4" dy="1.6">n</tspan><tspan dy="-1.6"> = I</tspan><tspan font-size="6.4" dy="1.6">N</tspan><tspan dy="-1.6"> ⊕ I</tspan><tspan font-size="6.4" dy="1.6">l</tspan></text>
+
+      <!-- Master Payoff Box -->
+      <rect x="32" y="502" width="362" height="44" rx="4" fill="#edf4ff"/>
+      <rect x="32" y="502" width="4" height="44" fill="#1e40af" clip-path="url(#clip-l3-master)"/>
+      <rect x="32" y="502" width="362" height="44" rx="4" fill="none" stroke="#1e40af" stroke-width="1.2"/>
+      <text x="44" y="518.5" class="mono" font-size="9.1" font-weight="700" fill="#1e40af">stdClassSum_gramForm_eq_zero</text>
+      <text x="44" y="534.5" class="sans" font-size="8.3" fill="#161b22">Complementary block periods over U(I<tspan font-size="6.4" dy="1.6">l</tspan><tspan dy="-1.6">) vanish ⇒ discrete class sum = 0</tspan></text>
+
+      <!-- Clean Left Trunk Fork to Both Consumers -->
+      <path d="M 38 546 L 38 639 L 44 639" fill="none" stroke="#065f46" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#arrow-emerald)"/>
+      <line x1="38" y1="583" x2="44" y2="583" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arrow-cobalt)"/>
+
+      <!-- Consumer 1: GluingMaps.lean -->
+      <rect x="46" y="560" width="348" height="46" rx="4" fill="#ffffff"/>
+      <rect x="46" y="560" width="4" height="46" fill="#1e40af" clip-path="url(#clip-l3-c1)"/>
+      <rect x="46" y="560" width="348" height="46" rx="4" fill="none" stroke="#bfdbfe" stroke-width="1.2"/>
+      <text x="57" y="576.5" class="mono" font-size="8.2" font-weight="700" fill="#1e40af">DividedSplitting.stdClassSum_inner_productForm_eq_zero</text>
+      <text x="57" y="594" class="sans" font-size="8.4" fill="#3f4a56">V° slices of false lifts vanish  →  <tspan class="mono" font-size="8.2" font-weight="700" fill="#1e40af">GluingMaps.lean</tspan></text>
+
+      <!-- Consumer 2: TwistedValueHeights.lean (bridges to Right Panel!) -->
+      <rect x="46" y="614" width="348" height="50" rx="4" fill="#ecfdf5"/>
+      <rect x="46" y="614" width="4" height="50" fill="#065f46" clip-path="url(#clip-l3-c2)"/>
+      <rect x="46" y="614" width="348" height="50" rx="4" fill="none" stroke="#065f46" stroke-width="1.3"/>
+      <text x="57" y="630.5" class="mono" font-size="8.7" font-weight="700" fill="#065f46">stdClassSum_period_eq_zero</text>
+      <text x="386" y="630.5" class="mono" font-size="7.9" font-weight="700" fill="#065f46" text-anchor="end">→ TwistedValueHeights.lean ↗</text>
+      <text x="57" y="646.5" class="sans" font-size="8.4" fill="#161b22">Rank 1 (r = 1, N = 20):  <tspan class="mono" font-size="8.4" font-weight="700" fill="#065f46">2·1 + 2·20 + 3 = 45 &lt; 2z</tspan></text>
+      <text x="57" y="658.5" class="sans" font-size="7.7" fill="#3f4a56">Certifies Block 4 point-form class sums are orthogonal to false lifts</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- RIGHT PANEL: FOUR-BLOCK SEESAW & 4-FACTOR HEIGHT LEDGER               -->
+  <!-- ===================================================================== -->
+  <g id="right-panel">
+    <rect x="438" y="48" width="436" height="632" rx="6" fill="#ffffff"/>
+    <rect x="438" y="48" width="436" height="26" fill="#edf4ff" clip-path="url(#clip-right-panel)"/>
+    <line x1="438" y1="74" x2="874" y2="74" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="438" y="48" width="436" height="632" rx="6" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+    <text x="448" y="64.5" class="sans" font-size="9.6" font-weight="700" fill="#1e40af">◆ FOUR-BLOCK SEESAW &amp; 4-FACTOR LEDGER</text>
+    <text x="864" y="64.5" class="mono" font-size="8.6" font-weight="700" fill="#3f4a56" text-anchor="end">TwistedValueHeights.lean</text>
+
+    <!-- R1: FOUR-BLOCK PARTITION OF RankOneIndex p.z -->
+    <g id="card-r1-four-blocks">
+      <rect x="448" y="82" width="416" height="170" rx="5" fill="#faf9f5"/>
+      <rect x="448" y="82" width="416" height="21" fill="#f3f1eb" clip-path="url(#clip-r1)"/>
+      <line x1="448" y1="103" x2="864" y2="103" stroke="#d8d3c8" stroke-width="1"/>
+      <rect x="448" y="82" width="416" height="170" rx="5" fill="none" stroke="#d8d3c8" stroke-width="1.2"/>
+
+      <text x="458" y="95.8" class="sans" font-size="8.6" font-weight="700" fill="#161b22">FOUR-BLOCK PARTITION OF  <tspan class="mono" font-size="8.3" fill="#1e40af">RankOneIndex p.z</tspan></text>
+      <text x="854" y="95.8" class="sans" font-size="8.2" font-weight="600" fill="#3f4a56" text-anchor="end">2z coords = 20 + (2z − 20)</text>
+
+      <!-- Visual 4-Block Segmented Bar -->
+      <rect x="458" y="109" width="94" height="26" rx="3.5" fill="#fef6e4" stroke="#92400e" stroke-width="1.2"/>
+      <text x="505" y="125.2" class="sans" font-size="8.8" font-weight="700" fill="#92400e" text-anchor="middle">▲ Fin 12</text>
+
+      <rect x="554" y="109" width="62" height="26" rx="3.5" fill="#fff5f0" stroke="#9a3412" stroke-width="1.2"/>
+      <text x="585" y="125.2" class="sans" font-size="8.6" font-weight="700" fill="#9a3412" text-anchor="middle">◆ Fin 4</text>
+
+      <rect x="618" y="109" width="62" height="26" rx="3.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+      <text x="649" y="125.2" class="sans" font-size="8.6" font-weight="700" fill="#1e40af" text-anchor="middle">● Fin 4</text>
+
+      <rect x="682" y="109" width="172" height="26" rx="3.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.3"/>
+      <text x="768" y="125.2" class="sans" font-size="8.8" font-weight="700" fill="#065f46" text-anchor="middle">■ Fin (2z − 20)</text>
+
+      <!-- Block 1 Row -->
+      <rect x="458" y="142" width="58" height="21" rx="3" fill="#fef6e4" stroke="#92400e" stroke-width="1"/>
+      <text x="487" y="155.5" class="sans" font-size="8" font-weight="700" fill="#92400e" text-anchor="middle">▲ Fin 12</text>
+      <text x="523" y="155.5" class="sans" font-size="8.3" fill="#161b22"><tspan class="mono" font-size="7.9" font-weight="700" fill="#92400e">modKernel</tspan> + Stage 02 <tspan class="mono" font-size="7.9" font-weight="700" fill="#92400e">BoundAttained</tspan> (caps p-adic ≤ +∑ primeSum)</text>
+
+      <!-- Block 2 Row -->
+      <rect x="458" y="168" width="58" height="21" rx="3" fill="#fff5f0" stroke="#9a3412" stroke-width="1"/>
+      <text x="487" y="181.5" class="sans" font-size="8" font-weight="700" fill="#9a3412" text-anchor="middle">◆ Fin 4</text>
+      <text x="523" y="181.5" class="sans" font-size="8.3" fill="#161b22">ramified flat q<tspan font-size="6.4" dy="1.6">2</tspan><tspan dy="-1.6"> twisted by ϑ (</tspan><tspan class="mono" font-size="7.7" fill="#9a3412">integralAlgebraicPart</tspan>, ρ = q<tspan font-size="6.4" dy="1.6">2</tspan><tspan dy="-1.6">.ratio ϑ)</tspan></text>
+
+      <!-- Block 3 Row -->
+      <rect x="458" y="194" width="58" height="21" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="487" y="207.5" class="sans" font-size="8" font-weight="700" fill="#1e40af" text-anchor="middle">● Fin 4</text>
+      <text x="523" y="207.5" class="sans" font-size="8.3" fill="#161b22">untwisted flat q<tspan font-size="6.4" dy="1.6">3</tspan><tspan dy="-1.6"> (</tspan><tspan class="mono" font-size="7.9" fill="#1e40af">tameChars</tspan> multiplicative pigeonhole)</text>
+
+      <!-- Block 4 Row (receives emerald bridge from Left Panel!) -->
+      <rect x="456" y="219" width="400" height="26" rx="3.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+      <rect x="460" y="222.5" width="56" height="19" rx="3" fill="#065f46"/>
+      <text x="488" y="235" class="sans" font-size="7.9" font-weight="700" fill="#ffffff" text-anchor="middle">■ 2z−20</text>
+      <text x="523" y="235" class="sans" font-size="8.2" fill="#161b22">untwisted q: <tspan class="mono" font-size="7.7" font-weight="700" fill="#065f46">trivialLiftClassSum</tspan> ⇒ <tspan class="mono" font-size="7.7" font-weight="700" fill="#065f46">IsTestForm</tspan> (⊥ false lifts)</text>
+    </g>
+
+    <!-- Connector R1 -> R2 -->
+    <line x1="656" y1="252" x2="656" y2="267" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt)"/>
+    <rect x="550" y="253" width="212" height="15" rx="7.5" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+    <text x="656" y="263.2" class="sans" font-size="7.9" font-weight="700" fill="#1e40af" text-anchor="middle">Project conjugate-paired Ξ, Ξ′ onto ℂ · φ<tspan font-size="6.2" dy="1.6">ϑ</tspan></text>
+
+    <!-- R2: 4-FACTOR HEIGHT LEDGER -->
+    <g id="card-r2-ledger">
+      <rect x="448" y="270" width="416" height="278" rx="5" fill="#ffffff"/>
+      <rect x="448" y="270" width="416" height="22" fill="#edf4ff" clip-path="url(#clip-r2)"/>
+      <line x1="448" y1="292" x2="864" y2="292" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="448" y="270" width="416" height="278" rx="5" fill="none" stroke="#1e40af" stroke-width="1.3"/>
+
+      <text x="458" y="284.2" class="sans" font-size="8.7" font-weight="700" fill="#1e40af">4-FACTOR HEIGHT LEDGER  ·  (p.ratio (θ ι ^ j))<tspan font-size="6.6" dy="-2.4">−1</tspan></text>
+      <text x="854" y="284.2" class="mono" font-size="8.3" font-weight="700" fill="#161b22" text-anchor="end">heightLe_inv_ratio</text>
+
+      <!-- Factor 1: EMERALD HIGHLIGHT (MINUS SIGN ENTERS HERE!) -->
+      <rect x="456" y="298" width="400" height="48" rx="4" fill="#ecfdf5"/>
+      <rect x="456" y="298" width="4.5" height="48" fill="#065f46" clip-path="url(#clip-r2-f1)"/>
+      <rect x="456" y="298" width="400" height="48" rx="4" fill="none" stroke="#065f46" stroke-width="1.3"/>
+      <text x="467" y="314.5" class="sans" font-size="9" font-weight="700" fill="#161b22">① ‖φ<tspan font-size="6.8" dy="1.8">1</tspan><tspan dy="-1.8">‖</tspan><tspan font-size="6.8" dy="-2.4">2</tspan><tspan dy="2.4">  </tspan><tspan class="mono" font-size="8" font-weight="700" fill="#065f46">AlgebraicPartSize</tspan></text>
+      <text x="848" y="315" class="sans" font-size="9.3" font-weight="700" fill="#065f46" text-anchor="end">denominatorBudget − ∑ jetSize</text>
+      <rect x="467" y="323" width="150" height="16" rx="8" fill="#065f46"/>
+      <text x="542" y="333.8" class="sans" font-size="7.6" font-weight="700" fill="#ffffff" text-anchor="middle">★ MINUS SIGN ENTERS HERE</text>
+      <text x="848" y="334" class="sans" font-size="8" fill="#065f46" text-anchor="end">downward archimedean credit</text>
+
+      <!-- Factor 2: IsRegularFamily -->
+      <rect x="456" y="352" width="400" height="32" rx="4" fill="#ffffff"/>
+      <rect x="456" y="352" width="3.5" height="32" fill="#1e40af" clip-path="url(#clip-r2-f2)"/>
+      <rect x="456" y="352" width="400" height="32" rx="4" fill="none" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="467" y="371.2" class="sans" font-size="8.9" font-weight="700" fill="#161b22">② ⟨pr Ξ, pr Ξ′⟩  <tspan class="mono" font-size="8" font-weight="600" fill="#1e40af">IsRegularFamily</tspan></text>
+      <text x="848" y="371.2" class="sans" font-size="9" font-weight="700" fill="#161b22" text-anchor="end">+ denominatorBudget</text>
+
+      <!-- Factor 3: HasSmallRatios -->
+      <rect x="456" y="390" width="400" height="32" rx="4" fill="#ffffff"/>
+      <rect x="456" y="390" width="3.5" height="32" fill="#9a3412" clip-path="url(#clip-r2-f3)"/>
+      <rect x="456" y="390" width="400" height="32" rx="4" fill="none" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="467" y="409.2" class="sans" font-size="8.9" font-weight="700" fill="#161b22">③ ρ<tspan font-size="6.8" dy="-2.4">−2</tspan><tspan dy="2.4">  </tspan><tspan class="mono" font-size="8" font-weight="600" fill="#9a3412">HasSmallRatios</tspan><tspan font-size="8" font-weight="400" fill="#3f4a56"> (ramified q</tspan><tspan font-size="6.4" dy="1.6" font-weight="400" fill="#3f4a56">2</tspan><tspan font-size="8" dy="-1.6" font-weight="400" fill="#3f4a56">)</tspan></text>
+      <text x="848" y="409.2" class="sans" font-size="9" font-weight="700" fill="#161b22" text-anchor="end">+ 2 x<tspan font-size="6.8" dy="1.8">1</tspan><tspan dy="-1.8"> ≤ + 2 denominatorBudget</tspan></text>
+
+      <!-- Factor 4: BoundAttained (AMBER — UPWARD + CAP) -->
+      <rect x="456" y="428" width="400" height="50" rx="4" fill="#fef6e4"/>
+      <rect x="456" y="428" width="4.5" height="50" fill="#92400e" clip-path="url(#clip-r2-f4)"/>
+      <rect x="456" y="428" width="400" height="50" rx="4" fill="none" stroke="#92400e" stroke-width="1.2"/>
+      <text x="467" y="444.5" class="sans" font-size="8.9" font-weight="700" fill="#161b22">④ ρ<tspan font-size="6.8" dy="-2.4">2</tspan><tspan dy="2.4"> / (⟨Ξ, φ⟩⟨φ, Ξ′⟩)  </tspan><tspan class="mono" font-size="7.9" fill="#92400e">BoundAttained</tspan></text>
+      <text x="848" y="444.5" class="sans" font-size="9" font-weight="700" fill="#161b22" text-anchor="end">+ 2 denominatorBudget</text>
+      <text x="467" y="464" class="sans" font-size="8" fill="#92400e">Conj.-paired: <tspan font-weight="700">upward p-adic bound (+) &lt; archimedean credit</tspan></text>
+      <text x="848" y="464" class="sans" font-size="9.2" font-weight="700" fill="#92400e" text-anchor="end">+ ∑ primeSum</text>
+
+      <!-- Ledger Addition Rule -->
+      <line x1="456" y1="484" x2="856" y2="484" stroke="#1e40af" stroke-width="1.4"/>
+
+      <!-- Sum Box: heightLe_inv_ratio -->
+      <rect x="456" y="490" width="400" height="50" rx="4" fill="#edf4ff"/>
+      <rect x="456" y="490" width="5" height="50" fill="#1e40af" clip-path="url(#clip-r2-sum)"/>
+      <rect x="456" y="490" width="400" height="50" rx="4" fill="none" stroke="#1e40af" stroke-width="1.4"/>
+      <text x="468" y="506.5" class="sans" font-size="8.5" font-weight="700" fill="#1e40af">Σ SUM (<tspan class="mono" font-size="8.2">heightLe_inv_ratio</tspan>)</text>
+      <text x="848" y="506.5" class="sans" font-size="7.9" fill="#3f4a56" text-anchor="end">D.directionAmount = ∑(jetSize − primeSum)</text>
+      <text x="658" y="528.5" class="sans" font-size="9.1" font-weight="700" fill="#161b22" text-anchor="middle">Height((p.ratio (θ ι ^ j))<tspan font-size="6.8" dy="-2.5">−1</tspan><tspan dy="2.5">)  ≤  </tspan><tspan fill="#1e40af">6 denominatorBudget − D.directionAmount</tspan></text>
+    </g>
+
+    <!-- Connector R2 -> R3 -->
+    <line x1="656" y1="548" x2="656" y2="563" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt)"/>
+    <rect x="556" y="549" width="200" height="15" rx="7.5" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+    <text x="656" y="559.2" class="sans" font-size="7.9" font-weight="700" fill="#1e40af" text-anchor="middle">Factor &amp; square over exact pairs A, B</text>
+
+    <!-- R3: EXACT PAIR-COUNT AGGREGATION STRIP -->
+    <g id="card-r3-pair-counts">
+      <rect x="448" y="566" width="416" height="106" rx="5" fill="#faf9f5"/>
+      <rect x="448" y="566" width="416" height="21" fill="#f3f1eb" clip-path="url(#clip-r3)"/>
+      <line x1="448" y1="587" x2="864" y2="587" stroke="#d8d3c8" stroke-width="1"/>
+      <rect x="448" y="566" width="416" height="106" rx="5" fill="none" stroke="#1e40af" stroke-width="1.3"/>
+
+      <text x="458" y="579.8" class="sans" font-size="8.5" font-weight="700" fill="#161b22">EXACT PAIR COUNTS</text>
+      <text x="854" y="579.8" class="mono" font-size="8.3" font-weight="700" fill="#1e40af" text-anchor="end">heightLe_inv_heckeValueProd_div</text>
+
+      <!-- Count Pill A -->
+      <rect x="456" y="593" width="196" height="38" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+      <text x="554" y="608.2" class="sans" font-size="8.7" font-weight="700" fill="#065f46" text-anchor="middle">■ #A = k / 2 main pairs</text>
+      <text x="554" y="622.8" class="sans" font-size="8" fill="#161b22" text-anchor="middle">squared ⇒ <tspan font-weight="700" fill="#065f46">k</tspan> copies of ledger bound</text>
+
+      <!-- Count Pill B -->
+      <rect x="660" y="593" width="196" height="38" rx="4" fill="#fff5f0" stroke="#9a3412" stroke-width="1.1"/>
+      <text x="758" y="608.2" class="sans" font-size="8.7" font-weight="700" fill="#9a3412" text-anchor="middle">◆ #B = 5m ramified pairs</text>
+      <text x="758" y="622.8" class="sans" font-size="8" fill="#161b22" text-anchor="middle">squared ⇒ <tspan font-weight="700" fill="#9a3412">10m</tspan> copies of x<tspan font-size="6.4" dy="1.6">1</tspan><tspan dy="-1.6"> (Nm Q adds 0)</tspan></text>
+
+      <!-- Final Aggregated Bound -->
+      <rect x="456" y="637" width="400" height="29" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.3"/>
+      <text x="656" y="654.8" class="sans" font-size="8.7" font-weight="700" fill="#161b22" text-anchor="middle">Height(Γ<tspan font-size="6.4" dy="1.8">j</tspan><tspan dy="-1.8">(1)/Γ</tspan><tspan font-size="6.4" dy="1.8">j</tspan><tspan dy="-1.8">(θ(ι)</tspan><tspan font-size="6.4" dy="-2.3">j</tspan><tspan dy="2.3">)) ≤ </tspan><tspan fill="#1e40af">10 m x</tspan><tspan font-size="6.6" dy="1.8" fill="#1e40af">1</tspan><tspan dy="-1.8" fill="#1e40af"> + k (6 denominatorBudget − D.directionAmount)</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- CROSS-PANEL BRIDGE: stdClassSum_period_eq_zero -> Block 4 (45 < 2z)   -->
+  <!-- ===================================================================== -->
+  <g id="cross-panel-bridge">
+    <path d="M 394 639 L 425 639 L 425 232 L 453 232"
+          fill="none" stroke="#065f46" stroke-width="1.8" stroke-linejoin="round"
+          marker-end="url(#arrow-emerald)"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM LEGEND STRIP                                                   -->
+  <!-- ===================================================================== -->
+  <g id="bottom-legend">
+    <rect x="14" y="688" width="860" height="20" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="26" y="701.2" class="sans" font-size="8.2" fill="#3f4a56"><tspan font-weight="700" fill="#161b22">LEGEND:</tspan>   <tspan font-weight="700" fill="#1e40af">● Cobalt</tspan> = descent tower &amp; gluing   ·   <tspan font-weight="700" fill="#065f46">■ Emerald</tspan> = rank-1 ⊥ bridge (45 &lt; 2z) &amp; −jetSize credit   ·   <tspan font-weight="700" fill="#92400e">▲ Amber</tspan> = strict gate &amp; Stage 02 (+ cap)   ·   <tspan font-weight="700" fill="#9a3412">◆ Rust</tspan> = ramified q<tspan font-size="6.3" dy="1.5">2</tspan><tspan dy="-1.5"> / ratios</tspan></text>
+  </g>
+</svg>

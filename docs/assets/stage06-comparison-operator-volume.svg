@@ -1,0 +1,275 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 758"
+     width="860"
+     height="758"
+     role="img"
+     aria-labelledby="stage06-comp-vol-title stage06-comp-vol-desc">
+  <title id="stage06-comp-vol-title">Stage 06 End-to-End Convergence: Comparison Operator and Single-Lift Volume Height (LiftVolumeHeight.lean)</title>
+  <desc id="stage06-comp-vol-desc">Editorial mathematical diagram of the Stage 06 convergence proving New.Data.heightLe_liftDeterminant_ratio inside LiftVolumeHeight.lean. Band 1 shows two Stage 06 solid-border inputs and one Stage 07 dashed typed black box: (1) Gluing Maps and Tight Frame (GluingMaps.lean + exists_tight_frame_formTuples, emerald solid) constructs U_theta = comparisonOp j theta = n_Aut * hk^2 * glue_theta compose glue_theta^* satisfying IsComparisonOperator (integral away from Q, operator norm ||U_1|| &lt;= exp(3A) with A = f m b log^2 b, orthogonal to false lifts); (2) Twisted Hecke L-Value Height (TwistedValueHeights.lean::heightLe_inv_heckeValueProd_div, cobalt solid) combines #A = k/2 main pairs and #B = 5m ramified pairs into HeightLe(10 m x_1 + k(6 denominatorBudget - D.directionAmount)) on rho_{xi_iota^j}^(-1) = Gamma_j(1)/Gamma_j(xi_iota^j); (3) Stage 07 Typed Black Box (IsRegularFamily theta, rust dashed) supplies HasSmallRatios to Input 2 and ClearsProjection within denominatorBudget to Band 2. Band 2 (LiftVolumeHeight.lean) applies IsComparisonOperator.exists_normDet_sq_mul_det_eq, Z_j(theta) * Delta(theta) = C * rho_theta^d with Delta(theta) = det(pr U_theta) and C = det(U^circ) != 0, and divides theta = 1 by theta = xi_iota^j to cancel C identically: Z_j(1)/Z_j(xi_iota^j) = (Delta(xi_iota^j)/Delta(1)) * rho_{xi_iota^j}^(-d). Two distinct intermediate height sub-boxes sit side by side: Left (emerald/amber) bounds Compressed Determinant Ratio Delta(xi_iota^j)/Delta(1) via Archimedean ||sigma(Delta(1))|| &lt;= exp(3 d A) (norm_map_det_liftCompression_le) and p-adic ||iota(Delta(xi_iota^j))|| &lt;= exp(d r beta_ell) (norm_padic_det_liftCompression_le via ClearsProjection) to yield intermediate height d * (3A + r * denominatorBudget); Right (cobalt) raises the inverse Hecke value ratio to the d-th power to yield intermediate height d * (10 m x_1 + k * (6 denominatorBudget - D.directionAmount)). In the transition to Band 3, D.le_of_hasLogBound absorbs all four positive error terms: 3A + r * denominatorBudget + 10 m x_1 + 6 k * denominatorBudget &lt;= k * log b * denominatorBudget. Band 3 presents the main theorem New.Data.heightLe_liftDeterminant_ratio giving HeightLe(d * k * (log b * denominatorBudget - D.directionAmount)) on Z_j(1)/Z_j(theta(iota)^j), with a rust handoff panel into Stage 05 (05_determinant/long_forms, LongForms.lean) where k * log b * denominatorBudget = f a log^4 b / m and summing j = 1..m yields -d * D.mainAmount in Theorem C (integral_forms_long).</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+
+    <!-- Crisp clip paths for card headers and left accent bars -->
+    <clipPath id="clip-in1"><rect x="14" y="48" width="408" height="150" rx="6"/></clipPath>
+    <clipPath id="clip-in2"><rect x="438" y="48" width="408" height="150" rx="6"/></clipPath>
+    <clipPath id="clip-s07"><rect x="176" y="220" width="508" height="58" rx="6"/></clipPath>
+    <clipPath id="clip-band2"><rect x="14" y="308" width="832" height="250" rx="6"/></clipPath>
+    <clipPath id="clip-sub-left"><rect x="26" y="427" width="406" height="122" rx="5"/></clipPath>
+    <clipPath id="clip-sub-right"><rect x="444" y="427" width="390" height="122" rx="5"/></clipPath>
+    <clipPath id="clip-band3"><rect x="14" y="616" width="832" height="130" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="757" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="27" class="sans" font-size="15.2" font-weight="700" fill="#161b22">Comparison Operator &amp; Single-Lift Volume Height (<tspan class="mono" font-size="13.6" fill="#1e40af">LiftVolumeHeight.lean</tspan>)</text>
+    <text x="842" y="26" class="mono" font-size="10.2" fill="#3f4a56" text-anchor="end">src/New/OneLift/ → Determinant/</text>
+    <line x1="14" y1="39" x2="846" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: INPUTS (STAGE 06 SOLID CARDS + STAGE 07 DASHED BLACK BOX)     -->
+  <!-- ===================================================================== -->
+  <g id="band-1-inputs">
+
+    <!-- INPUT 1 (TOP-LEFT): GLUING MAPS + TIGHT FRAME — EMERALD (SOLID) -->
+    <g id="card-gluing-maps">
+      <rect x="14" y="48" width="408" height="150" rx="6" fill="#ffffff"/>
+      <rect x="14" y="48" width="408" height="24" fill="#ecfdf5" clip-path="url(#clip-in1)"/>
+      <line x1="14" y1="72" x2="422" y2="72" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="14" y="48" width="408" height="150" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+      <text x="24" y="63.5" class="sans" font-size="9.8" font-weight="700" fill="#065f46">● ① GLUING MAPS + TIGHT FRAME</text>
+      <text x="412" y="63.5" class="sans" font-size="8.5" font-weight="600" fill="#3f4a56" text-anchor="end">Stage 06 · Solid</text>
+
+      <text x="24" y="86.5" class="mono" font-size="8.5" font-weight="700" fill="#065f46">GluingMaps.lean<tspan class="sans" font-size="8.4" font-weight="400" fill="#3f4a56">  +  </tspan><tspan class="mono" font-size="8.4" font-weight="700" fill="#065f46">exists_tight_frame_formTuples</tspan></text>
+
+      <!-- Comparison operator construction formula box -->
+      <rect x="24" y="93" width="388" height="39" rx="4" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.1"/>
+      <text x="218" y="109" class="sans" font-size="9.7" font-weight="700" fill="#161b22" text-anchor="middle">U<tspan font-size="7.2" dy="2">ϑ</tspan><tspan dy="-2"> = </tspan><tspan class="mono" font-size="8.9" fill="#065f46">comparisonOp</tspan><tspan> j ϑ = n</tspan><tspan font-size="6.8" dy="2">Aut</tspan><tspan dy="-2"> · hk</tspan><tspan font-size="7.2" dy="-2.8">2</tspan><tspan dy="2.8"> · glue</tspan><tspan font-size="7.2" dy="2">ϑ</tspan><tspan dy="-2"> ∘ glue</tspan><tspan font-size="7.2" dy="2">ϑ</tspan><tspan font-size="7.6" dy="-4.6">*</tspan></text>
+      <text x="218" y="124.5" class="sans" font-size="8.4" fill="#3f4a56" text-anchor="middle">Integral tight-frame rank-1 expansion proves <tspan class="mono" font-size="8.2" font-weight="700" fill="#065f46">IsComparisonOperator</tspan></text>
+
+      <!-- Three comparison-operator properties -->
+      <rect x="24" y="139" width="388" height="50" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="34" y="153.5" class="sans" font-size="8.5" fill="#161b22">• Integral away from Q  <tspan fill="#3f4a56">(</tspan><tspan class="mono" font-size="8" fill="#065f46">comparisonOp_mem_integralForms</tspan><tspan fill="#3f4a56">)</tspan></text>
+      <text x="34" y="168.5" class="sans" font-size="8.6" fill="#161b22">• Operator norm: <tspan font-weight="700" fill="#065f46">‖U<tspan font-size="6.6" dy="1.8">1</tspan><tspan dy="-1.8">‖ ≤ exp(3A)</tspan></tspan>  with  <tspan font-weight="700" fill="#161b22">A = f m b log<tspan font-size="6.6" dy="-2.4">2</tspan><tspan dy="2.4"> b</tspan></tspan></text>
+      <text x="34" y="183.5" class="sans" font-size="8.5" fill="#161b22">• Orthogonal to false lifts  <tspan fill="#3f4a56">(</tspan><tspan class="mono" font-size="8" fill="#065f46">isOrthogonalToFalseLifts_comparisonOp</tspan><tspan fill="#3f4a56">)</tspan></text>
+    </g>
+
+    <!-- INPUT 2 (TOP-RIGHT): TWISTED HECKE L-VALUE HEIGHT — COBALT (SOLID) -->
+    <g id="card-twisted-value-heights">
+      <rect x="438" y="48" width="408" height="150" rx="6" fill="#ffffff"/>
+      <rect x="438" y="48" width="408" height="24" fill="#edf4ff" clip-path="url(#clip-in2)"/>
+      <line x1="438" y1="72" x2="846" y2="72" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="438" y="48" width="408" height="150" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+      <text x="448" y="63.5" class="sans" font-size="9.8" font-weight="700" fill="#1e40af">◆ ② TWISTED HECKE L-VALUE HEIGHT</text>
+      <text x="836" y="63.5" class="sans" font-size="8.5" font-weight="600" fill="#3f4a56" text-anchor="end">Stage 06 · Solid</text>
+
+      <text x="448" y="86.5" class="mono" font-size="8.3" font-weight="700" fill="#1e40af">TwistedValueHeights.lean :: heightLe_inv_heckeValueProd_div</text>
+
+      <!-- Pair count & ratio formula box -->
+      <rect x="448" y="93" width="388" height="39" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+      <text x="642" y="109" class="sans" font-size="9.5" font-weight="700" fill="#161b22" text-anchor="middle">#A = k / 2  main pairs   +   #B = 5m  ramified pairs</text>
+      <text x="642" y="124.5" class="sans" font-size="8.7" fill="#3f4a56" text-anchor="middle">Inverse Hecke value product:   <tspan font-weight="700" fill="#1e40af">ρ<tspan font-size="6.8" dy="2">ξ<tspan font-size="5.6" dy="1.4">ι</tspan><tspan font-size="5.6" dy="-4.2">j</tspan></tspan><tspan font-size="7" dy="-2.2">−1</tspan><tspan dy="3"> = Γ</tspan><tspan font-size="6.8" dy="1.8">j</tspan><tspan dy="-1.8">(1) / Γ</tspan><tspan font-size="6.8" dy="1.8">j</tspan><tspan dy="-1.8">(ξ</tspan><tspan font-size="6.6" dy="1.8">ι</tspan><tspan font-size="6.6" dy="-4.2">j</tspan><tspan dy="2.4">)</tspan></tspan></text>
+
+      <!-- HeightLe bound strip -->
+      <rect x="448" y="139" width="388" height="50" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="642" y="155" class="sans" font-size="8.8" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="8.4" fill="#1e40af">HeightLe</tspan>( 10 m x<tspan font-size="6.6" dy="1.8">1</tspan><tspan dy="-1.8"> + k(6 denominatorBudget − D.directionAmount) )</tspan></text>
+      <text x="642" y="170" class="sans" font-size="8.4" fill="#3f4a56" text-anchor="middle">holds on ρ<tspan font-size="6.4" dy="1.8">ξ<tspan font-size="5.4" dy="1.2">ι</tspan><tspan font-size="5.4" dy="-3.8">j</tspan></tspan><tspan font-size="6.6" dy="-1.8">−1</tspan><tspan dy="2.6"> for regular family θ supplied by Stage 07 ③</tspan></text>
+      <text x="642" y="183.5" class="sans" font-size="8.4" font-weight="700" fill="#1e40af" text-anchor="middle">Negative term −k · D.directionAmount drives the single-lift gain</text>
+    </g>
+
+    <!-- COMPACT DASHED CARD (CENTER-BELOW): STAGE 07 TYPED BLACK BOX — RUST (DASHED) -->
+    <g id="card-stage07-blackbox">
+      <rect x="176" y="220" width="508" height="58" rx="6" fill="#ffffff"/>
+      <rect x="176" y="220" width="508" height="22" fill="#fff5f0" clip-path="url(#clip-s07)"/>
+      <line x1="176" y1="242" x2="684" y2="242" stroke="#f5c2a8" stroke-width="1"/>
+      <rect x="176" y="220" width="508" height="58" rx="6" fill="none" stroke="#9a3412" stroke-width="1.6" stroke-dasharray="6,3.5"/>
+
+      <text x="186" y="234.5" class="sans" font-size="9.3" font-weight="700" fill="#9a3412">▲ ③ REGULAR TWIST FAMILY  ·  <tspan class="mono" font-size="8.8" fill="#161b22">IsRegularFamily θ</tspan></text>
+      <rect x="556" y="223.5" width="120" height="15.5" rx="7.75" fill="#9a3412"/>
+      <text x="616" y="234" class="sans" font-size="7.6" font-weight="700" fill="#ffffff" text-anchor="middle">STAGE 07 BLACK BOX</text>
+
+      <text x="430" y="256" class="sans" font-size="8.6" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="8.2" font-weight="700" fill="#9a3412">HasSmallRatios</tspan> (gcd(ℓ, Nm Q) = 1, small ratios)   +   <tspan class="mono" font-size="8.2" font-weight="700" fill="#9a3412">ClearsProjection</tspan> within <tspan font-weight="700">denominatorBudget</tspan></text>
+      <text x="430" y="270.5" class="sans" font-size="8.1" fill="#3f4a56" text-anchor="middle"><tspan class="mono" font-size="7.9" fill="#9a3412">07_congruences/fit_twists_exist</tspan> (<tspan class="mono" font-size="7.9">FitTwists.lean</tspan>) · supplies θ to ② and p-adic clearance β<tspan font-size="6.2" dy="1.6">ℓ</tspan><tspan dy="-1.6"> to Band 2</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- NON-CROSSING CONNECTORS: BAND 1 -> BAND 2 (AND STAGE 07 -> INPUT 2)   -->
+  <!-- ===================================================================== -->
+  <g id="connectors-band1-to-band2">
+    <!-- Left corridor (Emerald): Input 1 -> Band 2 (above Left Sub-Box) -->
+    <line x1="95" y1="198" x2="95" y2="305" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+    <rect x="24" y="239" width="142" height="20" rx="10" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+    <text x="95" y="252.2" class="sans" font-size="8.5" font-weight="700" fill="#065f46" text-anchor="middle">① U<tspan font-size="6.4" dy="1.8">ϑ</tspan><tspan dy="-1.8"> (IsComparisonOp)</tspan></text>
+
+    <!-- Right corridor (Cobalt): Input 2 -> Band 2 (above Right Sub-Box) -->
+    <line x1="765" y1="198" x2="765" y2="305" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+    <rect x="694" y="239" width="142" height="20" rx="10" fill="#edf4ff" stroke="#1e40af" stroke-width="1.1"/>
+    <text x="765" y="252.2" class="sans" font-size="8.5" font-weight="700" fill="#1e40af" text-anchor="middle">② Height(ρ<tspan font-size="6.4" dy="1.8">ξ<tspan font-size="5.2" dy="1.2">ι</tspan><tspan font-size="5.2" dy="-3.6">j</tspan></tspan><tspan font-size="6.4" dy="-1.8">−1</tspan><tspan dy="2.4">)</tspan></text>
+
+    <!-- Upward feed (Rust): Stage 07 -> Input 2 -->
+    <line x1="540" y1="220" x2="540" y2="201" stroke="#9a3412" stroke-width="1.7" marker-end="url(#arrow-rust-end)"/>
+    <text x="548" y="213" class="sans" font-size="8.3" font-weight="700" fill="#9a3412">③ θ, <tspan class="mono" font-size="8">HasSmallRatios</tspan></text>
+
+    <!-- Downward feed (Rust): Stage 07 -> Band 2 (aligned with Left Sub-Box) -->
+    <line x1="330" y1="278" x2="330" y2="305" stroke="#9a3412" stroke-width="1.7" marker-end="url(#arrow-rust-end)"/>
+    <rect x="340" y="283.5" width="234" height="18" rx="9" fill="#fff5f0" stroke="#9a3412" stroke-width="1.1"/>
+    <text x="457" y="295.6" class="sans" font-size="8.3" font-weight="700" fill="#9a3412" text-anchor="middle">③ <tspan class="mono" font-size="8">ClearsProjection</tspan> (∑ β<tspan font-size="6.4" dy="1.6">ℓ</tspan><tspan dy="-1.6"> ≤ denominatorBudget)</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2: COMPRESSION IDENTITY & TWO-FACTOR INTERMEDIATE HEIGHT SPLIT   -->
+  <!-- ===================================================================== -->
+  <g id="band-2-compression-split">
+    <rect x="14" y="308" width="832" height="250" rx="6" fill="#ffffff"/>
+    <rect x="14" y="308" width="832" height="25" fill="#edf4ff" clip-path="url(#clip-band2)"/>
+    <line x1="14" y1="333" x2="846" y2="333" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="308" width="832" height="250" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+    <!-- Band 2 Header -->
+    <text x="26" y="324.2" class="sans" font-size="10.2" font-weight="700" fill="#1e40af">◆ COMPRESSION IDENTITY &amp; TWO-FACTOR INTERMEDIATE HEIGHT SPLIT</text>
+    <text x="834" y="324.2" class="mono" font-size="9.1" fill="#3f4a56" text-anchor="end">LiftVolumeHeight.lean</text>
+
+    <!-- Compression Identity & Cancellation Panel -->
+    <g id="panel-compression-identity">
+      <rect x="26" y="341" width="808" height="66" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.2"/>
+
+      <text x="38" y="357.5" class="mono" font-size="8.6" font-weight="700" fill="#1e40af">IsComparisonOperator.exists_normDet_sq_mul_det_eq<tspan class="sans" font-size="9.2" font-weight="400" fill="#3f4a56">  ⇒  </tspan><tspan class="sans" font-size="9.8" font-weight="700" fill="#161b22">Z<tspan font-size="7" dy="1.8">j</tspan><tspan dy="-1.8">(ϑ) · Δ(ϑ) = C · ρ</tspan><tspan font-size="7" dy="1.8">ϑ</tspan><tspan font-size="7" dy="-4.4">d</tspan></tspan></text>
+      <text x="822" y="357.5" class="sans" font-size="8.5" fill="#3f4a56" text-anchor="end">Δ(ϑ) = det(pr U<tspan font-size="6.4" dy="1.6">ϑ</tspan><tspan dy="-1.6">),   C = det(U°) ≠ 0 (indep. of ϑ)</tspan></text>
+
+      <!-- Highlighted Ratio Split Strip -->
+      <rect x="44" y="368" width="772" height="31" rx="4" fill="#ffffff" stroke="#1e40af" stroke-width="1.2"/>
+      <text x="430" y="387.5" class="sans" font-size="10.2" font-weight="700" fill="#161b22" text-anchor="middle"><tspan font-size="8.9" font-weight="600" fill="#3f4a56">Divide ϑ = 1 by ϑ = ξ<tspan font-size="6.6" dy="1.6">ι</tspan><tspan font-size="6.6" dy="-4">j</tspan><tspan dy="2.4"> (C cancels identically):    </tspan></tspan>Z<tspan font-size="7.4" dy="2">j</tspan><tspan dy="-2">(1) / Z</tspan><tspan font-size="7.4" dy="2">j</tspan><tspan dy="-2">(ξ</tspan><tspan font-size="7.2" dy="2">ι</tspan><tspan font-size="7.2" dy="-4.6">j</tspan><tspan dy="2.6">)   =   </tspan><tspan fill="#065f46">( Δ(ξ<tspan font-size="7.2" dy="2">ι</tspan><tspan font-size="7.2" dy="-4.6">j</tspan><tspan dy="2.6">) / Δ(1) )</tspan></tspan><tspan>   ·   </tspan><tspan fill="#1e40af">ρ<tspan font-size="7.2" dy="2">ξ<tspan font-size="5.8" dy="1.4">ι</tspan><tspan font-size="5.8" dy="-4.2">j</tspan></tspan><tspan font-size="7.4" dy="-2.2">−d</tspan></tspan></text>
+    </g>
+
+    <!-- Internal Split Arrows -> Two Distinct Intermediate Height Boxes -->
+    <line x1="229" y1="407" x2="229" y2="424" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald-end)"/>
+    <line x1="639" y1="407" x2="639" y2="424" stroke="#1e40af" stroke-width="1.7" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="434" y="420" class="sans" font-size="8.4" font-weight="600" fill="#3f4a56" text-anchor="middle">Two distinct intermediate height bounds (before log b absorption)</text>
+
+    <!-- LEFT SUB-BOX (EMERALD/AMBER): COMPRESSED DETERMINANT RATIO -->
+    <g id="subbox-compressed-det">
+      <rect x="26" y="427" width="406" height="122" rx="5" fill="#ffffff"/>
+      <rect x="26" y="427" width="406" height="23" fill="#fef6e4" clip-path="url(#clip-sub-left)"/>
+      <rect x="26" y="427" width="5" height="122" fill="#065f46" clip-path="url(#clip-sub-left)"/>
+      <line x1="31" y1="450" x2="432" y2="450" stroke="#e7c98f" stroke-width="1"/>
+      <rect x="26" y="427" width="406" height="122" rx="5" fill="none" stroke="#065f46" stroke-width="1.3"/>
+
+      <text x="39" y="442" class="sans" font-size="9.1" font-weight="700" fill="#065f46">● FACTOR 1 · COMPRESSED DETERMINANT RATIO  Δ(ξ<tspan font-size="6.8" dy="1.6">ι</tspan><tspan font-size="6.8" dy="-4">j</tspan><tspan dy="2.4">) / Δ(1)</tspan></text>
+
+      <!-- Archimedean bound -->
+      <text x="39" y="465.5" class="sans" font-size="8.7" fill="#161b22"><tspan font-weight="700" fill="#92400e">Archimedean:</tspan>  <tspan font-weight="700">‖σ(Δ(1))‖ ≤ exp(3 d A)</tspan>   <tspan fill="#3f4a56">(A = f m b log<tspan font-size="6.4" dy="-2.2">2</tspan><tspan dy="2.2"> b)</tspan></tspan></text>
+      <text x="49" y="479.5" class="mono" font-size="7.9" fill="#3f4a56">norm_map_det_liftCompression_le <tspan class="sans" font-size="8.1">(pr norm-nonincreasing, false-lift orth.)</tspan></text>
+
+      <!-- p-adic bound -->
+      <text x="39" y="496" class="sans" font-size="8.7" fill="#161b22"><tspan font-weight="700" fill="#9a3412">p-adic (③):</tspan>   <tspan font-weight="700">‖ι(Δ(ξ<tspan font-size="6.6" dy="1.6">ι</tspan><tspan font-size="6.6" dy="-3.8">j</tspan><tspan dy="2.2">))‖ ≤ exp(d r β</tspan><tspan font-size="6.6" dy="1.6">ℓ</tspan><tspan dy="-1.6">)</tspan></tspan>  <tspan fill="#3f4a56">(via </tspan><tspan class="mono" font-size="8" fill="#9a3412">ClearsProjection</tspan><tspan fill="#3f4a56">)</tspan></text>
+      <text x="49" y="510" class="mono" font-size="7.9" fill="#3f4a56">norm_padic_det_liftCompression_le <tspan class="sans" font-size="8.1">(∑ β</tspan><tspan class="sans" font-size="6.2" dy="1.4">ℓ</tspan><tspan class="sans" font-size="8.1" dy="-1.4"> ≤ denominatorBudget)</tspan></text>
+
+      <!-- Intermediate height strip -->
+      <rect x="38" y="518" width="384" height="23" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="230" y="533" class="sans" font-size="8.8" font-weight="700" fill="#065f46" text-anchor="middle">Intermediate <tspan class="mono" font-size="8.4">HeightLe</tspan> :   <tspan fill="#161b22">d · ( 3A + r · denominatorBudget )</tspan></text>
+    </g>
+
+    <!-- RIGHT SUB-BOX (COBALT): INVERSE HECKE VALUE POWER -->
+    <g id="subbox-hecke-power">
+      <rect x="444" y="427" width="390" height="122" rx="5" fill="#ffffff"/>
+      <rect x="444" y="427" width="390" height="23" fill="#edf4ff" clip-path="url(#clip-sub-right)"/>
+      <rect x="444" y="427" width="5" height="122" fill="#1e40af" clip-path="url(#clip-sub-right)"/>
+      <line x1="449" y1="450" x2="834" y2="450" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="444" y="427" width="390" height="122" rx="5" fill="none" stroke="#1e40af" stroke-width="1.3"/>
+
+      <text x="457" y="442" class="sans" font-size="9.1" font-weight="700" fill="#1e40af">◆ FACTOR 2 · INVERSE HECKE VALUE POWER  ρ<tspan font-size="6.8" dy="1.8">ξ<tspan font-size="5.6" dy="1.2">ι</tspan><tspan font-size="5.6" dy="-3.8">j</tspan></tspan><tspan font-size="7" dy="-2">−d</tspan></text>
+
+      <text x="457" y="466" class="sans" font-size="8.7" fill="#161b22">Raise ② <tspan class="mono" font-size="8.1" font-weight="700" fill="#1e40af">heightLe_inv_heckeValueProd_div</tspan> to power <tspan font-weight="700">d</tspan>:</text>
+      <text x="457" y="482.5" class="sans" font-size="8.6" fill="#3f4a56">• Carries <tspan font-weight="700" fill="#161b22">#A = k/2</tspan> main pairs + <tspan font-weight="700" fill="#161b22">#B = 5m</tspan> ramified pairs</text>
+      <text x="457" y="497.5" class="sans" font-size="8.6" fill="#3f4a56">• Positive errors: <tspan font-weight="700" fill="#161b22">10 m x<tspan font-size="6.4" dy="1.6">1</tspan><tspan dy="-1.6"> + 6 k · denominatorBudget</tspan></tspan> (per dim)</text>
+      <text x="457" y="511.5" class="sans" font-size="8.5" fill="#1e40af">• Preserves negative <tspan font-weight="700">−d · k · D.directionAmount</tspan> intact</text>
+
+      <!-- Intermediate height strip -->
+      <rect x="456" y="518" width="368" height="23" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="640" y="533" class="sans" font-size="8.3" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="8" fill="#1e40af">HeightLe</tspan> :  d · (10 m x<tspan font-size="6.2" dy="1.6">1</tspan><tspan dy="-1.6"> + k·(6 denominatorBudget − D.directionAmount))</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION BAND 2 -> BAND 3: ADD HEIGHTS + LOG-BOUND ABSORPTION       -->
+  <!-- ===================================================================== -->
+  <g id="transition-absorption">
+    <!-- Combine both intermediate sub-boxes into absorption pill -->
+    <path d="M 229 558 L 229 565 L 639 565 L 639 558" fill="none" stroke="#92400e" stroke-width="1.5" stroke-linejoin="round"/>
+    <circle cx="430" cy="565" r="6" fill="#ffffff" stroke="#92400e" stroke-width="1.3"/>
+    <text x="430" y="568.2" class="sans" font-size="9.5" font-weight="700" fill="#92400e" text-anchor="middle">+</text>
+
+    <!-- Absorption Pill: D.le_of_hasLogBound -->
+    <rect x="52" y="573" width="756" height="24" rx="12" fill="#fef6e4" stroke="#92400e" stroke-width="1.2"/>
+    <text x="430" y="588.3" class="sans" font-size="8.7" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="8.4" fill="#92400e">D.le_of_hasLogBound</tspan><tspan fill="#3f4a56"> :   </tspan>3A + r · denominatorBudget + 10 m x<tspan font-size="6.4" dy="1.6">1</tspan><tspan dy="-1.6"> + 6 k · denominatorBudget   </tspan><tspan fill="#92400e">≤   k · log b · denominatorBudget</tspan></text>
+
+    <!-- Downward arrow into Band 3 -->
+    <line x1="430" y1="597" x2="430" y2="613" stroke="#1e40af" stroke-width="1.9" marker-end="url(#arrow-cobalt-end)"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: MAIN THEOREM BANNER & HANDOFF TO STAGE 05 (LongForms.lean)    -->
+  <!-- ===================================================================== -->
+  <g id="band-3-theorem-handoff">
+    <rect x="14" y="616" width="832" height="130" rx="6" fill="#ffffff"/>
+    <rect x="14" y="616" width="832" height="26" fill="#edf4ff" clip-path="url(#clip-band3)"/>
+    <rect x="14" y="616" width="6" height="130" fill="#1e40af" clip-path="url(#clip-band3)"/>
+    <line x1="20" y1="642" x2="846" y2="642" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="616" width="832" height="130" rx="6" fill="none" stroke="#1e40af" stroke-width="1.8"/>
+
+    <!-- Band 3 Header -->
+    <text x="30" y="633" class="sans" font-size="10.6" font-weight="700" fill="#1e40af">■ STAGE 06 CULMINATING THEOREM  —  SINGLE-LIFT VOLUME HEIGHT</text>
+    <text x="834" y="633" class="mono" font-size="9.5" font-weight="700" fill="#161b22" text-anchor="end">New.Data.heightLe_liftDeterminant_ratio</text>
+
+    <!-- Main Theorem Panel (Left) -->
+    <g id="panel-main-theorem">
+      <rect x="28" y="650" width="478" height="62" rx="5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.4"/>
+      <text x="267" y="670.5" class="sans" font-size="11.1" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="10.3" fill="#1e40af">HeightLe</tspan>( d · k · (log b · denominatorBudget − D.directionAmount) )</text>
+      <text x="267" y="688" class="sans" font-size="9" fill="#161b22" text-anchor="middle">on single-lift Gram determinant ratio  <tspan font-weight="700">Z<tspan font-size="6.8" dy="1.8">j</tspan><tspan dy="-1.8">(1) / Z</tspan><tspan font-size="6.8" dy="1.8">j</tspan><tspan dy="-1.8">(θ(ι)</tspan><tspan font-size="6.8" dy="-2.4">j</tspan><tspan dy="2.4">)</tspan></tspan>  <tspan fill="#3f4a56">(1 ≤ j ≤ m)</tspan></text>
+      <text x="267" y="703.5" class="sans" font-size="8.2" fill="#3f4a56" text-anchor="middle">All 4 positive errors absorbed by log b; negative <tspan font-weight="700" fill="#065f46">−d · k · D.directionAmount</tspan> untouched</text>
+    </g>
+
+    <!-- Handoff Arrow -> Stage 05 -->
+    <line x1="506" y1="681" x2="531" y2="681" stroke="#9a3412" stroke-width="1.9" marker-end="url(#arrow-rust-end)"/>
+
+    <!-- Stage 05 Handoff Panel (Right, Rust) -->
+    <g id="panel-stage05-handoff">
+      <rect x="534" y="650" width="300" height="62" rx="5" fill="#fff5f0" stroke="#9a3412" stroke-width="1.3"/>
+      <text x="546" y="667" class="sans" font-size="9" font-weight="700" fill="#9a3412">↗ FEEDS STAGE 05 · <tspan class="mono" font-size="8.6" fill="#161b22">05_determinant/long_forms</tspan></text>
+      <text x="546" y="685" class="sans" font-size="8.8" font-weight="700" fill="#161b22">k · log b · denominatorBudget  =  f a log<tspan font-size="6.6" dy="-2.4">4</tspan><tspan dy="2.4"> b / m</tspan></text>
+      <text x="546" y="702" class="sans" font-size="8.4" fill="#3f4a56">Sum j = 1…m ⇒ <tspan font-weight="700" fill="#9a3412">−d · D.mainAmount</tspan> (<tspan class="mono" font-size="7.9" fill="#161b22">integral_forms_long</tspan>)</text>
+    </g>
+
+    <!-- Bottom Legend & Provenance Strip -->
+    <g id="strip-legend">
+      <rect x="28" y="719" width="806" height="21" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="40" y="732.5" class="sans" font-size="8.3" fill="#3f4a56"><tspan font-weight="700" fill="#161b22">LEGEND:</tspan>  <tspan font-weight="700" fill="#065f46">●◆ Solid</tspan> = Stage 06 internal (<tspan class="mono" font-size="7.9">GluingMaps</tspan>, <tspan class="mono" font-size="7.9">TwistedValueHeights</tspan>, <tspan class="mono" font-size="7.9">LiftVolumeHeight</tspan>)  ·  <tspan font-weight="700" fill="#9a3412">▲ Dashed</tspan> = Stage 07 black box  ·  <tspan font-weight="700" fill="#9a3412">FEEDS:</tspan> Stage 05 <tspan class="mono" font-size="7.9" font-weight="700" fill="#1e40af">LongForms.lean</tspan></text>
+    </g>
+  </g>
+</svg>
