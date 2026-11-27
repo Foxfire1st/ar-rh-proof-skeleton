@@ -4,7 +4,7 @@ Stage 04 supplies the missing half of the upper side of [Stage 01](../01_reducti
 
 ## Level 1 — First-Principles
 
-Think back to the three-way tension driving [Stage 01](../01_reduction/overview.md). Theorem A ([Stage 03](../03_upper_bound/overview.md)) produces lifted target vectors that are extraordinarily short once their prime-power divisibility is divided out. Theorem C (Stages 05–07) sets an arithmetic floor on the {{concept:gram-determinant|squared parallelotope volume of any spanning family of integral target vectors}}. If every short vector from Theorem A pointed along the same line—or collapsed to zero altogether—its volume would be zero and no contradiction could ever follow. To trigger the cancellation in `star_inequality`, the proof must guarantee that a small collection of group translates of the Poincaré map spreads out across almost the entire target space of dimension $d_T = D.\mathrm{targetDim}$.
+Think back to the three-way tension driving [Stage 01](../01_reduction/overview.md). Theorem A ([Stage 03](../03_upper_bound/overview.md)) produces lifted target vectors that are extraordinarily short once their prime-power divisibility is divided out. Theorem C ([Stage 05](../05_determinant/overview.md) and Stages 06–07) sets an arithmetic floor on the {{concept:gram-determinant|squared parallelotope volume of any spanning family of integral target vectors}}. If every short vector from Theorem A pointed along the same line—or collapsed to zero altogether—its volume would be zero and no contradiction could ever follow. To trigger the cancellation in `star_inequality`, the proof must guarantee that a small collection of group translates of the Poincaré map spreads out across almost the entire target space of dimension $d_T = D.\mathrm{targetDim}$.
 
 Stage 04 solves this spanning problem through a four-stage analytic funnel:
 
@@ -19,7 +19,7 @@ Stage 04 solves this spanning problem through a four-stage analytic funnel:
 
 **Dual cross-pillar role of Stage 04:** Stage 04 does not feed only Theorem B. Its two top-level landmarks export results to three downstream stages:
 - **`04_spanning/spanning_theorem`** feeds `01_reduction/short_and_enough` (Theorem B: `D.enough_forms`) and `06_one_lift/gluing_maps` (single-lift comparison operators in Theorem C).
-- **`04_spanning/equal_multiplicities`** feeds `04_spanning/spanning_theorem` (via `targetDim_eq_finrank_goodForms_spaceW`) and `05_determinant/norm_of_chain` (via `det_rallisOnGood_eq`, transferring the determinant of the Rallis inner-product operator across signatures for Theorem C).
+- **`04_spanning/equal_multiplicities`** feeds `04_spanning/spanning_theorem` (via `targetDim_eq_finrank_goodForms_spaceW`) and [Stage 05](../05_determinant/overview.md) (`05_determinant/norm_of_chain`, via `det_rallisOnGood_eq`, transferring the determinant of the Rallis inner-product operator across signatures for Theorem C).
 
 Explore Stage 04 across its three landmark essays, return to [Stage 03 — Upper Bound (Theorem A)](../03_upper_bound/overview.md) or [Stage 01 — The Theorem and Its Reduction](../01_reduction/overview.md), or zoom out to the [Full Proof Journey & Alpöge's 20-Step Map](../00_statement/proof-journey.md):
 

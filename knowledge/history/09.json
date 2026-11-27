@@ -1,0 +1,184 @@
+{
+  "closed": true,
+  "leaf": "09",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-27T06:42:19+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "09",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "f3cafab8-1c95-515b-8417-e5f5a7416cd6",
+      "task": "261126-EXP"
+    },
+    "reviewer": {
+      "at": "2026-11-27T06:42:19+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "09",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "a03355f3-1dd0-5336-8680-cc06148a2fbb",
+      "task": "261126-EXP",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "222c4186db2c8e19a41559a95f5ded8e5f5cfde5",
+    "verdictRef": "notes/reports/reviewer/a03355f3-1dd0-5336-8680-cc06148a2fbb/09-memory-review-verdict.md"
+  },
+  "rows": [
+    {
+      "because": [
+        {
+          "id": "RH-R15",
+          "packet": "RH-R15-v1-stage05-determinant-theorem-c.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-7TN9NX",
+      "items": [],
+      "reason": "Refreshed reconsider_on anchor on site/docs/.vitepress/config.mts at candidate code tree 5bfc661a3f9d8391909cb33abfda711b565d6e39 after confirming rejected alternative 1 of DEC-0XZ8V5 remains still_rejected.",
+      "revision": 8,
+      "subject": "DEC-0XZ8V5"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-GXDXCT",
+          "revision": 1
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 3
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 4
+        }
+      ],
+      "id": "ROW-B1VFJR",
+      "items": [
+        "sha256:fc21568169a55d1f2de235c2e8208a0f38893e05e74312772dc115bc92243ac2"
+      ],
+      "reason": "Examined all four members of FAM-033QTE (INV-VGNZKV re-anchored at revision 4 with updated RLZ-CRCTC9 rationale; INV-GXDXCT rev 1, INV-HK005W rev 1, and INV-V207JN rev 3 untouched). The joint Phase 4 static-site compilation, editorial light VitePress shell and dual-repo CI/Pages guarantee (already covering validated multi-stage docs) and root route '.' remain accurate.",
+      "revision": 2,
+      "subject": "FAM-033QTE"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-FV0P0E",
+      "items": [
+        "sha256:44d26aec6d1c5e439322c026da26440d20b98385e39584369d9fe108138676b7"
+      ],
+      "reason": "Reviewed onboarding/overview.md and onboarding/overview.json against the Stage 05 navigation additions in site/docs/.vitepress/config.mts; overview prose already covers multi-stage explainer compilation (docs/stages/*/*.md) and the site/ VitePress shell accurately, and all 8 sidecar references remain current.",
+      "sources": [
+        {
+          "blob": "67bd4ff3feb35075ddbfadb205d212ea7c423725",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-P1Y58K",
+      "items": [
+        "sha256:f4719397e6b363779447e3510ef9feaa1c0c89f340cee305e1fe99c37a26bc44"
+      ],
+      "reason": "Updated onboarding/site/docs/.vitepress/config.mts.md Purpose, Code Commentary and Evidence [3] and refreshed sidecar references [1]-[3] via citation_fix for Stage 05 added to the native Stages dropdown (preserving 5 top navigation entries), seven sidebar groups (adding 4-page Stage 05 — Determinant (Theorem C, Pt 1)), and 42 Foundational Concepts sidebar slugs (adding the 6 Stage 05 Concept Cards).",
+      "sources": [
+        {
+          "blob": "67bd4ff3feb35075ddbfadb205d212ea7c423725",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/config.mts"
+    },
+    {
+      "disposition": "still_rejected",
+      "id": "ROW-X2VHR1",
+      "items": [
+        "sha256:c230a21cb6ae4cbf80ddc80040d77e1580ef3e4e0430e53d3aa99a7baee51c8d"
+      ],
+      "reason": "site/docs/.vitepress/config.mts only added Stage 05 inside the existing native VitePress Stages dropdown, added the four-page Stage 05 — Determinant (Theorem C, Pt 1) sidebar group, and appended six Stage 05 Concept Card sidebar links while preserving VitePress defineConfig, markdown.math: true (with pinned markdown-it-mathjax3 in site/package.json), cleanUrls: true, appearance: false, VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, and dual-repo GitHub Pages ownership in ar-rh-proof-skeleton/.github/workflows/pages.yml; neither reconsider_when condition (switching away from VitePress or moving public explainer docs back into the code repository) is met, so rejected alternative 1 remains rejected.",
+      "subject": "reconsider:DEC-0XZ8V5#1"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R15",
+          "packet": "RH-R15-v1-stage05-determinant-theorem-c.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "67bd4ff3feb35075ddbfadb205d212ea7c423725",
+            "content": "sha256:c340384783911c44b9a5bd39f8bf5798cbaf82e6483c2abb0a4deac64e9aee8b",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "before": {
+            "blob": "13e9046edde75f511eed3eb4add3bb98eb740f15",
+            "content": "sha256:307dab0ee9c00ec2524524ac7b48a8ad34c47d8e29092b7dd5f7dd285ed9e459",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "id": "RLZ-CRCTC9"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-Y8V8YR",
+      "items": [
+        "sha256:bc28332deafe54630fd0ed0ad1f53bc3d0593b5ee36a30971e0572c2256dcd86"
+      ],
+      "reason": "Re-anchored RLZ-CRCTC9 on site/docs/.vitepress/config.mts at candidate code tree 5bfc661a3f9d8391909cb33abfda711b565d6e39 and updated its rationale for adding Stage 05 inside the native Stages dropdown (preserving the 5-item top bar), adding the four-page Stage 05 — Determinant (Theorem C, Pt 1) sidebar group, and appending six new Concept Cards (42 slugs total). All INV-VGNZKV shell guarantees (MathJax 3 SVG, VITEPRESS_BASE default, full HTML title paired with compact siteTitle 'RH Proof Explainer', cleanUrls, locked light appearance, and script-off Vue components) remain preserved unchanged, verified by Worker attempt-1 and Reviewer RV-09-A1 CODE/docs/maths PASS (rh-validate 0 findings across 25 Stage pages and 42 Concept Cards, 260 pytest passed, full and synthetic overview-only VitePress builds passing, Playwright 0 failures).",
+      "revision": 4,
+      "subject": "INV-VGNZKV"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:003ec64419349f7f10aa365cd2db5380e6686a1a79506fcd04e60ca37c3fd355",
+      "record": "DEC-0XZ8V5",
+      "revision": 8,
+      "writer": {
+        "at": "2026-11-27T06:34:50+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "09",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "f3cafab8-1c95-515b-8417-e5f5a7416cd6",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}

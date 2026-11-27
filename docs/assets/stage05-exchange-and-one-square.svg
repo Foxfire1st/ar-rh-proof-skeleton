@@ -1,0 +1,307 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 710"
+     width="860"
+     height="710"
+     role="img"
+     aria-labelledby="stage05-exchange-square-title stage05-exchange-square-desc">
+  <title id="stage05-exchange-square-title">Complementary-Rank Siegel–Weil Exchange and the Commuting Theta Square in Stage 05</title>
+  <desc id="stage05-exchange-square-desc">Side-by-side two-panel editorial mathematical diagram of the analytic foundation of Stage 05 of the Riemann Hypothesis proof. The Left Panel (cobalt, diamond markers) shows Complementary-Rank Siegel–Weil Exchange in TheoremForPartners.lean: a central Hermitian space W of even rank |n| = |a| + |b| with q negative signs (2q + 2 &lt;= |n| &lt;= 2 mu + 2q) is paired against complementary-rank partners: a larger space V of rank |a| = |b| + 2e (cobalt, diamond) and a smaller space V' of rank |b| (emerald, circle), with negative signs q_V + q_V' = q. Matched functions Phi (supported on the last |a| rows of k^{-1}) and Psi (supported on the first |b| columns of k) modulo m satisfy AreMatched: Phi(x) = chi(det k) Psi(y) with x y = 0. The flagship result New.Exchange.exchange_identity equates the theta integral over [U(V)] at (x, Phi) to c times the theta integral over [U(V')] at (v, Psi) pointwise on U(W), with ||c||^2 = C L_*(e) != 0 where C &gt; 0 and the Schwartz vector x are fixed before choosing m and nu, backed by constancy of equalRankThetaRatio on H direct-sum W via Fubini cancellation L_*(k) L_*(-k) = 1 where L_*(-k) = L_*(k)^{-1} (exists_equalRankThetaRatio_eq_const). An amber export note indicates that exchange_identity feeds OneSquare.lean inside Stage 05 and is exported directly to Stage 06 (06_one_lift/three_exchanges via ExplicitMatching). A central seesaw doubling bridge arrow labeled W = U_1 direct-sum U_2 connects the Left Panel to the Right Panel. The Right Panel (emerald, circle markers) shows The Commuting Theta Square in OneSquare.lean as a four-corner diamond with U_1 on the left, U_2 on the right, larger A of rank |n| + 2t at the top (cobalt, diamond), and smaller A' of rank |n| at the bottom (emerald, circle). The top route Theta_i(x) lifts U_1 to A then takes the transposed lift A to U_2 using column blocks of x, satisfying GL-equivariance Theta_i(g x) = chi_i(det g) Theta_i(x). The bottom route Theta'_i(y) takes the transposed lift U_1 to A' then lifts A' to U_2 using row blocks of y, satisfying Theta'_i(y g) = chi_i(det g) Theta'_i(y). The commutation identity one_square_identity_of_isEdgeFamily (SquareLaw) proves sum_y Psi'(y) Theta'_i(y) = (kappa / c) sum_x Psi(x) Theta_i(x) with ||c||^2 = C L_*(t) != 0. An explicit rust honesty callout at the bottom of the Right Panel states that OneSquare.lean proves kappa is independent of (i, nu, m, forms) via polynomial Fock density, but does NOT prove kappa != 0; non-vanishing is proved later in ChainNorms and NormOfChain via Rallis injectivity.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+      .serif { font-family: Georgia, 'Times New Roman', 'DejaVu Serif', serif; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+    <marker id="arrow-slate-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+
+    <!-- Card clip paths for crisp header fills and accent bars -->
+    <clipPath id="clip-left-panel"><rect x="14" y="48" width="385" height="610" rx="6"/></clipPath>
+    <clipPath id="clip-left-flagship"><rect x="24" y="390" width="365" height="176" rx="5"/></clipPath>
+    <clipPath id="clip-left-export"><rect x="24" y="579" width="365" height="69" rx="5"/></clipPath>
+    <clipPath id="clip-right-panel"><rect x="461" y="48" width="385" height="610" rx="6"/></clipPath>
+    <clipPath id="clip-right-squarelaw"><rect x="471" y="438" width="365" height="126" rx="5"/></clipPath>
+    <clipPath id="clip-right-honesty"><rect x="471" y="576" width="365" height="72" rx="5"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="709" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="26" class="sans" font-size="14.2" font-weight="700" fill="#161b22">Siegel–Weil Exchange &amp; the Commuting Theta Square</text>
+    <text x="842" y="25" class="mono" font-size="9.1" fill="#3f4a56" text-anchor="end">src/New/Determinant/Exchange/{TheoremForPartners,OneSquare}.lean</text>
+    <line x1="14" y1="39" x2="846" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- LEFT PANEL — COMPLEMENTARY-RANK SIEGEL-WEIL EXCHANGE                  -->
+  <!-- ===================================================================== -->
+  <g id="panel-left-exchange">
+    <rect x="14" y="48" width="385" height="610" rx="6" fill="#ffffff"/>
+    <rect x="14" y="48" width="385" height="36" fill="#edf4ff" clip-path="url(#clip-left-panel)"/>
+    <line x1="14" y1="84" x2="399" y2="84" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="48" width="385" height="610" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+    <!-- Left Panel Header -->
+    <text x="24" y="63" class="sans" font-size="9.8" font-weight="700" fill="#1e40af">◆ LEFT · COMPLEMENTARY-RANK SIEGEL–WEIL EXCHANGE</text>
+    <text x="24" y="77.5" class="sans" font-size="9.0" fill="#3f4a56"><tspan class="mono" font-size="8.9" font-weight="700" fill="#161b22">TheoremForPartners.lean</tspan>  ·  single Hermitian space W</text>
+
+    <!-- L1: DUAL PAIRS GEOMETRY DIAGRAM -->
+    <g id="left-dual-pairs">
+      <rect x="24" y="94" width="365" height="178" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.2"/>
+      <rect x="32" y="100" width="86" height="17" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="75" y="111.5" class="sans" font-size="8.4" font-weight="700" fill="#1e40af" text-anchor="middle">① DUAL PAIRS</text>
+      <text x="126" y="112" class="sans" font-size="10.0" font-weight="700" fill="#161b22">Complementary Partners Around W</text>
+
+      <!-- Larger Partner V -->
+      <rect x="34" y="126" width="103" height="88" rx="5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.4"/>
+      <text x="85.5" y="140" class="sans" font-size="8.5" font-weight="700" fill="#1e40af" text-anchor="middle">◆ LARGER V</text>
+      <text x="85.5" y="155" class="sans" font-size="8.9" font-weight="700" fill="#161b22" text-anchor="middle">rk |a| = |b| + 2e</text>
+      <text x="85.5" y="169" class="sans" font-size="8.3" fill="#3f4a56" text-anchor="middle">q<tspan font-size="6.8" dy="2">V</tspan><tspan dy="-2"> neg. signs</tspan></text>
+      <line x1="44" y1="176" x2="127" y2="176" stroke="#bfdbfe" stroke-width="0.9"/>
+      <text x="85.5" y="188.5" class="sans" font-size="8.4" font-weight="700" fill="#1e40af" text-anchor="middle">Φ: last |a| rows</text>
+      <text x="85.5" y="202" class="sans" font-size="8.3" fill="#1e40af" text-anchor="middle">of k<tspan font-size="6.8" dy="-2.5">−1</tspan><tspan dy="2.5"> (mod 𝔪)</tspan></text>
+
+      <!-- Arrow V -> W -->
+      <line x1="137" y1="170" x2="152" y2="170" stroke="#1e40af" stroke-width="1.7" marker-end="url(#arrow-cobalt-end)"/>
+
+      <!-- Central Space W -->
+      <rect x="155" y="126" width="103" height="88" rx="5" fill="#ffffff" stroke="#161b22" stroke-width="1.6"/>
+      <text x="206.5" y="140" class="sans" font-size="8.7" font-weight="700" fill="#161b22" text-anchor="middle">CENTRAL W</text>
+      <text x="206.5" y="155" class="sans" font-size="9.0" font-weight="700" fill="#161b22" text-anchor="middle">even rk |n|</text>
+      <text x="206.5" y="169" class="sans" font-size="8.7" fill="#3f4a56" text-anchor="middle">|n| = |a| + |b|</text>
+      <line x1="165" y1="176" x2="248" y2="176" stroke="#d8d3c8" stroke-width="0.9"/>
+      <text x="206.5" y="188.5" class="sans" font-size="8.6" font-weight="700" fill="#161b22" text-anchor="middle">q neg. signs</text>
+      <text x="206.5" y="202" class="sans" font-size="8.3" fill="#3f4a56" text-anchor="middle">q = q<tspan font-size="6.8" dy="2">V</tspan><tspan dy="-2"> + q</tspan><tspan font-size="6.8" dy="2">V'</tspan><tspan dy="-2"/></text>
+
+      <!-- Arrow V' -> W -->
+      <line x1="276" y1="170" x2="261" y2="170" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald-end)"/>
+
+      <!-- Smaller Partner V' -->
+      <rect x="276" y="126" width="103" height="88" rx="5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.4"/>
+      <text x="327.5" y="140" class="sans" font-size="8.5" font-weight="700" fill="#065f46" text-anchor="middle">● SMALLER V'</text>
+      <text x="327.5" y="155" class="sans" font-size="8.9" font-weight="700" fill="#161b22" text-anchor="middle">rk |b|</text>
+      <text x="327.5" y="169" class="sans" font-size="8.3" fill="#3f4a56" text-anchor="middle">q<tspan font-size="6.8" dy="2">V'</tspan><tspan dy="-2"> neg. signs</tspan></text>
+      <line x1="286" y1="176" x2="369" y2="176" stroke="#a7f3d0" stroke-width="0.9"/>
+      <text x="327.5" y="188.5" class="sans" font-size="8.4" font-weight="700" fill="#065f46" text-anchor="middle">Ψ: first |b| cols</text>
+      <text x="327.5" y="202" class="sans" font-size="8.3" fill="#065f46" text-anchor="middle">of k (mod 𝔪)</text>
+
+      <!-- Rank window & integral target strip -->
+      <rect x="34" y="223" width="345" height="40" rx="4" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="206.5" y="238" class="sans" font-size="8.9" fill="#161b22" text-anchor="middle"><tspan font-weight="700">Rank window:</tspan>  2q + 2 ≤ |n| ≤ 2μ + 2q   <tspan fill="#3f4a56">(q<tspan font-size="6.8" dy="2">V</tspan><tspan dy="-2"> + q</tspan><tspan font-size="6.8" dy="2">V'</tspan><tspan dy="-2"> = q)</tspan></tspan></text>
+      <text x="206.5" y="254" class="sans" font-size="8.7" fill="#3f4a56" text-anchor="middle">Both <tspan font-weight="700" fill="#1e40af">∫<tspan font-size="6.8" dy="2">[U(V)]</tspan><tspan dy="-2"> θ</tspan><tspan font-size="6.8" dy="2">W,V</tspan><tspan dy="-2"/></tspan> &amp; <tspan font-weight="700" fill="#065f46">∫<tspan font-size="6.8" dy="2">[U(V')]</tspan><tspan dy="-2"> θ</tspan><tspan font-size="6.8" dy="2">V',W</tspan><tspan dy="-2"/></tspan> yield functions on <tspan font-weight="700" fill="#161b22">U(W)</tspan></text>
+    </g>
+
+    <!-- Arrow L1 -> L2 -->
+    <line x1="206.5" y1="272" x2="206.5" y2="284" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt-end)"/>
+
+    <!-- L2: MATCHED FUNCTIONS (AreMatched) -->
+    <g id="left-matched-functions">
+      <rect x="24" y="287" width="365" height="88" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.2"/>
+      <rect x="32" y="293" width="88" height="17" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="76" y="304.5" class="sans" font-size="8.4" font-weight="700" fill="#1e40af" text-anchor="middle">② MATCHING</text>
+      <text x="128" y="305" class="sans" font-size="10.0" font-weight="700" fill="#161b22">Matched Functions Modulo 𝔪</text>
+
+      <text x="34" y="324" class="sans" font-size="9.1" fill="#161b22"><tspan class="mono" font-size="8.8" font-weight="700" fill="#1e40af">AreMatched</tspan>:  <tspan font-weight="700">Φ(x) = χ(det k) · Ψ(y)</tspan>   <tspan font-size="8.5" fill="#3f4a56">(k ∈ GL<tspan font-size="6.8" dy="2">n</tspan><tspan dy="-2">(O</tspan><tspan font-size="6.8" dy="2">E</tspan><tspan dy="-2">/𝔪))</tspan></tspan></text>
+      <text x="34" y="341" class="sans" font-size="8.9" fill="#3f4a56"><tspan font-weight="700" fill="#1e40af">x</tspan> = last |a| rows of k<tspan font-size="6.8" dy="-2.5">−1</tspan><tspan dy="2.5">,  </tspan><tspan font-weight="700" fill="#065f46">y</tspan> = first |b| cols of k  ⇒  <tspan font-weight="700" fill="#161b22">x · y = 0</tspan></text>
+      <text x="34" y="358" class="sans" font-size="8.8" fill="#3f4a56">χ = residue char of tame ν (weight μ)  ·  σ : b ⊕ a ≃ n</text>
+    </g>
+
+    <!-- Arrow L2 -> L3 -->
+    <line x1="206.5" y1="375" x2="206.5" y2="387" stroke="#1e40af" stroke-width="1.6" marker-end="url(#arrow-cobalt-end)"/>
+
+    <!-- L3: FLAGSHIP EXCHANGE IDENTITY -->
+    <g id="left-flagship">
+      <rect x="24" y="390" width="365" height="176" rx="5" fill="#edf4ff"/>
+      <rect x="24" y="390" width="5" height="176" fill="#1e40af" clip-path="url(#clip-left-flagship)"/>
+      <rect x="24" y="390" width="365" height="176" rx="5" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+      <text x="37" y="406" class="sans" font-size="8.8" font-weight="700" fill="#1e40af">◆ FLAGSHIP EXCHANGE IDENTITY</text>
+      <text x="37" y="422" class="mono" font-size="9.6" font-weight="700" fill="#161b22">New.Exchange.exchange_identity</text>
+
+      <!-- Flagship Formula Box -->
+      <rect x="34" y="430" width="345" height="48" rx="4" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.1"/>
+      <text x="206.5" y="449" class="sans" font-size="9.2" font-weight="700" fill="#161b22" text-anchor="middle"><tspan fill="#1e40af">∫<tspan font-size="7" dy="2.5">[U(V)]</tspan><tspan dy="-2.5"> θ</tspan><tspan font-size="7" dy="2.5">W,V</tspan><tspan dy="-2.5">(x ⊗ Φ) dh</tspan></tspan>  =  c · <tspan fill="#065f46">∫<tspan font-size="7" dy="2.5">[U(V')]</tspan><tspan dy="-2.5"> θ</tspan><tspan font-size="7" dy="2.5">V',W</tspan><tspan dy="-2.5">(v ⊗ Ψ) dh</tspan></tspan></text>
+      <text x="206.5" y="467.5" class="sans" font-size="9.8" font-weight="700" fill="#1e40af" text-anchor="middle">‖c‖<tspan font-size="7.4" dy="-3">2</tspan><tspan dy="3"> = C · L</tspan><tspan font-size="7.4" dy="2">*</tspan><tspan dy="-2">(e) ≠ 0</tspan><tspan font-size="8.7" font-weight="400" fill="#3f4a56">   pointwise on U(W)</tspan></text>
+
+      <!-- Guarantees & Equal-Rank Ratio Backing -->
+      <text x="36" y="493" class="sans" font-size="8.9" fill="#161b22">• <tspan font-weight="700">C &gt; 0</tspan> &amp; Schwartz vector <tspan font-weight="700">x</tspan> fixed once before choosing <tspan font-weight="700">(𝔪, ν)</tspan></text>
+      <text x="36" y="509" class="sans" font-size="8.9" fill="#161b22">• Backed by constancy of <tspan class="mono" font-size="8.4" font-weight="700" fill="#1e40af">equalRankThetaRatio</tspan> on <tspan font-weight="700">H ⊕ W</tspan>:</text>
+      <text x="44" y="524" class="sans" font-size="8.6" fill="#3f4a56">Fubini on rk 2k pos.-def. J cancels <tspan font-weight="700" fill="#161b22">L<tspan font-size="6.8" dy="2">*</tspan><tspan dy="-2">(k) · L</tspan><tspan font-size="6.8" dy="2">*</tspan><tspan dy="-2">(−k) = 1</tspan></tspan></text>
+      <text x="44" y="539" class="sans" font-size="8.5" fill="#3f4a56">with <tspan font-weight="700" fill="#161b22">L<tspan font-size="6.8" dy="2">*</tspan><tspan dy="-2">(−k) = L</tspan><tspan font-size="6.8" dy="2">*</tspan><tspan dy="-2">(k)</tspan><tspan font-size="6.8" dy="-2.5">−1</tspan><tspan dy="2.5"/></tspan> (<tspan class="mono" font-size="7.9" fill="#1e40af">exists_equalRankThetaRatio_eq_const</tspan>)</text>
+      <text x="44" y="554" class="sans" font-size="8.6" fill="#3f4a56">⇒ equal-rank ratio is a nonzero ν-independent constant.</text>
+    </g>
+
+    <!-- Arrow L3 -> L4 -->
+    <line x1="206.5" y1="566" x2="206.5" y2="576" stroke="#92400e" stroke-width="1.5" marker-end="url(#arrow-amber-end)"/>
+
+    <!-- L4: EXPORT TO STAGE 06 -->
+    <g id="left-export">
+      <rect x="24" y="579" width="365" height="69" rx="5" fill="#fef6e4"/>
+      <rect x="24" y="579" width="5" height="69" fill="#92400e" clip-path="url(#clip-left-export)"/>
+      <rect x="24" y="579" width="365" height="69" rx="5" fill="none" stroke="#92400e" stroke-width="1.3"/>
+
+      <text x="37" y="596" class="sans" font-size="8.8" font-weight="700" fill="#92400e">▲ EXPORT BEYOND STAGE 05</text>
+      <text x="37" y="614" class="sans" font-size="9.0" fill="#161b22">Feeds <tspan class="mono" font-size="8.6" font-weight="700">OneSquare.lean</tspan> (→ right) and exports directly to</text>
+      <text x="37" y="631" class="sans" font-size="9.0" fill="#161b22">Stage 06: <tspan class="mono" font-size="8.5" font-weight="700" fill="#92400e">06_one_lift/three_exchanges</tspan> <tspan font-size="8.4" fill="#3f4a56">(ExplicitMatching)</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- CENTER BRIDGE — SEESAW DOUBLING W = U_1 ⊕ U_2                         -->
+  <!-- ===================================================================== -->
+  <g id="bridge-seesaw-doubling">
+    <rect x="402" y="138" width="56" height="38" rx="5" fill="#fef6e4" stroke="#92400e" stroke-width="1.3"/>
+    <text x="430" y="153" class="sans" font-size="7.6" font-weight="700" fill="#92400e" text-anchor="middle">DOUBLING</text>
+    <text x="430" y="167.5" class="sans" font-size="8.2" font-weight="700" fill="#161b22" text-anchor="middle">W = U<tspan font-size="6.4" dy="2">1</tspan><tspan dy="-2">⊕U</tspan><tspan font-size="6.4" dy="2">2</tspan><tspan dy="-2"/></text>
+
+    <line x1="401" y1="188" x2="456" y2="188" stroke="#92400e" stroke-width="2" marker-end="url(#arrow-amber-end)"/>
+
+    <text x="430" y="202.5" class="sans" font-size="8.3" font-weight="700" fill="#92400e" text-anchor="middle">seesaw</text>
+    <text x="430" y="213.5" class="sans" font-size="8.1" fill="#3f4a56" text-anchor="middle">duality</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- RIGHT PANEL — THE COMMUTING THETA SQUARE                              -->
+  <!-- ===================================================================== -->
+  <g id="panel-right-square">
+    <rect x="461" y="48" width="385" height="610" rx="6" fill="#ffffff"/>
+    <rect x="461" y="48" width="385" height="36" fill="#ecfdf5" clip-path="url(#clip-right-panel)"/>
+    <line x1="461" y1="84" x2="846" y2="84" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="461" y="48" width="385" height="610" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+    <!-- Right Panel Header -->
+    <text x="471" y="63" class="sans" font-size="9.8" font-weight="700" fill="#065f46">● RIGHT · THE COMMUTING THETA SQUARE</text>
+    <text x="471" y="77.5" class="sans" font-size="9.0" fill="#3f4a56"><tspan class="mono" font-size="8.9" font-weight="700" fill="#161b22">OneSquare.lean</tspan>  ·  doubled seesaw space W = U<tspan font-size="7" dy="2">1</tspan><tspan dy="-2"> ⊕ U</tspan><tspan font-size="7" dy="2">2</tspan><tspan dy="-2"/></text>
+
+    <!-- R1: FOUR-CORNER COMMUTING DIAMOND -->
+    <g id="right-diamond-diagram">
+      <rect x="471" y="94" width="365" height="254" rx="5" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.2"/>
+      <rect x="479" y="100" width="96" height="17" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="527" y="111.5" class="sans" font-size="8.3" font-weight="700" fill="#065f46" text-anchor="middle">① THETA SQUARE</text>
+      <text x="583" y="112" class="sans" font-size="10.0" font-weight="700" fill="#161b22">Four-Corner Seesaw Diamond</text>
+
+      <!-- Top Node: Larger A -->
+      <rect x="585" y="124" width="137" height="42" rx="5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.5"/>
+      <text x="653.5" y="140" class="sans" font-size="8.9" font-weight="700" fill="#1e40af" text-anchor="middle">◆ LARGER A</text>
+      <text x="653.5" y="155" class="sans" font-size="8.9" font-weight="700" fill="#161b22" text-anchor="middle">rk |n| + 2t  <tspan font-weight="400" fill="#3f4a56">(top)</tspan></text>
+
+      <!-- Left Node: U_1 -->
+      <rect x="479" y="210" width="64" height="44" rx="5" fill="#ffffff" stroke="#161b22" stroke-width="1.6"/>
+      <text x="511" y="229" class="sans" font-size="11.2" font-weight="700" fill="#161b22" text-anchor="middle">U<tspan font-size="8.2" dy="2.5">1</tspan><tspan dy="-2.5"/></text>
+      <text x="511" y="244" class="sans" font-size="8.3" fill="#3f4a56" text-anchor="middle">source</text>
+
+      <!-- Right Node: U_2 -->
+      <rect x="764" y="210" width="64" height="44" rx="5" fill="#ffffff" stroke="#161b22" stroke-width="1.6"/>
+      <text x="796" y="229" class="sans" font-size="11.2" font-weight="700" fill="#161b22" text-anchor="middle">U<tspan font-size="8.2" dy="2.5">2</tspan><tspan dy="-2.5"/></text>
+      <text x="796" y="244" class="sans" font-size="8.3" fill="#3f4a56" text-anchor="middle">target</text>
+
+      <!-- Bottom Node: Smaller A' -->
+      <rect x="591" y="298" width="125" height="42" rx="5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.5"/>
+      <text x="653.5" y="314" class="sans" font-size="8.9" font-weight="700" fill="#065f46" text-anchor="middle">● SMALLER A'</text>
+      <text x="653.5" y="329" class="sans" font-size="8.9" font-weight="700" fill="#161b22" text-anchor="middle">rk |n|  <tspan font-weight="400" fill="#3f4a56">(bottom)</tspan></text>
+
+      <!-- Top Route Arrows (Cobalt): U_1 -> A -> U_2 -->
+      <line x1="518" y1="210" x2="582" y2="151" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+      <line x1="724" y1="150" x2="788" y2="208" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+
+      <!-- Bottom Route Arrows (Emerald): U_1 -> A' -> U_2 -->
+      <line x1="518" y1="254" x2="588" y2="313" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+      <line x1="718" y1="314" x2="788" y2="255" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+
+      <!-- Outer Edge Labels (Zero Overlap with Diagonals) -->
+      <text x="479" y="149" class="sans" font-size="8.5" font-weight="700" fill="#1e40af">lift U<tspan font-size="6.6" dy="2">1</tspan><tspan dy="-2"> → A</tspan></text>
+      <text x="479" y="162" class="sans" font-size="8.2" fill="#3f4a56">cols<tspan font-size="6.6" dy="2">1</tspan><tspan dy="-2"> of x</tspan></text>
+
+      <text x="828" y="149" class="sans" font-size="8.5" font-weight="700" fill="#1e40af" text-anchor="end">transp. lift</text>
+      <text x="828" y="162" class="sans" font-size="8.2" fill="#3f4a56" text-anchor="end">cols<tspan font-size="6.6" dy="2">2</tspan><tspan dy="-2"> of x</tspan></text>
+
+      <text x="479" y="305" class="sans" font-size="8.5" font-weight="700" fill="#065f46">transp. lift</text>
+      <text x="479" y="318" class="sans" font-size="8.2" fill="#3f4a56">rows<tspan font-size="6.6" dy="2">1</tspan><tspan dy="-2"> of y</tspan></text>
+
+      <text x="828" y="305" class="sans" font-size="8.5" font-weight="700" fill="#065f46" text-anchor="end">lift A' → U<tspan font-size="6.6" dy="2">2</tspan><tspan dy="-2"/></text>
+      <text x="828" y="318" class="sans" font-size="8.2" fill="#3f4a56" text-anchor="end">rows<tspan font-size="6.6" dy="2">2</tspan><tspan dy="-2"> of y</tspan></text>
+
+      <!-- Interior Diamond Route Pills & Commutation Hub -->
+      <rect x="566" y="180" width="175" height="23" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="653.5" y="194.5" class="sans" font-size="8.5" font-weight="700" fill="#1e40af" text-anchor="middle">◆ Top Θ<tspan font-size="6.6" dy="2">i</tspan><tspan dy="-2">(x): col blocks of x</tspan></text>
+
+      <text x="653.5" y="226" class="sans" font-size="9.2" font-weight="700" fill="#161b22" text-anchor="middle">W = U<tspan font-size="7" dy="2">1</tspan><tspan dy="-2"> ⊕ U</tspan><tspan font-size="7" dy="2">2</tspan><tspan dy="-2"/></text>
+      <text x="653.5" y="240" class="sans" font-size="8.2" font-weight="700" fill="#92400e" text-anchor="middle">commutes after matched ∑</text>
+
+      <rect x="566" y="259" width="175" height="23" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="653.5" y="273.5" class="sans" font-size="8.5" font-weight="700" fill="#065f46" text-anchor="middle">● Bot Θ'<tspan font-size="6.6" dy="2">i</tspan><tspan dy="-2">(y): row blocks of y</tspan></text>
+    </g>
+
+    <!-- Arrow R1 -> R2 -->
+    <line x1="653.5" y1="348" x2="653.5" y2="359" stroke="#065f46" stroke-width="1.6" marker-end="url(#arrow-emerald-end)"/>
+
+    <!-- R2: GL-EQUIVARIANCE -->
+    <g id="right-equivariance">
+      <rect x="471" y="362" width="365" height="62" rx="5" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.2"/>
+      <rect x="479" y="368" width="96" height="17" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="527" y="379.5" class="sans" font-size="8.2" font-weight="700" fill="#065f46" text-anchor="middle">② EQUIVARIANCE</text>
+      <text x="583" y="380" class="sans" font-size="10.0" font-weight="700" fill="#161b22">GL-Action on Both Routes</text>
+
+      <text x="481" y="399" class="sans" font-size="8.9" fill="#161b22"><tspan font-weight="700" fill="#1e40af">◆ Top:</tspan>  <tspan font-weight="700">Θ<tspan font-size="6.8" dy="2">i</tspan><tspan dy="-2">(g · x) = χ</tspan><tspan font-size="6.8" dy="2">i</tspan><tspan dy="-2">(det g) · Θ</tspan><tspan font-size="6.8" dy="2">i</tspan><tspan dy="-2">(x)</tspan></tspan>   <tspan font-size="8.3" fill="#3f4a56">(g ∈ GL<tspan font-size="6.6" dy="2">n'</tspan><tspan dy="-2">)</tspan></tspan></text>
+      <text x="481" y="414.5" class="sans" font-size="8.9" fill="#161b22"><tspan font-weight="700" fill="#065f46">● Bot:</tspan>  <tspan font-weight="700">Θ'<tspan font-size="6.8" dy="2">i</tspan><tspan dy="-2">(y · g) = χ</tspan><tspan font-size="6.8" dy="2">i</tspan><tspan dy="-2">(det g) · Θ'</tspan><tspan font-size="6.8" dy="2">i</tspan><tspan dy="-2">(y)</tspan></tspan>   <tspan font-size="8.3" fill="#3f4a56">(g ∈ GL<tspan font-size="6.6" dy="2">n</tspan><tspan dy="-2">)</tspan></tspan></text>
+    </g>
+
+    <!-- Arrow R2 -> R3 -->
+    <line x1="653.5" y1="424" x2="653.5" y2="435" stroke="#065f46" stroke-width="1.6" marker-end="url(#arrow-emerald-end)"/>
+
+    <!-- R3: COMMUTATION IDENTITY (SquareLaw) -->
+    <g id="right-squarelaw">
+      <rect x="471" y="438" width="365" height="126" rx="5" fill="#ecfdf5"/>
+      <rect x="471" y="438" width="5" height="126" fill="#065f46" clip-path="url(#clip-right-squarelaw)"/>
+      <rect x="471" y="438" width="365" height="126" rx="5" fill="none" stroke="#065f46" stroke-width="1.5"/>
+
+      <text x="484" y="454" class="sans" font-size="8.8" font-weight="700" fill="#065f46">● COMMUTATION IDENTITY · <tspan class="mono" font-size="8.8">SquareLaw</tspan></text>
+      <text x="484" y="470" class="mono" font-size="9.6" font-weight="700" fill="#161b22">one_square_identity_of_isEdgeFamily</text>
+
+      <!-- Commutation Formula Box -->
+      <rect x="481" y="478" width="345" height="48" rx="4" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.1"/>
+      <text x="653.5" y="497" class="sans" font-size="10.0" font-weight="700" fill="#161b22" text-anchor="middle"><tspan fill="#065f46">∑<tspan font-size="7" dy="2">y</tspan><tspan dy="-2"> Ψ'(y) · Θ'</tspan><tspan font-size="7" dy="2">i</tspan><tspan dy="-2">(y)</tspan></tspan>  =  (κ / c) · <tspan fill="#1e40af">∑<tspan font-size="7" dy="2">x</tspan><tspan dy="-2"> Ψ(x) · Θ</tspan><tspan font-size="7" dy="2">i</tspan><tspan dy="-2">(x)</tspan></tspan></text>
+      <text x="653.5" y="516" class="sans" font-size="9.6" font-weight="700" fill="#065f46" text-anchor="middle">‖c‖<tspan font-size="7.2" dy="-3">2</tspan><tspan dy="3"> = C · L</tspan><tspan font-size="7.2" dy="2">*</tspan><tspan dy="-2">(t) ≠ 0</tspan><tspan font-size="8.6" font-weight="400" fill="#3f4a56">   (C &gt; 0, matched Ψ, Ψ')</tspan></text>
+
+      <text x="483" y="541" class="sans" font-size="8.8" fill="#161b22">• <tspan font-weight="700">κ ∈ ℂ</tspan> is uniform across <tspan font-weight="700">(i, ν, 𝔪, forms)</tspan> via polynomial</text>
+      <text x="491" y="555" class="sans" font-size="8.5" fill="#3f4a56">Fock density (<tspan class="mono" font-size="8.1" fill="#065f46">exists_eq_mul_of_forall_polyVector</tspan>).</text>
+    </g>
+
+    <!-- R4: EXPLICIT RUST HONESTY CALLOUT ON KAPPA -->
+    <g id="right-honesty-callout">
+      <rect x="471" y="576" width="365" height="72" rx="5" fill="#fff5f0"/>
+      <rect x="471" y="576" width="5" height="72" fill="#9a3412" clip-path="url(#clip-right-honesty)"/>
+      <rect x="471" y="576" width="365" height="72" rx="5" fill="none" stroke="#9a3412" stroke-width="1.5"/>
+
+      <text x="484" y="592" class="sans" font-size="8.8" font-weight="700" fill="#9a3412">▲ HONESTY NOTE · κ ≠ 0 IS NOT PROVED HERE</text>
+      <text x="484" y="608" class="sans" font-size="8.8" fill="#161b22"><tspan class="mono" font-size="8.4" font-weight="700">OneSquare.lean</tspan> proves κ is independent of (i, ν, 𝔪, forms),</text>
+      <text x="484" y="623" class="sans" font-size="8.8" fill="#161b22">but <tspan font-weight="700" fill="#9a3412">does NOT prove κ ≠ 0</tspan>. Non-vanishing is proved later</text>
+      <text x="484" y="638" class="sans" font-size="8.7" fill="#3f4a56">in <tspan class="mono" font-size="8.3" font-weight="700" fill="#161b22">ChainNorms</tspan> / <tspan class="mono" font-size="8.3" font-weight="700" fill="#161b22">NormOfChain</tspan> via Rallis injectivity.</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- ACCESSIBLE MARKER & COLOR KEY FOOTER                                  -->
+  <!-- ===================================================================== -->
+  <g id="legend-footer">
+    <rect x="14" y="668" width="832" height="28" rx="5" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="430" y="685.5" class="sans" font-size="8.6" fill="#3f4a56" text-anchor="middle"><tspan font-weight="700" fill="#1e40af">◆ Cobalt:</tspan> larger partner / top route (V, A, Θ<tspan font-size="6.6" dy="2">i</tspan><tspan dy="-2">)   │   </tspan><tspan font-weight="700" fill="#065f46">● Emerald:</tspan> smaller partner / bottom route (V', A', Θ'<tspan font-size="6.6" dy="2">i</tspan><tspan dy="-2">)   │   </tspan><tspan font-weight="700" fill="#9a3412">▲ Amber/Rust:</tspan> seesaw bridge, export &amp; κ caveat</text>
+  </g>
+</svg>

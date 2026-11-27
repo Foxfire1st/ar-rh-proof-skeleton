@@ -1,0 +1,497 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 842"
+     width="860"
+     height="842"
+     role="img"
+     aria-labelledby="stage05-engines-title stage05-engines-desc">
+  <title id="stage05-engines-title">Side-by-Side Comparison of the Triangle of Lifts and Two-Grid Turns Built on OneSquare.lean in Stage 05</title>
+  <desc id="stage05-engines-desc">Publication-grade side-by-side mathematical diagram contrasting the two combinatorial engines built on OneSquare.lean (SquareLaw) in Stage 05 of the Riemann Hypothesis proof. At the top, a shared foundation strip presents OneSquare.lean (SquareLaw), which commutes lifts past descents up to local L-value ratios and feeds both panels. The Left Panel (cobalt, diamond badges) depicts the Triangle of Lifts in NormOfChain.lean and ChainNorms.lean via a schematic m = 3 triangular lattice of nodes (i, n) with i + n &lt;= 3: top chain (0,0) to (0,1) to (0,2) to (0,3) representing Y_0 to Y_3, and internal nodes (1,0), (1,1), (1,2), (2,0), (2,1), (3,0). Three shaded OneSquare cells slide lifts past descents down to the m = 3 convergent first-step Rallis operators R_1, R_2, R_3 along the hypotenuse base, yielding Theta_vartheta* Theta_vartheta = c(vartheta) c_Q^m rallisProduct (where rallisProduct = prod_{j=1}^m R_j) and picking up prod_{1 &lt;= i &lt; j &lt;= m} quotientRatio_{i,j} with inverse height at most m^2 t x_1. Stage 04 trace comparison (det_rallisOnGood_eq) transfers determinants between indefinite Y_0 and definite W_j, yielding exists_chainDeterminant_pos_and_div_chainDeterminant_one_eq: Z(vartheta)/Z(1) = (Nm(Q)^(e/2) prod quotientRatio)^d prod_{j=1}^m Z_j(vartheta^j)/Z_j(1), with positivity C &gt; 0 proved separately from Rallis injectivity. The Right Panel (emerald and amber/rust, circle, square, and diamond markers) depicts the Two Square Grids and m^2 Turns in SpanningForms.lean and DiagonalTurns.lean via a schematic m = 3 two-grid lattice: lower-left half Y^a_b (cobalt circles) and upper-right half Y_tilde^b_a (emerald squares) meeting along the shared diagonal (l, l) (amber diamonds) with S = Y^{j+1}_j = Y_tilde^{j+1}_j. It contrasts the dashed rust First Path (lowerChain Y_m &lt;- ... &lt;- Y_0 paired with restriction r from Y_tilde^m_0) against the solid emerald Last Path (Y_m -&gt; ... -&gt; Y^m_m &lt;- ... &lt;- Y_tilde^m_0, all definite spaces), connected by m^2 = 9 turns: 6 off-diagonal OneSquare turns plus 3 diagonal seesaw turns (DiagonalTurns.lean), picking up prod_{i,j &lt; m} turnRatio_{i,j}. Pairing against dual-weight delta forms delta_x(v) (exists_dualPairing_eq_mul_lastPathPeriod) and pushing short deep-level forms on Y_tilde^m_0 (span_isShort_eq_top_gridLevelForms) through r establishes exists_span_short_lifts_eq_top: weylNormSq &lt;= exp(x^202 b^2) and p-integrality for p not dividing Nm(Q). A bottom contrast strip summarizes the structural difference: the triangle stops at the convergent base of first-step Rallis operators, whereas the two-grid crosses the shared diagonal via extra seesaws on S = Y^{j+1}_j = Y_tilde^{j+1}_j to reach definite deep-level forms.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+      .serif { font-family: Georgia, 'Times New Roman', 'DejaVu Serif', serif; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-slate" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#3f4a56"/>
+    </marker>
+    <marker id="arrow-cobalt" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-cobalt-sm" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-slate-sm" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-emerald-sm" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-rust-sm" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+
+    <!-- Clip paths for crisp headers & accent bars -->
+    <clipPath id="clip-left-panel"><rect x="14" y="134" width="408" height="572" rx="6"/></clipPath>
+    <clipPath id="clip-right-panel"><rect x="438" y="134" width="408" height="572" rx="6"/></clipPath>
+    <clipPath id="clip-left-output"><rect x="24" y="612" width="388" height="84" rx="5"/></clipPath>
+    <clipPath id="clip-right-output"><rect x="448" y="612" width="388" height="84" rx="5"/></clipPath>
+    <clipPath id="clip-contrast"><rect x="14" y="726" width="832" height="102" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="841" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="26" class="sans" font-size="15.5" font-weight="700" fill="#161b22">Two Combinatorial Engines Built on <tspan class="mono" font-size="14" fill="#1e40af">OneSquare.lean</tspan></text>
+    <text x="842" y="25" class="mono" font-size="10.4" fill="#3f4a56" text-anchor="end">src/New/Determinant/{Chain,AuxiliaryForms}/</text>
+    <line x1="14" y1="38" x2="846" y2="38" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: SHARED TOP STRIP — OneSquare.lean (SquareLaw)                 -->
+  <!-- ===================================================================== -->
+  <g id="shared-one-square">
+    <rect x="14" y="46" width="832" height="60" rx="6" fill="#ffffff" stroke="#3f4a56" stroke-width="1.4"/>
+
+    <!-- Mini Commuting Square Glyph -->
+    <g id="mini-square-glyph">
+      <rect x="24" y="54" width="44" height="44" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <line x1="32" y1="63" x2="57" y2="63" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arrow-cobalt-sm)"/>
+      <line x1="32" y1="89" x2="57" y2="89" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arrow-cobalt-sm)"/>
+      <line x1="32" y1="63" x2="32" y2="86" stroke="#64748b" stroke-width="1.3" stroke-dasharray="2.5,2" marker-end="url(#arrow-slate-sm)"/>
+      <line x1="60" y1="63" x2="60" y2="86" stroke="#64748b" stroke-width="1.3" stroke-dasharray="2.5,2" marker-end="url(#arrow-slate-sm)"/>
+      <circle cx="32" cy="63" r="2.2" fill="#1e40af"/>
+      <circle cx="60" cy="63" r="2.2" fill="#1e40af"/>
+      <circle cx="32" cy="89" r="2.2" fill="#1e40af"/>
+      <circle cx="60" cy="89" r="2.2" fill="#1e40af"/>
+      <text x="46" y="79" class="sans" font-size="8.2" font-weight="700" fill="#1e40af" text-anchor="middle">Sq</text>
+    </g>
+
+    <text x="80" y="64" class="sans" font-size="10.8" font-weight="700" fill="#161b22">SHARED FOUNDATION · <tspan class="mono" font-size="10.5" fill="#1e40af">OneSquare.lean</tspan> (<tspan class="mono" font-size="10.2" fill="#3f4a56">SquareLaw</tspan>)</text>
+    <text x="834" y="64" class="sans" font-size="9.7" fill="#3f4a56" text-anchor="end">Commutes one lift past one descent up to a local <tspan font-style="italic">L</tspan>-value ratio</text>
+    <text x="80" y="81" class="sans" font-size="9.8" fill="#3f4a56">Feeds two distinct geometric layouts on the indefinite target space <tspan font-weight="700" fill="#161b22">Y</tspan><tspan font-size="7.4" font-weight="700" fill="#161b22" dy="2">0</tspan><tspan dy="-2">:</tspan></text>
+    <text x="80" y="96.5" class="sans" font-size="9.6" fill="#3f4a56"><tspan font-weight="700" fill="#1e40af">◆ Left Panel:</tspan> Triangle of lifts → Gram determinant <tspan font-weight="700" fill="#161b22">Z(ϑ)/Z(1)</tspan>   │   <tspan font-weight="700" fill="#065f46">● Right Panel:</tspan> Two square grids → short <tspan font-style="italic">p</tspan>-integral spanning lifts</text>
+  </g>
+
+  <!-- Split Connectors: OneSquare -> Left & Right Panels -->
+  <g id="split-connectors">
+    <line x1="218" y1="106" x2="218" y2="131" stroke="#1e40af" stroke-width="1.7" marker-end="url(#arrow-cobalt)"/>
+    <text x="228" y="122.5" class="sans" font-size="9.3" font-weight="700" fill="#1e40af">m(m−1)/2 OneSquare slides</text>
+
+    <line x1="642" y1="106" x2="642" y2="131" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald)"/>
+    <text x="652" y="122.5" class="sans" font-size="9.3" font-weight="700" fill="#065f46">m(m−1) OneSq + m diag seesaws</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2A: LEFT PANEL — TRIANGLE OF LIFTS (COBALT)                      -->
+  <!-- ===================================================================== -->
+  <g id="panel-left-triangle">
+    <rect x="14" y="134" width="408" height="572" rx="6" fill="#ffffff"/>
+    <rect x="14" y="134" width="408" height="36" fill="#edf4ff" clip-path="url(#clip-left-panel)"/>
+    <line x1="14" y1="170" x2="422" y2="170" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="134" width="408" height="572" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+    <!-- Panel Header -->
+    <text x="24" y="149" class="sans" font-size="10.6" font-weight="700" fill="#1e40af">◆ LEFT PANEL · TRIANGLE OF LIFTS</text>
+    <text x="24" y="163.5" class="mono" font-size="9.2" fill="#3f4a56">NormOfChain.lean + ChainNorms.lean</text>
+
+    <!-- GEOMETRIC FIGURE: SCHEMATIC m = 3 TRIANGLE OF LIFTS -->
+    <g id="figure-left-triangle">
+      <rect x="24" y="178" width="388" height="234" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.2"/>
+      <text x="34" y="193" class="sans" font-size="8.9" font-weight="700" fill="#3f4a56">SCHEMATIC m = 3 TRIANGLE  ·  nodes (i, n) with i + n ≤ 3</text>
+
+      <!-- 3 Shaded OneSquare Unit Squares: (0,0)-(1,1), (0,1)-(1,2), (1,0)-(2,1) -->
+      <rect x="70" y="226" width="76" height="48" fill="#edf4ff" stroke="none"/>
+      <rect x="146" y="226" width="76" height="48" fill="#edf4ff" stroke="none"/>
+      <rect x="70" y="274" width="76" height="48" fill="#edf4ff" stroke="none"/>
+
+      <!-- 3 Shaded Convergent Base Corner Half-Cells (R_1, R_2, R_3) -->
+      <polygon points="222,226 298,226 222,274" fill="#ecfdf5" opacity="0.9"/>
+      <polygon points="146,274 222,274 146,322" fill="#ecfdf5" opacity="0.9"/>
+      <polygon points="70,322 146,322 70,370" fill="#ecfdf5" opacity="0.9"/>
+
+      <!-- Subtle dashed hypotenuse along the convergent base -->
+      <line x1="298" y1="226" x2="70" y2="370" stroke="#065f46" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+      <!-- Labels inside the 3 OneSquare cells -->
+      <text x="108" y="247" class="sans" font-size="8.4" font-weight="700" fill="#1e40af" text-anchor="middle">OneSq</text>
+      <text x="108" y="258" class="sans" font-size="8.2" fill="#3f4a56" text-anchor="middle">q<tspan font-size="6.4" dy="1.8">1,2</tspan><tspan dy="-1.8"/></text>
+
+      <text x="184" y="247" class="sans" font-size="8.4" font-weight="700" fill="#1e40af" text-anchor="middle">OneSq</text>
+      <text x="184" y="258" class="sans" font-size="8.2" fill="#3f4a56" text-anchor="middle">q<tspan font-size="6.4" dy="1.8">1,3</tspan><tspan dy="-1.8"/></text>
+
+      <text x="108" y="295" class="sans" font-size="8.4" font-weight="700" fill="#1e40af" text-anchor="middle">OneSq</text>
+      <text x="108" y="306" class="sans" font-size="8.2" fill="#3f4a56" text-anchor="middle">q<tspan font-size="6.4" dy="1.8">2,3</tspan><tspan dy="-1.8"/></text>
+
+      <!-- Horizontal Lift Arrows (solid cobalt ->) -->
+      <!-- Row i = 0 (main chain Y_0 -> Y_1 -> Y_2 -> Y_3, heavier stroke) -->
+      <line x1="88" y1="226" x2="125" y2="226" stroke="#1e40af" stroke-width="2.1" marker-end="url(#arrow-cobalt-sm)"/>
+      <line x1="164" y1="226" x2="201" y2="226" stroke="#1e40af" stroke-width="2.1" marker-end="url(#arrow-cobalt-sm)"/>
+      <line x1="240" y1="226" x2="277" y2="226" stroke="#1e40af" stroke-width="2.1" marker-end="url(#arrow-cobalt-sm)"/>
+      <!-- Row i = 1 -->
+      <line x1="88" y1="274" x2="125" y2="274" stroke="#1e40af" stroke-width="1.4" marker-end="url(#arrow-cobalt-sm)"/>
+      <line x1="164" y1="274" x2="201" y2="274" stroke="#1e40af" stroke-width="1.4" marker-end="url(#arrow-cobalt-sm)"/>
+      <!-- Row i = 2 -->
+      <line x1="88" y1="322" x2="125" y2="322" stroke="#1e40af" stroke-width="1.4" marker-end="url(#arrow-cobalt-sm)"/>
+
+      <!-- Vertical Descent Arrows (dashed slate down) -->
+      <!-- Col n = 0 -->
+      <line x1="70" y1="235" x2="70" y2="262" stroke="#64748b" stroke-width="1.3" stroke-dasharray="3,2" marker-end="url(#arrow-slate-sm)"/>
+      <line x1="70" y1="283" x2="70" y2="310" stroke="#64748b" stroke-width="1.3" stroke-dasharray="3,2" marker-end="url(#arrow-slate-sm)"/>
+      <line x1="70" y1="331" x2="70" y2="358" stroke="#64748b" stroke-width="1.3" stroke-dasharray="3,2" marker-end="url(#arrow-slate-sm)"/>
+      <!-- Col n = 1 -->
+      <line x1="146" y1="235" x2="146" y2="262" stroke="#64748b" stroke-width="1.3" stroke-dasharray="3,2" marker-end="url(#arrow-slate-sm)"/>
+      <line x1="146" y1="283" x2="146" y2="310" stroke="#64748b" stroke-width="1.3" stroke-dasharray="3,2" marker-end="url(#arrow-slate-sm)"/>
+      <!-- Col n = 2 -->
+      <line x1="222" y1="235" x2="222" y2="262" stroke="#64748b" stroke-width="1.3" stroke-dasharray="3,2" marker-end="url(#arrow-slate-sm)"/>
+
+      <!-- Chain Labels Above Row i = 0 -->
+      <text x="70" y="211" class="sans" font-size="9.5" font-weight="700" fill="#1e40af" text-anchor="middle">Y<tspan font-size="7.2" dy="2">0</tspan><tspan dy="-2"/></text>
+      <text x="146" y="211" class="sans" font-size="9.5" font-weight="700" fill="#1e40af" text-anchor="middle">Y<tspan font-size="7.2" dy="2">1</tspan><tspan dy="-2"/></text>
+      <text x="222" y="211" class="sans" font-size="9.5" font-weight="700" fill="#1e40af" text-anchor="middle">Y<tspan font-size="7.2" dy="2">2</tspan><tspan dy="-2"/></text>
+      <text x="298" y="211" class="sans" font-size="9.5" font-weight="700" fill="#1e40af" text-anchor="middle">Y<tspan font-size="7.2" dy="2">3</tspan><tspan dy="-2"> (Y</tspan><tspan font-size="7.2" dy="2">m</tspan><tspan dy="-2">)</tspan></text>
+      <text x="364" y="229" class="sans" font-size="9.1" font-weight="700" fill="#1e40af" text-anchor="middle">chain Θ<tspan font-size="7" dy="2">ϑ</tspan><tspan dy="-2"/></text>
+
+      <!-- Pill Nodes (i, n) — guaranteed zero text overlap -->
+      <!-- Row i = 0 -->
+      <rect x="52" y="217.5" width="36" height="17" rx="8.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.6"/>
+      <text x="70" y="229" class="mono" font-size="8.4" font-weight="700" fill="#161b22" text-anchor="middle">(0,0)</text>
+
+      <rect x="128" y="217.5" width="36" height="17" rx="8.5" fill="#ffffff" stroke="#1e40af" stroke-width="1.4"/>
+      <text x="146" y="229" class="mono" font-size="8.4" font-weight="700" fill="#161b22" text-anchor="middle">(0,1)</text>
+
+      <rect x="204" y="217.5" width="36" height="17" rx="8.5" fill="#ffffff" stroke="#1e40af" stroke-width="1.4"/>
+      <text x="222" y="229" class="mono" font-size="8.4" font-weight="700" fill="#161b22" text-anchor="middle">(0,2)</text>
+
+      <rect x="280" y="217.5" width="36" height="17" rx="8.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.6"/>
+      <text x="298" y="229" class="mono" font-size="8.4" font-weight="700" fill="#065f46" text-anchor="middle">(0,3)</text>
+
+      <!-- Row i = 1 -->
+      <rect x="52" y="265.5" width="36" height="17" rx="8.5" fill="#ffffff" stroke="#3f4a56" stroke-width="1.2"/>
+      <text x="70" y="277" class="mono" font-size="8.4" fill="#161b22" text-anchor="middle">(1,0)</text>
+
+      <rect x="128" y="265.5" width="36" height="17" rx="8.5" fill="#ffffff" stroke="#3f4a56" stroke-width="1.2"/>
+      <text x="146" y="277" class="mono" font-size="8.4" fill="#161b22" text-anchor="middle">(1,1)</text>
+
+      <rect x="204" y="265.5" width="36" height="17" rx="8.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.5"/>
+      <text x="222" y="277" class="mono" font-size="8.4" font-weight="700" fill="#065f46" text-anchor="middle">(1,2)</text>
+
+      <!-- Row i = 2 -->
+      <rect x="52" y="313.5" width="36" height="17" rx="8.5" fill="#ffffff" stroke="#3f4a56" stroke-width="1.2"/>
+      <text x="70" y="325" class="mono" font-size="8.4" fill="#161b22" text-anchor="middle">(2,0)</text>
+
+      <rect x="128" y="313.5" width="36" height="17" rx="8.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.5"/>
+      <text x="146" y="325" class="mono" font-size="8.4" font-weight="700" fill="#065f46" text-anchor="middle">(2,1)</text>
+
+      <!-- Row i = 3 -->
+      <rect x="52" y="361.5" width="36" height="17" rx="8.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.6"/>
+      <text x="70" y="373" class="mono" font-size="8.4" font-weight="700" fill="#065f46" text-anchor="middle">(3,0)</text>
+
+      <!-- Convergent Base First-Step Rallis Badges along hypotenuse -->
+      <rect x="259" y="251" width="26" height="16" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+      <text x="272" y="262.3" class="sans" font-size="8.6" font-weight="700" fill="#065f46" text-anchor="middle">R<tspan font-size="6.4" dy="1.5">3</tspan><tspan dy="-1.5"/></text>
+
+      <rect x="184" y="298" width="26" height="16" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+      <text x="197" y="309.3" class="sans" font-size="8.6" font-weight="700" fill="#065f46" text-anchor="middle">R<tspan font-size="6.4" dy="1.5">2</tspan><tspan dy="-1.5"/></text>
+
+      <rect x="110" y="345" width="26" height="16" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+      <text x="123" y="356.3" class="sans" font-size="8.6" font-weight="700" fill="#065f46" text-anchor="middle">R<tspan font-size="6.4" dy="1.5">1</tspan><tspan dy="-1.5"/></text>
+
+      <!-- Compact Right-Corner Legend Box (clear of all nodes and badges) -->
+      <rect x="242" y="286" width="160" height="96" rx="4" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="250" y="300" class="sans" font-size="8.2" font-weight="700" fill="#3f4a56">TRIANGLE KEY</text>
+      <line x1="250" y1="313" x2="266" y2="313" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-sm)"/>
+      <text x="273" y="316" class="sans" font-size="8.4" fill="#161b22">Solid: chain lifts Θ<tspan font-size="6.4" dy="1.5">ϑ</tspan><tspan dy="-1.5"/></text>
+
+      <line x1="250" y1="329" x2="266" y2="329" stroke="#64748b" stroke-width="1.4" stroke-dasharray="3,2" marker-end="url(#arrow-slate-sm)"/>
+      <text x="273" y="332" class="sans" font-size="8.4" fill="#161b22">Dashed: descents</text>
+
+      <rect x="250" y="340" width="13" height="10" rx="2" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="273" y="348.5" class="sans" font-size="8.4" fill="#161b22">OneSq slide (q<tspan font-size="6.4" dy="1.5">i,j</tspan><tspan dy="-1.5">)</tspan></text>
+
+      <rect x="250" y="357" width="13" height="10" rx="2" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="273" y="365.5" class="sans" font-size="8.4" fill="#065f46" font-weight="700">Base: m first lifts R<tspan font-size="6.4" dy="1.5">j</tspan><tspan dy="-1.5"/></text>
+
+      <!-- Bottom Caption inside Figure -->
+      <text x="218" y="401" class="sans" font-size="9.1" fill="#3f4a56" text-anchor="middle">Slides lifts past descents to <tspan font-weight="700" fill="#065f46">m convergent first-step Rallis base lifts</tspan></text>
+    </g>
+
+    <!-- Arrow Figure -> Step 1 -->
+    <line x1="218" y1="412" x2="218" y2="424" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arrow-cobalt)"/>
+
+    <!-- LEFT STEP 1: COLLAPSE TO RALLIS PRODUCT -->
+    <g id="left-step-1">
+      <rect x="24" y="427" width="388" height="88" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.2"/>
+      <rect x="32" y="433" width="76" height="17" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="70" y="444.8" class="sans" font-size="8.5" font-weight="700" fill="#1e40af" text-anchor="middle">① COLLAPSE</text>
+      <text x="116" y="445" class="sans" font-size="10.2" font-weight="700" fill="#161b22">Slide Lifts Past Descents → Rallis Product</text>
+
+      <text x="34" y="464" class="sans" font-size="9.6" fill="#161b22"><tspan font-weight="700" fill="#1e40af">Θ</tspan><tspan font-size="7.2" font-weight="700" fill="#1e40af" dy="2">ϑ</tspan><tspan font-size="7.6" font-weight="700" fill="#1e40af" dy="-5">*</tspan><tspan dy="3" font-weight="700" fill="#1e40af"> Θ</tspan><tspan font-size="7.2" font-weight="700" fill="#1e40af" dy="2">ϑ</tspan><tspan dy="-2" font-weight="700"> = c(ϑ) c</tspan><tspan font-size="7.2" font-weight="700" dy="2">Q</tspan><tspan font-size="7.2" font-weight="700" dy="-5">m</tspan><tspan dy="3" font-weight="700"> · </tspan><tspan class="mono" font-size="9.1" font-weight="700" fill="#1e40af">rallisProduct</tspan><tspan font-size="9.2" fill="#3f4a56">  (= ∏</tspan><tspan font-size="7" fill="#3f4a56" dy="2">j=1..m</tspan><tspan dy="-2" font-size="9.2" fill="#3f4a56"> R</tspan><tspan font-size="7" fill="#3f4a56" dy="2">j</tspan><tspan dy="-2" font-size="9.2" fill="#3f4a56">)</tspan></text>
+      <text x="34" y="481" class="sans" font-size="9.4" fill="#161b22">Picks up <tspan font-weight="700">∏</tspan><tspan font-size="7.1" dy="2">1≤i&lt;j≤m</tspan><tspan dy="-2"> </tspan><tspan class="mono" font-size="8.8" fill="#1e40af">quotientRatio</tspan><tspan font-size="7" dy="2">i,j</tspan><tspan dy="-2">  (inv. scalar height </tspan><tspan font-weight="700">≤ m</tspan><tspan font-size="7.2" font-weight="700" dy="-3">2</tspan><tspan dy="3" font-weight="700"> t x</tspan><tspan font-size="7.1" font-weight="700" dy="2">1</tspan><tspan dy="-2">)</tspan></text>
+      <text x="34" y="498" class="sans" font-size="9.1" fill="#9a3412"><tspan font-weight="700">▲ Honesty:</tspan> positivity <tspan font-weight="700">C &gt; 0</tspan> proved separately from Rallis injectivity</text>
+    </g>
+
+    <!-- Arrow Step 1 -> Step 2 -->
+    <line x1="218" y1="515" x2="218" y2="526" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arrow-cobalt)"/>
+
+    <!-- LEFT STEP 2: STAGE 04 DETERMINANT TRANSFER -->
+    <g id="left-step-2">
+      <rect x="24" y="529" width="388" height="69" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.2"/>
+      <rect x="32" y="535" width="76" height="17" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="70" y="546.8" class="sans" font-size="8.5" font-weight="700" fill="#1e40af" text-anchor="middle">② TRANSFER</text>
+      <text x="116" y="547" class="sans" font-size="10.2" font-weight="700" fill="#161b22">Stage 04 Signature Determinant Transfer</text>
+
+      <text x="34" y="566" class="sans" font-size="9.3" fill="#161b22"><tspan class="mono" font-size="8.8" font-weight="700" fill="#1e40af">det_rallisOnGood_eq</tspan>: det(R<tspan font-size="7" dy="2">j</tspan><tspan dy="-2">) transfers indefinite Y</tspan><tspan font-size="7" dy="2">0</tspan><tspan dy="-2"> ↔ definite W</tspan><tspan font-size="7" dy="2">j</tspan><tspan dy="-2"/></text>
+      <text x="34" y="583" class="sans" font-size="9.3" fill="#3f4a56">Dividing by ϑ = 1 cancels base constants C, c<tspan font-size="7" dy="2">Q</tspan><tspan dy="-2"> across all m factors</tspan></text>
+    </g>
+
+    <!-- Arrow Step 2 -> Output -->
+    <line x1="218" y1="598" x2="218" y2="609" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arrow-cobalt)"/>
+
+    <!-- LEFT OUTPUT BOX -->
+    <g id="left-output">
+      <rect x="24" y="612" width="388" height="84" rx="5" fill="#edf4ff"/>
+      <rect x="24" y="612" width="5" height="84" fill="#1e40af" clip-path="url(#clip-left-output)"/>
+      <rect x="24" y="612" width="388" height="84" rx="5" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+      <text x="37" y="628" class="sans" font-size="9" font-weight="700" fill="#1e40af">◆ LEFT OUTPUT · CHAIN DETERMINANT FACTORIZATION</text>
+      <text x="37" y="644.5" class="mono" font-size="8.7" font-weight="700" fill="#161b22">exists_chainDeterminant_pos_and_div_chainDeterminant_one_eq</text>
+      <text x="37" y="665" class="sans" font-size="10.1" font-weight="700" fill="#1e40af">Z(ϑ)/Z(1) = (Nm(Q)<tspan font-size="7.3" dy="-3">e/2</tspan><tspan dy="3"> ∏ quotientRatio)</tspan><tspan font-size="7.3" dy="-3">d</tspan><tspan dy="3"> · ∏</tspan><tspan font-size="7.1" dy="2">j=1..m</tspan><tspan dy="-2"> Z</tspan><tspan font-size="7.1" dy="2">j</tspan><tspan dy="-2">(ϑ</tspan><tspan font-size="7.1" dy="-3">j</tspan><tspan dy="3">)/Z</tspan><tspan font-size="7.1" dy="2">j</tspan><tspan dy="-2">(1)</tspan></text>
+      <text x="37" y="683" class="sans" font-size="9.1" fill="#3f4a56">Strict positivity Z(ϑ) &gt; 0, Z<tspan font-size="7" dy="1.8">j</tspan><tspan dy="-1.8">(ϑ</tspan><tspan font-size="7" dy="-2.5">j</tspan><tspan dy="2.5">) &gt; 0 (C &gt; 0 via injectivity)</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2B: RIGHT PANEL — TWO SQUARE GRIDS & m^2 TURNS (EMERALD)         -->
+  <!-- ===================================================================== -->
+  <g id="panel-right-twogrid">
+    <rect x="438" y="134" width="408" height="572" rx="6" fill="#ffffff"/>
+    <rect x="438" y="134" width="408" height="36" fill="#ecfdf5" clip-path="url(#clip-right-panel)"/>
+    <line x1="438" y1="170" x2="846" y2="170" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="438" y="134" width="408" height="572" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+    <!-- Panel Header -->
+    <text x="448" y="149" class="sans" font-size="10.6" font-weight="700" fill="#065f46">● RIGHT PANEL · TWO SQUARE GRIDS &amp; m² TURNS</text>
+    <text x="448" y="163.5" class="mono" font-size="9.2" fill="#3f4a56">SpanningForms.lean + DiagonalTurns.lean</text>
+
+    <!-- GEOMETRIC FIGURE: SCHEMATIC m = 3 TWO SQUARE GRIDS -->
+    <g id="figure-right-twogrid">
+      <rect x="448" y="178" width="388" height="234" rx="5" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.2"/>
+      <text x="458" y="193" class="sans" font-size="8.9" font-weight="700" fill="#3f4a56">SCHEMATIC m = 3 TWO-GRID  ·  Y<tspan font-size="6.8" dy="-2.5">a</tspan><tspan font-size="6.8" dy="4.5">b</tspan><tspan dy="-2"> &amp; Ỹ</tspan><tspan font-size="6.8" dy="-2.5">b</tspan><tspan font-size="6.8" dy="4.5">a</tspan><tspan dy="-2"> meeting at (l, l)</tspan></text>
+
+      <!-- 9 Unit Squares (col x: 492, 548, 604, 660; row y: 226, 270, 314, 358) -->
+      <!-- 3 Diagonal Seesaw Squares (amber wash #fef6e4) -->
+      <rect x="492" y="226" width="56" height="44" fill="#fef6e4" stroke="#e7c98f" stroke-width="0.9"/>
+      <rect x="548" y="270" width="56" height="44" fill="#fef6e4" stroke="#e7c98f" stroke-width="0.9"/>
+      <rect x="604" y="314" width="56" height="44" fill="#fef6e4" stroke="#e7c98f" stroke-width="0.9"/>
+
+      <!-- 3 Lower-Left Off-Diagonal Squares: Y^a_b half (cobalt wash #edf4ff) -->
+      <rect x="492" y="270" width="56" height="44" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+      <rect x="492" y="314" width="56" height="44" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+      <rect x="548" y="314" width="56" height="44" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+
+      <!-- 3 Upper-Right Off-Diagonal Squares: Y_tilde^b_a half (emerald wash #ecfdf5) -->
+      <rect x="548" y="226" width="56" height="44" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.9"/>
+      <rect x="604" y="226" width="56" height="44" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.9"/>
+      <rect x="604" y="270" width="56" height="44" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.9"/>
+
+      <!-- Internal subtle grid lines -->
+      <line x1="548" y1="226" x2="548" y2="358" stroke="#cbd5e1" stroke-width="0.9"/>
+      <line x1="604" y1="226" x2="604" y2="358" stroke="#cbd5e1" stroke-width="0.9"/>
+      <line x1="492" y1="270" x2="660" y2="270" stroke="#cbd5e1" stroke-width="0.9"/>
+      <line x1="492" y1="314" x2="660" y2="314" stroke="#cbd5e1" stroke-width="0.9"/>
+
+      <!-- Shared Diagonal Line (0,0) -> (3,3) -->
+      <line x1="492" y1="226" x2="660" y2="358" stroke="#92400e" stroke-width="1.6" stroke-dasharray="3.5,2.5"/>
+
+      <!-- Labels inside the 6 Off-Diagonal OneSquare Cells -->
+      <text x="520" y="295" class="sans" font-size="8.2" font-weight="700" fill="#1e40af" text-anchor="middle">OneSq</text>
+      <text x="520" y="333" class="sans" font-size="8.8" font-weight="700" fill="#1e40af" text-anchor="middle">Y<tspan font-size="6.4" dy="-2.5">a</tspan><tspan font-size="6.4" dy="4.5">b</tspan><tspan dy="-2"/></text>
+      <text x="520" y="346" class="sans" font-size="7.6" fill="#3f4a56" text-anchor="middle">OneSq</text>
+      <text x="576" y="339" class="sans" font-size="8.2" font-weight="700" fill="#1e40af" text-anchor="middle">OneSq</text>
+
+      <text x="576" y="251" class="sans" font-size="8.2" font-weight="700" fill="#065f46" text-anchor="middle">OneSq</text>
+      <text x="632" y="245" class="sans" font-size="8.8" font-weight="700" fill="#065f46" text-anchor="middle">Ỹ<tspan font-size="6.4" dy="-2.5">b</tspan><tspan font-size="6.4" dy="4.5">a</tspan><tspan dy="-2"/></text>
+      <text x="632" y="258" class="sans" font-size="7.6" fill="#3f4a56" text-anchor="middle">OneSq</text>
+      <text x="632" y="295" class="sans" font-size="8.2" font-weight="700" fill="#065f46" text-anchor="middle">OneSq</text>
+
+      <!-- Labels inside the 3 Diagonal Seesaw Cells (centered crisp amber pills) -->
+      <rect x="509" y="240.5" width="22" height="15" rx="3" fill="#fef6e4" stroke="#92400e" stroke-width="1"/>
+      <text x="520" y="251" class="sans" font-size="8" font-weight="700" fill="#92400e" text-anchor="middle">S<tspan font-size="6.1" dy="1.4">1</tspan><tspan dy="-1.4"/></text>
+
+      <rect x="565" y="284.5" width="22" height="15" rx="3" fill="#fef6e4" stroke="#92400e" stroke-width="1"/>
+      <text x="576" y="295" class="sans" font-size="8" font-weight="700" fill="#92400e" text-anchor="middle">S<tspan font-size="6.1" dy="1.4">2</tspan><tspan dy="-1.4"/></text>
+
+      <rect x="621" y="328.5" width="22" height="15" rx="3" fill="#fef6e4" stroke="#92400e" stroke-width="1"/>
+      <text x="632" y="339" class="sans" font-size="8" font-weight="700" fill="#92400e" text-anchor="middle">S<tspan font-size="6.1" dy="1.4">3</tspan><tspan dy="-1.4"/></text>
+
+      <!-- FIRST PATH (dashed rust: Y_tilde^m_0 to Y_0 via r, then Y_0 to Y_m via lowerChain) -->
+      <!-- Top edge: right to left (restriction r) -->
+      <line x1="654" y1="226" x2="611" y2="226" stroke="#9a3412" stroke-width="2.1" stroke-dasharray="4,2.5" marker-end="url(#arrow-rust-sm)"/>
+      <line x1="598" y1="226" x2="555" y2="226" stroke="#9a3412" stroke-width="2.1" stroke-dasharray="4,2.5" marker-end="url(#arrow-rust-sm)"/>
+      <line x1="542" y1="226" x2="500" y2="226" stroke="#9a3412" stroke-width="2.1" stroke-dasharray="4,2.5" marker-end="url(#arrow-rust-sm)"/>
+      <!-- Left edge: top to bottom (lowerChain: Y_0 -> Y_m) -->
+      <line x1="492" y1="234" x2="492" y2="264" stroke="#9a3412" stroke-width="2.1" stroke-dasharray="4,2.5" marker-end="url(#arrow-rust-sm)"/>
+      <line x1="492" y1="276" x2="492" y2="308" stroke="#9a3412" stroke-width="2.1" stroke-dasharray="4,2.5" marker-end="url(#arrow-rust-sm)"/>
+      <line x1="492" y1="320" x2="492" y2="351" stroke="#9a3412" stroke-width="2.1" stroke-dasharray="4,2.5" marker-end="url(#arrow-rust-sm)"/>
+
+      <!-- LAST PATH (solid emerald: Y_m -> ... -> Y^m_m <- ... <- Y_tilde^m_0, all definite) -->
+      <!-- Bottom edge: left to right (Y_m -> ... -> Y^m_m) -->
+      <line x1="498" y1="358" x2="542" y2="358" stroke="#065f46" stroke-width="2.2" marker-end="url(#arrow-emerald-sm)"/>
+      <line x1="554" y1="358" x2="598" y2="358" stroke="#065f46" stroke-width="2.2" marker-end="url(#arrow-emerald-sm)"/>
+      <line x1="610" y1="358" x2="651" y2="358" stroke="#065f46" stroke-width="2.2" marker-end="url(#arrow-emerald-sm)"/>
+      <!-- Right edge: top to bottom (Y_tilde^m_0 -> ... -> Y^m_m) -->
+      <line x1="660" y1="232" x2="660" y2="264" stroke="#065f46" stroke-width="2.2" marker-end="url(#arrow-emerald-sm)"/>
+      <line x1="660" y1="276" x2="660" y2="308" stroke="#065f46" stroke-width="2.2" marker-end="url(#arrow-emerald-sm)"/>
+      <line x1="660" y1="320" x2="660" y2="349" stroke="#065f46" stroke-width="2.2" marker-end="url(#arrow-emerald-sm)"/>
+
+      <!-- Grid Nodes with Distinct Shapes (Color Never Alone) -->
+      <!-- Lower-Left Y^a_b nodes: Cobalt Circles -->
+      <circle cx="492" cy="270" r="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.4"/>
+      <circle cx="492" cy="314" r="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.4"/>
+      <circle cx="492" cy="358" r="4.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.7"/>
+      <circle cx="548" cy="314" r="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.4"/>
+      <circle cx="548" cy="358" r="4" fill="#edf4ff" stroke="#065f46" stroke-width="1.5"/>
+      <circle cx="604" cy="358" r="4" fill="#edf4ff" stroke="#065f46" stroke-width="1.5"/>
+
+      <!-- Upper-Right Y_tilde^b_a nodes: Emerald Squares -->
+      <rect x="544.2" y="222.2" width="7.6" height="7.6" rx="1" fill="#ecfdf5" stroke="#065f46" stroke-width="1.4"/>
+      <rect x="600.2" y="222.2" width="7.6" height="7.6" rx="1" fill="#ecfdf5" stroke="#065f46" stroke-width="1.4"/>
+      <rect x="655.8" y="221.8" width="8.4" height="8.4" rx="1" fill="#ecfdf5" stroke="#065f46" stroke-width="1.7"/>
+      <rect x="600.2" y="266.2" width="7.6" height="7.6" rx="1" fill="#ecfdf5" stroke="#065f46" stroke-width="1.4"/>
+      <rect x="656.2" y="266.2" width="7.6" height="7.6" rx="1" fill="#ecfdf5" stroke="#065f46" stroke-width="1.5"/>
+      <rect x="656.2" y="310.2" width="7.6" height="7.6" rx="1" fill="#ecfdf5" stroke="#065f46" stroke-width="1.5"/>
+
+      <!-- Shared Diagonal (l, l) Nodes: Amber Diamonds -->
+      <!-- (0,0) = Y_0 (indefinite target, extra halo) -->
+      <circle cx="492" cy="226" r="8.2" fill="none" stroke="#9a3412" stroke-width="1.2" stroke-dasharray="2,1.5"/>
+      <polygon points="492,220 498,226 492,232 486,226" fill="#fef6e4" stroke="#92400e" stroke-width="1.6"/>
+      <!-- (1,1) -->
+      <polygon points="548,264.5 553.5,270 548,275.5 542.5,270" fill="#fef6e4" stroke="#92400e" stroke-width="1.5"/>
+      <!-- (2,2) -->
+      <polygon points="604,308.5 609.5,314 604,319.5 598.5,314" fill="#fef6e4" stroke="#92400e" stroke-width="1.5"/>
+      <!-- (3,3) = Y^m_m = Y_tilde^m_m -->
+      <polygon points="660,352 666,358 660,364 654,358" fill="#fef6e4" stroke="#065f46" stroke-width="1.7"/>
+
+      <!-- Path & Corner Labels (strict zero overlap) -->
+      <text x="576" y="213" class="sans" font-size="8.7" font-weight="700" fill="#9a3412" text-anchor="middle">First Path · restriction r  ←</text>
+      <text x="466" y="294" class="sans" font-size="8.6" font-weight="700" fill="#9a3412" text-anchor="middle" transform="rotate(-90 466 294)">lowerChain ↓</text>
+      <text x="576" y="376" class="sans" font-size="8.7" font-weight="700" fill="#065f46" text-anchor="middle">Last Path (all definite)  →</text>
+
+      <!-- 4 Corner Space Labels -->
+      <text x="480" y="223" class="sans" font-size="9.6" font-weight="700" fill="#9a3412" text-anchor="end">Y<tspan font-size="7.1" dy="2">0</tspan><tspan dy="-2"/></text>
+      <text x="480" y="364" class="sans" font-size="9.6" font-weight="700" fill="#1e40af" text-anchor="end">Y<tspan font-size="7.1" dy="2">m</tspan><tspan dy="-2"/></text>
+      <text x="670" y="223" class="sans" font-size="9.6" font-weight="700" fill="#065f46">Ỹ<tspan font-size="7" dy="-3">m</tspan><tspan font-size="7" dy="5">0</tspan><tspan dy="-2"/></text>
+      <text x="670" y="364" class="sans" font-size="9.6" font-weight="700" fill="#065f46">Y<tspan font-size="7" dy="-3">m</tspan><tspan font-size="7" dy="5">m</tspan><tspan dy="-2"/></text>
+
+      <!-- Compact Right-Side Legend Box (clear of corner labels & grid) -->
+      <rect x="682" y="236" width="144" height="109" rx="4" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="690" y="250" class="sans" font-size="8.2" font-weight="700" fill="#3f4a56">TWO-GRID KEY (m² = 9)</text>
+
+      <line x1="690" y1="264" x2="706" y2="264" stroke="#9a3412" stroke-width="2" stroke-dasharray="3.5,2"/>
+      <text x="712" y="267" class="sans" font-size="8.3" font-weight="700" fill="#9a3412">First Path (via Y<tspan font-size="6.3" dy="1.5">0</tspan><tspan dy="-1.5">)</tspan></text>
+
+      <line x1="690" y1="280" x2="706" y2="280" stroke="#065f46" stroke-width="2"/>
+      <text x="712" y="283" class="sans" font-size="8.3" font-weight="700" fill="#065f46">Last Path (definite)</text>
+
+      <polygon points="698,292 702.5,296.5 698,301 693.5,296.5" fill="#fef6e4" stroke="#92400e" stroke-width="1.3"/>
+      <text x="712" y="299.5" class="sans" font-size="8.3" fill="#92400e" font-weight="700">Diag (l,l): seesaw S<tspan font-size="6.2" dy="1.4">k</tspan><tspan dy="-1.4"/></text>
+
+      <circle cx="698" cy="313.5" r="3.8" fill="#edf4ff" stroke="#1e40af" stroke-width="1.3"/>
+      <text x="712" y="316.5" class="sans" font-size="8.3" fill="#161b22">Y<tspan font-size="6.2" dy="-2">a</tspan><tspan font-size="6.2" dy="4">b</tspan><tspan dy="-2"> · OneSq (×3)</tspan></text>
+
+      <rect x="694.4" y="327" width="7.2" height="7.2" rx="1" fill="#ecfdf5" stroke="#065f46" stroke-width="1.3"/>
+      <text x="712" y="333.5" class="sans" font-size="8.3" fill="#161b22">Ỹ<tspan font-size="6.2" dy="-2">b</tspan><tspan font-size="6.2" dy="4">a</tspan><tspan dy="-2"> · OneSq (×3)</tspan></text>
+
+      <!-- Bottom Caption inside Figure -->
+      <text x="642" y="401" class="sans" font-size="9.1" fill="#3f4a56" text-anchor="middle">Shared diagonal <tspan font-weight="700" fill="#92400e">S = Y<tspan font-size="6.9" dy="-2.5">j+1</tspan><tspan font-size="6.9" dy="4.5">j</tspan><tspan dy="-2"> = Ỹ</tspan><tspan font-size="6.9" dy="-2.5">j+1</tspan><tspan font-size="6.9" dy="4.5">j</tspan><tspan dy="-2"/></tspan> · 6 OneSquare + 3 seesaw turns</text>
+    </g>
+
+    <!-- Arrow Figure -> Step 1 -->
+    <line x1="642" y1="412" x2="642" y2="424" stroke="#065f46" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+
+    <!-- RIGHT STEP 1: m^2 TURNS & PERIOD TRANSFER -->
+    <g id="right-step-1">
+      <rect x="448" y="427" width="388" height="88" rx="5" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.2"/>
+      <rect x="456" y="433" width="74" height="17" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="493" y="444.8" class="sans" font-size="8.5" font-weight="700" fill="#065f46" text-anchor="middle">① m² TURNS</text>
+      <text x="538" y="445" class="sans" font-size="10.2" font-weight="700" fill="#161b22">Sweep First Path → Definite Last Path</text>
+
+      <text x="458" y="464" class="sans" font-size="9.4" fill="#161b22">Off-diagonal <tspan font-weight="700" fill="#1e40af">OneSquare</tspan> + diagonal seesaws (<tspan class="mono" font-size="8.7" fill="#92400e">DiagonalTurns.lean</tspan>)</text>
+      <text x="458" y="481" class="sans" font-size="9.4" fill="#161b22">Last-path period (all definite) picks up <tspan font-weight="700">∏</tspan><tspan font-size="7" dy="2">i,j&lt;m</tspan><tspan dy="-2"> </tspan><tspan class="mono" font-size="8.8" fill="#065f46">turnRatio</tspan><tspan font-size="7" dy="2">i,j</tspan><tspan dy="-2"/></text>
+      <text x="458" y="498" class="sans" font-size="9.2" fill="#3f4a56">Clears edge kernels/flip scalar: <tspan font-style="italic">p</tspan>-int ≤ exp(x<tspan font-size="6.9" dy="-2.5">99</tspan><tspan dy="2.5">b</tspan><tspan font-size="6.9" dy="-2.5">2</tspan><tspan dy="2.5">), arch. ≤ exp(x</tspan><tspan font-size="6.9" dy="-2.5">200</tspan><tspan dy="2.5">b</tspan><tspan font-size="6.9" dy="-2.5">2</tspan><tspan dy="2.5">)</tspan></text>
+    </g>
+
+    <!-- Arrow Step 1 -> Step 2 -->
+    <line x1="642" y1="515" x2="642" y2="526" stroke="#065f46" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+
+    <!-- RIGHT STEP 2: DELTA-FORM READOUT + SHORT DEEP-LEVEL FORMS -->
+    <g id="right-step-2">
+      <rect x="448" y="529" width="388" height="69" rx="5" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.2"/>
+      <rect x="456" y="535" width="74" height="17" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="493" y="546.8" class="sans" font-size="8.5" font-weight="700" fill="#065f46" text-anchor="middle">② READOUT</text>
+      <text x="538" y="547" class="sans" font-size="10.2" font-weight="700" fill="#161b22">Delta-Form Pairing + Short Deep-Level Forms</text>
+
+      <text x="458" y="566" class="sans" font-size="9.2" fill="#161b22">Pair vs δ<tspan font-size="7" dy="2">x</tspan><tspan dy="-2">(v): </tspan><tspan class="mono" font-size="8.6" font-weight="700" fill="#065f46">exists_dualPairing_eq_mul_lastPathPeriod</tspan></text>
+      <text x="458" y="583" class="sans" font-size="9.1" fill="#3f4a56">Short Ỹ<tspan font-size="6.8" dy="-2.5">m</tspan><tspan font-size="6.8" dy="4.5">0</tspan><tspan dy="-2"> forms (</tspan><tspan class="mono" font-size="8.4" fill="#161b22">span_isShort_eq_top_gridLevelForms</tspan>) pushed via r</text>
+    </g>
+
+    <!-- Arrow Step 2 -> Output -->
+    <line x1="642" y1="598" x2="642" y2="609" stroke="#065f46" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+
+    <!-- RIGHT OUTPUT BOX -->
+    <g id="right-output">
+      <rect x="448" y="612" width="388" height="84" rx="5" fill="#ecfdf5"/>
+      <rect x="448" y="612" width="5" height="84" fill="#065f46" clip-path="url(#clip-right-output)"/>
+      <rect x="448" y="612" width="388" height="84" rx="5" fill="none" stroke="#065f46" stroke-width="1.5"/>
+
+      <text x="461" y="628" class="sans" font-size="9" font-weight="700" fill="#065f46">● RIGHT OUTPUT · SHORT INTEGRAL SPANNING FAMILY</text>
+      <text x="461" y="644.5" class="mono" font-size="9.6" font-weight="700" fill="#161b22">exists_span_short_lifts_eq_top</text>
+      <text x="461" y="665" class="sans" font-size="10.6" font-weight="700" fill="#065f46"><tspan class="mono" font-size="10.2">weylNormSq</tspan> ≤ exp(x<tspan font-size="7.4" dy="-3">202</tspan><tspan dy="3"> b</tspan><tspan font-size="7.4" dy="-3">2</tspan><tspan dy="3">)  ·  </tspan><tspan font-style="italic">p</tspan>-integral for <tspan font-style="italic">p</tspan> ∤ Nm(Q)</text>
+      <text x="461" y="683" class="sans" font-size="9.1" fill="#3f4a56">Spans principal forms on Y<tspan font-size="7" dy="1.8">0</tspan><tspan dy="-1.8"> via (c(ϑ)/c(1)) · </tspan><tspan class="mono" font-size="8.6">lowerChainAtLevel</tspan></text>
+    </g>
+  </g>
+
+  <!-- Connectors to Bottom Contrast Strip -->
+  <g id="contrast-connectors">
+    <line x1="218" y1="706" x2="218" y2="723" stroke="#1e40af" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <line x1="642" y1="706" x2="642" y2="723" stroke="#065f46" stroke-width="1.5" stroke-dasharray="3,2"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: BOTTOM STRUCTURAL CONTRAST STRIP                              -->
+  <!-- ===================================================================== -->
+  <g id="bottom-contrast-strip">
+    <rect x="14" y="726" width="832" height="102" rx="6" fill="#ffffff"/>
+    <rect x="14" y="726" width="832" height="24" fill="#fff5f0" clip-path="url(#clip-contrast)"/>
+    <rect x="14" y="726" width="6" height="102" fill="#9a3412" clip-path="url(#clip-contrast)"/>
+    <line x1="20" y1="750" x2="846" y2="750" stroke="#e5c1b0" stroke-width="1"/>
+    <line x1="430" y1="756" x2="430" y2="820" stroke="#d8d3c8" stroke-width="1"/>
+    <rect x="14" y="726" width="832" height="102" rx="6" fill="none" stroke="#9a3412" stroke-width="1.5"/>
+
+    <text x="30" y="741.8" class="sans" font-size="9.8" font-weight="700" fill="#9a3412">▲ STRUCTURAL CONTRAST · WHY THESE ARE NOT JUST "TWO COPIES OF OneSquare"</text>
+    <text x="834" y="741.8" class="sans" font-size="9" fill="#3f4a56" text-anchor="end">Different boundary geometry at the diagonal</text>
+
+    <!-- Left Contrast Column -->
+    <text x="30" y="768" class="sans" font-size="9.6" font-weight="700" fill="#1e40af">◆ Triangle (<tspan class="mono" font-size="9.1">NormOfChain</tspan>) stops at the convergent base</text>
+    <text x="30" y="784.5" class="sans" font-size="9.3" fill="#161b22">The diagonal is the base where first-step Rallis operators R<tspan font-size="7" dy="1.8">j</tspan><tspan dy="-1.8"> already</tspan></text>
+    <text x="30" y="799.5" class="sans" font-size="9.3" fill="#161b22">converge: pure <tspan class="mono" font-size="8.7" fill="#1e40af">OneSquare</tspan> sliding + Stage 04 trace comparison</text>
+    <text x="30" y="814.5" class="sans" font-size="9.3" fill="#3f4a56">transfers determinants directly from indefinite Y<tspan font-size="7" dy="1.8">0</tspan><tspan dy="-1.8"> to definite W</tspan><tspan font-size="7" dy="1.8">j</tspan><tspan dy="-1.8">.</tspan></text>
+
+    <!-- Right Contrast Column -->
+    <text x="444" y="768" class="sans" font-size="9.6" font-weight="700" fill="#065f46">● Two-Grid (<tspan class="mono" font-size="9.1">SpanningForms</tspan>) crosses the diagonal via seesaws</text>
+    <text x="444" y="784.5" class="sans" font-size="9.3" fill="#161b22">Crossing (l, l) between Y<tspan font-size="6.9" dy="-2.5">a</tspan><tspan font-size="6.9" dy="4.5">b</tspan><tspan dy="-2"> and Ỹ</tspan><tspan font-size="6.9" dy="-2.5">b</tspan><tspan font-size="6.9" dy="4.5">a</tspan><tspan dy="-2"> is NOT an </tspan><tspan class="mono" font-size="8.7" fill="#1e40af">OneSquare</tspan> move:</text>
+    <text x="444" y="799.5" class="sans" font-size="9.3" fill="#161b22">it requires extra seesaws on <tspan font-weight="700" fill="#92400e">S = Y<tspan font-size="6.9" dy="-2.5">j+1</tspan><tspan font-size="6.9" dy="4.5">j</tspan><tspan dy="-2"> = Ỹ</tspan><tspan font-size="6.9" dy="-2.5">j+1</tspan><tspan font-size="6.9" dy="4.5">j</tspan><tspan dy="-2"/></tspan> (<tspan class="mono" font-size="8.6" fill="#92400e">DiagonalTurns.lean</tspan>)</text>
+    <text x="444" y="814.5" class="sans" font-size="9.3" fill="#3f4a56">to swap grids and reach definite deep-level forms on Ỹ<tspan font-size="6.9" dy="-2.5">m</tspan><tspan font-size="6.9" dy="4.5">0</tspan><tspan dy="-2">.</tspan></text>
+  </g>
+</svg>

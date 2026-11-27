@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 764"
+     width="860"
+     height="764"
+     role="img"
+     aria-labelledby="stage05-theorem-c-title stage05-theorem-c-desc">
+  <title id="stage05-theorem-c-title">Four-Input Convergence into Theorem C in Stage 05 (LongForms.lean)</title>
+  <desc id="stage05-theorem-c-desc">Editorial mathematical diagram of the Stage 05 four-input convergence proving Theorem C (New.Data.integral_forms_long) inside LongForms.lean. The top layer presents two Stage 05 solid-border inputs and two external dashed-border typed black boxes: (1) Auxiliary Spanning Forms (SpanningForms.lean + LongForms.lean, emerald) uses exists_span_isAuxiliaryForm_eq_top and Stage 04 Theorem B (at most n' &lt;= 4d / b^2 missing basis vectors), each costing 2 x_1^2 b^2 + b (archimedean norm plus squared turn-ratio scalar height 2 m^2 t x_1 &lt;= b), canceling b^2 via mul_completion_cost_le to total completion cost &lt;= d * b; (2) Chain Determinant Factorization (NormOfChain.lean + Stage 04 det_rallisOnGood_eq, cobalt) provides exists_chainDeterminant_one_div_eq factoring Z(1) / Z(xi_iota) = (Nm(Q)^(e/2) * prod_{1 &lt;= i &lt; j &lt;= m} quotientRatio_{i,j})^(-d) * prod_{j=1}^m Z_j(1) / Z_j(xi_iota^j), with inverse quotient-ratio scalar height m^2 t x_1 &lt;= b; (3) Stage 06 Typed Black Box (06_one_lift/lift_volume_height, amber dashed) supplies heightLe_liftDeterminant_ratio bounding the height of each single-lift ratio Z_j(1) / Z_j(xi_iota^j) for 1 &lt;= j &lt;= m by d * (f a log^4 b / m - k * directionAmount); (4) Stage 07 Typed Black Box (07_congruences/fit_twists_exist, rust dashed) supplies exists_isRegularFamily producing a regular twist family theta satisfying FitTwists.lean's IsRegularFamily theta (HasSmallRatios and IsDenominatorBound within denominatorBudget = f a log^3 b / (m k)), feeding theta to Input 3 and HasSmallRatios to Inputs 1 and 2. In the middle Convergence Hub (LongForms.lean + Stage 01 TwistedLattice), Sub-Card A extends the linearly independent family y_1,...,y_n by n' = d - n auxiliary forms at total completion cost &lt;= d * b, while Sub-Card B (heightLe_chainDeterminant_one_div) sums the m single-lift heights via m * k * directionAmount = D.mainAmount and adds the scalar height m^2 t x_1 &lt;= b to obtain HeightLe (d * (b + f a log^4 b - D.mainAmount)) on Z(1) / Z(xi_iota). Both enter Stage 01 TwistedLattice.covolume_add_index_nonneg (integral_forms_long_with_completion_cost) to yield d * (D.mainAmount - f a log^4 b - b) &lt;= c + 2 delta + (d - n)(2 x_1^2 b^2 + b) &lt;= c + 2 delta + d * b. Absorbing 2 d b &lt;= 2 d f a log^4 b yields the bottom Theorem C banner (New.Data.integral_forms_long): d * (D.mainAmount - 3 f a log^4 b) &lt;= c + 2 delta, which feeds directly into Stage 01 New.star_inequality (01_reduction/main_inequality).</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+
+    <!-- Crisp clip paths for card headers and left accent bars -->
+    <clipPath id="clip-in1"><rect x="34" y="48" width="388" height="160" rx="6"/></clipPath>
+    <clipPath id="clip-in2"><rect x="438" y="48" width="388" height="160" rx="6"/></clipPath>
+    <clipPath id="clip-in3"><rect x="34" y="220" width="374" height="162" rx="6"/></clipPath>
+    <clipPath id="clip-in4"><rect x="452" y="220" width="374" height="162" rx="6"/></clipPath>
+    <clipPath id="clip-hub"><rect x="14" y="420" width="832" height="188" rx="6"/></clipPath>
+    <clipPath id="clip-floor"><rect x="26" y="545" width="808" height="54" rx="5"/></clipPath>
+    <clipPath id="clip-thmc"><rect x="14" y="636" width="832" height="114" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="763" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="27" class="sans" font-size="15.5" font-weight="700" fill="#161b22">Four-Input Convergence into Theorem C (<tspan class="mono" font-size="14" fill="#1e40af">LongForms.lean</tspan>)</text>
+    <text x="842" y="26" class="mono" font-size="10.8" fill="#3f4a56" text-anchor="end">src/New/Determinant/  →  Reduction/</text>
+    <line x1="14" y1="39" x2="846" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1, ROW 1: STAGE 05 INTERNAL INPUTS (SOLID BORDERS)               -->
+  <!-- ===================================================================== -->
+  <g id="band-inputs-row1">
+
+    <!-- INPUT 1 (TOP-LEFT): SPANNING FORMS + LONG FORMS — EMERALD (SOLID) -->
+    <g id="card-input-1-spanning">
+      <rect x="34" y="48" width="388" height="160" rx="6" fill="#ffffff"/>
+      <rect x="34" y="48" width="388" height="25" fill="#ecfdf5" clip-path="url(#clip-in1)"/>
+      <line x1="34" y1="73" x2="422" y2="73" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="34" y="48" width="388" height="160" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+      <text x="44" y="64" class="sans" font-size="10" font-weight="700" fill="#065f46">● ① AUXILIARY SPANNING FORMS</text>
+      <text x="412" y="64" class="sans" font-size="8.6" font-weight="600" fill="#3f4a56" text-anchor="end">Stage 05 · Solid</text>
+
+      <text x="44" y="88" class="mono" font-size="8.8" font-weight="700" fill="#065f46">SpanningForms.lean + LongForms.lean</text>
+      <text x="412" y="88" class="sans" font-size="8.4" fill="#3f4a56" text-anchor="end">← Stage 04 Thm B</text>
+
+      <text x="44" y="103.5" class="sans" font-size="9.2" fill="#161b22">Spanning supply (<tspan class="mono" font-size="8.3" fill="#065f46">exists_span_isAuxiliaryForm_eq_top</tspan>):</text>
+
+      <!-- Quantitative cost cancellation box -->
+      <rect x="44" y="111" width="368" height="53" rx="4" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.1"/>
+      <text x="228" y="128" class="sans" font-size="9.9" font-weight="700" fill="#161b22" text-anchor="middle">Missing basis: n' ≤ 4d / b<tspan font-size="7.4" dy="-2.8">2</tspan><tspan dy="2.8">   ·   cost/vec: 2 x</tspan><tspan font-size="7.2" dy="2">1</tspan><tspan font-size="7.2" dy="-4.8">2</tspan><tspan dy="2.8"> b</tspan><tspan font-size="7.4" dy="-2.8">2</tspan><tspan dy="2.8"> + b</tspan></text>
+      <text x="228" y="143.5" class="sans" font-size="8.4" fill="#3f4a56" text-anchor="middle">Archimedean norm exp(2 x<tspan font-size="6.5" dy="1.8">1</tspan><tspan font-size="6.5" dy="-4.2">2</tspan><tspan dy="2.4"> b</tspan><tspan font-size="6.5" dy="-2.4">2</tspan><tspan dy="2.4">) + squared turn-ratio height 2 m</tspan><tspan font-size="6.5" dy="-2.4">2</tspan><tspan dy="2.4"> t x</tspan><tspan font-size="6.5" dy="1.8">1</tspan><tspan dy="-1.8"> ≤ b</tspan></text>
+      <text x="228" y="158" class="sans" font-size="9.4" font-weight="700" fill="#065f46" text-anchor="middle">b<tspan font-size="7.2" dy="-2.6">2</tspan><tspan dy="2.6"> cancels  ⇒  total completion cost ≤ d · b</tspan></text>
+
+      <!-- Bottom theorem pill -->
+      <rect x="44" y="171" width="368" height="27" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="228" y="188" class="mono" font-size="8.3" font-weight="700" fill="#065f46" text-anchor="middle">mul_completion_cost_le<tspan class="sans" font-size="8.4" font-weight="400" fill="#161b22"> : n'(2 x</tspan><tspan class="sans" font-size="6.4" dy="1.8" font-weight="400" fill="#161b22">1</tspan><tspan class="sans" font-size="6.4" dy="-4.2" font-weight="400" fill="#161b22">2</tspan><tspan class="sans" font-size="8.4" dy="2.4" font-weight="400" fill="#161b22"> b</tspan><tspan class="sans" font-size="6.4" dy="-2.4" font-weight="400" fill="#161b22">2</tspan><tspan class="sans" font-size="8.4" dy="2.4" font-weight="400" fill="#161b22"> + b) ≤ 4d(2 x</tspan><tspan class="sans" font-size="6.4" dy="1.8" font-weight="400" fill="#161b22">1</tspan><tspan class="sans" font-size="6.4" dy="-4.2" font-weight="400" fill="#161b22">2</tspan><tspan class="sans" font-size="8.4" dy="2.4" font-weight="400" fill="#161b22"> + b</tspan><tspan class="sans" font-size="6.4" dy="-2.4" font-weight="400" fill="#161b22">−1</tspan><tspan class="sans" font-size="8.4" dy="2.4" font-weight="400" fill="#161b22">) ≤ d·b</tspan></text>
+    </g>
+
+    <!-- INPUT 2 (TOP-RIGHT): NORM OF CHAIN + STAGE 04 — COBALT (SOLID) -->
+    <g id="card-input-2-norm-of-chain">
+      <rect x="438" y="48" width="388" height="160" rx="6" fill="#ffffff"/>
+      <rect x="438" y="48" width="388" height="25" fill="#edf4ff" clip-path="url(#clip-in2)"/>
+      <line x1="438" y1="73" x2="826" y2="73" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="438" y="48" width="388" height="160" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+      <text x="448" y="64" class="sans" font-size="10" font-weight="700" fill="#1e40af">◆ ② CHAIN DETERMINANT FACTORIZATION</text>
+      <text x="816" y="64" class="sans" font-size="8.6" font-weight="600" fill="#3f4a56" text-anchor="end">Stage 05 · Solid</text>
+
+      <text x="448" y="88" class="mono" font-size="8.8" font-weight="700" fill="#1e40af">NormOfChain.lean<tspan class="sans" font-size="8.6" font-weight="400" fill="#3f4a56">  +  Stage 04 </tspan><tspan class="mono" font-size="8.6" font-weight="700" fill="#9a3412">det_rallisOnGood_eq</tspan></text>
+
+      <text x="448" y="103.5" class="sans" font-size="9.2" fill="#161b22">Exact factorization (<tspan class="mono" font-size="8.3" fill="#1e40af">exists_chainDeterminant_one_div_eq</tspan>):</text>
+
+      <!-- Exact factorization formula box -->
+      <rect x="448" y="111" width="368" height="53" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+      <text x="632" y="131" class="sans" font-size="9.7" font-weight="700" fill="#161b22" text-anchor="middle">Z(1) / Z(ξ<tspan font-size="7.2" dy="2">ι</tspan><tspan dy="-2">) = (Nm(Q)</tspan><tspan font-size="7.2" dy="-2.8">e/2</tspan><tspan dy="2.8"> · ∏</tspan><tspan font-size="7" dy="2.2">1≤i&lt;j≤m</tspan><tspan dy="-2.2"> quotientRatio</tspan><tspan font-size="7" dy="2.2">i,j</tspan><tspan dy="-2.2">)</tspan><tspan font-size="7.4" dy="-3">−d</tspan></text>
+      <text x="632" y="153.5" class="sans" font-size="10.2" font-weight="700" fill="#1e40af" text-anchor="middle">×   ∏<tspan font-size="7" dy="2.4">j=1</tspan><tspan font-size="7" dy="-5.4">m</tspan><tspan dy="3">  Z</tspan><tspan font-size="7.4" dy="2">j</tspan><tspan dy="-2">(1) / Z</tspan><tspan font-size="7.4" dy="2">j</tspan><tspan dy="-2">(ξ</tspan><tspan font-size="7.2" dy="2">ι</tspan><tspan font-size="7.2" dy="-4.8">j</tspan><tspan dy="2.8">)</tspan></text>
+
+      <!-- Bottom scalar height pill -->
+      <rect x="448" y="171" width="368" height="27" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1"/>
+      <text x="632" y="188" class="sans" font-size="8.6" fill="#161b22" text-anchor="middle">Inverse quotient-ratio scalar height: <tspan font-weight="700" fill="#1e40af">m<tspan font-size="6.6" dy="-2.4">2</tspan><tspan dy="2.4"> t x</tspan><tspan font-size="6.6" dy="1.8">1</tspan><tspan dy="-1.8"> ≤ b</tspan></tspan><tspan fill="#3f4a56">  (via </tspan><tspan class="mono" font-size="8" fill="#3f4a56">HasSmallRatios</tspan><tspan fill="#3f4a56">)</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1, ROW 2: EXTERNAL TYPED BLACK BOXES (DASHED BORDERS + BADGES)   -->
+  <!-- ===================================================================== -->
+  <g id="band-inputs-row2">
+
+    <!-- INPUT 3 (BOTTOM-LEFT): STAGE 06 TYPED BLACK BOX — AMBER (DASHED) -->
+    <g id="card-input-3-stage06">
+      <rect x="34" y="220" width="374" height="162" rx="6" fill="#ffffff"/>
+      <rect x="34" y="220" width="374" height="26" fill="#fef6e4" clip-path="url(#clip-in3)"/>
+      <line x1="34" y1="246" x2="408" y2="246" stroke="#e7c98f" stroke-width="1"/>
+      <rect x="34" y="220" width="374" height="162" rx="6" fill="none" stroke="#92400e" stroke-width="1.7" stroke-dasharray="6,3.5"/>
+
+      <text x="44" y="236.5" class="sans" font-size="9.8" font-weight="700" fill="#92400e">▲ ③ SINGLE-LIFT HEIGHT</text>
+      <!-- Stage 06 Black Box Badge -->
+      <rect x="276" y="224.5" width="122" height="17" rx="8.5" fill="#92400e"/>
+      <text x="337" y="235.8" class="sans" font-size="7.9" font-weight="700" fill="#ffffff" text-anchor="middle">STAGE 06 BLACK BOX</text>
+
+      <text x="44" y="261" class="mono" font-size="8.8" font-weight="700" fill="#92400e">06_one_lift/lift_volume_height</text>
+      <text x="398" y="261" class="sans" font-size="8.3" fill="#3f4a56" text-anchor="end">Typed Black Box</text>
+
+      <text x="44" y="276.5" class="sans" font-size="9.2" fill="#161b22">Theorem: <tspan class="mono" font-size="8.6" font-weight="700" fill="#92400e">heightLe_liftDeterminant_ratio</tspan></text>
+
+      <!-- Single-lift bound box -->
+      <rect x="44" y="285" width="354" height="58" rx="4" fill="#faf9f5" stroke="#e7c98f" stroke-width="1.1"/>
+      <text x="221" y="301.5" class="sans" font-size="8.9" fill="#3f4a56" text-anchor="middle">For regular family θ (from ④) and each lift 1 ≤ j ≤ m:</text>
+      <text x="221" y="320" class="sans" font-size="8.9" font-weight="700" fill="#161b22" text-anchor="middle">Height(Z<tspan font-size="6.7" dy="2">j</tspan><tspan dy="-2">(1)/Z</tspan><tspan font-size="6.7" dy="2">j</tspan><tspan dy="-2">(ξ</tspan><tspan font-size="6.5" dy="2">ι</tspan><tspan font-size="6.5" dy="-4.4">j</tspan><tspan dy="2.4">)) ≤ d·(f a log</tspan><tspan font-size="6.7" dy="-2.6">4</tspan><tspan dy="2.6"> b / m − k·directionAmount)</tspan></text>
+      <text x="221" y="336" class="sans" font-size="8.5" fill="#92400e" text-anchor="middle">Converts k · log b · denominatorBudget = f a log<tspan font-size="6.6" dy="-2.4">4</tspan><tspan dy="2.4"> b / m</tspan></text>
+
+      <!-- Footer note -->
+      <rect x="44" y="352" width="354" height="21" rx="3.5" fill="#fef6e4" stroke="#e7c98f" stroke-width="0.9"/>
+      <text x="221" y="365.8" class="sans" font-size="8.5" fill="#3f4a56" text-anchor="middle">Negative <tspan font-weight="700" fill="#92400e">−k·directionAmount</tspan> drives Theorem C (unpacked in Stage 06)</text>
+    </g>
+
+    <!-- HORIZONTAL FEED CONNECTOR: INPUT 4 (θ) -> INPUT 3 -->
+    <g id="connector-4-to-3">
+      <rect x="415" y="274" width="30" height="18" rx="9" fill="#fff5f0" stroke="#9a3412" stroke-width="1.1"/>
+      <text x="430" y="286.2" class="sans" font-size="9.6" font-weight="700" fill="#9a3412" text-anchor="middle">θ</text>
+      <line x1="452" y1="301" x2="412" y2="301" stroke="#9a3412" stroke-width="1.7" marker-end="url(#arrow-rust-end)"/>
+    </g>
+
+    <!-- INPUT 4 (BOTTOM-RIGHT): STAGE 07 TYPED BLACK BOX — RUST (DASHED) -->
+    <g id="card-input-4-stage07">
+      <rect x="452" y="220" width="374" height="162" rx="6" fill="#ffffff"/>
+      <rect x="452" y="220" width="374" height="26" fill="#fff5f0" clip-path="url(#clip-in4)"/>
+      <line x1="452" y1="246" x2="826" y2="246" stroke="#f5c2a8" stroke-width="1"/>
+      <rect x="452" y="220" width="374" height="162" rx="6" fill="none" stroke="#9a3412" stroke-width="1.7" stroke-dasharray="6,3.5"/>
+
+      <text x="462" y="236.5" class="sans" font-size="9.8" font-weight="700" fill="#9a3412">■ ④ REGULAR TWIST FAMILY</text>
+      <!-- Stage 07 Black Box Badge -->
+      <rect x="694" y="224.5" width="122" height="17" rx="8.5" fill="#9a3412"/>
+      <text x="755" y="235.8" class="sans" font-size="7.9" font-weight="700" fill="#ffffff" text-anchor="middle">STAGE 07 BLACK BOX</text>
+
+      <text x="462" y="261" class="mono" font-size="8.8" font-weight="700" fill="#9a3412">07_congruences/fit_twists_exist</text>
+      <text x="816" y="261" class="sans" font-size="8.3" fill="#3f4a56" text-anchor="end">Typed Black Box</text>
+
+      <text x="462" y="276.5" class="sans" font-size="9.2" fill="#161b22">Theorem: <tspan class="mono" font-size="8.6" font-weight="700" fill="#9a3412">exists_isRegularFamily</tspan><tspan fill="#3f4a56"> (</tspan><tspan class="mono" font-size="8.3" fill="#3f4a56">FitTwists.lean</tspan><tspan fill="#3f4a56">)</tspan></text>
+
+      <!-- Regular family contract box -->
+      <rect x="462" y="285" width="354" height="58" rx="4" fill="#faf9f5" stroke="#f5c2a8" stroke-width="1.1"/>
+      <text x="639" y="301.5" class="sans" font-size="9.3" font-weight="700" fill="#161b22" text-anchor="middle">∃ regular twist family θ satisfying <tspan class="mono" font-size="8.8" fill="#9a3412">IsRegularFamily θ</tspan>:</text>
+      <text x="639" y="318.5" class="sans" font-size="8.7" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="8.3" font-weight="700" fill="#9a3412">HasSmallRatios</tspan>: gcd(ℓ, Nm Q) = 1,  (ratio)<tspan font-size="6.6" dy="-2.4">−1</tspan><tspan dy="2.4"> height ≤ x</tspan><tspan font-size="6.6" dy="1.8">1</tspan></text>
+      <text x="639" y="335" class="sans" font-size="8.5" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="8.1" font-weight="700" fill="#9a3412">IsDenominatorBound</tspan>: ∑ γ(ℓ) ≤ denominatorBudget = f a log<tspan font-size="6.5" dy="-2.4">3</tspan><tspan dy="2.4"> b / (m k)</tspan></text>
+
+      <!-- Footer note -->
+      <rect x="462" y="352" width="354" height="21" rx="3.5" fill="#fff5f0" stroke="#f5c2a8" stroke-width="0.9"/>
+      <text x="639" y="365.8" class="sans" font-size="8.5" fill="#3f4a56" text-anchor="middle">Feeds <tspan font-weight="700" fill="#9a3412">θ</tspan> to ③ single lifts &amp; <tspan class="mono" font-size="8.1" fill="#161b22">HasSmallRatios</tspan> to ①② (Stage 07)</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION: 4 NON-CROSSING CHANNELS -> CONVERGENCE HUB                -->
+  <!-- ===================================================================== -->
+  <g id="transition-inputs-to-hub">
+    <!-- Channel 1 (Emerald): Left outer rail from Input 1 -> Sub-Card A -->
+    <path d="M 34 128 L 19 128 L 19 401 L 178 401 L 178 417" fill="none" stroke="#065f46" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-emerald-end)"/>
+    <rect x="52" y="391" width="110" height="19" rx="9.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+    <text x="107" y="403.8" class="sans" font-size="8.6" font-weight="700" fill="#065f46" text-anchor="middle">① cost ≤ d · b</text>
+
+    <!-- Channel 3 (Amber): Straight vertical drop from Input 3 -> Sub-Card B -->
+    <line x1="382" y1="382" x2="382" y2="417" stroke="#92400e" stroke-width="1.8" marker-end="url(#arrow-amber-end)"/>
+    <rect x="328" y="391" width="108" height="18" rx="9" fill="#fef6e4" stroke="#92400e" stroke-width="1.1"/>
+    <text x="382" y="403.2" class="sans" font-size="8.6" font-weight="700" fill="#92400e" text-anchor="middle">③ m single lifts</text>
+
+    <!-- Channel 4 (Rust): Straight vertical drop from Input 4 -> Sub-Card B -->
+    <line x1="612" y1="382" x2="612" y2="417" stroke="#9a3412" stroke-width="1.8" marker-end="url(#arrow-rust-end)"/>
+    <rect x="556" y="391" width="112" height="18" rx="9" fill="#fff5f0" stroke="#9a3412" stroke-width="1.1"/>
+    <text x="612" y="403.2" class="sans" font-size="8.6" font-weight="700" fill="#9a3412" text-anchor="middle">④ ∃ regular θ</text>
+
+    <!-- Channel 2 (Cobalt): Right outer rail from Input 2 -> Sub-Card B -->
+    <path d="M 826 128 L 841 128 L 841 401 L 730 401 L 730 417" fill="none" stroke="#1e40af" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-cobalt-end)"/>
+    <rect x="744" y="391" width="84" height="18" rx="9" fill="#edf4ff" stroke="#1e40af" stroke-width="1.1"/>
+    <text x="786" y="403.2" class="sans" font-size="8.6" font-weight="700" fill="#1e40af" text-anchor="middle">② factor Z</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2: CONVERGENCE HUB (LongForms.lean + Stage 01 TwistedLattice)    -->
+  <!-- ===================================================================== -->
+  <g id="band-convergence-hub">
+    <rect x="14" y="420" width="832" height="188" rx="6" fill="#ffffff"/>
+    <rect x="14" y="420" width="832" height="25" fill="#edf4ff" clip-path="url(#clip-hub)"/>
+    <line x1="14" y1="445" x2="846" y2="445" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="420" width="832" height="188" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+    <!-- Band 2 Header -->
+    <text x="26" y="436.2" class="sans" font-size="10.4" font-weight="700" fill="#1e40af">◆ CONVERGENCE HUB  ·  TWISTED-LATTICE HEIGHT ASSEMBLY</text>
+    <text x="834" y="436.2" class="mono" font-size="9.2" fill="#3f4a56" text-anchor="end">LongForms.lean  +  Stage 01 <tspan font-weight="700" fill="#161b22">TwistedLattice</tspan></text>
+
+    <!-- SUB-CARD A (LEFT): BASIS COMPLETION (INPUT 1 + THEOREM B) -->
+    <g id="subcard-basis-completion">
+      <rect x="26" y="453" width="304" height="74" rx="5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+      <text x="36" y="468.5" class="sans" font-size="9.3" font-weight="700" fill="#065f46">A. COMPLETE BASIS (① + Thm B)</text>
+      <text x="36" y="484.5" class="sans" font-size="8.9" fill="#161b22">Extend y<tspan font-size="6.8" dy="1.8">1</tspan><tspan dy="-1.8">,…,y</tspan><tspan font-size="6.8" dy="1.8">n</tspan><tspan dy="-1.8"> (covol ≤ c, index ≤ δ) by n' = d − n</tspan></text>
+      <text x="36" y="499.5" class="sans" font-size="8.9" fill="#161b22">auxiliary forms (n' ≤ 4d/b<tspan font-size="6.8" dy="-2.4">2</tspan><tspan dy="2.4">), each ≤ 2 x</tspan><tspan font-size="6.6" dy="1.8">1</tspan><tspan font-size="6.6" dy="-4.2">2</tspan><tspan dy="2.4"> b</tspan><tspan font-size="6.8" dy="-2.4">2</tspan><tspan dy="2.4"> + b</tspan></text>
+      <text x="36" y="516" class="sans" font-size="9.2" font-weight="700" fill="#065f46">Completion cost: (d − n)(2 x<tspan font-size="6.8" dy="1.8">1</tspan><tspan font-size="6.8" dy="-4.2">2</tspan><tspan dy="2.4"> b</tspan><tspan font-size="6.8" dy="-2.4">2</tspan><tspan dy="2.4"> + b) ≤ d · b</tspan></text>
+    </g>
+
+    <!-- SUB-CARD B (RIGHT): SUM m SINGLE LIFTS (INPUTS 2 + 3 + 4) -->
+    <g id="subcard-chain-height">
+      <rect x="342" y="453" width="492" height="74" rx="5" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.2"/>
+      <text x="352" y="468.5" class="sans" font-size="9.3" font-weight="700" fill="#1e40af">B. SUM m SINGLE LIFTS (② + ③ + ④)</text>
+      <text x="824" y="468.5" class="mono" font-size="8.3" font-weight="700" fill="#1e40af" text-anchor="end">heightLe_chainDeterminant_one_div</text>
+
+      <text x="352" y="484.5" class="sans" font-size="8.9" fill="#3f4a56">Sum j = 1…m via <tspan font-weight="700" fill="#161b22">m · k · directionAmount = D.mainAmount</tspan> + scalar height m<tspan font-size="6.6" dy="-2.4">2</tspan><tspan dy="2.4"> t x</tspan><tspan font-size="6.6" dy="1.8">1</tspan><tspan dy="-1.8"> ≤ b:</tspan></text>
+
+      <!-- Chain HeightLe strip -->
+      <rect x="352" y="492" width="472" height="27" rx="4" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.1"/>
+      <text x="588" y="509.2" class="sans" font-size="10" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="9.3" fill="#1e40af">HeightLe</tspan> ( d · ( b + f a log<tspan font-size="7.2" dy="-2.8">4</tspan><tspan dy="2.8"> b − D.mainAmount ) )   on   Z(1) / Z(ξ</tspan><tspan font-size="7.2" dy="2">ι</tspan><tspan dy="-2">)</tspan></text>
+    </g>
+
+    <!-- INTERNAL CONVERGENCE: A + B -> TWISTED LATTICE FLOOR -->
+    <line x1="178" y1="527" x2="178" y2="542" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald-end)"/>
+    <line x1="588" y1="527" x2="588" y2="542" stroke="#1e40af" stroke-width="1.7" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="383" y="539" class="sans" font-size="8.8" font-weight="700" fill="#3f4a56" text-anchor="middle">Invoke Stage 01 product-formula floor on completed target basis</text>
+
+    <!-- CONVERGENCE OUTPUT BAR: TWISTED LATTICE FLOOR -->
+    <g id="subcard-twisted-lattice-floor">
+      <rect x="26" y="545" width="808" height="54" rx="5" fill="#ffffff"/>
+      <rect x="26" y="545" width="5" height="54" fill="#92400e" clip-path="url(#clip-floor)"/>
+      <rect x="26" y="545" width="808" height="54" rx="5" fill="none" stroke="#92400e" stroke-width="1.4"/>
+
+      <text x="40" y="562" class="sans" font-size="9.7" font-weight="700" fill="#161b22">▲ STAGE 01 LATTICE FLOOR  ·  <tspan class="mono" font-size="9.6" fill="#92400e">TwistedLattice.covolume_add_index_nonneg</tspan></text>
+      <text x="824" y="562" class="mono" font-size="8.4" fill="#3f4a56" text-anchor="end">integral_forms_long_with_completion_cost</text>
+
+      <text x="40" y="584.5" class="sans" font-size="10.4" font-weight="700" fill="#161b22">d · ( D.mainAmount − f a log<tspan font-size="7.4" dy="-2.8">4</tspan><tspan dy="2.8"> b − b )   ≤   c + 2δ + (d − n)(2 x</tspan><tspan font-size="7.2" dy="2">1</tspan><tspan font-size="7.2" dy="-4.8">2</tspan><tspan dy="2.8"> b</tspan><tspan font-size="7.4" dy="-2.8">2</tspan><tspan dy="2.8"> + b)   </tspan><tspan fill="#065f46">≤   c + 2δ + d · b</tspan></text>
+      <text x="824" y="584.5" class="sans" font-size="8.6" fill="#3f4a56" text-anchor="end">fold 2 d b ≤ 2 d f a log<tspan font-size="6.6" dy="-2.4">4</tspan><tspan dy="2.4"> b</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- TRANSITION: CONVERGENCE HUB -> THEOREM C BANNER                       -->
+  <!-- ===================================================================== -->
+  <g id="transition-hub-to-thmc">
+    <line x1="430" y1="608" x2="430" y2="633" stroke="#1e40af" stroke-width="2" marker-end="url(#arrow-cobalt-end)"/>
+    <rect x="242" y="611.5" width="376" height="19" rx="9.5" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1.1"/>
+    <text x="430" y="624.2" class="sans" font-size="9" font-weight="700" fill="#1e40af" text-anchor="middle">Absorb completion &amp; scalar heights:  2 d b ≤ 2 d f a log<tspan font-size="6.8" dy="-2.4">4</tspan><tspan dy="2.4"> b</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: THEOREM C BANNER -> STAGE 01 STAR INEQUALITY                  -->
+  <!-- ===================================================================== -->
+  <g id="band-theorem-c">
+    <rect x="14" y="636" width="832" height="114" rx="6" fill="#ffffff"/>
+    <rect x="14" y="636" width="832" height="26" fill="#edf4ff" clip-path="url(#clip-thmc)"/>
+    <rect x="14" y="636" width="6" height="114" fill="#1e40af" clip-path="url(#clip-thmc)"/>
+    <line x1="20" y1="662" x2="846" y2="662" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="636" width="832" height="114" rx="6" fill="none" stroke="#1e40af" stroke-width="1.8"/>
+
+    <!-- Band 3 Header -->
+    <text x="30" y="653" class="sans" font-size="10.8" font-weight="700" fill="#1e40af">■ THEOREM C  —  LOWER BOUND FOR INTEGRAL TARGET FORMS</text>
+    <text x="834" y="653" class="mono" font-size="9.6" font-weight="700" fill="#161b22" text-anchor="end">New.Data.integral_forms_long</text>
+
+    <!-- Main Theorem C Formula Panel -->
+    <g id="panel-theorem-c-formula">
+      <rect x="28" y="669" width="514" height="44" rx="5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.4"/>
+      <text x="285" y="690" class="sans" font-size="13" font-weight="700" fill="#161b22" text-anchor="middle">d · ( D.mainAmount − 3 f a log<tspan font-size="8.8" dy="-3.6">4</tspan><tspan dy="3.6"> b )   ≤   c + 2δ</tspan></text>
+      <text x="285" y="706" class="sans" font-size="8.6" fill="#3f4a56" text-anchor="middle">for any linearly independent y<tspan font-size="6.6" dy="1.8">1</tspan><tspan dy="-1.8">,…,y</tspan><tspan font-size="6.6" dy="1.8">n</tspan><tspan dy="-1.8"> spanning ≥ (1 − 4/b</tspan><tspan font-size="6.6" dy="-2.4">2</tspan><tspan dy="2.4">) d dimensions (covolume ≤ c, index ≤ δ)</tspan></text>
+    </g>
+
+    <!-- Handoff Arrow -> Stage 01 -->
+    <line x1="542" y1="691" x2="563" y2="691" stroke="#9a3412" stroke-width="1.8" marker-end="url(#arrow-rust-end)"/>
+
+    <!-- Stage 01 Handoff Panel -->
+    <g id="panel-stage01-handoff">
+      <rect x="566" y="669" width="268" height="44" rx="5" fill="#fff5f0" stroke="#9a3412" stroke-width="1.3"/>
+      <text x="578" y="685.5" class="sans" font-size="9.2" font-weight="700" fill="#9a3412">↗ FEEDS STAGE 01 · <tspan class="mono" font-size="9.1" fill="#161b22">New.star_inequality</tspan></text>
+      <text x="578" y="703" class="sans" font-size="8.6" fill="#3f4a56">Cancels d·D.mainAmount vs. Thms A &amp; B → GRH</text>
+    </g>
+
+    <!-- Bottom Legend & Provenance Strip -->
+    <g id="strip-legend-feeds">
+      <rect x="28" y="720" width="806" height="22" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="40" y="734.2" class="sans" font-size="8.5" fill="#3f4a56"><tspan font-weight="700" fill="#161b22">LEGEND:</tspan>   <tspan font-weight="700" fill="#065f46">●◆ Solid</tspan> = Stage 05 internal   ·   <tspan font-weight="700" fill="#92400e">▲■ Dashed</tspan> = Stage 06 / 07 typed black boxes   ·   <tspan font-weight="700" fill="#9a3412">FEEDS:</tspan> Stage 01 <tspan class="mono" font-size="8.3" font-weight="700" fill="#1e40af">01_reduction/main_inequality</tspan></text>
+    </g>
+  </g>
+</svg>
