@@ -1,0 +1,239 @@
+{
+  "closed": true,
+  "leaf": "11",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-27T10:59:19+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "11",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "1c8a6573-2472-57d4-8f1e-d761902a2406",
+      "task": "261126-EXP"
+    },
+    "reviewer": {
+      "at": "2026-11-27T10:59:19+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "11",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "d2d6e411-b176-5929-9168-b6ece4843518",
+      "task": "261126-EXP",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "27c8e7aa880f00efa3485fb692dfbb135a244afd",
+    "verdictRef": "notes/reports/reviewer/d2d6e411-b176-5929-9168-b6ece4843518/11-memory-review-verdict.md"
+  },
+  "rows": [
+    {
+      "because": [
+        {
+          "id": "RH-R17",
+          "packet": "RH-R17-v1-stage07-congruences-galois-theorem-c.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-0SHBD4",
+      "items": [],
+      "reason": "Refreshed reconsider_on anchor on site/docs/.vitepress/config.mts at candidate code tree 26143fbe9887b621dcf13af1682736897eccd4b4 after confirming rejected alternative 1 of DEC-0XZ8V5 remains still_rejected.",
+      "revision": 10,
+      "subject": "DEC-0XZ8V5"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-GXDXCT",
+          "revision": 1
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 3
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 5
+        }
+      ],
+      "id": "ROW-427CB0",
+      "items": [
+        "sha256:fc21568169a55d1f2de235c2e8208a0f38893e05e74312772dc115bc92243ac2"
+      ],
+      "reason": "Examined all four members of FAM-033QTE (INV-VGNZKV strengthened to revision 5 with re-anchored and updated RLZ-CRCTC9 and RLZ-0DB06B rationales; INV-GXDXCT rev 1, INV-HK005W rev 1, and INV-V207JN rev 3 untouched). The joint Phase 4 static-site compilation, editorial light VitePress shell and dual-repo CI/Pages guarantee (covering validated multi-stage docs across all eight pillars) and root route '.' remain accurate.",
+      "revision": 2,
+      "subject": "FAM-033QTE"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R17",
+          "packet": "RH-R17-v1-stage07-congruences-galois-theorem-c.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "81f28af0189ac5345541af00e94654db230b27d0",
+            "content": "sha256:888174441dd06dbe825938dcfc72474ee8b301f3bfdfc6cfc9a2b703288d9333",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/package.json"
+          },
+          "before": {
+            "blob": "dcf8a208965eb9831d9fcaffb426477a96945278",
+            "content": "sha256:44c8b6afc230bf39dabd32026c026184b4f8f81244e8feb5ba1e38503ecb629b",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/package.json"
+          },
+          "id": "RLZ-0DB06B"
+        },
+        {
+          "after": {
+            "blob": "f6379ff5e8969ca33de171dad8810e955f17a425",
+            "content": "sha256:01a7891fa5cdc568b90b0dbfbeaa95e77442331e42de9c18655eb86e85293276",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "before": {
+            "blob": "7162d764226e5d82b55bcb1a192054ad1c3d9835",
+            "content": "sha256:f6b8987b929dbdbf7f5afcc5bb5221bf8048195f8aa8ce3a2dbf8f5e99a74671",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "id": "RLZ-CRCTC9"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "strengthen",
+      "id": "ROW-9XQ7AA",
+      "items": [
+        "sha256:0ad531998b146508f9fa4c9e84cb41e75c46a2f9adef5564d2ea949807ae0e74"
+      ],
+      "reason": "Strengthened INV-VGNZKV under RH-R17@v1 (R4.2 and §4.5, with Manager-approved build-instrument decision recorded in 11_stage07-congruences-galois-theorem-c.json decisions[0] and notes/manager-rulings.md) to require site/package.json scripts.docs:build to invoke VitePress with node --max-old-space-size=8192 so plain npm --prefix site run docs:build builds the full 8-pillar MathJax 3 SVG corpus (88 pages) without V8 heap exhaustion while keeping devDependencies and site/package-lock.json untouched. Re-anchored RLZ-CRCTC9 (site/docs/.vitepress/config.mts) and RLZ-0DB06B (site/package.json) at candidate code tree 26143fbe9887b621dcf13af1682736897eccd4b4 and updated both rationales for Stage 07 added to the native Stages dropdown (all 8 stages 00-07, preserving the 5-item top bar), the four-page Stage 07 — Congruences & Galois (Theorem C, Pt 3) sidebar group, 54 Foundational Concepts slugs (+6 cards), and the 8192 MB docs:build heap cap. All prior INV-VGNZKV shell guarantees remain preserved, verified by Worker 11-attempt-2, Reviewer Round 2 CODE/docs/maths PASS (11-route-review-verdict.md), and post-PASS Final Checks (final-checks-report.md, rh-validate 0 findings across 33 Stage pages and 54 Concept Cards, 260 pytest passed, full and synthetic overview-only VitePress builds passing, Playwright 17/17 routes 0 errors).",
+      "revision": 5,
+      "subject": "INV-VGNZKV"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-E5BQQ9",
+      "items": [
+        "sha256:04ab08735957ee5c2ae8384739560417a1c8ff844ad759297584e1bc42b90904"
+      ],
+      "reason": "Updated onboarding/site/package.json.md Purpose, Code Commentary and Evidence [1] and refreshed sidecar references [1]-[2] via citation_fix for scripts.docs:build invoking VitePress with node --max-old-space-size=8192 ./node_modules/vitepress/bin/vitepress.js build docs while keeping devDependencies and site/package-lock.json unchanged.",
+      "sources": [
+        {
+          "blob": "81f28af0189ac5345541af00e94654db230b27d0",
+          "path": "site/package.json"
+        }
+      ],
+      "subject": "onboarding:site/package.json"
+    },
+    {
+      "disposition": "still_rejected",
+      "id": "ROW-JWVEFR",
+      "items": [
+        "sha256:67c98e9cbe6388e9f8b91f81c4d3df02dbbaa682a1009d84dbcd9cb76ec5beab"
+      ],
+      "reason": "site/docs/.vitepress/config.mts only added Stage 07 inside the existing native VitePress Stages dropdown (now listing all eight pillars 00-07), added the four-page Stage 07 — Congruences & Galois (Theorem C, Pt 3) sidebar group, and appended six Stage 07 Concept Card sidebar links (54 slugs total), while site/package.json only raised Node's V8 heap cap to 8192 MB on docs:build while keeping markdown-it-mathjax3 (^4.3.2), vitepress (^1.6.3), and site/package-lock.json untouched. VitePress defineConfig, markdown.math: true, cleanUrls: true, appearance: false, VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, and dual-repo GitHub Pages ownership in ar-rh-proof-skeleton/.github/workflows/pages.yml are all preserved; neither reconsider_when condition (switching away from VitePress or moving public explainer docs back into the code repository) is met, so rejected alternative 1 remains rejected.",
+      "subject": "reconsider:DEC-0XZ8V5#1"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-KQTRCM",
+      "items": [
+        "sha256:191c4d9312973de262c97f01c96b14f8971d9a50fae85785c3b702ad5096a87e"
+      ],
+      "reason": "Reviewed onboarding/overview.md and onboarding/overview.json against the Stage 07 navigation additions in site/docs/.vitepress/config.mts and the 8192 MB docs:build heap cap in site/package.json; overview prose already covers multi-stage explainer compilation (docs/stages/*/*.md), npm ci && npm run docs:build, and the site/ VitePress shell accurately, and all 8 sidecar references target untouched files and remain current.",
+      "sources": [
+        {
+          "blob": "f6379ff5e8969ca33de171dad8810e955f17a425",
+          "path": "site/docs/.vitepress/config.mts"
+        },
+        {
+          "blob": "81f28af0189ac5345541af00e94654db230b27d0",
+          "path": "site/package.json"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-W0G9HV",
+      "items": [
+        "sha256:f4719397e6b363779447e3510ef9feaa1c0c89f340cee305e1fe99c37a26bc44"
+      ],
+      "reason": "Updated onboarding/site/docs/.vitepress/config.mts.md Purpose, Code Commentary and Evidence [3] and refreshed sidecar references [1]-[3] via citation_fix for Stage 07 added to the native Stages dropdown (all eight pillars 00-07, preserving 5 top navigation entries), nine sidebar groups (adding 4-page Stage 07 — Congruences & Galois (Theorem C, Pt 3)), and 54 Foundational Concepts sidebar slugs (adding the 6 Stage 07 Concept Cards).",
+      "sources": [
+        {
+          "blob": "f6379ff5e8969ca33de171dad8810e955f17a425",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/config.mts"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:14b6b86c913b73ea3fc594bc168979200f02ff5a74e296f3dda96911091fb0b7",
+      "record": "DEC-0XZ8V5",
+      "revision": 10,
+      "writer": {
+        "at": "2026-11-27T10:50:00+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "11",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "1c8a6573-2472-57d4-8f1e-d761902a2406",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:127a67b1250b6bcbd5c4fa4893aa2a1d74be9ef64fe9fa7c6e1772be2312f89c",
+      "record": "INV-VGNZKV",
+      "revision": 5,
+      "writer": {
+        "at": "2026-11-27T10:50:00+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "11",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "1c8a6573-2472-57d4-8f1e-d761902a2406",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}

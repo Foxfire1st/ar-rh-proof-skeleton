@@ -55,7 +55,7 @@ Walkthrough of all **29 declarations** in `src/New/OneLift/LiftVolumeHeight.lean
 
 ### Exact Handoff into Stage 05 (`LongForms.lean`)
 
-Inside `src/New/Determinant/Twist/LongForms.lean:142–154` (`exists_hasSmallRatios_heightLe_liftDeterminant_div`), Stage 05 receives `hθ : D.IsRegularFamily θ` from Stage 07 (`exists_isRegularFamily`), invokes `heightLe_liftDeterminant_ratio hθ j` for each $1 \le j \le m$, and rewrites
+Inside `src/New/Determinant/Twist/LongForms.lean:142–154` (`exists_hasSmallRatios_heightLe_liftDeterminant_div`), Stage 05 receives `hθ : D.IsRegularFamily θ` from [Stage 07 (`exists_isRegularFamily`)](../07_congruences/ribet-denominators-and-regular-twists.md), invokes `heightLe_liftDeterminant_ratio hθ j` for each $1 \le j \le m$, and rewrites
 $$D.k \cdot D.\mathrm{logB} \cdot D.\mathrm{denominatorBudget} = D.k \cdot D.\mathrm{logB} \cdot \frac{D.f \cdot D.a \cdot D.\mathrm{logB}^3}{D.m \cdot D.k} = \frac{D.f \cdot D.a \cdot D.\mathrm{logB}^4}{D.m}.$$
 Summing across $j = 1, \dots, m$ then gives $m \cdot k \cdot D.\mathrm{directionAmount} = D.\mathrm{mainAmount}$ and yields `HeightLe (d * (b + f * a * logB ^ 4 - D.mainAmount))` on $Z(1)/Z(\theta(\iota))$, directly driving Theorem C (`New.Data.integral_forms_long`).
 

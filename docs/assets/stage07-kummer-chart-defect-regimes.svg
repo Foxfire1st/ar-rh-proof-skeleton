@@ -1,0 +1,385 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 880 712"
+     width="880"
+     height="712"
+     role="img"
+     aria-labelledby="stage07-kummer-defect-title stage07-kummer-defect-desc">
+  <title id="stage07-kummer-defect-title">Kummer-Chart Hodge-Tate Windows, Behrend-Sparse Frobenius Orbits, and Four Local Defect Regimes in Stage 07 (CupOrthogonalityBounds.lean + CrystallineDefect.lean)</title>
+  <desc id="stage07-kummer-defect-desc">Two-panel editorial mathematical diagram of Stage 07 local p-adic Hodge lifting and crystalline dual defect bounds across CupOrthogonalityBounds.lean (25 declarations) and CrystallineDefect.lean (18 declarations, 43 total, 0 stub truncations). Left panel (Hodge-Tate Windows and Behrend-Sparse Frobenius Orbit, cobalt and amber): Part 1 shows the opposite Hodge-Tate jump windows FitsWindows (fitsWindows_and_image_neg_sub_one) for a Galois lattice L with jump set U and its Tate dual with jump set U' = {-u - 1}: both share the central low band [-eta, eta] with eta = h_2^2 + 1 and h_2 = D.halfGap = D.r^8, while far jumps sit in opposite far windows -/+ epsilon_i [S_i, S_i + 4t], where S_i = farWindowStart D i sigma = w_i(sigma) - 2t uses w_i(sigma) = D.natB at b-places and D.offWeight elsewhere. Part 2 depicts a Kummer-chart Frobenius orbit of Teichmuller letters cycling under letterFrob : i |-&gt; i^p with gap scale J = floor(log_l(h_2^3)), illustrating Behrend-sparse b-letters via notMem_bPlaces_of_coefficientEmbedding_eq_pow (consuming Stage 01's progression-free D.bPlaces and D.sparse): after two b-letters separated by gap d_1 in [1, J], a third b-letter within gap d_2 in [1, J] is excluded, and the next b-letter is only allowed after a long gap &gt; J; chart data are packaged by eventually_exists_lettersReadThick and KummerChart.universalSide. Right panel (Four Prime Regimes -&gt; Uniform defectBound -&gt; Global Sum, emerald): stacks the four prime regimes of CupOrthogonalityBounds.lean converging into CrystallineDefect.lean::normLength_dualDefect_le_of_isSummandClass. Regime 1 (Generic large l, emerald): under NoMultipleNear and no small negative jump in [-a, 0) (or U' subset [-eta, 0]), dualDefect = 0 (dualDefect_eq_zero_and_dualDefect_le part (a)). Regime 2 (Few low jumps, cobalt): at most m jumps in [-eta, eta] gives dualDefect &lt;= 11 f (m(a + 1) + rk(L)(W + 1)) len(O/l) (part (b)). Regime 3 (Two-size / Behrend-sparse b-letters, l &lt;= 2b, amber): any pattern yields cup exponent &lt;= 10^4(K + floor(log_l(2(b + M)))) (hasCupExponent_any_pattern), while Behrend-sparse b-letters drop this to the rank-independent exponent 10^3(delta + (J + 1)M) (hasCupExponent_sparse_thick). Regime 4 (Tame inertial chart at p_0, p_1, rust): IsTameType with e = lcm_{1&lt;=i&lt;=r}(p^i - 1) &lt;= p^(r^2) gives cup exponent &lt;= 3r^2(N + 1)^2 + 150(eta + W + 1) independent of e (hasCupExponent_of_isTameType). All four regimes converge into the uniform bound normLength(dualDefect) &lt;= [G_l : Gamma] * rk(L_c) * defectBound(D, l) / x (x = 1 for the main summand, x = D.t for each character summand), where defectBound D l = 10^6 (m/k)(b v_l(M) + lambda_l) and lambda_l = crystallineLoss(h_2, b, l) = v_l((2b)! * (prod_{k in (b - 30 h_2^3, b + 30 h_2^3]} k)^(h_2^3)). Finally, summing localDefectBound D l = 4f * defectBound D l weighted by log l across primes in FitTwistsExist.lean yields at most 4 * 10^6 e^180 f (m/k) b log b, well below D.denominatorBudget = f a log^3 b / (m k).</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+
+    <!-- Crisp clip paths for panel headers and left accent stripes -->
+    <clipPath id="clip-left-panel"><rect x="14" y="48" width="404" height="622" rx="6"/></clipPath>
+    <clipPath id="clip-right-panel"><rect x="454" y="48" width="412" height="622" rx="6"/></clipPath>
+    <clipPath id="clip-l-windows"><rect x="24" y="84" width="384" height="230" rx="5"/></clipPath>
+    <clipPath id="clip-l-orbit"><rect x="24" y="333" width="384" height="263" rx="5"/></clipPath>
+    <clipPath id="clip-r-reg1"><rect x="464" y="95" width="392" height="63" rx="5"/></clipPath>
+    <clipPath id="clip-r-reg2"><rect x="464" y="164" width="392" height="65" rx="5"/></clipPath>
+    <clipPath id="clip-r-reg3"><rect x="464" y="235" width="392" height="78" rx="5"/></clipPath>
+    <clipPath id="clip-r-reg4"><rect x="464" y="319" width="392" height="74" rx="5"/></clipPath>
+    <clipPath id="clip-r-uniform"><rect x="464" y="415" width="392" height="160" rx="5"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="879" height="711" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="26.5" class="sans" font-size="14.4" font-weight="700" fill="#161b22">Kummer-Chart Windows, Behrend-Sparse Orbits &amp; Defect Regimes</text>
+    <text x="862" y="25.5" class="mono" font-size="9.2" fill="#3f4a56" text-anchor="end">Stage 07 · CupOrthogonalityBounds + CrystallineDefect</text>
+    <line x1="14" y1="39" x2="866" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- LEFT PANEL: HODGE-TATE WINDOWS & BEHREND-SPARSE FROBENIUS ORBIT       -->
+  <!-- ===================================================================== -->
+  <g id="panel-left-windows-orbit">
+    <rect x="14" y="48" width="404" height="622" rx="6" fill="#ffffff"/>
+    <rect x="14" y="48" width="404" height="26" fill="#edf4ff" clip-path="url(#clip-left-panel)"/>
+    <line x1="14" y1="74" x2="418" y2="74" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="48" width="404" height="622" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+    <!-- Left Panel Header -->
+    <text x="24" y="64.5" class="sans" font-size="9.4" font-weight="700" fill="#1e40af">◆ PART 1 · WINDOWS &amp; FROBENIUS ORBIT</text>
+    <text x="408" y="64.5" class="mono" font-size="8.4" font-weight="700" fill="#3f4a56" text-anchor="end">FitsWindows · letterFrob</text>
+
+    <!-- CARD L1: OPPOSITE HODGE-TATE JUMP WINDOWS -->
+    <g id="card-hodge-tate-windows">
+      <rect x="24" y="84" width="384" height="230" rx="5" fill="#ffffff"/>
+      <rect x="24" y="84" width="4" height="230" fill="#1e40af" clip-path="url(#clip-l-windows)"/>
+      <rect x="24" y="84" width="384" height="230" rx="5" fill="none" stroke="#bfdbfe" stroke-width="1.3"/>
+
+      <text x="35" y="100" class="sans" font-size="9.1" font-weight="700" fill="#1e40af">① OPPOSITE JUMP WINDOWS (<tspan class="mono" font-size="8.2" fill="#161b22">FitsWindows</tspan>)</text>
+      <text x="399" y="100" class="mono" font-size="7.3" fill="#3f4a56" text-anchor="end">fitsWindows_and_image_neg_sub_one</text>
+      <text x="35" y="114.5" class="sans" font-size="8.1" fill="#3f4a56">At each embedding σ of E, <tspan font-weight="700" fill="#1e40af">U</tspan> (lattice L) and <tspan font-weight="700" fill="#065f46">U′</tspan> (dual L<tspan font-size="6.1" dy="-2.2">∨</tspan><tspan dy="2.2">(1)) sit opposite:</tspan></text>
+
+      <!-- Number-Line Window Plot -->
+      <rect x="34" y="122" width="364" height="119" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+      <!-- Column Headers inside Plot -->
+      <text x="111" y="135" class="sans" font-size="7.8" font-weight="700" fill="#065f46" text-anchor="middle">−ε<tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6">[S</tspan><tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6">, S</tspan><tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6"> + 4t]</tspan></text>
+      <text x="216" y="135" class="sans" font-size="7.8" font-weight="700" fill="#92400e" text-anchor="middle">low band [−η, η]</text>
+      <text x="333" y="135" class="sans" font-size="7.8" font-weight="700" fill="#1e40af" text-anchor="middle">+ε<tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6">[S</tspan><tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6">, S</tspan><tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6"> + 4t]</tspan></text>
+
+      <!-- Shared Central Low Band [-η, η] -->
+      <rect x="184" y="142" width="64" height="63" rx="3" fill="#fef6e4" stroke="#92400e" stroke-width="1.2"/>
+      <line x1="216" y1="142" x2="216" y2="205" stroke="#d8d3c8" stroke-width="0.9" stroke-dasharray="2.5,2"/>
+
+      <!-- Upper Track: U (Lattice L) -->
+      <text x="41" y="159" class="sans" font-size="8" font-weight="700" fill="#1e40af">U:</text>
+      <line x1="56" y1="156" x2="386" y2="156" stroke="#bfdbfe" stroke-width="1.1" stroke-dasharray="3,2"/>
+      <!-- Low jumps on U track -->
+      <circle cx="204" cy="156" r="2.7" fill="#1e40af"/>
+      <circle cx="225" cy="156" r="2.7" fill="#1e40af"/>
+      <!-- Far Window on U track (+ε_i) -->
+      <rect x="290" y="146" width="86" height="20" rx="3" fill="#edf4ff" stroke="#1e40af" stroke-width="1.4"/>
+      <text x="333" y="159" class="sans" font-size="7.7" font-weight="700" fill="#1e40af" text-anchor="middle">S<tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6"> … S</tspan><tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6"> + 4t</tspan></text>
+      <text x="269" y="153.5" class="sans" font-size="7.2" fill="#3f4a56" text-anchor="middle">gap ≫ η</text>
+
+      <!-- Central Axis Line -->
+      <line x1="56" y1="175" x2="386" y2="175" stroke="#3f4a56" stroke-width="1"/>
+      <line x1="184" y1="172" x2="184" y2="178" stroke="#92400e" stroke-width="1.2"/>
+      <line x1="216" y1="171.5" x2="216" y2="178.5" stroke="#161b22" stroke-width="1.3"/>
+      <line x1="248" y1="172" x2="248" y2="178" stroke="#92400e" stroke-width="1.2"/>
+
+      <!-- Lower Track: U' (Tate Dual) -->
+      <text x="41" y="196" class="sans" font-size="8" font-weight="700" fill="#065f46">U′:</text>
+      <line x1="56" y1="193" x2="386" y2="193" stroke="#a7f3d0" stroke-width="1.1" stroke-dasharray="3,2"/>
+      <!-- Low jumps on U' track -->
+      <circle cx="206" cy="193" r="2.7" fill="#065f46"/>
+      <circle cx="227" cy="193" r="2.7" fill="#065f46"/>
+      <!-- Far Window on U' track (-ε_i) -->
+      <rect x="68" y="183" width="86" height="20" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1.4"/>
+      <text x="111" y="196" class="sans" font-size="7.4" font-weight="700" fill="#065f46" text-anchor="middle">−(S<tspan font-size="5.6" dy="1.6">i</tspan><tspan dy="-1.6">+4t) … −S</tspan><tspan font-size="5.6" dy="1.6">i</tspan></text>
+      <text x="169" y="190.5" class="sans" font-size="7.2" fill="#3f4a56" text-anchor="middle">≪ −η</text>
+
+      <!-- Axis Ticks Labels -->
+      <text x="184" y="216" class="sans" font-size="7.6" font-weight="700" fill="#92400e" text-anchor="middle">−η</text>
+      <text x="216" y="216" class="sans" font-size="7.6" font-weight="700" fill="#161b22" text-anchor="middle">0</text>
+      <text x="248" y="216" class="sans" font-size="7.6" font-weight="700" fill="#92400e" text-anchor="middle">+η</text>
+
+      <!-- Dual Map Footnote -->
+      <text x="216" y="232.5" class="sans" font-size="7.8" fill="#161b22" text-anchor="middle">Tate dual <tspan font-weight="700" fill="#065f46">u ↦ −u − 1</tspan> sends <tspan font-weight="700" fill="#1e40af">U</tspan> &amp; <tspan font-weight="700" fill="#065f46">U′</tspan> into opposite far windows ∓ε<tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6">[S</tspan><tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6">, S</tspan><tspan font-size="5.8" dy="1.6">i</tspan><tspan dy="-1.6"> + 4t]</tspan></text>
+
+      <!-- Two Parameter Definition Boxes -->
+      <rect x="34" y="248" width="164" height="56" rx="4" fill="#fef6e4" stroke="#e7c98f" stroke-width="1"/>
+      <text x="42" y="262.5" class="sans" font-size="8" font-weight="700" fill="#92400e">Low-band radius η:</text>
+      <text x="42" y="277" class="sans" font-size="8.4" font-weight="700" fill="#161b22">η = h<tspan font-size="6.2" dy="1.8">2</tspan><tspan font-size="6.2" dy="-4.2">2</tspan><tspan dy="2.4"> + 1</tspan></text>
+      <text x="42" y="293" class="mono" font-size="7.4" fill="#3f4a56">h₂ = D.halfGap = D.r⁸</text>
+
+      <rect x="204" y="248" width="194" height="56" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="212" y="262.5" class="mono" font-size="7.2" font-weight="700" fill="#1e40af">farWindowStart D i σ = wᵢ(σ) − 2t</text>
+      <text x="212" y="277.5" class="sans" font-size="7.9" fill="#161b22">w<tspan font-size="5.9" dy="1.6">i</tspan><tspan dy="-1.6">(σ) = </tspan><tspan class="mono" font-size="7.5" font-weight="700" fill="#92400e">D.natB</tspan><tspan fill="#3f4a56">  at </tspan><tspan font-weight="700" fill="#92400e">b</tspan><tspan fill="#3f4a56">-places</tspan></text>
+      <text x="212" y="293" class="sans" font-size="7.9" fill="#161b22">w<tspan font-size="5.9" dy="1.6">i</tspan><tspan dy="-1.6">(σ) = </tspan><tspan class="mono" font-size="7.5" font-weight="700" fill="#3f4a56">D.offWeight</tspan><tspan fill="#3f4a56">  elsewhere</tspan></text>
+    </g>
+
+    <!-- Arrow L1 -> L2 -->
+    <g id="arrow-windows-orbit">
+      <line x1="216" y1="314" x2="216" y2="330" stroke="#1e40af" stroke-width="1.7" marker-end="url(#arrow-cobalt-end)"/>
+      <text x="206" y="325.5" class="sans" font-size="7.8" fill="#3f4a56" text-anchor="end">Kummer chart k ⊂ A<tspan font-size="5.8" dy="1.6">inf</tspan></text>
+      <text x="226" y="325.5" class="sans" font-size="7.8" font-weight="700" fill="#92400e">b-places cycle under Frobenius</text>
+    </g>
+
+    <!-- CARD L2: KUMMER-CHART FROBENIUS ORBIT & BEHREND-SPARSE b-LETTERS -->
+    <g id="card-frobenius-orbit">
+      <rect x="24" y="333" width="384" height="263" rx="5" fill="#ffffff"/>
+      <rect x="24" y="333" width="4.5" height="263" fill="#92400e" clip-path="url(#clip-l-orbit)"/>
+      <rect x="24" y="333" width="384" height="263" rx="5" fill="none" stroke="#92400e" stroke-width="1.3"/>
+
+      <text x="35" y="349" class="sans" font-size="9.1" font-weight="700" fill="#92400e">② BEHREND-SPARSE FROBENIUS ORBIT</text>
+      <text x="399" y="349" class="mono" font-size="7.9" font-weight="700" fill="#161b22" text-anchor="end">letterFrob : i ↦ i^p</text>
+      <text x="35" y="363.5" class="sans" font-size="8.1" fill="#3f4a56">Teichmüller letters <tspan class="mono" font-size="7.7" fill="#161b22">i ∈ k.Letter</tspan> cycle clockwise under Frobenius:</text>
+
+      <!-- Orbit Plot Frame -->
+      <rect x="34" y="371" width="364" height="137" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+      <!-- Gap Brackets above Top Rail -->
+      <path d="M 92 397 L 92 391 L 184 391 L 184 397" fill="none" stroke="#92400e" stroke-width="1.1"/>
+      <text x="138" y="386.5" class="sans" font-size="7.6" font-weight="700" fill="#92400e" text-anchor="middle">gap d<tspan font-size="5.6" dy="1.6">1</tspan><tspan dy="-1.6"> ∈ [1, J]</tspan></text>
+
+      <path d="M 192 397 L 192 391 L 284 391 L 284 397" fill="none" stroke="#9a3412" stroke-width="1.1" stroke-dasharray="3,2"/>
+      <text x="242" y="386.5" class="sans" font-size="7.6" font-weight="700" fill="#9a3412" text-anchor="middle">gap d<tspan font-size="5.6" dy="1.6">2</tspan><tspan dy="-1.6"> ∈ [1, J]: forbidden!</tspan></text>
+
+      <!-- Stadium Cyclic Track (Clockwise) -->
+      <rect x="47" y="410" width="338" height="54" rx="27" fill="none" stroke="#3f4a56" stroke-width="1.5"/>
+
+      <!-- Clockwise Directional Chevrons on Track -->
+      <!-- Top rail (left -> right) -->
+      <polygon points="113,406.5 120,410 113,413.5" fill="#3f4a56"/>
+      <polygon points="161,406.5 168,410 161,413.5" fill="#3f4a56"/>
+      <polygon points="209,406.5 216,410 209,413.5" fill="#3f4a56"/>
+      <polygon points="257,406.5 264,410 257,413.5" fill="#9a3412"/>
+      <polygon points="309,406.5 316,410 309,413.5" fill="#3f4a56"/>
+      <!-- Right arc (down) -->
+      <polygon points="381.5,434 385,441 388.5,434" fill="#3f4a56"/>
+      <!-- Bottom rail (right -> left) -->
+      <polygon points="306,460.5 299,464 306,467.5" fill="#065f46"/>
+      <polygon points="252,460.5 245,464 252,467.5" fill="#065f46"/>
+      <polygon points="198,460.5 191,464 198,467.5" fill="#065f46"/>
+      <polygon points="144,460.5 137,464 144,467.5" fill="#065f46"/>
+      <!-- Left arc (up) -->
+      <polygon points="43.5,440 47,433 50.5,440" fill="#3f4a56"/>
+
+      <!-- Orbit Nodes: Top Rail (y=410) -->
+      <!-- b1 -->
+      <circle cx="92" cy="410" r="8.5" fill="#92400e" stroke="#ffffff" stroke-width="1.4"/>
+      <text x="92" y="413.2" class="sans" font-size="8.6" font-weight="700" fill="#ffffff" text-anchor="middle">b</text>
+      <!-- non-b -->
+      <circle cx="140" cy="410" r="4.5" fill="#ffffff" stroke="#3f4a56" stroke-width="1.3"/>
+      <!-- b2 -->
+      <circle cx="188" cy="410" r="8.5" fill="#92400e" stroke="#ffffff" stroke-width="1.4"/>
+      <text x="188" y="413.2" class="sans" font-size="8.6" font-weight="700" fill="#ffffff" text-anchor="middle">b</text>
+      <!-- non-b -->
+      <circle cx="236" cy="410" r="4.5" fill="#ffffff" stroke="#3f4a56" stroke-width="1.3"/>
+      <!-- Forbidden 3rd b-letter -->
+      <circle cx="284" cy="410" r="9" fill="#fff5f0" stroke="#9a3412" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <text x="284" y="413.5" class="sans" font-size="9.6" font-weight="700" fill="#9a3412" text-anchor="middle">×</text>
+      <!-- non-b -->
+      <circle cx="336" cy="410" r="4.5" fill="#ffffff" stroke="#3f4a56" stroke-width="1.3"/>
+
+      <!-- Orbit Nodes: Bottom Rail (y=464) -->
+      <circle cx="330" cy="464" r="4.5" fill="#ffffff" stroke="#3f4a56" stroke-width="1.3"/>
+      <circle cx="276" cy="464" r="4.5" fill="#ffffff" stroke="#3f4a56" stroke-width="1.3"/>
+      <circle cx="222" cy="464" r="4.5" fill="#ffffff" stroke="#3f4a56" stroke-width="1.3"/>
+      <circle cx="168" cy="464" r="4.5" fill="#ffffff" stroke="#3f4a56" stroke-width="1.3"/>
+      <!-- Next allowed b-letter after long gap > J -->
+      <circle cx="114" cy="464" r="8.5" fill="#92400e" stroke="#ffffff" stroke-width="1.4"/>
+      <text x="114" y="467.2" class="sans" font-size="8.6" font-weight="700" fill="#ffffff" text-anchor="middle">b</text>
+
+      <!-- Center Orbit Pill -->
+      <rect x="104" y="427" width="224" height="20" rx="10" fill="#ffffff" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="216" y="440" class="sans" font-size="7.9" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="7.6" fill="#1e40af">letterFrob</tspan> : i ↦ i<tspan font-size="5.8" dy="-2.2">p</tspan><tspan dy="2.2" fill="#3f4a56">  ·  </tspan><tspan fill="#92400e">J = ⌊log</tspan><tspan font-size="5.8" dy="1.8" fill="#92400e">ℓ</tspan><tspan dy="-1.8" fill="#92400e">(h</tspan><tspan font-size="5.8" dy="1.8" fill="#92400e">2</tspan><tspan font-size="5.8" dy="-4" fill="#92400e">3</tspan><tspan dy="2.2" fill="#92400e">)⌋</tspan></text>
+
+      <!-- Long Gap Note below Bottom Rail -->
+      <text x="228" y="483.5" class="sans" font-size="7.6" font-weight="700" fill="#065f46" text-anchor="middle">← long gap &gt; J  (next b-letter allowed) ←</text>
+
+      <!-- Orbit Mini-Legend -->
+      <circle cx="48" cy="498" r="4" fill="#92400e"/>
+      <text x="56" y="500.8" class="sans" font-size="7.4" font-weight="700" fill="#92400e">b-letter (weight b)</text>
+      <circle cx="155" cy="498" r="3.6" fill="#ffffff" stroke="#3f4a56" stroke-width="1.2"/>
+      <text x="163" y="500.8" class="sans" font-size="7.4" fill="#3f4a56">off-letter (weight G)</text>
+      <circle cx="266" cy="498" r="4.2" fill="#fff5f0" stroke="#9a3412" stroke-width="1.1" stroke-dasharray="2,1.5"/>
+      <text x="266" y="500.6" class="sans" font-size="6.8" font-weight="700" fill="#9a3412" text-anchor="middle">×</text>
+      <text x="275" y="500.8" class="sans" font-size="7.4" font-weight="700" fill="#9a3412">3rd b-letter excluded</text>
+
+      <!-- Sparsity Contract Strip -->
+      <rect x="34" y="514" width="364" height="36" rx="4" fill="#fef6e4" stroke="#e7c98f" stroke-width="1"/>
+      <text x="42" y="528.5" class="sans" font-size="8" font-weight="700" fill="#92400e">No 3 b-letters occur with both Frobenius gaps in [1, J]:</text>
+      <text x="42" y="542.5" class="mono" font-size="7.6" font-weight="700" fill="#161b22">notMem_bPlaces_of_coefficientEmbedding_eq_pow<tspan class="sans" font-weight="400" fill="#3f4a56">  (ℓ ≤ kt)</tspan></text>
+
+      <!-- Chart Packaging Strip -->
+      <rect x="34" y="556" width="364" height="31" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="42" y="569" class="sans" font-size="7.8" fill="#3f4a56">Chart data: <tspan class="mono" font-size="7.5" font-weight="700" fill="#1e40af">eventually_exists_lettersReadThick</tspan> · <tspan class="mono" font-size="7.5" fill="#161b22">universalSide</tspan></text>
+      <text x="42" y="581.5" class="sans" font-size="7.7" fill="#3f4a56">Kisin Frobenius safe-move walks → explicit cup exponent e (p<tspan font-size="5.6" dy="-2">e</tspan><tspan dy="2"> Z</tspan><tspan font-size="5.6" dy="1.6">f</tspan><tspan dy="-1.6"> ⊆ ⊥)</tspan></text>
+    </g>
+
+    <!-- CARD L3: CROSS-STAGE INPUT FROM STAGE 01 -->
+    <g id="card-stage01-input">
+      <rect x="24" y="605" width="384" height="55" rx="5" fill="#fff5f0" stroke="#9a3412" stroke-width="1.3" stroke-dasharray="5,3"/>
+      <text x="34" y="620" class="sans" font-size="8.4" font-weight="700" fill="#9a3412">↙ STAGE 01 INPUT · BEHREND SPARSITY</text>
+      <text x="398" y="620" class="mono" font-size="7.8" font-weight="700" fill="#9a3412" text-anchor="end">D.bPlaces · D.sparse</text>
+      <text x="34" y="635.5" class="sans" font-size="8.1" fill="#161b22">Directly consumes Stage 01 progression-free <tspan class="mono" font-size="7.7" font-weight="700">D.bPlaces</tspan> into Regime 3,</text>
+      <text x="34" y="649.5" class="sans" font-size="8" fill="#3f4a56">cutting small-prime cup exponents to rank-independent <tspan font-weight="700" fill="#161b22">10³(δ + (J+1)M)</tspan>.</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BRIDGE CONNECTOR: LEFT PANEL -> RIGHT PANEL                           -->
+  <!-- ===================================================================== -->
+  <g id="bridge-left-to-right">
+    <rect x="420" y="336" width="32" height="18" rx="9" fill="#edf4ff" stroke="#1e40af" stroke-width="1.1"/>
+    <text x="436" y="348" class="sans" font-size="8.2" font-weight="700" fill="#1e40af" text-anchor="middle">k, U</text>
+    <line x1="418" y1="361" x2="451" y2="361" stroke="#1e40af" stroke-width="2" marker-end="url(#arrow-cobalt-end)"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- RIGHT PANEL: FOUR PRIME REGIMES -> UNIFORM BOUND -> GLOBAL SUM        -->
+  <!-- ===================================================================== -->
+  <g id="panel-right-regimes-bound">
+    <rect x="454" y="48" width="412" height="622" rx="6" fill="#ffffff"/>
+    <rect x="454" y="48" width="412" height="26" fill="#ecfdf5" clip-path="url(#clip-right-panel)"/>
+    <line x1="454" y1="74" x2="866" y2="74" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="454" y="48" width="412" height="622" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+    <!-- Right Panel Header -->
+    <text x="464" y="64.5" class="sans" font-size="9.4" font-weight="700" fill="#065f46">● PART 2 · FOUR PRIME REGIMES → DEFECT BOUND</text>
+    <text x="856" y="64.5" class="mono" font-size="8.4" font-weight="700" fill="#3f4a56" text-anchor="end">43 decls · 0 stubs</text>
+
+    <!-- Intro Line -->
+    <text x="464" y="87.5" class="sans" font-size="8.3" fill="#3f4a56">Four local prime regimes (<tspan class="mono" font-size="7.9" font-weight="700" fill="#161b22">CupOrthogonalityBounds.lean</tspan>):</text>
+
+    <!-- REGIME 1: GENERIC LARGE l -->
+    <g id="card-regime-1">
+      <rect x="464" y="95" width="392" height="63" rx="5" fill="#ffffff"/>
+      <rect x="464" y="95" width="4" height="63" fill="#065f46" clip-path="url(#clip-r-reg1)"/>
+      <rect x="464" y="95" width="392" height="63" rx="5" fill="none" stroke="#a7f3d0" stroke-width="1.3"/>
+
+      <text x="475" y="110.5" class="sans" font-size="8.8" font-weight="700" fill="#065f46">① GENERIC LARGE ℓ<tspan font-weight="400" fill="#3f4a56" font-size="7.9">  (ℓ ≥ 5 unramified)</tspan></text>
+      <rect x="758" y="99.5" width="90" height="16" rx="3" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="803" y="110.5" class="sans" font-size="8.3" font-weight="700" fill="#065f46" text-anchor="middle">dualDefect = 0</text>
+
+      <text x="475" y="128.5" class="sans" font-size="7.9" fill="#161b22"><tspan class="mono" font-size="7.6" font-weight="700">NoMultipleNear</tspan> · no small neg. jump in [−a, 0) (or U′ ⊆ [−η, 0])</text>
+      <text x="475" y="146.5" class="mono" font-size="7.5" font-weight="700" fill="#065f46">dualDefect_eq_zero_and_dualDefect_le<tspan class="sans" font-weight="400" fill="#3f4a56">  part (a)</tspan></text>
+    </g>
+
+    <!-- REGIME 2: FEW LOW JUMPS -->
+    <g id="card-regime-2">
+      <rect x="464" y="164" width="392" height="65" rx="5" fill="#ffffff"/>
+      <rect x="464" y="164" width="4" height="65" fill="#1e40af" clip-path="url(#clip-r-reg2)"/>
+      <rect x="464" y="164" width="392" height="65" rx="5" fill="none" stroke="#bfdbfe" stroke-width="1.3"/>
+
+      <text x="475" y="179" class="sans" font-size="8.8" font-weight="700" fill="#1e40af">② FEW LOW JUMPS</text>
+      <text x="848" y="179" class="sans" font-size="7.9" font-weight="700" fill="#3f4a56" text-anchor="end">≤ m jumps in [−η, η] per embedding</text>
+
+      <rect x="475" y="185" width="373" height="20" rx="3" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="661.5" y="198" class="sans" font-size="8.2" font-weight="700" fill="#1e40af" text-anchor="middle">dualDefect ≤ 11 f (m(a + 1) + rk(L)(W + 1)) · len(O/ℓ)</text>
+
+      <text x="475" y="219.5" class="mono" font-size="7.5" font-weight="700" fill="#1e40af">dualDefect_eq_zero_and_dualDefect_le<tspan class="sans" font-weight="400" fill="#3f4a56">  part (b) · </tspan><tspan fill="#3f4a56">few_low_weights</tspan></text>
+    </g>
+
+    <!-- REGIME 3: TWO-SIZE / BEHREND-SPARSE b-LETTERS -->
+    <g id="card-regime-3">
+      <rect x="464" y="235" width="392" height="78" rx="5" fill="#ffffff"/>
+      <rect x="464" y="235" width="4.5" height="78" fill="#92400e" clip-path="url(#clip-r-reg3)"/>
+      <rect x="464" y="235" width="392" height="78" rx="5" fill="none" stroke="#92400e" stroke-width="1.3"/>
+
+      <text x="475" y="249.5" class="sans" font-size="8.7" font-weight="700" fill="#92400e">③ TWO-SIZE / BEHREND-SPARSE b-LETTERS</text>
+      <text x="848" y="249.5" class="sans" font-size="8.2" font-weight="700" fill="#92400e" text-anchor="end">ℓ ≤ 2b</text>
+
+      <text x="475" y="265.5" class="sans" font-size="7.9" fill="#161b22">• Any pattern: <tspan font-weight="700">10⁴(K + ⌊log</tspan><tspan font-size="5.8" dy="1.6" font-weight="700">ℓ</tspan><tspan dy="-1.6" font-weight="700">(2(b + M))⌋)</tspan></text>
+      <text x="848" y="265.5" class="mono" font-size="7.1" fill="#3f4a56" text-anchor="end">hasCupExponent_any_pattern</text>
+
+      <rect x="475" y="272" width="373" height="34" rx="3.5" fill="#fef6e4" stroke="#e7c98f" stroke-width="1"/>
+      <text x="483" y="286" class="sans" font-size="8" font-weight="700" fill="#92400e">• Behrend-sparse (rk-indep.):  <tspan font-size="8.4" fill="#161b22">10³(δ + (J + 1)M)</tspan></text>
+      <text x="483" y="299.5" class="mono" font-size="7.4" font-weight="700" fill="#92400e">hasCupExponent_sparse_thick<tspan class="sans" font-weight="400" fill="#3f4a56"> · uses Part 1 orbit exclusion</tspan></text>
+    </g>
+
+    <!-- REGIME 4: TAME INERTIAL CHART AT p_0, p_1 -->
+    <g id="card-regime-4">
+      <rect x="464" y="319" width="392" height="74" rx="5" fill="#ffffff"/>
+      <rect x="464" y="319" width="4" height="74" fill="#9a3412" clip-path="url(#clip-r-reg4)"/>
+      <rect x="464" y="319" width="392" height="74" rx="5" fill="none" stroke="#9a3412" stroke-width="1.2"/>
+
+      <text x="475" y="333.5" class="sans" font-size="8.7" font-weight="700" fill="#9a3412">④ TAME INERTIAL CHART AT p<tspan font-size="6.4" dy="1.6">0</tspan><tspan dy="-1.6">, p</tspan><tspan font-size="6.4" dy="1.6">1</tspan></text>
+      <text x="848" y="333.5" class="mono" font-size="7.5" font-weight="700" fill="#9a3412" text-anchor="end">IsTameType · TameChart</text>
+
+      <text x="475" y="348.5" class="sans" font-size="7.9" fill="#161b22">e = lcm<tspan font-size="5.8" dy="1.8">1≤i≤r</tspan><tspan dy="-1.8">(p</tspan><tspan font-size="5.8" dy="-2.2">i</tspan><tspan dy="2.2"> − 1) ≤ p</tspan><tspan font-size="5.8" dy="-2.2">r²</tspan><tspan dy="2.2" fill="#3f4a56"> · monic ℤ</tspan><tspan font-size="5.8" dy="1.8" fill="#3f4a56">p</tspan><tspan dy="-1.8" fill="#3f4a56">-poly deg ≤ N</tspan></text>
+
+      <rect x="475" y="355" width="373" height="19" rx="3" fill="#fff5f0" stroke="#e6b8a2" stroke-width="1"/>
+      <text x="661.5" y="367.5" class="sans" font-size="8.1" font-weight="700" fill="#9a3412" text-anchor="middle">cup exponent ≤ 3r²(N + 1)² + 150(η + W + 1)   <tspan fill="#161b22">(indep. of e)</tspan></text>
+
+      <text x="475" y="386.5" class="mono" font-size="7.5" font-weight="700" fill="#9a3412">hasCupExponent_of_isTameType<tspan class="sans" font-weight="400" fill="#3f4a56"> · absorbed by b·v</tspan><tspan class="sans" font-size="5.6" dy="1.6" fill="#3f4a56">ℓ</tspan><tspan class="sans" dy="-1.6" fill="#3f4a56">(M)</tspan></text>
+    </g>
+
+    <!-- Converging Arrow: 4 Regimes -> Uniform Bound -->
+    <g id="arrow-regimes-uniform">
+      <line x1="660" y1="393" x2="660" y2="412" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+      <text x="650" y="405.5" class="sans" font-size="7.9" fill="#3f4a56" text-anchor="end">all 4 regimes converge into</text>
+      <text x="670" y="405.5" class="mono" font-size="7.9" font-weight="700" fill="#065f46">CrystallineDefect.lean</text>
+    </g>
+
+    <!-- UNIFORM PRIME-BY-PRIME BOUND BOX -->
+    <g id="card-uniform-bound">
+      <rect x="464" y="415" width="392" height="160" rx="5" fill="#ffffff"/>
+      <rect x="464" y="415" width="5" height="160" fill="#065f46" clip-path="url(#clip-r-uniform)"/>
+      <rect x="464" y="415" width="392" height="160" rx="5" fill="none" stroke="#065f46" stroke-width="1.7"/>
+
+      <text x="476" y="431" class="sans" font-size="9.1" font-weight="700" fill="#065f46">■ UNIFORM PRIME-BY-PRIME BOUND</text>
+      <text x="476" y="444.5" class="mono" font-size="7.8" font-weight="700" fill="#065f46">normLength_dualDefect_le_of_isSummandClass</text>
+
+      <!-- Headline Inequality Strip -->
+      <rect x="476" y="452" width="370" height="44" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.2"/>
+      <text x="661" y="469.5" class="sans" font-size="9.2" font-weight="700" fill="#161b22" text-anchor="middle">normLength(dualDefect)  ≤  [G<tspan font-size="6.6" dy="1.8">ℓ</tspan><tspan dy="-1.8"> : Γ] · rk(L</tspan><tspan font-size="6.6" dy="1.8">c</tspan><tspan dy="-1.8">) · </tspan><tspan fill="#065f46">defectBound(D, ℓ)</tspan> / x</text>
+      <text x="661" y="486.5" class="sans" font-size="7.9" fill="#065f46" text-anchor="middle"><tspan font-weight="700">x = 1</tspan> (main summand, <tspan class="mono" font-size="7.4">c = none</tspan>)   ·   <tspan font-weight="700">x = D.t</tspan> (characters, <tspan class="mono" font-size="7.4">c = some c′</tspan>)</text>
+
+      <!-- defectBound & crystallineLoss Strip -->
+      <rect x="476" y="502" width="370" height="65" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1.1"/>
+      <text x="661" y="518.5" class="sans" font-size="9.2" font-weight="700" fill="#1e40af" text-anchor="middle">defectBound D ℓ  =  10⁶ (m / k) (b · v<tspan font-size="6.6" dy="1.8">ℓ</tspan><tspan dy="-1.8">(M) + λ</tspan><tspan font-size="6.6" dy="1.8">ℓ</tspan><tspan dy="-1.8">)</tspan></text>
+      <text x="661" y="538" class="sans" font-size="8.2" font-weight="700" fill="#161b22" text-anchor="middle">λ<tspan font-size="6" dy="1.6">ℓ</tspan><tspan dy="-1.6"> = </tspan><tspan class="mono" font-size="7.6" fill="#92400e">crystallineLoss</tspan>(h<tspan font-size="6" dy="1.6">2</tspan><tspan dy="-1.6">, b, ℓ) = v</tspan><tspan font-size="6" dy="1.6">ℓ</tspan><tspan dy="-1.6">((2b)! · (∏</tspan><tspan font-size="6" dy="2">k∈(b−30h₂³, b+30h₂³]</tspan><tspan dy="-2"> k)</tspan><tspan font-size="6" dy="-2.8">h₂³</tspan><tspan dy="2.8">)</tspan></text>
+      <text x="661" y="557" class="sans" font-size="7.5" fill="#3f4a56" text-anchor="middle">For ℓ &gt; 2b, ℓ ∤ M: (2b)! contributes 0; only primes dividing (b−30h₂³, b+30h₂³] pay λ<tspan font-size="5.6" dy="1.6">ℓ</tspan><tspan dy="-1.6"> &gt; 0</tspan></text>
+    </g>
+
+    <!-- Arrow Uniform Bound -> Global Sum Pill -->
+    <g id="arrow-uniform-global">
+      <line x1="660" y1="575" x2="660" y2="590" stroke="#92400e" stroke-width="1.8" marker-end="url(#arrow-amber-end)"/>
+      <text x="650" y="586" class="sans" font-size="7.8" fill="#3f4a56" text-anchor="end">sum across ℓ with log ℓ</text>
+      <text x="670" y="586" class="sans" font-size="7.8" font-weight="700" fill="#92400e">localDefectBound = 4f · defectBound</text>
+    </g>
+
+    <!-- BOTTOM GLOBAL CONVERGENCE PILL -->
+    <g id="card-global-convergence">
+      <rect x="464" y="593" width="392" height="67" rx="5" fill="#fef6e4" stroke="#92400e" stroke-width="1.5"/>
+      <text x="475" y="608.5" class="sans" font-size="8.6" font-weight="700" fill="#92400e">▲ GLOBAL PRIME SUM  ≪  DENOMINATOR BUDGET</text>
+      <text x="848" y="608.5" class="mono" font-size="7.6" fill="#3f4a56" text-anchor="end">FitTwistsExist.lean</text>
+
+      <text x="660" y="629" class="sans" font-size="9.1" font-weight="700" fill="#161b22" text-anchor="middle">∑<tspan font-size="6.4" dy="1.8">ℓ</tspan><tspan dy="-1.8"> (4f · defectBound D ℓ) log ℓ  ≤  4 · 10⁶ e¹⁸⁰ f (m/k) b log b</tspan></text>
+      <text x="660" y="648.5" class="sans" font-size="9.1" font-weight="700" fill="#065f46" text-anchor="middle">≪   <tspan class="mono" font-size="8.4">D.denominatorBudget</tspan>  =  f a log³ b / (m k)</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM LEGEND & PROVENANCE STRIP                                      -->
+  <!-- ===================================================================== -->
+  <g id="strip-legend">
+    <rect x="14" y="678" width="852" height="24" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="24" y="693.5" class="sans" font-size="7.9" fill="#3f4a56"><tspan font-weight="700" fill="#161b22">LEGEND:</tspan>  <tspan font-weight="700" fill="#1e40af">◆ Cobalt</tspan> = Windows &amp; Regime 2  ·  <tspan font-weight="700" fill="#92400e">▲ Amber</tspan> = Low band / sparse b / global sum  ·  <tspan font-weight="700" fill="#065f46">●■ Emerald</tspan> = Dual U′ / zero defect / uniform bound  ·  <tspan font-weight="700" fill="#9a3412">× Rust</tspan> = Forbidden b / tame p₀,p₁ / Stage 01</text>
+  </g>
+</svg>

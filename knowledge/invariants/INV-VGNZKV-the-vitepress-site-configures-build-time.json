@@ -5,11 +5,11 @@
       "family_guarantee",
       "prevents_costly_mistake"
     ],
-    "justification": "Realized across site/package.json, config.mts, tokens.css and all four Vue components and required for the Phase 4 static site family; prevents broken script-off math or prose, double-prefixed base URLs, navbar title overflow past the 272px sidebar divider, keyboard focus traps and dark-dashboard aesthetic drift."
+    "justification": "Realized across site/package.json, config.mts, tokens.css and all four Vue components and required for the Phase 4 static site family; prevents broken script-off math or prose, V8 heap exhaustion on full-corpus MathJax 3 builds, double-prefixed base URLs, navbar title overflow past the 272px sidebar divider, keyboard focus traps and dark-dashboard aesthetic drift."
   },
   "applicability": "Static VitePress site configuration, package manifest, light-monograph CSS tokens and four globally registered Vue components under site/.",
   "conditions": [
-    "site/docs/.vitepress/config.mts enables markdown.math: true (paired with markdown-it-mathjax3 in site/package.json and site/package-lock.json), cleanUrls: true, appearance: false, VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, full HTML title 'Riemann Hypothesis Proof Explainer' and themeConfig.siteTitle 'RH Proof Explainer'.",
+    "site/docs/.vitepress/config.mts enables markdown.math: true (paired with markdown-it-mathjax3 in site/package.json and site/package-lock.json), cleanUrls: true, appearance: false, VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, full HTML title 'Riemann Hypothesis Proof Explainer' and themeConfig.siteTitle 'RH Proof Explainer'; site/package.json invokes docs:build via node --max-old-space-size=8192 ./node_modules/vitepress/bin/vitepress.js build docs so plain npm --prefix site run docs:build compiles the full eight-pillar MathJax 3 inline-SVG corpus without V8 heap exhaustion.",
     "site/docs/.vitepress/theme/tokens.css constrains .VPNavBarTitle .title, .VPNavBarTitle.has-sidebar .title and their inner > span with single-line nowrap/ellipsis and min-width: 0 framing so the navbar title stays inside the 272px sidebar header with zero horizontal overflow across desktop and narrow viewports.",
     "VerificationBanner (defaulting repoLayout to 'condensed' for live comparator.json/GUIDE.md/INDEX.md links and preserving 'legacy' comparator/ and verification/NOTES.md links), ConceptReveal, ConceptHover and ZoomTabs (defaulting Level 1 to id 'first-principles' / label 'Level 1 · First-Principles' while mapping legacy ?level=abitur and #level-abitur aliases to 'first-principles') preserve full script-off and print readability, keyboard operation without focus traps and high-contrast non-color-only visual cues."
   ],
@@ -28,20 +28,20 @@
     "leaf": "05",
     "task": "261123-RH"
   },
-  "revision": 4,
+  "revision": 5,
   "schema": "ar-invariant/v1",
-  "statement": "The VitePress site configures build-time MathJax 3 SVG math (markdown.math: true + markdown-it-mathjax3 + committed package-lock.json), configurable VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, compact navbar siteTitle 'RH Proof Explainer' framed inside the 272px sidebar header while retaining full HTML title 'Riemann Hypothesis Proof Explainer', an editorial light palette, and accessible script-off-readable VerificationBanner (supporting condensed and legacy repoLayout links), ConceptReveal, ConceptHover, and ZoomTabs (defaulting Level 1 to 'first-principles' with legacy 'abitur' URL aliases) components.",
+  "statement": "The VitePress site configures build-time MathJax 3 SVG math (markdown.math: true + markdown-it-mathjax3 + committed package-lock.json + 8192 MB Node V8 heap cap on docs:build), configurable VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, compact navbar siteTitle 'RH Proof Explainer' framed inside the 272px sidebar header while retaining full HTML title 'Riemann Hypothesis Proof Explainer', an editorial light palette, and accessible script-off-readable VerificationBanner (supporting condensed and legacy repoLayout links), ConceptReveal, ConceptHover, and ZoomTabs (defaulting Level 1 to 'first-principles' with legacy 'abitur' URL aliases) components.",
   "supersedes": [],
   "title": "Editorial light VitePress shell, MathJax 3 SVG and script-off Vue components",
   "writer": {
-    "at": "2026-11-26T19:43:17+01:00",
+    "at": "2026-11-27T10:50:00+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "05",
+    "leaf": "11",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "50c624db-5488-53d3-a74e-eba4248597c1",
+    "seat": "1c8a6573-2472-57d4-8f1e-d761902a2406",
     "task": "261126-EXP"
   }
 }

@@ -1,0 +1,421 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 778"
+     width="860"
+     height="778"
+     role="img"
+     aria-labelledby="stage07-ribet-title stage07-ribet-desc">
+  <title id="stage07-ribet-title">Stage 07 Culminating Assembly: Taylor–Wiles Prime Triangle, Ribet Clearing Operator, Budget Ledger, and Regular Twist Families</title>
+  <desc id="stage07-ribet-desc">Editorial mathematical diagram tracing the culminating assembly of Stage 07 across DenominatorBound.lean and FitTwistsExist.lean into New.exists_isRegularFamily and full 8-pillar closure. Band 1 (Cobalt and Rust callout) pairs two inputs: on the left, an upper-triangular matrix graphic depicting IsPrimeTriangle (exists_taylorWilesPlaces_hasRootChain) over auxiliary places Q_j with q_j congruent to 1 mod ell^nu ordered by 0 &lt; e(j) &lt; t'; Kummer reciprocity over E+ eliminates all even Tate-twist classes (evenClasses) algebraically—a Vandiver bypass that never bounds |evenClasses|—with cyclotomic separation loss h_2^22 * h (h = 0 for ell &gt; h_2^2), while Chebotarev density preserves weak-lift root chains prod_{i &lt; t'} (X - q_j^i) * e_j(X) with e_j(1) = 1. On the right, three paired bounds enter exists_isCommonRibetElement_ellVal_le: odd classes shaOdd bounded unconditionally via Mazur-Wiles (oddClassBound D &lt;= 2^(4(N_cyc+t+3)^27) * h_E), local crystalline dual defect localDefectBound D ell = 4f * defectBound D ell (CrystallineDefect.lean), and short twisted Selmer length and ramified partial Hecke L-value ratios &lt;= e'_ell = twistError ell D (TwistingTheorem.lean). Band 2 (Emerald, DenominatorBound.lean) flows from exists_isCommonRibetElement_ellVal_le (v_ell(N^2 d) &lt;= liftValuationBound) plus false-lift orthogonality (typeProjection_sub_starProjection_mem_of_isOrthogonalToFalseLifts) into the diagonal Ribet clearing operator Lambda_0 on Z (exists_operator_ellVal_le_liftValuationBound), rescales Lambda = N * Lambda_0 by N = D.chosenGroupOrder (exists_operator_det_clearingBound), and proves denominatorLe_clearingBound with clearingBound D ell = localDefectBound + (1 + 2t) e'_ell + denominatorError + v_ell(N), clearing both range (D.goodLift theta j) (denominatorLe_range_goodLift) and rank-1 main-pair lines (denominatorLe_span_trivialLift). Band 3 (Amber, FitTwistsExist.lean::sum_clearingBound_add_padicValNat_le) displays the five-term prime-weighted budget ledger weighted by log ell: localDefectBound &lt;= 4*10^6 e^180 f (m/k) b log b, oddClassBound &lt;= x^2000, twistError &lt;= x^999 (upgrading to &lt;= x_1 for HasSmallRatios), denominatorError &lt;= x^4000, and |StdClasses_{U(1)}| &lt;= x^30, summing over any finite prime set T to sum_{ell in T} (clearingBound D ell + v_ell(|StdClasses|)) log ell &lt;= D.denominatorBudget = f a log^3 b / (m k). Band 4 (Cobalt and Rust finale) presents New.exists_isRegularFamily (exists theta : PrimePadicIso -&gt; D.MFoldTwist, D.IsRegularFamily theta, chosen independently per iota : PrimePadicIso) plugging directly into Stage 05 LongForms.lean (Theorem C), then Stage 01 star_inequality, and finally Stage 00 GRH and RH with all 8 pillars sealed.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+
+    <!-- Crisp clip paths for card headers and left accent bars -->
+    <clipPath id="clip-band1-left"><rect x="14" y="46" width="496" height="190" rx="6"/></clipPath>
+    <clipPath id="clip-band1-right"><rect x="522" y="46" width="324" height="190" rx="6"/></clipPath>
+    <clipPath id="clip-vandiver"><rect x="186" y="94" width="314" height="68" rx="4"/></clipPath>
+    <clipPath id="clip-strip-a"><rect x="532" y="76" width="304" height="46" rx="4"/></clipPath>
+    <clipPath id="clip-strip-b"><rect x="532" y="127" width="304" height="46" rx="4"/></clipPath>
+    <clipPath id="clip-strip-c"><rect x="532" y="178" width="304" height="48" rx="4"/></clipPath>
+    <clipPath id="clip-band2"><rect x="14" y="258" width="832" height="180" rx="6"/></clipPath>
+    <clipPath id="clip-band3"><rect x="14" y="456" width="832" height="132" rx="6"/></clipPath>
+    <clipPath id="clip-band4"><rect x="14" y="608" width="832" height="160" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="777" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="26.5" class="sans" font-size="14.2" font-weight="700" fill="#161b22">Ribet Prime Triangle, Clearing &amp; Regular Twists (<tspan class="mono" font-size="12.0" fill="#1e40af">DenominatorBound</tspan> + <tspan class="mono" font-size="12.0" fill="#92400e">FitTwistsExist</tspan>)</text>
+    <text x="842" y="26" class="mono" font-size="9.5" fill="#3f4a56" text-anchor="end">Stage 07 → Stage 00</text>
+    <line x1="14" y1="38" x2="846" y2="38" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: VANDIVER BYPASS & PRIME TRIANGLE + PAIRED INPUTS              -->
+  <!-- ===================================================================== -->
+  <g id="band-1-triangle-inputs">
+
+    <!-- LEFT CARD: VANDIVER BYPASS & TAYLOR-WILES PRIME TRIANGLE (COBALT + RUST CALLOUT) -->
+    <g id="card-prime-triangle">
+      <rect x="14" y="46" width="496" height="190" rx="6" fill="#ffffff"/>
+      <rect x="14" y="46" width="496" height="23" fill="#edf4ff" clip-path="url(#clip-band1-left)"/>
+      <line x1="14" y1="69" x2="510" y2="69" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="14" y="46" width="496" height="190" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+      <text x="24" y="61" class="sans" font-size="9.4" font-weight="700" fill="#1e40af">◆ ① VANDIVER BYPASS &amp; TAYLOR–WILES PRIME TRIANGLE</text>
+      <text x="500" y="61" class="mono" font-size="8.4" fill="#3f4a56" text-anchor="end">DenominatorBound.lean</text>
+
+      <!-- Upper-Triangular Matrix Graphic Box -->
+      <g id="matrix-prime-triangle">
+        <rect x="24" y="77" width="154" height="149" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+        <text x="101" y="89.5" class="mono" font-size="8.2" font-weight="700" fill="#1e40af" text-anchor="middle">IsPrimeTriangle</text>
+        <text x="101" y="100.5" class="sans" font-size="7.5" fill="#3f4a56" text-anchor="middle">Q<tspan font-size="5.8" dy="1.5">j</tspan><tspan dy="-1.5"> : q</tspan><tspan font-size="5.8" dy="1.5">j</tspan><tspan dy="-1.5"> ≡ 1 (mod ℓ</tspan><tspan font-size="5.8" dy="-2.2">ν</tspan><tspan dy="2.2">)</tspan></text>
+
+        <!-- Column Headers -->
+        <text x="76" y="113.5" class="sans" font-size="7.4" font-weight="700" fill="#1e40af" text-anchor="middle">Q<tspan font-size="5.6" dy="1.4">1</tspan></text>
+        <text x="98" y="113.5" class="sans" font-size="7.4" font-weight="700" fill="#1e40af" text-anchor="middle">Q<tspan font-size="5.6" dy="1.4">2</tspan></text>
+        <text x="120" y="113.5" class="sans" font-size="7.4" font-weight="700" fill="#3f4a56" text-anchor="middle">…</text>
+        <text x="142" y="113.5" class="sans" font-size="7.4" font-weight="700" fill="#1e40af" text-anchor="middle">Q<tspan font-size="5.6" dy="1.4">k</tspan></text>
+
+        <!-- Row Labels -->
+        <text x="58" y="128.5" class="sans" font-size="7.4" fill="#3f4a56" text-anchor="end">e(1)</text>
+        <text x="58" y="144.5" class="sans" font-size="7.4" fill="#3f4a56" text-anchor="end">e(2)</text>
+        <text x="54" y="160.5" class="sans" font-size="7.4" fill="#3f4a56" text-anchor="end">⋮</text>
+        <text x="58" y="176.5" class="sans" font-size="7.4" fill="#3f4a56" text-anchor="end">e(k)</text>
+
+        <!-- 4x4 Upper-Triangular Matrix Cells (x=65..153, y=118..182, 22x16 cells) -->
+        <!-- Row 0 -->
+        <rect x="65" y="118" width="22" height="16" fill="#dbeafe" stroke="#93c5fd" stroke-width="0.7"/>
+        <rect x="87" y="118" width="22" height="16" fill="#edf4ff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <rect x="109" y="118" width="22" height="16" fill="#edf4ff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <rect x="131" y="118" width="22" height="16" fill="#edf4ff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <text x="76" y="128.8" class="sans" font-size="7.4" font-weight="700" fill="#1e40af" text-anchor="middle">≠0</text>
+        <text x="98" y="129.2" class="sans" font-size="8.2" fill="#1e40af" text-anchor="middle">∗</text>
+        <text x="120" y="129.2" class="sans" font-size="8.2" fill="#1e40af" text-anchor="middle">∗</text>
+        <text x="142" y="129.2" class="sans" font-size="8.2" fill="#1e40af" text-anchor="middle">∗</text>
+
+        <!-- Row 1 -->
+        <rect x="65" y="134" width="22" height="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <rect x="87" y="134" width="22" height="16" fill="#dbeafe" stroke="#93c5fd" stroke-width="0.7"/>
+        <rect x="109" y="134" width="22" height="16" fill="#edf4ff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <rect x="131" y="134" width="22" height="16" fill="#edf4ff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <text x="76" y="144.8" class="mono" font-size="7.6" fill="#64748b" text-anchor="middle">0</text>
+        <text x="98" y="144.8" class="sans" font-size="7.4" font-weight="700" fill="#1e40af" text-anchor="middle">≠0</text>
+        <text x="120" y="145.2" class="sans" font-size="8.2" fill="#1e40af" text-anchor="middle">∗</text>
+        <text x="142" y="145.2" class="sans" font-size="8.2" fill="#1e40af" text-anchor="middle">∗</text>
+
+        <!-- Row 2 -->
+        <rect x="65" y="150" width="22" height="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <rect x="87" y="150" width="22" height="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <rect x="109" y="150" width="22" height="16" fill="#dbeafe" stroke="#93c5fd" stroke-width="0.7"/>
+        <rect x="131" y="150" width="22" height="16" fill="#edf4ff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <text x="76" y="160.8" class="mono" font-size="7.6" fill="#64748b" text-anchor="middle">0</text>
+        <text x="98" y="160.8" class="mono" font-size="7.6" fill="#64748b" text-anchor="middle">0</text>
+        <text x="120" y="160.8" class="sans" font-size="8.2" font-weight="700" fill="#1e40af" text-anchor="middle">⋱</text>
+        <text x="142" y="161.2" class="sans" font-size="8.2" fill="#1e40af" text-anchor="middle">∗</text>
+
+        <!-- Row 3 -->
+        <rect x="65" y="166" width="22" height="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <rect x="87" y="166" width="22" height="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <rect x="109" y="166" width="22" height="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.6"/>
+        <rect x="131" y="166" width="22" height="16" fill="#dbeafe" stroke="#93c5fd" stroke-width="0.7"/>
+        <text x="76" y="176.8" class="mono" font-size="7.6" fill="#64748b" text-anchor="middle">0</text>
+        <text x="98" y="176.8" class="mono" font-size="7.6" fill="#64748b" text-anchor="middle">0</text>
+        <text x="120" y="176.8" class="mono" font-size="7.6" fill="#64748b" text-anchor="middle">0</text>
+        <text x="142" y="176.8" class="sans" font-size="7.4" font-weight="700" fill="#1e40af" text-anchor="middle">≠0</text>
+
+        <!-- Matrix Square Brackets -->
+        <path d="M 67 117.5 L 62.5 117.5 L 62.5 182.5 L 67 182.5" fill="none" stroke="#1e40af" stroke-width="1.3"/>
+        <path d="M 151 117.5 L 155.5 117.5 L 155.5 182.5 L 151 182.5" fill="none" stroke="#1e40af" stroke-width="1.3"/>
+
+        <!-- Matrix Footer Caption -->
+        <text x="101" y="195.5" class="sans" font-size="7.8" font-weight="700" fill="#161b22" text-anchor="middle">0 &lt; e(j) &lt; t′ (monotone)</text>
+        <text x="101" y="207.5" class="sans" font-size="7.6" font-weight="700" fill="#9a3412" text-anchor="middle">Kummer reciprocity / E<tspan font-size="5.8" dy="-2.2">+</tspan></text>
+        <text x="101" y="219" class="sans" font-size="7.4" fill="#3f4a56" text-anchor="middle">eliminates <tspan class="mono" font-size="7.2" fill="#9a3412">evenClasses</tspan></text>
+      </g>
+
+      <!-- Right Side of Left Card: Lemma + Vandiver Bypass Callout + Root Chains -->
+      <text x="186" y="87" class="mono" font-size="8.1" font-weight="700" fill="#1e40af">exists_taylorWilesPlaces_hasRootChain</text>
+
+      <!-- Rust Callout: Vandiver Bypass -->
+      <g id="callout-vandiver-bypass">
+        <rect x="186" y="94" width="314" height="68" rx="4" fill="#fff5f0"/>
+        <rect x="186" y="94" width="4.5" height="68" fill="#9a3412" clip-path="url(#clip-vandiver)"/>
+        <rect x="186" y="94" width="314" height="68" rx="4" fill="none" stroke="#9a3412" stroke-width="1.3"/>
+
+        <text x="197" y="107.5" class="sans" font-size="8.4" font-weight="700" fill="#9a3412">▲ VANDIVER BYPASS: NEVER BOUNDED!</text>
+        <text x="197" y="121.5" class="sans" font-size="8.1" fill="#161b22">Kummer reciprocity over <tspan font-weight="700">E<tspan font-size="6.1" dy="-2.2">+</tspan></tspan><tspan dy="2.2"> eliminates even Tate-twist</tspan></text>
+        <text x="197" y="134.5" class="sans" font-size="8.1" fill="#161b22">classes (<tspan class="mono" font-size="7.8" font-weight="700" fill="#9a3412">evenClasses</tspan>) algebraically — indep. of |<tspan class="mono" font-size="7.6">evenClasses</tspan>|.</text>
+        <text x="197" y="151" class="sans" font-size="8.0" fill="#3f4a56">Separation loss: <tspan font-weight="700" fill="#9a3412">h<tspan font-size="6.1" dy="1.6">2</tspan><tspan font-size="6.1" dy="-4.2">22</tspan><tspan dy="2.6"> h</tspan></tspan>  (<tspan font-weight="700" fill="#161b22">h = 0</tspan> for ℓ &gt; h<tspan font-size="6.1" dy="1.6">2</tspan><tspan font-size="6.1" dy="-4.2">2</tspan><tspan dy="2.6">, h ≤ v</tspan><tspan font-size="6.1" dy="1.6">ℓ</tspan><tspan dy="-1.6">(N))</tspan></text>
+      </g>
+
+      <!-- Cobalt Box: Weak-Lift Root Chains -->
+      <g id="box-root-chains">
+        <rect x="186" y="169" width="314" height="57" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.05"/>
+        <text x="196" y="182.5" class="sans" font-size="8.3" font-weight="700" fill="#1e40af">● Preserves Weak-Lift Root Chains <tspan font-weight="400" fill="#3f4a56">(Chebotarev density)</tspan></text>
+        <text x="196" y="198.5" class="sans" font-size="8.9" font-weight="700" fill="#161b22">∏<tspan font-size="6.5" dy="2.2">i &lt; t′</tspan><tspan dy="-2.2"> (X − q</tspan><tspan font-size="6.5" dy="1.8">j</tspan><tspan font-size="6.5" dy="-4.2">i</tspan><tspan dy="2.4">) · e</tspan><tspan font-size="6.5" dy="1.8">j</tspan><tspan dy="-1.8">(X)</tspan>   <tspan font-size="8.0" font-weight="600" fill="#1e40af">(e<tspan font-size="6.1" dy="1.6">j</tspan><tspan dy="-1.6"> integral, e</tspan><tspan font-size="6.1" dy="1.6">j</tspan><tspan dy="-1.6">(1) = 1)</tspan></tspan></text>
+        <text x="196" y="214.5" class="sans" font-size="7.9" fill="#3f4a56">Uniform across all weak lifts congruent to x<tspan font-size="6.0" dy="1.5">0</tspan><tspan dy="-1.5"> mod ℓ at every Q</tspan><tspan font-size="6.0" dy="1.5">j</tspan></text>
+      </g>
+    </g>
+
+    <!-- RIGHT CARD: PAIRED INPUTS ENTERING COMMON RIBET ELEMENT (COBALT) -->
+    <g id="card-paired-inputs">
+      <rect x="522" y="46" width="324" height="190" rx="6" fill="#ffffff"/>
+      <rect x="522" y="46" width="324" height="23" fill="#edf4ff" clip-path="url(#clip-band1-right)"/>
+      <line x1="522" y1="69" x2="846" y2="69" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="522" y="46" width="324" height="190" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+      <text x="532" y="61" class="sans" font-size="9.4" font-weight="700" fill="#1e40af">● ② PAIRED SELMER &amp; DEFECT INPUTS</text>
+      <text x="836" y="61" class="sans" font-size="8.2" font-weight="600" fill="#3f4a56" text-anchor="end">→ Common Ribet</text>
+
+      <!-- Strip A: Odd Classes (shaOdd) -->
+      <g id="strip-odd-classes">
+        <rect x="532" y="76" width="304" height="46" rx="4" fill="#faf9f5"/>
+        <rect x="532" y="76" width="4" height="46" fill="#1e40af" clip-path="url(#clip-strip-a)"/>
+        <rect x="532" y="76" width="304" height="46" rx="4" fill="none" stroke="#bfdbfe" stroke-width="1"/>
+        <text x="542" y="89.5" class="sans" font-size="8.3" font-weight="700" fill="#1e40af">1. Odd Classes (<tspan class="mono" font-size="8.0">shaOdd</tspan>) · Mazur–Wiles</text>
+        <text x="542" y="103.5" class="sans" font-size="8.3" font-weight="700" fill="#161b22"><tspan class="mono" font-size="7.9">oddClassBound</tspan> D ≤ 2<tspan font-size="6.4" dy="-2.6">4(N<tspan font-size="5.2" dy="1.4">cyc</tspan><tspan dy="-1.4">+t+3)</tspan><tspan font-size="5.4" dy="-2.2">27</tspan></tspan><tspan dy="4.8"> · h</tspan><tspan font-size="6.2" dy="1.6">E</tspan></text>
+        <text x="542" y="116.5" class="sans" font-size="7.6" fill="#3f4a56">Unconditional bound (<tspan class="mono" font-size="7.3">Lib/Cyclotomic/OddSha.lean</tspan>)</text>
+      </g>
+
+      <!-- Strip B: Local Defect -->
+      <g id="strip-local-defect">
+        <rect x="532" y="127" width="304" height="46" rx="4" fill="#faf9f5"/>
+        <rect x="532" y="127" width="4" height="46" fill="#065f46" clip-path="url(#clip-strip-b)"/>
+        <rect x="532" y="127" width="304" height="46" rx="4" fill="none" stroke="#a7f3d0" stroke-width="1"/>
+        <text x="542" y="140.5" class="sans" font-size="8.3" font-weight="700" fill="#065f46">2. Local Defect · <tspan class="mono" font-size="7.9">CrystallineDefect.lean</tspan></text>
+        <text x="542" y="154.5" class="sans" font-size="8.4" font-weight="700" fill="#161b22"><tspan class="mono" font-size="8.0">localDefectBound</tspan> D ℓ = 4f · <tspan class="mono" font-size="8.0">defectBound</tspan> D ℓ</text>
+        <text x="542" y="167.5" class="sans" font-size="7.6" fill="#3f4a56">Uniform crystalline dual defect at prime ℓ</text>
+      </g>
+
+      <!-- Strip C: Short Twisted Selmer & Ramification -->
+      <g id="strip-twisting">
+        <rect x="532" y="178" width="304" height="48" rx="4" fill="#faf9f5"/>
+        <rect x="532" y="178" width="4" height="48" fill="#92400e" clip-path="url(#clip-strip-c)"/>
+        <rect x="532" y="178" width="304" height="48" rx="4" fill="none" stroke="#e7c98f" stroke-width="1"/>
+        <text x="542" y="191.5" class="sans" font-size="8.3" font-weight="700" fill="#92400e">3. Twisted Selmer &amp; Ram. · <tspan class="mono" font-size="7.9">TwistingTheorem.lean</tspan></text>
+        <text x="542" y="206" class="sans" font-size="8.2" font-weight="700" fill="#161b22">Short Selmer &amp; ramification ≤ e′<tspan font-size="6.1" dy="1.6">ℓ</tspan><tspan dy="-1.6"> = </tspan><tspan class="mono" font-size="7.9" fill="#92400e">twistError</tspan> ℓ D</text>
+        <text x="542" y="219.5" class="sans" font-size="7.6" fill="#3f4a56">Controls rank-r good lifts + rank-1 main pairs jointly</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- CONNECTORS: BAND 1 -> BAND 2                                          -->
+  <!-- ===================================================================== -->
+  <g id="connectors-b1-b2">
+    <line x1="175" y1="236" x2="175" y2="255" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="184" y="249.5" class="sans" font-size="8.0" font-weight="700" fill="#1e40af">① Prime triangle + weak-lift root chains</text>
+
+    <line x1="684" y1="236" x2="684" y2="255" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="674" y="249.5" class="sans" font-size="8.0" font-weight="700" fill="#1e40af" text-anchor="end">② shaOdd, localDefectBound, twistError e′<tspan font-size="6.1" dy="1.5">ℓ</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2: COMMON RIBET ELEMENT -> DIAGONAL RIBET CLEARING OPERATOR      -->
+  <!-- ===================================================================== -->
+  <g id="band-2-ribet-clearing">
+    <rect x="14" y="258" width="832" height="180" rx="6" fill="#ffffff"/>
+    <rect x="14" y="258" width="832" height="24" fill="#ecfdf5" clip-path="url(#clip-band2)"/>
+    <line x1="14" y1="282" x2="846" y2="282" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="14" y="258" width="832" height="180" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+    <text x="24" y="273.5" class="sans" font-size="9.7" font-weight="700" fill="#065f46">● ③ COMMON RIBET ELEMENT → DIAGONAL RIBET CLEARING OPERATOR</text>
+    <text x="836" y="273.5" class="mono" font-size="8.5" fill="#3f4a56" text-anchor="end">DenominatorBound.lean</text>
+
+    <!-- Step 2A: Common Ribet Element + False-Lift Orthogonality -->
+    <g id="step-2a">
+      <rect x="26" y="289" width="298" height="68" rx="4" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.15"/>
+      <text x="34" y="302.5" class="mono" font-size="7.8" font-weight="700" fill="#065f46">exists_isCommonRibetElement_ellVal_le</text>
+      <text x="34" y="317" class="sans" font-size="8.6" font-weight="700" fill="#161b22">v<tspan font-size="6.4" dy="1.6">ℓ</tspan><tspan dy="-1.6">(N</tspan><tspan font-size="6.4" dy="-2.4">2</tspan><tspan dy="2.4"> d) ≤ </tspan><tspan class="mono" font-size="8.2" fill="#065f46">liftValuationBound</tspan></text>
+      <text x="34" y="332" class="sans" font-size="7.8" fill="#3f4a56">+ <tspan font-weight="700" fill="#161b22">False-lift orthogonality</tspan> (y − pr<tspan font-size="5.8" dy="1.5">Z</tspan><tspan dy="-1.5"> y misses weak lifts ∉ Z):</tspan></text>
+      <text x="34" y="346.5" class="mono" font-size="6.6" font-weight="700" fill="#065f46">typeProjection_sub_starProjection_mem_of_isOrthogonalToFalseLifts</text>
+    </g>
+
+    <!-- Arrow 2A -> 2B -->
+    <line x1="324" y1="323" x2="339" y2="323" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald-end)"/>
+
+    <!-- Step 2B: Diagonal Ribet Clearing Operator Lambda_0 -->
+    <g id="step-2b">
+      <rect x="342" y="289" width="242" height="68" rx="4" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.15"/>
+      <text x="350" y="302.5" class="sans" font-size="8.5" font-weight="700" fill="#065f46">Diagonal Ribet Clearing Operator Λ<tspan font-size="6.2" dy="1.6">0</tspan><tspan dy="-1.6"> on Z</tspan></text>
+      <text x="350" y="317.5" class="mono" font-size="7.2" font-weight="700" fill="#161b22">exists_operator_ellVal_le_liftValuationBound</text>
+      <text x="350" y="332.5" class="sans" font-size="7.9" fill="#3f4a56">Assembles Hecke-diagonal clearing maps across</text>
+      <text x="350" y="345.5" class="sans" font-size="7.9" fill="#3f4a56">all <tspan class="mono" font-size="7.6" fill="#065f46">IsLiftGenerator</tspan>s (all eigval val ≤ bound)</text>
+    </g>
+
+    <!-- Arrow 2B -> 2C -->
+    <line x1="584" y1="323" x2="599" y2="323" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald-end)"/>
+
+    <!-- Step 2C: Rescale by N = D.chosenGroupOrder -->
+    <g id="step-2c">
+      <rect x="602" y="289" width="232" height="68" rx="4" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.15"/>
+      <text x="610" y="302.5" class="sans" font-size="8.4" font-weight="700" fill="#065f46">Rescale Λ = N · Λ<tspan font-size="6.2" dy="1.6">0</tspan><tspan dy="-1.6">  (N = </tspan><tspan class="mono" font-size="7.6">chosenGroupOrder</tspan><tspan>)</tspan></text>
+      <text x="610" y="317.5" class="mono" font-size="7.5" font-weight="700" fill="#161b22">exists_operator_det_clearingBound</text>
+      <text x="610" y="332.5" class="sans" font-size="7.9" fill="#3f4a56">Clears pairings against forms integral at</text>
+      <text x="610" y="345.5" class="sans" font-size="7.9" fill="#3f4a56">all places above ℓ  (adds <tspan font-weight="700" fill="#065f46">+ v<tspan font-size="6.0" dy="1.5">ℓ</tspan><tspan dy="-1.5">(N)</tspan></tspan> to bound)</text>
+    </g>
+
+    <!-- Highlighted Result Banner: denominatorLe_clearingBound + Both Cleared Targets -->
+    <g id="banner-clearing-bound">
+      <rect x="26" y="365" width="808" height="63" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.3"/>
+
+      <text x="430" y="382" class="sans" font-size="8.9" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="8.6" fill="#065f46">denominatorLe_clearingBound</tspan><tspan fill="#3f4a56">  ⇒  </tspan><tspan class="mono" font-size="8.4" fill="#065f46">clearingBound</tspan> D ℓ  =  localDefectBound + (1 + 2t) e′<tspan font-size="6.5" dy="1.6">ℓ</tspan><tspan dy="-1.6"> + denominatorError + v</tspan><tspan font-size="6.5" dy="1.6">ℓ</tspan><tspan dy="-1.6">(N)</tspan></text>
+
+      <line x1="38" y1="391" x2="822" y2="391" stroke="#a7f3d0" stroke-width="1"/>
+
+      <text x="38" y="406" class="sans" font-size="8.1" fill="#161b22"><tspan font-weight="700" fill="#065f46">✓ Clears rank-r good lifts:</tspan> <tspan class="mono" font-size="7.8" font-weight="700" fill="#161b22">range (D.goodLift ϑ j)</tspan> <tspan fill="#3f4a56">(</tspan><tspan class="mono" font-size="7.6" fill="#065f46">denominatorLe_range_goodLift</tspan><tspan fill="#3f4a56">)</tspan></text>
+
+      <text x="476" y="406" class="sans" font-size="8.1" fill="#161b22"><tspan font-weight="700" fill="#065f46">✓ Clears rank-1 main-pair lines:</tspan> <tspan class="mono" font-size="7.6" fill="#065f46">denominatorLe_span_trivialLift</tspan></text>
+
+      <text x="430" y="421" class="sans" font-size="7.9" fill="#3f4a56" text-anchor="middle">Combined per-prime exponent: <tspan font-weight="700" fill="#161b22">(clearingBound D ℓ + v<tspan font-size="6.0" dy="1.5">ℓ</tspan><tspan dy="-1.5">(|StdClasses</tspan><tspan font-size="5.8" dy="1.5">U(1)</tspan><tspan dy="-1.5">|)) · log ℓ</tspan></tspan>  (<tspan class="mono" font-size="7.6" fill="#065f46">exists_mFoldTwist_hasDenominatorsLe</tspan>)</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- CONNECTOR: BAND 2 -> BAND 3                                           -->
+  <!-- ===================================================================== -->
+  <g id="connector-b2-b3">
+    <line x1="430" y1="438" x2="430" y2="453" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+    <text x="442" y="449.5" class="sans" font-size="8.0" font-weight="700" fill="#065f46">Sum over any finite prime set T weighted by log ℓ</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: PRIME-WEIGHTED BUDGET LEDGER (AMBER)                          -->
+  <!-- ===================================================================== -->
+  <g id="band-3-budget-ledger">
+    <rect x="14" y="456" width="832" height="132" rx="6" fill="#ffffff"/>
+    <rect x="14" y="456" width="832" height="24" fill="#fef6e4" clip-path="url(#clip-band3)"/>
+    <line x1="14" y1="480" x2="846" y2="480" stroke="#e7c98f" stroke-width="1"/>
+    <rect x="14" y="456" width="832" height="132" rx="6" fill="none" stroke="#92400e" stroke-width="1.6"/>
+
+    <text x="24" y="471.5" class="sans" font-size="9.7" font-weight="700" fill="#92400e">▲ ④ PRIME-WEIGHTED BUDGET LEDGER (ALL 5 TERMS × log ℓ)</text>
+    <text x="836" y="471.5" class="mono" font-size="8.3" font-weight="700" fill="#161b22" text-anchor="end">FitTwistsExist.lean :: sum_clearingBound_add_padicValNat_le</text>
+
+    <!-- Term 1: localDefectBound -->
+    <g id="ledger-term-1">
+      <rect x="26" y="487" width="212" height="54" rx="4" fill="#faf9f5" stroke="#e7c98f" stroke-width="1.1"/>
+      <text x="132" y="500.5" class="mono" font-size="8.0" font-weight="700" fill="#92400e" text-anchor="middle">localDefectBound · log ℓ</text>
+      <text x="132" y="517.5" class="sans" font-size="8.8" font-weight="700" fill="#161b22" text-anchor="middle">≤ 4·10<tspan font-size="6.4" dy="-2.4">6</tspan><tspan dy="2.4"> e</tspan><tspan font-size="6.4" dy="-2.4">180</tspan><tspan dy="2.4"> f (m/k) b log b</tspan></text>
+      <text x="132" y="533" class="mono" font-size="6.9" fill="#3f4a56" text-anchor="middle">sum_localDefectBound_mul_log_le</text>
+    </g>
+
+    <text x="242" y="518" class="sans" font-size="10" font-weight="700" fill="#92400e" text-anchor="middle">+</text>
+
+    <!-- Term 2: oddClassBound -->
+    <g id="ledger-term-2">
+      <rect x="246" y="487" width="128" height="54" rx="4" fill="#faf9f5" stroke="#e7c98f" stroke-width="1.1"/>
+      <text x="310" y="500.5" class="mono" font-size="8.0" font-weight="700" fill="#92400e" text-anchor="middle">oddClassBound</text>
+      <text x="310" y="518" class="sans" font-size="9.6" font-weight="700" fill="#161b22" text-anchor="middle">≤ x<tspan font-size="6.8" dy="-2.8">2000</tspan></text>
+      <text x="310" y="533" class="sans" font-size="7.4" fill="#3f4a56" text-anchor="middle">v<tspan font-size="5.6" dy="1.4">ℓ</tspan><tspan dy="-1.4">(oddClass) · log ℓ</tspan></text>
+    </g>
+
+    <text x="378" y="518" class="sans" font-size="10" font-weight="700" fill="#92400e" text-anchor="middle">+</text>
+
+    <!-- Term 3: twistError -->
+    <g id="ledger-term-3">
+      <rect x="382" y="487" width="178" height="54" rx="4" fill="#faf9f5" stroke="#e7c98f" stroke-width="1.1"/>
+      <text x="471" y="500.5" class="mono" font-size="8.0" font-weight="700" fill="#92400e" text-anchor="middle">twistError · log ℓ</text>
+      <text x="471" y="518" class="sans" font-size="9.6" font-weight="700" fill="#161b22" text-anchor="middle">≤ x<tspan font-size="6.8" dy="-2.8">999</tspan></text>
+      <text x="471" y="533" class="sans" font-size="7.5" font-weight="700" fill="#065f46" text-anchor="middle">(≤ x<tspan font-size="5.8" dy="1.4">1</tspan><tspan dy="-1.4"> for </tspan><tspan class="mono" font-size="7.3">HasSmallRatios</tspan><tspan>)</tspan></text>
+    </g>
+
+    <text x="564" y="518" class="sans" font-size="10" font-weight="700" fill="#92400e" text-anchor="middle">+</text>
+
+    <!-- Term 4: denominatorError -->
+    <g id="ledger-term-4">
+      <rect x="568" y="487" width="128" height="54" rx="4" fill="#faf9f5" stroke="#e7c98f" stroke-width="1.1"/>
+      <text x="632" y="500.5" class="mono" font-size="7.9" font-weight="700" fill="#92400e" text-anchor="middle">denominatorError</text>
+      <text x="632" y="518" class="sans" font-size="9.6" font-weight="700" fill="#161b22" text-anchor="middle">≤ x<tspan font-size="6.8" dy="-2.8">4000</tspan></text>
+      <text x="632" y="533" class="sans" font-size="7.4" fill="#3f4a56" text-anchor="middle">weighted by log ℓ</text>
+    </g>
+
+    <text x="700" y="518" class="sans" font-size="10" font-weight="700" fill="#92400e" text-anchor="middle">+</text>
+
+    <!-- Term 5: |StdClasses_{U(1)}| -->
+    <g id="ledger-term-5">
+      <rect x="704" y="487" width="130" height="54" rx="4" fill="#faf9f5" stroke="#e7c98f" stroke-width="1.1"/>
+      <text x="769" y="500.5" class="sans" font-size="8.0" font-weight="700" fill="#92400e" text-anchor="middle">|<tspan class="mono" font-size="7.7">StdClasses</tspan><tspan font-size="6.0" dy="1.6">U(1)</tspan><tspan dy="-1.6">|</tspan></text>
+      <text x="769" y="518" class="sans" font-size="9.6" font-weight="700" fill="#161b22" text-anchor="middle">≤ x<tspan font-size="6.8" dy="-2.8">30</tspan></text>
+      <text x="769" y="533" class="sans" font-size="7.4" fill="#3f4a56" text-anchor="middle">v<tspan font-size="5.6" dy="1.4">ℓ</tspan><tspan dy="-1.4">(|StdClasses|) · log ℓ</tspan></text>
+    </g>
+
+    <!-- Total Sum Strip -->
+    <g id="ledger-total-sum">
+      <rect x="26" y="549" width="808" height="31" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.25"/>
+      <text x="430" y="568.5" class="sans" font-size="9.3" font-weight="700" fill="#161b22" text-anchor="middle">∑<tspan font-size="6.6" dy="2.0">ℓ ∈ T</tspan><tspan dy="-2.0"> ( </tspan><tspan class="mono" font-size="8.6">clearingBound</tspan> D ℓ + v<tspan font-size="6.6" dy="1.8">ℓ</tspan><tspan dy="-1.8">(|</tspan><tspan class="mono" font-size="8.5">StdClasses</tspan>|) ) · log ℓ    <tspan fill="#92400e">≤    <tspan class="mono" font-size="8.8">D.denominatorBudget</tspan>  =  f a log<tspan font-size="6.8" dy="-2.6">3</tspan><tspan dy="2.6"> b / (m k)</tspan></tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- CONNECTOR: BAND 3 -> BAND 4                                           -->
+  <!-- ===================================================================== -->
+  <g id="connector-b3-b4">
+    <line x1="430" y1="588" x2="430" y2="605" stroke="#1e40af" stroke-width="1.9" marker-end="url(#arrow-cobalt-end)"/>
+    <text x="442" y="600" class="sans" font-size="8.1" font-weight="700" fill="#1e40af">Select θ(ι) independently per ι : PrimePadicIso</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 4: CULMINATING THEOREM & 8-PILLAR CLOSURE (COBALT / RUST FINALE) -->
+  <!-- ===================================================================== -->
+  <g id="band-4-finale">
+    <rect x="14" y="608" width="832" height="160" rx="6" fill="#ffffff"/>
+    <rect x="14" y="608" width="832" height="25" fill="#edf4ff" clip-path="url(#clip-band4)"/>
+    <rect x="14" y="608" width="6" height="160" fill="#1e40af" clip-path="url(#clip-band4)"/>
+    <line x1="20" y1="633" x2="846" y2="633" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="608" width="832" height="160" rx="6" fill="none" stroke="#1e40af" stroke-width="1.8"/>
+
+    <text x="30" y="624.5" class="sans" font-size="10.2" font-weight="700" fill="#1e40af">■ STAGE 07 CULMINATING THEOREM &amp; 8-PILLAR CLOSURE</text>
+    <text x="834" y="624.5" class="mono" font-size="9.3" font-weight="700" fill="#9a3412" text-anchor="end">FitTwistsExist.lean :: New.exists_isRegularFamily</text>
+
+    <!-- Left Culminating Theorem Panel (Cobalt) -->
+    <g id="panel-regular-family">
+      <rect x="28" y="641" width="342" height="84" rx="5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.4"/>
+      <text x="199" y="658.5" class="mono" font-size="10.2" font-weight="700" fill="#1e40af" text-anchor="middle">New.exists_isRegularFamily</text>
+      <text x="199" y="676.5" class="mono" font-size="8.4" font-weight="700" fill="#161b22" text-anchor="middle">∃ θ : PrimePadicIso → D.MFoldTwist,</text>
+      <text x="199" y="691" class="mono" font-size="8.8" font-weight="700" fill="#1e40af" text-anchor="middle">D.IsRegularFamily θ</text>
+      <text x="199" y="706.5" class="sans" font-size="7.9" fill="#3f4a56" text-anchor="middle">Chosen independently per <tspan class="mono" font-size="7.6" fill="#161b22">ι : PrimePadicIso</tspan></text>
+      <text x="199" y="718.5" class="sans" font-size="7.7" font-weight="700" fill="#065f46" text-anchor="middle">Discharges <tspan class="mono" font-size="7.4">HasSmallRatios</tspan> + <tspan class="mono" font-size="7.4">ClearsProjection</tspan> ≤ budget</text>
+    </g>
+
+    <!-- Rust Handoff Arrow -->
+    <line x1="370" y1="683" x2="393" y2="683" stroke="#9a3412" stroke-width="2.0" marker-end="url(#arrow-rust-end)"/>
+
+    <!-- Right 8-Pillar Closure Chain (Rust Finale) -->
+    <g id="panel-eight-pillar-closure">
+      <rect x="396" y="641" width="438" height="84" rx="5" fill="#fff5f0" stroke="#9a3412" stroke-width="1.4"/>
+      <text x="408" y="656.5" class="sans" font-size="8.6" font-weight="700" fill="#9a3412">↗ PLUGS DIRECTLY INTO FINAL PROOF CHAIN</text>
+
+      <!-- Stage 05 Box -->
+      <rect x="406" y="665" width="132" height="51" rx="4" fill="#ffffff" stroke="#9a3412" stroke-width="1.15"/>
+      <text x="472" y="678.5" class="sans" font-size="7.8" font-weight="700" fill="#9a3412" text-anchor="middle">STAGE 05</text>
+      <text x="472" y="692" class="mono" font-size="8.1" font-weight="700" fill="#161b22" text-anchor="middle">LongForms.lean</text>
+      <text x="472" y="706.5" class="sans" font-size="8.2" font-weight="700" fill="#1e40af" text-anchor="middle">Theorem C</text>
+
+      <!-- Arrow Stage 05 -> Stage 01 -->
+      <line x1="538" y1="690.5" x2="552" y2="690.5" stroke="#9a3412" stroke-width="1.7" marker-end="url(#arrow-rust-end)"/>
+
+      <!-- Stage 01 Box -->
+      <rect x="555" y="665" width="128" height="51" rx="4" fill="#ffffff" stroke="#9a3412" stroke-width="1.15"/>
+      <text x="619" y="678.5" class="sans" font-size="7.8" font-weight="700" fill="#9a3412" text-anchor="middle">STAGE 01</text>
+      <text x="619" y="692" class="mono" font-size="8.0" font-weight="700" fill="#161b22" text-anchor="middle">star_inequality</text>
+      <text x="619" y="706.5" class="sans" font-size="7.9" fill="#3f4a56" text-anchor="middle">Thms A + B + C</text>
+
+      <!-- Arrow Stage 01 -> Stage 00 -->
+      <line x1="683" y1="690.5" x2="697" y2="690.5" stroke="#9a3412" stroke-width="1.7" marker-end="url(#arrow-rust-end)"/>
+
+      <!-- Stage 00 Finale Box -->
+      <rect x="700" y="665" width="124" height="51" rx="4" fill="#ffffff" stroke="#9a3412" stroke-width="1.7"/>
+      <text x="762" y="678.5" class="sans" font-size="7.9" font-weight="700" fill="#9a3412" text-anchor="middle">★ STAGE 00</text>
+      <text x="762" y="693" class="sans" font-size="9.5" font-weight="700" fill="#161b22" text-anchor="middle">GRH &amp; RH</text>
+      <text x="762" y="707.5" class="sans" font-size="7.7" font-weight="700" fill="#065f46" text-anchor="middle">All 8 Pillars Sealed</text>
+    </g>
+
+    <!-- Bottom Legend Bar -->
+    <g id="strip-legend">
+      <rect x="28" y="735" width="806" height="23" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="40" y="749.5" class="sans" font-size="8.1" fill="#3f4a56"><tspan font-weight="700" fill="#161b22">LEGEND:</tspan>  <tspan font-weight="700" fill="#1e40af">◆ Cobalt</tspan> = Prime triangle, inputs &amp; regular family  ·  <tspan font-weight="700" fill="#9a3412">▲ Rust</tspan> = Vandiver bypass &amp; Stage 05→00 closure  ·  <tspan font-weight="700" fill="#065f46">● Emerald</tspan> = Ribet clearing operator  ·  <tspan font-weight="700" fill="#92400e">▲ Amber</tspan> = Budget ledger</text>
+    </g>
+  </g>
+</svg>

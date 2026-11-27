@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "7162d764226e5d82b55bcb1a192054ad1c3d9835",
-        "content": "sha256:f6b8987b929dbdbf7f5afcc5bb5221bf8048195f8aa8ce3a2dbf8f5e99a74671",
+        "blob": "f6379ff5e8969ca33de171dad8810e955f17a425",
+        "content": "sha256:01a7891fa5cdc568b90b0dbfbeaa95e77442331e42de9c18655eb86e85293276",
         "locator": {
           "kind": "file"
         }
@@ -15,7 +15,7 @@
         "handoffEntry": "RH-R05@v1 §3",
         "leaf": "05"
       },
-      "rationale": "Configures VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, full HTML title 'Riemann Hypothesis Proof Explainer' with compact themeConfig.siteTitle 'RH Proof Explainer', cleanUrls, locked light editorial appearance, MathJax 3 SVG math, and 5-item top nav (with native Stages dropdown covering Stage 00, Stage 01, Stage 02, Stage 03, Stage 04, Stage 05 and Stage 06) plus Stage 00 (including Proof Journey), Stage 01 (4 pages), Stage 02 (4 pages), Stage 03 (4 pages), Stage 04 (4 pages), Stage 05 (4 pages), Stage 06 (4 pages) and Concept (48 slugs) sidebar navigation.",
+      "rationale": "Configures VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, full HTML title 'Riemann Hypothesis Proof Explainer' with compact themeConfig.siteTitle 'RH Proof Explainer', cleanUrls, locked light editorial appearance, MathJax 3 SVG math, and 5-item top nav (with native Stages dropdown covering Stage 00 through Stage 07 across all eight pillars) plus Stage 00 (including Proof Journey), Stage 01 (4 pages), Stage 02 (4 pages), Stage 03 (4 pages), Stage 04 (4 pages), Stage 05 (4 pages), Stage 06 (4 pages), Stage 07 (4 pages) and Concept (54 slugs) sidebar navigation.",
       "role": "primary-authority"
     }
   ],
@@ -25,7 +25,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "7162d764226e5d82b55bcb1a192054ad1c3d9835",
+            "blob": "f6379ff5e8969ca33de171dad8810e955f17a425",
             "content": "sha256:46596c6b9b41198c5626445b4355742d30a6ccf0d4f0a91292a638ef962fa8e2",
             "locator": {
               "kind": "symbol",
@@ -41,7 +41,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "7162d764226e5d82b55bcb1a192054ad1c3d9835",
+            "blob": "f6379ff5e8969ca33de171dad8810e955f17a425",
             "content": "sha256:777c6bdaa9811d8e42a0b70cd41da0d453fed398717b418c0d20dbb654df0670",
             "locator": {
               "end": 23,
@@ -54,14 +54,14 @@
       ]
     },
     "3": {
-      "note": "`themeConfig` sets compact navbar `siteTitle: 'RH Proof Explainer'`, defines 5 top navigation entries (with a native `Stages` dropdown linking Stage 00, Stage 01, Stage 02, Stage 03, Stage 04, Stage 05 and Stage 06), Stage 00 (5 pages including `Full Proof Journey & 20-Step Map`), Stage 01 (4 pages under `/stages/01_reduction/`), Stage 02 (4 pages under `/stages/02_derivatives/`), Stage 03 (4 pages under `/stages/03_upper_bound/`), Stage 04 (4 pages under `/stages/04_spanning/`), Stage 05 (4 pages under `/stages/05_determinant/`), Stage 06 (4 pages under `/stages/06_one_lift/`) and Foundational Concepts (index + 48 slugs) sidebar groups, `[2, 3]` outline and `ariaLabel`-annotated GitHub `socialLinks`.\n\nAnchor: `themeConfig`",
+      "note": "`themeConfig` sets compact navbar `siteTitle: 'RH Proof Explainer'`, defines 5 top navigation entries (with a native `Stages` dropdown linking Stage 00 through Stage 07 across all eight pillars), nine sidebar groups—Stage 00 (5 pages including `Full Proof Journey & 20-Step Map`), Stage 01 (4 pages under `/stages/01_reduction/`), Stage 02 (4 pages under `/stages/02_derivatives/`), Stage 03 (4 pages under `/stages/03_upper_bound/`), Stage 04 (4 pages under `/stages/04_spanning/`), Stage 05 (4 pages under `/stages/05_determinant/`), Stage 06 (4 pages under `/stages/06_one_lift/`), Stage 07 (4 pages under `/stages/07_congruences/`), and Foundational Concepts (index + 54 slugs)—`[2, 3]` outline and `ariaLabel`-annotated GitHub `socialLinks`.\n\nAnchor: `themeConfig`",
       "targets": [
         {
           "anchor": {
-            "blob": "7162d764226e5d82b55bcb1a192054ad1c3d9835",
-            "content": "sha256:985503d706d1a148d7e9f7d1ddc7ab3feb159458dfa9b56aaa6dc59bec07dcb4",
+            "blob": "f6379ff5e8969ca33de171dad8810e955f17a425",
+            "content": "sha256:e334ec8339fd762fd7c7a0974de3a857f9c4a15a39efb4c9d45870329d985682",
             "locator": {
-              "end": 343,
+              "end": 389,
               "kind": "line_range",
               "start": 24
             }
