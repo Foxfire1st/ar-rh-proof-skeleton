@@ -1,0 +1,271 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 860 728"
+     width="860"
+     height="728"
+     role="img"
+     aria-labelledby="stage07-ms-twist-title stage07-ms-twist-desc">
+  <title id="stage07-ms-twist-title">Stage 07 Pipeline: Galois Main Summands and the Anticyclotomic Selmer Twisting Theorem</title>
+  <desc id="stage07-ms-twist-desc">Editorial mathematical pipeline diagram for Stage 07 (RowsFromEigensystems.lean, FitTwistsExist.lean, and Selmer/TwistingTheorem.lean). Band 1 presents two parallel input tracks. Left Input (cobalt): good Hecke eigenforms on W_m of rank r (finite-dimensional via D.e_0) feed exists_isMainSummand_descentPair to produce finitely many rank-r main summands R_a, while main pairs p = (nu, z) of rank 1 (via isRepOfType_one) feed exists_isMainSummand_mainPair to produce finitely many rank-1 main summands R_{1,b}; a highlighted lift trace decomposition panel displays tr(rho_lift^norm) = psi_theta * tr(R) + sum_{e &lt; t} chi_cyc^(-e) (twist-independent main block plus inverse-cyclotomic string, proved by eventually_trace_frob_eq_of_hasLiftHeckePolynomial); these finitely many main summands are packaged by exists_selmerData_isTorsionLevel into a SelmerDatum family over a large coefficient ring O, unramified outside ell p_0 p_1, crystalline above ell, with error beta(T_i) &lt;= c and IsTorsionLevel T (c + 2). Right Input (emerald): Stage 06 (06_one_lift/three_exchanges) feeds all ramified CriticalPairs p = (nu, z) through Selmer/ClassSums.lean into integral twist measures (IsTwistMeasure) interpolating partial Hecke L-values p.ratio xi (+-1), producing StickelbergerSystems in Selmer/LValueSystems.lean. Band 2 (amber, Selmer/TwistingTheorem.lean) runs the Horizontal Anticyclotomic Twisting Engine via exists_mFoldTwist_hasDivisibleSelmerLengthLe (and the two-family wrapper exists_mFoldTwist_selmerLengthLe_inv_ratio_le over A + B), choosing a single m-fold twist tau : D.MFoldTwist on an auxiliary modulus Q with Q, Q-bar, and badPlaces D ell pairwise disjoint, governed by the uniform twist error e'_ell = twistError ell D = (4f + 3) r v_ell(N) + 2^(-ell), together with an explicit caveat that N = D.chosenGroupOrder = prod_{w chosen} |GL_{r*t}(k_w)| uses rank r*t, not r. Band 3 fans out into three simultaneous guarantees holding for every power xi = tau^j (1 &lt;= j &lt;= m): (1) Auxiliary Ramification (IsAuxTwist, amber): psi = xi.invAvatar is anticyclotomic and trivial above ell, with sum_{w in Q} v_ell(psi(gamma_w) - 1) &lt;= e'_ell; (2) Short Divisible Selmer (HasDivisibleSelmerLengthLe, cobalt): every psi R_a and psi R_{1,b} has divisible crystalline Selmer length &lt;= e'_ell, feeding DenominatorBound.lean; (3) Small L-Value Ratios (norm_inv_le_exp_of_ellVal_le, emerald): v_ell(iota_ell(p.ratio xi +-1)) &lt;= e'_ell implies ||iota_ell(p.ratio xi +-1)^(-1)|| &lt;= ell^(e'_ell), summing across primes to &lt;= D.x^999 &lt;= D.x_1 to prove HasSmallRatios in FitTwistsExist.lean.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+    <marker id="arrow-rust-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#9a3412"/>
+    </marker>
+
+    <!-- Crisp clip paths for card headers and left accent bars -->
+    <clipPath id="clip-in-left"><rect x="14" y="48" width="516" height="238" rx="6"/></clipPath>
+    <clipPath id="clip-selmer-pkg"><rect x="24" y="213" width="496" height="61" rx="4"/></clipPath>
+    <clipPath id="clip-in-right"><rect x="544" y="48" width="302" height="238" rx="6"/></clipPath>
+    <clipPath id="clip-stickelberger"><rect x="554" y="218" width="282" height="56" rx="4"/></clipPath>
+    <clipPath id="clip-band2"><rect x="14" y="318" width="832" height="158" rx="6"/></clipPath>
+    <clipPath id="clip-out1"><rect x="14" y="526" width="268" height="160" rx="6"/></clipPath>
+    <clipPath id="clip-out2"><rect x="295" y="526" width="270" height="160" rx="6"/></clipPath>
+    <clipPath id="clip-out3"><rect x="578" y="526" width="268" height="160" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="859" height="727" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="26.5" class="sans" font-size="14.6" font-weight="700" fill="#161b22">Main Summands &amp; Anticyclotomic Selmer Twisting Pipeline</text>
+    <text x="842" y="25.5" class="mono" font-size="9.6" fill="#3f4a56" text-anchor="end">RowsFromEigensystems.lean · TwistingTheorem.lean</text>
+    <line x1="14" y1="38" x2="846" y2="38" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 1: TWO PARALLEL INPUT TRACKS                                     -->
+  <!-- ===================================================================== -->
+  <g id="band-1-inputs">
+
+    <!-- LEFT INPUT TRACK (COBALT): MAIN SUMMANDS & SELMER DATA -->
+    <g id="card-input-galois">
+      <rect x="14" y="48" width="516" height="238" rx="6" fill="#ffffff"/>
+      <rect x="14" y="48" width="516" height="24" fill="#edf4ff" clip-path="url(#clip-in-left)"/>
+      <line x1="14" y1="72" x2="530" y2="72" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="14" y="48" width="516" height="238" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+      <text x="24" y="63.5" class="sans" font-size="9.5" font-weight="700" fill="#1e40af">◆ ① GALOIS MAIN SUMMANDS &amp; SELMER DATA</text>
+      <text x="520" y="63.5" class="mono" font-size="8.0" fill="#3f4a56" text-anchor="end">RowsFromEigensystems · FitTwistsExist</text>
+
+      <!-- Two main-summand source rows -->
+      <rect x="24" y="79" width="496" height="61" rx="4" fill="#faf9f5" stroke="#bfdbfe" stroke-width="1.1"/>
+      <text x="33" y="92.5" class="sans" font-size="8.4" fill="#161b22"><tspan font-weight="700" fill="#1e40af">• Rank r:</tspan> Good Hecke eigenforms on <tspan font-weight="700">W<tspan font-size="6.4" dy="1.6">m</tspan><tspan dy="-1.6"></tspan></tspan> (fin.-dim. via <tspan class="mono" font-size="8.0" fill="#161b22">D.e<tspan font-size="6.2" dy="1.4">0</tspan><tspan dy="-1.4"></tspan></tspan>)  →  finitely many <tspan font-weight="700" fill="#1e40af">R<tspan font-size="6.4" dy="1.6">a</tspan></tspan></text>
+      <text x="44" y="104.5" class="sans" font-size="7.9" fill="#3f4a56">via <tspan class="mono" font-size="7.8" font-weight="700" fill="#1e40af">exists_isMainSummand_descentPair</tspan>  (<tspan class="mono" font-size="7.7">RowsFromEigensystems.lean</tspan>)</text>
+      <line x1="33" y1="110.5" x2="511" y2="110.5" stroke="#dbeafe" stroke-width="1"/>
+      <text x="33" y="123" class="sans" font-size="8.4" fill="#161b22"><tspan font-weight="700" fill="#1e40af">• Rank 1:</tspan> Main pairs <tspan font-weight="700">p = (ν, z)</tspan>  (via <tspan class="mono" font-size="7.9" fill="#3f4a56">isRepOfType_one</tspan>)  →  finitely many <tspan font-weight="700" fill="#1e40af">R<tspan font-size="6.4" dy="1.6">1,b</tspan></tspan></text>
+      <text x="44" y="135" class="sans" font-size="7.9" fill="#3f4a56">via <tspan class="mono" font-size="7.8" font-weight="700" fill="#1e40af">exists_isMainSummand_mainPair</tspan>  (<tspan class="mono" font-size="7.7">FitTwistsExist.lean</tspan>)</text>
+
+      <!-- Highlighted Lift Trace Decomposition Box -->
+      <rect x="24" y="147" width="496" height="59" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.3"/>
+      <text x="34" y="160.5" class="sans" font-size="8.0" font-weight="700" fill="#1e40af">LIFT TRACE DECOMPOSITION</text>
+      <text x="510" y="160.5" class="mono" font-size="7.6" fill="#3f4a56" text-anchor="end">eventually_trace_frob_eq_of_hasLiftHeckePolynomial</text>
+      <text x="272" y="180.5" class="sans" font-size="10.2" font-weight="700" fill="#161b22" text-anchor="middle">tr(ρ<tspan font-size="6.8" dy="2.2">lift</tspan><tspan font-size="6.8" dy="-5.0">norm</tspan><tspan dy="2.8">)  =  </tspan><tspan fill="#1e40af">ψ<tspan font-size="7.0" dy="2.0">ϑ</tspan><tspan dy="-2.0"> · tr(R)</tspan></tspan><tspan>  +  </tspan><tspan fill="#92400e">∑<tspan font-size="6.8" dy="2.0">e &lt; t</tspan><tspan dy="-2.0"> χ</tspan><tspan font-size="6.8" dy="2.0">cyc</tspan><tspan font-size="6.8" dy="-4.8">−e</tspan></tspan></text>
+      <text x="272" y="198" class="sans" font-size="8.0" fill="#3f4a56" text-anchor="middle"><tspan font-weight="700" fill="#1e40af">twist-independent main block R</tspan> (no ϑ-dependence)  +  <tspan font-weight="700" fill="#92400e">inverse-cyclotomic string</tspan></text>
+
+      <!-- SelmerDatum Packaging Box -->
+      <rect x="24" y="213" width="496" height="61" rx="4" fill="#ffffff"/>
+      <rect x="24" y="213" width="4.5" height="61" fill="#1e40af" clip-path="url(#clip-selmer-pkg)"/>
+      <rect x="24" y="213" width="496" height="61" rx="4" fill="none" stroke="#1e40af" stroke-width="1.1"/>
+      <text x="36" y="227.5" class="sans" font-size="8.5" font-weight="700" fill="#1e40af">Package into SelmerDatum family over large O</text>
+      <text x="510" y="227.5" class="mono" font-size="7.9" font-weight="700" fill="#1e40af" text-anchor="end">exists_selmerData_isTorsionLevel</text>
+      <text x="36" y="244.5" class="sans" font-size="8.3" fill="#161b22">• Unramified outside <tspan font-weight="700">ℓ p<tspan font-size="6.2" dy="1.4">0</tspan><tspan dy="-1.4"> p</tspan><tspan font-size="6.2" dy="1.4">1</tspan><tspan dy="-1.4"></tspan></tspan>   ·   crystalline local conditions above <tspan font-weight="700">ℓ</tspan></text>
+      <text x="36" y="260.5" class="sans" font-size="8.3" fill="#161b22">• Error <tspan font-weight="700">β(T<tspan font-size="6.2" dy="1.4">i</tspan><tspan dy="-1.4">) ≤ c</tspan></tspan>   ·   large residue field: <tspan class="mono" font-size="7.9" font-weight="700" fill="#1e40af">IsTorsionLevel T (c + 2)</tspan></text>
+    </g>
+
+    <!-- RIGHT INPUT TRACK (EMERALD): STAGE 06 STICKELBERGER / L-VALUE INPUT -->
+    <g id="card-input-lvalues">
+      <rect x="544" y="48" width="302" height="238" rx="6" fill="#ffffff"/>
+      <rect x="544" y="48" width="302" height="24" fill="#ecfdf5" clip-path="url(#clip-in-right)"/>
+      <line x1="544" y1="72" x2="846" y2="72" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="544" y="48" width="302" height="238" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+      <text x="554" y="63.5" class="sans" font-size="9.5" font-weight="700" fill="#065f46">● ② L-VALUE STICKELBERGER INPUT</text>
+      <text x="836" y="63.5" class="sans" font-size="8.1" font-weight="600" fill="#3f4a56" text-anchor="end">Stage 06</text>
+
+      <text x="554" y="86.5" class="mono" font-size="7.9" font-weight="700" fill="#065f46">06_one_lift/three_exchanges → ClassSums</text>
+
+      <!-- Step 2a: Ramified CriticalPairs -->
+      <rect x="554" y="95" width="282" height="43" rx="4" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.1"/>
+      <text x="695" y="111.5" class="sans" font-size="8.8" font-weight="700" fill="#161b22" text-anchor="middle">All ramified <tspan class="mono" font-size="8.3" fill="#065f46">CriticalPair</tspan>s  p = (ν, z)</text>
+      <text x="695" y="127" class="sans" font-size="8.1" fill="#3f4a56" text-anchor="middle">Both signs s = ±1 · partial Hecke L-value ratios</text>
+
+      <line x1="695" y1="138" x2="695" y2="150" stroke="#065f46" stroke-width="1.5" marker-end="url(#arrow-emerald-end)"/>
+
+      <!-- Step 2b: Integral Twist Measures -->
+      <rect x="554" y="153" width="282" height="50" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+      <text x="695" y="168" class="sans" font-size="8.7" font-weight="700" fill="#065f46" text-anchor="middle">Integral Twist Measures (<tspan class="mono" font-size="8.1">IsTwistMeasure</tspan>)</text>
+      <text x="695" y="182.5" class="sans" font-size="8.1" fill="#161b22" text-anchor="middle">Interpolate partial Hecke L-values <tspan class="mono" font-size="7.8">p.ratio ξ (±1)</tspan></text>
+      <text x="695" y="196" class="mono" font-size="7.7" fill="#3f4a56" text-anchor="middle">Selmer/ClassSums.lean</text>
+
+      <line x1="695" y1="203" x2="695" y2="215" stroke="#065f46" stroke-width="1.5" marker-end="url(#arrow-emerald-end)"/>
+
+      <!-- Step 2c: StickelbergerSystems -->
+      <rect x="554" y="218" width="282" height="56" rx="4" fill="#ffffff"/>
+      <rect x="554" y="218" width="4.5" height="56" fill="#065f46" clip-path="url(#clip-stickelberger)"/>
+      <rect x="554" y="218" width="282" height="56" rx="4" fill="none" stroke="#065f46" stroke-width="1.2"/>
+      <text x="567" y="234" class="sans" font-size="8.9" font-weight="700" fill="#065f46"><tspan class="mono" font-size="8.4">StickelbergerSystem</tspan>s</text>
+      <text x="567" y="249.5" class="sans" font-size="8.1" fill="#161b22">Group-ring elements bounding v<tspan font-size="6.2" dy="1.4">ℓ</tspan><tspan dy="-1.4">(ι</tspan><tspan font-size="6.2" dy="1.4">ℓ</tspan><tspan dy="-1.4">(p.ratio))</tspan></text>
+      <text x="567" y="264" class="mono" font-size="7.8" fill="#3f4a56">Selmer/LValueSystems.lean</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- CONNECTORS: BAND 1 -> BAND 2                                          -->
+  <!-- ===================================================================== -->
+  <g id="connectors-band1-to-band2">
+    <!-- Left feed (Cobalt) -->
+    <line x1="272" y1="286" x2="272" y2="315" stroke="#1e40af" stroke-width="1.8" marker-end="url(#arrow-cobalt-end)"/>
+    <rect x="284" y="292.5" width="182" height="19" rx="9.5" fill="#edf4ff" stroke="#1e40af" stroke-width="1.1"/>
+    <text x="375" y="305" class="sans" font-size="8.2" font-weight="700" fill="#1e40af" text-anchor="middle">◆ ① SelmerDatum family {T<tspan font-size="6.2" dy="1.4">i</tspan><tspan dy="-1.4">}</tspan></text>
+
+    <!-- Right feed (Emerald) -->
+    <line x1="695" y1="286" x2="695" y2="315" stroke="#065f46" stroke-width="1.8" marker-end="url(#arrow-emerald-end)"/>
+    <rect x="525" y="292.5" width="158" height="19" rx="9.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+    <text x="604" y="305" class="sans" font-size="8.2" font-weight="700" fill="#065f46" text-anchor="middle">● ② StickelbergerSystems</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 2: HORIZONTAL ANTICYCLOTOMIC TWISTING ENGINE (AMBER)             -->
+  <!-- ===================================================================== -->
+  <g id="band-2-twisting-engine">
+    <rect x="14" y="318" width="832" height="158" rx="6" fill="#ffffff"/>
+    <rect x="14" y="318" width="832" height="26" fill="#fef6e4" clip-path="url(#clip-band2)"/>
+    <rect x="14" y="318" width="6" height="158" fill="#92400e" clip-path="url(#clip-band2)"/>
+    <line x1="20" y1="344" x2="846" y2="344" stroke="#e7c98f" stroke-width="1"/>
+    <rect x="14" y="318" width="832" height="158" rx="6" fill="none" stroke="#92400e" stroke-width="1.7"/>
+
+    <text x="30" y="335" class="sans" font-size="10.0" font-weight="700" fill="#92400e">▲ HORIZONTAL ANTICYCLOTOMIC TWISTING ENGINE</text>
+    <text x="834" y="335" class="mono" font-size="8.8" fill="#3f4a56" text-anchor="end">Selmer/TwistingTheorem.lean · GeneralTheorem.lean</text>
+
+    <!-- Central Theorem Banner -->
+    <rect x="28" y="352" width="806" height="42" rx="5" fill="#fef6e4" stroke="#92400e" stroke-width="1.2"/>
+    <text x="431" y="369" class="sans" font-size="8.8" fill="#3f4a56" text-anchor="middle"><tspan class="mono" font-size="9.6" font-weight="700" fill="#92400e">exists_mFoldTwist_hasDivisibleSelmerLengthLe</tspan>   (two-family over A ⊕ B: <tspan class="mono" font-size="8.4" font-weight="700" fill="#161b22">exists_mFoldTwist_selmerLengthLe_inv_ratio_le</tspan>)</text>
+    <text x="431" y="386" class="sans" font-size="8.7" fill="#161b22" text-anchor="middle">Chooses <tspan font-weight="700" fill="#92400e">ONE</tspan> m-fold twist <tspan class="mono" font-size="8.4" font-weight="700">τ : D.MFoldTwist</tspan> on auxiliary modulus <tspan font-weight="700">Q</tspan>  (<tspan font-weight="700">Q, Q&#x0304;,</tspan> <tspan class="mono" font-size="8.2">badPlaces D ℓ</tspan> pairwise disjoint)</text>
+
+    <!-- Left Sub-Panel: Uniform Twist Error Formula -->
+    <rect x="28" y="402" width="434" height="64" rx="4" fill="#ffffff" stroke="#92400e" stroke-width="1.2"/>
+    <text x="245" y="417" class="sans" font-size="8.1" font-weight="700" fill="#92400e" text-anchor="middle">UNIFORM TWIST ERROR BOUND (EVERY PRIME ℓ)</text>
+    <text x="245" y="437.5" class="sans" font-size="10.2" font-weight="700" fill="#161b22" text-anchor="middle">e′<tspan font-size="7.0" dy="2.0">ℓ</tspan><tspan dy="-2.0">  =  </tspan><tspan class="mono" font-size="9.2" fill="#92400e">twistError ℓ D</tspan><tspan>  =  (4f + 3) r v</tspan><tspan font-size="7.0" dy="2.0">ℓ</tspan><tspan dy="-2.0">(N) + 2</tspan><tspan font-size="7.0" dy="-3.2">−ℓ</tspan></text>
+    <text x="245" y="456" class="sans" font-size="8.0" fill="#3f4a56" text-anchor="middle">Tolerance 2<tspan font-size="6.0" dy="-2.2">−ℓ</tspan><tspan dy="2.2"> via </tspan><tspan class="mono" font-size="7.7">exists_anticyclotomic_twist</tspan>; fixed integer N depends only on D</text>
+
+    <!-- Right Sub-Panel: Explicit Rank r*t Caveat (Rust Dashed) -->
+    <rect x="474" y="402" width="360" height="64" rx="4" fill="#fff5f0" stroke="#9a3412" stroke-width="1.3" stroke-dasharray="5.5,3.2"/>
+    <text x="486" y="417" class="sans" font-size="8.1" font-weight="700" fill="#9a3412">▲ EXPLICIT ORDER DEFINITION (RANK r · t, NOT r)</text>
+    <text x="486" y="437.5" class="sans" font-size="9.4" font-weight="700" fill="#161b22">N = <tspan class="mono" font-size="8.6" fill="#9a3412">D.chosenGroupOrder</tspan> = ∏<tspan font-size="6.6" dy="2.0">w chosen</tspan><tspan dy="-2.0"> |GL</tspan><tspan font-size="6.8" dy="2.0">r·t</tspan><tspan dy="-2.0">(k</tspan><tspan font-size="6.6" dy="2.0">w</tspan><tspan dy="-2.0">)|</tspan></text>
+    <text x="486" y="456" class="sans" font-size="8.0" fill="#3f4a56">Product over chosen places w ∣ p<tspan font-size="6.0" dy="1.4">0</tspan><tspan dy="-1.4"> p</tspan><tspan font-size="6.0" dy="1.4">1</tspan><tspan dy="-1.4"> of GL</tspan><tspan font-size="6.2" dy="1.4">r·t</tspan><tspan dy="-1.4">(k</tspan><tspan font-size="6.0" dy="1.4">w</tspan><tspan dy="-1.4">) — </tspan><tspan font-weight="700" fill="#9a3412">rank r·t, not r</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- FAN-OUT CONNECTORS: BAND 2 -> BAND 3                                  -->
+  <!-- ===================================================================== -->
+  <g id="connectors-band2-to-band3">
+    <line x1="430" y1="476" x2="430" y2="483" stroke="#92400e" stroke-width="1.7"/>
+    <rect x="172" y="483" width="516" height="20" rx="10" fill="#fef6e4" stroke="#92400e" stroke-width="1.2"/>
+    <text x="430" y="496" class="sans" font-size="8.6" font-weight="700" fill="#92400e" text-anchor="middle">FOR EVERY POWER  <tspan fill="#161b22">ξ = τ<tspan font-size="6.4" dy="-2.2">j</tspan><tspan dy="2.2">  (1 ≤ j ≤ m)</tspan></tspan>  —  THREE SIMULTANEOUS GUARANTEES</text>
+
+    <!-- Distribution bus -->
+    <line x1="430" y1="503" x2="430" y2="510" stroke="#92400e" stroke-width="1.7"/>
+    <line x1="148" y1="510" x2="712" y2="510" stroke="#92400e" stroke-width="1.7"/>
+    <line x1="148" y1="510" x2="148" y2="523" stroke="#92400e" stroke-width="1.7" marker-end="url(#arrow-amber-end)"/>
+    <line x1="430" y1="510" x2="430" y2="523" stroke="#1e40af" stroke-width="1.7" marker-end="url(#arrow-cobalt-end)"/>
+    <line x1="712" y1="510" x2="712" y2="523" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald-end)"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BAND 3: THREE SIMULTANEOUS GUARANTEES                                 -->
+  <!-- ===================================================================== -->
+  <g id="band-3-guarantees">
+
+    <!-- OUTPUT CARD 1 (AMBER): AUXILIARY RAMIFICATION -->
+    <g id="card-out-aux">
+      <rect x="14" y="526" width="268" height="160" rx="6" fill="#ffffff"/>
+      <rect x="14" y="526" width="268" height="24" fill="#fef6e4" clip-path="url(#clip-out1)"/>
+      <line x1="14" y1="550" x2="282" y2="550" stroke="#e7c98f" stroke-width="1"/>
+      <rect x="14" y="526" width="268" height="160" rx="6" fill="none" stroke="#92400e" stroke-width="1.5"/>
+
+      <text x="24" y="541.5" class="sans" font-size="8.9" font-weight="700" fill="#92400e">▲ ① AUXILIARY RAMIFICATION</text>
+      <text x="272" y="541.5" class="mono" font-size="7.9" font-weight="700" fill="#3f4a56" text-anchor="end">IsAuxTwist</text>
+
+      <text x="24" y="565.5" class="sans" font-size="8.3" fill="#161b22">• Avatar <tspan class="mono" font-size="8.0" font-weight="700" fill="#92400e">ψ = ξ.invAvatar</tspan> anticyclotomic</text>
+      <text x="24" y="581" class="sans" font-size="8.3" fill="#161b22">• Trivial on every decomp. group above <tspan font-weight="700">ℓ</tspan></text>
+      <text x="24" y="596.5" class="sans" font-size="8.2" fill="#3f4a56">• Preserves crystalline local conditions</text>
+
+      <rect x="24" y="606" width="248" height="40" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.1"/>
+      <text x="148" y="624" class="sans" font-size="9.4" font-weight="700" fill="#161b22" text-anchor="middle">∑<tspan font-size="6.6" dy="1.8">w ∈ Q</tspan><tspan dy="-1.8"> v</tspan><tspan font-size="6.6" dy="1.8">ℓ</tspan><tspan dy="-1.8">(ψ γ</tspan><tspan font-size="6.6" dy="1.8">w</tspan><tspan dy="-1.8"> − 1)  ≤  </tspan><tspan fill="#92400e">e′<tspan font-size="6.8" dy="1.8">ℓ</tspan></tspan></text>
+      <text x="148" y="639.5" class="sans" font-size="7.8" fill="#3f4a56" text-anchor="middle">Q, Q&#x0304;, badPlaces D ℓ pairwise disjoint</text>
+
+      <rect x="24" y="654" width="248" height="22" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="148" y="668" class="sans" font-size="7.8" fill="#3f4a56" text-anchor="middle">via <tspan class="mono" font-size="7.5" font-weight="700" fill="#92400e">IsSmallTwist.isAuxTwist</tspan>  (gcd(ℓ, Nm Q) = 1)</text>
+    </g>
+
+    <!-- OUTPUT CARD 2 (COBALT): SHORT DIVISIBLE SELMER -->
+    <g id="card-out-selmer">
+      <rect x="295" y="526" width="270" height="160" rx="6" fill="#ffffff"/>
+      <rect x="295" y="526" width="270" height="24" fill="#edf4ff" clip-path="url(#clip-out2)"/>
+      <line x1="295" y1="550" x2="565" y2="550" stroke="#bfdbfe" stroke-width="1"/>
+      <rect x="295" y="526" width="270" height="160" rx="6" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+      <text x="305" y="541.5" class="sans" font-size="8.9" font-weight="700" fill="#1e40af">◆ ② SHORT DIVISIBLE SELMER</text>
+      <text x="555" y="541.5" class="sans" font-size="7.9" font-weight="600" fill="#3f4a56" text-anchor="end">All R<tspan font-size="6.0" dy="1.4">a</tspan><tspan dy="-1.4">, R</tspan><tspan font-size="6.0" dy="1.4">1,b</tspan></text>
+
+      <text x="305" y="564.5" class="mono" font-size="7.9" font-weight="700" fill="#1e40af">HasDivisibleSelmerLengthLe</text>
+      <text x="305" y="580.5" class="sans" font-size="8.3" fill="#161b22">• Every rank-r <tspan font-weight="700" fill="#1e40af">ψ R<tspan font-size="6.2" dy="1.4">a</tspan><tspan dy="-1.4"></tspan></tspan> and rank-1 <tspan font-weight="700" fill="#1e40af">ψ R<tspan font-size="6.2" dy="1.4">1,b</tspan></tspan></text>
+      <text x="305" y="596" class="sans" font-size="8.1" fill="#3f4a56">• Lattice + scalar γ; unram. out. ℓ p<tspan font-size="6.0" dy="1.4">0</tspan><tspan dy="-1.4"> p</tspan><tspan font-size="6.0" dy="1.4">1</tspan><tspan dy="-1.4"> Q Q&#x0304;</tspan></text>
+
+      <rect x="305" y="606" width="250" height="40" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.1"/>
+      <text x="430" y="624" class="sans" font-size="9.0" font-weight="700" fill="#161b22" text-anchor="middle">len<tspan font-size="6.4" dy="1.8">crys</tspan><tspan dy="-1.8">( H</tspan><tspan font-size="6.6" dy="-2.4">1</tspan><tspan font-size="6.4" dy="4.2">f</tspan><tspan dy="-1.8">(ψ R</tspan><tspan font-size="6.4" dy="1.8">i</tspan><tspan dy="-1.8"> ⊗ K/O) )  ≤  </tspan><tspan fill="#1e40af">e′<tspan font-size="6.8" dy="1.8">ℓ</tspan></tspan></text>
+      <text x="430" y="639.5" class="sans" font-size="7.8" fill="#3f4a56" text-anchor="middle">Divisible crystalline Selmer length ≤ e′<tspan font-size="6.0" dy="1.4">ℓ</tspan></text>
+
+      <rect x="305" y="654" width="250" height="22" rx="4" fill="#fff5f0" stroke="#9a3412" stroke-width="1.0"/>
+      <text x="430" y="668" class="sans" font-size="8.0" font-weight="700" fill="#9a3412" text-anchor="middle">↗ Feeds <tspan class="mono" font-size="7.8" fill="#161b22">DenominatorBound.lean</tspan> (Ribet)</text>
+    </g>
+
+    <!-- OUTPUT CARD 3 (EMERALD): SMALL L-VALUE RATIOS -->
+    <g id="card-out-lvalues">
+      <rect x="578" y="526" width="268" height="160" rx="6" fill="#ffffff"/>
+      <rect x="578" y="526" width="268" height="24" fill="#ecfdf5" clip-path="url(#clip-out3)"/>
+      <line x1="578" y1="550" x2="846" y2="550" stroke="#a7f3d0" stroke-width="1"/>
+      <rect x="578" y="526" width="268" height="160" rx="6" fill="none" stroke="#065f46" stroke-width="1.5"/>
+
+      <text x="588" y="541.5" class="sans" font-size="8.9" font-weight="700" fill="#065f46">● ③ SMALL L-VALUE RATIOS</text>
+      <text x="836" y="541.5" class="sans" font-size="7.9" font-weight="600" fill="#3f4a56" text-anchor="end">All ramified p</text>
+
+      <text x="588" y="564.5" class="mono" font-size="7.8" font-weight="700" fill="#065f46">norm_inv_le_exp_of_ellVal_le</text>
+      <text x="588" y="580.5" class="sans" font-size="8.3" fill="#161b22">• Every ramified <tspan font-weight="700">p</tspan> and sign <tspan font-weight="700">s = ±1</tspan>:</text>
+      <text x="598" y="596" class="sans" font-size="8.3" font-weight="700" fill="#161b22">v<tspan font-size="6.2" dy="1.4">ℓ</tspan><tspan dy="-1.4">(ι</tspan><tspan font-size="6.2" dy="1.4">ℓ</tspan><tspan dy="-1.4">(p.ratio ξ ±1))  ≤  </tspan><tspan fill="#065f46">e′<tspan font-size="6.4" dy="1.4">ℓ</tspan></tspan></text>
+
+      <rect x="588" y="606" width="248" height="40" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+      <text x="712" y="624" class="sans" font-size="9.1" font-weight="700" fill="#161b22" text-anchor="middle">⇒  ‖ι<tspan font-size="6.4" dy="1.8">ℓ</tspan><tspan dy="-1.8">(p.ratio ξ ±1)</tspan><tspan font-size="6.6" dy="-2.6">−1</tspan><tspan dy="2.6">‖  ≤  </tspan><tspan fill="#065f46">ℓ<tspan font-size="6.6" dy="-2.8">e′<tspan font-size="5.2" dy="1.4">ℓ</tspan></tspan></tspan></text>
+      <text x="712" y="639.5" class="sans" font-size="7.9" fill="#3f4a56" text-anchor="middle">∑<tspan font-size="6.0" dy="1.4">ℓ</tspan><tspan dy="-1.4"> e′</tspan><tspan font-size="6.0" dy="1.4">ℓ</tspan><tspan dy="-1.4"> log ℓ  ≤  </tspan><tspan font-weight="700" fill="#161b22">D.x<tspan font-size="6.0" dy="-2.0">999</tspan><tspan dy="2.0">  ≤  D.x</tspan><tspan font-size="6.0" dy="1.4">1</tspan></tspan></text>
+
+      <rect x="588" y="654" width="248" height="22" rx="4" fill="#fff5f0" stroke="#9a3412" stroke-width="1.0"/>
+      <text x="712" y="668" class="sans" font-size="8.0" font-weight="700" fill="#9a3412" text-anchor="middle">↗ Proves <tspan class="mono" font-size="7.8" fill="#161b22">HasSmallRatios</tspan> (<tspan class="mono" font-size="7.5" fill="#3f4a56">FitTwistsExist</tspan>)</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM LEGEND & PROVENANCE STRIP                                      -->
+  <!-- ===================================================================== -->
+  <g id="strip-legend">
+    <rect x="14" y="696" width="832" height="22" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="26" y="710" class="sans" font-size="8.1" fill="#3f4a56"><tspan font-weight="700" fill="#161b22">LEGEND:</tspan>  <tspan font-weight="700" fill="#1e40af">◆ Cobalt</tspan> = Galois / Selmer track   ·   <tspan font-weight="700" fill="#065f46">● Emerald</tspan> = Stage 06 L-values   ·   <tspan font-weight="700" fill="#92400e">▲ Amber</tspan> = Twisting engine   ·   <tspan font-weight="700" fill="#9a3412">Dashed / ↗ Rust</tspan> = Rank r·t note &amp; handoff</text>
+  </g>
+</svg>

@@ -75,7 +75,7 @@ In the condensed 41-landmark DAG (`dag/dag.json`), Stage 03 exhibits a distincti
   3. Stage 04: `04_spanning/spanning_theorem`,
   4. Stage 05: `05_determinant/spanning_forms`,
   5. Stage 06: `06_one_lift/three_exchanges` and `06_one_lift/twisted_value_heights`,
-  6. Stage 07: `07_congruences/fit_twists_exist` and `07_congruences/twisting_theorem`.
+  6. [Stage 07](../07_congruences/overview.md): [`07_congruences/fit_twists_exist`](../07_congruences/ribet-denominators-and-regular-twists.md) and [`07_congruences/twisting_theorem`](../07_congruences/main-summands-and-twisting-theorem.md).
 - **`03_upper_bound/archimedean_size`** feeds both `01_reduction/short_and_enough` (for Theorem A's covolume bound) and `05_determinant/long_forms` (for Theorem C's comparison against archimedean size).
 - **`03_upper_bound/seesaw_identity`** and **`03_upper_bound/local_divisibility`** feed directly into `01_reduction/short_and_enough`.
 - **`03_upper_bound/elementary_divisor_theorem`** has zero landmark dependencies (building purely on `src/Lib/` and local files in `ElementaryDivisors/`) and feeds exclusively into `03_upper_bound/local_divisibility`.

@@ -26,7 +26,7 @@ Starting from Stage 05's {{concept:siegel-weil-exchange|complementary-rank excha
    - `i = some 1` (second exchange): flat pair $\nu_{+1} = \upsilon^{-m}\chi^{j}$, cutoff `signPoint 1` $= m$, twist sign $+1$;
    - `i = none` (third exchange): main-chain character $\nu_j = \mu_j^0 \upsilon^n$ with $n = j + (t - 11m - 1)/2$, cutoff `mainPairPoint` $= 7(m/2) + k/2$, twist sign $+1$.
 
-Note also a cross-stage export: `06_one_lift/three_exchanges` is consumed not only inside Stage 06, but also forward by Stage 07 (`07_congruences/twisting_theorem`, mediated via `src/New/Congruences/Selmer/ClassSums.lean`).
+Note also a cross-stage export: `06_one_lift/three_exchanges` is consumed not only inside Stage 06, but also forward by [Stage 07 (`07_congruences/twisting_theorem`)](../07_congruences/main-summands-and-twisting-theorem.md) (mediated via `src/New/Congruences/Selmer/ClassSums.lean`).
 
 ### Part 2: Splitting the target lattice and isolating the twist (`GluingMaps.lean`)
 

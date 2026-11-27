@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "dcf8a208965eb9831d9fcaffb426477a96945278",
-        "content": "sha256:44c8b6afc230bf39dabd32026c026184b4f8f81244e8feb5ba1e38503ecb629b",
+        "blob": "81f28af0189ac5345541af00e94654db230b27d0",
+        "content": "sha256:888174441dd06dbe825938dcfc72474ee8b301f3bfdfc6cfc9a2b703288d9333",
         "locator": {
           "kind": "file"
         }
@@ -15,18 +15,18 @@
         "handoffEntry": "RH-R05@v1 §3",
         "leaf": "05"
       },
-      "rationale": "Declares vitepress and markdown-it-mathjax3 devDependencies paired with committed site/package-lock.json for deterministic npm ci builds.",
+      "rationale": "Declares vitepress and markdown-it-mathjax3 devDependencies paired with committed site/package-lock.json for deterministic npm ci builds, and runs docs:build via node --max-old-space-size=8192 ./node_modules/vitepress/bin/vitepress.js build docs so plain npm --prefix site run docs:build compiles the full eight-pillar MathJax 3 inline-SVG corpus without exhausting Node's default 4096 MB V8 heap.",
       "role": "support"
     }
   ],
   "references": {
     "1": {
-      "note": "Defines private ESM package `rh-proof-explainer-site` with `docs:dev`, `docs:build` and `docs:preview` scripts targeting `docs`.\n\nAnchor: `\"docs:build\"`",
+      "note": "Defines private ESM package `rh-proof-explainer-site` with `docs:dev`, `docs:build` (invoking VitePress with `node --max-old-space-size=8192`) and `docs:preview` scripts targeting `docs`.\n\nAnchor: `\"docs:build\"`",
       "targets": [
         {
           "anchor": {
-            "blob": "dcf8a208965eb9831d9fcaffb426477a96945278",
-            "content": "sha256:36c1753a3a0de783067240efe4c7bc94eb17442d23f812f1a2bb95fa45f9e2e9",
+            "blob": "81f28af0189ac5345541af00e94654db230b27d0",
+            "content": "sha256:84b064d2a278171c9d1945d253932836fe5d20622d2e7845fc92db080c88cd27",
             "locator": {
               "end": 10,
               "kind": "line_range",
@@ -42,7 +42,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "dcf8a208965eb9831d9fcaffb426477a96945278",
+            "blob": "81f28af0189ac5345541af00e94654db230b27d0",
             "content": "sha256:3080c8a6ed46629caf75ce3db6660a8fd2a8f85348d70f04011d3919a006d54a",
             "locator": {
               "end": 14,
