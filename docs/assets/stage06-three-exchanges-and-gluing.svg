@@ -1,0 +1,315 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 880 680"
+     width="880"
+     height="680"
+     role="img"
+     aria-labelledby="stage06-exchanges-gluing-title stage06-exchanges-gluing-desc">
+  <title id="stage06-exchanges-gluing-title">Three Exchanges, Carrier Form, and Divided-Lattice Gluing in Stage 06 (ThreeExchanges.lean + GluingMaps.lean)</title>
+  <desc id="stage06-exchanges-gluing-desc">Two-panel editorial mathematical diagram of Stage 06 ComparisonOperator files. Left panel (ThreeExchanges.lean, cobalt): traces three successive Siegel-Weil exchanges collapsing twisted class sums into a single scalar c(theta) with ||c(theta)||^2 = C / Gamma_j(theta). Exchange 1 (i = some (-1)) uses flat pair nu_{-1} = upsilon^(-m/2) chi^(-j) at signPoint = m/2 with sign -1 on (I_m, I_m) to produce constant 1 (exists_mul_stdClassSum_modKernelStdSpace_eq_one). Exchange 2 (i = some 1) uses flat pair nu_{+1} = upsilon^(-m) chi^j at signPoint = m with sign +1 on U(2m, m) to reduce the twisted class sum to the fixed, twist-free, nonzero, full-level rapidly decreasing holomorphic carrier form phi^o = carrierForm E m (carrierForm_ne_zero, exists_mul_stdClassSum_eq_carrierForm). Exchange 3 (i = none) uses main-chain pair nu_j = mu_j^0 upsilon^n with n = j + (t - 11m - 1)/2 at mainPairPoint = 7(m/2) + k/2 and sign +1 to equate the double class sum (kernelClassSum on U(W_j)) to c(theta)^(-1) F_i where F_i = choiceFn j i is twist-free and holomorphic (exists_mul_thirdExchangeLeftSide_eq_choiceFn). An explicit note clarifies that Gamma_j(theta) = heckeValueProd j theta is the raw unnormalized product over the three exchangePairs (not divided by Gamma_j(1) yet), and a dashed rust callout notes that 06_one_lift/three_exchanges also feeds Stage 07 (07_congruences/twisting_theorem). Right panel (GluingMaps.lean, emerald): shows the orthogonal block split V_j = V'' + V^o of ranks r + 9m + 1 and t - 9m - 1 glued across glueLattice L_Lambda (varpi O^n subset L_Lambda subset O^n) via splittingV. The firstFactor phi''_{theta,i} on V'' (integral for l not dividing Nm(Q), untwisted norm^2 &lt;= exp(f m b log^2 b)) pairs with tuples zeta in FormTuples j on V^o through glue_theta : FormTuples j -&gt; FormV (scaled by M^(l_1), integral away from Q via glue_mem_integralForms, untwisted norm^2 factor &lt;= exp(2 f m b log^2 b) via normSqAt_glue_le). Dual-pair adjoint transfer yields the twist-isolating seesaw identity (twistFactor_smul_adjoint_glue_comp): c'_theta * glue_theta^* o Theta_{j,theta} = Theta^o, where Theta^o = periodLift j is twist-independent and ||c'_theta||^2 = C / Gamma_j(theta). Finally, combining periodLift_injective (ProductsSpan), Stage 04 finrank_targetForms_ne_zero (spanning_theorem), and Stage 05 targetDim_eq_finrank_goodForms_spaceW proves twistFactor_ne_zero (c'_theta != 0, retroactively certifying C != 0), paired with isOrthogonalToFalseLifts_glue_periodLift.</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+    </style>
+
+    <!-- Directional arrow markers -->
+    <marker id="arrow-cobalt-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrow-emerald-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#065f46"/>
+    </marker>
+    <marker id="arrow-amber-end" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 1 1.5 L 9 5 L 1 8.5 z" fill="#92400e"/>
+    </marker>
+
+    <!-- Crisp clip paths for panel headers and left accent stripes -->
+    <clipPath id="clip-left-panel"><rect x="14" y="48" width="404" height="588" rx="6"/></clipPath>
+    <clipPath id="clip-right-panel"><rect x="454" y="48" width="412" height="588" rx="6"/></clipPath>
+    <clipPath id="clip-ex1"><rect x="24" y="97" width="384" height="78" rx="5"/></clipPath>
+    <clipPath id="clip-ex2"><rect x="24" y="195" width="384" height="98" rx="5"/></clipPath>
+    <clipPath id="clip-ex3"><rect x="24" y="313" width="384" height="142" rx="5"/></clipPath>
+    <clipPath id="clip-glue-map"><rect x="464" y="240" width="392" height="86" rx="5"/></clipPath>
+    <clipPath id="clip-seesaw"><rect x="464" y="346" width="392" height="109" rx="5"/></clipPath>
+    <clipPath id="clip-closure"><rect x="464" y="475" width="392" height="149" rx="5"/></clipPath>
+  </defs>
+
+  <!-- Editorial Archival-Paper Canvas -->
+  <rect x="0.5" y="0.5" width="879" height="679" rx="8" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER                                                                -->
+  <!-- ===================================================================== -->
+  <g id="header">
+    <text x="18" y="26.5" class="sans" font-size="15.2" font-weight="700" fill="#161b22">Three Exchanges &amp; Divided-Lattice Gluing (<tspan class="mono" font-size="13" fill="#1e40af">ComparisonOperator/</tspan>)</text>
+    <text x="862" y="25.5" class="mono" font-size="9.8" fill="#3f4a56" text-anchor="end">Stage 06 · 06_one_lift/{three_exchanges, gluing_maps}</text>
+    <line x1="14" y1="39" x2="866" y2="39" stroke="#d8d3c8" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- LEFT PANEL: THREE-EXCHANGE FUNNEL (ThreeExchanges.lean)               -->
+  <!-- ===================================================================== -->
+  <g id="panel-left-three-exchanges">
+    <rect x="14" y="48" width="404" height="588" rx="6" fill="#ffffff"/>
+    <rect x="14" y="48" width="404" height="26" fill="#edf4ff" clip-path="url(#clip-left-panel)"/>
+    <line x1="14" y1="74" x2="418" y2="74" stroke="#bfdbfe" stroke-width="1"/>
+    <rect x="14" y="48" width="404" height="588" rx="6" fill="none" stroke="#1e40af" stroke-width="1.6"/>
+
+    <!-- Left Panel Header -->
+    <text x="24" y="64.5" class="sans" font-size="10" font-weight="700" fill="#1e40af">◆ PART 1 · THREE-EXCHANGE FUNNEL</text>
+    <text x="408" y="64.5" class="mono" font-size="9" font-weight="700" fill="#3f4a56" text-anchor="end">ThreeExchanges.lean</text>
+
+    <!-- Intro Line -->
+    <text x="24" y="88.5" class="sans" font-size="8.7" fill="#3f4a56">3 successive Siegel–Weil exchanges strip twist <tspan font-weight="700" fill="#161b22">ϑ</tspan> into one scalar <tspan font-weight="700" fill="#1e40af">c(ϑ)</tspan>:</text>
+
+    <!-- EXCHANGE 1 CARD -->
+    <g id="card-exchange-1">
+      <rect x="24" y="97" width="384" height="78" rx="5" fill="#faf9f5"/>
+      <rect x="24" y="97" width="4" height="78" fill="#1e40af" clip-path="url(#clip-ex1)"/>
+      <rect x="24" y="97" width="384" height="78" rx="5" fill="none" stroke="#bfdbfe" stroke-width="1.2"/>
+
+      <text x="35" y="112" class="sans" font-size="9.1" font-weight="700" fill="#1e40af">① EXCHANGE 1<tspan fill="#3f4a56" font-weight="400">  ·  </tspan><tspan class="mono" font-size="8.4" fill="#161b22">i = some (-1)</tspan></text>
+      <text x="399" y="112" class="sans" font-size="8.2" font-weight="700" fill="#92400e" text-anchor="end">sign −1 · signPoint = m/2</text>
+
+      <text x="35" y="127.5" class="sans" font-size="8.6" fill="#161b22">Flat pair ν<tspan font-size="6.5" dy="2">−1</tspan><tspan dy="-2"> = υ</tspan><tspan font-size="6.5" dy="-2.5">−m/2</tspan><tspan dy="2.5"> χ</tspan><tspan font-size="6.5" dy="-2.5">−j</tspan><tspan dy="2.5">  on definite (I</tspan><tspan font-size="6.5" dy="2">m</tspan><tspan dy="-2">, I</tspan><tspan font-size="6.5" dy="2">m</tspan><tspan dy="-2">)  (m even)</tspan></text>
+
+      <text x="35" y="143" class="sans" font-size="8.5" fill="#3f4a56">Determinant-weighted class sum  →  <tspan font-weight="700" fill="#1e40af">constant 1</tspan>  (up to γ<tspan font-size="6.4" dy="1.8">−1</tspan><tspan font-size="6.4" dy="-4.2">−1</tspan><tspan dy="2.4">)</tspan></text>
+
+      <rect x="35" y="151" width="364" height="17" rx="3" fill="#edf4ff" stroke="#bfdbfe" stroke-width="0.9"/>
+      <text x="217" y="162.5" class="mono" font-size="7.9" font-weight="700" fill="#1e40af" text-anchor="middle">exists_mul_stdClassSum_modKernelStdSpace_eq_one</text>
+    </g>
+
+    <!-- Arrow 1 -> 2 -->
+    <g id="arrow-ex1-ex2">
+      <line x1="216" y1="175" x2="216" y2="192" stroke="#1e40af" stroke-width="1.7" marker-end="url(#arrow-cobalt-end)"/>
+      <text x="206" y="186.5" class="sans" font-size="8" fill="#92400e" text-anchor="end">L-factor at z<tspan font-size="6.1" dy="1.8">−1</tspan><tspan dy="-1.8"> = m/2</tspan></text>
+      <text x="226" y="186.5" class="sans" font-size="8" fill="#3f4a56">feeds constant 1 into U(2m, m)</text>
+    </g>
+
+    <!-- EXCHANGE 2 CARD (CARRIER FORM) -->
+    <g id="card-exchange-2">
+      <rect x="24" y="195" width="384" height="98" rx="5" fill="#ffffff"/>
+      <rect x="24" y="195" width="4.5" height="98" fill="#92400e" clip-path="url(#clip-ex2)"/>
+      <rect x="24" y="195" width="384" height="98" rx="5" fill="none" stroke="#92400e" stroke-width="1.3"/>
+
+      <text x="35" y="210" class="sans" font-size="9.1" font-weight="700" fill="#92400e">② EXCHANGE 2<tspan fill="#3f4a56" font-weight="400">  ·  </tspan><tspan class="mono" font-size="8.4" fill="#161b22">i = some 1</tspan></text>
+      <text x="399" y="210" class="sans" font-size="8.2" font-weight="700" fill="#92400e" text-anchor="end">sign +1 · signPoint = m</text>
+
+      <text x="35" y="225.5" class="sans" font-size="8.6" fill="#161b22">Flat pair ν<tspan font-size="6.5" dy="2">+1</tspan><tspan dy="-2"> = υ</tspan><tspan font-size="6.5" dy="-2.5">−m</tspan><tspan dy="2.5"> χ</tspan><tspan font-size="6.5" dy="-2.5">j</tspan><tspan dy="2.5">  on U(2m, m)  →  reduces twisted class sum</tspan></text>
+
+      <!-- Carrier Form Highlight Strip -->
+      <rect x="35" y="233" width="364" height="36" rx="4" fill="#fef6e4" stroke="#e7c98f" stroke-width="1.1"/>
+      <text x="43" y="247" class="sans" font-size="8.4" fill="#161b22"><tspan font-weight="700" fill="#92400e">CARRIER FORM:</tspan>  <tspan font-weight="700">φ° = </tspan><tspan class="mono" font-size="8.2" font-weight="700" fill="#161b22">carrierForm E m</tspan><tspan fill="#3f4a56">  (lift of 1: U(0,m)→U(2m,m))</tspan></text>
+      <text x="43" y="262" class="sans" font-size="8.2" fill="#3f4a56">Fixed (ϑ-free) · full-level rapid · holomorphic · <tspan class="mono" font-size="8" font-weight="700" fill="#065f46">carrierForm_ne_zero</tspan></text>
+
+      <text x="35" y="284.5" class="mono" font-size="7.8" font-weight="700" fill="#92400e">exists_mul_stdClassSum_eq_carrierForm</text>
+      <text x="399" y="284.5" class="sans" font-size="8" fill="#3f4a56" text-anchor="end">twisted sum → γ<tspan font-size="6.2" dy="-2.2">−1</tspan><tspan dy="2.2"> φ°</tspan></text>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <g id="arrow-ex2-ex3">
+      <line x1="216" y1="293" x2="216" y2="310" stroke="#1e40af" stroke-width="1.7" marker-end="url(#arrow-cobalt-end)"/>
+      <text x="206" y="304.5" class="sans" font-size="8" fill="#92400e" text-anchor="end">L-factor at z<tspan font-size="6.1" dy="1.8">+1</tspan><tspan dy="-1.8"> = m</tspan></text>
+      <text x="226" y="304.5" class="sans" font-size="8" fill="#3f4a56">integrate φ° against kernel on W′</text>
+    </g>
+
+    <!-- EXCHANGE 3 CARD (MAIN CHAIN & SCALAR c(ϑ)) -->
+    <g id="card-exchange-3">
+      <rect x="24" y="313" width="384" height="142" rx="5" fill="#ffffff"/>
+      <rect x="24" y="313" width="4.5" height="142" fill="#1e40af" clip-path="url(#clip-ex3)"/>
+      <rect x="24" y="313" width="384" height="142" rx="5" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+
+      <text x="35" y="328" class="sans" font-size="9.1" font-weight="700" fill="#1e40af">③ EXCHANGE 3<tspan fill="#3f4a56" font-weight="400">  ·  </tspan><tspan class="mono" font-size="8.4" fill="#161b22">i = none</tspan></text>
+      <text x="399" y="328" class="sans" font-size="8.1" font-weight="700" fill="#92400e" text-anchor="end">sign +1 · mainPairPoint = 7(m/2) + k/2</text>
+
+      <text x="35" y="343.5" class="sans" font-size="8.6" fill="#161b22">Main-chain pair ν<tspan font-size="6.5" dy="2">j</tspan><tspan dy="-2"> = μ</tspan><tspan font-size="6.5" dy="2">j</tspan><tspan font-size="6.5" dy="-4.4">0</tspan><tspan dy="2.4"> υ</tspan><tspan font-size="6.5" dy="-2.4">n</tspan><tspan dy="2.4">,   n = j + (t − 11m − 1)/2</tspan></text>
+
+      <text x="35" y="358.5" class="sans" font-size="8.4" fill="#3f4a56">Equates double class sum (<tspan class="mono" font-size="8" fill="#161b22">kernelClassSum</tspan> on U(W<tspan font-size="6.4" dy="1.8">j</tspan><tspan dy="-1.8">)) to twist-free</tspan></text>
+      <text x="35" y="373" class="sans" font-size="8.4" fill="#3f4a56">holomorphic <tspan font-weight="700" fill="#161b22">F</tspan><tspan font-size="6.4" dy="1.8" font-weight="700" fill="#161b22">i</tspan><tspan dy="-1.8" font-weight="700" fill="#161b22"> = </tspan><tspan class="mono" font-size="8.1" font-weight="700" fill="#161b22">choiceFn j i</tspan>  (<tspan class="mono" font-size="7.9" fill="#1e40af">isAdelicHol_choiceFn</tspan>):</text>
+
+      <!-- Exchange 3 Formula Strip -->
+      <rect x="35" y="381" width="364" height="51" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.2"/>
+      <text x="217" y="399" class="sans" font-size="10.2" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="9.3" fill="#1e40af">kernelClassSum</tspan>(ϑ, j, i)  =  <tspan fill="#1e40af">c(ϑ)<tspan font-size="7.2" dy="-2.8">−1</tspan></tspan><tspan dy="2.8"> · </tspan><tspan fill="#065f46">F<tspan font-size="7.2" dy="2">i</tspan></tspan></text>
+      <text x="217" y="420.5" class="sans" font-size="10.8" font-weight="700" fill="#1e40af" text-anchor="middle">‖c(ϑ)‖<tspan font-size="7.4" dy="-2.8">2</tspan><tspan dy="2.8"> = C / Γ</tspan><tspan font-size="7.4" dy="2">j</tspan><tspan dy="-2">(ϑ)</tspan><tspan class="sans" font-size="8.2" font-weight="700" fill="#9a3412">    (C ≠ 0 certified in Part 2 →)</tspan></text>
+
+      <text x="35" y="446.5" class="mono" font-size="7.7" font-weight="700" fill="#1e40af">exists_mul_thirdExchangeLeftSide_eq_choiceFn</text>
+      <text x="399" y="446.5" class="mono" font-size="7.7" fill="#3f4a56" text-anchor="end">kernelClassSum</text>
+    </g>
+
+    <!-- RAW HECKE PRODUCT BOX: Γ_j(ϑ) -->
+    <g id="card-raw-gamma">
+      <rect x="24" y="465" width="384" height="93" rx="5" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1.2"/>
+      <text x="34" y="481" class="sans" font-size="8.8" font-weight="700" fill="#92400e">▲ RAW PRODUCT:  <tspan fill="#161b22">Γ</tspan><tspan font-size="6.6" dy="1.8" fill="#161b22">j</tspan><tspan dy="-1.8" fill="#161b22">(ϑ) = </tspan><tspan class="mono" font-size="8.4" fill="#161b22">heckeValueProd j ϑ</tspan></text>
+      <text x="34" y="496" class="sans" font-size="8.2" fill="#3f4a56">Unnormalized product of <tspan class="mono" font-size="7.8" fill="#161b22">Exchange.lValueProd</tspan> over 3 <tspan class="mono" font-size="7.8" fill="#161b22">exchangePair</tspan>s</text>
+      <text x="34" y="510" class="sans" font-size="8.1" font-weight="700" fill="#9a3412">Explicitly NOT divided by Γ<tspan font-size="6.2" dy="1.8">j</tspan><tspan dy="-1.8">(1) yet (ratio formed in LiftVolumeHeight):</tspan></text>
+
+      <!-- Three Exchange Pair Chips -->
+      <rect x="34" y="518" width="114" height="31" rx="3.5" fill="#ffffff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="91" y="530.5" class="mono" font-size="7.6" font-weight="700" fill="#1e40af" text-anchor="middle">some (-1)</text>
+      <text x="91" y="543" class="sans" font-size="7.8" fill="#161b22" text-anchor="middle">ν<tspan font-size="6" dy="1.6">−1</tspan><tspan dy="-1.6">, z=m/2, −1</tspan></text>
+
+      <rect x="154" y="518" width="114" height="31" rx="3.5" fill="#ffffff" stroke="#e7c98f" stroke-width="1"/>
+      <text x="211" y="530.5" class="mono" font-size="7.6" font-weight="700" fill="#92400e" text-anchor="middle">some 1</text>
+      <text x="211" y="543" class="sans" font-size="7.8" fill="#161b22" text-anchor="middle">ν<tspan font-size="6" dy="1.6">+1</tspan><tspan dy="-1.6">, z=m, +1</tspan></text>
+
+      <rect x="274" y="518" width="124" height="31" rx="3.5" fill="#ffffff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="336" y="530.5" class="mono" font-size="7.6" font-weight="700" fill="#1e40af" text-anchor="middle">none (main)</text>
+      <text x="336" y="543" class="sans" font-size="7.8" fill="#161b22" text-anchor="middle">ν<tspan font-size="6" dy="1.6">j</tspan><tspan dy="-1.6">, 7m/2+k/2, +1</tspan></text>
+    </g>
+
+    <!-- CROSS-STAGE EXPORT TO STAGE 07 -->
+    <g id="card-stage07-export">
+      <rect x="24" y="568" width="384" height="56" rx="5" fill="#fff5f0" stroke="#9a3412" stroke-width="1.3" stroke-dasharray="5,3"/>
+      <text x="34" y="583.5" class="sans" font-size="8.7" font-weight="700" fill="#9a3412">↗ CROSS-STAGE EXPORT · STAGE 07</text>
+      <text x="398" y="583.5" class="mono" font-size="7.8" font-weight="700" fill="#9a3412" text-anchor="end">07_congruences/twisting_theorem</text>
+      <text x="34" y="599.5" class="sans" font-size="8.3" fill="#161b22"><tspan class="mono" font-size="7.9" font-weight="700">06_one_lift/three_exchanges</tspan> also feeds Stage 07 Selmer class sums</text>
+      <text x="34" y="614" class="sans" font-size="8" fill="#3f4a56">mediated via <tspan class="mono" font-size="7.7" fill="#3f4a56">src/New/Congruences/Selmer/ClassSums.lean</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BRIDGE CONNECTOR: LEFT PANEL (EXCHANGE 3) -> RIGHT PANEL (SEESAW)     -->
+  <!-- ===================================================================== -->
+  <g id="bridge-left-to-right">
+    <rect x="420" y="383" width="32" height="18" rx="9" fill="#edf4ff" stroke="#1e40af" stroke-width="1.1"/>
+    <text x="436" y="395" class="sans" font-size="8.5" font-weight="700" fill="#1e40af" text-anchor="middle">c, F<tspan font-size="6.2" dy="1.8">i</tspan></text>
+    <line x1="418" y1="408" x2="451" y2="408" stroke="#1e40af" stroke-width="2" marker-end="url(#arrow-cobalt-end)"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- RIGHT PANEL: DIVIDED-LATTICE GLUING & SEESAW (GluingMaps.lean)        -->
+  <!-- ===================================================================== -->
+  <g id="panel-right-gluing-seesaw">
+    <rect x="454" y="48" width="412" height="588" rx="6" fill="#ffffff"/>
+    <rect x="454" y="48" width="412" height="26" fill="#ecfdf5" clip-path="url(#clip-right-panel)"/>
+    <line x1="454" y1="74" x2="866" y2="74" stroke="#a7f3d0" stroke-width="1"/>
+    <rect x="454" y="48" width="412" height="588" rx="6" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+    <!-- Right Panel Header -->
+    <text x="464" y="64.5" class="sans" font-size="9.6" font-weight="700" fill="#065f46">● PART 2 · DIVIDED-LATTICE GLUING &amp; SEESAW</text>
+    <text x="856" y="64.5" class="mono" font-size="9" font-weight="700" fill="#3f4a56" text-anchor="end">GluingMaps.lean</text>
+
+    <!-- BLOCK 1: ORTHOGONAL SPLIT V_j = V'' ⊕ V° + glueLattice -->
+    <g id="card-orthogonal-split">
+      <rect x="464" y="84" width="392" height="136" rx="5" fill="#faf9f5" stroke="#a7f3d0" stroke-width="1.2"/>
+
+      <text x="474" y="99" class="sans" font-size="9.1" font-weight="700" fill="#065f46">① ORTHOGONAL SPLIT  V<tspan font-size="6.8" dy="1.8">j</tspan><tspan dy="-1.8"> = V″ ⊕ V°</tspan></text>
+      <text x="846" y="99" class="mono" font-size="8" fill="#3f4a56" text-anchor="end">splittingV · rk(V<tspan class="sans" font-size="6.2" dy="1.6">j</tspan><tspan dy="-1.6">) = r + t</tspan></text>
+
+      <!-- Left Block V'' -->
+      <rect x="474" y="107" width="177" height="73" rx="4" fill="#ffffff" stroke="#1e40af" stroke-width="1.2"/>
+      <text x="482" y="121" class="sans" font-size="8.6" font-weight="700" fill="#1e40af">Block V″<tspan font-weight="400" fill="#3f4a56" font-size="8">  ·  rk = r + 9m + 1</tspan></text>
+      <text x="482" y="136" class="sans" font-size="8.4" fill="#161b22"><tspan class="mono" font-size="7.9" font-weight="700" fill="#1e40af">firstFactor</tspan> <tspan font-weight="700">φ″</tspan><tspan font-size="6.3" dy="1.8" font-weight="700">ϑ,i</tspan><tspan dy="-1.8" font-size="7.7" fill="#3f4a56"> (Exch. 3)</tspan></text>
+      <text x="482" y="151" class="sans" font-size="8.1" fill="#065f46">Integral for all ℓ ∤ Nm(Q)</text>
+      <text x="482" y="166" class="sans" font-size="7.9" fill="#3f4a56">ϑ=1 norm<tspan font-size="6" dy="-2.2">2</tspan><tspan dy="2.2"> ≤ exp(f m b log</tspan><tspan font-size="6" dy="-2.2">2</tspan><tspan dy="2.2"> b)</tspan></text>
+
+      <!-- Center Direct Sum Symbol -->
+      <circle cx="662" cy="143.5" r="8.5" fill="#ecfdf5" stroke="#065f46" stroke-width="1.1"/>
+      <text x="662" y="147.2" class="sans" font-size="11" font-weight="700" fill="#065f46" text-anchor="middle">⊕</text>
+
+      <!-- Right Block V° -->
+      <rect x="673" y="107" width="173" height="73" rx="4" fill="#ffffff" stroke="#065f46" stroke-width="1.2"/>
+      <text x="681" y="121" class="sans" font-size="8.6" font-weight="700" fill="#065f46">Block V°<tspan font-weight="400" fill="#3f4a56" font-size="8">  ·  rk = t − 9m − 1</tspan></text>
+      <text x="681" y="136" class="sans" font-size="8.4" font-weight="700" fill="#161b22">Tuples ζ ∈ <tspan class="mono" font-size="7.9" fill="#065f46">FormTuples j</tspan></text>
+      <text x="681" y="151" class="sans" font-size="8.1" fill="#3f4a56">Arbitrary forms on V°</text>
+      <text x="681" y="166" class="sans" font-size="7.9" fill="#3f4a56">Paired via Cartan product</text>
+
+      <!-- Bottom Glue Lattice Strip -->
+      <rect x="474" y="187" width="372" height="25" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1"/>
+      <text x="660" y="203" class="sans" font-size="8.3" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="8" font-weight="700" fill="#065f46">glueLattice</tspan> <tspan font-weight="700">L</tspan><tspan font-size="6.3" dy="1.8" font-weight="700">Λ</tspan><tspan dy="-1.8"> :  ϖ O</tspan><tspan font-size="6.3" dy="-2.4">n</tspan><tspan dy="2.4"> ⊂ L</tspan><tspan font-size="6.3" dy="1.8">Λ</tspan><tspan dy="-1.8"> ⊂ O</tspan><tspan font-size="6.3" dy="-2.4">n</tspan><tspan dy="2.4" fill="#3f4a56">  (glued mod ϖ</tspan><tspan font-size="6.3" dy="-2.4" fill="#3f4a56">2</tspan><tspan dy="2.4" fill="#3f4a56"> via </tspan><tspan class="mono" font-size="7.8" fill="#065f46">splittingV</tspan><tspan fill="#3f4a56">)</tspan></text>
+    </g>
+
+    <!-- Arrow Block 1 -> Block 2 -->
+    <g id="arrow-split-glue">
+      <line x1="660" y1="220" x2="660" y2="237" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald-end)"/>
+      <text x="650" y="231.5" class="sans" font-size="8.1" font-weight="700" fill="#065f46" text-anchor="end">pair φ″<tspan font-size="6.1" dy="1.6">ϑ,i</tspan><tspan dy="-1.6"> with ζ on L</tspan><tspan font-size="6.1" dy="1.6">Λ</tspan></text>
+      <text x="670" y="231.5" class="sans" font-size="8" fill="#3f4a56">sum classes, scale by M<tspan font-size="6.1" dy="-2.2">l₁</tspan></text>
+    </g>
+
+    <!-- BLOCK 2: LINEAR GLUING MAP glue_ϑ -->
+    <g id="card-glue-map">
+      <rect x="464" y="240" width="392" height="86" rx="5" fill="#ffffff"/>
+      <rect x="464" y="240" width="4" height="86" fill="#065f46" clip-path="url(#clip-glue-map)"/>
+      <rect x="464" y="240" width="392" height="86" rx="5" fill="none" stroke="#065f46" stroke-width="1.4"/>
+
+      <text x="475" y="255.5" class="sans" font-size="9" font-weight="700" fill="#065f46">② GLUING MAP:  <tspan class="mono" font-size="8.4" fill="#161b22">glue</tspan><tspan font-size="6.5" dy="1.8" fill="#161b22">ϑ</tspan><tspan class="mono" font-size="8.4" dy="-1.8" fill="#161b22"> : FormTuples j → FormV</tspan></text>
+      <text x="846" y="255.5" class="sans" font-size="8.2" font-weight="700" fill="#92400e" text-anchor="end">scaled by M<tspan font-size="6.2" dy="-2.4">l₁</tspan></text>
+
+      <!-- Two Property Boxes -->
+      <rect x="475" y="264" width="181" height="36" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="483" y="278" class="sans" font-size="8.1" font-weight="700" fill="#065f46">Integrality away from Q:</text>
+      <text x="483" y="292.5" class="sans" font-size="8.1" fill="#161b22">ℓ ∤ Nm(Q)  ⇒  integral on V<tspan font-size="6.2" dy="1.8">j</tspan></text>
+
+      <rect x="664" y="264" width="182" height="36" rx="4" fill="#edf4ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="672" y="278" class="sans" font-size="8.1" font-weight="700" fill="#1e40af">Untwisted norm<tspan font-size="6.2" dy="-2.2">2</tspan><tspan dy="2.2"> factor (ϑ = 1):</tspan></text>
+      <text x="672" y="292.5" class="sans" font-size="8.2" font-weight="700" fill="#161b22">≤ exp(2 f m b log<tspan font-size="6.2" dy="-2.2">2</tspan><tspan dy="2.2"> b)</tspan></text>
+
+      <text x="475" y="316" class="mono" font-size="7.8" fill="#065f46">glue_mem_integralForms<tspan class="sans" fill="#3f4a56">  ·  </tspan><tspan fill="#1e40af">normSqAt_glue_le</tspan></text>
+      <text x="846" y="316" class="sans" font-size="7.9" fill="#3f4a56" text-anchor="end">clears g-denoms</text>
+    </g>
+
+    <!-- Arrow Block 2 -> Block 3 -->
+    <g id="arrow-glue-seesaw">
+      <line x1="660" y1="326" x2="660" y2="343" stroke="#1e40af" stroke-width="1.7" marker-end="url(#arrow-cobalt-end)"/>
+      <text x="650" y="337.5" class="sans" font-size="8" fill="#3f4a56" text-anchor="end">dual-pair adjoint transfer</text>
+      <text x="670" y="337.5" class="sans" font-size="8" font-weight="700" fill="#1e40af">compose glue<tspan font-size="6.1" dy="1.6">ϑ</tspan><tspan font-size="6.1" dy="-3.8">*</tspan><tspan dy="2.2"> with Θ</tspan><tspan font-size="6.1" dy="1.6">j,ϑ</tspan></text>
+    </g>
+
+    <!-- BLOCK 3: TWIST-ISOLATING SEESAW IDENTITY -->
+    <g id="card-seesaw">
+      <rect x="464" y="346" width="392" height="109" rx="5" fill="#ffffff"/>
+      <rect x="464" y="346" width="5" height="109" fill="#1e40af" clip-path="url(#clip-seesaw)"/>
+      <rect x="464" y="346" width="392" height="109" rx="5" fill="none" stroke="#1e40af" stroke-width="1.7"/>
+
+      <text x="476" y="362" class="sans" font-size="9.2" font-weight="700" fill="#1e40af">◆ ③ TWIST-ISOLATING SEESAW IDENTITY</text>
+      <text x="476" y="376" class="mono" font-size="8" font-weight="700" fill="#1e40af">twistFactor_smul_adjoint_glue_comp</text>
+
+      <!-- Seesaw Formula Box -->
+      <rect x="476" y="384" width="370" height="48" rx="4" fill="#edf4ff" stroke="#1e40af" stroke-width="1.3"/>
+      <text x="661" y="403" class="sans" font-size="12" font-weight="700" fill="#161b22" text-anchor="middle"><tspan fill="#9a3412">c′<tspan font-size="8.2" dy="2.2">ϑ</tspan></tspan><tspan dy="-2.2"> · </tspan><tspan class="mono" font-size="10.8" fill="#1e40af">glue</tspan><tspan font-size="8" dy="2.2" fill="#1e40af">ϑ</tspan><tspan font-size="8" dy="-5.2" fill="#1e40af">*</tspan><tspan dy="3"> ∘ Θ</tspan><tspan font-size="8.2" dy="2.2">j,ϑ</tspan><tspan dy="-2.2">  =  </tspan><tspan fill="#065f46">Θ°</tspan></text>
+      <text x="661" y="422" class="sans" font-size="8.5" font-weight="700" fill="#1e40af" text-anchor="middle"><tspan fill="#065f46">Θ° = </tspan><tspan class="mono" font-size="8.1" fill="#065f46">periodLift j</tspan><tspan font-weight="400" fill="#3f4a56"> (twist-independent)</tspan><tspan fill="#3f4a56">   ·   </tspan>‖c′<tspan font-size="6.4" dy="1.8">ϑ</tspan><tspan dy="-1.8">‖</tspan><tspan font-size="6.4" dy="-2.4">2</tspan><tspan dy="2.4"> = C / Γ</tspan><tspan font-size="6.4" dy="1.8">j</tspan><tspan dy="-1.8">(ϑ)</tspan></text>
+
+      <text x="476" y="446.5" class="sans" font-size="8.1" fill="#3f4a56">via c′<tspan font-size="6.2" dy="1.6">ϑ</tspan><tspan dy="-1.6"> · Ξ</tspan><tspan font-size="6.2" dy="1.6">ϑ,i</tspan><tspan dy="-1.6">(g) = c″ F</tspan><tspan font-size="6.2" dy="1.6">i</tspan><tspan dy="-1.6">(g)</tspan></text>
+      <text x="846" y="446.5" class="mono" font-size="7.8" fill="#3f4a56" text-anchor="end">exists_norm_twistFactor_sq_eq</text>
+    </g>
+
+    <!-- Arrow Block 3 -> Block 4 -->
+    <g id="arrow-seesaw-closure">
+      <line x1="660" y1="455" x2="660" y2="472" stroke="#065f46" stroke-width="1.7" marker-end="url(#arrow-emerald-end)"/>
+      <text x="650" y="466.5" class="sans" font-size="8" fill="#3f4a56" text-anchor="end">injective Θ° + nonzero domain</text>
+      <text x="670" y="466.5" class="sans" font-size="8.1" font-weight="700" fill="#065f46">forces c′<tspan font-size="6.1" dy="1.6">ϑ</tspan><tspan dy="-1.6"> ≠ 0</tspan></text>
+    </g>
+
+    <!-- BLOCK 4: NON-VANISHING CLOSURE & ORTHOGONALITY -->
+    <g id="card-nonvanishing-closure">
+      <rect x="464" y="475" width="392" height="149" rx="5" fill="#ffffff"/>
+      <rect x="464" y="475" width="5" height="149" fill="#065f46" clip-path="url(#clip-closure)"/>
+      <rect x="464" y="475" width="392" height="149" rx="5" fill="none" stroke="#065f46" stroke-width="1.6"/>
+
+      <text x="476" y="491" class="sans" font-size="9" font-weight="700" fill="#065f46">■ ④ NON-VANISHING CLOSURE &amp; FALSE-LIFT ⊥</text>
+
+      <!-- Three Converging Premises -->
+      <rect x="476" y="498" width="370" height="51" rx="4" fill="#faf9f5" stroke="#d8d3c8" stroke-width="1"/>
+      <text x="484" y="512" class="sans" font-size="8.1" fill="#161b22">• <tspan class="mono" font-size="7.9" font-weight="700" fill="#065f46">periodLift_injective</tspan> <tspan fill="#3f4a56">(ProductsSpan)</tspan>  ⇒  <tspan font-weight="700">Θ° injective</tspan></text>
+      <text x="484" y="527" class="sans" font-size="8.1" fill="#161b22">• <tspan class="mono" font-size="7.9" font-weight="700" fill="#9a3412">finrank_targetForms_ne_zero</tspan>  <tspan fill="#3f4a56">(Stage 04 </tspan><tspan class="mono" font-size="7.6" fill="#3f4a56">spanning_theorem</tspan><tspan fill="#3f4a56">)</tspan></text>
+      <text x="484" y="542" class="sans" font-size="8.1" fill="#161b22">• <tspan class="mono" font-size="7.8" font-weight="700" fill="#1e40af">targetDim_eq_finrank_goodForms_spaceW</tspan>  <tspan fill="#3f4a56">(Stage 05 dim match)</tspan></text>
+
+      <!-- Non-Vanishing Conclusion Pill -->
+      <rect x="476" y="556" width="370" height="28" rx="4" fill="#ecfdf5" stroke="#065f46" stroke-width="1.3"/>
+      <text x="661" y="573.5" class="sans" font-size="9.2" font-weight="700" fill="#161b22" text-anchor="middle">⇒  <tspan class="mono" font-size="8.5" fill="#065f46">twistFactor_ne_zero</tspan> :  c′<tspan font-size="6.8" dy="1.8">ϑ</tspan><tspan dy="-1.8"> ≠ 0   </tspan><tspan fill="#9a3412">(certifies C ≠ 0 !)</tspan></text>
+
+      <!-- False-Lift Orthogonality Pill -->
+      <rect x="476" y="591" width="370" height="26" rx="4" fill="#fef6e4" stroke="#92400e" stroke-width="1.1"/>
+      <text x="661" y="607.5" class="sans" font-size="8.3" font-weight="700" fill="#161b22" text-anchor="middle"><tspan class="mono" font-size="7.8" fill="#92400e">isOrthogonalToFalseLifts_glue_periodLift</tspan> : glue<tspan font-size="6.2" dy="1.6">ϑ</tspan><tspan dy="-1.6">(Θ° y) ⊥ false lifts</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM LEGEND & PROVENANCE STRIP                                      -->
+  <!-- ===================================================================== -->
+  <g id="strip-legend">
+    <rect x="14" y="644" width="852" height="24" rx="4" fill="#f3f1eb" stroke="#d8d3c8" stroke-width="1"/>
+    <text x="24" y="659.5" class="sans" font-size="8.3" fill="#3f4a56"><tspan font-weight="700" fill="#161b22">LEGEND:</tspan>   <tspan font-weight="700" fill="#1e40af">◆ Cobalt</tspan> = Exchanges &amp; seesaw   ·   <tspan font-weight="700" fill="#065f46">●■ Emerald</tspan> = Gluing &amp; non-vanishing   ·   <tspan font-weight="700" fill="#92400e">▲ Amber</tspan> = Carrier φ° / raw Γ<tspan font-size="6.2" dy="1.6">j</tspan><tspan dy="-1.6">(ϑ) / false-lift ⊥</tspan>   ·   <tspan font-weight="700" fill="#9a3412">↗ Dashed Rust</tspan> = Stage 07 export</text>
+  </g>
+</svg>

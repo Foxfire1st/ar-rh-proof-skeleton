@@ -1,0 +1,184 @@
+{
+  "closed": true,
+  "leaf": "10",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-27T08:41:58+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "10",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "c92255da-9a10-5c14-ac3c-a1499bd19787",
+      "task": "261126-EXP"
+    },
+    "reviewer": {
+      "at": "2026-11-27T08:41:58+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "10",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "bff4f335-9d68-50e0-9fec-bf4c2a6acc1a",
+      "task": "261126-EXP",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "5fffd20c36523d56e15959ee16a5b843149a0945",
+    "verdictRef": "notes/reports/reviewer/bff4f335-9d68-50e0-9fec-bf4c2a6acc1a/10-memory-review-verdict.md"
+  },
+  "rows": [
+    {
+      "because": [
+        {
+          "id": "RH-R16",
+          "packet": "RH-R16-v1-stage06-one-lift-theorem-c.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "7162d764226e5d82b55bcb1a192054ad1c3d9835",
+            "content": "sha256:f6b8987b929dbdbf7f5afcc5bb5221bf8048195f8aa8ce3a2dbf8f5e99a74671",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "before": {
+            "blob": "67bd4ff3feb35075ddbfadb205d212ea7c423725",
+            "content": "sha256:c340384783911c44b9a5bd39f8bf5798cbaf82e6483c2abb0a4deac64e9aee8b",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/config.mts"
+          },
+          "id": "RLZ-CRCTC9"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-FPZGBP",
+      "items": [
+        "sha256:86a11c26bde00fd61fa2bf890f039477e8e416808e856de7686722ff5534eb57"
+      ],
+      "reason": "Re-anchored RLZ-CRCTC9 on site/docs/.vitepress/config.mts at candidate code tree b1dffa0116b285952fe755b39a9a50a02d04da57 and updated its rationale for adding Stage 06 inside the native Stages dropdown (preserving the 5-item top bar), adding the four-page Stage 06 — One Lift (Theorem C, Pt 2) sidebar group, and appending six new Concept Cards (48 slugs total). All INV-VGNZKV shell guarantees (MathJax 3 SVG, VITEPRESS_BASE default, full HTML title paired with compact siteTitle 'RH Proof Explainer', cleanUrls, locked light appearance, and script-off Vue components) remain preserved unchanged, verified by Worker attempt-2 and Reviewer Round 2 CODE/docs/maths PASS (rh-validate 0 findings across 29 Stage pages and 48 Concept Cards, 260 pytest passed, full and synthetic overview-only VitePress builds passing, Playwright 0 failures).",
+      "revision": 4,
+      "subject": "INV-VGNZKV"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R16",
+          "packet": "RH-R16-v1-stage06-one-lift-theorem-c.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-FQGP9R",
+      "items": [],
+      "reason": "Refreshed reconsider_on anchor on site/docs/.vitepress/config.mts at candidate code tree b1dffa0116b285952fe755b39a9a50a02d04da57 after confirming rejected alternative 1 of DEC-0XZ8V5 remains still_rejected.",
+      "revision": 9,
+      "subject": "DEC-0XZ8V5"
+    },
+    {
+      "disposition": "no_impact",
+      "id": "ROW-SQKZTQ",
+      "items": [
+        "sha256:44d26aec6d1c5e439322c026da26440d20b98385e39584369d9fe108138676b7"
+      ],
+      "reason": "Reviewed onboarding/overview.md and onboarding/overview.json against the Stage 06 navigation additions in site/docs/.vitepress/config.mts; overview prose already covers multi-stage explainer compilation (docs/stages/*/*.md) and the site/ VitePress shell accurately, and all 8 sidecar references remain current.",
+      "sources": [
+        {
+          "blob": "7162d764226e5d82b55bcb1a192054ad1c3d9835",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "still_rejected",
+      "id": "ROW-V52RVY",
+      "items": [
+        "sha256:c0f6c6724cc261693c9eb389ff16e5f16b5a66091f3d235a3ebbc35e8c3b2f9d"
+      ],
+      "reason": "site/docs/.vitepress/config.mts only added Stage 06 inside the existing native VitePress Stages dropdown, added the four-page Stage 06 — One Lift (Theorem C, Pt 2) sidebar group, and appended six Stage 06 Concept Card sidebar links while preserving VitePress defineConfig, markdown.math: true (with pinned markdown-it-mathjax3 in site/package.json), cleanUrls: true, appearance: false, VITEPRESS_BASE defaulting to /ar-rh-proof-skeleton/, and dual-repo GitHub Pages ownership in ar-rh-proof-skeleton/.github/workflows/pages.yml; neither reconsider_when condition (switching away from VitePress or moving public explainer docs back into the code repository) is met, so rejected alternative 1 remains rejected.",
+      "subject": "reconsider:DEC-0XZ8V5#1"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-WJCT8E",
+      "items": [
+        "sha256:f4719397e6b363779447e3510ef9feaa1c0c89f340cee305e1fe99c37a26bc44"
+      ],
+      "reason": "Updated onboarding/site/docs/.vitepress/config.mts.md Purpose, Code Commentary and Evidence [3] and refreshed sidecar references [1]-[3] via citation_fix for Stage 06 added to the native Stages dropdown (preserving 5 top navigation entries), eight sidebar groups (adding 4-page Stage 06 — One Lift (Theorem C, Pt 2)), and 48 Foundational Concepts sidebar slugs (adding the 6 Stage 06 Concept Cards).",
+      "sources": [
+        {
+          "blob": "7162d764226e5d82b55bcb1a192054ad1c3d9835",
+          "path": "site/docs/.vitepress/config.mts"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/config.mts"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-GXDXCT",
+          "revision": 1
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 3
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 4
+        }
+      ],
+      "id": "ROW-Y9EMD4",
+      "items": [
+        "sha256:fc21568169a55d1f2de235c2e8208a0f38893e05e74312772dc115bc92243ac2"
+      ],
+      "reason": "Examined all four members of FAM-033QTE (INV-VGNZKV re-anchored at revision 4 with updated RLZ-CRCTC9 rationale; INV-GXDXCT rev 1, INV-HK005W rev 1, and INV-V207JN rev 3 untouched). The joint Phase 4 static-site compilation, editorial light VitePress shell and dual-repo CI/Pages guarantee (already covering validated multi-stage docs) and root route '.' remain accurate.",
+      "revision": 2,
+      "subject": "FAM-033QTE"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:4d32d7bab55f157a732beb61dd6326d92123af72b9626c894c0682b85f0a38e5",
+      "record": "DEC-0XZ8V5",
+      "revision": 9,
+      "writer": {
+        "at": "2026-11-27T08:33:31+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "10",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "c92255da-9a10-5c14-ac3c-a1499bd19787",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}

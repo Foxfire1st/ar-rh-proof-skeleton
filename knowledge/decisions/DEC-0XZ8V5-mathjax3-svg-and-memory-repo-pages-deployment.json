@@ -43,8 +43,8 @@
       "alternative": 1,
       "relation": "reconsider_on",
       "target": {
-        "blob": "67bd4ff3feb35075ddbfadb205d212ea7c423725",
-        "content": "sha256:c340384783911c44b9a5bd39f8bf5798cbaf82e6483c2abb0a4deac64e9aee8b",
+        "blob": "7162d764226e5d82b55bcb1a192054ad1c3d9835",
+        "content": "sha256:f6b8987b929dbdbf7f5afcc5bb5221bf8048195f8aa8ce3a2dbf8f5e99a74671",
         "locator": {
           "kind": "file"
         },
@@ -60,19 +60,19 @@
     "leaf": "05",
     "task": "261123-RH"
   },
-  "revision": 8,
+  "revision": 9,
   "schema": "ar-decision/v1",
   "status": "active",
   "supersedes": [],
   "writer": {
-    "at": "2026-11-27T06:34:50+01:00",
+    "at": "2026-11-27T08:33:31+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "09",
+    "leaf": "10",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "f3cafab8-1c95-515b-8417-e5f5a7416cd6",
+    "seat": "c92255da-9a10-5c14-ac3c-a1499bd19787",
     "task": "261126-EXP"
   }
 }

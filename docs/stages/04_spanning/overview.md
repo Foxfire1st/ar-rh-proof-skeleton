@@ -18,7 +18,7 @@ Stage 04 solves this spanning problem through a four-stage analytic funnel:
 ![Four-input funnel of Stage 04 combining trace comparison, good idempotent near-isometry, and the whole-group second moment through Welch-style spreading and Wolsey greedy covering into Theorem B](assets/stage04-second-moment-spreading-funnel.svg)
 
 **Dual cross-pillar role of Stage 04:** Stage 04 does not feed only Theorem B. Its two top-level landmarks export results to three downstream stages:
-- **`04_spanning/spanning_theorem`** feeds `01_reduction/short_and_enough` (Theorem B: `D.enough_forms`) and `06_one_lift/gluing_maps` (single-lift comparison operators in Theorem C).
+- **`04_spanning/spanning_theorem`** feeds `01_reduction/short_and_enough` (Theorem B: `D.enough_forms`) and [Stage 06 (`06_one_lift/gluing_maps`)](../06_one_lift/three-exchanges-and-gluing-maps.md) (single-lift comparison operators in Theorem C).
 - **`04_spanning/equal_multiplicities`** feeds `04_spanning/spanning_theorem` (via `targetDim_eq_finrank_goodForms_spaceW`) and [Stage 05](../05_determinant/overview.md) (`05_determinant/norm_of_chain`, via `det_rallisOnGood_eq`, transferring the determinant of the Rallis inner-product operator across signatures for Theorem C).
 
 Explore Stage 04 across its three landmark essays, return to [Stage 03 — Upper Bound (Theorem A)](../03_upper_bound/overview.md) or [Stage 01 — The Theorem and Its Reduction](../01_reduction/overview.md), or zoom out to the [Full Proof Journey & Alpöge's 20-Step Map](../00_statement/proof-journey.md):
