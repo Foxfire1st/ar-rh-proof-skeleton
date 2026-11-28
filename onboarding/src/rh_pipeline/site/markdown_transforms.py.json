@@ -3,8 +3,26 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
-        "content": "sha256:ae79a63262db3e2a0a0e136b8258fd71b9283128cf85dc6ebdffa92f09a3531e",
+        "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
+        "content": "sha256:e57ca95d834fecce764b6a2a9e7714a08b458b8efd68404d117de54218345551",
+        "locator": {
+          "kind": "symbol",
+          "name": "expand_concept_directives"
+        }
+      },
+      "id": "RLZ-AX5WBF",
+      "invariant": "INV-6RS2X5",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.3",
+        "leaf": "12"
+      },
+      "rationale": "Uses neutral markdown_mask helpers and re-exports mask_code_spans and mask_fenced_code for callers.",
+      "role": "support"
+    },
+    {
+      "anchor": {
+        "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
+        "content": "sha256:a086390200f04757d726ca5e6dc4dd26c12d3be2589881ef9e6c0712ab56e41b",
         "locator": {
           "kind": "symbol",
           "name": "split_zoom_levels"
@@ -21,7 +39,7 @@
     },
     {
       "anchor": {
-        "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+        "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
         "content": "sha256:e57ca95d834fecce764b6a2a9e7714a08b458b8efd68404d117de54218345551",
         "locator": {
           "kind": "symbol",
@@ -39,7 +57,7 @@
     },
     {
       "anchor": {
-        "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+        "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
         "content": "sha256:8c4944034441b70e3d838a3723540659f3013d4fe8c2e664a31a4a54071c3b9b",
         "locator": {
           "kind": "symbol",
@@ -62,7 +80,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+            "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
             "content": "sha256:ad251c1d325b567c669c02ece44b4f04eb226536c2227f0c1d041f06072d8666",
             "locator": {
               "kind": "symbol",
@@ -78,7 +96,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+            "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
             "content": "sha256:e57ca95d834fecce764b6a2a9e7714a08b458b8efd68404d117de54218345551",
             "locator": {
               "kind": "symbol",
@@ -90,12 +108,12 @@
       ]
     },
     "3": {
-      "note": "`split_zoom_levels` wraps ordered Level 1, Level 2 and Level 3 headings outside fenced code in `<ZoomTabs>` slots while preserving preamble, epilogue and partial-level pages.",
+      "note": "`split_zoom_levels` wraps ordered Level 1, Level 2 and Level 3 headings outside fenced code (via shared `mask_fenced_code`) in `<ZoomTabs>` slots while preserving preamble, epilogue and partial-level pages.",
       "targets": [
         {
           "anchor": {
-            "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
-            "content": "sha256:ae79a63262db3e2a0a0e136b8258fd71b9283128cf85dc6ebdffa92f09a3531e",
+            "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
+            "content": "sha256:a086390200f04757d726ca5e6dc4dd26c12d3be2589881ef9e6c0712ab56e41b",
             "locator": {
               "kind": "symbol",
               "name": "split_zoom_levels"
@@ -110,7 +128,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+            "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
             "content": "sha256:8c4944034441b70e3d838a3723540659f3013d4fe8c2e664a31a4a54071c3b9b",
             "locator": {
               "kind": "symbol",

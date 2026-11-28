@@ -12,7 +12,8 @@
     "_format_verbatim_declaration omits := for where bodies and line-initial equation-compiler | arms while retaining := for norm (|x|) and ordinary bodies; returned DagDeclarationRef spans match rendered 1-based lines exactly, with end_line excluding the trailing EXTRACTED_DEF comment on verbatim blocks and including the sorry line on stub blocks."
   ],
   "exclusions": [
-    "Omits module and import lines from emitted skeleton files; imports remain on ExtractedModule for DAG construction."
+    "Omits module and import lines from emitted skeleton files; imports remain on ExtractedModule for DAG construction.",
+    "Emitted stub signatures reproduce the signatures extracted by parser.py and are not guaranteed syntactically self-contained when a return type contains a depth-0 let ... := binding (20 stubs across 10 skeleton files, tracked as an open weakness on parser.py::_scan_body_delim)."
   ],
   "id": "INV-0SYK8A",
   "origin": {
@@ -26,20 +27,20 @@
     "leaf": "03",
     "task": "261123-RH"
   },
-  "revision": 2,
+  "revision": 3,
   "schema": "ar-invariant/v1",
-  "statement": "render_skeleton_file emits deterministic self-contained Lean skeleton files with provenance headers, preserving structure/inductive/class/opaque/axiom and (when preserve_defs=True) def/abbrev bodies with EXTRACTED_DEF comments—omitting := for verbatim where and equation-compiler | arm bodies—while replacing theorem/lemma/instance (and non-preserved def/abbrev) bodies with EXTRACTED_STUB sorry lines and returning exact DagDeclarationRef line ranges.",
+  "statement": "render_skeleton_file emits deterministic provenance-annotated Lean skeleton files with provenance headers, preserving structure/inductive/class/opaque/axiom and (when preserve_defs=True) def/abbrev bodies with EXTRACTED_DEF comments—omitting := for verbatim where and equation-compiler | arm bodies—while replacing theorem/lemma/instance (and non-preserved def/abbrev) bodies with EXTRACTED_STUB sorry lines and returning exact DagDeclarationRef line ranges.",
   "supersedes": [],
   "title": "Deterministic provenance-preserving Lean stub emission",
   "writer": {
-    "at": "2026-11-26T15:11:11+01:00",
+    "at": "2026-11-28T15:16:29+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "02",
+    "leaf": "12",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
     "task": "261126-EXP"
   }
 }

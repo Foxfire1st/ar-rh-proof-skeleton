@@ -28,7 +28,7 @@ When Theorems A and B supply the upper ceiling and Theorem C supplies the lower 
 
 Explore Stage 01 across its three landmark essays, or zoom out to the [Full Proof Journey & Alpöge's 20-Step Map](../00_statement/proof-journey.md):
 - [From a One-Sided Prime Bound to a Zero-Free Half-Plane](./one-sided-criterion.md) — `Criterion`, `OneSidedBound`, and `New.Main`: how the smoothed prime remainder, quadratic-twist zero avoidance, two-cutoff elimination, and functional-equation reflection turn `star_inequality` into `New.grh` and zeros on the {{term:critical-line}}.
-- [The Main Cancellation Inequality and Theorems A & B](./main-inequality.md) — `MainInequality` and `ShortAndEnough`: how `D.mainAmount` cancels between Theorems A, B, and C to yield $m \cdot \text{rem} \le f a \log^5 b$, and how the error budget closes.
+- [The Main Inequality & Theorems A and B](./main-inequality.md) — `MainInequality` and `ShortAndEnough`: how `D.mainAmount` cancels between Theorems A, B, and C to yield $m \cdot \text{rem} \le f a \log^5 b$, and how the error budget closes.
 - [Twisted Lattices, Covolumes, and the Arithmetic Product Formula](./twisted-lattices.md) — `TwistedLattice`: how twist-independent denominator clearing combines untwisted complex sizes with twisted $p$-adic valuations in `TwistedLattice.covolume_add_index_nonneg`.
 
 ### Where this analogy breaks

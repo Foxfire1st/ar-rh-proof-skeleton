@@ -3,8 +3,8 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "36f15282690697a49025d874de56de9d073e7141",
-        "content": "sha256:2607a1ba5b8e62d014365ec430fa7bf48dd8c83f4e4952bb42f11d5292186f1f",
+        "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+        "content": "sha256:3dbbfe464c4da76291925b4310240b1e0a6b241fc50a640cef43db06dd246d6e",
         "locator": {
           "kind": "symbol",
           "name": "_build_term_matcher"
@@ -16,13 +16,13 @@
         "handoffEntry": "RH-R04@v1 §4",
         "leaf": "04"
       },
-      "rationale": "Builds the case-insensitive longest-match-first regex over registered terms, aliases, and -s/-es plurals using non-alphanumeric/non-hyphen boundaries.",
+      "rationale": "Consumes shared models/concepts.py::concept_variants, fails closed with ValueError on cross-card collisions instead of silently shadowing, and builds the case-insensitive longest-match-first regex with non-alphanumeric/non-hyphen boundaries.",
       "role": "enforcement"
     },
     {
       "anchor": {
-        "blob": "36f15282690697a49025d874de56de9d073e7141",
-        "content": "sha256:a626480a3ac4c5d14ed36cf3fd07d0a2539a87d81244d1e664683d6ebc6fcc89",
+        "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+        "content": "sha256:b33f201a75e22cabc93bef28884d201d1c2abfbc0ca6e2a6fbf51c88c0c87094",
         "locator": {
           "kind": "symbol",
           "name": "check_page_jargon"
@@ -34,12 +34,30 @@
         "handoffEntry": "RH-R04@v1 §4",
         "leaf": "04"
       },
-      "rationale": "Masks code, math, and link URLs without drifting line numbers, resolves all concept/term directives, and evaluates Level-1 jargon order in offset order with line_offset.",
+      "rationale": "Delegates low-level code/math/directive masking to neutral rh_pipeline.markdown_mask without line drift, resolves all concept/term directives, and evaluates Level-1 First-Principles jargon order in offset order with line_offset.",
       "role": "primary-authority"
     },
     {
       "anchor": {
-        "blob": "36f15282690697a49025d874de56de9d073e7141",
+        "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+        "content": "sha256:b176e291113751df00cbb061865421cadc20fd74db6b15cc599a6e627c0ae313",
+        "locator": {
+          "kind": "symbol",
+          "name": "_scan_directives"
+        }
+      },
+      "id": "RLZ-AAB7H3",
+      "invariant": "INV-6RS2X5",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.3",
+        "leaf": "12"
+      },
+      "rationale": "Uses neutral markdown_mask helpers for directive and math scanning without importing rh_pipeline.site.",
+      "role": "support"
+    },
+    {
+      "anchor": {
+        "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
         "content": "sha256:afa169d1777211f5d1e28079521b0aaa02b0a6ec3f87b1731b6357a386873bb1",
         "locator": {
           "kind": "symbol",
@@ -54,16 +72,52 @@
       },
       "rationale": "Restricts explainer scanning strictly to <docs_root>/concepts/*.md and <docs_root>/stages/<stage_id>/*.md so AR onboarding cards are never scanned.",
       "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+        "content": "sha256:4a1eac3bc6365d49c1b0a266a38f62f26fe3c5501e4355646a9c7b7308abf599",
+        "locator": {
+          "kind": "symbol",
+          "name": "_parse_term_directive"
+        }
+      },
+      "id": "RLZ-FWZAJS",
+      "invariant": "INV-CDQEJK",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.1",
+        "leaf": "12"
+      },
+      "rationale": "Enforces term-display-latex on explicit {{term:slug|display}} display overrides across all page zoom levels.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+        "content": "sha256:3dbbfe464c4da76291925b4310240b1e0a6b241fc50a640cef43db06dd246d6e",
+        "locator": {
+          "kind": "symbol",
+          "name": "_build_term_matcher"
+        }
+      },
+      "id": "RLZ-NER6V3",
+      "invariant": "INV-T2XTNN",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.2",
+        "leaf": "12"
+      },
+      "rationale": "Consumes concept_variants and raises ValueError on cross-card variant collision instead of silently shadowing via dict.setdefault.",
+      "role": "enforcement"
     }
   ],
   "references": {
     "1": {
-      "note": "check_page_jargon masks code, math and link URLs without line drift, resolves concept and term directives in all sections and enforces Level-1 jargon order with line_offset.",
+      "note": "`check_page_jargon` masks code, math and link URLs using neutral `markdown_mask` without line drift, resolves concept and term directives in all sections and enforces Level-1 jargon order with `line_offset`.",
       "targets": [
         {
           "anchor": {
-            "blob": "36f15282690697a49025d874de56de9d073e7141",
-            "content": "sha256:a626480a3ac4c5d14ed36cf3fd07d0a2539a87d81244d1e664683d6ebc6fcc89",
+            "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+            "content": "sha256:b33f201a75e22cabc93bef28884d201d1c2abfbc0ca6e2a6fbf51c88c0c87094",
             "locator": {
               "kind": "symbol",
               "name": "check_page_jargon"
@@ -74,12 +128,12 @@
       ]
     },
     "2": {
-      "note": "_build_term_matcher compiles a case-insensitive longest-match-first pattern over terms, aliases and -s/-es plurals with non-alphanumeric/non-hyphen boundaries.",
+      "note": "`_build_term_matcher` consumes shared `concept_variants`, raises `ValueError` on cross-card variant collisions without silent shadowing, and compiles a case-insensitive longest-match-first pattern with non-alphanumeric/non-hyphen boundaries.",
       "targets": [
         {
           "anchor": {
-            "blob": "36f15282690697a49025d874de56de9d073e7141",
-            "content": "sha256:2607a1ba5b8e62d014365ec430fa7bf48dd8c83f4e4952bb42f11d5292186f1f",
+            "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+            "content": "sha256:3dbbfe464c4da76291925b4310240b1e0a6b241fc50a640cef43db06dd246d6e",
             "locator": {
               "kind": "symbol",
               "name": "_build_term_matcher"
@@ -94,11 +148,27 @@
       "targets": [
         {
           "anchor": {
-            "blob": "36f15282690697a49025d874de56de9d073e7141",
+            "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
             "content": "sha256:afa169d1777211f5d1e28079521b0aaa02b0a6ec3f87b1731b6357a386873bb1",
             "locator": {
               "kind": "symbol",
               "name": "validate_explainer_docs"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "`_parse_term_directive` enforces `term-display-latex` via `find_plain_text_latex` on explicit `{{term:slug|display}}` overrides across all zoom levels.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+            "content": "sha256:4a1eac3bc6365d49c1b0a266a38f62f26fe3c5501e4355646a9c7b7308abf599",
+            "locator": {
+              "kind": "symbol",
+              "name": "_parse_term_directive"
             }
           },
           "kind": "code"

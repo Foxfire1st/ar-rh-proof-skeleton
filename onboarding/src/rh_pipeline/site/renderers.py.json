@@ -3,7 +3,43 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+        "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
+        "content": "sha256:7f386dc5ee432b55cd05de540c1cf546220ae94661b8efe39ac851f689331e48",
+        "locator": {
+          "kind": "symbol",
+          "name": "_render_minimap_node"
+        }
+      },
+      "id": "RLZ-9BEECG",
+      "invariant": "INV-4QG397",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R3.1",
+        "leaf": "12"
+      },
+      "rationale": "Applies deterministic title and MINIMAP_PATH_CHAR_BUDGET middle-ellipsis truncation, full <title> tooltip, and per-node clip-path inside each widened 340px node box.",
+      "role": "presentation"
+    },
+    {
+      "anchor": {
+        "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
+        "content": "sha256:cda080f72617237bafa441de4df041f05b0f0cc70e3426c4d712a1b99ddd9cac",
+        "locator": {
+          "kind": "symbol",
+          "name": "_render_minimap_defs"
+        }
+      },
+      "id": "RLZ-9F007W",
+      "invariant": "INV-4QG397",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R3.1",
+        "leaf": "12"
+      },
+      "rationale": "Emits unique stage-scoped marker (rh-minimap-arrow-{stage_id}) and per-node clipPath (rh-minimap-clip-{stage_id}-{idx}) definitions.",
+      "role": "presentation"
+    },
+    {
+      "anchor": {
+        "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
         "content": "sha256:4954cff86aa2322253bf5d7b75f17c569deaec20d71e832070b4a1b66c0f0e4c",
         "locator": {
           "kind": "symbol",
@@ -21,7 +57,7 @@
     },
     {
       "anchor": {
-        "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+        "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
         "content": "sha256:9eda09b18a724c7dce755b5a099fbfc984e176af43edc1987ebb3420733857d6",
         "locator": {
           "kind": "symbol",
@@ -39,7 +75,7 @@
     },
     {
       "anchor": {
-        "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+        "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
         "content": "sha256:01a2e1885b00d7a1d7fa9669023562af89534220e432e7d004f48ccf2e2506b2",
         "locator": {
           "kind": "symbol",
@@ -57,7 +93,7 @@
     },
     {
       "anchor": {
-        "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+        "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
         "content": "sha256:61f79cfb2372902b7b84a85312abf25ea220ccc574c119e46efbb5b0315e98ea",
         "locator": {
           "kind": "symbol",
@@ -75,7 +111,7 @@
     },
     {
       "anchor": {
-        "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+        "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
         "content": "sha256:f04a0de89792cd54200694b91c33dcfaef0a375b2ea4ce1442e3a608c57ee291",
         "locator": {
           "kind": "symbol",
@@ -98,7 +134,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
             "content": "sha256:9eda09b18a724c7dce755b5a099fbfc984e176af43edc1987ebb3420733857d6",
             "locator": {
               "kind": "symbol",
@@ -109,7 +145,7 @@
         },
         {
           "anchor": {
-            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
             "content": "sha256:e539dfe126f68cd4b6b31fba7dc15660bfbbdc9bd022b219babad023d2024a49",
             "locator": {
               "kind": "symbol",
@@ -125,7 +161,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
             "content": "sha256:9624da6008c03709349afcfc54a4188716127b946fbd16f52bd936a957f3c5cc",
             "locator": {
               "kind": "symbol",
@@ -141,7 +177,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
             "content": "sha256:61f79cfb2372902b7b84a85312abf25ea220ccc574c119e46efbb5b0315e98ea",
             "locator": {
               "kind": "symbol",
@@ -157,7 +193,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
             "content": "sha256:f04a0de89792cd54200694b91c33dcfaef0a375b2ea4ce1442e3a608c57ee291",
             "locator": {
               "kind": "symbol",
@@ -168,11 +204,38 @@
         },
         {
           "anchor": {
-            "blob": "700c00c1fc5e42dcd4d49ea14dc50822aa865339",
+            "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
             "content": "sha256:4954cff86aa2322253bf5d7b75f17c569deaec20d71e832070b4a1b66c0f0e4c",
             "locator": {
               "kind": "symbol",
               "name": "render_landing_index"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "5": {
+      "note": "`_render_minimap_defs` and `_render_minimap_node` enforce `MINIMAP_PATH_CHAR_BUDGET` middle-ellipsis truncation, full `upstream_path` `<title>` tooltips and unique per-stage marker and per-node `clipPath` IDs inside 340px node boxes.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
+            "content": "sha256:cda080f72617237bafa441de4df041f05b0f0cc70e3426c4d712a1b99ddd9cac",
+            "locator": {
+              "kind": "symbol",
+              "name": "_render_minimap_defs"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
+            "content": "sha256:7f386dc5ee432b55cd05de540c1cf546220ae94661b8efe39ac851f689331e48",
+            "locator": {
+              "kind": "symbol",
+              "name": "_render_minimap_node"
             }
           },
           "kind": "code"

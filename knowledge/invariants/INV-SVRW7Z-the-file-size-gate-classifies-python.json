@@ -3,12 +3,12 @@
     "criteria": [
       "guarded_by_test"
     ],
-    "justification": "Executable checks pin each band boundary and the different exit statuses for watchful and over-limit files."
+    "justification": "Executable unit tests in tests/unit/test_file_size_gate.py pin each band boundary and the different exit statuses for watchful and over-limit files."
   },
-  "applicability": "Line-count classification and hard-rail status for readable Python files measured by the file-size gate.",
+  "applicability": "Line-count classification and hard-rail exit status for readable Python files measured by src/rh_pipeline/validate/file_size.py (registered as rh-file-size-gate and invoked by scripts/check-quality.sh).",
   "conditions": [
-    "With default limits, the inclusive band ceilings are 300, 600, 900 and 1200 lines. Watchful starts at 301 lines.",
-    "The CLI defaults to scanning src and tests. With an explicit --hard-limit, the hard rail follows that limit."
+    "With default limits, the inclusive band ceilings are 300 (healthy), 600 (watchful), 900 (refactor-pressure) and 1200 (soft-limit-exceeded) lines; watchful reporting starts at 301 lines and only files above hard_limit (default 1200) trigger exit code 1.",
+    "The CLI defaults to scanning src and tests in sorted order. With an explicit --hard-limit, the hard rail follows that limit."
   ],
   "exclusions": [
     "Tool invocation and source-read errors are outside the size-based exit rule."
@@ -25,20 +25,20 @@
     "leaf": "01",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
   "statement": "The file-size gate classifies Python files into five ordered bands, reports watchful files starting at 301 lines and fails only when a file exceeds the hard limit.",
   "supersedes": [],
   "title": "Five-band Python file-size gate and hard limit",
   "writer": {
-    "at": "2026-11-25T15:38:58+01:00",
+    "at": "2026-11-28T15:16:29+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "01",
+    "leaf": "12",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "8da2e41d-7ba4-46b0-b322-f3aa7cb1ff04",
-    "task": "261123-RH"
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+    "task": "261126-EXP"
   }
 }

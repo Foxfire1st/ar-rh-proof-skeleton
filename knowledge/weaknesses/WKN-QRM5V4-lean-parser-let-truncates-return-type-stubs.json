@@ -1,0 +1,40 @@
+{
+  "anchor": {
+    "blob": "997ac529ca59f9318e70fa4d69d48220b09ff5a9",
+    "content": "sha256:b78e1194e3ff745fb01b774731ccb164717afeef6e5a0290bb737991a5fdf024",
+    "locator": {
+      "kind": "symbol",
+      "name": "_scan_body_delim"
+    },
+    "path": "src/rh_pipeline/lean/parser.py"
+  },
+  "id": "WKN-QRM5V4",
+  "kind": "fault",
+  "origin": {
+    "handoff": {
+      "path": "rh-r18-a2-curator-ingest.json"
+    },
+    "handoffEntry": "wkn-parser-let-truncation",
+    "leaf": "12",
+    "task": "261126-EXP"
+  },
+  "revision": 1,
+  "schema": "ar-weakness/v1",
+  "seen": {
+    "role": "curator",
+    "task": "261126-EXP"
+  },
+  "state": "open",
+  "statement": "_Parser._scan_body_delim splits declarations at the first depth-0 := without tracking let ... := bindings inside return types, truncating 20 extracted theorem and lemma stubs across 10 skeleton files (including 3 count theorems in skeleton/02_derivatives/count.lean).",
+  "writer": {
+    "at": "2026-11-28T15:16:29+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "12",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+    "task": "261126-EXP"
+  }
+}

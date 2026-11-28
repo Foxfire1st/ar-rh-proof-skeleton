@@ -35,7 +35,7 @@ When Stage 07 uses Ribet's method to bound congruences between lifted forms and 
 
 Under complex conjugation, those cohomology classes split into two opposite parities:
 - **Odd classes (`shaOdd`):** Controlled unconditionally by the Mazur–Wiles / Greither main conjecture (`Lib/Cyclotomic/OddSha.lean::exists_length_shaOdd_le`), bounded by `oddClassBound D` $\le 2^{4(N_{\mathrm{cyc}} + t + 3)^{27}} h_E$.
-- **Even Tate-twist classes (`evenClasses`):** Living on the totally real subfield $E^+$, where bounding their orders unconditionally is equivalent to **Vandiver's conjecture**—a famously open problem!
+- **Even Tate-twist classes (`evenClasses`):** Living on the totally real subfield $E^+$. **Vandiver's conjecture** asserts $\ell \nmid h_{E^+}$ (vanishing of the even class group at $\ell$), so these classes sit directly in Vandiver's territory—and Stage 07 **never bounds the order of `evenClasses`** at all.
 
 How does the proof clear congruence denominators without ever solving Vandiver's conjecture? It builds a **Taylor–Wiles prime triangle** (`New.Selmer.exists_taylorWilesPlaces_hasRootChain`): a finite linearly ordered family of **tied auxiliary primes** $Q_j$ ($j \in J$) of norm $q_j \equiv 1 \pmod{\ell^\nu}$, ordered monotonically by Tate-twist exponent $0 < e(j) < t'$, chosen via Chebotarev density (`exists_eventually_hasRootChain_mostFrobeniiAt`) to satisfy two joint properties:
 

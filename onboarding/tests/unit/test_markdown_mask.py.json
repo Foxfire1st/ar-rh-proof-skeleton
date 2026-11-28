@@ -1,0 +1,181 @@
+{
+  "path": "tests/unit/test_markdown_mask.py",
+  "proves": [
+    {
+      "anchor": {
+        "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+        "content": "sha256:f3fcbb30e8e2ca1a4d565de2f162d9d870351c9bda62ce6136a13ef4aa83a9f3",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_nested_and_odd_backtick_runs_and_paragraph_break"
+        }
+      },
+      "facet": "Verifies nested backtick runs, unmatched odd backticks and CRLF paragraph-break termination preserve exact offsets.",
+      "id": "PRF-0GXZKM",
+      "invariant": "INV-6RS2X5",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.3",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+        "content": "sha256:f0eba97efd743e2992d17a9fcb5a03701f47d9113b1b8ad9dd2097190e05aa70",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_crlf_fenced_and_inline_code_preserve_exact_lengths_and_offsets"
+        }
+      },
+      "facet": "Verifies fenced and inline code masking preserve exact string lengths and CRLF newline indices.",
+      "id": "PRF-7TXYWD",
+      "invariant": "INV-6RS2X5",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.3",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+        "content": "sha256:4eb7f3908bb1e2198a7d8e2d17b8860f93ba9081965d5d12fcc2c89f27118052",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_reexports_and_neutral_module_boundary"
+        }
+      },
+      "facet": "Verifies site.markdown_transforms re-exports the exact markdown_mask functions and that markdown_mask carries zero ConceptCard or SiteBuildError attributes.",
+      "id": "PRF-ENYFZZ",
+      "invariant": "INV-6RS2X5",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.3",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+        "content": "sha256:4eb7f3908bb1e2198a7d8e2d17b8860f93ba9081965d5d12fcc2c89f27118052",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_reexports_and_neutral_module_boundary"
+        }
+      },
+      "facet": "Verifies neutral top-level rh_pipeline.markdown_mask carries no ConceptCard or SiteBuildError domain dependencies while site.markdown_transforms preserves re-export identity.",
+      "id": "PRF-FQP3CM",
+      "invariant": "INV-N55EQ7",
+      "origin": {
+        "handoffEntry": "rh-r18-inv-n55eq7-markdown-mask",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+        "content": "sha256:7ea1cb6029258fa97c893fbbc676a10fa55797db6f27c76549df7ba5f8cd6c40",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_directive_close_with_braces_math_and_escaped_chars"
+        }
+      },
+      "facet": "Verifies find_directive_close handles nested braces, inline math, escaped closing braces and term directives with braces.",
+      "id": "PRF-PK8M09",
+      "invariant": "INV-6RS2X5",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.3",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+        "content": "sha256:964772f7584c1f266913b4004ec615bfd0573408b3d205291ad56a133d5e23d0",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_math_inside_inline_code_and_directives_inside_math"
+        }
+      },
+      "facet": "Verifies math inside inline code stays masked and directives inside inline/display math stay untouched.",
+      "id": "PRF-VSDWZQ",
+      "invariant": "INV-6RS2X5",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.3",
+        "leaf": "12"
+      }
+    }
+  ],
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Verifies `site.markdown_transforms` re-exports the exact `markdown_mask` functions and that `markdown_mask` stays neutral with zero `ConceptCard` or `SiteBuildError` attributes.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+            "content": "sha256:4eb7f3908bb1e2198a7d8e2d17b8860f93ba9081965d5d12fcc2c89f27118052",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_reexports_and_neutral_module_boundary"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "2": {
+      "note": "Golden tests confirm exact same-length masking and LF/CRLF newline preservation across fenced blocks, nested/odd backtick runs and paragraph breaks.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+            "content": "sha256:f0eba97efd743e2992d17a9fcb5a03701f47d9113b1b8ad9dd2097190e05aa70",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_crlf_fenced_and_inline_code_preserve_exact_lengths_and_offsets"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+            "content": "sha256:f3fcbb30e8e2ca1a4d565de2f162d9d870351c9bda62ce6136a13ef4aa83a9f3",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_nested_and_odd_backtick_runs_and_paragraph_break"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "3": {
+      "note": "Golden tests verify math inside inline code, directives inside inline/display math and directive closing across nested braces and escaped characters.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+            "content": "sha256:964772f7584c1f266913b4004ec615bfd0573408b3d205291ad56a133d5e23d0",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_math_inside_inline_code_and_directives_inside_math"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+            "content": "sha256:7ea1cb6029258fa97c893fbbc676a10fa55797db6f27c76549df7ba5f8cd6c40",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_directive_close_with_braces_math_and_escaped_chars"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

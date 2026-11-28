@@ -2,14 +2,16 @@
   "admission": {
     "criteria": [
       "spans_locations",
+      "guarded_by_test",
       "prevents_costly_mistake"
     ],
-    "justification": "Keeping implementation in its declared package prevents a second copy of validation rules from diverging in a consumer or command entry point."
+    "justification": "Realized across README.md, src/rh_pipeline/validate/file_size.py and neutral src/rh_pipeline/markdown_mask.py and guarded by test_reexports_and_neutral_module_boundary; keeps each responsibility in its declared package and prevents diverging copies or inverted imports."
   },
   "applicability": "Placement and ownership of behavior under the Python package src/rh_pipeline.",
   "conditions": [
     "Name the owning package and module before implementing behavior.",
-    "Keep command wiring in cli and domain behavior in the package that owns it."
+    "Keep command wiring in cli and domain behavior in the package that owns it.",
+    "Shared low-level primitives consumed by sibling packages (such as neutral src/rh_pipeline/markdown_mask.py below validate and site) live in a dedicated neutral module with zero domain-model dependencies rather than inverting package ownership."
   ],
   "exclusions": [
     "Repository-level scripts and CI are outside the Python package map."
@@ -26,20 +28,20 @@
     "leaf": "01",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
   "statement": "Each responsibility in src/rh_pipeline has one owning package and module.",
   "supersedes": [],
   "title": "Single-responsibility package ownership under src/rh_pipeline",
   "writer": {
-    "at": "2026-11-25T15:38:58+01:00",
+    "at": "2026-11-28T15:16:29+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "01",
+    "leaf": "12",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "8da2e41d-7ba4-46b0-b322-f3aa7cb1ff04",
-    "task": "261123-RH"
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+    "task": "261126-EXP"
   }
 }

@@ -1,10 +1,10 @@
 {
   "confirmed": {
-    "codeTree": "9888d6c85343db10318c0cf96775ff399e85c90f",
-    "commit": "208bd7ff2f681267d3175527c78a3fe47560f68b",
+    "codeTree": "06cb5702e753c1cbb72a88f2e3c6125bdd83b401",
+    "commit": "7aac8278646cf89818933888446839733fbedec4",
     "role": "curator",
-    "statement": "audit/README.md accurately names provenance.json and verification-status.json (now rendered into the global VerificationBanner), while its summary of verification-status.json still mentions replay status (which lives in provenance.json) and axiom-audit execution (Phase 0 performs lexical static scanning only, not Lean axiom auditing).",
-    "task": "01",
+    "statement": "audit/README.md accurately describes audit/verification-status.json strictly as Phase 0 lexical static-scan counts (scan_scope: entry) and local build status (build_status: unverified-locally) rendered into the site's global verification banner, pointing replay provenance to audit/provenance.json with no local axiom-audit or comparator-execution claim.",
+    "task": "12",
     "uncommitted": true
   },
   "document": "audit/README.md",
@@ -17,7 +17,7 @@
     "leaf": "02",
     "task": "261123-RH"
   },
-  "revision": 2,
+  "revision": 3,
   "schema": "ar-dependent/v1",
   "stands_on": [
     {
@@ -50,14 +50,14 @@
     }
   ],
   "writer": {
-    "at": "2026-11-26T12:10:47+01:00",
+    "at": "2026-11-28T15:16:29+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "01",
+    "leaf": "12",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "041d87e9-638f-4eba-9fe1-7cde8d700d8e",
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
     "task": "261126-EXP"
   }
 }

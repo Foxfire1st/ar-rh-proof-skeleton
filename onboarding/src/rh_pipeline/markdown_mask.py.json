@@ -1,0 +1,107 @@
+{
+  "path": "src/rh_pipeline/markdown_mask.py",
+  "realizes": [
+    {
+      "anchor": {
+        "blob": "60fd639525b5c859d7b2490781c49473281f6960",
+        "content": "sha256:c69c3e42e3fcbfcecb8133a4ba4c0674d4bbf2b6b5af6756733159e96914efe5",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-FZRN3S",
+      "invariant": "INV-6RS2X5",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.3",
+        "leaf": "12"
+      },
+      "rationale": "Owns the shared zero-domain-dependency Markdown code, math, and directive masking primitives beneath validate and site.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "60fd639525b5c859d7b2490781c49473281f6960",
+        "content": "sha256:c69c3e42e3fcbfcecb8133a4ba4c0674d4bbf2b6b5af6756733159e96914efe5",
+        "locator": {
+          "kind": "file"
+        }
+      },
+      "id": "RLZ-HGGJ29",
+      "invariant": "INV-N55EQ7",
+      "origin": {
+        "handoffEntry": "rh-r18-inv-n55eq7-markdown-mask",
+        "leaf": "12"
+      },
+      "rationale": "Realizes package-ownership neutrality by placing shared low-level Markdown masking primitives at top-level rh_pipeline.markdown_mask beneath sibling packages validate and site with zero domain dependencies.",
+      "role": "support"
+    }
+  ],
+  "references": {
+    "1": {
+      "note": "`mask_fenced_code`, `mask_inline_code` and `mask_code_spans` return same-length copies preserving LF and CRLF offsets across fenced blocks, nested backticks and paragraph breaks.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "60fd639525b5c859d7b2490781c49473281f6960",
+            "content": "sha256:dbca086f80be0122ed691c0512342154448fd2c8ddf53f39ced3272dbd27ed18",
+            "locator": {
+              "kind": "symbol",
+              "name": "mask_fenced_code"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "60fd639525b5c859d7b2490781c49473281f6960",
+            "content": "sha256:eef2725c680d45f8c3106c30566448d17adb81ceb43f549ddf283816e67181f1",
+            "locator": {
+              "kind": "symbol",
+              "name": "mask_inline_code"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "60fd639525b5c859d7b2490781c49473281f6960",
+            "content": "sha256:da885be0bb2c652f7d56a5d6aa20db4b494510c208c0e5298965eed715cbdfb8",
+            "locator": {
+              "kind": "symbol",
+              "name": "mask_code_spans"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "2": {
+      "note": "`find_math_end` and `find_directive_close` locate closing `$`/`$$` math spans and directive `}}` boundaries while skipping escaped characters, math and balanced nested braces.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "60fd639525b5c859d7b2490781c49473281f6960",
+            "content": "sha256:d71a3344ebe7d68a4c84f200660932a348cc2db807548e20f6fa2b2f2ef057a9",
+            "locator": {
+              "kind": "symbol",
+              "name": "find_math_end"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "60fd639525b5c859d7b2490781c49473281f6960",
+            "content": "sha256:93aa5c2f9831b41ca0ac5fa05982d6cb1d989411650f3b0932b4c100352cbcbf",
+            "locator": {
+              "kind": "symbol",
+              "name": "find_directive_close"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

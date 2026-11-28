@@ -3,7 +3,7 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+        "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
         "content": "sha256:37d5d8e20d5ea4a8af338bdfeef20a4d5db4e5f1128b5dc0611ed759d9c9e287",
         "locator": {
           "kind": "symbol",
@@ -21,7 +21,7 @@
     },
     {
       "anchor": {
-        "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+        "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
         "content": "sha256:38795fe067a2e2e2001808cf4dffcd39d18448682d740d770f57718229ab8930",
         "locator": {
           "kind": "symbol",
@@ -39,8 +39,44 @@
     },
     {
       "anchor": {
-        "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
-        "content": "sha256:87d002c92ade84e74c4712dad5fb0f279a0671c4ece65a3be0b769ba711be5be",
+        "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
+        "content": "sha256:b257625aefc70f8e911b69b43e9f4337d3c3c79b2b18ff6f94ed26e369a041f3",
+        "locator": {
+          "kind": "symbol",
+          "name": "_validate_plain_text_fields"
+        }
+      },
+      "id": "RLZ-MBDFM8",
+      "invariant": "INV-CDQEJK",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.1",
+        "leaf": "12"
+      },
+      "rationale": "Enforces concept-plain-text-latex on every Concept Card's term, aliases, and inline_glimpse fields during corpus validation.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
+        "content": "sha256:dd5f5e834c177b9b6ec79e8f21489607d76a5aca79f8146e153b8ddee967572a",
+        "locator": {
+          "kind": "symbol",
+          "name": "_validate_term_collisions"
+        }
+      },
+      "id": "RLZ-NB4YXX",
+      "invariant": "INV-T2XTNN",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.2",
+        "leaf": "12"
+      },
+      "rationale": "Emits deterministic concept-term-collision findings when two distinct slugs generate the same normalized variant.",
+      "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
+        "content": "sha256:943ab436e73e2c1bc18f56156ee544b8539bf8f9362e498addcb61926cba9bf0",
         "locator": {
           "kind": "symbol",
           "name": "validate_concept_corpus"
@@ -52,18 +88,18 @@
         "handoffEntry": "RH-R04@v1 §3",
         "leaf": "04"
       },
-      "rationale": "Loads the Concept Card corpus from <docs_root>/concepts/*.md and coordinates sourcing, child-graph, Lean-anchor, and visual_ref checks.",
+      "rationale": "Loads the Concept Card corpus from <docs_root>/concepts/*.md and coordinates sourcing, plain-text LaTeX, child-graph, Lean-anchor, visual_ref and cross-card variant-collision checks.",
       "role": "primary-authority"
     }
   ],
   "references": {
     "1": {
-      "note": "validate_concept_corpus loads docs/concepts/*.md and enforces sourcing, child-concept resolution, Lean skeleton anchor checks and optional visual_ref containment.",
+      "note": "`validate_concept_corpus` loads `docs/concepts/*.md` and enforces sourcing, plain-text LaTeX checks, child-concept resolution, Lean skeleton anchor checks, optional `visual_ref` containment and cross-card `concept-term-collision` uniqueness.",
       "targets": [
         {
           "anchor": {
-            "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
-            "content": "sha256:87d002c92ade84e74c4712dad5fb0f279a0671c4ece65a3be0b769ba711be5be",
+            "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
+            "content": "sha256:943ab436e73e2c1bc18f56156ee544b8539bf8f9362e498addcb61926cba9bf0",
             "locator": {
               "kind": "symbol",
               "name": "validate_concept_corpus"
@@ -78,7 +114,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+            "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
             "content": "sha256:38795fe067a2e2e2001808cf4dffcd39d18448682d740d770f57718229ab8930",
             "locator": {
               "kind": "symbol",
@@ -94,11 +130,38 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+            "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
             "content": "sha256:37d5d8e20d5ea4a8af338bdfeef20a4d5db4e5f1128b5dc0611ed759d9c9e287",
             "locator": {
               "kind": "symbol",
               "name": "_validate_child_concepts"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "4": {
+      "note": "`_validate_plain_text_fields` enforces `concept-plain-text-latex` on `term`, `aliases` and `inline_glimpse`, and `_validate_term_collisions` detects deterministic cross-card collisions using shared `concept_variants`.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
+            "content": "sha256:b257625aefc70f8e911b69b43e9f4337d3c3c79b2b18ff6f94ed26e369a041f3",
+            "locator": {
+              "kind": "symbol",
+              "name": "_validate_plain_text_fields"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
+            "content": "sha256:dd5f5e834c177b9b6ec79e8f21489607d76a5aca79f8146e153b8ddee967572a",
+            "locator": {
+              "kind": "symbol",
+              "name": "_validate_term_collisions"
             }
           },
           "kind": "code"

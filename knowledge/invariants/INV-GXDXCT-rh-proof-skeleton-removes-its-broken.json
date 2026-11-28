@@ -13,7 +13,7 @@
     ".gitignore ignores site/docs/{stages,concepts,assets,public,index.md} so compiled outputs never enter Git or AR onboarding."
   ],
   "exclusions": [
-    "Live GitHub Pages publication requires the repository owner to enable GitHub Actions as the Pages source on Foxfire1st/ar-rh-proof-skeleton."
+    "Live GitHub Pages publication requires GitHub Actions to remain enabled as the Pages source on Foxfire1st/ar-rh-proof-skeleton."
   ],
   "id": "INV-GXDXCT",
   "origin": {
@@ -27,20 +27,20 @@
     "leaf": "05",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
-  "statement": "rh-proof-skeleton removes its broken pages.yml, ignores generated site/docs outputs in .gitignore, and verifies static-site compilation and VitePress build on every PR via quality.yml site-build-check, while ar-rh-proof-skeleton/.github/workflows/pages.yml owns public GitHub Pages deployment.",
+  "statement": "rh-proof-skeleton carries no GitHub Pages deployment workflow of its own, ignores generated site/docs outputs in .gitignore, and verifies static-site compilation and VitePress build on every PR via quality.yml site-build-check, while ar-rh-proof-skeleton/.github/workflows/pages.yml owns public GitHub Pages deployment.",
   "supersedes": [],
   "title": "Dual-repo CI site-build-check, gitignored outputs and Pages deployment split",
   "writer": {
-    "at": "2026-11-25T22:31:11+01:00",
+    "at": "2026-11-28T15:16:29+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "05",
+    "leaf": "12",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "8e5a3c92-1b47-4d60-9f13-6c2a8e4d7b51",
-    "task": "261123-RH"
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+    "task": "261126-EXP"
   }
 }

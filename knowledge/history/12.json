@@ -1,0 +1,1302 @@
+{
+  "closed": true,
+  "leaf": "12",
+  "review": {
+    "handedOverBy": {
+      "at": "2026-11-28T15:27:15+01:00",
+      "by": "agent",
+      "effort": "high",
+      "harness": "antigravity-acp",
+      "leaf": "12",
+      "model": "gemini-4-neon-high",
+      "role": "curator",
+      "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+      "task": "261126-EXP"
+    },
+    "reviewer": {
+      "at": "2026-11-28T15:27:15+01:00",
+      "by": "agent",
+      "effort": "unknown",
+      "harness": "hermes",
+      "leaf": "12",
+      "model": "opencode-go:deepseek-v4.1-flash",
+      "role": "reviewer",
+      "seat": "768a0d5c-fe6c-4d0b-a6e5-18b825ab15ff",
+      "task": "261126-EXP",
+      "unknown": {
+        "effort": "the launch receipt does not hold the effort"
+      }
+    },
+    "round": 1,
+    "tree": "3a61754b79d02922a13eadeace9afe7ba7f768a5",
+    "verdictRef": "notes/reports/reviewer/768a0d5c-fe6c-4d0b-a6e5-18b825ab15ff/12-memory-review-verdict.md"
+  },
+  "rows": [
+    {
+      "disposition": "changed",
+      "effect": "strengthen",
+      "examined": [
+        {
+          "id": "INV-7MVB06",
+          "revision": 1
+        },
+        {
+          "id": "INV-AXWQKZ",
+          "revision": 1
+        },
+        {
+          "id": "INV-MVJ01Q",
+          "revision": 2
+        },
+        {
+          "id": "INV-VAZE4Y",
+          "revision": 2
+        },
+        {
+          "id": "INV-YAHFY5",
+          "revision": 2
+        },
+        {
+          "id": "INV-ZSMC71",
+          "revision": 2
+        }
+      ],
+      "id": "ROW-06K0KY",
+      "items": [],
+      "reason": "Added INV-AXWQKZ (read-only pre-leaf upstream freshness triage CLI rh-check-upstream) into FAM-AWJSBW per RH-R18@v1 §R4.4, expanded the family title, guarantee and admission justification accordingly, examined all six members, and preserved routes=['.'] because AR R04.1-route-directory, R04.1-nested-routes and R04.2-coverage make ['.'] the unique zero-violation directory route covering root-file realizations RLZ-D9S8AP and RLZ-HY0JSE on pyproject.toml.",
+      "revision": 2,
+      "subject": "FAM-AWJSBW"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R18",
+          "packet": "RH-R18-v1-correctness-validators-ux-and-ar-memory.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-0ZWWXH",
+      "items": [],
+      "reason": "Clarified applicability and band names against live src/rh_pipeline/validate/file_size.py and tests/unit/test_file_size_gate.py and refreshed the record for Leaf 12 independent MEMORY review to promote it from proposed to reviewed (RH-R18@v1 §R4.3).",
+      "revision": 2,
+      "subject": "INV-SVRW7Z"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-1E844V",
+      "items": [
+        "sha256:807315759d0fc24a788f1f95d28503da0a36628917a3bf4b93d98cf6df8051e8"
+      ],
+      "reason": "Wiring call to _render_minimap_defs inside _render_minimap_svg in src/rh_pipeline/site/renderers.py; unique marker and clipPath contract is anchored on _render_minimap_defs.",
+      "subject": "hunk:sha256:807315759d0fc24a788f1f95d28503da0a36628917a3bf4b93d98cf6df8051e8"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-1NB8KH",
+      "items": [
+        "sha256:09f18f0b8cf66ec51f8f720ddbe30486c119d05c80d2b416d183bcf700ecfdfb",
+        "sha256:17213a06a98eb1e2df36ca8deed11a90e97ea8fce79a30c6401a56d339a14ba7",
+        "sha256:385c022638acf1edc819d93547091368a7c11c4b6c9438801ac94d54b45566c3",
+        "sha256:47a462c5ab24ca19c71dcc547f7a50030b40a8edd37fbc77008d15fc6ace9589",
+        "sha256:5aa5eede67e24664209e78984f90c85e852fb5cf1a45c694d1984e6024cb6628",
+        "sha256:68f217815194c06b370f95b251f8b7060d826138ef095bf9013f18f3240a1beb",
+        "sha256:85569c5c1850b95ee3e7cdf2729da9e8a1ecd6d9436581232a9f93adf58f6fea"
+      ],
+      "reason": "Updated Code Commentary and authored Evidence [6] / refreshed [1]-[5] via citation_fix for fail-closed LaTeX/collision compiler tests and 41-node/XML-escaping minimap tests.",
+      "sources": [
+        {
+          "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
+          "path": "tests/unit/test_site_compiler.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_site_compiler.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-1ZCW79",
+      "items": [
+        "sha256:9723c7da9efa5779131106a1f351aef43cf6e3ff39e3bab877bcf992d9f5bc45"
+      ],
+      "reason": "Private string-formatting helpers _middle_ellipsis and _format_minimap_title in src/rh_pipeline/site/renderers.py consumed exclusively by _render_minimap_node.",
+      "subject": "hunk:sha256:9723c7da9efa5779131106a1f351aef43cf6e3ff39e3bab877bcf992d9f5bc45"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-21FMFA",
+      "items": [
+        "sha256:b53d63a8fcdef35a22e1e7c84015fe96a0badcea9d14b4ebeeaad3fb54ccd7f4"
+      ],
+      "reason": "Mechanical call-site rename _find_directive_close -> find_directive_close inside _expand_segment in src/rh_pipeline/site/markdown_transforms.py; no behavior change.",
+      "subject": "hunk:sha256:b53d63a8fcdef35a22e1e7c84015fe96a0badcea9d14b4ebeeaad3fb54ccd7f4"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-2ANR9X",
+      "items": [
+        "sha256:01887ae12d49b5668a0dc7c0aadc0aa048fbdfd5542dbc55ef865f085461dd4f"
+      ],
+      "reason": "Delete-only removal of duplicated low-level masking functions from src/rh_pipeline/validate/jargon.py after extracting them into neutral rh_pipeline.markdown_mask.",
+      "subject": "hunk:sha256:01887ae12d49b5668a0dc7c0aadc0aa048fbdfd5542dbc55ef865f085461dd4f"
+    },
+    {
+      "considered": [
+        "FAM-S1B3TM",
+        "FAM-033QTE"
+      ],
+      "disposition": "no_family",
+      "id": "ROW-2BHA33",
+      "items": [],
+      "reason": "Neutral low-level Markdown masking primitives in src/rh_pipeline/markdown_mask.py sit intentionally below both FAM-S1B3TM (validate) and FAM-033QTE (site) as a shared zero-domain-dependency utility rather than belonging to either pipeline family.",
+      "revision": 1,
+      "subject": "membership:INV-6RS2X5"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-2VSFQ3",
+      "items": [
+        "sha256:fdd8a98055f2a2fa35401f892f84e6f87068c639debbf9629721b7a70bb49410"
+      ],
+      "reason": "Mechanical call-site rename _find_math_end -> find_math_end inside _expand_segment in src/rh_pipeline/site/markdown_transforms.py; no behavior change.",
+      "subject": "hunk:sha256:fdd8a98055f2a2fa35401f892f84e6f87068c639debbf9629721b7a70bb49410"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-3QEW6R",
+      "items": [
+        "sha256:f66d1fd6f136001bf1a3265bc9953367ee5704279bb4b0421727dbc6e0b7545d"
+      ],
+      "reason": "Updated Purpose and Code Commentary for _validate_plain_text_fields and _validate_term_collisions, and re-authored [1] / authored [4] / refreshed [2]-[3] via citation_fix.",
+      "sources": [
+        {
+          "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
+          "path": "src/rh_pipeline/validate/concepts.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/validate/concepts.py"
+    },
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
+            "content": "sha256:943ab436e73e2c1bc18f56156ee544b8539bf8f9362e498addcb61926cba9bf0",
+            "locator": {
+              "kind": "symbol",
+              "name": "validate_concept_corpus"
+            },
+            "path": "src/rh_pipeline/validate/concepts.py"
+          },
+          "before": {
+            "blob": "5208e436dfccd8a3ee801362e6f44f9d6b190bda",
+            "content": "sha256:87d002c92ade84e74c4712dad5fb0f279a0671c4ece65a3be0b769ba711be5be",
+            "locator": {
+              "kind": "symbol",
+              "name": "validate_concept_corpus"
+            },
+            "path": "src/rh_pipeline/validate/concepts.py"
+          },
+          "id": "RLZ-SK19GS"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-4Y5DVB",
+      "items": [
+        "sha256:369ed0704f93d7e3f0477af4bc15ab6e6b9503d2d738548af41a46c5473cde81"
+      ],
+      "reason": "Re-anchored RLZ-SK19GS (validate_concept_corpus) after wiring _validate_term_collisions at the end of corpus validation; core sourcing/child-graph/Lean-anchor/visual_ref invariant meaning is unchanged while the new gates are recorded as dedicated invariants in FAM-S1B3TM.",
+      "revision": 1,
+      "subject": "INV-ZN8F2W"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-5B0JW4",
+      "items": [
+        "sha256:7c17fcf7364a6d755ea91cf65c4dfa4e200c9d939dc731c96a2cf61c9d577835"
+      ],
+      "reason": "Mechanical call-site rename _find_math_end -> find_math_end inside _mask_math_and_links in src/rh_pipeline/validate/jargon.py.",
+      "subject": "hunk:sha256:7c17fcf7364a6d755ea91cf65c4dfa4e200c9d939dc731c96a2cf61c9d577835"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-5BN06G",
+      "items": [
+        "sha256:d119999fc0f26eb18b62c0d0e95d788c445f1935ec12e238cc5b709d54e9a44e"
+      ],
+      "reason": "Mechanical constant lookup in _layout_stage_nodes using module-level _MINIMAP_* geometry constants in src/rh_pipeline/site/renderers.py.",
+      "subject": "hunk:sha256:d119999fc0f26eb18b62c0d0e95d788c445f1935ec12e238cc5b709d54e9a44e"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-5E71MR",
+      "items": [
+        "sha256:c1dc495a9b3c302a110a9a3265c1dd420312fc63e51eaabcee6c586b6c625842"
+      ],
+      "reason": "Import-line addition of collections.abc.Sequence in src/rh_pipeline/models/concepts.py supporting concept_variants type annotations; no separate invariant.",
+      "subject": "hunk:sha256:c1dc495a9b3c302a110a9a3265c1dd420312fc63e51eaabcee6c586b6c625842"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-5P2Y3B",
+      "items": [
+        "sha256:189b688942f0eee4fc568d346b92d2d727dc1baa9f3908c9b63152f6bb1542b6"
+      ],
+      "reason": "Splicing *defs_lines from _render_minimap_defs into _render_minimap_svg in src/rh_pipeline/site/renderers.py.",
+      "subject": "hunk:sha256:189b688942f0eee4fc568d346b92d2d727dc1baa9f3908c9b63152f6bb1542b6"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-60RE4E",
+      "items": [
+        "sha256:f5b6ccfdc0b998e74382884c45db9a9410ad92ff9a1c21a5f03fb10fc78e2953"
+      ],
+      "reason": "Added neutral markdown_mask.py, updated models/concepts.py summary and linked audit/README.md in onboarding/overview.md, and refreshed stale blob anchor [6] via citation_fix.",
+      "sources": [
+        {
+          "blob": "0aa9f6c19a05b6ebc4f7dd0a7d700928a3282ad6",
+          "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue"
+        },
+        {
+          "blob": "ead5bd5c0618a16e9d8796b2569812c23adb11aa",
+          "path": "src/rh_pipeline/cli/validate.py"
+        },
+        {
+          "blob": "60fd639525b5c859d7b2490781c49473281f6960",
+          "path": "src/rh_pipeline/markdown_mask.py"
+        },
+        {
+          "blob": "c13eda67e7a575476cd70ef7ec58a0b66433c621",
+          "path": "src/rh_pipeline/models/concepts.py"
+        },
+        {
+          "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
+          "path": "src/rh_pipeline/site/markdown_transforms.py"
+        },
+        {
+          "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
+          "path": "src/rh_pipeline/site/renderers.py"
+        },
+        {
+          "blob": "e22bb020efa5dc341d70291ade42b49086e7f834",
+          "path": "src/rh_pipeline/validate/concepts.py"
+        },
+        {
+          "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+          "path": "src/rh_pipeline/validate/jargon.py"
+        },
+        {
+          "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+          "path": "tests/unit/test_markdown_mask.py"
+        },
+        {
+          "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
+          "path": "tests/unit/test_site_compiler.py"
+        },
+        {
+          "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
+          "path": "tests/unit/test_validate_cli.py"
+        },
+        {
+          "blob": "49a86ab24fd6f7192235f2b75de271875c4b3dbd",
+          "path": "tests/unit/test_validate_concepts.py"
+        },
+        {
+          "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
+          "path": "tests/unit/test_validate_jargon.py"
+        }
+      ],
+      "subject": "onboarding:overview"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-6P4WAA",
+      "items": [
+        "sha256:f4ee0820b8ceebaf37fd786af2b24ac7cb824f9c935c237a873b19683de8710b"
+      ],
+      "reason": "Module-level minimap geometry and budget constants in src/rh_pipeline/site/renderers.py backing _render_minimap_defs and _render_minimap_node (which carry the minimap invariant).",
+      "subject": "hunk:sha256:f4ee0820b8ceebaf37fd786af2b24ac7cb824f9c935c237a873b19683de8710b"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-758C1C",
+      "items": [
+        "sha256:219127f08cfe723ccb79b14e00c4755466ff432237000d0e74277a86e387c376"
+      ],
+      "reason": "Authored new test file card and sidecar references via citation_fix covering the five golden markdown_mask tests.",
+      "sources": [
+        {
+          "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+          "path": "tests/unit/test_markdown_mask.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_markdown_mask.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-7DJY3M",
+      "items": [
+        "sha256:c7e789cda8ee7ec54dd16f7785036f3d7d311d50495d04ab70e29eaee191b050"
+      ],
+      "reason": "Import-block update in src/rh_pipeline/validate/jargon.py importing neutral markdown_mask primitives and shared models/concepts.py helpers.",
+      "subject": "hunk:sha256:c7e789cda8ee7ec54dd16f7785036f3d7d311d50495d04ab70e29eaee191b050"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-8B9JPZ",
+      "items": [
+        "sha256:91e1851f46a41c23269e9e3dc1682917a0fead5a9e019ac40bab6a4035de0bac"
+      ],
+      "reason": "Updated Code Commentary and re-authored Evidence [1]-[3] via citation_fix for numeric ?level=1/2/3, heading-hash panel activation, nextTick+double-rAF scrolling, hashchange/popstate/VitePress outline-click handlers, non-level hash preservation and unmount cleanup.",
+      "sources": [
+        {
+          "blob": "0aa9f6c19a05b6ebc4f7dd0a7d700928a3282ad6",
+          "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue"
+        }
+      ],
+      "subject": "onboarding:site/docs/.vitepress/theme/components/ZoomTabs.vue"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-AT1HY5",
+      "items": [
+        "sha256:be6adb81bdc25facee070bc9659534b45900ba8178f27e80991ef9dd1fe9141d"
+      ],
+      "reason": "Import-block addition of concept_variants and find_plain_text_latex in src/rh_pipeline/validate/concepts.py.",
+      "subject": "hunk:sha256:be6adb81bdc25facee070bc9659534b45900ba8178f27e80991ef9dd1fe9141d"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R18",
+          "packet": "RH-R18-v1-correctness-validators-ux-and-ar-memory.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-BAS26Q",
+      "items": [],
+      "reason": "Added explicit exclusion documenting the known _scan_body_delim depth-0 := truncation on return-type let ... := bindings (20 stubs across 10 skeleton files, tracked as an open weakness and deferred per RH-R18@v1 §R4.1).",
+      "revision": 3,
+      "subject": "INV-0WN2N4"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-C4WE9X",
+      "items": [
+        "sha256:163e9d13c483e8ff746b86545ea6d8931edfd17acd28df4284e7f8c8cd4759f1"
+      ],
+      "reason": "Referencing _MINIMAP_BOX_W, _MINIMAP_BOX_H and stage-scoped marker_id on minimap edge lines in _render_minimap_svg in src/rh_pipeline/site/renderers.py.",
+      "subject": "hunk:sha256:163e9d13c483e8ff746b86545ea6d8931edfd17acd28df4284e7f8c8cd4759f1"
+    },
+    {
+      "disposition": "changed",
+      "effect": "strengthen",
+      "examined": [
+        {
+          "id": "INV-9NDAGK",
+          "revision": 2
+        },
+        {
+          "id": "INV-CDQEJK",
+          "revision": 1
+        },
+        {
+          "id": "INV-D1FB14",
+          "revision": 1
+        },
+        {
+          "id": "INV-EWYG1N",
+          "revision": 1
+        },
+        {
+          "id": "INV-H9CTX9",
+          "revision": 1
+        },
+        {
+          "id": "INV-T2XTNN",
+          "revision": 1
+        },
+        {
+          "id": "INV-ZN8F2W",
+          "revision": 1
+        }
+      ],
+      "id": "ROW-DECBJD",
+      "items": [
+        "sha256:acedd759d1b796da337e6af09dcb34efae9abb4a7cce9e53ebae1dc03c7faea7"
+      ],
+      "reason": "Added the new plain-text LaTeX (RH-R18@v1 §R2.1) and shared concept_variants 0-collision (RH-R18@v1 §R2.2) invariants into FAM-S1B3TM per §R4.6, strengthened the family guarantee and admission justification, examined all seven members (including updated INV-9NDAGK and re-anchored INV-ZN8F2W), and preserved routes=['.'] because AR R04.1-route-directory, R04.1-nested-routes and R04.2-coverage make ['.'] the unique zero-violation directory route covering root-file realization RLZ-XJ5GW4 on pyproject.toml.",
+      "revision": 2,
+      "subject": "FAM-S1B3TM"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-EHMSJP",
+      "items": [
+        "sha256:7d17a875e9a97ca2eb0c5d423932a515ec0b2695db2a50e31ddccabd60dface2"
+      ],
+      "reason": "Updated Code Commentary and authored Evidence [4] / refreshed [1]-[3] via citation_fix for clean CLI concept-term-collision reporting.",
+      "sources": [
+        {
+          "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
+          "path": "tests/unit/test_validate_cli.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_validate_cli.py"
+    },
+    {
+      "disposition": "no_impact",
+      "examined": [
+        {
+          "id": "INV-01DVB3",
+          "revision": 2
+        },
+        {
+          "id": "INV-0SYK8A",
+          "revision": 3
+        },
+        {
+          "id": "INV-0WN2N4",
+          "revision": 3
+        },
+        {
+          "id": "INV-BEGWB0",
+          "revision": 1
+        },
+        {
+          "id": "INV-Y5X0FK",
+          "revision": 3
+        }
+      ],
+      "id": "ROW-EXJ5FV",
+      "items": [
+        "sha256:fe33b4d3fc8ee147b67c894a3ccffeb1019ce1179b1d48d11592e32e2c6832b4"
+      ],
+      "reason": "Examined all five members after clarifying INV-0WN2N4 (let-truncation exclusion) and INV-0SYK8A (removing 'self-contained' claim); the joint Phase 1 extraction guarantee still holds as written (it already promises provenance-preserving skeleton emission without claiming self-contained stubs), and routes=['.'] is preserved because AR R04.1-route-directory, R04.1-nested-routes and R04.2-coverage make ['.'] the unique zero-violation directory route covering root-file realization RLZ-BTVX2M on pyproject.toml.",
+      "revision": 3,
+      "subject": "FAM-ZD4QRG"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-FDA7J0",
+      "items": [
+        "sha256:d90598591341b26f1bb0082bf38abf0ef2f83c83dd7dc47b5317f6b90193d106"
+      ],
+      "reason": "Delete-only removal of duplicated _find_directive_close from src/rh_pipeline/validate/jargon.py after extracting it into neutral rh_pipeline.markdown_mask.",
+      "subject": "hunk:sha256:d90598591341b26f1bb0082bf38abf0ef2f83c83dd7dc47b5317f6b90193d106"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-GXC14R",
+      "items": [
+        "sha256:122284642a17bcdbfd36845433de5e12f8f9f873cd311a19f35ebf385deed4fa"
+      ],
+      "reason": "Mechanical call-site rename _blank_span -> blank_span inside _mask_math_and_links in src/rh_pipeline/validate/jargon.py.",
+      "subject": "hunk:sha256:122284642a17bcdbfd36845433de5e12f8f9f873cd311a19f35ebf385deed4fa"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-H0GH47",
+      "items": [
+        "sha256:a43bc44864fc9e719a9c848d526dfb76c31889da3dc6f74b61a98c6954520f98"
+      ],
+      "reason": "Delete-only removal of local hardcoded box_w, box_h = 310, 62 in _render_minimap_svg in src/rh_pipeline/site/renderers.py.",
+      "subject": "hunk:sha256:a43bc44864fc9e719a9c848d526dfb76c31889da3dc6f74b61a98c6954520f98"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-H29WY1",
+      "items": [
+        "sha256:112db8f675503c621f2689b0090120019c361a3027e3dc55aa3501ac0a8f80d0"
+      ],
+      "reason": "Updated Code Commentary and re-authored Evidence [2] (_run_memory_checks) via citation_fix for clean short-circuiting on concept-term-collision findings before jargon matching.",
+      "sources": [
+        {
+          "blob": "ead5bd5c0618a16e9d8796b2569812c23adb11aa",
+          "path": "src/rh_pipeline/cli/validate.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/cli/validate.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-J11G95",
+      "items": [
+        "sha256:c888d3a66023ca72be614db0eb0de00da82230eae0a5558845623d12df3e6fd8"
+      ],
+      "reason": "Updated Purpose and Code Commentary, refreshed [1]-[2] and authored Evidence [3] via citation_fix for shared find_plain_text_latex and concept_variants helpers.",
+      "sources": [
+        {
+          "blob": "c13eda67e7a575476cd70ef7ec58a0b66433c621",
+          "path": "src/rh_pipeline/models/concepts.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/models/concepts.py"
+    },
+    {
+      "covers": [
+        {
+          "after": {
+            "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
+            "content": "sha256:a086390200f04757d726ca5e6dc4dd26c12d3be2589881ef9e6c0712ab56e41b",
+            "locator": {
+              "kind": "symbol",
+              "name": "split_zoom_levels"
+            },
+            "path": "src/rh_pipeline/site/markdown_transforms.py"
+          },
+          "before": {
+            "blob": "5e9e2771cccb10c8ef9f3f311eb252db07626b78",
+            "content": "sha256:ae79a63262db3e2a0a0e136b8258fd71b9283128cf85dc6ebdffa92f09a3531e",
+            "locator": {
+              "kind": "symbol",
+              "name": "split_zoom_levels"
+            },
+            "path": "src/rh_pipeline/site/markdown_transforms.py"
+          },
+          "id": "RLZ-M8W0PQ"
+        }
+      ],
+      "disposition": "moved",
+      "id": "ROW-JJYB72",
+      "items": [
+        "sha256:288695c94e25094b79f50b5d1a9106a70168eec572fffe1d520b2ccd37dae138"
+      ],
+      "reason": "Re-anchored RLZ-M8W0PQ (split_zoom_levels) after delegating mask_fenced_code to neutral rh_pipeline.markdown_mask; invariant meaning and behavior are unchanged.",
+      "revision": 1,
+      "subject": "INV-HK005W"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-JKMQQ6",
+      "items": [
+        "sha256:137ab990e6577f907105ffaa4d0df82d3467f5a43421c6a643d87b6c3a32e642"
+      ],
+      "reason": "Delete-only removal of duplicated _DIR_TOK_RE from src/rh_pipeline/validate/jargon.py after extracting it into neutral rh_pipeline.markdown_mask.",
+      "subject": "hunk:sha256:137ab990e6577f907105ffaa4d0df82d3467f5a43421c6a643d87b6c3a32e642"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R18",
+          "packet": "RH-R18-v1-correctness-validators-ux-and-ar-memory.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "0aa9f6c19a05b6ebc4f7dd0a7d700928a3282ad6",
+            "content": "sha256:56a53d03de8376134899c830ae0962f072662c3b34a9592d416859d459072d0d",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue"
+          },
+          "before": {
+            "blob": "e74a07979d856de700ad603591ff60fc07cd7e3a",
+            "content": "sha256:8eddbc9db33391d83148570becd617c1457fd63dfc62d824c7bda6fbbae7e9da",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "site/docs/.vitepress/theme/components/ZoomTabs.vue"
+          },
+          "id": "RLZ-TJXJ4B"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "strengthen",
+      "id": "ROW-KNM7PJ",
+      "items": [
+        "sha256:a4078b8b1483ed2b8b9dc58a656693fd678a1ee4f864f58f2ca81a5b614b3789"
+      ],
+      "reason": "Strengthened ZoomTabs conditions and re-anchored RLZ-TJXJ4B for VitePress outline-click, heading-hash and Back/Forward navigation (RH-R18@v1 §R3.2), and cleaned stale 'out of scope for Stage 00' wording in exclusions (§R4.2).",
+      "revision": 6,
+      "subject": "INV-VGNZKV"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-KNWW6E",
+      "items": [
+        "sha256:43eb78b4329184c6e8b40de9fde66721826a12d8c01f12cc0e7a8ca3ada174de"
+      ],
+      "reason": "Delete-only removal of duplicated masking regex constants from src/rh_pipeline/validate/jargon.py after extracting them into neutral rh_pipeline.markdown_mask.",
+      "subject": "hunk:sha256:43eb78b4329184c6e8b40de9fde66721826a12d8c01f12cc0e7a8ca3ada174de"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-KVZ17Y",
+      "items": [
+        "sha256:97fb5b75a5c945ceff4cfd4dbdd221853272bdc164b92e295d34c700fb444598"
+      ],
+      "reason": "Authored new file card and sidecar references via citation_fix documenting neutral low-level Markdown code/math/directive masking primitives below validate and site.",
+      "sources": [
+        {
+          "blob": "60fd639525b5c859d7b2490781c49473281f6960",
+          "path": "src/rh_pipeline/markdown_mask.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/markdown_mask.py"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R18",
+          "packet": "RH-R18-v1-correctness-validators-ux-and-ar-memory.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "restore",
+      "id": "ROW-MZRPVS",
+      "items": [
+        "sha256:97a7178c6ef7e149e99634230c79699b5e4ee23f13898eb7fda8bf6d3715af09"
+      ],
+      "reason": "Confirmed updated audit/README.md:6 accurately describes verification-status.json strictly as Phase 0 lexical static-scan counts (scan_scope: entry) and build_status: unverified-locally with replay provenance in provenance.json and no local axiom-audit or comparator-execution claim (RH-R18@v1 §R2.4, §R4.6).",
+      "revision": 3,
+      "subject": "DPD-GF9S0R"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-N8CM05",
+      "items": [
+        "sha256:ee761f86fbcb23c5eea1f4ca0639eb00daafc7336abd1d890352a9d2e39e8615"
+      ],
+      "reason": "Delete-only removal of duplicated low-level masking functions from src/rh_pipeline/site/markdown_transforms.py after extracting them into neutral rh_pipeline.markdown_mask.",
+      "subject": "hunk:sha256:ee761f86fbcb23c5eea1f4ca0639eb00daafc7336abd1d890352a9d2e39e8615"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-NA8TV9",
+      "items": [
+        "sha256:c23a742ad363428ffe5e98d451a859203e685c002ef278049517044cb8ec6a8f"
+      ],
+      "reason": "Updated Code Commentary and Relationships for neutral markdown_mask delegation, term-display-latex and fail-closed concept_variants collision refusal, and re-authored [1]-[2] / authored [4] / refreshed [3] via citation_fix.",
+      "sources": [
+        {
+          "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+          "path": "src/rh_pipeline/validate/jargon.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/validate/jargon.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-NZV9NM",
+      "items": [
+        "sha256:6e22ee3201ca65bfb67c855d92b1a5684d06b65e4cecb65726eaab54d17fe9a6"
+      ],
+      "reason": "Delete-only removal of duplicated masking regex constants from src/rh_pipeline/site/markdown_transforms.py after extracting them into neutral rh_pipeline.markdown_mask.",
+      "subject": "hunk:sha256:6e22ee3201ca65bfb67c855d92b1a5684d06b65e4cecb65726eaab54d17fe9a6"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R18",
+          "packet": "RH-R18-v1-correctness-validators-ux-and-ar-memory.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "b400d5e2c28d08b1f8600aa2cc921ea4f9dbc90b",
+            "content": "sha256:4eb7f3908bb1e2198a7d8e2d17b8860f93ba9081965d5d12fcc2c89f27118052",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_reexports_and_neutral_module_boundary"
+            },
+            "path": "tests/unit/test_markdown_mask.py"
+          },
+          "before": "absent",
+          "id": "PRF-FQP3CM"
+        },
+        {
+          "after": {
+            "blob": "60fd639525b5c859d7b2490781c49473281f6960",
+            "content": "sha256:c69c3e42e3fcbfcecb8133a4ba4c0674d4bbf2b6b5af6756733159e96914efe5",
+            "locator": {
+              "kind": "file"
+            },
+            "path": "src/rh_pipeline/markdown_mask.py"
+          },
+          "before": "absent",
+          "id": "RLZ-HGGJ29"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-PRDPKE",
+      "items": [],
+      "reason": "Preserved INV-N55EQ7 as the broad src/rh_pipeline package-ownership invariant, added the neutral shared-primitive placement condition, attached src/rh_pipeline/markdown_mask.py as concrete realization and test_reexports_and_neutral_module_boundary as proof, and refreshed the record for Leaf 12 independent MEMORY review to promote it from proposed to reviewed (RH-R18@v1 §R4.3). Evidence (rh-r18-inv-n55eq7-markdown-mask): RH-R18@v1 §R4.3 and tests/unit/test_markdown_mask.py::test_reexports_and_neutral_module_boundary confirm neutral package placement for shared low-level masking primitives without narrowing INV-N55EQ7.",
+      "revision": 2,
+      "subject": "INV-N55EQ7"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-PW69ZF",
+      "items": [
+        "sha256:1e8a79c18a641e5ff7c306cfe4ebe0fa32dc2080fdc7fc354a974d68f457f24d"
+      ],
+      "reason": "Delegating per-node SVG assembly from _render_minimap_svg to _render_minimap_node in src/rh_pipeline/site/renderers.py.",
+      "subject": "hunk:sha256:1e8a79c18a641e5ff7c306cfe4ebe0fa32dc2080fdc7fc354a974d68f457f24d"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R18",
+          "packet": "RH-R18-v1-correctness-validators-ux-and-ar-memory.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-QMSBZX",
+      "items": [],
+      "reason": "Tightened statement from 'self-contained' to 'provenance-annotated' and added an explicit exclusion noting stub signature completeness depends on parser.py extraction (20 truncated stubs across 10 skeleton files tracked as an open weakness per RH-R18@v1 §R4.1).",
+      "revision": 3,
+      "subject": "INV-0SYK8A"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-QNKXNE",
+      "items": [
+        "sha256:6f21c227277140c30e1616e1e5d1066a97e938773d0a89e5ebeb1a4f1ed2e4ce"
+      ],
+      "reason": "Private compiled regex constant _PLAIN_TEXT_LATEX_RE in src/rh_pipeline/models/concepts.py backing find_plain_text_latex (whose symbol carries the plain-text LaTeX invariant).",
+      "subject": "hunk:sha256:6f21c227277140c30e1616e1e5d1066a97e938773d0a89e5ebeb1a4f1ed2e4ce"
+    },
+    {
+      "disposition": "changed",
+      "effect": "strengthen",
+      "examined": [
+        {
+          "id": "INV-4QG397",
+          "revision": 1
+        },
+        {
+          "id": "INV-GXDXCT",
+          "revision": 2
+        },
+        {
+          "id": "INV-HK005W",
+          "revision": 1
+        },
+        {
+          "id": "INV-V207JN",
+          "revision": 3
+        },
+        {
+          "id": "INV-VGNZKV",
+          "revision": 6
+        }
+      ],
+      "id": "ROW-RT87CK",
+      "items": [
+        "sha256:f85f3c1e330b0fea71b19b45bcfe674a904afb92fdeeb12c29a7754732347971"
+      ],
+      "reason": "Examined all five members (adding the new stage minimap SVG budget/unique-ID invariant alongside updated INV-VGNZKV, clarified standing INV-GXDXCT, re-anchored INV-HK005W and unchanged INV-V207JN), strengthened the family guarantee, refreshed the record for Leaf 12 independent MEMORY review to promote it from proposed to reviewed, and preserved routes=['.'] because AR R04.1-route-directory, R04.1-nested-routes and R04.2-coverage make ['.'] the unique zero-violation directory route covering root-file realizations RLZ-K8VWP7 (.gitignore) and RLZ-W9K2GR (pyproject.toml) while knowledge_read(view='impact') scopes precisely by anchor.",
+      "revision": 3,
+      "subject": "FAM-033QTE"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-SD1XY6",
+      "items": [
+        "sha256:dedc2978dac2f73153ba444170b6ad79257130142c124762474a8dfce0f4f95f"
+      ],
+      "reason": "Adding MINIMAP_PATH_CHAR_BUDGET to __all__ in src/rh_pipeline/site/renderers.py; minimap budget behavior is anchored on _render_minimap_node.",
+      "subject": "hunk:sha256:dedc2978dac2f73153ba444170b6ad79257130142c124762474a8dfce0f4f95f"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-SM65DT",
+      "items": [
+        "sha256:f4320c04f9cfb0a566461f5078a0a6408912be0b1210f3654238e9405190ba75"
+      ],
+      "reason": "Updated Code Commentary and Relationships for delegation to neutral markdown_mask.py and re-exports of mask_code_spans/mask_fenced_code, and re-authored [3] / refreshed [1],[2],[4] via citation_fix.",
+      "sources": [
+        {
+          "blob": "3d6c630f09112581d30fd9bf333065275adffdd1",
+          "path": "src/rh_pipeline/site/markdown_transforms.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/site/markdown_transforms.py"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R18",
+          "packet": "RH-R18-v1-correctness-validators-ux-and-ar-memory.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [
+        {
+          "after": {
+            "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+            "content": "sha256:3dbbfe464c4da76291925b4310240b1e0a6b241fc50a640cef43db06dd246d6e",
+            "locator": {
+              "kind": "symbol",
+              "name": "_build_term_matcher"
+            },
+            "path": "src/rh_pipeline/validate/jargon.py"
+          },
+          "before": {
+            "blob": "36f15282690697a49025d874de56de9d073e7141",
+            "content": "sha256:2607a1ba5b8e62d014365ec430fa7bf48dd8c83f4e4952bb42f11d5292186f1f",
+            "locator": {
+              "kind": "symbol",
+              "name": "_build_term_matcher"
+            },
+            "path": "src/rh_pipeline/validate/jargon.py"
+          },
+          "id": "RLZ-3ZHHB7"
+        },
+        {
+          "after": {
+            "blob": "4eeeba242bd0b7338725f94b98bbef7d79384d82",
+            "content": "sha256:b33f201a75e22cabc93bef28884d201d1c2abfbc0ca6e2a6fbf51c88c0c87094",
+            "locator": {
+              "kind": "symbol",
+              "name": "check_page_jargon"
+            },
+            "path": "src/rh_pipeline/validate/jargon.py"
+          },
+          "before": {
+            "blob": "36f15282690697a49025d874de56de9d073e7141",
+            "content": "sha256:a626480a3ac4c5d14ed36cf3fd07d0a2539a87d81244d1e664683d6ebc6fcc89",
+            "locator": {
+              "kind": "symbol",
+              "name": "check_page_jargon"
+            },
+            "path": "src/rh_pipeline/validate/jargon.py"
+          },
+          "id": "RLZ-75XWZE"
+        }
+      ],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-TH2KKG",
+      "items": [
+        "sha256:547d4a588bb461d80ce7f8bd58331626bc14a900435f308675c866cd5b364535"
+      ],
+      "reason": "Replaced stale 'Abitur' wording with 'First-Principles' in admission/applicability/conditions per RH-D20 / RH-R18@v1 §R4.2, and re-anchored RLZ-3ZHHB7 (_build_term_matcher) and RLZ-75XWZE (check_page_jargon) after neutral markdown_mask extraction and fail-closed concept_variants wiring.",
+      "revision": 2,
+      "subject": "INV-9NDAGK"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-TTMM11",
+      "items": [
+        "sha256:3ba6465526e93ad9117d0c83800c0c3d1afc5bc07c1aa6e0daeb4577dd8d6cda",
+        "sha256:7ee0344c8e06325ee5519bc8d398468a8785dacc9d7c18ee8559be28424ccbf5",
+        "sha256:8666a5610659f5271e3f35e96409a77cd0f5c0d6a1072ed5f0d6e026975f608f",
+        "sha256:b6b4bb39788641521887c35998254e9e9416cb6b99ef960353e04345a6049d85",
+        "sha256:e8b4e1b78f0ebb1836ff7b325d6f0a2a5f86d5b371b7f60a855f2e75fdcc3413"
+      ],
+      "reason": "Updated Code Commentary and authored Evidence [4] / refreshed [1]-[3] via citation_fix for plain-text LaTeX and concept_variants collision tests.",
+      "sources": [
+        {
+          "blob": "49a86ab24fd6f7192235f2b75de271875c4b3dbd",
+          "path": "tests/unit/test_validate_concepts.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_validate_concepts.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-VMSHS5",
+      "items": [
+        "sha256:ae76453f8be2625f855f12c78395531c0ff9bb438c217cefc5a79007fea3ac46",
+        "sha256:dbb6b473488ae239cb2796bd5aa31fb25aa463f91e52060c11ca71dbcd6f09d8"
+      ],
+      "reason": "Updated Code Commentary and authored Evidence [4] / refreshed [1]-[3] via citation_fix for term-display-latex and colliding-registry ValueError tests.",
+      "sources": [
+        {
+          "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
+          "path": "tests/unit/test_validate_jargon.py"
+        }
+      ],
+      "subject": "onboarding:tests/unit/test_validate_jargon.py"
+    },
+    {
+      "disposition": "updated",
+      "id": "ROW-VZ2WA2",
+      "items": [
+        "sha256:51f93df4ff1072a67cf4e5d678354135c9874f73f326d84a46da0a83b10368de"
+      ],
+      "reason": "Refreshed stale Stage 00-only wording in Relationships to all eight live pillars, documented 340px minimap width budget, middle-ellipsis, <title> tooltips and unique per-stage/per-node SVG IDs, and authored Evidence [5] / refreshed [1]-[4] via citation_fix.",
+      "sources": [
+        {
+          "blob": "25cf65baf1f83c5ce8023fa2c8e03d5dc2899213",
+          "path": "src/rh_pipeline/site/renderers.py"
+        }
+      ],
+      "subject": "onboarding:src/rh_pipeline/site/renderers.py"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-W5TBXM",
+      "items": [
+        "sha256:bf0178cae3d11610cfa898deec3b3fbe8e780c900321730ac4e04d7c32d94da5"
+      ],
+      "reason": "Single call line wiring _validate_plain_text_fields into _validate_card in src/rh_pipeline/validate/concepts.py; plain-text LaTeX contract is anchored on _validate_plain_text_fields.",
+      "subject": "hunk:sha256:bf0178cae3d11610cfa898deec3b3fbe8e780c900321730ac4e04d7c32d94da5"
+    },
+    {
+      "because": [
+        {
+          "id": "RH-R18",
+          "packet": "RH-R18-v1-correctness-validators-ux-and-ar-memory.md",
+          "task": {
+            "path": "261126_rh-proof-explainer-journey",
+            "repository": "rh-proof-skeleton"
+          },
+          "version": "v1"
+        }
+      ],
+      "covers": [],
+      "disposition": "changed",
+      "effect": "clarify",
+      "id": "ROW-X4DCRC",
+      "items": [],
+      "reason": "Updated statement from one-off event wording ('removes its broken pages.yml') to a standing invariant ('carries no GitHub Pages deployment workflow of its own') per RH-R18@v1 §R4.2.",
+      "revision": 2,
+      "subject": "INV-GXDXCT"
+    },
+    {
+      "disposition": "no_invariant",
+      "id": "ROW-XVR9BV",
+      "items": [
+        "sha256:35efccad02d504003d2ee3c856c0b3f766035fbd9d67619275d18d89452a8aa2"
+      ],
+      "reason": "Import block in src/rh_pipeline/site/markdown_transforms.py importing shared masking helpers from neutral rh_pipeline.markdown_mask; masking contract is anchored on markdown_mask.py and expand_concept_directives.",
+      "subject": "hunk:sha256:35efccad02d504003d2ee3c856c0b3f766035fbd9d67619275d18d89452a8aa2"
+    }
+  ],
+  "schema": "ar-history/v1",
+  "written": [
+    {
+      "contentDigest": "sha256:f2ca6ea92602660ad4c01b2317885b4a8e7874f8148bf78d6b8e00e5f5b55b6b",
+      "record": "DEC-MC7R83",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:a13a10a8f262700a8641061ec89f4bb11d1bf7cf6c9076279413ac906476f2ef",
+      "record": "DPD-GF9S0R",
+      "revision": 3,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:ed694424b04b5500d46edb97053f7f137e334157ab867bd2d5db954e0b517c33",
+      "record": "FAM-033QTE",
+      "revision": 3,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:9c47d2f46890da31147195527be3dac59e8d5e5d1f012dd2be36d160479b5216",
+      "record": "FAM-AWJSBW",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:16cb76882665d86c46e10cca9a09cad4e7bdf7646d7952750c84d8716fb27d12",
+      "record": "FAM-S1B3TM",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:2141c534d9d0d9fcc5a843de772eb7656e7c2954cc1ba833d2e94d28f9d56b98",
+      "record": "INV-0SYK8A",
+      "revision": 3,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:5152c2b097e646124d3a746eb29582f6cbca000864830df066f6cc8c68036dde",
+      "record": "INV-0WN2N4",
+      "revision": 3,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:3aeb349f564178914b28ef05ed6b940d291235c7d327dca3407c9546507e4f5c",
+      "record": "INV-4QG397",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:985b96923114db85949e6b1a053b2ab3d1fca6dc1705b650122c61af8b2f18a7",
+      "record": "INV-6RS2X5",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:76b9389111e2996b2af87a2510cbbe5c53894070116ce882d9f199fd29a62392",
+      "record": "INV-9NDAGK",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:b4a4be99715faec89e8e3ad8d825826b07b849048cbb56d5a17daa448379b63a",
+      "record": "INV-CDQEJK",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:bb5c9031a102bd5406a9871cf227de68ad9361ff2b7d5e6ff789037b3f17ac27",
+      "record": "INV-GXDXCT",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:feaa4eca43ff4a74acc348eecfb44cb4856a16c612b201e2af197b6048f6a044",
+      "record": "INV-N55EQ7",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:48c3528d67bfb9fcdaabf748b02c94f82fb3274b89bd3d9a936e4846237eba3a",
+      "record": "INV-SVRW7Z",
+      "revision": 2,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:d6e371d86a85cf14bb923669c35bb75caf42ddaccb6c1af46fcddb722455fbc0",
+      "record": "INV-T2XTNN",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:ae2c90f68e26a9ed520237933c81912c2c412227e3f504414ffec1a63bec4649",
+      "record": "INV-VGNZKV",
+      "revision": 6,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:2fc55b9fe44fd17489ae8ac74c5a3765400bcef5c4dc77c848bc2cecab7d9d6f",
+      "record": "WKN-HH2BTY",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    },
+    {
+      "contentDigest": "sha256:a02d137dfca3b1aa4bb0dff5a4dd3cb196e7809731a6dfe280d5288dcc7a1bc8",
+      "record": "WKN-QRM5V4",
+      "revision": 1,
+      "writer": {
+        "at": "2026-11-28T15:16:29+01:00",
+        "by": "agent",
+        "effort": "high",
+        "harness": "antigravity-acp",
+        "leaf": "12",
+        "model": "gemini-4-neon-high",
+        "role": "curator",
+        "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+        "task": "261126-EXP"
+      }
+    }
+  ]
+}

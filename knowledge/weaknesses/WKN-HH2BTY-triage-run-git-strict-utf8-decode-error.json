@@ -1,0 +1,40 @@
+{
+  "anchor": {
+    "blob": "bac83080429b79d4f5f4f654504d089d19dad618",
+    "content": "sha256:62c1725091303631be640cd1e23d9afbd41bb90b8761923e59624146d308a304",
+    "locator": {
+      "kind": "symbol",
+      "name": "_run_git"
+    },
+    "path": "src/rh_pipeline/audit/triage.py"
+  },
+  "id": "WKN-HH2BTY",
+  "kind": "fault",
+  "origin": {
+    "handoff": {
+      "path": "rh-r18-a2-curator-ingest.json"
+    },
+    "handoffEntry": "wkn-triage-strict-utf8",
+    "leaf": "12",
+    "task": "261126-EXP"
+  },
+  "revision": 1,
+  "schema": "ar-weakness/v1",
+  "seen": {
+    "role": "curator",
+    "task": "261126-EXP"
+  },
+  "state": "open",
+  "statement": "_run_git invokes subprocess.run(..., text=True, encoding='utf-8') without catching UnicodeDecodeError, causing non-UTF-8 upstream filename bytes to crash rh-check-upstream with exit code 1 instead of raising TriageInputError with exit code 2.",
+  "writer": {
+    "at": "2026-11-28T15:16:29+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "12",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+    "task": "261126-EXP"
+  }
+}

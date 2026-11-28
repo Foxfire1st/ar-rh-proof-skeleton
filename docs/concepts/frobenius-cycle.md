@@ -2,7 +2,7 @@
 slug: frobenius-cycle
 term: Frobenius cycle
 aliases: ["Stepanov's count", "edge condition", "defect threshold"]
-inline_glimpse: "A cyclic ring of $N$ Frobenius-twisted embeddings $W \\to O$ alternating between standard and contragredient actions of $\\mathrm{GL}_k(W)$, whose Stepanov zero counts and Levi-invariant averaging yield low-dimension edge conditions modulo $w^c$."
+inline_glimpse: "A cyclic ring of N Frobenius-twisted embeddings from a local ring into a valuation domain alternating between standard and contragredient matrix actions, whose Stepanov zero counts and Levi-invariant averaging yield low-dimension edge congruences."
 visual_ref: assets/stage03-four-case-divisibility-and-hecke-colength.svg
 where_analogy_breaks: "Viewing a Frobenius cycle as an ordinary Galois cycle of embeddings $\\sigma, \\sigma^p, \\dots, \\sigma^{p^{N-1}}$ into characteristic $p$ captures why $P$-th powers rotate the letters, but misses three layers of Stage 03: the cycle lives in mixed characteristic ($\\operatorname{char} O = 0$, $p \\in \\mathfrak{m}_O$, $w^2 = p \\in O$) with strictly alternating even (standard) and odd (inverse-transpose) $\\mathrm{GL}_k(W)$-actions (`isEven_succ`); `New.stepanov_count` does not directly count points on a curve over $\\mathbb{F}_q$, instead constraining minimal-valuation-plus-weight terms of $\\mathrm{SL}_2(W)$-translates (`defect_nonpos_of_extreme_term`) and feeding through Frobenius-amplified Pieri-cone volumes (`DefectCount.lean`) and Levi-invariant averaging (`AveragingMap.lean`) into `exists_isEdgeCondition`; and the $(1+\\theta)$ dimension bound holds only in the large-degree regime `IsLargeDegree` where $n^4 \\le q$ and $(N k \\log q / \\theta)^5 P^{3r} \\le n$."
 sources:

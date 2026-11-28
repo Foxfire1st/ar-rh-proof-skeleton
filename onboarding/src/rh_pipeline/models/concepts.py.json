@@ -3,7 +3,25 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "2ededcdc5f2dd1fb793b5a7eb29e9182c1b2125d",
+        "blob": "c13eda67e7a575476cd70ef7ec58a0b66433c621",
+        "content": "sha256:ff16fa07fb0e311c5000f8f999194c0166ec52073d8f6df62b6cd15c52c7d5a6",
+        "locator": {
+          "kind": "symbol",
+          "name": "find_plain_text_latex"
+        }
+      },
+      "id": "RLZ-2FP29P",
+      "invariant": "INV-CDQEJK",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.1",
+        "leaf": "12"
+      },
+      "rationale": "Defines the single shared plain-text LaTeX predicate matching paired $...$, $$, \\(...\\), \\[...\\], and \\command while allowing lone currency $ and escaped \\$.",
+      "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "c13eda67e7a575476cd70ef7ec58a0b66433c621",
         "content": "sha256:780b49e111c132ba54b462cb134455d8c82a725199678bb1cfd5f9e3de01855a",
         "locator": {
           "kind": "symbol",
@@ -21,7 +39,7 @@
     },
     {
       "anchor": {
-        "blob": "2ededcdc5f2dd1fb793b5a7eb29e9182c1b2125d",
+        "blob": "c13eda67e7a575476cd70ef7ec58a0b66433c621",
         "content": "sha256:45f8305f5dfc4fd7c1258ea8fd7be3409590a6cf08dbcc40fd9c44a1e0edbd29",
         "locator": {
           "kind": "symbol",
@@ -36,6 +54,24 @@
       },
       "rationale": "Parses Concept Card YAML frontmatter purely from text with zero filesystem I/O, rejecting unknown keys and YAML body_markdown while returning exact body_line_offset.",
       "role": "enforcement"
+    },
+    {
+      "anchor": {
+        "blob": "c13eda67e7a575476cd70ef7ec58a0b66433c621",
+        "content": "sha256:5b85a51714cab15788b7b8b371793e8ded1eb85c4f39d9bd49b6abb5f883f958",
+        "locator": {
+          "kind": "symbol",
+          "name": "concept_variants"
+        }
+      },
+      "id": "RLZ-ZSVN65",
+      "invariant": "INV-T2XTNN",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.2",
+        "leaf": "12"
+      },
+      "rationale": "Computes the canonical deduplicated normalized term, alias, and simple -s/-es plural set for one Concept Card without cross-card divergence.",
+      "role": "primary-authority"
     }
   ],
   "references": {
@@ -44,7 +80,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "2ededcdc5f2dd1fb793b5a7eb29e9182c1b2125d",
+            "blob": "c13eda67e7a575476cd70ef7ec58a0b66433c621",
             "content": "sha256:780b49e111c132ba54b462cb134455d8c82a725199678bb1cfd5f9e3de01855a",
             "locator": {
               "kind": "symbol",
@@ -60,11 +96,38 @@
       "targets": [
         {
           "anchor": {
-            "blob": "2ededcdc5f2dd1fb793b5a7eb29e9182c1b2125d",
+            "blob": "c13eda67e7a575476cd70ef7ec58a0b66433c621",
             "content": "sha256:45f8305f5dfc4fd7c1258ea8fd7be3409590a6cf08dbcc40fd9c44a1e0edbd29",
             "locator": {
               "kind": "symbol",
               "name": "parse_concept_card"
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    },
+    "3": {
+      "note": "`find_plain_text_latex` detects raw LaTeX delimiters/commands while allowing lone currency `$` and escaped `\\$`, and `concept_variants` computes the canonical deduplicated normalized term/alias/plural set.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "c13eda67e7a575476cd70ef7ec58a0b66433c621",
+            "content": "sha256:ff16fa07fb0e311c5000f8f999194c0166ec52073d8f6df62b6cd15c52c7d5a6",
+            "locator": {
+              "kind": "symbol",
+              "name": "find_plain_text_latex"
+            }
+          },
+          "kind": "code"
+        },
+        {
+          "anchor": {
+            "blob": "c13eda67e7a575476cd70ef7ec58a0b66433c621",
+            "content": "sha256:5b85a51714cab15788b7b8b371793e8ded1eb85c4f39d9bd49b6abb5f883f958",
+            "locator": {
+              "kind": "symbol",
+              "name": "concept_variants"
             }
           },
           "kind": "code"

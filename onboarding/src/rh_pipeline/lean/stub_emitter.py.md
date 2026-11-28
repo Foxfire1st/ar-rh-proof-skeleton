@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Deterministically renders an `ExtractedModule` into a self-contained provenance-annotated Lean 4 skeleton file and exact line-anchored `DagDeclarationRef` records honoring `preserve_defs`.
+Deterministically renders an `ExtractedModule` into a provenance-annotated Lean 4 skeleton file and exact line-anchored `DagDeclarationRef` records honoring `preserve_defs` (signature completeness on stubbed declarations depends on upstream parsing by `parser.py`).
 
 ## Code Commentary
 

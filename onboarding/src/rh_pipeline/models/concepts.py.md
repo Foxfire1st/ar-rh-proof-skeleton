@@ -6,11 +6,11 @@
 
 ## Purpose
 
-Defines immutable Concept Card domain models and a pure, zero-I/O YAML frontmatter parser returning exact body line offsets.
+Defines immutable Concept Card domain models, a pure zero-I/O YAML frontmatter parser returning exact body line offsets, and shared plain-text LaTeX detection and canonical concept-variant normalization helpers.
 
 ## Code Commentary
 
-`ConceptSource` (frozen/slots: `title`, `citation`, `kind` in `{"book", "paper", "mathlib", "reference"}`) and `ConceptCard` (frozen/slots: `slug`, `term`, `aliases`, `inline_glimpse`, `visual_ref`, `where_analogy_breaks`, `sources`, `lean_anchors`, `child_concepts`, `body_markdown`) enforce slug regex `^[a-z0-9]+(?:-[a-z0-9]+)*$`, non-empty stripped required text and safe `docs/`-relative POSIX `visual_ref` paths (rejecting leading `/`, backslashes, empty, `.` and `..` segments). `parse_concept_card(text, *, expected_slug, rel_path)` normalizes CRLF/CR to LF, splits `---` YAML frontmatter with `yaml.safe_load`, rejects YAML `body_markdown`, unknown keys, missing required keys, filename/slug mismatches and invalid `sources` entries, and returns `(card, sorted_findings, body_line_offset)` where `body_line_offset` equals the 1-based line count through the closing delimiter (`0` if delimiters are missing). Limits: pure text parsing only—does not check filesystem existence of `visual_ref`, Lean skeleton anchors, cross-card `child_concepts` or sourcing requirements (`sources` or `lean_anchors`).
+`find_plain_text_latex(text)` provides the single shared plain-text LaTeX predicate rejecting `$$`, paired unescaped `$...$` spans, `\(`, `\)`, `\[`, `\]`, and `\command` control sequences while permitting a lone currency `$`, escaped `\$`, and non-command backslashes. `concept_variants(term, aliases)` computes the canonical deduplicated tuple of normalized (`" ".join(raw.lower().split())`) terms, aliases, and simple `-s`/`-es` plurals shared by both collision detection and jargon matching. `ConceptSource` (frozen/slots: `title`, `citation`, `kind` in `{"book", "paper", "mathlib", "reference"}`) and `ConceptCard` (frozen/slots: `slug`, `term`, `aliases`, `inline_glimpse`, `visual_ref`, `where_analogy_breaks`, `sources`, `lean_anchors`, `child_concepts`, `body_markdown`) enforce slug regex `^[a-z0-9]+(?:-[a-z0-9]+)*$`, non-empty stripped required text and safe `docs/`-relative POSIX `visual_ref` paths (rejecting leading `/`, backslashes, empty, `.` and `..` segments). `parse_concept_card(text, *, expected_slug, rel_path)` normalizes CRLF/CR to LF, splits `---` YAML frontmatter with `yaml.safe_load`, rejects YAML `body_markdown`, unknown keys, missing required keys, filename/slug mismatches and invalid `sources` entries, and returns `(card, sorted_findings, body_line_offset)` where `body_line_offset` equals the 1-based line count through the closing delimiter (`0` if delimiters are missing). Limits: pure text parsing only—does not check filesystem existence of `visual_ref`, Lean skeleton anchors, cross-card `child_concepts` or sourcing requirements (`sources` or `lean_anchors`).
 
 ## Relationships
 
@@ -20,3 +20,5 @@ Uses [ValidationFinding](validation.py.md) and PyYAML from [package metadata](..
 
 - ConceptSource and ConceptCard enforce closed source kinds, strict slug regex, non-empty required text and safe docs-relative visual_ref invariants without filesystem I/O. [1]
 - parse_concept_card parses YAML frontmatter purely from text with exact required/optional keys, rejects YAML body_markdown and unknown keys, and returns exact body_line_offset. [2]
+
+- `find_plain_text_latex` detects raw LaTeX delimiters/commands while allowing lone currency `$` and escaped `\$`, and `concept_variants` computes the canonical deduplicated normalized term/alias/plural set. [3]

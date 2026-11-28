@@ -3,7 +3,7 @@
   "realizes": [
     {
       "anchor": {
-        "blob": "690b1c9d3b7be0d72011aa90645d879d6fc0023d",
+        "blob": "ead5bd5c0618a16e9d8796b2569812c23adb11aa",
         "content": "sha256:f9b5409424744947d9726e22944421c34d64403b8a1e350f42d72003d29ce75c",
         "locator": {
           "kind": "symbol",
@@ -18,6 +18,24 @@
       },
       "rationale": "Provides thin CLI wiring for rh-validate --repo <path> [--memory <path>], emitting sorted canonical findings and exit code 0 or 1.",
       "role": "primary-authority"
+    },
+    {
+      "anchor": {
+        "blob": "ead5bd5c0618a16e9d8796b2569812c23adb11aa",
+        "content": "sha256:7006989037e7468ab2f22fca79f74a0f85df858e824fdd446413e4e962c66174",
+        "locator": {
+          "kind": "symbol",
+          "name": "_run_memory_checks"
+        }
+      },
+      "id": "RLZ-SM3W30",
+      "invariant": "INV-T2XTNN",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.2",
+        "leaf": "12"
+      },
+      "rationale": "Skips jargon matching after concept-term-collision findings so rh-validate exits cleanly with validation findings rather than an unhandled ValueError.",
+      "role": "enforcement"
     }
   ],
   "references": {
@@ -26,7 +44,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "690b1c9d3b7be0d72011aa90645d879d6fc0023d",
+            "blob": "ead5bd5c0618a16e9d8796b2569812c23adb11aa",
             "content": "sha256:f9b5409424744947d9726e22944421c34d64403b8a1e350f42d72003d29ce75c",
             "locator": {
               "kind": "symbol",
@@ -38,12 +56,12 @@
       ]
     },
     "2": {
-      "note": "_run_memory_checks handles omitted, missing, unpopulated and populated memory roots with explicit INFO notes and strict docs/ scoping.",
+      "note": "`_run_memory_checks` handles omitted, missing, unpopulated and populated memory roots with explicit INFO notes, strict `docs/` scoping and clean short-circuiting on `concept-term-collision` before jargon matching.",
       "targets": [
         {
           "anchor": {
-            "blob": "690b1c9d3b7be0d72011aa90645d879d6fc0023d",
-            "content": "sha256:8cbdbf2b30d4664424f04c9df30455d759ce46e8780ad543dd4bcc37dcc64473",
+            "blob": "ead5bd5c0618a16e9d8796b2569812c23adb11aa",
+            "content": "sha256:7006989037e7468ab2f22fca79f74a0f85df858e824fdd446413e4e962c66174",
             "locator": {
               "kind": "symbol",
               "name": "_run_memory_checks"

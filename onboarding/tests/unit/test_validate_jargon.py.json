@@ -3,7 +3,7 @@
   "proves": [
     {
       "anchor": {
-        "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+        "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
         "content": "sha256:295de1319c70374682663353ec3de410e89a2fa734ed469091da326a43dbbc7e",
         "locator": {
           "kind": "symbol",
@@ -20,7 +20,7 @@
     },
     {
       "anchor": {
-        "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+        "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
         "content": "sha256:ed509b424fd1151ff18b6cd816789ff171c06fdaf321abca0e7f636a4adf866a",
         "locator": {
           "kind": "symbol",
@@ -37,7 +37,41 @@
     },
     {
       "anchor": {
-        "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+        "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
+        "content": "sha256:7e68e64ad369a045e42379bb78e2c4a3b084310d8ee18e482bfb9fe5279091fd",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_check_page_jargon_rejects_colliding_registry_without_shadowing"
+        }
+      },
+      "facet": "Verifies _build_term_matcher raises ValueError on a colliding registry instead of silently shadowing one slug.",
+      "id": "PRF-5MX8D3",
+      "invariant": "INV-T2XTNN",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.2",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
+        "content": "sha256:6d6cb4001dadd3cee504a78525e987f9662dca19240b0def4eeca98d57a0590d",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_term_display_latex_gate_negative_and_positive_cases"
+        }
+      },
+      "facet": "Verifies term-display-latex rejects paired $...$, $$, \\(...\\) and \\command in explicit {{term:slug|display}} overrides across Level 1 and Level 2 while allowing currency $5 and escaped \\$5.",
+      "id": "PRF-A94M35",
+      "invariant": "INV-CDQEJK",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.1",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
         "content": "sha256:d7efceca743a5ea108ee64cd7579356d4f2468d22df36b91dce044f038fe6df5",
         "locator": {
           "kind": "symbol",
@@ -54,7 +88,7 @@
     },
     {
       "anchor": {
-        "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+        "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
         "content": "sha256:38039784d09e416dfe084c1169ae7e5170a4ab46d392ceb1d26552dde18c1fa2",
         "locator": {
           "kind": "symbol",
@@ -71,7 +105,7 @@
     },
     {
       "anchor": {
-        "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+        "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
         "content": "sha256:1a619d38afe81c0c18bb7ddfafb3921d336b0c19d7cb08d98f351ea17038f996",
         "locator": {
           "kind": "symbol",
@@ -88,7 +122,7 @@
     },
     {
       "anchor": {
-        "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+        "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
         "content": "sha256:e040a5bd478a2391ffd5c057ad54224a83584be2f375d6ad125be27e09423118",
         "locator": {
           "kind": "symbol",
@@ -105,7 +139,7 @@
     },
     {
       "anchor": {
-        "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+        "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
         "content": "sha256:418e3535c02f6f6b18eb7aae2c84f643b725c7fbd6dd0ca5156ae993941c4f5a",
         "locator": {
           "kind": "symbol",
@@ -128,7 +162,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+            "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
             "content": "sha256:418e3535c02f6f6b18eb7aae2c84f643b725c7fbd6dd0ca5156ae993941c4f5a",
             "locator": {
               "kind": "symbol",
@@ -144,7 +178,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+            "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
             "content": "sha256:1a619d38afe81c0c18bb7ddfafb3921d336b0c19d7cb08d98f351ea17038f996",
             "locator": {
               "kind": "symbol",
@@ -160,11 +194,38 @@
       "targets": [
         {
           "anchor": {
-            "blob": "5e6a997db843614e94160c3b16e9424ac282ebb5",
+            "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
             "content": "sha256:d7efceca743a5ea108ee64cd7579356d4f2468d22df36b91dce044f038fe6df5",
             "locator": {
               "kind": "symbol",
               "name": "test_validate_explainer_docs_scans_strictly_concepts_and_stages"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "4": {
+      "note": "Verifies `term-display-latex` negative/positive cases across zoom levels and fail-closed `ValueError` rejection on colliding registries without silent shadowing.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
+            "content": "sha256:6d6cb4001dadd3cee504a78525e987f9662dca19240b0def4eeca98d57a0590d",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_term_display_latex_gate_negative_and_positive_cases"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "f0e2c8e3019b49d0e8617a134f334836345fdbff",
+            "content": "sha256:7e68e64ad369a045e42379bb78e2c4a3b084310d8ee18e482bfb9fe5279091fd",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_check_page_jargon_rejects_colliding_registry_without_shadowing"
             }
           },
           "kind": "test"
