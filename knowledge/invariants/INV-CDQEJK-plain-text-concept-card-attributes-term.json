@@ -1,0 +1,47 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "guarded_by_test",
+      "family_guarantee",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Realized across models/concepts.py, validate/concepts.py and validate/jargon.py and proved by negative/positive unit and compiler tests; prevents literal raw $...$ and LaTeX control sequences from leaking verbatim into Vue <ConceptHover> props and static Page Glossary <dd> elements."
+  },
+  "applicability": "Plain-text Concept Card frontmatter attributes (term, aliases, inline_glimpse) and explicit {{term:slug|display}} display overrides validated across models/concepts.py, validate/concepts.py and validate/jargon.py (and invoked fail-closed by site/compiler.py).",
+  "conditions": [
+    "find_plain_text_latex rejects $$, paired unescaped $...$ spans, \\(, \\), \\[, \\], and \\command control sequences while allowing a lone currency $, escaped \\$, and non-command backslashes.",
+    "_validate_plain_text_fields emits concept-plain-text-latex on card term, aliases and inline_glimpse; _parse_term_directive emits term-display-latex on explicit {{term:slug|display}} overrides across all zoom levels."
+  ],
+  "exclusions": [
+    "Ordinary Level 1/2/3 Markdown body prose outside {{term:...|display}} and ConceptCard.where_analogy_breaks are outside this plain-text attribute predicate."
+  ],
+  "id": "INV-CDQEJK",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "RH_MEMORY_ROOT=../memory-12_correctness-validators-ux-and-ar-memory scripts/check-quality.sh (273 passed, rh-validate 0 findings) & role-reports/worker/95dae86a-9eba-4767-a7b1-2d8752a389fe/expanded-evidence-attempt-1.md"
+      ],
+      "path": "rh-r18-a2-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R18@v1 §R2.1",
+    "leaf": "12",
+    "task": "261126-EXP"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "Plain-text Concept Card attributes (term, aliases, inline_glimpse) and explicit {{term:slug|display}} overrides must fail closed on paired $...$, $$, \\(...\\), \\[...\\], or \\command LaTeX tokens while permitting lone currency $ and escaped \\$.",
+  "supersedes": [],
+  "title": "Fail-closed plain-text LaTeX gate for card attributes and term overrides",
+  "writer": {
+    "at": "2026-11-28T15:16:29+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "12",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+    "task": "261126-EXP"
+  }
+}

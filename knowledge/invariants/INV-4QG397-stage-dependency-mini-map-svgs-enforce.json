@@ -1,0 +1,46 @@
+{
+  "admission": {
+    "criteria": [
+      "guarded_by_test",
+      "family_guarantee",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Proved across all 41 live DAG nodes and XML-escaping fixtures in tests/unit/test_site_compiler.py and Playwright getBBox checks; prevents clipped overflowing file paths and colliding global SVG marker/clipPath IDs on rendered stage pages."
+  },
+  "applicability": "Inline SVG stage dependency mini-map rendering in src/rh_pipeline/site/renderers.py across all 8 pillars and 41 extracted DAG nodes.",
+  "conditions": [
+    "_render_minimap_node enforces MINIMAP_PATH_CHAR_BUDGET (46 chars) and _MINIMAP_TITLE_CHAR_BUDGET (40 chars) via _middle_ellipsis inside 340px node boxes while preserving the untruncated upstream_path inside each node <g>'s <title> tooltip and the ordered Markdown dependency list beneath.",
+    "_render_minimap_defs emits stage-scoped arrow marker IDs (rh-minimap-arrow-{stage_id}) and per-node clipPath IDs (rh-minimap-clip-{stage_id}-{idx}) so multiple minimaps on one page never collide on global SVG IDs."
+  ],
+  "exclusions": [
+    "Hand-authored stage concept diagrams under <memory>/docs/assets/*.svg are outside minimap SVG generation."
+  ],
+  "id": "INV-4QG397",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_site_compiler.py & Playwright getBBox() check across all 8 stages / 41 nodes (0 overflows) in round-1-evidence.tar.gz::playwright-out/playwright-results.json"
+      ],
+      "path": "rh-r18-a2-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R18@v1 §R3.1",
+    "leaf": "12",
+    "task": "261126-EXP"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "Stage dependency mini-map SVGs enforce a deterministic label character budget with middle-ellipsis path truncation, full upstream_path <title> tooltips, and unique per-stage/per-node clipPath and marker IDs so all 41 nodes fit cleanly inside their boxes.",
+  "supersedes": [],
+  "title": "Deterministic stage minimap SVG width budget, tooltips and unique SVG IDs",
+  "writer": {
+    "at": "2026-11-28T15:16:29+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "12",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+    "task": "261126-EXP"
+  }
+}

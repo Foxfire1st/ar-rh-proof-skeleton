@@ -3,7 +3,7 @@
   "proves": [
     {
       "anchor": {
-        "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+        "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
         "content": "sha256:fa80c90b434320debfaf74f130b6bed22fda2c5ffa8772b80b319197d3a7fb18",
         "locator": {
           "kind": "symbol",
@@ -20,7 +20,7 @@
     },
     {
       "anchor": {
-        "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+        "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
         "content": "sha256:9a577ea3a2ae5b6e10ad7a2045750775f805c3514eeca53c07d6e1026a498f5c",
         "locator": {
           "kind": "symbol",
@@ -37,7 +37,7 @@
     },
     {
       "anchor": {
-        "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+        "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
         "content": "sha256:8f63e9d1fb339013da70966ca680907874a1a8580938a5ea2305c91af45c5462",
         "locator": {
           "kind": "symbol",
@@ -54,7 +54,24 @@
     },
     {
       "anchor": {
-        "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+        "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
+        "content": "sha256:b6f9df434b84ac04571c095f970bd584283809cf16a4d72fc77ac3443d6734dc",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_cli_reports_term_collision_cleanly_without_traceback"
+        }
+      },
+      "facet": "Verifies rh-validate reports canonical concept-term-collision diagnostics with exit code 1 rather than crashing on ValueError.",
+      "id": "PRF-PWZWF7",
+      "invariant": "INV-T2XTNN",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.2",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
         "content": "sha256:9fed74d51fa5cb2da5e09b15aec2904b57422eaf3407b2ccd86c5daa3019fa87",
         "locator": {
           "kind": "symbol",
@@ -77,7 +94,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+            "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
             "content": "sha256:9fed74d51fa5cb2da5e09b15aec2904b57422eaf3407b2ccd86c5daa3019fa87",
             "locator": {
               "kind": "symbol",
@@ -93,7 +110,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+            "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
             "content": "sha256:fa80c90b434320debfaf74f130b6bed22fda2c5ffa8772b80b319197d3a7fb18",
             "locator": {
               "kind": "symbol",
@@ -109,7 +126,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+            "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
             "content": "sha256:88308995b1186f70323231c72914689fbf6649517ae22e29ab6012fcb43f4127",
             "locator": {
               "kind": "symbol",
@@ -120,11 +137,27 @@
         },
         {
           "anchor": {
-            "blob": "ccd423e63cc243fab404a336eeec9a571348b9f3",
+            "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
             "content": "sha256:b9e40e17aecc51167c4c039ffd6d7ae569e4dc3beaab05b40c4dda1888b65eeb",
             "locator": {
               "kind": "symbol",
               "name": "test_cli_console_script_runs_on_repo"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "4": {
+      "note": "Verifies `rh-validate` reports cross-card `concept-term-collision` findings cleanly with exit code 1 rather than crashing on `_build_term_matcher`'s `ValueError`.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "50d09d9d9442c815e7988b580e92c4585e551574",
+            "content": "sha256:b6f9df434b84ac04571c095f970bd584283809cf16a4d72fc77ac3443d6734dc",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_cli_reports_term_collision_cleanly_without_traceback"
             }
           },
           "kind": "test"

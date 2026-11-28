@@ -1,0 +1,46 @@
+{
+  "admission": {
+    "criteria": [
+      "spans_locations",
+      "guarded_by_test",
+      "prevents_costly_mistake"
+    ],
+    "justification": "Realized across markdown_mask.py, validate/jargon.py and site/markdown_transforms.py and proved by five golden tests in tests/unit/test_markdown_mask.py; prevents duplicate scanner drift, line-offset bugs on CRLF inputs, and inverted validate-to-site package imports."
+  },
+  "applicability": "Shared low-level Markdown fenced-code, inline-code, math-end and directive-close primitives in src/rh_pipeline/markdown_mask.py consumed by validate/jargon.py and site/markdown_transforms.py.",
+  "conditions": [
+    "src/rh_pipeline/markdown_mask.py imports only stdlib re (zero ConceptCard or SiteBuildError dependencies) and sits below both validate and site in the import graph.",
+    "mask_fenced_code, mask_inline_code and mask_code_spans preserve exact character lengths and LF/CRLF line endings across nested/odd backticks and paragraph breaks; site/markdown_transforms.py re-exports mask_code_spans and mask_fenced_code."
+  ],
+  "exclusions": [
+    "Prose-specific link/math scanning remains in validate/jargon.py and site-specific directive expansion remains in site/markdown_transforms.py."
+  ],
+  "id": "INV-6RS2X5",
+  "origin": {
+    "handoff": {
+      "evidence": [
+        "tests/unit/test_markdown_mask.py (CRLF, nested/odd backticks, math-in-code, directives-in-math, braces, neutrality, re-exports) in scripts/check-quality.sh"
+      ],
+      "path": "rh-r18-a2-curator-ingest.json"
+    },
+    "handoffEntry": "RH-R18@v1 §R2.3",
+    "leaf": "12",
+    "task": "261126-EXP"
+  },
+  "revision": 1,
+  "schema": "ar-invariant/v1",
+  "statement": "Low-level Markdown code, math, and directive masking primitives live in neutral rh_pipeline.markdown_mask below both validate and site, preserving exact same-length offsets across LF and CRLF inputs and re-exporting mask_code_spans from site.markdown_transforms.",
+  "supersedes": [],
+  "title": "Neutral same-length Markdown masking primitives below validate and site",
+  "writer": {
+    "at": "2026-11-28T15:16:29+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "12",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+    "task": "261126-EXP"
+  }
+}

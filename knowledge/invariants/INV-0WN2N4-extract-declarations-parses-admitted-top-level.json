@@ -13,7 +13,8 @@
     "Strips chained scoped open/omit/seal/unseal/variable/include ... in prefixes from extracted signatures, overrides open namespaces on _root_. prefixes, synthesizes sequential namespace-qualified _instance_N names inserted into anonymous colon-typed instance signatures for round-trip parity, and raises UnsupportedLeanFormError(rel_path, line, form) on unlisted commands (macro, syntax, notation, mutual, set_option, universes, variables, standalone seal/unseal, example, #check), scoped or non-instance local modifiers, depth-0 termination_by/decreasing_by, colonless anonymous instances, unbalanced scopes, orphan prefixes/docs/attributes or unclosed lexical forms."
   ],
   "exclusions": [
-    "Syntactic namespace qualification rewrites only the declared name span and does not rewrite internal signature tokens; opaque accepts either no body or an explicit := body."
+    "Syntactic namespace qualification rewrites only the declared name span and does not rewrite internal signature tokens; opaque accepts either no body or an explicit := body.",
+    "_scan_body_delim stops at the first depth-0 := without tracking let ... := bindings inside declaration return types, truncating 20 extracted theorem/lemma stubs across 10 skeleton files (tracked as an open weakness on src/rh_pipeline/lean/parser.py::_scan_body_delim and deferred to a dedicated differential-harness leaf)."
   ],
   "id": "INV-0WN2N4",
   "origin": {
@@ -27,20 +28,20 @@
     "leaf": "03",
     "task": "261123-RH"
   },
-  "revision": 2,
+  "revision": 3,
   "schema": "ar-invariant/v1",
   "statement": "extract_declarations parses admitted top-level Lean 4 forms across src/rh_pipeline/lean/parser.py and src/rh_pipeline/lean/_lexer.py—including standalone open/variable/include/omit/export/universe/attribute/grind_pattern/local grind_pattern commands, chained scoped ... in prefixes, noncomputable sections, local/scoped attributes inside @[...], local instances, _root_. namespace overrides, depth-0 :=/where/equation-arm | body splitting, and namespace-qualified anonymous instances—while failing closed with UnsupportedLeanFormError(rel_path, line, form) on any unsupported construct.",
   "supersedes": [],
   "title": "Closed-world delimiter-aware Lean 4 declaration extractor",
   "writer": {
-    "at": "2026-11-26T15:11:11+01:00",
+    "at": "2026-11-28T15:16:29+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "02",
+    "leaf": "12",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "d463963e-e476-45c2-b8bb-3efe924d3a09",
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
     "task": "261126-EXP"
   }
 }

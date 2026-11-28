@@ -1,0 +1,76 @@
+{
+  "admission": {
+    "criteria": [
+      "real_alternatives",
+      "constrains_future_work"
+    ],
+    "justification": "Weighed universal 'First-Principles' labeling with legacy URL aliases against retaining regional 'Abitur' wording or breaking bookmarks, constraining all future explainer stage authoring, validator wording and ZoomTabs deep-link compatibility."
+  },
+  "alternatives": [
+    {
+      "option": "Use universal 'First-Principles' labels ('## Level 1 — First-Principles', 'Level 1 · First-Principles') across all public explainer docs, Concept Cards, validator docs and ZoomTabs UI while keeping legacy ?level=abitur and #level-abitur URL aliases in ZoomTabs.vue, and carry forward strict <memory>/docs/{concepts,stages}/ isolation from onboarding/, PyYAML pure zero-I/O models, distinct mutual Concept Card cycles, and Level-2/3 jargon-order exemptions.",
+      "reason": "Removes regional German terminology from the public mathematical explainer while preserving link compatibility for any existing ?level=abitur bookmarks and keeping all proven validator/model isolation boundaries intact.",
+      "status": "chosen"
+    },
+    {
+      "option": "Retain the regional 'Abitur' label in Level-1 headings, UI tabs and validator documentation, or drop legacy ?level=abitur URL alias compatibility.",
+      "reason": "'Abitur' is opaque to an international mathematical audience, while dropping legacy URL aliases would silently break previously shared deep links.",
+      "reconsider_when": "A future approved developer ruling adopts a different universal Level-1 audience label or explicitly retires legacy ?level=abitur URL alias compatibility.",
+      "status": "rejected"
+    }
+  ],
+  "consequences": [
+    "Public explainer prose, system guidelines, Concept Cards and ZoomTabs labels use 'First-Principles' universally (0 'abitur' matches across docs/, system/, README.md), while ZoomTabs.vue continues mapping ?level=abitur and #level-abitur to 'first-principles'.",
+    "Historical decision DEC-K89BWV remains untouched as the historical record of the original choice and rejected alternative."
+  ],
+  "context": "Historical decision DEC-K89BWV established strict <memory>/docs/{concepts,stages}/ isolation from AR onboarding/, PyYAML pure models, mutual-cycle Concept Cards, and Level-2/3 jargon exemptions under the original German 'Abitur' label for Level 1. Developer ruling RH-D20 subsequently replaced 'Abitur' with universal 'First-Principles' across all Level-1 headings, UI labels, docs and system guidelines while preserving legacy ?level=abitur and #level-abitur URL aliases for backward-compatible links.",
+  "decider": "Developer (ruling RH-D20, reaffirmed and refined in RH-D21 / RH-R18@v1)",
+  "id": "DEC-MC7R83",
+  "links": [
+    {
+      "relation": "constrains",
+      "target": "INV-9NDAGK"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-D1FB14"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-ZN8F2W"
+    },
+    {
+      "relation": "constrains",
+      "target": "INV-H9CTX9"
+    },
+    {
+      "relation": "explains",
+      "target": "FAM-S1B3TM"
+    }
+  ],
+  "origin": {
+    "handoff": {
+      "path": "rh-r18-a2-curator-ingest.json"
+    },
+    "handoffEntry": "dec-rh-d20-first-principles",
+    "leaf": "12",
+    "task": "261126-EXP"
+  },
+  "revision": 1,
+  "schema": "ar-decision/v1",
+  "status": "active",
+  "supersedes": [
+    "DEC-K89BWV"
+  ],
+  "writer": {
+    "at": "2026-11-28T15:16:29+01:00",
+    "by": "agent",
+    "effort": "high",
+    "harness": "antigravity-acp",
+    "leaf": "12",
+    "model": "gemini-4-neon-high",
+    "role": "curator",
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+    "task": "261126-EXP"
+  }
+}

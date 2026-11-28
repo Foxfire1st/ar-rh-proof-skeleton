@@ -3,7 +3,24 @@
   "proves": [
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
+        "content": "sha256:d4167e6f4bd9d4d7916bab05c39571d9d2439d949e7c33750e7b66a91ccd0cb4",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_compile_site_fails_closed_on_latex_and_collision_fixtures"
+        }
+      },
+      "facet": "Verifies compile_site fails closed with zero output writes on cross-card variant collisions.",
+      "id": "PRF-076K50",
+      "invariant": "INV-T2XTNN",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.2",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:54e741cc67ceb24a017e256855667f4bad3ce6e8557efe22cfeee17f61b02943",
         "locator": {
           "kind": "symbol",
@@ -20,7 +37,7 @@
     },
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:39c1194ccb133a1d16b9fda4934d298fbe0087c87a18ebdf9c9cdc5ac7bb60ba",
         "locator": {
           "kind": "symbol",
@@ -37,7 +54,7 @@
     },
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:698076d3e1673e2476908f6d60c79d0071c0544d8a17b94b3280bc30cc4bb1ea",
         "locator": {
           "kind": "symbol",
@@ -54,7 +71,7 @@
     },
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:bd5c7554c857909423057a539421b7ae6001fad33e0813060011621183551477",
         "locator": {
           "kind": "symbol",
@@ -71,7 +88,41 @@
     },
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
+        "content": "sha256:57273479fa6b851c0b028d684a2aac1372b7c5e0e06084e584b16b0d15f39cc3",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_minimap_xml_escaping_and_synthetic_single_stage"
+        }
+      },
+      "facet": "Verifies XML escaping of < and & characters in titles, tooltips and truncated paths on a synthetic single-stage minimap.",
+      "id": "PRF-9NKRZ5",
+      "invariant": "INV-4QG397",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R3.1",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
+        "content": "sha256:d4167e6f4bd9d4d7916bab05c39571d9d2439d949e7c33750e7b66a91ccd0cb4",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_compile_site_fails_closed_on_latex_and_collision_fixtures"
+        }
+      },
+      "facet": "Verifies compile_site fails closed with zero output writes when a Concept Card inline_glimpse or {{term:...|display}} contains raw LaTeX.",
+      "id": "PRF-CA9MR3",
+      "invariant": "INV-CDQEJK",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R2.1",
+        "leaf": "12"
+      }
+    },
+    {
+      "anchor": {
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:365511864f6b258809176c0e0ea440539df3626867fe5a7eaee579d3368c9aca",
         "locator": {
           "kind": "symbol",
@@ -88,7 +139,7 @@
     },
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
         "locator": {
           "kind": "symbol",
@@ -105,7 +156,7 @@
     },
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:526ac537b13604b3de8038d84f541901d7d9897306c4d90f1d13229ff79c10d9",
         "locator": {
           "kind": "symbol",
@@ -122,7 +173,7 @@
     },
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:9b726b94bbf02d58878b191de8bf3b6c9420e68de90e62d901b946a2d5e6e5e0",
         "locator": {
           "kind": "symbol",
@@ -139,7 +190,7 @@
     },
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
         "locator": {
           "kind": "symbol",
@@ -156,7 +207,7 @@
     },
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:2d781b159dd6faf7e40923bacb34664ca7b5d79c718adee62902887a6cfbd327",
         "locator": {
           "kind": "symbol",
@@ -173,7 +224,7 @@
     },
     {
       "anchor": {
-        "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
         "content": "sha256:de48a0798b056dc3f684063955edb874be7446b8ba782ef524ab73bf71a1eff3",
         "locator": {
           "kind": "symbol",
@@ -187,6 +238,23 @@
         "handoffEntry": "RH-R05@v1 §2.1",
         "leaf": "05"
       }
+    },
+    {
+      "anchor": {
+        "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
+        "content": "sha256:63c7a929b1ddc38c2f62b3869d413094351c72c911aff58944c32cd53a553b32",
+        "locator": {
+          "kind": "symbol",
+          "name": "test_minimap_all_41_live_nodes_budget_tooltips_and_unique_ids"
+        }
+      },
+      "facet": "Verifies all 41 live DAG nodes across all 8 stages stay within MINIMAP_PATH_CHAR_BUDGET, retain untruncated upstream_path <title> tooltips and use globally unique stage-scoped marker and per-node clipPath IDs.",
+      "id": "PRF-ZC67V6",
+      "invariant": "INV-4QG397",
+      "origin": {
+        "handoffEntry": "RH-R18@v1 §R3.1",
+        "leaf": "12"
+      }
     }
   ],
   "realizes": [],
@@ -196,7 +264,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
             "content": "sha256:365511864f6b258809176c0e0ea440539df3626867fe5a7eaee579d3368c9aca",
             "locator": {
               "kind": "symbol",
@@ -212,7 +280,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
             "content": "sha256:54e741cc67ceb24a017e256855667f4bad3ce6e8557efe22cfeee17f61b02943",
             "locator": {
               "kind": "symbol",
@@ -223,7 +291,7 @@
         },
         {
           "anchor": {
-            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
             "content": "sha256:d899645ab9d73866c739ad7d14cda6ccc90e713b763583cd5fd5e2218ad3cf2d",
             "locator": {
               "kind": "symbol",
@@ -239,7 +307,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
             "content": "sha256:84963de85e8c10119325d740c704c7e6b74f86ad53524d81be703f55c084e658",
             "locator": {
               "kind": "symbol",
@@ -255,7 +323,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
             "content": "sha256:bd5c7554c857909423057a539421b7ae6001fad33e0813060011621183551477",
             "locator": {
               "kind": "symbol",
@@ -271,7 +339,7 @@
       "targets": [
         {
           "anchor": {
-            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
             "content": "sha256:2d781b159dd6faf7e40923bacb34664ca7b5d79c718adee62902887a6cfbd327",
             "locator": {
               "kind": "symbol",
@@ -282,11 +350,49 @@
         },
         {
           "anchor": {
-            "blob": "c72284e19c487e67bbaa0f9ccb6344e42d6e1664",
+            "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
             "content": "sha256:526ac537b13604b3de8038d84f541901d7d9897306c4d90f1d13229ff79c10d9",
             "locator": {
               "kind": "symbol",
               "name": "test_landing_index_with_proof_journey"
+            }
+          },
+          "kind": "test"
+        }
+      ]
+    },
+    "6": {
+      "note": "Verifies `compile_site` fails closed with zero writes on `glimpse_latex`, `term_display_latex` and `variant_collision` negative fixtures, and checks all 41 live minimap nodes plus XML escaping for character-budget truncation, full `<title>` tooltips and unique marker/`clipPath` IDs.",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
+            "content": "sha256:d4167e6f4bd9d4d7916bab05c39571d9d2439d949e7c33750e7b66a91ccd0cb4",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_compile_site_fails_closed_on_latex_and_collision_fixtures"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
+            "content": "sha256:63c7a929b1ddc38c2f62b3869d413094351c72c911aff58944c32cd53a553b32",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_minimap_all_41_live_nodes_budget_tooltips_and_unique_ids"
+            }
+          },
+          "kind": "test"
+        },
+        {
+          "anchor": {
+            "blob": "0c447bc801028f069f2060d0deb34f44dfcc394e",
+            "content": "sha256:57273479fa6b851c0b028d684a2aac1372b7c5e0e06084e584b16b0d15f39cc3",
+            "locator": {
+              "kind": "symbol",
+              "name": "test_minimap_xml_escaping_and_synthetic_single_stage"
             }
           },
           "kind": "test"

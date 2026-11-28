@@ -13,6 +13,7 @@
     ".github/workflows/quality.yml",
     ".gitignore",
     "README.md",
+    "audit/README.md",
     "audit/provenance.json",
     "audit/verification-status.json",
     "dag/README.md",
@@ -86,6 +87,7 @@
     "src/rh_pipeline/lean/_lexer.py",
     "src/rh_pipeline/lean/parser.py",
     "src/rh_pipeline/lean/stub_emitter.py",
+    "src/rh_pipeline/markdown_mask.py",
     "src/rh_pipeline/models/audit.py",
     "src/rh_pipeline/models/concepts.py",
     "src/rh_pipeline/models/dag.py",
@@ -106,6 +108,7 @@
     "tests/unit/test_extract_cli.py",
     "tests/unit/test_file_size_gate.py",
     "tests/unit/test_lean_parser.py",
+    "tests/unit/test_markdown_mask.py",
     "tests/unit/test_quality_scripts.py",
     "tests/unit/test_site_compiler.py",
     "tests/unit/test_stage_map.py",
@@ -116,8 +119,8 @@
     "tests/unit/test_validate_schemas.py"
   ],
   "coverageCounts": {
-    "sourceFilesInScope": 96,
-    "fileSidecars": 104,
+    "sourceFilesInScope": 97,
+    "fileSidecars": 107,
     "childRoutes": 0
   },
   "routingTerms": [
@@ -210,6 +213,7 @@
       "gitignore",
       "README.md",
       "audit",
+      "audit/README.md",
       "audit/provenance.json",
       "audit/verification-status.json",
       "dag",
@@ -227,8 +231,7 @@
       "site/docs/.vitepress/theme/components/ConceptReveal.vue",
       "site/docs/.vitepress/theme/components/VerificationBanner.vue",
       "site/docs/.vitepress/theme/components/ZoomTabs.vue",
-      "site/docs/.vitepress/theme",
-      "site/docs/.vitepress/theme/index.ts"
+      "site/docs/.vitepress/theme"
     ],
     "anchorHints": [
       "quality.yml",

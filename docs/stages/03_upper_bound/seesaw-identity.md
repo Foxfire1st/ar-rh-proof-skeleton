@@ -22,9 +22,9 @@ Why do these two completely different journeys land on proportional forms on $Y_
 
 This yields the headline theorem `New.Data.seesaw_identity`: there exists a single nonzero scalar $c$ (independent of both the twist $\vartheta$ and the source form $\varphi$) such that for every twist $\vartheta$, there is a {{term:theta-correspondence|chain datum}} $\Psi$ satisfying
 $$\mathrm{lowerChain}_\vartheta(\mathcal{P}\varphi) = c \cdot \mathrm{compositeLift}_\vartheta(\Psi, \varphi)$$
-for every source form $\varphi$ on $X_0$ belonging to the subspace of {{concept:weyl-gauge|source forms whose averages over central scalings at primes dividing the level $\pi_N$ vanish}} (the {{term:weyl-gauge|ramified source forms}}).
+for every source form $\varphi$ on $X_0$ tracked by the {{concept:weyl-gauge|prime-by-prime local size norm on modular forms testing integrality and shortness across moving Weyl lattices}} and lying in the subspace whose central-scaling averages above the level $\pi_N$ vanish (the {{term:weyl-gauge|ramified source forms}}).
 
-**What this theorem does and does not claim:** `New.Data.seesaw_identity` proves that the proportionality constant $c$ is nonzero and does not depend on the twist $\vartheta$. It does **not** prove that either side of the equation is nonzero. Both sides could vanish for a given $\varphi$ without contradicting the seesaw identity; proving that the Poincaré images actually survive and span a large subspace of target forms is the separate work of Theorem B in Stage 04 (`04_spanning`).
+**What this theorem does and does not claim:** `New.Data.seesaw_identity` proves that the proportionality constant $c$ is nonzero and does not depend on the twist $\vartheta$. It does **not** prove that either side of the equation is nonzero. Both sides could vanish for a given $\varphi$ without contradicting the seesaw identity; proving that the Poincaré images actually survive and span a large subspace of target forms is the separate work of Theorem B in [Stage 04 (`04_spanning`)](../04_spanning/overview.md).
 
 ### Where this analogy breaks
 
@@ -77,7 +77,7 @@ At the top stage $M = m = 2\varrho + 2$, the space $Y_m$ is standard definite, i
 
 Finally, **`New.Data.seesaw_identity`** clears the scalar $c_0 C / B^{2m}$ using a unit $u := \mathrm{normUnit}(c_0 C / B^{2m}) \in \mathbb{C}^\times$ and sets $c := u^{-1} \in \mathbb{C}^\times$:
 - Rescaling `seesawDatum ϑ` by $u \cdot c_0$ produces an admissible combination of translated glued vacuums supported on `supportedTranslations (D.M * ϑ.normQ)` with total size bound $B^{2m} \cdot B^{2\varrho + 2} = M^{3 f m n_m^2}$ when $\vartheta.Q = \emptyset$, yielding a chain datum $\Psi$ with `IsChainDatum ϑ Ψ` and `gluedTensor Ψ = (u : ℂ) • c₀ • seesawDatum ϑ`.
-- **Honesty check on $c \neq 0$ versus non-vanishing:** Notice how `normUnit` works in Lean (`SeesawIdentity.lean:636–640`): if $c_0 C \neq 0$, then $u = (c_0 C / B^{2m})^{-1}$; if $c_0 C = 0$, then `normUnit 0 = 1`, so $u = 1$, $c = 1 \in \mathbb{C}^\times$, and `u • c₀ • seesawDatum ϑ = 0` gives $\Psi = 0$, making both sides identically $0$. Thus `seesaw_identity` guarantees $c \in \mathbb{C}^\times$ (nonzero and twist-independent), and makes **no** claim that either side is nonzero. Non-vanishing and spanning of the Poincaré images are proved independently in Stage 04 (`04_spanning`).
+- **Honesty check on $c \neq 0$ versus non-vanishing:** Notice how `normUnit` works in Lean (`SeesawIdentity.lean:636–640`): if $c_0 C \neq 0$, then $u = (c_0 C / B^{2m})^{-1}$; if $c_0 C = 0$, then `normUnit 0 = 1`, so $u = 1$, $c = 1 \in \mathbb{C}^\times$, and `u • c₀ • seesawDatum ϑ = 0` gives $\Psi = 0$, making both sides identically $0$. Thus `seesaw_identity` guarantees $c \in \mathbb{C}^\times$ (nonzero and twist-independent), and makes **no** claim that either side is nonzero. Non-vanishing and spanning of the Poincaré images are proved independently in [Stage 04 (`04_spanning`)](../04_spanning/overview.md).
 
 ## Level 3 — Formal Lean Contract
 
@@ -97,7 +97,7 @@ theorem New.Data.seesaw_identity {P : Parameters} {D : Data P}
 
 - **Hypotheses:** Admissible data `D : Data P`, a linear functional `t` on the Weyl module of values on `X_0`, and an archimedean point `g` of `U(Y_0)`.
 - **Conclusion:** There exists a single unit `c : ℂˣ` (hence `c ≠ 0`, independent of `ϑ` and `φ`) such that every twist `ϑ : D.Twist` admits a finitely supported `Ψ : D.Translations →₀ ℂ` satisfying `IsChainDatum ϑ Ψ` (admissible support at the level, values integral away from `ϑ.normQ`, $\ell^1$ conjugate bound when `ϑ.Q = ∅`, and level-invariance of `gluedTensor Ψ`) and matching `lowerChain ϑ (D.poincareAt g t φ) = (c : ℂ) • compositeLift ϑ Ψ φ` on all `φ : D.ramifiedSourceForms`.
-- **Non-vanishing boundary:** As recorded in upstream `GUIDE.md` and visible directly in the `normUnit` step (`SeesawIdentity.lean:636–640`), the theorem asserts `c : ℂˣ` (non-zero constant) and does **not** assert that either side of the equality is nonzero; non-vanishing and spanning of the Poincaré images are established in Stage 04 (`04_spanning`).
+- **Non-vanishing boundary:** As recorded in upstream `GUIDE.md` and visible directly in the `normUnit` step (`SeesawIdentity.lean:636–640`), the theorem asserts `c : ℂˣ` (non-zero constant) and does **not** assert that either side of the equality is nonzero; non-vanishing and spanning of the Poincaré images are established in [Stage 04 (`04_spanning`)](../04_spanning/overview.md).
 
 ### Direct Proof Chain in `seesaw_identity.lean`
 

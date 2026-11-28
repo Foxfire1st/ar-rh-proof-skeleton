@@ -4,12 +4,12 @@
       "guarded_by_test",
       "prevents_costly_mistake"
     ],
-    "justification": "Guarded by jargon unit tests; prevents unexplained mathematical jargon walls in Abitur-level prose, broken concept/term directives across all levels, line-number drift after frontmatter, and false failures from scanning AR onboarding/ cards."
+    "justification": "Guarded by jargon unit tests; prevents unexplained mathematical jargon walls in First-Principles Level-1 prose, broken concept/term directives across all levels, line-number drift after frontmatter, and false failures from scanning AR onboarding/ cards."
   },
-  "applicability": "Directive resolution and Level-1 prose jargon ordering across <memory>/docs/concepts/*.md and <memory>/docs/stages/<stage_id>/*.md in src/rh_pipeline/validate/jargon.py.",
+  "applicability": "Directive resolution and Level-1 First-Principles prose jargon ordering across <memory>/docs/concepts/*.md and <memory>/docs/stages/<stage_id>/*.md in src/rh_pipeline/validate/jargon.py.",
   "conditions": [
-    "{{concept:slug|...}} (split on the first pipe with math/brace awareness) and {{term:slug[|display]}} directives outside code and math must resolve to registered Concept Cards in all sections.",
-    "Inside Level-1 prose (## Level 1 headings on stage pages or pre-Level-2/3 body on Concept Cards), registered terms, aliases, -s/-es plurals and premature {{term:...}} directives before the page's first {{concept:slug|...}} reveal emit jargon-before-reveal with exact real file lines (+ line_offset), while exempting code, math, link URLs, hyphenated compounds, own_slug and Level-2/3 sections.",
+    "{{concept:slug|...}} (split on the first pipe with math/brace awareness via neutral rh_pipeline.markdown_mask) and {{term:slug[|display]}} directives outside code and math must resolve to registered Concept Cards in all sections.",
+    "Inside Level-1 First-Principles prose (## Level 1 headings on stage pages or pre-Level-2/3 body on Concept Cards), registered terms, aliases, -s/-es plurals (computed via shared models/concepts.py::concept_variants, raising ValueError on cross-card collisions) and premature {{term:...}} directives before the page's first {{concept:slug|...}} reveal emit jargon-before-reveal with exact real file lines (+ line_offset), while exempting code, math, link URLs, hyphenated compounds, own_slug and Level-2/3 sections.",
     "validate_explainer_docs scans only docs/concepts/*.md and one-level docs/stages/<stage_id>/*.md and never scans AR onboarding/ cards."
   ],
   "exclusions": [
@@ -27,20 +27,20 @@
     "leaf": "04",
     "task": "261123-RH"
   },
-  "revision": 1,
+  "revision": 2,
   "schema": "ar-invariant/v1",
   "statement": "check_page_jargon and validate_explainer_docs scan strictly <memory>/docs/{concepts,stages}/ (never onboarding/), resolve {{concept:slug|...}} on the first pipe and {{term:slug}} across all sections, and enforce Level-1 jargon-before-reveal for raw terms, aliases, simple English plurals (-s/-es), and premature term directives while exempting code, math, link URLs, non-hyphenated boundaries, own_slug, and Level-2/3 prose.",
   "supersedes": [],
   "title": "Explainer directive resolution and Level-1 jargon-before-reveal gate",
   "writer": {
-    "at": "2026-11-25T20:26:44+01:00",
+    "at": "2026-11-28T15:16:29+01:00",
     "by": "agent",
     "effort": "high",
     "harness": "antigravity-acp",
-    "leaf": "04",
+    "leaf": "12",
     "model": "gemini-4-neon-high",
     "role": "curator",
-    "seat": "3a9f7c14-2b85-4e01-9d46-8f1c3a5e7b20",
-    "task": "261123-RH"
+    "seat": "b2c89647-29d5-4c22-997c-d4b619480cf6",
+    "task": "261126-EXP"
   }
 }

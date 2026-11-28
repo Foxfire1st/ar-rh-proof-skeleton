@@ -32,9 +32,9 @@ When all Hodge–Tate weights of a Galois lattice stay strictly below $\ell - 1$
 
 For small primes $\ell \le k t$, `notMem_bPlaces_of_coefficientEmbedding_eq_pow` turns Stage 01's `D.sparse` into the exact three-in-a-row Frobenius exclusion (`J = ⌊log_ℓ(h₂³)⌋`), and `eventually_exists_lettersReadThick` packages the chart data for every large coefficient ring $O$. Grouping the rank-$r$ main summand $L_{\mathrm{none}}$ and the $t$ inverse-cyclotomic character summands $L_{\mathrm{some}\,c}$ into a {{term:crystalline-dual-defect|summand class}} `IsSummandClass` yields the headline local theorem **`New.Selmer.normLength_dualDefect_le_of_isSummandClass`**: at every prime $\ell$,
 
-$$\mathrm{normLength}\Bigl(\mathrm{dualDefect}\bigl(\mathrm{InClass}\ F\ K\ U,\; (L_c)^\vee(1)\bigr)\Bigr) \;\le\; [G_\ell : \Gamma]\cdot \mathrm{rank}(L_c)\cdot \frac{\mathrm{defectBound}(D, \ell)}{x},$$
+$$\mathrm{normLength}\Bigl(\mathrm{dualDefect}\bigl(\mathrm{InClass}\ F\ K\ U,\; (L_c)^\vee(1)\bigr)\Bigr) \;\le\; [G_\ell : \Gamma]\cdot \mathrm{rank}(L_c)\cdot \frac{\mathrm{defectBound}(D, \ell)}{s},$$
 
-where $x = 1$ for the main summand (`c = none`) and $x = D.t$ for each character summand (`c = some c'`), with exact {{term:crystalline-dual-defect|crystalline loss}} and `defectBound` formulas
+where the summand divisor $s \in \{1, t\}$ equals $s = 1$ for the main summand (`c = none`) and $s = D.t$ for each character summand (`c = some c'`), with exact {{term:crystalline-dual-defect|crystalline loss}} and `defectBound` formulas
 
 $$\mathrm{crystallineLoss}(h, b, \ell) \;=\; v_\ell\!\Bigl((2b)!\cdot \Bigl(\prod_{k \in (b - 30 h^3,\; b + 30 h^3]} k\Bigr)^{h^3}\Bigr), \qquad \mathrm{defectBound}(D, \ell) \;=\; 10^6 \cdot \frac{m}{k}\bigl(b\,v_\ell(M) + \mathrm{crystallineLoss}(h_2, b, \ell)\bigr),$$
 
@@ -42,7 +42,7 @@ where $h_2 = D.\mathrm{halfGap} = D.r^8$ and the lower endpoint $b - 30 h^3$ use
 
 ### Where this analogy breaks
 
-Thinking of `defectBound D ℓ` as a uniform smooth function of $\ell$ obscures its discrete prime-by-prime behavior. Above $\ell > 2b$ (and $\ell \nmid M$), the $(2b)!$ factor contributes zero; the only large primes that pay *any* nonzero `crystallineLoss` are those dividing an integer inside the narrow window $(b - 30 h_2^3, b + 30 h_2^3]$ (where `NoMultipleNear` fails). Moreover, splitting $x = 1$ for the main summand versus $x = D.t$ for the $t$ characters is vital: without dividing by $D.t$ on each character summand, summing over $c \in \mathrm{Fin}\,t$ would lose a factor of $t = 5r$ on every single prime.
+Thinking of `defectBound D ℓ` as a uniform smooth function of $\ell$ obscures its discrete prime-by-prime behavior. Above $\ell > 2b$ (and $\ell \nmid M$), the $(2b)!$ factor contributes zero; the only large primes that pay *any* nonzero `crystallineLoss` are those dividing an integer inside the narrow window $(b - 30 h_2^3, b + 30 h_2^3]$ (where `NoMultipleNear` fails). Moreover, splitting $s = 1$ for the main summand versus $s = D.t$ for the $t$ characters is vital: without dividing by $D.t$ on each character summand, summing over $c \in \mathrm{Fin}\,t$ would lose a factor of $t = 5r$ on every single prime.
 
 ## Level 2 — Undergrad Bridge
 
@@ -58,7 +58,7 @@ Thinking of `defectBound D ℓ` as a uniform smooth function of $\ell$ obscures 
 ### 2. All 18 declarations of `CrystallineDefect.lean` (0 truncations)
 
 1. **Windows & Behrend-sparse charts (8 decls):** `farWindowStart`, `fitsWindows_and_image_neg_sub_one`, `sum_count_neg_sub_one_le`, `smul_eq_pow_of_coefficientEmbedding_eq_pow`, `complexEmbeddingOf_eq_of_coefficientEmbedding_eq`, `pow_ordProj_pow_sub_one_eq_one`, `notMem_bPlaces_of_coefficientEmbedding_eq_pow`, `eventually_exists_lettersReadThick`.
-2. **Cyclotomic splitting, jump floors & arithmetic comparisons (5 decls):** `mem_range_of_modEq_one` ($\ell \equiv 1 \pmod{D.\mathrm{cyclotomicConductor}} \Rightarrow j$ surjective, used at the level primes $p_0, p_1$), `IsMainSummandWeights.le_two_mul_natAbs` ($|u| \ge h_2/2$), `two_mul_tame_exponent_le_defectBound` (absorbs $2(3 r^2((r + t)r + 1)^2 + 150(h_2^2 + 4t + 2)) \le \mathrm{defectBound}(D, p_n) / x$ using just the $b\,v_\ell(M)$ term), `crystalline_bound_le_defectBound` (absorbs $10^5(\rho\lfloor 2\lambda/(kt)\rfloor m + \lfloor \rho m/(kx)\rfloor\lambda) \le \rho\cdot \mathrm{defectBound}(D, \ell)/x$), and `crystallineSizes_data`.
+2. **Cyclotomic splitting, jump floors & arithmetic comparisons (5 decls):** `mem_range_of_modEq_one` ($\ell \equiv 1 \pmod{D.\mathrm{cyclotomicConductor}} \Rightarrow j$ surjective, used at the level primes $p_0, p_1$), `IsMainSummandWeights.le_two_mul_natAbs` ($|u| \ge h_2/2$), `two_mul_tame_exponent_le_defectBound` (absorbs $2(3 r^2((r + t)r + 1)^2 + 150(h_2^2 + 4t + 2)) \le \mathrm{defectBound}(D, p_n) / s$ using just the $b\,v_\ell(M)$ term), `crystalline_bound_le_defectBound` (absorbs $10^5(\rho\lfloor 2\lambda/(kt)\rfloor m + \lfloor \rho m/(k s)\rfloor\lambda) \le \rho\cdot \mathrm{defectBound}(D, \ell)/s$ for $s \in \{1, t\}$), and `crystallineSizes_data`.
 3. **Summand classes & main local theorem (5 decls):** `IsSummandClass`, `hasFewLowJumps_tateDual_of_isMainSummandWeights` ($\le \lfloor rm/k\rfloor$ dual jumps in $[-\eta, \eta]$), `subset_Icc_of_jump_eq_single` (character dual jump $-c - 1 \in [-\eta, 0]$), `normLength_dualDefect_le_defectBound_of_isTameType` (tame branch at $p_0, p_1$), and **`normLength_dualDefect_le_of_isSummandClass`** (unified prime-by-prime theorem).
 
 ## Level 3 — Formal Lean Contract

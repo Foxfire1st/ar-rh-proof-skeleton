@@ -1,0 +1,24 @@
+{
+  "path": "audit/README.md",
+  "realizes": [],
+  "references": {
+    "1": {
+      "note": "Summarizes `provenance.json` and describes `verification-status.json` strictly as Phase 0 lexical static-scan counts (`scan_scope: entry`) with `build_status: unverified-locally`, pointing replay provenance to `provenance.json` with no local axiom-audit or comparator-execution claim.\n\nAnchor: `verification-status.json`",
+      "targets": [
+        {
+          "anchor": {
+            "blob": "2374761455fa2a87b06e9da496eec14de2c2b604",
+            "content": "sha256:3e757e0d521bb3beb78e76467db1ec5c67f1f6d228b71b1721d82084158d4af7",
+            "locator": {
+              "end": 6,
+              "kind": "line_range",
+              "start": 1
+            }
+          },
+          "kind": "code"
+        }
+      ]
+    }
+  },
+  "schema": "ar-onboarding-file/v1"
+}

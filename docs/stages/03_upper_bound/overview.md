@@ -28,8 +28,8 @@ Together, these three pillars prove that after dividing by the exact inverse gai
 Explore Stage 03 across its three landmark essays, return to [Stage 02 — Derivatives of Theta Functions](../02_derivatives/overview.md) or [Stage 01 — The Theorem and Its Reduction](../01_reduction/overview.md), or view the full roadmap in the [Full Proof Journey](../00_statement/proof-journey.md):
 
 - [The Iterated Seesaw Identity](./seesaw-identity.md) — `SeesawIdentity`: the upper and lower chains, transposed lifts, iterated Bessel unfolding to finite coset sums, the chain datum $\Psi$, and `New.Data.seesaw_identity`.
-- [Short Columns & Archimedean Size](./short-columns-and-archimedean-size.md) — `ShortColumns` and `ArchimedeanSize`: prime-by-prime gains and exceptional primes, $B$-short spanning of ramified source forms, the level-$N$ size cancellation, and passage to good target forms.
-- [Local Divisibility & Elementary Divisors](./local-divisibility-and-elementary-divisors.md) — `ElementaryDivisorTheorem` and `LocalDivisibility`: Frobenius cycles, near inverses, edge Hecke operators, full marks at exceptional inert primes, and `New.Data.exists_colengthDvd_gaugeLe_compositeLift`.
+- [Short Ramified Columns & Archimedean Size Cancellation](./short-columns-and-archimedean-size.md) — `ShortColumns` and `ArchimedeanSize`: prime-by-prime gains and exceptional primes, $B$-short spanning of ramified source forms, the level-$N$ size cancellation, and passage to good target forms.
+- [Prime-by-Prime Divisibility & Elementary Divisors of Edge Hecke Operators](./local-divisibility-and-elementary-divisors.md) — `ElementaryDivisorTheorem` and `LocalDivisibility`: Frobenius cycles, near inverses, edge Hecke operators, full marks at exceptional inert primes, and `New.Data.exists_colengthDvd_gaugeLe_compositeLift`.
 
 ### Where this analogy breaks
 
@@ -70,11 +70,11 @@ $$\exists c \in \mathbb{C}^\times,\; \forall \vartheta \in D.\mathrm{Twist},\; \
 In the condensed 41-landmark DAG (`dag/dag.json`), Stage 03 exhibits a distinctive hub-and-spoke structure:
 
 - **`03_upper_bound/short_columns` is a 10-consumer hub across 6 stages:** It depends solely on `02_derivatives/integral_vacuum`, and is directly imported by:
-  1. Stage 02: `02_derivatives/bound_attained` (an acyclic cross-pillar edge `03_upper_bound/short_columns -> 02_derivatives/bound_attained`, supplying `D.localPrimeSumTotal` for sharpness),
-  2. Stage 03: `03_upper_bound/seesaw_identity`, `03_upper_bound/local_divisibility`, and `03_upper_bound/archimedean_size`,
-  3. Stage 04: `04_spanning/spanning_theorem`,
-  4. Stage 05: `05_determinant/spanning_forms`,
-  5. Stage 06: `06_one_lift/three_exchanges` and `06_one_lift/twisted_value_heights`,
+  1. [Stage 02](../02_derivatives/overview.md): [`02_derivatives/bound_attained`](../02_derivatives/sharpness-bound-attained.md) (an acyclic cross-pillar edge `03_upper_bound/short_columns -> 02_derivatives/bound_attained`, supplying `D.localPrimeSumTotal` for sharpness),
+  2. Stage 03: [`03_upper_bound/seesaw_identity`](./seesaw-identity.md), [`03_upper_bound/local_divisibility`](./local-divisibility-and-elementary-divisors.md), and [`03_upper_bound/archimedean_size`](./short-columns-and-archimedean-size.md),
+  3. [Stage 04](../04_spanning/overview.md): [`04_spanning/spanning_theorem`](../04_spanning/equal-multiplicities-and-spanning.md),
+  4. [Stage 05](../05_determinant/overview.md): [`05_determinant/spanning_forms`](../05_determinant/chain-determinant-and-auxiliary-forms.md),
+  5. [Stage 06](../06_one_lift/overview.md): [`06_one_lift/three_exchanges`](../06_one_lift/three-exchanges-and-gluing-maps.md) and [`06_one_lift/twisted_value_heights`](../06_one_lift/false-lifts-and-twisted-l-values.md),
   6. [Stage 07](../07_congruences/overview.md): [`07_congruences/fit_twists_exist`](../07_congruences/ribet-denominators-and-regular-twists.md) and [`07_congruences/twisting_theorem`](../07_congruences/main-summands-and-twisting-theorem.md).
 - **`03_upper_bound/archimedean_size`** feeds both `01_reduction/short_and_enough` (for Theorem A's covolume bound) and `05_determinant/long_forms` (for Theorem C's comparison against archimedean size).
 - **`03_upper_bound/seesaw_identity`** and **`03_upper_bound/local_divisibility`** feed directly into `01_reduction/short_and_enough`.
